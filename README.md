@@ -8,7 +8,7 @@ Stories are researched and written automatically by Claude (an AI model from Ant
 
 - `data/posts/<id>.json` – one file per story (title, dek, category, body, why, sources, publishedAt …)
 - `data/meta.json` – latest update label and the market snapshot strip
-- `build.py` – turns the data into the static site in `docs/` (no dependencies, Python 3.9+)
+- `build.py` – turns the data into the static site in `docs/` (no dependencies, Python 3.12+)
 - `docs/` – the published site, served by GitHub Pages (Settings → Pages → branch `main`, folder `/docs`)
 
 Rebuild locally with `python3 build.py`.
