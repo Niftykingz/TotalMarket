@@ -20,7 +20,7 @@ Rebuild locally with `python3 build.py`.
 {
   "title": "Headline under 90 characters",
   "dek": "One-line subhead",
-  "category": "markets | tech | startups | policy | global",
+  "category": "markets | tech | startups | policy | global | commodities",
   "lead": false,
   "edition": "2026-10-21-close",
   "editionLabel": "Wed 21 Oct · Closing wrap",
@@ -28,8 +28,15 @@ Rebuild locally with `python3 build.py`.
   "readMins": 2,
   "body": ["Paragraph one.", "Paragraph two."],
   "why": "Why it matters for an Indian investor or tech reader.",
+  "globalImpact": "How this move affects markets worldwide (optional).",
+  "indiaImpact": "How it affects India: Sensex/Nifty, rupee, inflation, sectors.",
+  "table": {"title": "Overnight snapshot", "rows": [{"label": "Gold (spot)", "value": "$4,160", "change": "-0.6%", "note": "Strong dollar"}]},
   "stat": "-876 pts",
   "statLabel": "Sensex closes at 73,852.90",
   "sources": [{"name": "Source", "url": "https://…"}]
 }
 ```
+
+### Results calendar
+
+`data/results.json` is a list of `{"date": "2026-10-23", "company": "Infosys", "big": true, "note": "Q2 FY27 results"}`. The site shows upcoming dates on the home page and at `/results/`; past dates drop off automatically.
