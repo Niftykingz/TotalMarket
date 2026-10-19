@@ -14,8 +14,8 @@ from zoneinfo import ZoneInfo
 ROOT = os.path.dirname(os.path.abspath(__file__))
 DATA = os.path.join(ROOT, "data")
 OUT = os.path.join(ROOT, "docs")
-SITE_URL = "https://niftykingz.github.io/totalmarket"   # no trailing slash
-BASE = "/totalmarket/"                                   # path prefix on GitHub Pages
+SITE_URL = "https://niftykingz.github.io/TotalMarket"   # no trailing slash
+BASE = "/TotalMarket/"                                   # path prefix on GitHub Pages
 SITE_NAME = "TotalMarket"
 TAGLINE = "Indian markets, IPOs, tech and AI news, explained"
 IST = ZoneInfo("Asia/Kolkata")
