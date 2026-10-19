@@ -44,9 +44,6 @@ Rebuild locally with `python3 build.py`.
 
 `flags` (ISO country codes: IN US CN JP GB EU SA RU UA FR DE IT CA IL IR AE KR BR CH AU SG PK), `symbol` and `companies` decide the cover artwork; if left out they are detected from the headline. Companies appear as ticker badges, never logos. `tags` become topic pages at `/tag/<slug>/` and page keywords.
 
-```text
-```
-
 ### Results calendar
 
 `data/results.json` is a list of `{"date": "2026-10-23", "company": "Infosys", "big": true, "note": "Q2 FY27 results"}`. The site shows upcoming dates on the home page and at `/results/`; past dates drop off automatically.
