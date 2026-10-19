@@ -125,6 +125,7 @@ def page(title, description, path, body, meta, og_type="website", extra_head="",
 <meta name="twitter:description" content="{e(description)}">
 <meta name="twitter:image" content="{SITE_URL}/assets/og.png">
 <meta name="theme-color" content="#0B6E4F">
+<meta name="google-site-verification" content="R-bU7412W25OlS3wPOdJYbHHIF8P7FdcDqTH9Zd-Xfo">
 <link rel="icon" href="{BASE}assets/favicon.svg" type="image/svg+xml">
 <link rel="alternate" type="application/rss+xml" title="{SITE_NAME}" href="{SITE_URL}/rss.xml">
 {FONTS}
