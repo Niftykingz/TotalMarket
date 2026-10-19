@@ -8,6 +8,7 @@ Run:  python3 build.py
 """
 import html, json, os, re, shutil, sys
 import covers
+import art
 from datetime import datetime, timedelta, timezone
 from urllib.parse import quote
 from zoneinfo import ZoneInfo
@@ -19,6 +20,10 @@ SITE_URL = "https://niftykingz.github.io/TotalMarket"   # no trailing slash
 BASE = "/TotalMarket/"                                   # path prefix on GitHub Pages
 SITE_NAME = "TotalMarket"
 TAGLINE = "Indian markets, IPOs, tech and AI news, explained"
+TAG_SLUGS = []
+HOME_TITLE = "TotalMarket: Sensex, Nifty, Gold Rate, Crude Oil, IPO & Global Market News Today"
+HOME_KEYWORDS = ["Sensex today", "Nifty 50", "stock market news India", "gold rate today", "silver price today", "crude oil price",
+                 "rupee vs dollar", "IPO news", "Q2 results", "global market news", "US market today", "AI news"]
 IST = ZoneInfo("Asia/Kolkata")
 HOME_LIMIT = 60
 SECTION_LIMIT = 80
@@ -56,6 +61,38 @@ def paras(p):
     return [x.strip() for x in re.split(r"\n\s*\n", str(b or "")) if x.strip()]
 
 
+SYMBOL_TAGS = {"gold": "Gold price today", "silver": "Silver price today", "oil": "Crude oil price", "rupee": "Rupee vs dollar",
+               "dollar": "US dollar", "yield": "US bond yields", "bitcoin": "Bitcoin price", "chip": "Artificial intelligence",
+               "rocket": "IPO news", "bank": "RBI", "yen": "Japanese yen", "euro": "Euro"}
+KEYWORD_TAGS = [("sensex", "Sensex today"), ("nifty", "Nifty 50"), ("ipo", "IPO news"), ("fed", "US Fed"), ("results", "Q2 results"),
+                ("earnings", "Q2 results"), ("sebi", "SEBI"), ("rbi", "RBI"), ("gold", "Gold price today"), ("crude", "Crude oil price"),
+                ("rupee", "Rupee vs dollar"), ("nasdaq", "Nasdaq"), ("funding", "Startup funding"), ("ai ", "Artificial intelligence")]
+
+
+def slug(t):
+    return re.sub(r"[^a-z0-9]+", "-", t.lower()).strip("-")
+
+
+def make_tags(p):
+    tags = [str(t).strip() for t in (p.get("tags") or []) if str(t).strip()]
+    if not tags:
+        flags, sym, comps = art.detect(p)
+        head = " " + (p.get("title", "") + " " + p.get("dek", "")).lower() + " "
+        for k, t in KEYWORD_TAGS:
+            if k in head: tags.append(t)
+        if sym in SYMBOL_TAGS: tags.append(SYMBOL_TAGS[sym])
+        for k, t in art.COMPANIES.items():
+            if k in head and len(k) > 3: tags.append(k.title())
+        for c in flags[:2]:
+            if c != "IN": tags.append(art.COUNTRY_NAMES.get(c, c) + " markets")
+    tags.append(CATS[p["category"]][0])
+    out, seen = [], set()
+    for t in tags:
+        if slug(t) and slug(t) not in seen:
+            seen.add(slug(t)); out.append(t)
+    return out[:8]
+
+
 def load_posts():
     posts, bad = [], []
     pdir = os.path.join(DATA, "posts")
@@ -76,6 +113,7 @@ def load_posts():
         if problems:
             bad.append(f"{fn}: skipped, bad/missing {', '.join(problems)}"); continue
         p["_paras"] = paras(p)
+        p["_tags"] = make_tags(p)
         posts.append(p)
     posts.sort(key=lambda p: p["_dt"], reverse=True)
     for b in bad:
@@ -102,10 +140,11 @@ FONTS = ('<link rel="preconnect" href="https://fonts.googleapis.com">'
          '&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=IBM+Plex+Mono:wght@400;500&display=swap">')
 
 
-def page(title, description, path, body, meta, og_type="website", extra_head="", noindex=False, image=None):
+def page(title, description, path, body, meta, og_type="website", extra_head="", noindex=False, image=None, seo_title=None, keywords=()):
     canon = abs_url(path)
+    kw = f'<meta name="keywords" content="{e(", ".join(keywords))}"><meta name="news_keywords" content="{e(", ".join(keywords))}">' if keywords else ""
     og = image or f"{SITE_URL}/assets/og.png"
-    full_title = title if title == SITE_NAME else f"{title} | {SITE_NAME}"
+    full_title = seo_title or (title if title.startswith(SITE_NAME) else f"{title} | {SITE_NAME}")
     head = f"""<!doctype html>
 <html lang="en-IN">
 <head>
@@ -113,6 +152,7 @@ def page(title, description, path, body, meta, og_type="website", extra_head="",
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{e(full_title)}</title>
 <meta name="description" content="{e(description)}">
+{kw}
 <link rel="canonical" href="{e(canon)}">
 {'<meta name="robots" content="noindex">' if noindex else '<meta name="robots" content="index,follow,max-image-preview:large">'}
 <meta property="og:site_name" content="{SITE_NAME}">
@@ -165,7 +205,7 @@ def header(meta, path):
     stamp = f'<b>{e(meta.get("editionLabel") or "Latest update")}</b>'
     if upd:
         stamp += f'<span>Updated {e(fmt_ist(upd))}</span>'
-    return f"""<header class="top">
+    return f"""<header class="top band">
 <div class="wrap">
 <div class="mast"><a class="brand" href="{BASE}">Total<span>Market</span></a><div class="stamp">{stamp}</div></div>
 {tick}
@@ -331,7 +371,14 @@ def article_page(p, posts, meta):
         "publisher": {"@type": "Organization", "name": SITE_NAME,
                       "logo": {"@type": "ImageObject", "url": f"{SITE_URL}/assets/logo.png"}},
     }
-    extra = (f'<meta property="article:published_time" content="{e(p["_dt"].isoformat())}">'
+    ld["keywords"] = ", ".join(p["_tags"])
+    crumbs = {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Home", "item": SITE_URL + "/"},
+        {"@type": "ListItem", "position": 2, "name": CATS[p["category"]][0], "item": f"{SITE_URL}/{p['category']}/"},
+        {"@type": "ListItem", "position": 3, "name": p["title"], "item": link}]}
+    extra = ("".join(f'<meta property="article:tag" content="{e(t)}">' for t in p["_tags"])
+             + f'<script type="application/ld+json">{json.dumps(crumbs, ensure_ascii=False).replace("</", "<\\/")}</script>'
+             f'<meta property="article:published_time" content="{e(p["_dt"].isoformat())}">'
              f'<meta property="article:section" content="{e(CATS[p["category"]][0])}">'
              f'<script type="application/ld+json">{json.dumps(ld, ensure_ascii=False).replace("</", "<\\/")}</script>')
     body_html = "".join(f"<p>{e(t)}</p>" for t in p["_paras"])
@@ -354,12 +401,14 @@ def article_page(p, posts, meta):
 <a href="https://t.me/share/url?url={quote(link)}&text={quote(p['title'])}" target="_blank" rel="noopener">Share on Telegram</a>
 <button type="button" class="copy" data-url="{e(link)}">Copy link</button>
 </div>
+<div class="tags" aria-label="Topics">{"".join(f'<a class="tag" href="{BASE}tag/{slug(t)}/">#{e(t)}</a>' for t in p["_tags"])}</div>
 {'<div class="sources"><h2>Sources</h2><ul>' + srcs + '</ul></div>' if srcs else ''}
 <p class="disc">News and explanation only. This is not investment advice and not a recommendation to buy or sell any security.</p>
 </article>
 {rel}
 <script>document.querySelectorAll('.copy').forEach(b=>b.addEventListener('click',()=>{{navigator.clipboard&&navigator.clipboard.writeText(b.dataset.url).then(()=>{{b.textContent='Link copied'}}).catch(()=>{{}})}}))</script>"""
-    return page(p["title"], desc(p), path, body, meta, og_type="article", extra_head=extra, image=cover_url(p, True))
+    return page(p["title"], p.get("seoDescription") or desc(p), path, body, meta, og_type="article", extra_head=extra, image=cover_url(p, True),
+                seo_title=(p.get("seoTitle") + f" | {SITE_NAME}") if p.get("seoTitle") else None, keywords=p["_tags"])
 
 
 def about_page(meta):
@@ -376,13 +425,30 @@ def about_page(meta):
     return page("About TotalMarket", "How TotalMarket covers Indian markets and tech news, and how its AI-written stories are made.", path, body, meta)
 
 
+def tag_pages(posts, meta):
+    by = {}
+    for p in posts:
+        for t in p["_tags"]:
+            by.setdefault(slug(t), [t, []])[1].append(p)
+    for sl, (name, items) in by.items():
+        path = f"{BASE}tag/{sl}/"
+        body = (f'<div class="sechead"><h1>{e(name)}</h1><p>Latest TotalMarket news and explainers on {e(name)}, with what it means for India.</p></div>'
+                + grouped(items[:SECTION_LIMIT], False))
+        write(f"tag/{sl}/index.html", page(f"{name}: latest news and analysis", f"Latest news on {name}: market moves, key numbers and what it means for India.",
+                                          path, body, meta, keywords=[name, "India", "market news"]))
+    return list(by)
+
+
 def section_page(key, posts, meta):
     name, blurb = CATS[key]
     items = [p for p in posts if p["category"] == key][:SECTION_LIMIT]
     path = f"{BASE}{key}/"
     body = (f'<div class="sechead"><h1>{e(name)}</h1><p>{e(blurb)}</p></div>'
             + (grouped(items, False) if items else '<div class="empty"><p>No stories here yet. This section fills up with the next update.</p></div>'))
-    return page(f"{name} news", blurb, path, body, meta)
+    kw = {"markets": ["Sensex today", "Nifty 50", "stock market news India", "share market today"], "tech": ["AI news", "tech news India"],
+          "startups": ["IPO news", "upcoming IPO", "startup funding India"], "policy": ["RBI policy", "SEBI news", "budget"],
+          "global": ["global market news", "US stock market", "Fed rate"], "commodities": ["gold rate today", "silver price today", "crude oil price", "rupee vs dollar"]}[key]
+    return page(f"{name} news today", blurb, path, body, meta, keywords=kw)
 
 
 def home_page(posts, meta, results=()):
@@ -390,8 +456,8 @@ def home_page(posts, meta, results=()):
             + (grouped(posts[:HOME_LIMIT], True) if posts else '<div class="empty"><p>The first update is on its way.</p></div>'))
     ld = {"@context": "https://schema.org", "@type": "WebSite", "name": SITE_NAME, "url": SITE_URL + "/",
           "description": TAGLINE}
-    return page(SITE_NAME, f"{TAGLINE}. Updated before the open, at midday, after the close and in the evening.",
-                BASE, body, meta, extra_head=f'<script type="application/ld+json">{json.dumps(ld)}</script>')
+    return page(SITE_NAME, "Sensex and Nifty news, gold and silver rates, crude oil, rupee vs dollar, IPOs, results calendar and overnight global markets, with what each move means for India. Updated four times every market day.",
+                BASE, body, meta, seo_title=HOME_TITLE, keywords=HOME_KEYWORDS, extra_head=f'<script type="application/ld+json">{json.dumps(ld)}</script>')
 
 
 def rss(posts):
@@ -412,7 +478,7 @@ def rss(posts):
 
 def sitemap(posts):
     now = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
-    urls = [(SITE_URL + "/", now, "hourly")] + [(f"{SITE_URL}/{k}/", now, "hourly") for k in CATS] + [(SITE_URL + "/about/", None, "monthly"), (SITE_URL + "/results/", now, "daily")]
+    urls = [(SITE_URL + "/", now, "hourly")] + [(f"{SITE_URL}/{k}/", now, "hourly") for k in CATS] + [(SITE_URL + "/about/", None, "monthly"), (SITE_URL + "/results/", now, "daily")] + [(f"{SITE_URL}/tag/{t}/", now, "daily") for t in TAG_SLUGS]
     urls += [(abs_url(url(p)), p["_dt"].astimezone(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"), None) for p in posts]
     rows = "".join(f"<url><loc>{e(u)}</loc>{f'<lastmod>{m}</lastmod>' if m else ''}{f'<changefreq>{c}</changefreq>' if c else ''}</url>" for u, m, c in urls)
     return f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">{rows}</urlset>\n'
@@ -450,6 +516,8 @@ def main():
     results = load_results()
     write("index.html", home_page(posts, meta, results))
     write("results/index.html", results_page(results, meta))
+    global TAG_SLUGS
+    TAG_SLUGS = tag_pages(posts, meta)
     for k in CATS:
         write(f"{k}/index.html", section_page(k, posts, meta))
     for p in posts:

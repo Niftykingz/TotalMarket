@@ -1,8 +1,9 @@
 """Draw a 1200x630 cover image for each story (used on the site and as the share preview)."""
 import hashlib, json, math, os, re
 from PIL import Image, ImageDraw, ImageFilter, ImageFont
+import art
 
-VERSION = "5"
+VERSION = "6"
 W, H = 1200, 630
 HERE = os.path.dirname(os.path.abspath(__file__))
 FONT = lambda name, size: ImageFont.truetype(os.path.join(HERE, "fonts", name), size)
@@ -179,8 +180,25 @@ def render(p, path):
     ex, ey = pts[-2]
     d.ellipse([ex - 12, ey - 12, ex + 12, ey + 12], fill=ACC[:3] + (255,))
 
-    glyph(d, "down" if down and cat == "markets" else cat, 935, 255, 400, (255, 255, 255, 60))
+    flags, sym, comps = art.detect(p)
+    if not sym and cat == "markets":
+        sym = "chart-down" if down else "chart-up"
+    hero = art.symbol(sym, 300) if sym else None
+    if hero is None:
+        glyph(d, "down" if down and cat == "markets" else cat, 960, 300, 380, (255, 255, 255, 60))
     base.alpha_composite(over)
+    if hero is not None:
+        halo = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+        ImageDraw.Draw(halo).ellipse([800, 170, 1120, 490], fill=(255, 255, 255, 46))
+        base.alpha_composite(halo.filter(ImageFilter.GaussianBlur(18)))
+        base.alpha_composite(hero, (810, 180))
+    # flags, top right, overlapping
+    x = W - 56
+    for code in reversed(flags[:3]):
+        fb = art.flag_badge(code, 92)
+        if fb is not None:
+            x -= fb.width - 26 if x != W - 56 else fb.width
+            base.alpha_composite(fb, (int(x), 44))
     d = ImageDraw.Draw(base)
 
     # section pill
@@ -195,12 +213,12 @@ def render(p, path):
         d.text((64 + tw + 64, 70), arrow, font=af, fill=ACC)
 
     if stat:
-        sf = fit(d, stat, "DejaVuSansCondensed-Bold.ttf", 760, 168, 70)
+        sf = fit(d, stat, "DejaVuSansCondensed-Bold.ttf", 720, 168, 70)
         d.text((60, 150), stat, font=sf, fill=(255, 255, 255))
         sb = d.textbbox((60, 150), stat, font=sf)
         y = sb[3] + 22
         if stat_label:
-            lf = FONT("DejaVuSans-Bold.ttf", 40)
+            lf = fit(d, stat_label, "DejaVuSans-Bold.ttf", 700, 40, 26)
             d.text((64, y), stat_label, font=lf, fill=ACC); y += 60
         hf = FONT("DejaVuSans-Bold.ttf", 34)
         for line in wrap(d, p.get("title", ""), hf, 700, 2):
@@ -208,20 +226,30 @@ def render(p, path):
     else:
         hf = FONT("DejaVuSansCondensed-Bold.ttf", 72)
         y = 160
-        for line in wrap(d, p.get("title", ""), hf, 760, 3):
+        for line in wrap(d, p.get("title", ""), hf, 720, 3):
             d.text((60, y), line, font=hf, fill=(255, 255, 255)); y += 84
 
-    # wordmark (top right)
+    # company ticker badges, bottom left
+    bx = 58
+    for t in comps:
+        bd = art.company_badge(t, 54)
+        if bx + bd.width > 760:
+            break
+        base.alpha_composite(bd, (bx, H - 100))
+        bx += bd.width + 10
+    d = ImageDraw.Draw(base)
+    # wordmark (bottom right)
     wf = FONT("DejaVuSans-Bold.ttf", 30)
     ww = d.textlength("TotalMarket", font=wf)
-    d.text((W - 64 - ww, 72), "Total", font=wf, fill=(255, 255, 255))
-    d.text((W - 64 - ww + d.textlength("Total", font=wf), 72), "Market", font=wf, fill=ACC)
+    d.rounded_rectangle([W - 84 - ww, H - 84, W - 44, H - 34], radius=14, fill=(0, 0, 0, 110))
+    d.text((W - 64 - ww, H - 76), "Total", font=wf, fill=(255, 255, 255))
+    d.text((W - 64 - ww + d.textlength("Total", font=wf), H - 76), "Market", font=wf, fill=ACC)
     base.convert("RGB").save(path, "JPEG", quality=84, optimize=True, progressive=True)
 
 
 def cover_name(p):
     stat, lbl = pick_stat(p)
-    h = hashlib.md5(json.dumps([VERSION, p["id"], p["title"], p["category"], stat, lbl], ensure_ascii=False).encode()).hexdigest()[:8]
+    h = hashlib.md5(json.dumps([VERSION, p["id"], p["title"], p["category"], stat, lbl, art.detect(p)], ensure_ascii=False).encode()).hexdigest()[:8]
     return f"{p['id']}-{h}.jpg"
 
 

@@ -33,8 +33,18 @@ Rebuild locally with `python3 build.py`.
   "table": {"title": "Overnight snapshot", "rows": [{"label": "Gold (spot)", "value": "$4,160", "change": "-0.6%", "note": "Strong dollar"}]},
   "stat": "-876 pts",
   "statLabel": "Sensex closes at 73,852.90",
+  "seoTitle": "How people search it, e.g. Gold Rate Today 21 Oct 2026: 24K ₹…, 22K ₹… (optional)",
+  "tags": ["Gold rate today", "MCX gold"],
+  "flags": ["IN", "US"],
+  "symbol": "gold | silver | oil | dollar | rupee | euro | yen | bitcoin | yield | bank | chip | rocket | chart-up | chart-down",
+  "companies": [{"name": "Infosys", "ticker": "INFY"}],
   "sources": [{"name": "Source", "url": "https://…"}]
 }
+```
+
+`flags` (ISO country codes: IN US CN JP GB EU SA RU UA FR DE IT CA IL IR AE KR BR CH AU SG PK), `symbol` and `companies` decide the cover artwork; if left out they are detected from the headline. Companies appear as ticker badges, never logos. `tags` become topic pages at `/tag/<slug>/` and page keywords.
+
+```text
 ```
 
 ### Results calendar
