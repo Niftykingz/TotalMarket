@@ -28,7 +28,8 @@ CATS = {
     "tech":     ("Tech & AI", "AI, big tech and Indian tech companies: launches, deals and regulation."),
     "startups": ("Startups & IPOs", "Indian startup funding, upcoming IPOs, price bands, subscriptions and listings."),
     "policy":   ("Policy & Economy", "RBI, SEBI, budget, tax and government decisions that affect your money."),
-    "global":   ("Global", "US markets, crude oil, gold, the dollar and world events that move Indian markets."),
+    "global":   ("Global Markets", "Overnight US and Asian markets, bond yields, the Fed and world events that move Indian markets."),
+    "commodities": ("Commodities & Forex", "Gold, silver, crude oil, metals, the dollar and the rupee, and what each move means for India."),
 }
 
 e = lambda s: html.escape(str(s or ""), quote=True)
@@ -156,6 +157,7 @@ def header(meta, path):
             for x in t)
         asof = f'<span class="tk"><span>{e(meta.get("tickerAsOf"))}</span></span>' if meta.get("tickerAsOf") else ""
         tick = f'<div class="ticker" aria-label="Market snapshot">{items}{asof}</div>'
+    nav_extra = f'<a class="tab{" on" if path == f"{BASE}results/" else ""}" href="{BASE}results/" style="--dot:var(--accent)"><i></i>Results calendar</a>'
     nav = "".join(
         f'<a class="tab{" on" if path == f"{BASE}{k}/" else ""}" href="{BASE}{k}/" style="--dot:var(--c-{k})"><i></i>{e(v[0])}</a>'
         for k, v in CATS.items())
@@ -167,7 +169,7 @@ def header(meta, path):
 <div class="wrap">
 <div class="mast"><a class="brand" href="{BASE}">Total<span>Market</span></a><div class="stamp">{stamp}</div></div>
 {tick}
-<nav class="rail" aria-label="Sections"><a class="tab{' on' if path == BASE else ''}" href="{BASE}">All</a>{nav}</nav>
+<nav class="rail" aria-label="Sections"><a class="tab{' on' if path == BASE else ''}" href="{BASE}">All</a>{nav}{nav_extra}</nav>
 </div>
 </header>"""
 
@@ -212,10 +214,82 @@ def why(p):
     return f'<p class="why"><b>Why it matters</b>{e(p["why"])}</p>' if p.get("why") else ""
 
 
+def impacts(p):
+    boxes = []
+    if p.get("globalImpact"):
+        boxes.append(f'<div class="impact glob"><b><span class="ico" aria-hidden="true">◍</span>Global impact</b><p>{e(p["globalImpact"])}</p></div>')
+    if p.get("indiaImpact"):
+        boxes.append(f'<div class="impact ind"><b><span class="ico" aria-hidden="true">▲</span>Impact on India</b><p>{e(p["indiaImpact"])}</p></div>')
+    return ('<div class="impacts">' + "".join(boxes) + "</div>") if boxes else ""
+
+
+def data_table(p):
+    t = p.get("table")
+    rows = (t or {}).get("rows") if isinstance(t, dict) else None
+    if not rows:
+        return ""
+    trs = "".join(
+        f'<tr><th scope="row">{e(r.get("label"))}{f"<span class=sub>{e(r.get(chr(110)+chr(111)+chr(116)+chr(101)))}</span>" if r.get("note") else ""}</th><td class="num">{e(r.get("value"))}</td>'
+        f'<td class="num {"down" if str(r.get("change","")).startswith("-") else "up" if str(r.get("change","")).startswith("+") else ""}">{e(r.get("change"))}</td>'
+        f'</tr>' for r in rows)
+    cap = f'<caption>{e(t.get("title"))}</caption>' if t.get("title") else ""
+    return f'<div class="tablewrap"><table class="dt">{cap}<thead><tr><th>Market</th><th>Level</th><th>Change</th></tr></thead><tbody>{trs}</tbody></table></div>'
+
+
+def load_results():
+    path = os.path.join(DATA, "results.json")
+    if not os.path.exists(path):
+        return []
+    out = []
+    for r in json.load(open(path, encoding="utf-8")):
+        try:
+            d = datetime.fromisoformat(r["date"]).date()
+        except Exception:
+            continue
+        out.append({"date": d, "company": r.get("company", ""), "note": r.get("note", ""), "big": bool(r.get("big"))})
+    return sorted(out, key=lambda r: (r["date"], not r["big"], r["company"]))
+
+
+def upcoming(results, days=None):
+    today = datetime.now(IST).date()
+    items = [r for r in results if r["date"] >= today and (days is None or (r["date"] - today).days <= days)]
+    by = {}
+    for r in items:
+        by.setdefault(r["date"], []).append(r)
+    return by
+
+
+def results_widget(results):
+    by = upcoming(results, 7)
+    if not by:
+        return ""
+    cols = []
+    for d, rs in list(by.items())[:4]:
+        names = "".join(f'<li class="{"big" if r["big"] else ""}">{e(r["company"])}</li>' for r in rs[:7])
+        more = f'<li class="more">+{len(rs)-7} more</li>' if len(rs) > 7 else ""
+        cols.append(f'<div class="rday"><h3>{e(d.strftime("%a %-d %b"))}</h3><ul>{names}{more}</ul></div>')
+    return (f'<section class="rwidget"><div class="rhead"><h2>Upcoming results</h2><a href="{BASE}results/">Full calendar →</a></div>'
+            f'<div class="rdays">{"".join(cols)}</div></section>')
+
+
+def results_page(results, meta):
+    path = f"{BASE}results/"
+    by = upcoming(results)
+    days = []
+    for d, rs in by.items():
+        rows = "".join(f'<tr class="{"big" if r["big"] else ""}"><th scope="row">{e(r["company"])}</th><td>{e(r["note"])}</td></tr>' for r in rs)
+        days.append(f'<section class="rsec"><h2 class="edhead"><b>{e(d.strftime("%A %-d %B"))}</b><span>{len(rs)} {"company" if len(rs)==1 else "companies"}</span></h2>'
+                    f'<div class="tablewrap"><table class="dt rtable"><tbody>{rows}</tbody></table></div></section>')
+    body = (f'<div class="sechead"><h1>Upcoming results</h1><p>Quarterly results dates for listed Indian companies. Large companies are in bold. '
+            f'Dates come from company announcements and can change, so check the exchange filing on the day.</p></div>'
+            + ("".join(days) or '<div class="empty"><p>No upcoming results dates listed right now.</p></div>'))
+    return page("Upcoming quarterly results calendar", "Which Indian companies announce quarterly results this week and next, by date.", path, body, meta)
+
+
 def lead(p):
     dek = f'<p class="dek">{e(p.get("dek"))}</p>' if p.get("dek") else ""
     return (f'<article class="lead" style="--dot:var(--c-{p["category"]})">{cover_img(p, "hero", True)}<div class="lbody"><div>{chip(p)}'
-            f'<h2><a href="{url(p)}">{e(p["title"])}</a></h2></div><aside>{why(p) or dek}{meta_row(p)}</aside></div></article>')
+            f'<h2><a href="{url(p)}">{e(p["title"])}</a></h2></div><aside>{(f'<p class="why"><b>Impact on India</b>{e(p["indiaImpact"])}</p>' if p.get("indiaImpact") else why(p)) or dek}{meta_row(p)}</aside></div></article>')
 
 
 def grouped(posts, show_lead):
@@ -271,6 +345,8 @@ def article_page(p, posts, meta):
 {meta_row(p)}
 <div class="byline">By Claude (AI) for TotalMarket · automated update</div>
 <div class="body">{body_html}</div>
+{data_table(p)}
+{impacts(p)}
 {why(p)}
 <div class="share" aria-label="Share this story">
 <a href="https://wa.me/?text={text}" target="_blank" rel="noopener">Share on WhatsApp</a>
@@ -291,7 +367,7 @@ def about_page(meta):
     body = f"""<article class="story">
 <h1>About TotalMarket</h1>
 <div class="body">
-<p>TotalMarket is a free news site for Indian investors and traders who also follow technology. It covers stock market moves, IPOs and startup funding, tech and AI, RBI and SEBI decisions, and global events that move Indian markets.</p>
+<p>TotalMarket is a free news site for Indian investors and traders who also follow technology. It covers stock market moves and upcoming results, IPOs and startup funding, tech and AI, RBI and SEBI decisions, overnight global markets, and gold, silver, crude oil and currencies, with what each move means globally and for India.</p>
 <p><b>How it is made.</b> Every story is researched and written automatically by Claude, an AI model made by Anthropic, using reporting from the sources linked at the end of each story. The site updates four times on each market day: a pre-market brief around 8:45 am, a midday check around 12:45 pm, a closing wrap around 3:45 pm and an evening tech and startups update around 8:45 pm IST, with one roundup on weekends and market holidays.</p>
 <p><b>Accuracy.</b> Stories state only facts found in their sources and link to them so you can check. AI can still make mistakes, so for anything that affects a decision, open the original source.</p>
 <p><b>Not investment advice.</b> TotalMarket reports and explains news. It never recommends buying, selling or holding any security, does not give price targets, and is not registered with SEBI as an investment adviser or research analyst.</p>
@@ -309,8 +385,8 @@ def section_page(key, posts, meta):
     return page(f"{name} news", blurb, path, body, meta)
 
 
-def home_page(posts, meta):
-    body = (f'<h1 class="sr">{SITE_NAME}: {e(TAGLINE)}</h1>'
+def home_page(posts, meta, results=()):
+    body = (f'<h1 class="sr">{SITE_NAME}: {e(TAGLINE)}</h1>' + results_widget(results)
             + (grouped(posts[:HOME_LIMIT], True) if posts else '<div class="empty"><p>The first update is on its way.</p></div>'))
     ld = {"@context": "https://schema.org", "@type": "WebSite", "name": SITE_NAME, "url": SITE_URL + "/",
           "description": TAGLINE}
@@ -336,7 +412,7 @@ def rss(posts):
 
 def sitemap(posts):
     now = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
-    urls = [(SITE_URL + "/", now, "hourly")] + [(f"{SITE_URL}/{k}/", now, "hourly") for k in CATS] + [(SITE_URL + "/about/", None, "monthly")]
+    urls = [(SITE_URL + "/", now, "hourly")] + [(f"{SITE_URL}/{k}/", now, "hourly") for k in CATS] + [(SITE_URL + "/about/", None, "monthly"), (SITE_URL + "/results/", now, "daily")]
     urls += [(abs_url(url(p)), p["_dt"].astimezone(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"), None) for p in posts]
     rows = "".join(f"<url><loc>{e(u)}</loc>{f'<lastmod>{m}</lastmod>' if m else ''}{f'<changefreq>{c}</changefreq>' if c else ''}</url>" for u, m, c in urls)
     return f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">{rows}</urlset>\n'
@@ -371,7 +447,9 @@ def main():
             shutil.rmtree(target) if os.path.isdir(target) else os.remove(target)
     shutil.copytree(os.path.join(ROOT, "assets"), os.path.join(OUT, "assets"), dirs_exist_ok=True)
     covers.ensure_covers(posts, os.path.join(OUT, "covers"))
-    write("index.html", home_page(posts, meta))
+    results = load_results()
+    write("index.html", home_page(posts, meta, results))
+    write("results/index.html", results_page(results, meta))
     for k in CATS:
         write(f"{k}/index.html", section_page(k, posts, meta))
     for p in posts:

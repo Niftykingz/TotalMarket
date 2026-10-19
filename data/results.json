@@ -1,0 +1,230 @@
+[
+  {
+    "date": "2026-10-21",
+    "company": "Eternal",
+    "big": true,
+    "note": "Q2 FY27 results"
+  },
+  {
+    "date": "2026-10-21",
+    "company": "Adani Green Energy",
+    "big": true,
+    "note": "Q2 FY27 results"
+  },
+  {
+    "date": "2026-10-21",
+    "company": "Mahindra & Mahindra Financial Services",
+    "big": false,
+    "note": "Q2 FY27 results"
+  },
+  {
+    "date": "2026-10-22",
+    "company": "Hindustan Petroleum (HPCL)",
+    "big": true,
+    "note": "Q2 FY27 results"
+  },
+  {
+    "date": "2026-10-22",
+    "company": "Havells India",
+    "big": true,
+    "note": "Q2 FY27 results"
+  },
+  {
+    "date": "2026-10-22",
+    "company": "Swiggy",
+    "big": true,
+    "note": "Q2 FY27 results"
+  },
+  {
+    "date": "2026-10-22",
+    "company": "Colgate-Palmolive India",
+    "big": true,
+    "note": "Q2 FY27 results"
+  },
+  {
+    "date": "2026-10-22",
+    "company": "Adani Energy Solutions",
+    "big": true,
+    "note": "Q2 FY27 results"
+  },
+  {
+    "date": "2026-10-22",
+    "company": "Adani Total Gas",
+    "big": false,
+    "note": "Q2 FY27 results"
+  },
+  {
+    "date": "2026-10-22",
+    "company": "Chennai Petroleum",
+    "big": false,
+    "note": "Q2 FY27 results"
+  },
+  {
+    "date": "2026-10-22",
+    "company": "Cyient",
+    "big": false,
+    "note": "Q2 FY27 results"
+  },
+  {
+    "date": "2026-10-22",
+    "company": "CreditAccess Grameen",
+    "big": false,
+    "note": "Q2 FY27 results"
+  },
+  {
+    "date": "2026-10-22",
+    "company": "Hatsun Agro Product",
+    "big": false,
+    "note": "Q2 FY27 results"
+  },
+  {
+    "date": "2026-10-22",
+    "company": "Nuvoco Vistas",
+    "big": false,
+    "note": "Q2 FY27 results"
+  },
+  {
+    "date": "2026-10-22",
+    "company": "Orient Cement",
+    "big": false,
+    "note": "Q2 FY27 results"
+  },
+  {
+    "date": "2026-10-22",
+    "company": "Bluestone Jewellery & Lifestyle",
+    "big": false,
+    "note": "Q2 FY27 results"
+  },
+  {
+    "date": "2026-10-22",
+    "company": "Paisalo Digital",
+    "big": false,
+    "note": "Q2 FY27 results"
+  },
+  {
+    "date": "2026-10-23",
+    "company": "Infosys",
+    "big": true,
+    "note": "Q2 FY27 results"
+  },
+  {
+    "date": "2026-10-23",
+    "company": "IndusInd Bank",
+    "big": true,
+    "note": "Q2 FY27 results"
+  },
+  {
+    "date": "2026-10-23",
+    "company": "Dr Reddy's Laboratories",
+    "big": true,
+    "note": "Q2 FY27 results"
+  },
+  {
+    "date": "2026-10-23",
+    "company": "JSW Steel",
+    "big": true,
+    "note": "Q2 FY27 results"
+  },
+  {
+    "date": "2026-10-23",
+    "company": "Bharat Petroleum (BPCL)",
+    "big": true,
+    "note": "Q2 FY27 results"
+  },
+  {
+    "date": "2026-10-23",
+    "company": "Tata Motors",
+    "big": true,
+    "note": "Q2 FY27 results"
+  },
+  {
+    "date": "2026-10-23",
+    "company": "Torrent Pharmaceuticals",
+    "big": true,
+    "note": "Q2 FY27 results"
+  },
+  {
+    "date": "2026-10-23",
+    "company": "Adani Power",
+    "big": true,
+    "note": "Q2 FY27 results"
+  },
+  {
+    "date": "2026-10-23",
+    "company": "Coforge",
+    "big": false,
+    "note": "Q2 FY27 results"
+  },
+  {
+    "date": "2026-10-23",
+    "company": "Jindal Steel",
+    "big": false,
+    "note": "Q2 FY27 results"
+  },
+  {
+    "date": "2026-10-23",
+    "company": "Mastek",
+    "big": false,
+    "note": "Q2 FY27 results"
+  },
+  {
+    "date": "2026-10-23",
+    "company": "Newgen Software",
+    "big": false,
+    "note": "Q2 FY27 results"
+  },
+  {
+    "date": "2026-10-23",
+    "company": "UTI Asset Management",
+    "big": false,
+    "note": "Q2 FY27 results"
+  },
+  {
+    "date": "2026-10-23",
+    "company": "CSB Bank",
+    "big": false,
+    "note": "Q2 FY27 results"
+  },
+  {
+    "date": "2026-10-23",
+    "company": "Jana Small Finance Bank",
+    "big": false,
+    "note": "Q2 FY27 results"
+  },
+  {
+    "date": "2026-10-24",
+    "company": "Kotak Mahindra Bank",
+    "big": true,
+    "note": "Q2 FY27 results"
+  },
+  {
+    "date": "2026-10-24",
+    "company": "IDFC First Bank",
+    "big": false,
+    "note": "Q2 FY27 results"
+  },
+  {
+    "date": "2026-10-24",
+    "company": "AU Small Finance Bank",
+    "big": false,
+    "note": "Q2 FY27 results"
+  },
+  {
+    "date": "2026-10-24",
+    "company": "JK Cement",
+    "big": false,
+    "note": "Q2 FY27 results"
+  },
+  {
+    "date": "2026-10-24",
+    "company": "Castrol India",
+    "big": false,
+    "note": "Q2 FY27 results"
+  },
+  {
+    "date": "2026-10-24",
+    "company": "Apollo Micro Systems",
+    "big": false,
+    "note": "Q2 FY27 results"
+  }
+]

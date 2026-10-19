@@ -1,0 +1,28 @@
+{
+  "title": "Fed hike bets: ~90% odds of another rate rise this year as yields top 5.1%",
+  "dek": "The Fed meets around 28 October; markets expect it to wait until December.",
+  "category": "global",
+  "lead": false,
+  "publishedAt": "2026-10-20T05:17:00+05:30",
+  "readMins": 2,
+  "stat": "~90%",
+  "statLabel": "Odds of a Fed hike by year-end",
+  "body": [
+    "US interest-rate futures price roughly a 90% chance that the Federal Reserve raises rates again in 2026, most likely in December, according to CME FedWatch data cited by Charles Schwab. The odds of a hike at the late-October meeting have fallen to about 15%.",
+    "Hot inflation readings last week pushed expectations higher. The Fed is now in its quiet period before the meeting, so officials won't comment publicly. Big US earnings this week, including Netflix, Tesla and Meta, plus housing data on Tuesday and business surveys on Friday, are the next things markets will watch."
+  ],
+  "globalImpact": "Rising US rates lift borrowing costs around the world and strengthen the dollar, which usually weighs on stocks, gold and emerging markets.",
+  "indiaImpact": "Higher US rates narrow the gap between US and Indian returns, making Indian assets less attractive to foreign investors. That limits how much the RBI can cut rates without putting more pressure on the rupee.",
+  "sources": [
+    {
+      "name": "Charles Schwab",
+      "url": "https://www.schwab.com/learn/story/stock-market-update-open"
+    },
+    {
+      "name": "BabyPips market recap",
+      "url": "https://www.babypips.com/news/financial-forex-market-recap-2026-10-19"
+    }
+  ],
+  "edition": "2026-10-20-overnight",
+  "editionLabel": "Tue 20 Oct · Overnight global wrap"
+}

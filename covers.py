@@ -2,7 +2,7 @@
 import hashlib, json, math, os, re
 from PIL import Image, ImageDraw, ImageFilter, ImageFont
 
-VERSION = "3"
+VERSION = "5"
 W, H = 1200, 630
 HERE = os.path.dirname(os.path.abspath(__file__))
 FONT = lambda name, size: ImageFont.truetype(os.path.join(HERE, "fonts", name), size)
@@ -13,9 +13,10 @@ PAL = {  # bg start, bg end, accent
     "startups": ("#22103F", "#7A4CC2", "#E6D2FF"),
     "policy":   ("#3D1904", "#C25E14", "#FFD7AE"),
     "global":   ("#042629", "#0E7C86", "#93F2F7"),
+    "commodities": ("#2B1D02", "#A87708", "#FFE28A"),
     "down":     ("#33060F", "#B42D41", "#FFC0CA"),
 }
-LABEL = {"markets": "MARKETS", "tech": "TECH & AI", "startups": "STARTUPS & IPOs", "policy": "POLICY & ECONOMY", "global": "GLOBAL"}
+LABEL = {"markets": "MARKETS", "tech": "TECH & AI", "startups": "STARTUPS & IPOs", "policy": "POLICY & ECONOMY", "global": "GLOBAL MARKETS", "commodities": "COMMODITIES & FOREX"}
 DOWN_WORDS = re.compile(r"\b(drops?|falls?|fell|slides?|slips?|plunges?|crash(es)?|tumbles?|sinks?|down|loses?|sheds?)\b", re.I)
 STAT_RES = [
     re.compile(r"[₹$]\s?\d[\d,.]*(?:\s?[–-]\s?[\d,.]+)?(?:\s?(?:lakh crore|crore|cr|billion|bn|million|trillion|[MBK]\b))?", re.I),
@@ -110,6 +111,21 @@ def glyph(d, cat, cx, cy, s, col):
             d.line([(x, cy - s * .08), (x, cy + s * .28)], fill=col, width=lw * 2)
         d.line([(cx - w - s * .06, cy + s * .34), (cx + w + s * .06, cy + s * .34)], fill=col, width=lw)
         d.line([(cx - w - s * .1, cy + s * .42), (cx + w + s * .1, cy + s * .42)], fill=col, width=lw)
+    elif cat == "commodities":
+        bw, bh = s * .3, s * .14
+        def bar(x, y):
+            d.polygon([(x - bw / 2, y + bh / 2), (x - bw / 2 + s * .05, y - bh / 2), (x + bw / 2 - s * .05, y - bh / 2), (x + bw / 2, y + bh / 2)], outline=col, width=lw)
+        base_y = cy + s * .3
+        for dx in (-.32, 0, .32):
+            bar(cx + s * dx, base_y)
+        for dx in (-.16, .16):
+            bar(cx + s * dx, base_y - bh * 1.1)
+        bar(cx, base_y - bh * 2.2)
+        r = s * .16
+        ox, oy = cx + s * .16, cy - s * .24
+        d.ellipse([ox, oy, ox + 2 * r, oy + 2 * r], outline=col, width=lw)
+        f = FONT("DejaVuSans-Bold.ttf", int(r * 1.1))
+        d.text((ox + r, oy + r), "₹", font=f, fill=col, anchor="mm")
     elif cat == "global":
         r = s * .42
         d.ellipse([cx - r, cy - r, cx + r, cy + r], outline=col, width=lw)
@@ -124,7 +140,7 @@ def glyph(d, cat, cx, cy, s, col):
 def render(p, path):
     cat = p["category"]
     stat, stat_label = pick_stat(p)
-    down = cat in ("markets", "global") and is_down(p, stat)
+    down = cat in ("markets", "global", "commodities") and is_down(p, stat)
     a, b, acc = PAL["down" if down else cat]
     A, B, ACC = hexrgb(a), hexrgb(b), hexrgb(acc)
 

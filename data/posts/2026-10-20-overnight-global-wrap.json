@@ -1,0 +1,124 @@
+{
+  "title": "Overnight: US 10-year yield hits 5.14%, Nasdaq +1.1%, rupee at 94.92",
+  "dek": "Tech bounced on Wall Street, but rising yields and a firm dollar kept pressure on gold, the yen and emerging markets.",
+  "category": "global",
+  "lead": true,
+  "publishedAt": "2026-10-20T05:20:00+05:30",
+  "readMins": 3,
+  "stat": "5.14%",
+  "statLabel": "US 10-year Treasury yield",
+  "body": [
+    "Wall Street ended Monday mixed. The Nasdaq rose about 1.1% and the S&P 500 about 0.4% as chip and AI stocks recovered from last week's sell-off, while the Dow was flat. Amazon gained nearly 5%.",
+    "The bigger move was in bonds. The US 10-year Treasury yield climbed about 6 basis points to roughly 5.14%, and the dollar index edged up to about 102. Traders see around a 90% chance the Federal Reserve raises rates again before year-end, though an October move looks unlikely.",
+    "Elsewhere, Japan's Nikkei fell 1.2% on Monday, the yen weakened to about 158.5 per dollar, and China reported third-quarter growth of 4.5%. Oil stayed near $100 for US crude and about $108 for Brent. Indian markets are closed today for a holiday, so these moves feed into Wednesday's open."
+  ],
+  "table": {
+    "title": "Overnight snapshot (Monday close, approximate)",
+    "rows": [
+      {
+        "label": "Nasdaq Composite",
+        "value": "",
+        "change": "+1.1%",
+        "note": "Chip and AI rebound"
+      },
+      {
+        "label": "S&P 500",
+        "value": "~7,694",
+        "change": "+0.4%",
+        "note": "Sources put the gain at 0.4–0.5%"
+      },
+      {
+        "label": "Dow Jones",
+        "value": "",
+        "change": "-0.07%",
+        "note": "Flat"
+      },
+      {
+        "label": "US 10-year yield",
+        "value": "~5.14%",
+        "change": "+6 bp",
+        "note": "Highest pressure on rate-sensitive assets"
+      },
+      {
+        "label": "Dollar index (DXY)",
+        "value": "~102.0",
+        "change": "+0.2%",
+        "note": "Firm ahead of Fed meeting"
+      },
+      {
+        "label": "USD/INR",
+        "value": "94.92",
+        "change": "",
+        "note": "Rupee 3 paise weaker on Monday"
+      },
+      {
+        "label": "USD/JPY",
+        "value": "~158.5",
+        "change": "+0.4%",
+        "note": "Yen weakest major currency"
+      },
+      {
+        "label": "Gold (spot)",
+        "value": "$4,140–4,180",
+        "change": "",
+        "note": "Sources differ by time; roughly flat to slightly lower"
+      },
+      {
+        "label": "Silver (spot)",
+        "value": "~$58.2",
+        "change": "+0.8%",
+        "note": "Outperformed gold"
+      },
+      {
+        "label": "Brent crude",
+        "value": "~$108",
+        "change": "",
+        "note": "Houthi attacks vs Russia sanctions waiver"
+      },
+      {
+        "label": "WTI crude",
+        "value": "~$100",
+        "change": "",
+        "note": "Swung between $98.5 and $101.3"
+      },
+      {
+        "label": "Nikkei 225",
+        "value": "",
+        "change": "-1.2%",
+        "note": "Monday, AI-spending worries"
+      },
+      {
+        "label": "Bitcoin",
+        "value": "~$81,850",
+        "change": "+0.3%",
+        "note": ""
+      }
+    ]
+  },
+  "globalImpact": "US yields above 5% make cash and bonds more attractive than riskier assets worldwide and keep the dollar strong. That squeezes gold, the yen and emerging-market currencies, even when tech stocks rally.",
+  "indiaImpact": "A strong dollar and high US yields tend to pull foreign money out of Indian shares; foreign investors have already withdrawn over ₹1.5 lakh crore in 2026. Combined with Brent near $108, that keeps pressure on the rupee and on oil-sensitive sectors when markets reopen Wednesday.",
+  "sources": [
+    {
+      "name": "BabyPips market recap",
+      "url": "https://www.babypips.com/news/financial-forex-market-recap-2026-10-19"
+    },
+    {
+      "name": "TheStreet",
+      "url": "https://www.thestreet.com/stock-market-today/stock-market-today-oct-19-2026-nasdaq-futures-climb-as-tech-rebound-from-sell-off"
+    },
+    {
+      "name": "Charles Schwab",
+      "url": "https://www.schwab.com/learn/story/stock-market-update-open"
+    },
+    {
+      "name": "HDFC Sky",
+      "url": "https://hdfcsky.com/news/global-markets-today-october-19-2026-sensex-nifty-seen-opening-cautiously-as-asian-shares-slip-oil-prices-ease"
+    },
+    {
+      "name": "Deccan Herald",
+      "url": "https://www.deccanherald.com/business/markets/rupee-falls-3-paise-to-close-at-9492-against-us-dollar-4188085"
+    }
+  ],
+  "edition": "2026-10-20-overnight",
+  "editionLabel": "Tue 20 Oct · Overnight global wrap"
+}
