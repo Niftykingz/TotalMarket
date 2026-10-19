@@ -7,6 +7,7 @@ site to docs/ (served by GitHub Pages). No third-party packages needed.
 Run:  python3 build.py
 """
 import html, json, os, re, shutil, sys
+import covers
 from datetime import datetime, timedelta, timezone
 from urllib.parse import quote
 from zoneinfo import ZoneInfo
@@ -100,8 +101,9 @@ FONTS = ('<link rel="preconnect" href="https://fonts.googleapis.com">'
          '&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=IBM+Plex+Mono:wght@400;500&display=swap">')
 
 
-def page(title, description, path, body, meta, og_type="website", extra_head="", noindex=False):
+def page(title, description, path, body, meta, og_type="website", extra_head="", noindex=False, image=None):
     canon = abs_url(path)
+    og = image or f"{SITE_URL}/assets/og.png"
     full_title = title if title == SITE_NAME else f"{title} | {SITE_NAME}"
     head = f"""<!doctype html>
 <html lang="en-IN">
@@ -117,13 +119,13 @@ def page(title, description, path, body, meta, og_type="website", extra_head="",
 <meta property="og:title" content="{e(title)}">
 <meta property="og:description" content="{e(description)}">
 <meta property="og:url" content="{e(canon)}">
-<meta property="og:image" content="{SITE_URL}/assets/og.png">
+<meta property="og:image" content="{e(og)}">
 <meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
 <meta property="og:locale" content="en_IN">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{e(title)}">
 <meta name="twitter:description" content="{e(description)}">
-<meta name="twitter:image" content="{SITE_URL}/assets/og.png">
+<meta name="twitter:image" content="{e(og)}">
 <meta name="theme-color" content="#0B6E4F">
 <meta name="google-site-verification" content="R-bU7412W25OlS3wPOdJYbHHIF8P7FdcDqTH9Zd-Xfo">
 <link rel="icon" href="{BASE}assets/favicon.svg" type="image/svg+xml">
@@ -190,10 +192,20 @@ def meta_row(p):
     return '<div class="meta">' + "".join(f"<span>{b}</span>" for b in bits) + "</div>"
 
 
+def cover_url(p, absolute=False):
+    rel = f"{BASE}covers/{p['_cover']}"
+    return abs_url(rel) if absolute else rel
+
+
+def cover_img(p, cls, eager=False):
+    return (f'<img class="{cls}" src="{cover_url(p)}" width="1200" height="630" alt="" '
+            f'{"fetchpriority=\"high\"" if eager else "loading=\"lazy\""} decoding="async">')
+
+
 def card(p):
     dek = f'<p>{e(p.get("dek"))}</p>' if p.get("dek") else ""
-    return (f'<article class="card" style="--dot:var(--c-{p["category"]})">{chip(p)}'
-            f'<h3><a href="{url(p)}">{e(p["title"])}</a></h3>{dek}{meta_row(p)}</article>')
+    return (f'<article class="card" style="--dot:var(--c-{p["category"]})">{cover_img(p, "thumb")}<div class="cbody">{chip(p)}'
+            f'<h3><a href="{url(p)}">{e(p["title"])}</a></h3>{dek}{meta_row(p)}</div></article>')
 
 
 def why(p):
@@ -202,8 +214,8 @@ def why(p):
 
 def lead(p):
     dek = f'<p class="dek">{e(p.get("dek"))}</p>' if p.get("dek") else ""
-    return (f'<article class="lead" style="--dot:var(--c-{p["category"]})"><div>{chip(p)}'
-            f'<h2><a href="{url(p)}">{e(p["title"])}</a></h2></div><aside>{dek}{why(p)}{meta_row(p)}</aside></article>')
+    return (f'<article class="lead" style="--dot:var(--c-{p["category"]})">{cover_img(p, "hero", True)}<div class="lbody"><div>{chip(p)}'
+            f'<h2><a href="{url(p)}">{e(p["title"])}</a></h2></div><aside>{why(p) or dek}{meta_row(p)}</aside></div></article>')
 
 
 def grouped(posts, show_lead):
@@ -239,7 +251,7 @@ def article_page(p, posts, meta):
         "@context": "https://schema.org", "@type": "NewsArticle",
         "headline": p["title"][:110], "description": desc(p),
         "datePublished": p["_dt"].isoformat(), "dateModified": (parse_dt(p.get("updatedAt")) or p["_dt"]).isoformat(),
-        "mainEntityOfPage": link, "image": [f"{SITE_URL}/assets/og.png"],
+        "mainEntityOfPage": link, "image": [cover_url(p, True)],
         "articleSection": CATS[p["category"]][0],
         "author": {"@type": "Organization", "name": SITE_NAME, "url": SITE_URL + "/about/"},
         "publisher": {"@type": "Organization", "name": SITE_NAME,
@@ -252,6 +264,7 @@ def article_page(p, posts, meta):
     dek = f'<p class="dek">{e(p.get("dek"))}</p>' if p.get("dek") else ""
     body = f"""<article class="story" style="--dot:var(--c-{p['category']})">
 <nav class="crumbs"><a href="{BASE}">Home</a> / <a href="{BASE}{p['category']}/">{e(CATS[p['category']][0])}</a></nav>
+{cover_img(p, "hero", True)}
 {chip(p)}
 <h1>{e(p['title'])}</h1>
 {dek}
@@ -270,7 +283,7 @@ def article_page(p, posts, meta):
 </article>
 {rel}
 <script>document.querySelectorAll('.copy').forEach(b=>b.addEventListener('click',()=>{{navigator.clipboard&&navigator.clipboard.writeText(b.dataset.url).then(()=>{{b.textContent='Link copied'}}).catch(()=>{{}})}}))</script>"""
-    return page(p["title"], desc(p), path, body, meta, og_type="article", extra_head=extra)
+    return page(p["title"], desc(p), path, body, meta, og_type="article", extra_head=extra, image=cover_url(p, True))
 
 
 def about_page(meta):
@@ -352,11 +365,12 @@ def main():
     posts = load_posts()
     if os.path.isdir(OUT):
         for name in os.listdir(OUT):
-            if name == "assets":
+            if name in ("assets", "covers"):
                 continue
             target = os.path.join(OUT, name)
             shutil.rmtree(target) if os.path.isdir(target) else os.remove(target)
     shutil.copytree(os.path.join(ROOT, "assets"), os.path.join(OUT, "assets"), dirs_exist_ok=True)
+    covers.ensure_covers(posts, os.path.join(OUT, "covers"))
     write("index.html", home_page(posts, meta))
     for k in CATS:
         write(f"{k}/index.html", section_page(k, posts, meta))

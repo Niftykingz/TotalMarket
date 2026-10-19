@@ -22,5 +22,7 @@
   ],
   "title": "Sensex drops 876 points as Axis Bank and IT drag; markets shut today",
   "why": "Earnings season is now driving individual stocks hard in both directions, so quarterly results matter more than usual this week. High oil prices remain the main outside risk.",
-  "id": "2026-10-20-sensex-falls-876"
+  "id": "2026-10-20-sensex-falls-876",
+  "stat": "-876 pts",
+  "statLabel": "Sensex closes at 73,852.90"
 }

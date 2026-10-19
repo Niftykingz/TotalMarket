@@ -81,3 +81,26 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
 .foot a{color:var(--accent)}
 @media (max-width:720px){header.top{position:static}.lead{grid-template-columns:minmax(0,1fr);padding:20px}.lead aside{border-left:0;padding-left:0;border-top:3px solid var(--dot);padding-top:12px}.stamp{text-align:left}}
 @media (prefers-reduced-motion:reduce){.card{transition:none}}
+
+/* ---- Visual story covers ---- */
+:root{--up-bg:#DDF3E8;--down-bg:#FBE1E5}
+@media (prefers-color-scheme: dark){:root{--up-bg:#173A2C;--down-bg:#3D1820}}
+.ticker{gap:8px;padding-block:2px 10px}
+.tk{background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:4px 10px;align-items:center}
+.tk em{border-radius:999px;padding:1px 7px;font-weight:500}
+.tk .up{background:var(--up-bg)} .tk .down{background:var(--down-bg)}
+.card{padding:0;overflow:hidden;gap:0;box-shadow:0 1px 0 var(--line)}
+.card:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(10,30,20,.12)}
+.card .cbody{display:flex;flex-direction:column;gap:10px;padding:16px 18px 18px;flex:1}
+.thumb{display:block;width:100%;height:auto;aspect-ratio:1200/630;object-fit:cover;background:var(--dot)}
+.lead{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(0,1fr);gap:0;padding:0;overflow:hidden;align-items:center}
+.lead .hero{width:100%;height:auto;aspect-ratio:1200/630;display:block;background:var(--dot)}
+.lead .lbody{padding:22px 26px;display:grid;gap:14px;align-content:center}
+.lead h2{font-size:clamp(1.6rem,3.2vw,2.3rem)}
+.lead aside{border-left:0;padding-left:0;border-top:3px solid var(--dot);padding-top:14px}
+.story .hero{width:100%;height:auto;aspect-ratio:1200/630;border-radius:14px;display:block;background:var(--dot)}
+.edhead b{background:var(--ink);color:var(--paper);padding:3px 10px;border-radius:6px}
+@media (max-width:860px){.lead{grid-template-columns:minmax(0,1fr)}.lead .hero{height:auto}.lead .lbody{padding:18px 18px 20px}}
+@media (prefers-reduced-motion:reduce){.card:hover{transform:none}}
+
+@media (max-width:600px){.edhead{flex-wrap:wrap;row-gap:6px}.edhead::after{display:none}}

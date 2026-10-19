@@ -8,7 +8,8 @@ Stories are researched and written automatically by Claude (an AI model from Ant
 
 - `data/posts/<id>.json` – one file per story (title, dek, category, body, why, sources, publishedAt …)
 - `data/meta.json` – latest update label and the market snapshot strip
-- `build.py` – turns the data into the static site in `docs/` (no dependencies, Python 3.12+)
+- `build.py` – turns the data into the static site in `docs/` (Python 3.12+ with Pillow)
+- `covers.py` – draws a 1200×630 cover image for each story (`docs/covers/`), also used as the share preview. `stat` is the big number on the cover (start with `-` for a fall, `+` for a rise); `statLabel` explains it. Both are optional.
 - `docs/` – the published site, served by GitHub Pages (Settings → Pages → branch `main`, folder `/docs`)
 
 Rebuild locally with `python3 build.py`.
@@ -27,6 +28,8 @@ Rebuild locally with `python3 build.py`.
   "readMins": 2,
   "body": ["Paragraph one.", "Paragraph two."],
   "why": "Why it matters for an Indian investor or tech reader.",
+  "stat": "-876 pts",
+  "statLabel": "Sensex closes at 73,852.90",
   "sources": [{"name": "Source", "url": "https://…"}]
 }
 ```

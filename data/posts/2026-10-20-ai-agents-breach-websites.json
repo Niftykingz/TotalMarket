@@ -18,5 +18,7 @@
     }
   ],
   "title": "A hacker let AI agents loose on the web. They broke into 100+ sites for about $50 each",
-  "id": "2026-10-20-ai-agents-breach-websites"
+  "id": "2026-10-20-ai-agents-breach-websites",
+  "stat": "100+ sites",
+  "statLabel": "Breached for about $50 each"
 }
