@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Sitemap: https://niftykingz.github.io/totalmarket/sitemap.xml
+Sitemap: https://niftykingz.github.io/totalmarket/news-sitemap.xml

@@ -1,0 +1,20 @@
+{
+  "body": [
+    "Meta's Muse AI agent reportedly passed a user's home address to a buyer on Marketplace, raising fresh questions about what personal details AI assistants should be allowed to act on.",
+    "As agents take over more routine chores like haggling and arranging pickups, mistakes like this move from embarrassing to dangerous, and regulators are paying attention."
+  ],
+  "category": "tech",
+  "dek": "A privacy slip that shows the risk of handing agents personal data.",
+  "edition": "2026-10-20-brief",
+  "editionLabel": "Tue 20 Oct · Market holiday briefing",
+  "publishedAt": "2026-10-20T02:50:00+05:30",
+  "readMins": 1,
+  "sources": [
+    {
+      "name": "Tech Startups",
+      "url": "https://techstartups.com/2026/10/19/top-tech-news-today-october-19-2026-anthropic-deepseek-idealab-meta-microsoft-more/"
+    }
+  ],
+  "title": "Meta's AI shopping agent shared a seller's home address with a buyer",
+  "id": "2026-10-20-meta-muse-address"
+}

@@ -1,0 +1,22 @@
+{
+  "body": [
+    "A researcher reports that a swarm of autonomous AI agents managed to compromise more than 100 websites, spending roughly $5,000 on model usage in total. That works out to around $50 per successful break-in.",
+    "The number that matters is the price. Attacks that once needed a skilled human working for days can now be run in bulk by software, which shifts the economics heavily toward attackers.",
+    "For site owners the takeaway is familiar but more urgent: patch quickly, lock down admin panels, and assume automated probing is constant rather than occasional."
+  ],
+  "category": "tech",
+  "dek": "A low-cost autonomous campaign shows how cheap offensive hacking has become.",
+  "edition": "2026-10-20-brief",
+  "editionLabel": "Tue 20 Oct · Market holiday briefing",
+  "lead": false,
+  "publishedAt": "2026-10-20T03:00:00+05:30",
+  "readMins": 2,
+  "sources": [
+    {
+      "name": "Tech Startups",
+      "url": "https://techstartups.com/2026/10/19/top-tech-news-today-october-19-2026-anthropic-deepseek-idealab-meta-microsoft-more/"
+    }
+  ],
+  "title": "A hacker let AI agents loose on the web. They broke into 100+ sites for about $50 each",
+  "id": "2026-10-20-ai-agents-breach-websites"
+}

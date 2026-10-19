@@ -1,0 +1,24 @@
+{
+  "body": [
+    "The US Department of Homeland Security has barred DeepSeek's AI from all civilian federal IT systems, adding to a growing list of US restrictions on Chinese AI tools.",
+    "The move lands as DeepSeek pushes outward: it has just opened its search engine to outside developers at a very low per-query price, a bid for global adoption that now runs straight into government security concerns."
+  ],
+  "category": "tech",
+  "dek": "Washington tightens restrictions on the Chinese AI lab as it courts developers with cheap search.",
+  "edition": "2026-10-20-brief",
+  "editionLabel": "Tue 20 Oct · Market holiday briefing",
+  "publishedAt": "2026-10-20T02:55:00+05:30",
+  "readMins": 2,
+  "sources": [
+    {
+      "name": "Tech Startups",
+      "url": "https://techstartups.com/2026/10/19/top-tech-news-today-october-19-2026-anthropic-deepseek-idealab-meta-microsoft-more/"
+    },
+    {
+      "name": "The Neuron",
+      "url": "https://www.theneuron.ai/digest/everything-that-happened-in-ai-today-monday-october-19-2026/"
+    }
+  ],
+  "title": "US bans DeepSeek from civilian government systems",
+  "id": "2026-10-20-dhs-bans-deepseek"
+}

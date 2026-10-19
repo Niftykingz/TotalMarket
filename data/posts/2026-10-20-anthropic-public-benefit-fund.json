@@ -1,0 +1,26 @@
+{
+  "body": [
+    "Anthropic has announced a Public Benefit Fund that will hold 5% of the AI company's shares at launch, subject to approval by its stockholders. The board can add another 2% each time the company's value rises 50% above a baseline that has not yet been published.",
+    "The fund is structured as a wholly owned LLC rather than a traditional charity, giving it room to donate to nonprofits or to support affected groups directly. Anthropic named the effect of AI on jobs as one example, and said the fund's equity cannot be used for lobbying or political donations.",
+    "Combined with co-founders' pledges to give away 80% of their equity and an employee donation-matching programme, the company says about a fifth of its shares will now go toward public-benefit purposes. It said details on governance will follow in the coming months."
+  ],
+  "category": "tech",
+  "dek": "The stake can grow as the company's valuation climbs, pending shareholder approval.",
+  "edition": "2026-10-20-brief",
+  "editionLabel": "Tue 20 Oct · Market holiday briefing",
+  "lead": false,
+  "publishedAt": "2026-10-20T03:51:00+05:30",
+  "readMins": 2,
+  "sources": [
+    {
+      "name": "Anthropic",
+      "url": "https://www.anthropic.com/news/public-benefit-fund/"
+    },
+    {
+      "name": "The Neuron",
+      "url": "https://www.theneuron.ai/digest/everything-that-happened-in-ai-today-monday-october-19-2026/"
+    }
+  ],
+  "title": "Anthropic sets aside 5% of its shares for a new Public Benefit Fund",
+  "id": "2026-10-20-anthropic-public-benefit-fund"
+}

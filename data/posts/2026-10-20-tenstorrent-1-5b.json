@@ -1,0 +1,21 @@
+{
+  "body": [
+    "US AI chip startup Tenstorrent closed a $1.5 billion Series E at a $6.2 billion valuation, by far the largest round announced on Monday. Backers include ARK Invest, Fidelity and Morgan Stanley.",
+    "Investors keep betting that alternatives to Nvidia's GPUs can win share as AI computing costs climb. Elsewhere, Swiss biotech Nouscom raised €120 million for a cancer-prevention immunotherapy."
+  ],
+  "category": "startups",
+  "dek": "The AI chipmaker's Series E values it at $6.2 billion.",
+  "edition": "2026-10-20-brief",
+  "editionLabel": "Tue 20 Oct · Market holiday briefing",
+  "publishedAt": "2026-10-20T01:50:00+05:30",
+  "readMins": 2,
+  "sources": [
+    {
+      "name": "Tech Startups",
+      "url": "https://techstartups.com/2026/10/19/startup-funding-news-today-october-19-2026-tenstorrent-nouscom-even-healthcare-vessla-more/"
+    }
+  ],
+  "title": "Tenstorrent raises $1.5 billion to take on Nvidia",
+  "why": "Big money keeps flowing to Nvidia challengers. If chip costs fall, AI products get cheaper for everyone, including Indian startups that rent computing power.",
+  "id": "2026-10-20-tenstorrent-1-5b"
+}

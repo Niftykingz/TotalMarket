@@ -1,0 +1,25 @@
+{
+  "body": [
+    "The US Federal Trade Commission has sent wide-ranging information demands to OpenAI and Anthropic about consumer protection and privacy, according to Axios.",
+    "In Europe, the EU AI Office opened its first AI Act investigations into the same two companies. Separately, attorneys general in eight US states sued OpenAI, claiming ChatGPT was marketed as safe for young children.",
+    "Taken together, it marks a shift from voluntary safety pledges to formal enforcement."
+  ],
+  "category": "tech",
+  "dek": "The FTC, the EU and eight US states all opened new fronts in one week.",
+  "edition": "2026-10-20-brief",
+  "editionLabel": "Tue 20 Oct · Market holiday briefing",
+  "publishedAt": "2026-10-20T02:35:00+05:30",
+  "readMins": 2,
+  "sources": [
+    {
+      "name": "Tech Startups",
+      "url": "https://techstartups.com/2026/10/15/top-tech-news-today-october-15-2026-anthropic-cisco-gartner-google-openai-ramp-tsmc-more/"
+    },
+    {
+      "name": "AI Weekly",
+      "url": "https://aiweekly.co/ai-news-today/edition/2026-10-15"
+    }
+  ],
+  "title": "Regulators close in on the big AI labs",
+  "id": "2026-10-20-regulators-ai-labs"
+}

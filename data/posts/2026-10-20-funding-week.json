@@ -1,0 +1,25 @@
+{
+  "body": [
+    "Fintech Ramp reached a $60 billion valuation, and AI cloud company Modal raised a $750 million Series D at $15.75 billion after its revenue run rate passed $1 billion.",
+    "India's Scimplify raised $25 million for specialty chemicals and critical materials, led by Hitachi Ventures.",
+    "Across the 30 days to 18 October, startups announced 601 rounds worth $31.9 billion, with 38 AI rounds in the last week alone."
+  ],
+  "category": "startups",
+  "dek": "601 rounds and $31.9B raised in 30 days, with AI taking the biggest share.",
+  "edition": "2026-10-20-brief",
+  "editionLabel": "Tue 20 Oct · Market holiday briefing",
+  "publishedAt": "2026-10-20T01:45:00+05:30",
+  "readMins": 2,
+  "sources": [
+    {
+      "name": "Fireround",
+      "url": "https://www.firecrawl.dev/tools/fireround"
+    },
+    {
+      "name": "Tech Startups",
+      "url": "https://techstartups.com/2026/10/15/startup-funding-news-today-october-15-2026-modal-labelbox-omass-therapeutics-skeleton-technologies-more/"
+    }
+  ],
+  "title": "Startup funding week: Ramp hits $60B, Modal raises $750M",
+  "id": "2026-10-20-funding-week"
+}

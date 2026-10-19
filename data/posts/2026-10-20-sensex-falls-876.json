@@ -1,0 +1,26 @@
+{
+  "body": [
+    "On Monday the Sensex fell 876.37 points (1.17%) to 73,852.90 and the Nifty 50 lost 257.20 points (1.11%) to 22,888.95, ending a two-day winning streak after last week's strong gains.",
+    "Private banks led the fall. Axis Bank slid 4.2% after its September-quarter profit fell slightly short of estimates, while LTIMindtree and UltraTech Cement also dropped after earnings misses. Losers outnumbered gainers by more than two to one.",
+    "Public-sector banks bucked the trend: the PSU Bank index rose 2.5%, with Union Bank of India up 5.3% and PNB up 4.8% on better quarterly numbers. Indian markets are closed on Tuesday for a holiday."
+  ],
+  "category": "markets",
+  "dek": "Nifty ends at 22,888.95 after profit-taking snaps a two-day rally.",
+  "edition": "2026-10-20-brief",
+  "editionLabel": "Tue 20 Oct · Market holiday briefing",
+  "publishedAt": "2026-10-20T04:18:00+05:30",
+  "readMins": 2,
+  "sources": [
+    {
+      "name": "HDFC Sky",
+      "url": "https://hdfcsky.com/news/market-close-report-today-october-19-2026-sensex-nifty-crash-snapping-two-day-winning-streak"
+    },
+    {
+      "name": "Business Standard",
+      "url": "https://www.business-standard.com/markets/news/stock-market-live-october-19-nse-bse-sensex-today-nifty50-gift-nifty-crude-oil-prices-bond-yields-q2-results-hind-zinc-share-price-today-ipo-today-126101900052_1.html"
+    }
+  ],
+  "title": "Sensex drops 876 points as Axis Bank and IT drag; markets shut today",
+  "why": "Earnings season is now driving individual stocks hard in both directions, so quarterly results matter more than usual this week. High oil prices remain the main outside risk.",
+  "id": "2026-10-20-sensex-falls-876"
+}

@@ -1,0 +1,33 @@
+{
+  "editionLabel": "Tue 20 Oct · Market holiday briefing",
+  "nextUpdate": "2026-10-20T12:45:00+05:30",
+  "ticker": [
+    {
+      "change": "-1.17%",
+      "label": "Sensex",
+      "value": "73,852.90"
+    },
+    {
+      "change": "-1.11%",
+      "label": "Nifty 50",
+      "value": "22,888.95"
+    },
+    {
+      "change": "+1.10%",
+      "label": "Nasdaq",
+      "value": ""
+    },
+    {
+      "change": "+0.41%",
+      "label": "S&P 500",
+      "value": ""
+    },
+    {
+      "change": "",
+      "label": "Brent",
+      "value": "~$108"
+    }
+  ],
+  "tickerAsOf": "Close, Mon 19 Oct",
+  "updatedAt": "2026-10-20T04:20:00+05:30"
+}

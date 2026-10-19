@@ -1,0 +1,20 @@
+{
+  "body": [
+    "Microsoft has withdrawn from Nscale's planned AI data center in Essex. Nscale told the BBC it still intends to go ahead with the project.",
+    "The pullback comes during a jittery stretch for AI infrastructure finance, with borrowing costs for some data-center builders climbing sharply and AI stocks selling off last week."
+  ],
+  "category": "tech",
+  "dek": "Nscale says it will still build the Essex site without its anchor customer.",
+  "edition": "2026-10-20-brief",
+  "editionLabel": "Tue 20 Oct · Market holiday briefing",
+  "publishedAt": "2026-10-20T02:45:00+05:30",
+  "readMins": 1,
+  "sources": [
+    {
+      "name": "The Neuron",
+      "url": "https://www.theneuron.ai/digest/everything-that-happened-in-ai-today-monday-october-19-2026/"
+    }
+  ],
+  "title": "Microsoft walks away from a planned UK AI data center",
+  "id": "2026-10-20-microsoft-nscale-essex"
+}

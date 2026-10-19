@@ -1,0 +1,24 @@
+{
+  "body": [
+    "Google released Gemini 4 Argon on 13 October. Developers pay $2 per million input tokens and $10 per million output tokens, with cached input discounted by 95%.",
+    "Argon is rolling out across AI Studio, Google's enterprise products, the Gemini app and AI Mode in Search, making it one of the widest launches of a frontier model so far."
+  ],
+  "category": "tech",
+  "dek": "The new model is live for developers and in the Gemini app and Search.",
+  "edition": "2026-10-20-brief",
+  "editionLabel": "Tue 20 Oct · Market holiday briefing",
+  "publishedAt": "2026-10-20T02:40:00+05:30",
+  "readMins": 2,
+  "sources": [
+    {
+      "name": "AI Weekly",
+      "url": "https://aiweekly.co/ai-news-today/edition/2026-10-15"
+    },
+    {
+      "name": "Tech Startups",
+      "url": "https://techstartups.com/2026/10/14/top-tech-news-today-october-14-2026-apple-asml-google-openai-microsoft-nvidia-more/"
+    }
+  ],
+  "title": "Google's Gemini 4 Argon is out, priced to undercut rivals",
+  "id": "2026-10-20-gemini-4-argon"
+}
