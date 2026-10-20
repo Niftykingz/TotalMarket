@@ -1,0 +1,369 @@
+{
+  "title": "Stock market today: Sensex sinks 876 pts, Nifty 22,889; PSU banks only gainers",
+  "dek": "Private banks and IT led a broad sell-off; midcaps and smallcaps fell over 1% and investors lost about ₹5.5 lakh crore.",
+  "category": "markets",
+  "lead": true,
+  "edition": "2026-10-19-report",
+  "editionLabel": "Mon 19 Oct · Daily market report",
+  "publishedAt": "2026-10-20T05:45:00+05:30",
+  "readMins": 4,
+  "stat": "-1.11%",
+  "statLabel": "Nifty 50 closes at 22,888.95",
+  "symbol": "chart-down",
+  "flags": [
+    "IN"
+  ],
+  "companies": [
+    {
+      "name": "Axis Bank",
+      "ticker": "AXISBANK"
+    },
+    {
+      "name": "JSW Steel",
+      "ticker": "JSWSTEEL"
+    },
+    {
+      "name": "Infosys",
+      "ticker": "INFY"
+    }
+  ],
+  "seoTitle": "Stock Market Today 19 Oct 2026: Sensex, Nifty Closing, Top Gainers & Losers, FII DII",
+  "tags": [
+    "Stock market today",
+    "Share market today",
+    "Sensex today",
+    "Nifty today",
+    "Bank Nifty",
+    "FII DII data",
+    "Top gainers and losers",
+    "Sector performance"
+  ],
+  "body": [
+    "Indian shares fell sharply on Monday, ending a two-day winning streak. The Sensex dropped 876.37 points (1.17%) to 73,852.90 and the Nifty 50 lost 257.20 points (1.11%) to 22,888.95 after opening near 23,150 and touching a high of about 23,175. Profit-taking after last week's strong rally, weaker results from private lenders, Brent crude above $108 and a weekly-expiry swing all weighed.",
+    "The fall was broad: about three stocks fell for every one that rose on the NSE, smallcaps did worst, and the BSE's total market value shrank by roughly ₹5.54 lakh crore. Public-sector banks were the one bright spot, with the PSU Bank index up 2.46% on strong quarterly numbers from Union Bank and PNB.",
+    "Indian markets are shut on Tuesday for a holiday. When trading resumes on Wednesday, the Jio Platforms IPO opens and big results start to arrive."
+  ],
+  "indiaImpact": "The selling was led by large private banks and IT, two of the heaviest weights in the Nifty, so index investors and mutual fund portfolios felt it directly. Strength in PSU banks shows money rotating to stocks with better results rather than leaving the market entirely.",
+  "globalImpact": "Asian markets were weak on worries about AI spending, while US stock futures rose. High oil prices remain the main outside pressure on India.",
+  "report": {
+    "date": "2026-10-19",
+    "dateLabel": "Monday, 19 October 2026",
+    "mood": "Bearish",
+    "kpis": [
+      {
+        "label": "Sensex",
+        "value": "73,852.90",
+        "change": "-876.37 (-1.17%)"
+      },
+      {
+        "label": "Nifty 50",
+        "value": "22,888.95",
+        "change": "-257.20 (-1.11%)"
+      },
+      {
+        "label": "Bank Nifty",
+        "value": "55,488.10",
+        "change": "-355.90 (-0.64%)"
+      },
+      {
+        "label": "India VIX",
+        "value": "~14.7",
+        "change": "+4.5% to +5%"
+      },
+      {
+        "label": "USD/INR",
+        "value": "94.92",
+        "change": "Rupee 3 paise weaker",
+        "dir": "down"
+      },
+      {
+        "label": "Brent crude",
+        "value": "~$108",
+        "change": ""
+      },
+      {
+        "label": "Advance / decline",
+        "value": "846 / 2,717",
+        "change": "Breadth negative",
+        "dir": "down"
+      },
+      {
+        "label": "Investor wealth",
+        "value": "-₹5.54 lakh cr",
+        "change": "BSE m-cap ₹467.93 lakh cr",
+        "dir": "down"
+      }
+    ],
+    "takeaways": [
+      "Nifty fell 1.11% and snapped a two-day rally; it closed near the day's low after opening around 23,150.",
+      "Private banks dragged the most: Axis Bank fell 4.19% after its September-quarter profit missed estimates.",
+      "PSU banks were the only major sector in the green (+2.46%), led by Union Bank (+5.3%) and PNB (+4.8%).",
+      "Smallcaps (−1.29%) fell more than the Nifty, and declining stocks outnumbered gainers about 3 to 1.",
+      "India VIX rose about 5% to near 14.7, a sign traders are paying more for protection."
+    ],
+    "indices": [
+      {
+        "name": "Nifty 50",
+        "open": "23,150",
+        "high": "23,175",
+        "low": "22,845",
+        "close": "22,888.95",
+        "change": "-257.20",
+        "pct": "-1.11"
+      },
+      {
+        "name": "Sensex",
+        "open": "",
+        "high": "",
+        "low": "",
+        "close": "73,852.90",
+        "change": "-876.37",
+        "pct": "-1.17"
+      },
+      {
+        "name": "Bank Nifty",
+        "open": "55,827",
+        "high": "55,883",
+        "low": "",
+        "close": "55,488.10",
+        "change": "-355.90",
+        "pct": "-0.64"
+      }
+    ],
+    "caps": [
+      {
+        "name": "Large caps (Nifty 50)",
+        "pct": "-1.11"
+      },
+      {
+        "name": "Midcaps",
+        "pct": "-1.04"
+      },
+      {
+        "name": "Smallcaps",
+        "pct": "-1.29"
+      }
+    ],
+    "sectors": [
+      {
+        "name": "PSU Bank",
+        "pct": "2.46"
+      },
+      {
+        "name": "Metal",
+        "pct": "-0.55"
+      },
+      {
+        "name": "Energy",
+        "pct": "-0.60"
+      },
+      {
+        "name": "Auto",
+        "pct": "-0.69"
+      },
+      {
+        "name": "Consumer Durables",
+        "pct": "-1.12"
+      },
+      {
+        "name": "Realty",
+        "pct": "-1.20"
+      },
+      {
+        "name": "IT",
+        "pct": "-1.28"
+      },
+      {
+        "name": "FMCG",
+        "pct": "-1.44"
+      },
+      {
+        "name": "Financial Services",
+        "pct": "-1.58"
+      },
+      {
+        "name": "Private Bank",
+        "pct": "-1.90"
+      }
+    ],
+    "moversIndex": "Nifty 50",
+    "gainers": [
+      {
+        "name": "JSW Steel",
+        "price": "₹1,241.30",
+        "pct": "2.06"
+      },
+      {
+        "name": "ONGC",
+        "price": "₹225.00",
+        "pct": "1.35"
+      },
+      {
+        "name": "SBI",
+        "price": "₹973.70",
+        "pct": "1.15"
+      },
+      {
+        "name": "Larsen & Toubro",
+        "price": "",
+        "pct": "0.96"
+      },
+      {
+        "name": "Eicher Motors",
+        "price": "",
+        "pct": "0.89"
+      }
+    ],
+    "losers": [
+      {
+        "name": "Axis Bank",
+        "price": "₹1,236.00",
+        "pct": "-4.19"
+      },
+      {
+        "name": "Tata Motors PV",
+        "price": "₹278.00",
+        "pct": "-3.09"
+      },
+      {
+        "name": "Infosys",
+        "price": "₹1,130.70",
+        "pct": "-2.63"
+      },
+      {
+        "name": "Bajaj Finance",
+        "price": "",
+        "pct": "-2.52"
+      },
+      {
+        "name": "Apollo Hospitals",
+        "price": "",
+        "pct": "-2.41"
+      }
+    ],
+    "movers": {
+      "title": "Biggest movers in the broader market",
+      "up": [
+        {
+          "name": "ixigo (Le Travenues)",
+          "pct": "9.51"
+        },
+        {
+          "name": "Union Bank of India",
+          "pct": "5.25"
+        },
+        {
+          "name": "HFCL",
+          "pct": "5.00"
+        },
+        {
+          "name": "Punjab National Bank",
+          "pct": "4.82"
+        }
+      ],
+      "down": [
+        {
+          "name": "Urban Company",
+          "pct": "-10.45"
+        },
+        {
+          "name": "HDFC Bank",
+          "pct": "-2.31"
+        },
+        {
+          "name": "UltraTech Cement",
+          "pct": "-2.36"
+        }
+      ]
+    },
+    "breadth": {
+      "exchange": "NSE",
+      "advances": 846,
+      "declines": 2717,
+      "unchanged": 101,
+      "highs52": "70",
+      "lows52": "169",
+      "upperCircuit": "84",
+      "lowerCircuit": "144",
+      "wealth": "−₹5.54 lakh crore"
+    },
+    "fiiDii": {
+      "asOf": "latest available: Fri 16 Oct",
+      "fii": {
+        "buy": "19,952",
+        "sell": "18,786",
+        "net": "1,166"
+      },
+      "dii": {
+        "buy": "17,202",
+        "sell": "20,863",
+        "net": "-3,661"
+      },
+      "mtd": {
+        "fii": "-48,769",
+        "dii": "+48,168"
+      },
+      "note": "Provisional figures for Monday 19 Oct had not been published by the sources we checked. Over October so far, foreign investors have sold about ₹48,769 crore while domestic institutions bought about ₹48,168 crore, almost cancelling each other out."
+    },
+    "ipoUpcoming": [
+      "Fusion CX lists on Thursday 22 Oct (issue price ₹289; subscribed 4.68 times, retail 5.99 times).",
+      "Jio Platforms IPO opens Wednesday 21 Oct and closes Friday 23 Oct (price band ₹1,065–1,119).",
+      "Paras Healthcare IPO (₹1,450 crore, ₹660–693) is also due this week."
+    ],
+    "levels": [
+      {
+        "index": "Nifty 50",
+        "support": "22,800",
+        "resistance": "23,000",
+        "source": "Liquide market recap"
+      },
+      {
+        "index": "Bank Nifty",
+        "support": "55,200",
+        "resistance": "55,700",
+        "source": "Liquide market recap"
+      }
+    ],
+    "watch": [
+      "Market holiday on Tuesday 20 Oct; trading resumes Wednesday.",
+      "Results: Eternal, Adani Green and M&M Financial (Wed); HPCL, Havells, Swiggy (Thu); Infosys, IndusInd, Dr Reddy's, Tata Motors (Fri); Kotak (Sat).",
+      "Jio Platforms IPO subscription from Wednesday.",
+      "US: Tesla and Meta results Wednesday night; Fed meeting around 28 Oct with a December hike widely expected.",
+      "Crude oil near $108 and the rupee near 95 per dollar."
+    ]
+  },
+  "sources": [
+    {
+      "name": "5paisa post-market",
+      "url": "https://www.5paisa.com/blog/post-market-update-sensex-falls-876-points-nifty-below-22900-october-19-2026"
+    },
+    {
+      "name": "Kotak Neo closing bell",
+      "url": "https://www.kotakneo.com/news/market-news/stock-market-closing-bell-19-october-2026-sensex-falls-876-points-nifty-below-22900/"
+    },
+    {
+      "name": "Liquide",
+      "url": "https://blog.liquide.life/share-market-today-nifty-slips-below-22-900-sensex-falls-876-points-as-banking-it-stocks-drag-markets-lower/"
+    },
+    {
+      "name": "The Indian Awaaz",
+      "url": "https://theindianawaaz.com/oct-19-sensex-crashes-876-pts-nifty-below-22900-as-pvt-banks-slide-psu-banks-rally/"
+    },
+    {
+      "name": "Angel One",
+      "url": "https://www.angelone.in/news/market-updates/top-gainers-and-losers-on-october-19-2026-jsw-steel-and-ongc-gain-while-axis-bank-drops-over-4"
+    },
+    {
+      "name": "HDFC Sky",
+      "url": "https://hdfcsky.com/news/market-close-report-today-october-19-2026-sensex-nifty-crash-snapping-two-day-winning-streak"
+    },
+    {
+      "name": "Quantsapp FII/DII",
+      "url": "https://www.quantsapp.com/fii-dii"
+    },
+    {
+      "name": "PL India (Fusion CX)",
+      "url": "https://www.plindia.com/news/fusion-cx-ipo-allotment-status-check-online-listing-date-and-key-details/"
+    }
+  ]
+}

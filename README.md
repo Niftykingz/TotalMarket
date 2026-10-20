@@ -47,3 +47,7 @@ Rebuild locally with `python3 build.py`.
 ### Results calendar
 
 `data/results.json` is a list of `{"date": "2026-10-23", "company": "Infosys", "big": true, "note": "Q2 FY27 results"}`. The site shows upcoming dates on the home page and at `/results/`; past dates drop off automatically.
+
+### Daily market report
+
+A story with a `report` object renders as the full evening report (see `report.py`) and appears on `/market-report/` and as the gold banner on the home page. Fields: `date`, `dateLabel`, `mood` (Bullish/Bearish/Mixed), `kpis` [{label, value, change, dir: up|down}], `takeaways` [..], `indices` [{name, open, high, low, close, change, pct}], `caps` [{name, pct}], `sectors` [{name, pct}], `moversIndex`, `gainers`/`losers` [{name, price, pct}], `movers` {title, up, down}, `breadth` {exchange, advances, declines, unchanged, highs52, lows52, upperCircuit, lowerCircuit, wealth}, `fiiDii` {asOf, fii {buy, sell, net}, dii {…}, mtd {fii, dii}, note}, `ipos` [{name, exchange, segment, issuePrice, listingPrice, listingGainPct, close, closeVsIssuePct, note}], `ipoUpcoming` [..], `levels` [{index, support, resistance, source}], `watch` [..]. Leave out anything you could not verify.

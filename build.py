@@ -8,6 +8,7 @@ Run:  python3 build.py
 """
 import html, json, os, re, shutil, sys
 import covers
+import report
 import art
 from datetime import datetime, timedelta, timezone
 from urllib.parse import quote
@@ -197,7 +198,8 @@ def header(meta, path):
             for x in t)
         asof = f'<span class="tk"><span>{e(meta.get("tickerAsOf"))}</span></span>' if meta.get("tickerAsOf") else ""
         tick = f'<div class="ticker" aria-label="Market snapshot">{items}{asof}</div>'
-    nav_extra = f'<a class="tab{" on" if path == f"{BASE}results/" else ""}" href="{BASE}results/" style="--dot:var(--accent)"><i></i>Results calendar</a>'
+    nav_extra = f'<a class="tab{" on" if path == f"{BASE}market-report/" else ""}" href="{BASE}market-report/" style="--dot:#F2C14E"><i></i>Daily market report</a>'
+    nav_extra += f'<a class="tab{" on" if path == f"{BASE}results/" else ""}" href="{BASE}results/" style="--dot:var(--accent)"><i></i>Results calendar</a>'
     nav = "".join(
         f'<a class="tab{" on" if path == f"{BASE}{k}/" else ""}" href="{BASE}{k}/" style="--dot:var(--c-{k})"><i></i>{e(v[0])}</a>'
         for k, v in CATS.items())
@@ -392,6 +394,7 @@ def article_page(p, posts, meta):
 {meta_row(p)}
 <div class="byline">By Claude (AI) for TotalMarket · automated update</div>
 <div class="body">{body_html}</div>
+{report.render(p.get("report"))}
 {data_table(p)}
 {impacts(p)}
 {why(p)}
@@ -439,6 +442,27 @@ def tag_pages(posts, meta):
     return list(by)
 
 
+def report_banner(posts):
+    reps = [p for p in posts if p.get("report")]
+    if not reps:
+        return ""
+    p = reps[0]; r = p["report"]
+    k = "".join(f'<span class="tk"><span>{e(x.get("label"))}</span>{e(x.get("value"))}<em class="{"down" if str(x.get("change","")).startswith("-") else "up"}">{e(x.get("change"))}</em></span>' for x in (r.get("kpis") or [])[:4])
+    return (f'<a class="rbanner" href="{url(p)}"><span class="eyebrow">Daily market report · {e(r.get("dateLabel") or "")}</span>'
+            f'<b>{e(p["title"])}</b><span class="rk">{k}</span><span class="go">Full report: indices, sectors, gainers &amp; losers, FII/DII, IPO listings →</span></a>')
+
+
+def report_page(posts, meta):
+    path = f"{BASE}market-report/"
+    reps = [p for p in posts if p.get("report")]
+    body = (f'<div class="sechead"><h1>Daily stock market report</h1><p>Every market day after 8 pm: Sensex, Nifty and Bank Nifty with day high and low, large vs mid vs small caps, sector heatmap, top gainers and losers, FII/DII data, IPO listings, market breadth and what to watch next.</p></div>'
+            + report_banner(reps) + (grouped(reps[1:SECTION_LIMIT], False) if len(reps) > 1 else "")
+            + ("" if reps else '<div class="empty"><p>The first report is on its way. It publishes after 8 pm on each market day.</p></div>'))
+    return page("Daily Stock Market Report", "Daily Indian stock market report: Sensex, Nifty, Bank Nifty closing, day high and low, FII DII data, top gainers and losers, sector performance, IPO listings and market breadth.",
+                path, body, meta, seo_title="Stock Market Today: Daily Sensex & Nifty Closing Report, FII DII Data, Top Gainers & Losers | TotalMarket",
+                keywords=["stock market today", "share market today", "Sensex today", "Nifty today", "FII DII data", "top gainers and losers", "sector performance", "IPO listing today", "market report"])
+
+
 def section_page(key, posts, meta):
     name, blurb = CATS[key]
     items = [p for p in posts if p["category"] == key][:SECTION_LIMIT]
@@ -452,7 +476,7 @@ def section_page(key, posts, meta):
 
 
 def home_page(posts, meta, results=()):
-    body = (f'<h1 class="sr">{SITE_NAME}: {e(TAGLINE)}</h1>' + results_widget(results)
+    body = (f'<h1 class="sr">{SITE_NAME}: {e(TAGLINE)}</h1>' + report_banner(posts) + results_widget(results)
             + (grouped(posts[:HOME_LIMIT], True) if posts else '<div class="empty"><p>The first update is on its way.</p></div>'))
     ld = {"@context": "https://schema.org", "@type": "WebSite", "name": SITE_NAME, "url": SITE_URL + "/",
           "description": TAGLINE}
@@ -478,7 +502,7 @@ def rss(posts):
 
 def sitemap(posts):
     now = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
-    urls = [(SITE_URL + "/", now, "hourly")] + [(f"{SITE_URL}/{k}/", now, "hourly") for k in CATS] + [(SITE_URL + "/about/", None, "monthly"), (SITE_URL + "/results/", now, "daily")] + [(f"{SITE_URL}/tag/{t}/", now, "daily") for t in TAG_SLUGS]
+    urls = [(SITE_URL + "/", now, "hourly")] + [(f"{SITE_URL}/{k}/", now, "hourly") for k in CATS] + [(SITE_URL + "/about/", None, "monthly"), (SITE_URL + "/results/", now, "daily"), (SITE_URL + "/market-report/", now, "daily")] + [(f"{SITE_URL}/tag/{t}/", now, "daily") for t in TAG_SLUGS]
     urls += [(abs_url(url(p)), p["_dt"].astimezone(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"), None) for p in posts]
     rows = "".join(f"<url><loc>{e(u)}</loc>{f'<lastmod>{m}</lastmod>' if m else ''}{f'<changefreq>{c}</changefreq>' if c else ''}</url>" for u, m, c in urls)
     return f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">{rows}</urlset>\n'
@@ -516,6 +540,7 @@ def main():
     results = load_results()
     write("index.html", home_page(posts, meta, results))
     write("results/index.html", results_page(results, meta))
+    write("market-report/index.html", report_page(posts, meta))
     global TAG_SLUGS
     TAG_SLUGS = tag_pages(posts, meta)
     for k in CATS:
