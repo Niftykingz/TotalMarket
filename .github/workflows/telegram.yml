@@ -26,9 +26,15 @@ jobs:
           STORY_ID: ${{ github.event.inputs.story_id }}
           BEFORE: ${{ github.event.before }}
         run: |
-          if [ -z "$TG_TOKEN" ] || [ -z "$TG_CHAT" ]; then
-            echo "Telegram secrets not set; skipping."; exit 0
+          if [ -z "$TG_TOKEN" ]; then
+            echo "TELEGRAM_BOT_TOKEN not set; skipping."; exit 0
           fi
+          if [ -z "$TG_CHAT" ]; then
+            # No chat id saved: send to every chat that has pressed Start on the bot recently.
+            TG_CHAT=$(curl -s "https://api.telegram.org/bot$TG_TOKEN/getUpdates" | python3 -c "import json,sys; r=json.load(sys.stdin).get('result',[]); ids=[]; [ids.append(str(c['id'])) for u in r for c in [ (u.get('message') or u.get('my_chat_member') or u.get('channel_post') or {}).get('chat',{}) ] if c.get('id') and str(c['id']) not in ids]; print(','.join(ids))")
+            [ -z "$TG_CHAT" ] && { echo "No chat found: press Start on the bot, then re-run."; exit 0; }
+          fi
+          export TG_CHAT
           if [ -n "$STORY_ID" ]; then
             files="data/posts/$STORY_ID.json"
           else
@@ -56,10 +62,12 @@ jobs:
                   method, data = "sendPhoto", {"chat_id": chat, "photo": photo, "caption": caption, "parse_mode": "HTML"}
               else:
                   method, data = "sendMessage", {"chat_id": chat, "text": caption, "parse_mode": "HTML"}
-              req = urllib.request.Request(f"https://api.telegram.org/bot{tok}/{method}",
-                                           data=urllib.parse.urlencode(data).encode())
-              try:
-                  print(sid, urllib.request.urlopen(req, timeout=30).status)
-              except Exception as e:
-                  print("failed", sid, e)
+              for c in [x.strip() for x in chat.split(",") if x.strip()]:
+                  data["chat_id"] = c
+                  req = urllib.request.Request(f"https://api.telegram.org/bot{tok}/{method}",
+                                               data=urllib.parse.urlencode(data).encode())
+                  try:
+                      print(sid, urllib.request.urlopen(req, timeout=30).status)
+                  except Exception as e:
+                      print("failed", sid, e)
           PY
