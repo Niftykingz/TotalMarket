@@ -16,6 +16,7 @@ PAL = {  # bg start, bg end, accent
     "global":   ("#042629", "#0E7C86", "#93F2F7"),
     "commodities": ("#2B1D02", "#A87708", "#FFE28A"),
     "down":     ("#33060F", "#B42D41", "#FFC0CA"),
+    "festive":  ("#3A0712", "#C2410C", "#FFD166"),
 }
 LABEL = {"markets": "MARKETS", "tech": "TECH & AI", "startups": "STARTUPS & IPOs", "policy": "POLICY & ECONOMY", "global": "GLOBAL MARKETS", "commodities": "COMMODITIES & FOREX"}
 DOWN_WORDS = re.compile(r"\b(drops?|falls?|fell|slides?|slips?|plunges?|crash(es)?|tumbles?|sinks?|down|loses?|sheds?)\b", re.I)
@@ -142,7 +143,7 @@ def render(p, path):
     cat = p["category"]
     stat, stat_label = pick_stat(p)
     down = cat in ("markets", "global", "commodities") and is_down(p, stat)
-    a, b, acc = PAL["down" if down else cat]
+    a, b, acc = PAL[p["palette"]] if p.get("palette") in PAL else PAL["down" if down else cat]
     A, B, ACC = hexrgb(a), hexrgb(b), hexrgb(acc)
 
     # diagonal gradient
@@ -203,7 +204,7 @@ def render(p, path):
 
     # section pill
     pf = FONT("DejaVuSansMono-Bold.ttf", 26)
-    label = LABEL[cat]
+    label = (p.get("coverLabel") or LABEL[cat]).upper()
     tw = d.textlength(label, font=pf)
     d.rounded_rectangle([64, 60, 64 + tw + 44, 112], radius=26, fill=ACC)
     d.text((86, 70), label, font=pf, fill=A[:3])

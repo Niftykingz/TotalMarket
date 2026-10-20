@@ -1,0 +1,114 @@
+{
+  "title": "Happy Dussehra: 10 trading lessons from Ravan's 10 heads",
+  "dek": "Ravan knew more than almost anyone in the Ramayana. Ego, not ignorance, brought him down, and markets punish the same flaw.",
+  "category": "markets",
+  "lead": true,
+  "edition": "2026-10-20-holiday",
+  "editionLabel": "Tue 20 Oct · Dussehra special",
+  "publishedAt": "2026-10-20T10:10:00+05:30",
+  "readMins": 4,
+  "body": [
+    "Happy Dussehra from TotalMarket! NSE and BSE are closed today for Vijayadashami, and trading resumes on Wednesday. Today India celebrates Ram's victory over Ravan, and the story carries a lesson for anyone who trades. In tradition, Ravan was no fool. He is described as a great scholar of the Vedas, astrology, Ayurveda and music, and is credited with the Shiva Tandava Stotram. His ten heads are often read as the four Vedas and six Shastras: knowledge in abundance.",
+    "Still, he lost everything, and not for lack of information. He lost because of pride. His brother Vibhishan and his wife Mandodari both urged him to return Sita and make peace; he threw Vibhishan out instead. He mocked an army of monkeys and bears, and a single messenger, Hanuman, set Lanka ablaze. Traders know this pattern well: a smart person with a strong view who stops listening, won't admit a mistake and keeps adding to a losing position.",
+    "Some traditions say the ten heads also stand for ego, anger, greed, desire, jealousy and other inner enemies, the same emotions behind overtrading and revenge trades. A popular retelling says that as Ravan lay dying, Lakshman went to learn from him, and Ravan's advice was simple: act on good intentions without delay, never underestimate anyone, and keep your private matters private. Below, each of his ten heads becomes one trading lesson. This Dussehra, the effigy worth burning is the ego that won't take a small loss before it becomes a big one."
+  ],
+  "table": {
+    "title": "Ravan's 10 heads, read as 10 trading lessons",
+    "columns": [
+      "Ravan's mistake",
+      "Trading lesson",
+      ""
+    ],
+    "rows": [
+      {
+        "label": "1. A scholar of the Vedas, Ayurveda and music",
+        "value": "Knowledge is not an edge by itself",
+        "note": "Research matters, but discipline decides results. Smart traders still lose without rules."
+      },
+      {
+        "label": "2. Pride: would not admit he was wrong",
+        "value": "Cut losses early",
+        "note": "A small loss accepted today stops a big loss tomorrow. Ego is the costliest position."
+      },
+      {
+        "label": "3. Ignored Vibhishan and Mandodari",
+        "value": "Beware confirmation bias",
+        "note": "Seek out the view that disagrees with your trade, not only the ones that agree."
+      },
+      {
+        "label": "4. Laughed at an army of monkeys and bears",
+        "value": "Never underestimate risk",
+        "note": "Small things such as gap-downs, leverage or one bad result can do big damage."
+      },
+      {
+        "label": "5. Greed for what was not his",
+        "value": "Respect your targets",
+        "note": "Wanting more than the plan allowed turns winning trades into losing ones."
+      },
+      {
+        "label": "6. Anger: threw his own brother out",
+        "value": "No revenge trading",
+        "note": "Trading angrily to win back a loss usually makes it bigger. Step away first."
+      },
+      {
+        "label": "7. Trusted his boons to make him unbeatable",
+        "value": "No trade is risk-free",
+        "note": "Over-confidence and heavy leverage hide a single weak point, like Ravan's secret weakness."
+      },
+      {
+        "label": "8. One messenger, Hanuman, set Lanka on fire",
+        "value": "Plan for surprise events",
+        "note": "Know in advance how much you can lose if news goes against you."
+      },
+      {
+        "label": "9. Woke Kumbhakarna too late",
+        "value": "Act on time, not in panic",
+        "note": "Decisions made late, after losses pile up, are usually the worst ones."
+      },
+      {
+        "label": "10. His advice to Lakshman",
+        "value": "Follow the plan, respect the market, keep positions private",
+        "note": "Act on good decisions without delay, never look down on anyone, and don't let tips and chatter steer you."
+      }
+    ]
+  },
+  "indiaImpact": "Indian stock markets are shut today for Dussehra and reopen on Wednesday, when the festive season, Q2 results and the Jio Platforms IPO will be the focus. This is an educational festive piece, not investment advice.",
+  "stat": "10 heads",
+  "statLabel": "10 trading lessons from Ravan",
+  "seoTitle": "Happy Dussehra 2026: 10 Trading Lessons From Ravan's 10 Heads",
+  "tags": [
+    "Happy Dussehra",
+    "Dussehra 2026",
+    "Vijayadashami",
+    "Trading psychology",
+    "Trading lessons",
+    "Risk management",
+    "Stock market holiday"
+  ],
+  "flags": [
+    "IN"
+  ],
+  "symbol": "bow",
+  "sources": [
+    {
+      "name": "ClearTax: NSE holidays 2026",
+      "url": "https://cleartax.in/s/nse-holidays-2026"
+    },
+    {
+      "name": "Vedantu: Facts about Ravana",
+      "url": "https://www.vedantu.com/general-knowledge/10-amazing-facts-about-ravana"
+    },
+    {
+      "name": "Hindu Blog: Ravana's advice to Lakshman",
+      "url": "https://www.hindu-blog.com/2021/10/three-advices-given-by-ravana-to-lakshman-successful-life.html?m=0"
+    },
+    {
+      "name": "ClearTax: Stock market holidays 2026",
+      "url": "https://cleartax.in/s/stock-market-holidays-2026"
+    }
+  ],
+  "palette": "festive",
+  "coverLabel": "Dussehra special",
+  "companies": [],
+  "why": "Most trading losses come from behaviour, not lack of information. Ravan's story is a memorable way to spot the habits that hurt traders: pride, greed, anger and ignoring warnings."
+}

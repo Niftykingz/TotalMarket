@@ -279,12 +279,16 @@ def data_table(p):
     rows = (t or {}).get("rows") if isinstance(t, dict) else None
     if not rows:
         return ""
-    trs = "".join(
-        f'<tr><th scope="row">{e(r.get("label"))}{f"<span class=sub>{e(r.get(chr(110)+chr(111)+chr(116)+chr(101)))}</span>" if r.get("note") else ""}</th><td class="num">{e(r.get("value"))}</td>'
-        f'<td class="num {"down" if str(r.get("change","")).startswith("-") else "up" if str(r.get("change","")).startswith("+") else ""}">{e(r.get("change"))}</td>'
-        f'</tr>' for r in rows)
+    cols = [c for c in (t.get("columns") or ["Market", "Level", "Change"]) if c != ""]
+    textual = bool(t.get("columns"))
+    out = []
+    for r in rows:
+        sub = f'<span class="sub">{e(r.get("note"))}</span>' if r.get("note") and not textual else ""
+        val = f'<td class="{"txt" if textual else "num"}"><b>{e(r.get("value"))}</b>' + (f'<span class="sub">{e(r.get("note"))}</span>' if textual and r.get("note") else "") + "</td>" if textual else f'<td class="num">{e(r.get("value"))}</td>'
+        ch = "" if len(cols) < 3 else (f'<td class="num {"down" if str(r.get("change","")).startswith("-") else "up" if str(r.get("change","")).startswith("+") else ""}">{e(r.get("change"))}</td>')
+        out.append(f'<tr><th scope="row">{e(r.get("label"))}{sub}</th>{val}{ch}</tr>')
     cap = f'<caption>{e(t.get("title"))}</caption>' if t.get("title") else ""
-    return f'<div class="tablewrap"><table class="dt">{cap}<thead><tr><th>Market</th><th>Level</th><th>Change</th></tr></thead><tbody>{trs}</tbody></table></div>'
+    return f'<div class="tablewrap"><table class="dt">{cap}<thead><tr>{"".join(f"<th>{e(h)}</th>" for h in cols)}</tr></thead><tbody>{"".join(out)}</tbody></table></div>'
 
 
 def load_results():

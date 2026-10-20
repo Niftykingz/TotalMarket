@@ -324,3 +324,4 @@ header.top{background:var(--head);color:#E8EDF7;border-bottom:1px solid var(--he
 }
 @media (prefers-reduced-motion:reduce){.card{transition:none}.card:hover{transform:none}}
 .tcard.asof .tv{white-space:nowrap}
+.dt td.txt{min-width:200px}.dt td.txt b{display:block;font-weight:700}.dt td .sub{display:block;font-size:.84rem;color:var(--muted);margin-top:2px}

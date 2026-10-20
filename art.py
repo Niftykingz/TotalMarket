@@ -234,6 +234,23 @@ def symbol(name, size):
             top = s * (.9 - hh); bot = top + s * .2
             d.line([(x, top - s * .05), (x, bot + s * .05)], fill=(240, 240, 245), width=max(3, s // 90))
             d.rectangle([x - s * .04, top, x + s * .04, bot], fill=col if (i % 2 == 0) == up or i == 5 else (240, 240, 245))
+    elif name == "bow":
+        gold, gd = (255, 196, 37), (190, 120, 0)
+        lw = max(8, s // 28)
+        d.arc([s * .18, s * .08, s * .62, s * .92], 270, 90, fill=gold, width=lw)
+        d.line([(s * .40, s * .1), (s * .40, s * .9)], fill=(255, 240, 210), width=max(3, s // 90))
+        d.line([(s * .2, s * .5), (s * .88, s * .5)], fill=(240, 240, 245), width=max(5, s // 60))
+        d.polygon([(s * .94, s * .5), (s * .84, s * .45), (s * .84, s * .55)], fill=gold)
+        d.polygon([(s * .2, s * .5), (s * .12, s * .43), (s * .16, s * .5), (s * .12, s * .57)], fill=(230, 60, 60))
+        for k in range(6):
+            ang = math.radians(-40 + k * 16)
+            x0, y0 = s * .94, s * .5
+            d.line([(x0 + math.cos(ang) * s * .05, y0 + math.sin(ang) * s * .05), (x0 + math.cos(ang) * s * .1, y0 + math.sin(ang) * s * .1)], fill=(255, 210, 90), width=3)
+    elif name == "diya":
+        d.ellipse([s * .2, s * .52, s * .8, s * .78], fill=(200, 90, 20))
+        d.chord([s * .2, s * .38, s * .8, s * .74], 0, 180, fill=(232, 120, 40))
+        d.polygon([(c, s * .14), (c - s * .09, s * .4), (c, s * .5), (c + s * .09, s * .4)], fill=(255, 196, 37))
+        d.polygon([(c, s * .26), (c - s * .04, s * .41), (c, s * .47), (c + s * .04, s * .41)], fill=(255, 245, 200))
     else:
         return None
     return im
