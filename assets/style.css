@@ -337,3 +337,32 @@ header.top{background:var(--head);color:#E8EDF7;border-bottom:1px solid var(--he
 .company{display:flex;gap:10px;align-items:center;background:var(--surface-2);border:1px solid var(--line);border-radius:10px;padding:8px 12px}
 .company img{height:30px;width:auto;max-width:90px;object-fit:contain;background:#fff;border-radius:6px;padding:3px}
 .company .tkb{font-family:var(--f-mono);font-size:.72rem;font-weight:700;background:var(--accent);color:#fff;border-radius:6px;padding:4px 7px}
+
+/* ---------- Likes & comments ---------- */
+.engage{position:relative;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px;margin:26px 0 18px;padding:18px 20px;border-radius:14px;
+  background:linear-gradient(135deg,rgba(236,72,153,.16),rgba(47,123,255,.16));border:1.5px solid transparent;
+  background-clip:padding-box;box-shadow:0 0 0 1.5px rgba(236,72,153,.55),0 10px 30px -12px rgba(236,72,153,.45)}
+.eg-text{display:flex;flex-direction:column;gap:2px;min-width:200px;flex:1}
+.eg-text b{font-family:var(--f-display);font-size:1.15rem;letter-spacing:.01em}
+.eg-text span{color:var(--muted);font-size:.9rem}
+.eg-btns{display:flex;gap:10px;flex-wrap:wrap}
+.like-btn,.cm-btn,.fab-like,.fab-cm{font:inherit;font-weight:700;font-size:.98rem;border-radius:999px;padding:11px 20px;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:7px;border:0;transition:transform .15s ease,box-shadow .15s ease,background .15s ease}
+.like-btn,.fab-like{background:linear-gradient(135deg,#EC4899,#F43F5E);color:#fff;box-shadow:0 6px 18px -6px rgba(244,63,94,.8)}
+.like-btn:hover,.fab-like:hover{transform:translateY(-1px);box-shadow:0 10px 22px -6px rgba(244,63,94,.9)}
+.like-btn .heart{font-size:1.15rem;line-height:1}
+.like-btn.liked,.fab-like.liked{background:#fff;color:#E11D48;box-shadow:0 0 0 2px #F43F5E inset}
+.cm-btn,.fab-cm{background:var(--accent);color:#fff;box-shadow:0 6px 18px -6px rgba(47,123,255,.8)}
+.cm-btn:hover,.fab-cm:hover{transform:translateY(-1px);background:var(--accent-2)}
+.pop{animation:tm-pop .45s ease}
+@keyframes tm-pop{0%{transform:scale(1)}35%{transform:scale(1.18)}100%{transform:scale(1)}}
+@media (prefers-reduced-motion:reduce){.pop{animation:none}.like-btn,.cm-btn,.fab-like,.fab-cm,.fab{transition:none}}
+.comments{margin:30px 0 8px;padding:20px;border-radius:14px;background:var(--surface);border:1px solid var(--line-2);scroll-margin-top:80px}
+.comments h2{margin:0 0 4px;font-family:var(--f-display);font-size:1.3rem}
+.cm-note{margin:0 0 14px;color:var(--muted);font-size:.85rem}
+.cm-soon{margin:0;padding:14px;border:1px dashed var(--line-2);border-radius:10px;color:var(--muted)}
+.fab{position:fixed;right:max(16px,env(safe-area-inset-right,0px));bottom:max(16px,env(safe-area-inset-bottom,0px));z-index:50;display:flex;gap:8px;
+  opacity:0;transform:translateY(20px);pointer-events:none;transition:opacity .2s ease,transform .2s ease}
+.fab.show{opacity:1;transform:none;pointer-events:auto}
+.fab-like,.fab-cm{padding:10px 16px;font-size:.92rem;box-shadow:0 8px 24px -6px rgba(0,0,0,.6)}
+@media (max-width:560px){.engage{padding:16px}.eg-btns{width:100%}.like-btn,.cm-btn{flex:1;justify-content:center}
+  .fab{left:16px;right:16px;justify-content:center}.fab-like,.fab-cm{flex:1;justify-content:center}}

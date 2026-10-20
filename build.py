@@ -6,7 +6,7 @@ site to docs/ (served by GitHub Pages). No third-party packages needed.
 
 Run:  python3 build.py
 """
-import html, json, os, re, shutil, sys
+import hashlib, html, json, os, re, shutil, sys
 import covers
 import report
 import art
@@ -425,6 +425,38 @@ def grouped(posts, show_lead):
     return "\n".join(out)
 
 
+# Likes: free no-login counter (Abacus). Comments: giscus (GitHub Discussions).
+# categoryId comes from https://giscus.app after Discussions is enabled; until then a placeholder shows.
+GISCUS = {"repo": "Niftykingz/TotalMarket", "repoId": "R_kgDOVQML4Q", "category": "Announcements", "categoryId": ""}
+
+
+def like_key(p):
+    h = hashlib.sha1(p["id"].encode()).hexdigest()[:8]
+    return re.sub(r"[^a-z0-9-]", "", p["id"])[:52] + "-" + h
+
+
+def engage_card(p):
+    return f"""<section class="engage" aria-label="React to this story">
+<div class="eg-text"><b>Did this story help you?</b><span>Tap like and tell us what you think in the comments.</span></div>
+<div class="eg-btns"><button type="button" class="like-btn" data-like-key="{like_key(p)}" aria-pressed="false"><span class="heart" aria-hidden="true">&#9829;</span> <span class="lc">Like</span></button>
+<a class="cm-btn" href="#comments"><span aria-hidden="true">&#128172;</span> Comment</a></div>
+</section>"""
+
+
+def comments_block(p):
+    g = GISCUS
+    if g.get("categoryId"):
+        inner = (f'<div class="giscus" data-repo="{e(g["repo"])}" data-repo-id="{e(g["repoId"])}" '
+                 f'data-category="{e(g["category"])}" data-category-id="{e(g["categoryId"])}"></div>')
+    else:
+        inner = '<p class="cm-soon">Comments are opening soon. Meanwhile, share your view on X or Telegram using the buttons above.</p>'
+    return f"""<section class="comments" id="comments" aria-label="Comments">
+<h2><span aria-hidden="true">&#128172;</span> Comments</h2>
+<p class="cm-note">Be respectful and stay on topic. No stock tips or promotions; comments are moderated.</p>
+{inner}
+</section>"""
+
+
 def article_page(p, posts, meta):
     path = url(p)
     link = abs_url(path)
@@ -471,6 +503,7 @@ def article_page(p, posts, meta):
 {data_table(p)}
 {impacts(p)}
 {why(p)}
+{engage_card(p)}
 <div class="share" aria-label="Share this story">
 <a href="https://wa.me/?text={text}" target="_blank" rel="noopener">Share on WhatsApp</a>
 <a href="https://twitter.com/intent/tweet?text={quote(p['title'])}&url={quote(link)}" target="_blank" rel="noopener">Share on X</a>
@@ -480,7 +513,9 @@ def article_page(p, posts, meta):
 <div class="tags" aria-label="Topics">{"".join(f'<a class="tag" href="{BASE}tag/{slug(t)}/">#{e(t)}</a>' for t in p["_tags"])}</div>
 {'<div class="sources"><h2>Sources</h2><ul>' + srcs + '</ul></div>' if srcs else ''}
 <p class="disc">News and explanation only. This is not investment advice and not a recommendation to buy or sell any security.</p>
+{comments_block(p)}
 </article>
+<div class="fab" aria-label="Like or comment"><button type="button" class="fab-like" data-like-key="{like_key(p)}" aria-label="Like this story">&#9829; <span class="lc">Like</span></button><a class="fab-cm" href="#comments" aria-label="Go to comments">&#128172; Comment</a></div>
 {rel}"""
     return page(p["title"], p.get("seoDescription") or desc(p), path, body, meta, og_type="article", extra_head=extra, image=cover_url(p, True),
                 seo_title=(p.get("seoTitle") + f" | {SITE_NAME}") if p.get("seoTitle") else None, keywords=page_keywords(p), news_kw=p["_tags"][:10])

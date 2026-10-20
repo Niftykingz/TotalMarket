@@ -39,6 +39,70 @@
     });
   });
 
+  // likes: shared counter per story (no login), one like per browser
+  var likeBtns = document.querySelectorAll("[data-like-key]");
+  if (likeBtns.length) {
+    var key = likeBtns[0].dataset.likeKey, api = "https://abacus.jasoncameron.dev/", ns = "totalmarket";
+    var liked = false;
+    try { liked = localStorage.getItem("tm-like-" + key) === "1"; } catch (e) {}
+    function fmt(n) { return n >= 1000 ? (n / 1000).toFixed(n >= 10000 ? 0 : 1) + "k" : String(n); }
+    function paint(n) {
+      likeBtns.forEach(function (b) {
+        b.classList.toggle("liked", liked);
+        b.setAttribute("aria-pressed", liked ? "true" : "false");
+        var lc = b.querySelector(".lc");
+        if (lc) lc.textContent = (typeof n === "number" && n > 0) ? fmt(n) + (liked ? " liked" : " likes") : (liked ? "Liked" : "Like");
+      });
+    }
+    var count = null;
+    paint(count);
+    fetch(api + "get/" + ns + "/" + key).then(function (r) { return r.ok ? r.json() : { value: 0 }; })
+      .then(function (d) { count = d.value || 0; paint(count); }).catch(function () {});
+    likeBtns.forEach(function (b) {
+      b.addEventListener("click", function () {
+        if (liked) { b.classList.remove("pop"); void b.offsetWidth; b.classList.add("pop"); return; }
+        liked = true;
+        try { localStorage.setItem("tm-like-" + key, "1"); } catch (e) {}
+        if (typeof count === "number") count += 1;
+        paint(count);
+        likeBtns.forEach(function (o) { o.classList.add("pop"); });
+        fetch(api + "hit/" + ns + "/" + key).then(function (r) { return r.json(); })
+          .then(function (d) { if (d && typeof d.value === "number") { count = d.value; paint(count); } }).catch(function () {});
+      });
+    });
+  }
+
+  // comments: load giscus when the section is close to view, matching the site theme
+  var gc = document.querySelector(".giscus[data-repo]");
+  if (gc) {
+    var loaded = false;
+    function loadGiscus() {
+      if (loaded) return; loaded = true;
+      var s = document.createElement("script");
+      s.src = "https://giscus.app/client.js"; s.async = true; s.crossOrigin = "anonymous";
+      var a = { repo: gc.dataset.repo, "repo-id": gc.dataset.repoId, category: gc.dataset.category, "category-id": gc.dataset.categoryId,
+        mapping: "pathname", strict: "1", "reactions-enabled": "1", "emit-metadata": "0", "input-position": "top",
+        theme: (root.dataset.theme === "light") ? "light" : "transparent_dark", lang: "en", loading: "lazy" };
+      Object.keys(a).forEach(function (k) { s.setAttribute("data-" + k, a[k]); });
+      gc.appendChild(s);
+    }
+    if ("IntersectionObserver" in window) {
+      var io = new IntersectionObserver(function (en) { if (en.some(function (x) { return x.isIntersecting; })) { loadGiscus(); io.disconnect(); } }, { rootMargin: "600px" });
+      io.observe(gc);
+    } else loadGiscus();
+    document.querySelectorAll('a[href="#comments"]').forEach(function (l) { l.addEventListener("click", loadGiscus); });
+  }
+
+  // floating like/comment bar: show after scrolling past the headline, hide at the comments
+  var fab = document.querySelector(".fab"), cms = document.getElementById("comments");
+  if (fab) {
+    function fabCheck() {
+      var y = window.scrollY, nearEnd = cms && cms.getBoundingClientRect().top < window.innerHeight * 0.8;
+      fab.classList.toggle("show", y > 500 && !nearEnd);
+    }
+    window.addEventListener("scroll", fabCheck, { passive: true }); fabCheck();
+  }
+
   // search
   var q = document.getElementById("q"), box = document.getElementById("qres"), idx = null, base = (document.querySelector(".brand") || {}).getAttribute ? document.querySelector(".brand").getAttribute("href") : "/";
   function load(cb) {

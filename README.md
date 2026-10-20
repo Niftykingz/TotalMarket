@@ -88,3 +88,9 @@ The owner's preferred look is cinematic, photo-realistic editorial imagery with 
 - **Startups and IPOs:** a modern city or corporate setting at golden hour with screens showing a rising chart, plus stacks of coins.
 
 The current covers render this style in code (lit objects, dark backgrounds). Photo-realistic backgrounds need an image-generation service. If one is enabled, generate the background without text, then overlay the headline, numbers and branding with covers.py so every figure stays exact. Never generate real company logos, real people or text inside the image.
+
+### Likes and comments
+
+Every story page has a highlighted "Did this story help you?" card with a **Like** button and a **Comment** button, plus a floating like/comment bar while reading.
+- Likes use the free, no-login Abacus counter (`abacus.jasoncameron.dev`, namespace `totalmarket`, one key per story). One like per browser.
+- Comments use giscus (GitHub Discussions, free, no ads). Set `GISCUS["categoryId"]` in build.py (from https://giscus.app) to switch the comments box on; until then a "Comments are opening soon" note shows. Moderate comments in the repository's Discussions tab.
