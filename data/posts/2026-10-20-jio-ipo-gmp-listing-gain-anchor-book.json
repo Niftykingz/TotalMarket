@@ -1,0 +1,60 @@
+{
+  "title": "Jio IPO listing: GMP ₹243 hints at ~22% premium; anchor book 30x subscribed",
+  "dek": "Grey-market traders price Jio Platforms near ₹1,362 ahead of its 28 October debut, after anchors bid over ₹2.5 lakh crore. Here is what those signals do and don't tell you.",
+  "category": "startups",
+  "lead": true,
+  "edition": "2026-10-20-evening",
+  "editionLabel": "Tue 20 Oct · Jio IPO special",
+  "publishedAt": "2026-10-20T21:40:00+05:30",
+  "readMins": 3,
+  "body": [
+    "India's biggest IPO opens on Wednesday with strong early signals. Jio Platforms' anchor book of ₹8,110 crore drew bids of more than ₹2.5 lakh crore, over 30 times the shares on offer, all at the top of the ₹1,065–1,119 price band. The Tribune reports this as the first Indian IPO to cross that mark. Anchors include BlackRock, Capital Group, Fidelity, GIC, ADIA, Norges Bank, LIC and India's largest mutual funds.",
+    "In the unofficial grey market, the premium (GMP) was ₹243 a share on 20 October, according to InvestorGain. That is about 21.7% above the upper band and points to an indicative listing price near ₹1,362. The GMP rose from ₹206 on 14 October to a peak of ₹250 on 18 October before easing slightly. GMP is unregulated, reflects a small set of informal trades, and often changes sharply with subscription numbers and the wider market. It is a sentiment gauge, not a forecast of the listing price.",
+    "The issue is a ₹30,213 crore fresh issue of 27 crore shares with no offer for sale; ₹27,500 crore will repay debt at Reliance Jio Infocomm. One lot is 12 shares (₹13,428 at the upper band). Bidding runs 21–23 October, allotment is due 26 October and shares are scheduled to list on NSE and BSE on 28 October. Jio reported FY26 profit of about ₹30,050 crore, up from ₹26,120 crore, and had 524.4 million customers in March 2026. Swastika Investmart puts the FY26 P/E at about 33x versus about 41x for Bharti Airtel, though sources differ on how the two compare. Analysts at SBI Securities see tariff increases, 4G/5G upgrades and rising data use as growth drivers."
+  ],
+  "table": {
+    "title": "Jio Platforms IPO: listing signals and key dates",
+    "rows": [
+      {"label": "Price band", "value": "₹1,065–1,119", "change": "", "note": "Lot of 12 shares = ₹13,428"},
+      {"label": "Issue size", "value": "₹30,213 cr", "change": "", "note": "All fresh issue, no OFS"},
+      {"label": "Anchor book", "value": "₹8,110 cr", "change": "30x+", "note": "Bids over ₹2.5 lakh crore at ₹1,119"},
+      {"label": "Grey market premium (20 Oct)", "value": "₹243", "change": "+21.7%", "note": "Unofficial; implies ~₹1,362"},
+      {"label": "GMP trend", "value": "₹206 → ₹250 → ₹243", "change": "", "note": "14 Oct → 18 Oct → 20 Oct"},
+      {"label": "Subscription", "value": "21–23 Oct", "change": "", "note": "QIB 50%, NII 15%, retail 35%; shareholder quota"},
+      {"label": "Allotment", "value": "26 Oct", "change": "", "note": "Refunds and demat credit 27 Oct"},
+      {"label": "Listing", "value": "28 Oct", "change": "", "note": "NSE and BSE (tentative)"},
+      {"label": "FY26 profit", "value": "₹30,050 cr", "change": "+15%", "note": "vs ₹26,120 cr in FY25"}
+    ]
+  },
+  "why": "A listing premium depends on how many times the issue is subscribed and how markets behave until 28 October. The day-by-day subscription figures from 21–23 October are the strongest public signal to watch.",
+  "indiaImpact": "At about ₹30,200 crore, Jio's issue will absorb a large amount of investor cash this week, which can weigh on other stocks and IPOs. Its listing will also set a valuation marker for Reliance Industries and Indian telecom stocks such as Bharti Airtel.",
+  "globalImpact": "The anchor list of global funds and sovereign investors shows strong foreign appetite for Indian digital assets, even as overseas investors have been net sellers of Indian shares in 2026.",
+  "coverHeadline": "JIO IPO GMP ₹243",
+  "stat": "₹243",
+  "statLabel": "Grey market premium, 20 Oct",
+  "coverContext": "Anchor book 30x · Lists 28 Oct",
+  "coverLabel": "IPO watch",
+  "symbol": "growth",
+  "flags": ["IN"],
+  "companies": [{"name": "Reliance Industries", "ticker": "RELIANCE"}],
+  "people": [{"name": "Mukesh Ambani", "role": "Chairman, Reliance Industries", "commonsFile": "Mukesh_Ambani.jpg"}],
+  "seoTitle": "Jio IPO GMP Today ₹243: Listing Gain Estimate, Anchor Book, Listing Date 28 Oct",
+  "tags": [
+    "Jio IPO",
+    "Jio IPO GMP",
+    "Jio Platforms IPO",
+    "Jio IPO listing date",
+    "Jio IPO listing gain",
+    "IPO GMP today",
+    "Jio IPO anchor investors",
+    "Reliance share price",
+    "Upcoming IPO"
+  ],
+  "sources": [
+    {"name": "The Tribune: Jio anchor book draws ₹2.5 lakh crore", "url": "https://www.tribuneindia.com/news/anchor-book/jio-platforms-rs-8110-crore-anchor-book-attracts-over-rs-2-5-lakh-crore-in-institutional-demand-draws-marquee-global-investors"},
+    {"name": "InvestorGain: Jio Platforms IPO GMP and dates", "url": "https://www.investorgain.com/ipo/jio-platforms-ipo/2306/"},
+    {"name": "Groww: Jio Platforms IPO details", "url": "https://groww.in/blog/jio-platforms-ipo-to-open-on-october-21-2026"},
+    {"name": "Business Today: Jio IPO GMP and analyst views", "url": "https://www.businesstoday.in/markets/ipo-corner/story/jio-platforms-ipo-gmp-hits-new-high-what-could-drive-next-phase-of-growth-for-telecom-major-561996-2026-10-16"},
+    {"name": "CNBC: BlackRock, GIC among Jio anchor investors", "url": "https://www.cnbc.com/2026/10/20/jio-ipo-gic-blackrock-.html"}
+  ]
+}
