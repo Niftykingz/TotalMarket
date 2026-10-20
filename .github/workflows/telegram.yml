@@ -1,0 +1,65 @@
+name: Telegram alerts for new stories
+
+on:
+  push:
+    branches: [main]
+    paths: ["data/posts/**"]
+  workflow_dispatch:
+    inputs:
+      story_id:
+        description: "Story id to send (file name without .json)"
+        required: true
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+      - name: Wait for GitHub Pages to publish
+        run: sleep 90
+      - name: Send new stories to Telegram
+        env:
+          TG_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TG_CHAT: ${{ secrets.TELEGRAM_CHAT_ID }}
+          STORY_ID: ${{ github.event.inputs.story_id }}
+          BEFORE: ${{ github.event.before }}
+        run: |
+          if [ -z "$TG_TOKEN" ] || [ -z "$TG_CHAT" ]; then
+            echo "Telegram secrets not set; skipping."; exit 0
+          fi
+          if [ -n "$STORY_ID" ]; then
+            files="data/posts/$STORY_ID.json"
+          else
+            base="${BEFORE:-HEAD~1}"
+            git cat-file -e "$base" 2>/dev/null || base="HEAD~1"
+            files=$(git diff --name-only --diff-filter=A "$base" HEAD -- 'data/posts/*.json')
+          fi
+          [ -z "$files" ] && { echo "No new stories."; exit 0; }
+          python3 - $files <<'PY'
+          import json, os, sys, glob, html, urllib.request, urllib.parse
+          site = "https://niftykingz.github.io/TotalMarket"
+          tok, chat = os.environ["TG_TOKEN"], os.environ["TG_CHAT"]
+          for f in sys.argv[1:]:
+              if not os.path.exists(f):
+                  continue
+              p = json.load(open(f, encoding="utf-8"))
+              sid = os.path.basename(f)[:-5]
+              url = f"{site}/news/{sid}/"
+              caption = (f"<b>{html.escape(p.get('title',''))}</b>\n\n"
+                         f"{html.escape(p.get('dek',''))}\n\n"
+                         f"📰 Read: {url}\n\n#TotalMarket")
+              jpg = sorted(glob.glob(f"docs/covers/{sid}-*.jpg"))
+              if jpg:
+                  photo = f"{site}/covers/{os.path.basename(jpg[-1])}"
+                  method, data = "sendPhoto", {"chat_id": chat, "photo": photo, "caption": caption, "parse_mode": "HTML"}
+              else:
+                  method, data = "sendMessage", {"chat_id": chat, "text": caption, "parse_mode": "HTML"}
+              req = urllib.request.Request(f"https://api.telegram.org/bot{tok}/{method}",
+                                           data=urllib.parse.urlencode(data).encode())
+              try:
+                  print(sid, urllib.request.urlopen(req, timeout=30).status)
+              except Exception as e:
+                  print("failed", sid, e)
+          PY
