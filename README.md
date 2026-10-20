@@ -78,3 +78,13 @@ Every cover follows one system: dark category background, one rendered focal obj
 - `coverHeadline`: 3–6 words, uppercase, built around the single most important verified number or phrase from the story (e.g. `SENSEX FALLS 876 PTS`, `GOLD ₹1.48 LAKH`, `RUPEE AT 94.92`, `FED HIKE ODDS ~90%`, `JIO IPO WATCH`). Never the full article title, never a number that is not in the story. Words matching `stat` are drawn in the accent colour.
 - `symbol` picks the focal object: `candles` (Indian market moves; red for falls, green for gains), `gold`, `silver`, `oil`, `rupee`/`dollar`/`euro`/`yen` (currency coins), `bitcoin`, `yield` (bond-yield curve), `globe` (global markets), `bank` (RBI, SEBI, Fed, regulators), `chip` (semiconductors, hardware), `neural` (AI models), `servers` (data centres, cloud), `shield` (hacks, bans, privacy, security), `growth` (IPOs, listings), `coins` (funding rounds, valuations), `diya` (festivals; use with `palette: "festive"`). Pick the most specific one so covers stay varied.
 - No cartoons, emojis, photos of people or logos inside covers.
+
+### Target visual style (owner reference: `design/style-reference.jpg`)
+
+The owner's preferred look is cinematic, photo-realistic editorial imagery with clean data overlays:
+- **Market crash / big falls:** a dark stormy scene, a dramatic red falling chart, and a large negative figure.
+- **Gold and commodities:** realistic close-up gold bars ("Fine Gold 999.9" style) with premium warm lighting.
+- **Global markets / central banks:** a real-world institution building at night with blue lighting and a candlestick chart overlay.
+- **Startups and IPOs:** a modern city or corporate setting at golden hour with screens showing a rising chart, plus stacks of coins.
+
+The current covers render this style in code (lit objects, dark backgrounds). Photo-realistic backgrounds need an image-generation service. If one is enabled, generate the background without text, then overlay the headline, numbers and branding with covers.py so every figure stays exact. Never generate real company logos, real people or text inside the image.
