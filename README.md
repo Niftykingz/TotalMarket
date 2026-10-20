@@ -51,3 +51,7 @@ Rebuild locally with `python3 build.py`.
 ### Daily market report
 
 A story with a `report` object renders as the full evening report (see `report.py`) and appears on `/market-report/` and as the gold banner on the home page. Fields: `date`, `dateLabel`, `mood` (Bullish/Bearish/Mixed), `kpis` [{label, value, change, dir: up|down}], `takeaways` [..], `indices` [{name, open, high, low, close, change, pct}], `caps` [{name, pct}], `sectors` [{name, pct}], `moversIndex`, `gainers`/`losers` [{name, price, pct}], `movers` {title, up, down}, `breadth` {exchange, advances, declines, unchanged, highs52, lows52, upperCircuit, lowerCircuit, wealth}, `fiiDii` {asOf, fii {buy, sell, net}, dii {…}, mtd {fii, dii}, note}, `ipos` [{name, exchange, segment, issuePrice, listingPrice, listingGainPct, close, closeVsIssuePct, note}], `ipoUpcoming` [..], `levels` [{index, support, resistance, source}], `watch` [..]. Leave out anything you could not verify.
+
+### Charts and sparklines
+
+`data/meta.json` → `history` holds daily closes per index label, e.g. `{"Nifty 50": [{"d": "2026-10-19", "v": 22888.95}, …], "Sensex": […], "Bank Nifty": […]}`. The nightly report appends that day's close (keep the last 30). The home page draws the index chart from it, and any ticker whose label has history gets a sparkline.

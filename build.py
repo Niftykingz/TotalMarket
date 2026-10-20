@@ -137,8 +137,8 @@ def desc(p):
 
 FONTS = ('<link rel="preconnect" href="https://fonts.googleapis.com">'
          '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>'
-         '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800'
-         '&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=IBM+Plex+Mono:wght@400;500&display=swap">')
+         '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@600;700'
+         '&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap">')
 
 
 def page(title, description, path, body, meta, og_type="website", extra_head="", noindex=False, image=None, seo_title=None, keywords=()):
@@ -168,10 +168,11 @@ def page(title, description, path, body, meta, og_type="website", extra_head="",
 <meta name="twitter:title" content="{e(title)}">
 <meta name="twitter:description" content="{e(description)}">
 <meta name="twitter:image" content="{e(og)}">
-<meta name="theme-color" content="#0B6E4F">
+<meta name="theme-color" content="#0A0B0D">
 <meta name="google-site-verification" content="R-bU7412W25OlS3wPOdJYbHHIF8P7FdcDqTH9Zd-Xfo">
 <link rel="icon" href="{BASE}assets/favicon.svg" type="image/svg+xml">
 <link rel="alternate" type="application/rss+xml" title="{SITE_NAME}" href="{SITE_URL}/rss.xml">
+<script>try{{var t=localStorage.getItem("tm-theme");if(t)document.documentElement.dataset.theme=t}}catch(e){{}}</script>
 {FONTS}
 <link rel="stylesheet" href="{BASE}assets/style.css">
 {extra_head}
@@ -182,38 +183,46 @@ def page(title, description, path, body, meta, og_type="website", extra_head="",
 {body}
 </main>
 {footer()}
+<script src="{BASE}assets/site.js" defer></script>
 </body>
 </html>
 """
     return head
 
 
+def spark(values, w=96, h=30):
+    vals = [float(v) for v in values if v is not None]
+    if len(vals) < 2:
+        return ""
+    lo, hi = min(vals), max(vals); rng = (hi - lo) or 1
+    pts = " ".join(f"{i * w / (len(vals) - 1):.1f},{h - 2 - (v - lo) / rng * (h - 4):.1f}" for i, v in enumerate(vals))
+    c = "up" if vals[-1] >= vals[0] else "down"
+    return f'<svg class="spark {c}" viewBox="0 0 {w} {h}" width="{w}" height="{h}" aria-hidden="true"><polyline points="{pts}" fill="none" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/></svg>'
+
+
+def hist_vals(meta, label):
+    return [x.get("v") for x in (meta.get("history") or {}).get(label, [])]
+
+
 def header(meta, path):
-    tick = ""
     t = meta.get("ticker") or []
-    if t:
-        items = "".join(
-            f'<span class="tk"><span>{e(x.get("label"))}</span>{e(x.get("value"))}'
-            f'<em class="{"down" if str(x.get("change","")).startswith("-") else "up"}">{e(x.get("change"))}</em></span>'
-            for x in t)
-        asof = f'<span class="tk"><span>{e(meta.get("tickerAsOf"))}</span></span>' if meta.get("tickerAsOf") else ""
-        tick = f'<div class="ticker" aria-label="Market snapshot">{items}{asof}</div>'
-    nav_extra = f'<a class="tab{" on" if path == f"{BASE}market-report/" else ""}" href="{BASE}market-report/" style="--dot:#F2C14E"><i></i>Daily market report</a>'
-    nav_extra += f'<a class="tab{" on" if path == f"{BASE}results/" else ""}" href="{BASE}results/" style="--dot:var(--accent)"><i></i>Results calendar</a>'
-    nav = "".join(
-        f'<a class="tab{" on" if path == f"{BASE}{k}/" else ""}" href="{BASE}{k}/" style="--dot:var(--c-{k})"><i></i>{e(v[0])}</a>'
-        for k, v in CATS.items())
-    upd = parse_dt(meta.get("updatedAt"))
-    stamp = f'<b>{e(meta.get("editionLabel") or "Latest update")}</b>'
-    if upd:
-        stamp += f'<span>Updated {e(fmt_ist(upd))}</span>'
-    return f"""<header class="top band">
-<div class="wrap">
-<div class="mast"><a class="brand" href="{BASE}">Total<span>Market</span></a><div class="stamp">{stamp}</div></div>
-{tick}
-<nav class="rail" aria-label="Sections"><a class="tab{' on' if path == BASE else ''}" href="{BASE}">All</a>{nav}{nav_extra}</nav>
+    cards = "".join(
+        f'<div class="tcard"><span class="tl">{e(x.get("label"))}</span><span class="tv">{e(x.get("value") or "—")}</span>'
+        f'<span class="tc {"down" if str(x.get("change","")).startswith("-") else "up"}">{e(x.get("change"))}</span>{spark(hist_vals(meta, x.get("label")))}</div>'
+        for x in t)
+    asof = f'<div class="tcard asof"><span class="tl">As of</span><span class="tv small">{e(meta.get("tickerAsOf"))}</span></div>' if meta.get("tickerAsOf") else ""
+    tick = f'<div class="tickers" aria-label="Market snapshot"><div class="wrap trow">{cards}{asof}</div></div>' if t else ""
+    links = [("", "Home")] + [(k + "/", v[0]) for k, v in CATS.items()] + [("market-report/", "Daily report"), ("results/", "Results")]
+    nav = "".join(f'<a class="tab{" on" if path == BASE + k else ""}" href="{BASE}{k}">{e(n)}</a>' for k, n in links)
+    return f"""<header class="top">
+<div class="wrap bar1">
+<a class="brand" href="{BASE}"><span class="bm">Total<b>Market</b></span><span class="bt">Markets · Startups · IPOs · Tech · Global</span></a>
+<div class="search" role="search"><input id="q" type="search" placeholder="Search companies, IPOs, news, markets…" aria-label="Search TotalMarket" autocomplete="off"><div id="qres" class="qres" hidden></div></div>
+<button class="themebtn" id="themebtn" type="button" aria-label="Switch light or dark theme">◐</button>
 </div>
-</header>"""
+<nav class="wrap rail" aria-label="Sections">{nav}</nav>
+</header>
+{tick}"""
 
 
 def footer():
@@ -408,8 +417,7 @@ def article_page(p, posts, meta):
 {'<div class="sources"><h2>Sources</h2><ul>' + srcs + '</ul></div>' if srcs else ''}
 <p class="disc">News and explanation only. This is not investment advice and not a recommendation to buy or sell any security.</p>
 </article>
-{rel}
-<script>document.querySelectorAll('.copy').forEach(b=>b.addEventListener('click',()=>{{navigator.clipboard&&navigator.clipboard.writeText(b.dataset.url).then(()=>{{b.textContent='Link copied'}}).catch(()=>{{}})}}))</script>"""
+{rel}"""
     return page(p["title"], p.get("seoDescription") or desc(p), path, body, meta, og_type="article", extra_head=extra, image=cover_url(p, True),
                 seo_title=(p.get("seoTitle") + f" | {SITE_NAME}") if p.get("seoTitle") else None, keywords=p["_tags"])
 
@@ -475,13 +483,137 @@ def section_page(key, posts, meta):
     return page(f"{name} news today", blurb, path, body, meta, keywords=kw)
 
 
+def ago(p):
+    mins = int((datetime.now(IST) - p["_dt"]).total_seconds() // 60)
+    if mins < 60: return f"{max(mins,1)} min ago"
+    if mins < 60 * 24: return f"{mins // 60} hours ago" if mins >= 120 else "1 hour ago"
+    return p["_dt"].astimezone(IST).strftime("%-d %b")
+
+
+def mini(p, cls="mini"):
+    return (f'<a class="{cls}" href="{url(p)}"><img src="{cover_url(p)}" width="1200" height="630" alt="" loading="lazy" decoding="async">'
+            f'<span><b>{e(p["title"])}</b><small>{e(ago(p))}</small></span></a>')
+
+
+def line_chart(points, w=320, h=150):
+    vals = [float(x["v"]) for x in points]
+    if len(vals) < 2:
+        return '<p class="muted">Chart builds up as daily closes are recorded.</p>'
+    lo, hi = min(vals), max(vals); pad = (hi - lo) * .12 or 1; lo -= pad; hi += pad
+    X = lambda i: 44 + i * (w - 54) / (len(vals) - 1); Y = lambda v: 8 + (hi - v) / (hi - lo) * (h - 34)
+    pts = " ".join(f"{X(i):.1f},{Y(v):.1f}" for i, v in enumerate(vals))
+    c = "up" if vals[-1] >= vals[0] else "down"
+    grid = "".join(f'<line x1="44" x2="{w-10}" y1="{Y(v):.1f}" y2="{Y(v):.1f}"/><text x="40" y="{Y(v)+4:.1f}" text-anchor="end">{v:,.0f}</text>'
+                   for v in (lo + pad, (lo + hi) / 2, hi - pad))
+    labels = "".join(f'<text x="{X(i):.1f}" y="{h-6}" text-anchor="{"end" if i == len(points) - 1 else "start" if i == 0 else "middle"}">{datetime.fromisoformat(x["d"]).strftime("%-d %b")}</text>'
+                     for i, x in enumerate(points) if i in (0, len(points) - 1) or len(points) <= 7)
+    area = f"44,{h-26} " + pts + f" {X(len(vals)-1):.1f},{h-26}"
+    return (f'<svg class="lchart {c}" viewBox="0 0 {w} {h}" role="img" aria-label="Recent closing levels">'
+            f'<g class="g">{grid}</g><polygon class="a" points="{area}"/><polyline class="l" points="{pts}"/>'
+            f'<circle class="d" cx="{X(len(vals)-1):.1f}" cy="{Y(vals[-1]):.1f}" r="4"/><g class="x">{labels}</g></svg>')
+
+
+def market_widget(posts, meta):
+    hist = meta.get("history") or {}
+    tabs, panels = [], []
+    for i, name in enumerate([n for n in ("Nifty 50", "Sensex", "Bank Nifty") if hist.get(n)]):
+        pts = hist[name]; last = float(pts[-1]["v"]); prev = float(pts[-2]["v"]) if len(pts) > 1 else last
+        ch = last - prev; pc = ch / prev * 100 if prev else 0
+        tabs.append(f'<button type="button" class="wt{" on" if i == 0 else ""}" data-panel="mw{i}">{e(name)}</button>')
+        panels.append(f'<div class="wp" id="mw{i}"{"" if i == 0 else " hidden"}><div class="wbig"><b>{last:,.2f}</b>'
+                      f'<span class="{"up" if ch >= 0 else "down"}">{ch:+,.2f} ({pc:+.2f}%)</span></div>{line_chart(pts)}'
+                      f'<p class="wnote">Closing levels, last {len(pts)} sessions</p></div>')
+    rep = next((p for p in posts if p.get("report")), None)
+    gl = ""
+    if rep:
+        r = rep["report"]
+        def rows(items):
+            return "".join(f'<tr><th scope="row">{e(x.get("name"))}</th><td class="num">{e(x.get("price") or "")}</td>'
+                           f'<td class="num {"down" if str(x.get("pct","")).startswith("-") else "up"}">{"" if str(x.get("pct","")).startswith(("-","+")) else "+"}{e(x.get("pct"))}%</td></tr>' for x in items[:5])
+        gl = (f'<div class="wtabs sm"><button type="button" class="wt on" data-panel="mg0">Top gainers</button><button type="button" class="wt" data-panel="mg1">Top losers</button></div>'
+              f'<div class="wp" id="mg0"><table class="mt"><tbody>{rows(r.get("gainers") or [])}</tbody></table></div>'
+              f'<div class="wp" id="mg1" hidden><table class="mt"><tbody>{rows(r.get("losers") or [])}</tbody></table></div>'
+              f'<a class="more" href="{url(rep)}">Full market report →</a>')
+    if not tabs and not gl:
+        return ""
+    return f'<aside class="widget market"><div class="wtabs">{"".join(tabs)}</div>{"".join(panels)}{gl}</aside>'
+
+
+def section_cols(posts):
+    cols = []
+    for key, icon in (("startups", "▲"), ("tech", "◆"), ("global", "◍"), ("commodities", "●")):
+        items = [p for p in posts if p["category"] == key][:4]
+        if not items:
+            continue
+        top = items[0]
+        rest = "".join(mini(p) for p in items[1:])
+        cols.append(f'<section class="scol" style="--dot:var(--c-{key})"><h2><a href="{BASE}{key}/"><span class="ic">{icon}</span>{e(CATS[key][0])} <span class="arr">→</span></a></h2>'
+                    f'<a class="sfeat" href="{url(top)}"><img src="{cover_url(top)}" width="1200" height="630" alt="" loading="lazy" decoding="async">'
+                    f'<b>{e(top["title"])}</b><span>{e(top.get("dek") or "")}</span><small>{e(ago(top))}</small></a>{rest}</section>')
+    return f'<div class="scols">{"".join(cols)}</div>' if cols else ""
+
+
+def latest_list(posts):
+    chips = '<button type="button" class="chipf on" data-cat="all">All</button>' + "".join(
+        f'<button type="button" class="chipf" data-cat="{k}">{e(v[0])}</button>' for k, v in CATS.items())
+    rows = "".join(
+        f'<li data-cat="{p["category"]}"><a href="{url(p)}"><img src="{cover_url(p)}" width="1200" height="630" alt="" loading="lazy" decoding="async">'
+        f'<span><em style="--dot:var(--c-{p["category"]})">{e(CATS[p["category"]][0])}</em><b>{e(p["title"])}</b>'
+        f'<i>{e(p.get("dek") or "")}</i><small>{e(ago(p))} · {int(p.get("readMins") or 2)} min read</small></span></a></li>' for p in posts[:30])
+    return (f'<section class="latest"><div class="lhead"><h2>Latest news</h2></div><div class="chips" id="latestchips">{chips}</div>'
+            f'<ul class="llist" id="latestlist">{rows}</ul></section>')
+
+
+def side_panels(posts, results):
+    rep = next((p for p in posts if p.get("report")), None)
+    movers = ""
+    if rep:
+        r = rep["report"]
+        rows = "".join(f'<tr><th scope="row">{e(x.get("name"))}</th><td class="num">{e(x.get("price") or "—")}</td>'
+                       f'<td class="num {"down" if str(x.get("pct","")).startswith("-") else "up"}">{"" if str(x.get("pct","")).startswith(("-","+")) else "+"}{e(x.get("pct"))}%</td></tr>'
+                       for x in (r.get("gainers") or [])[:5] + (r.get("losers") or [])[:5])
+        movers = (f'<section class="panel"><h2>Market movers <small>{e(r.get("moversIndex") or "Nifty 50")} · {e(r.get("dateLabel") or "")}</small></h2>'
+                  f'<table class="mt"><thead><tr><th>Stock</th><th>Price</th><th>% Chg</th></tr></thead><tbody>{rows}</tbody></table></section>')
+    counts = {}
+    for p in posts[:80]:
+        for t in p["_tags"]:
+            if t not in CATS_LABELS:
+                counts[t] = counts.get(t, 0) + 1
+    top = sorted(counts.items(), key=lambda kv: -kv[1])[:14]
+    trend = ('<section class="panel"><h2>Trending topics</h2><div class="tags">'
+             + "".join(f'<a class="tag" href="{BASE}tag/{slug(t)}/">#{e(t)}</a>' for t, _ in top) + "</div></section>") if top else ""
+    return movers + results_widget(results) + trend
+
+
+CATS_LABELS = {v[0] for v in CATS.values()}
+
+
 def home_page(posts, meta, results=()):
-    body = (f'<h1 class="sr">{SITE_NAME}: {e(TAGLINE)}</h1>' + report_banner(posts) + results_widget(results)
-            + (grouped(posts[:HOME_LIMIT], True) if posts else '<div class="empty"><p>The first update is on its way.</p></div>'))
+    if not posts:
+        body = '<div class="empty"><p>The first update is on its way.</p></div>'
+    else:
+        lead_p = next((p for p in posts[:12] if p.get("lead")), posts[0])
+        others = [p for p in posts if p is not lead_p]
+        hero = (f'<a class="hero1" href="{url(lead_p)}" style="--dot:var(--c-{lead_p["category"]})"><img src="{cover_url(lead_p)}" width="1200" height="630" alt="" fetchpriority="high">'
+                f'<span class="hov"><em>{e(CATS[lead_p["category"]][0])}</em><b>{e(lead_p["title"])}</b><i>{e(lead_p.get("dek") or "")}</i>'
+                f'<small>{e(ago(lead_p))} · By TotalMarket · {int(lead_p.get("readMins") or 2)} min read</small></span></a>')
+        topst = [p for p in others if p.get("stat")][:5] or others[:5]
+        stories = (f'<aside class="widget stories"><div class="wtabs"><button type="button" class="wt on" data-panel="st0">Top stories</button>'
+                   f'<button type="button" class="wt" data-panel="st1">Latest</button></div>'
+                   f'<div class="wp" id="st0">{"".join(mini(p) for p in topst)}</div><div class="wp" id="st1" hidden>{"".join(mini(p) for p in others[:5])}</div></aside>')
+        body = (f'<h1 class="sr">{SITE_NAME}: {e(TAGLINE)}</h1>'
+                f'<div class="topgrid">{hero}{stories}{market_widget(posts, meta)}</div>'
+                + report_banner(posts) + section_cols(posts)
+                + f'<div class="lower">{latest_list(posts)}<div class="side">{side_panels(posts, results)}</div></div>')
     ld = {"@context": "https://schema.org", "@type": "WebSite", "name": SITE_NAME, "url": SITE_URL + "/",
           "description": TAGLINE}
     return page(SITE_NAME, "Sensex and Nifty news, gold and silver rates, crude oil, rupee vs dollar, IPOs, results calendar and overnight global markets, with what each move means for India. Updated four times every market day.",
                 BASE, body, meta, seo_title=HOME_TITLE, keywords=HOME_KEYWORDS, extra_head=f'<script type="application/ld+json">{json.dumps(ld)}</script>')
+
+
+def search_index(posts):
+    return json.dumps([{"t": p["title"], "u": url(p), "c": CATS[p["category"]][0], "k": " ".join(p["_tags"]), "d": p["_dt"].astimezone(IST).strftime("%-d %b")}
+                       for p in posts[:400]], ensure_ascii=False)
 
 
 def rss(posts):
@@ -550,6 +682,7 @@ def main():
     write("about/index.html", about_page(meta))
     write("404.html", page("Page not found", "This page does not exist.", f"{BASE}404.html",
                            f'<div class="empty"><h1>Page not found</h1><p><a href="{BASE}">Go to the latest stories</a></p></div>', meta, noindex=True))
+    write("search.json", search_index(posts))
     write("rss.xml", rss(posts))
     write("sitemap.xml", sitemap(posts))
     write("news-sitemap.xml", news_sitemap(posts))
