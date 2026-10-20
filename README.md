@@ -9,7 +9,7 @@ Stories are researched and written automatically by Claude (an AI model from Ant
 - `data/posts/<id>.json` – one file per story (title, dek, category, body, why, sources, publishedAt …)
 - `data/meta.json` – latest update label and the market snapshot strip
 - `build.py` – turns the data into the static site in `docs/` (Python 3.12+ with Pillow)
-- `covers.py` – draws a 1200×630 cover image for each story (`docs/covers/`), also used as the share preview. `stat` is the big number on the cover (start with `-` for a fall, `+` for a rise); `statLabel` explains it. Both are optional.
+- `covers.py` – the premium cover engine: draws a 1600×900 cover per story (`docs/covers/*.webp` for the site, a 1200×675 `.jpg` for share previews). See **Cover graphics** below.
 - `docs/` – the published site, served by GitHub Pages (Settings → Pages → branch `main`, folder `/docs`)
 
 Rebuild locally with `python3 build.py`.
@@ -33,10 +33,12 @@ Rebuild locally with `python3 build.py`.
   "table": {"title": "Overnight snapshot", "rows": [{"label": "Gold (spot)", "value": "$4,160", "change": "-0.6%", "note": "Strong dollar"}]},
   "stat": "-876 pts",
   "statLabel": "Sensex closes at 73,852.90",
+  "coverHeadline": "SENSEX FALLS 876 PTS",
+  "coverContext": "Optional small line under the headline (defaults to statLabel)",
   "seoTitle": "How people search it, e.g. Gold Rate Today 21 Oct 2026: 24K ₹…, 22K ₹… (optional)",
   "tags": ["Gold rate today", "MCX gold"],
   "flags": ["IN", "US"],
-  "symbol": "gold | silver | oil | dollar | rupee | euro | yen | bitcoin | yield | bank | chip | rocket | bow | diya | chart-up | chart-down | bull | bear | ravan",
+  "symbol": "candles | gold | silver | oil | rupee | dollar | euro | yen | bitcoin | yield | globe | bank | chip | neural | servers | shield | growth | coins | diya",
   "palette": "festive (optional, saffron festival look)",
   "coverLabel": "Dussehra special (optional pill text)",
   "companies": [{"name": "Infosys", "ticker": "INFY"}],
@@ -45,7 +47,7 @@ Rebuild locally with `python3 build.py`.
 }
 ```
 
-`flags` (ISO country codes: IN US CN JP GB EU SA RU UA FR DE IT CA IL IR AE KR BR CH AU SG PK), `symbol` and `companies` decide the cover artwork; if left out they are detected from the headline. Companies appear as ticker badges, never logos. `tags` become topic pages at `/tag/<slug>/` and page keywords.
+`flags` (ISO country codes: IN US CN JP GB EU SA RU UA FR DE IT CA IL IR AE KR BR CH AU SG PK), `symbol` and `companies` decide the cover artwork; if left out they are detected from the headline. Companies appear as ticker badges. `tags` become topic pages at `/tag/<slug>/` and page keywords.
 
 ### Results calendar
 
@@ -59,9 +61,6 @@ A story with a `report` object renders as the full evening report (see `report.p
 
 `data/meta.json` → `history` holds daily closes per index label, e.g. `{"Nifty 50": [{"d": "2026-10-19", "v": 22888.95}, …], "Sensex": […], "Bank Nifty": […]}`. The nightly report appends that day's close (keep the last 30). The home page draws the index chart from it, and any ticker whose label has history gets a sparkline.
 
-### Cartoon characters
-
-`characters.py` draws original cartoon characters for covers: `bull` (rising market), `bear` (falling market), `ravan` (Dussehra). Market stories without a symbol get the bull or bear automatically. Add new festival or mascot characters there. Never draw real people or company logos.
 
 ### Keywords
 
@@ -71,3 +70,11 @@ Every story page gets meta keywords = its tags + the section's financial keyword
 
 - `people`: up to 4 people named in the story. Photos load only from **Wikimedia Commons** (`commonsFile` = the exact Commons file name, e.g. `Mukesh_Ambani.jpg`, found as `commons.wikimedia.org/wiki/File:<name>`), with a credit link to the file page. Never use photos from news sites, agencies, Google Images or social media. Skip the photo if no Commons file is found.
 - Company logos: the site owner uploads files to `logos/<ticker>.png` (see `logos/README.md`). When a story's `companies` ticker has a logo file, it appears on the story page and on the cover badge. Never download or draw logos automatically.
+
+### Cover graphics (TotalMarket graphics brief)
+
+Every cover follows one system: dark category background, one rendered focal object on the right, one dominant headline on the left, small kicker (section + country flags), thin accent rule, one short context line with the date, company ticker badges bottom-left, TotalMarket branding bottom-right.
+
+- `coverHeadline`: 3–6 words, uppercase, built around the single most important verified number or phrase from the story (e.g. `SENSEX FALLS 876 PTS`, `GOLD ₹1.48 LAKH`, `RUPEE AT 94.92`, `FED HIKE ODDS ~90%`, `JIO IPO WATCH`). Never the full article title, never a number that is not in the story. Words matching `stat` are drawn in the accent colour.
+- `symbol` picks the focal object: `candles` (Indian market moves; red for falls, green for gains), `gold`, `silver`, `oil`, `rupee`/`dollar`/`euro`/`yen` (currency coins), `bitcoin`, `yield` (bond-yield curve), `globe` (global markets), `bank` (RBI, SEBI, Fed, regulators), `chip` (semiconductors, hardware), `neural` (AI models), `servers` (data centres, cloud), `shield` (hacks, bans, privacy, security), `growth` (IPOs, listings), `coins` (funding rounds, valuations), `diya` (festivals; use with `palette: "festive"`). Pick the most specific one so covers stay varied.
+- No cartoons, emojis, photos of people or logos inside covers.
