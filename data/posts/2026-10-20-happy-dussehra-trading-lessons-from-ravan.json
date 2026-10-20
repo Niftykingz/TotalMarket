@@ -80,15 +80,18 @@
     "Happy Dussehra",
     "Dussehra 2026",
     "Vijayadashami",
+    "Ravan",
     "Trading psychology",
     "Trading lessons",
     "Risk management",
-    "Stock market holiday"
+    "Stock market holiday",
+    "Trading tips for beginners",
+    "Stock market today"
   ],
   "flags": [
     "IN"
   ],
-  "symbol": "bow",
+  "symbol": "ravan",
   "sources": [
     {
       "name": "ClearTax: NSE holidays 2026",

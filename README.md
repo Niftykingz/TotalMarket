@@ -36,7 +36,9 @@ Rebuild locally with `python3 build.py`.
   "seoTitle": "How people search it, e.g. Gold Rate Today 21 Oct 2026: 24K ₹…, 22K ₹… (optional)",
   "tags": ["Gold rate today", "MCX gold"],
   "flags": ["IN", "US"],
-  "symbol": "gold | silver | oil | dollar | rupee | euro | yen | bitcoin | yield | bank | chip | rocket | chart-up | chart-down",
+  "symbol": "gold | silver | oil | dollar | rupee | euro | yen | bitcoin | yield | bank | chip | rocket | bow | diya | chart-up | chart-down | bull | bear | ravan",
+  "palette": "festive (optional, saffron festival look)",
+  "coverLabel": "Dussehra special (optional pill text)",
   "companies": [{"name": "Infosys", "ticker": "INFY"}],
   "sources": [{"name": "Source", "url": "https://…"}]
 }
@@ -55,3 +57,11 @@ A story with a `report` object renders as the full evening report (see `report.p
 ### Charts and sparklines
 
 `data/meta.json` → `history` holds daily closes per index label, e.g. `{"Nifty 50": [{"d": "2026-10-19", "v": 22888.95}, …], "Sensex": […], "Bank Nifty": […]}`. The nightly report appends that day's close (keep the last 30). The home page draws the index chart from it, and any ticker whose label has history gets a sparkline.
+
+### Cartoon characters
+
+`characters.py` draws original cartoon characters for covers: `bull` (rising market), `bear` (falling market), `ravan` (Dussehra). Market stories without a symbol get the bull or bear automatically. Add new festival or mascot characters there. Never draw real people or company logos.
+
+### Keywords
+
+Every story page gets meta keywords = its tags + the section's financial keyword set + core market keywords (see `CAT_KEYWORDS` / `CORE_KEYWORDS` in build.py); `news_keywords` uses the story's top 10 tags.

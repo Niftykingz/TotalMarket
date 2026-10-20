@@ -2,8 +2,9 @@
 import hashlib, json, math, os, re
 from PIL import Image, ImageDraw, ImageFilter, ImageFont
 import art
+import characters
 
-VERSION = "6"
+VERSION = "7"
 W, H = 1200, 630
 HERE = os.path.dirname(os.path.abspath(__file__))
 FONT = lambda name, size: ImageFont.truetype(os.path.join(HERE, "fonts", name), size)
@@ -182,10 +183,11 @@ def render(p, path):
     d.ellipse([ex - 12, ey - 12, ex + 12, ey + 12], fill=ACC[:3] + (255,))
 
     flags, sym, comps = art.detect(p)
-    if not sym and cat == "markets":
-        sym = "chart-down" if down else "chart-up"
-    hero = art.symbol(sym, 300) if sym else None
-    if hero is None:
+    if (not sym or sym in ("chart-up", "chart-down")) and cat == "markets":
+        sym = "bear" if down else "bull"
+    char = characters.character(sym, 400 if sym == "ravan" else 330) if sym else None
+    hero = None if char is not None else (art.symbol(sym, 300) if sym else None)
+    if hero is None and char is None:
         glyph(d, "down" if down and cat == "markets" else cat, 960, 300, 380, (255, 255, 255, 60))
     base.alpha_composite(over)
     if hero is not None:
@@ -193,6 +195,11 @@ def render(p, path):
         ImageDraw.Draw(halo).ellipse([800, 170, 1120, 490], fill=(255, 255, 255, 46))
         base.alpha_composite(halo.filter(ImageFilter.GaussianBlur(18)))
         base.alpha_composite(hero, (810, 180))
+    if char is not None:
+        halo = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+        ImageDraw.Draw(halo).ellipse([790, 150, 1150, 510], fill=(255, 255, 255, 40))
+        base.alpha_composite(halo.filter(ImageFilter.GaussianBlur(24)))
+        base.alpha_composite(char, (W - char.width - 20, H - char.height - 70 if sym != "ravan" else H - char.height - 40))
     # flags, top right, overlapping
     x = W - 56
     for code in reversed(flags[:3]):

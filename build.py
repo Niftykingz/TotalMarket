@@ -74,6 +74,25 @@ def slug(t):
     return re.sub(r"[^a-z0-9]+", "-", t.lower()).strip("-")
 
 
+CORE_KEYWORDS = ["stock market news", "share market today", "Sensex", "Nifty", "Indian stock market", "market news today", "financial news India", "business news"]
+CAT_KEYWORDS = {
+    "markets": ["Sensex today", "Nifty today", "Bank Nifty", "stock market today", "share market news", "top gainers and losers", "FII DII data", "sector performance", "stocks to watch", "Q2 results"],
+    "tech": ["tech news", "AI news", "artificial intelligence", "tech stocks", "IT stocks", "Nasdaq", "semiconductor", "big tech earnings"],
+    "startups": ["IPO news", "upcoming IPO", "IPO GMP", "IPO listing", "IPO subscription status", "startup funding", "unicorn", "venture capital India"],
+    "policy": ["RBI policy", "repo rate", "SEBI news", "SEBI rules", "budget", "GST", "income tax", "inflation India", "economy news"],
+    "global": ["global market news", "US stock market", "Dow Jones", "S&P 500", "Nasdaq", "US Fed", "Fed rate hike", "US bond yields", "Asian markets", "GIFT Nifty"],
+    "commodities": ["gold rate today", "silver rate today", "MCX gold", "crude oil price", "Brent crude", "rupee vs dollar", "USD INR", "dollar index", "commodity market", "forex news"],
+}
+
+
+def page_keywords(p):
+    out, seen = [], set()
+    for k in list(p["_tags"]) + CAT_KEYWORDS.get(p["category"], []) + CORE_KEYWORDS:
+        if k.lower() not in seen:
+            seen.add(k.lower()); out.append(k)
+    return out[:30]
+
+
 def make_tags(p):
     tags = [str(t).strip() for t in (p.get("tags") or []) if str(t).strip()]
     if not tags:
@@ -141,9 +160,10 @@ FONTS = ('<link rel="preconnect" href="https://fonts.googleapis.com">'
          '&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap">')
 
 
-def page(title, description, path, body, meta, og_type="website", extra_head="", noindex=False, image=None, seo_title=None, keywords=()):
+def page(title, description, path, body, meta, og_type="website", extra_head="", noindex=False, image=None, seo_title=None, keywords=(), news_kw=None):
     canon = abs_url(path)
-    kw = f'<meta name="keywords" content="{e(", ".join(keywords))}"><meta name="news_keywords" content="{e(", ".join(keywords))}">' if keywords else ""
+    nk = list(news_kw if news_kw else keywords)[:10]
+    kw = (f'<meta name="keywords" content="{e(", ".join(keywords))}">' if keywords else "") + (f'<meta name="news_keywords" content="{e(", ".join(nk))}">' if nk else "")
     og = image or f"{SITE_URL}/assets/og.png"
     full_title = seo_title or (title if title.startswith(SITE_NAME) else f"{title} | {SITE_NAME}")
     head = f"""<!doctype html>
@@ -386,7 +406,7 @@ def article_page(p, posts, meta):
         "publisher": {"@type": "Organization", "name": SITE_NAME,
                       "logo": {"@type": "ImageObject", "url": f"{SITE_URL}/assets/logo.png"}},
     }
-    ld["keywords"] = ", ".join(p["_tags"])
+    ld["keywords"] = ", ".join(page_keywords(p))
     crumbs = {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
         {"@type": "ListItem", "position": 1, "name": "Home", "item": SITE_URL + "/"},
         {"@type": "ListItem", "position": 2, "name": CATS[p["category"]][0], "item": f"{SITE_URL}/{p['category']}/"},
@@ -423,7 +443,7 @@ def article_page(p, posts, meta):
 </article>
 {rel}"""
     return page(p["title"], p.get("seoDescription") or desc(p), path, body, meta, og_type="article", extra_head=extra, image=cover_url(p, True),
-                seo_title=(p.get("seoTitle") + f" | {SITE_NAME}") if p.get("seoTitle") else None, keywords=p["_tags"])
+                seo_title=(p.get("seoTitle") + f" | {SITE_NAME}") if p.get("seoTitle") else None, keywords=page_keywords(p), news_kw=p["_tags"][:10])
 
 
 def about_page(meta):
