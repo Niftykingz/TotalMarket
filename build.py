@@ -190,6 +190,8 @@ def page(title, description, path, body, meta, og_type="website", extra_head="",
 <meta name="twitter:image" content="{e(og)}">
 <meta name="theme-color" content="#0A0B0D">
 <meta name="google-site-verification" content="R-bU7412W25OlS3wPOdJYbHHIF8P7FdcDqTH9Zd-Xfo">
+<script async src="https://www.googletagmanager.com/gtag/js?id={GA_ID}"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){{dataLayer.push(arguments)}}gtag("js",new Date());gtag("config","{GA_ID}");</script>
 <link rel="icon" href="{BASE}assets/favicon.svg" type="image/svg+xml">
 <link rel="alternate" type="application/rss+xml" title="{SITE_NAME}" href="{SITE_URL}/rss.xml">
 <script>try{{var t=localStorage.getItem("tm-theme");if(t)document.documentElement.dataset.theme=t}}catch(e){{}}</script>
@@ -425,6 +427,8 @@ def grouped(posts, show_lead):
     return "\n".join(out)
 
 
+GA_ID = "G-B21DEZHZYT"  # Google Analytics 4 measurement ID (owner's property)
+
 # Likes: free no-login counter (Abacus). Comments: giscus (GitHub Discussions).
 # categoryId comes from https://giscus.app after Discussions is enabled; until then a placeholder shows.
 GISCUS = {"repo": "Niftykingz/TotalMarket", "repoId": "R_kgDOVQML4Q", "category": "Announcements", "categoryId": ""}
@@ -528,6 +532,7 @@ def about_page(meta):
 <div class="body">
 <p>TotalMarket is a free news site for Indian investors and traders who also follow technology. It covers stock market moves and upcoming results, IPOs and startup funding, tech and AI, RBI and SEBI decisions, overnight global markets, and gold, silver, crude oil and currencies, with what each move means globally and for India.</p>
 <p><b>How it is made.</b> Every story is researched and written automatically by Claude, an AI model made by Anthropic, using reporting from the sources linked at the end of each story. The site updates four times on each market day: a pre-market brief around 8:45 am, a midday check around 12:45 pm, a closing wrap around 3:45 pm and an evening tech and startups update around 8:45 pm IST, with one roundup on weekends and market holidays.</p>
+<p><b>Analytics and likes.</b> The site uses Google Analytics to count visits and popular stories, and a simple anonymous counter for likes. Comments, when enabled, are stored in GitHub Discussions.</p>
 <p><b>Accuracy.</b> Stories state only facts found in their sources and link to them so you can check. AI can still make mistakes, so for anything that affects a decision, open the original source.</p>
 <p><b>Not investment advice.</b> TotalMarket reports and explains news. It never recommends buying, selling or holding any security, does not give price targets, and is not registered with SEBI as an investment adviser or research analyst.</p>
 <p><b>Follow along.</b> Subscribe with any feed reader using the <a href="{SITE_URL}/rss.xml">RSS feed</a>.</p>

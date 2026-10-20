@@ -63,6 +63,7 @@
         if (liked) { b.classList.remove("pop"); void b.offsetWidth; b.classList.add("pop"); return; }
         liked = true;
         try { localStorage.setItem("tm-like-" + key, "1"); } catch (e) {}
+        if (window.gtag) gtag("event", "like_story", { story: key });
         if (typeof count === "number") count += 1;
         paint(count);
         likeBtns.forEach(function (o) { o.classList.add("pop"); });
@@ -101,6 +102,16 @@
       fab.classList.toggle("show", y > 500 && !nearEnd);
     }
     window.addEventListener("scroll", fabCheck, { passive: true }); fabCheck();
+  }
+
+  // analytics events: share clicks and comment opens
+  if (window.gtag) {
+    document.querySelectorAll(".share a, .share .copy").forEach(function (a) {
+      a.addEventListener("click", function () { gtag("event", "share", { method: a.textContent.replace("Share on ", "").trim() }); });
+    });
+    document.querySelectorAll('a[href="#comments"]').forEach(function (a) {
+      a.addEventListener("click", function () { gtag("event", "open_comments"); });
+    });
   }
 
   // search
