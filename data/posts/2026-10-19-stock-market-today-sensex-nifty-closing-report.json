@@ -9,7 +9,7 @@
   "readMins": 4,
   "stat": "-1.11%",
   "statLabel": "Nifty 50 closes at 22,888.95",
-  "symbol": "chart-down",
+  "symbol": "candles",
   "flags": [
     "IN"
   ],
@@ -365,5 +365,6 @@
       "name": "PL India (Fusion CX)",
       "url": "https://www.plindia.com/news/fusion-cx-ipo-allotment-status-check-online-listing-date-and-key-details/"
     }
-  ]
+  ],
+  "coverHeadline": "SENSEX FALLS 876 PTS"
 }

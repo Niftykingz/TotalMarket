@@ -22,5 +22,7 @@
   "title": "Google's Gemini 4 Argon is out, priced to undercut rivals",
   "id": "2026-10-20-gemini-4-argon",
   "stat": "$2",
-  "statLabel": "Per million input tokens"
+  "statLabel": "Per million input tokens",
+  "coverHeadline": "GEMINI 4 AT $2",
+  "symbol": "neural"
 }

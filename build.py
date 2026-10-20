@@ -182,7 +182,7 @@ def page(title, description, path, body, meta, og_type="website", extra_head="",
 <meta property="og:description" content="{e(description)}">
 <meta property="og:url" content="{e(canon)}">
 <meta property="og:image" content="{e(og)}">
-<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="675">
 <meta property="og:locale" content="en_IN">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{e(title)}">
@@ -266,12 +266,12 @@ def meta_row(p):
 
 
 def cover_url(p, absolute=False):
-    rel = f"{BASE}covers/{p['_cover']}"
+    rel = f"{BASE}covers/{p['_cover_og'] if absolute else p['_cover']}"
     return abs_url(rel) if absolute else rel
 
 
 def cover_img(p, cls, eager=False):
-    return (f'<img class="{cls}" src="{cover_url(p)}" width="1200" height="630" alt="" '
+    return (f'<img class="{cls}" src="{cover_url(p)}" width="1600" height="900" alt="" '
             f'{"fetchpriority=\"high\"" if eager else "loading=\"lazy\""} decoding="async">')
 
 
@@ -555,7 +555,7 @@ def ago(p):
 
 
 def mini(p, cls="mini"):
-    return (f'<a class="{cls}" href="{url(p)}"><img src="{cover_url(p)}" width="1200" height="630" alt="" loading="lazy" decoding="async">'
+    return (f'<a class="{cls}" href="{url(p)}"><img src="{cover_url(p)}" width="1600" height="900" alt="" loading="lazy" decoding="async">'
             f'<span><b>{e(p["title"])}</b><small>{e(ago(p))}</small></span></a>')
 
 
@@ -612,7 +612,7 @@ def section_cols(posts):
         top = items[0]
         rest = "".join(mini(p) for p in items[1:])
         cols.append(f'<section class="scol" style="--dot:var(--c-{key})"><h2><a href="{BASE}{key}/"><span class="ic">{icon}</span>{e(CATS[key][0])} <span class="arr">→</span></a></h2>'
-                    f'<a class="sfeat" href="{url(top)}"><img src="{cover_url(top)}" width="1200" height="630" alt="" loading="lazy" decoding="async">'
+                    f'<a class="sfeat" href="{url(top)}"><img src="{cover_url(top)}" width="1600" height="900" alt="" loading="lazy" decoding="async">'
                     f'<b>{e(top["title"])}</b><span>{e(top.get("dek") or "")}</span><small>{e(ago(top))}</small></a>{rest}</section>')
     return f'<div class="scols">{"".join(cols)}</div>' if cols else ""
 
@@ -621,7 +621,7 @@ def latest_list(posts):
     chips = '<button type="button" class="chipf on" data-cat="all">All</button>' + "".join(
         f'<button type="button" class="chipf" data-cat="{k}">{e(v[0])}</button>' for k, v in CATS.items())
     rows = "".join(
-        f'<li data-cat="{p["category"]}"><a href="{url(p)}"><img src="{cover_url(p)}" width="1200" height="630" alt="" loading="lazy" decoding="async">'
+        f'<li data-cat="{p["category"]}"><a href="{url(p)}"><img src="{cover_url(p)}" width="1600" height="900" alt="" loading="lazy" decoding="async">'
         f'<span><em style="--dot:var(--c-{p["category"]})">{e(CATS[p["category"]][0])}</em><b>{e(p["title"])}</b>'
         f'<i>{e(p.get("dek") or "")}</i><small>{e(ago(p))} · {int(p.get("readMins") or 2)} min read</small></span></a></li>' for p in posts[:30])
     return (f'<section class="latest"><div class="lhead"><h2>Latest news</h2></div><div class="chips" id="latestchips">{chips}</div>'
@@ -658,7 +658,7 @@ def home_page(posts, meta, results=()):
     else:
         lead_p = next((p for p in posts[:12] if p.get("lead")), posts[0])
         others = [p for p in posts if p is not lead_p]
-        hero = (f'<a class="hero1" href="{url(lead_p)}" style="--dot:var(--c-{lead_p["category"]})"><img src="{cover_url(lead_p)}" width="1200" height="630" alt="" fetchpriority="high">'
+        hero = (f'<a class="hero1" href="{url(lead_p)}" style="--dot:var(--c-{lead_p["category"]})"><img src="{cover_url(lead_p)}" width="1600" height="900" alt="" fetchpriority="high">'
                 f'<span class="hov"><em>{e(CATS[lead_p["category"]][0])}</em><b>{e(lead_p["title"])}</b><i>{e(lead_p.get("dek") or "")}</i>'
                 f'<small>{e(ago(lead_p))} · By TotalMarket · {int(lead_p.get("readMins") or 2)} min read</small></span></a>')
         topst = [p for p in others if p.get("stat")][:5] or others[:5]

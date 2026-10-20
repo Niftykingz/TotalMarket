@@ -32,5 +32,9 @@
     "Stock market today",
     "Axis Bank share",
     "PSU bank stocks"
-  ]
+  ],
+  "coverHeadline": "NIFTY ENDS AT 22,889",
+  "symbol": "candles",
+  "coverContext": "Sensex 73,852.90 at close",
+  "coverDate": "2026-10-19"
 }

@@ -31,5 +31,7 @@
     "Brent crude",
     "Oil price today",
     "Middle East"
-  ]
+  ],
+  "coverHeadline": "BRENT NEAR $108",
+  "symbol": "oil"
 }

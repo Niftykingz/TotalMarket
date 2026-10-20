@@ -130,5 +130,7 @@
     "Gold price today",
     "Crude oil price",
     "Nasdaq"
-  ]
+  ],
+  "coverHeadline": "US 10-YEAR AT 5.14%",
+  "symbol": "yield"
 }
