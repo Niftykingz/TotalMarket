@@ -281,6 +281,45 @@ def card(p):
             f'<h3><a href="{url(p)}">{e(p["title"])}</a></h3>{dek}{meta_row(p)}</div></article>')
 
 
+LOGO_DIR = os.path.join(ROOT, "logos")
+
+
+def logo_file(ticker):
+    t = str(ticker or "").lower()
+    for ext in ("png", "svg", "webp", "jpg", "jpeg"):
+        if t and os.path.exists(os.path.join(LOGO_DIR, f"{t}.{ext}")):
+            return f"{t}.{ext}"
+    return None
+
+
+def people_strip(p):
+    ppl = []
+    for x in (p.get("people") or [])[:4]:
+        f = str(x.get("commonsFile") or "").replace(" ", "_")
+        if not f or "/" in f or not re.fullmatch(r"[^<>\"']+\.(jpg|jpeg|png|webp)", f, re.I):
+            continue
+        img = f"https://commons.wikimedia.org/wiki/Special:FilePath/{quote(f)}?width=240"
+        page = f"https://commons.wikimedia.org/wiki/File:{quote(f)}"
+        ppl.append(f'<figure class="person"><img src="{img}" width="96" height="96" alt="{e(x.get("name"))}" loading="lazy" decoding="async" referrerpolicy="no-referrer">'
+                   f'<figcaption><b>{e(x.get("name"))}</b><span>{e(x.get("role") or "")}</span>'
+                   f'<a href="{page}" target="_blank" rel="noopener nofollow">Photo: Wikimedia Commons</a></figcaption></figure>')
+    comps = []
+    for c in (p.get("companies") or [])[:4]:
+        if not isinstance(c, dict):
+            continue
+        lf = logo_file(c.get("ticker"))
+        logo = f'<img src="{BASE}logos/{lf}" alt="" loading="lazy">' if lf else f'<span class="tkb">{e(c.get("ticker") or "")}</span>'
+        comps.append(f'<div class="company">{logo}<span><b>{e(c.get("name"))}</b><small>{e(c.get("ticker") or "")}</small></span></div>')
+    if not ppl and not comps:
+        return ""
+    out = '<div class="pstrip">'
+    if ppl:
+        out += f'<div class="pgroup"><h2>People in this story</h2><div class="prow">{"".join(ppl)}</div></div>'
+    if comps:
+        out += f'<div class="pgroup"><h2>Companies in this story</h2><div class="prow">{"".join(comps)}</div></div>'
+    return out + "</div>"
+
+
 def why(p):
     return f'<p class="why"><b>Why it matters</b>{e(p["why"])}</p>' if p.get("why") else ""
 
@@ -426,6 +465,7 @@ def article_page(p, posts, meta):
 {dek}
 {meta_row(p)}
 <div class="byline">By Claude (AI) for TotalMarket · automated update</div>
+{people_strip(p)}
 <div class="body">{body_html}</div>
 {report.render(p.get("report"))}
 {data_table(p)}
@@ -687,11 +727,13 @@ def main():
     posts = load_posts()
     if os.path.isdir(OUT):
         for name in os.listdir(OUT):
-            if name in ("assets", "covers"):
+            if name in ("assets", "covers", "logos"):
                 continue
             target = os.path.join(OUT, name)
             shutil.rmtree(target) if os.path.isdir(target) else os.remove(target)
     shutil.copytree(os.path.join(ROOT, "assets"), os.path.join(OUT, "assets"), dirs_exist_ok=True)
+    if os.path.isdir(LOGO_DIR):
+        shutil.copytree(LOGO_DIR, os.path.join(OUT, "logos"), dirs_exist_ok=True, ignore=shutil.ignore_patterns("*.md"))
     covers.ensure_covers(posts, os.path.join(OUT, "covers"))
     results = load_results()
     write("index.html", home_page(posts, meta, results))

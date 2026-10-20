@@ -33,5 +33,26 @@
     "Upcoming IPO",
     "Reliance",
     "Paras Healthcare IPO"
+  ],
+  "people": [
+    {
+      "name": "Mukesh Ambani",
+      "role": "Chairman, Reliance Industries",
+      "commonsFile": "Mukesh_Ambani.jpg"
+    }
+  ],
+  "companies": [
+    {
+      "name": "Jio Platforms",
+      "ticker": "JIO"
+    },
+    {
+      "name": "Reliance Industries",
+      "ticker": "RELIANCE"
+    },
+    {
+      "name": "Paras Healthcare",
+      "ticker": "PARAS"
+    }
   ]
 }

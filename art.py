@@ -260,7 +260,28 @@ def symbol(name, size):
 BADGE_COLS = [(37, 99, 235), (124, 58, 237), (219, 39, 119), (234, 88, 12), (5, 150, 105), (8, 145, 178), (79, 70, 229), (190, 18, 60)]
 
 
+def _logo_image(ticker):
+    t = ticker.lower()
+    for ext in ("png", "webp", "jpg", "jpeg"):
+        p = os.path.join(HERE, "logos", f"{t}.{ext}")
+        if os.path.exists(p):
+            try:
+                return Image.open(p).convert("RGBA")
+            except Exception:
+                return None
+    return None
+
+
 def company_badge(ticker, height=58):
+    lg = _logo_image(ticker)
+    if lg is not None:
+        h = height - 12
+        lg.thumbnail((int(h * 3.2), h), Image.LANCZOS)
+        w = lg.width + 24
+        im = Image.new("RGBA", (w, height), (0, 0, 0, 0))
+        ImageDraw.Draw(im).rounded_rectangle([0, 0, w - 1, height - 1], radius=height * .3, fill=(255, 255, 255, 255))
+        im.alpha_composite(lg, ((w - lg.width) // 2, (height - lg.height) // 2))
+        return im
     t = ticker.upper()[:12]
     f = FONT("DejaVuSansMono-Bold.ttf", int(height * .48))
     tmp = ImageDraw.Draw(Image.new("RGB", (1, 1)))

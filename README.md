@@ -40,6 +40,7 @@ Rebuild locally with `python3 build.py`.
   "palette": "festive (optional, saffron festival look)",
   "coverLabel": "Dussehra special (optional pill text)",
   "companies": [{"name": "Infosys", "ticker": "INFY"}],
+  "people": [{"name": "Mukesh Ambani", "role": "Chairman, Reliance Industries", "commonsFile": "Mukesh_Ambani.jpg"}],
   "sources": [{"name": "Source", "url": "https://…"}]
 }
 ```
@@ -65,3 +66,8 @@ A story with a `report` object renders as the full evening report (see `report.p
 ### Keywords
 
 Every story page gets meta keywords = its tags + the section's financial keyword set + core market keywords (see `CAT_KEYWORDS` / `CORE_KEYWORDS` in build.py); `news_keywords` uses the story's top 10 tags.
+
+### People photos and company logos
+
+- `people`: up to 4 people named in the story. Photos load only from **Wikimedia Commons** (`commonsFile` = the exact Commons file name, e.g. `Mukesh_Ambani.jpg`, found as `commons.wikimedia.org/wiki/File:<name>`), with a credit link to the file page. Never use photos from news sites, agencies, Google Images or social media. Skip the photo if no Commons file is found.
+- Company logos: the site owner uploads files to `logos/<ticker>.png` (see `logos/README.md`). When a story's `companies` ticker has a logo file, it appears on the story page and on the cover badge. Never download or draw logos automatically.

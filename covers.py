@@ -257,7 +257,9 @@ def render(p, path):
 
 def cover_name(p):
     stat, lbl = pick_stat(p)
-    h = hashlib.md5(json.dumps([VERSION, p["id"], p["title"], p["category"], stat, lbl, art.detect(p)], ensure_ascii=False).encode()).hexdigest()[:8]
+    logos = sorted(f for f in os.listdir(os.path.join(HERE, "logos")) if not f.endswith(".md")) if os.path.isdir(os.path.join(HERE, "logos")) else []
+    h = hashlib.md5(json.dumps([VERSION, p["id"], p["title"], p["category"], stat, lbl, art.detect(p), p.get("palette"), p.get("coverLabel"),
+                                [l for l in logos if l.split(".")[0].upper() in [str(x).upper() for x in art.detect(p)[2]]]], ensure_ascii=False).encode()).hexdigest()[:8]
     return f"{p['id']}-{h}.jpg"
 
 
