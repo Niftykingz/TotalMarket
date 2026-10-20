@@ -1,0 +1,37 @@
+{
+  "updatedAt": "2026-10-20T22:55:00+05:30",
+  "benchmark": {
+    "source": "India Bullion and Jewellers Association (IBJA)",
+    "url": "https://ibjarates.com/",
+    "date": "2026-10-19",
+    "session": "PM",
+    "gold": {"999": 145944, "995": 145360, "916": 133685, "750": 109458, "585": 85377},
+    "silver999": 208750,
+    "note": "IBJA did not publish rates on 20 Oct (Dussehra). Rates exclude 3% GST and making charges."
+  },
+  "history": [
+    {"date": "2026-10-14", "gold999": 146064, "gold916": 133795, "silver999": 213822},
+    {"date": "2026-10-15", "gold999": 145942, "gold916": 133683, "silver999": 208275},
+    {"date": "2026-10-16", "gold999": 146426, "gold916": 134126, "silver999": 210918},
+    {"date": "2026-10-19", "gold999": 145944, "gold916": 133685, "silver999": 208750}
+  ],
+  "retailRange": {
+    "date": "2026-10-20",
+    "gold24": [147170, 147800],
+    "gold22": [134900, 135490],
+    "note": "Retail rates quoted on 20 Oct by Goodreturns and Business Today; jewellers add GST and making charges on top.",
+    "sources": [
+      {"name": "Goodreturns", "url": "https://goodreturns.in/news/big-drop-in-gold-rate-in-india-today-on-dussehra-find-out-latest-24k-22k-18k-prices-on-oct-20-1542631.html"},
+      {"name": "Business Today", "url": "https://www.businesstoday.in/personal-finance/story/gold-silver-prices-on-october-20-check-latest-rates-in-delhi-mumbai-kolkata-other-cities-562591-2026-10-20"}
+    ]
+  },
+  "cities": [
+    {"slug": "delhi", "name": "Delhi", "gold24": 147800, "gold22": 135490},
+    {"slug": "mumbai", "name": "Mumbai", "gold24": 147650, "gold22": 135340},
+    {"slug": "chennai", "name": "Chennai", "gold24": 147800, "gold22": 135490},
+    {"slug": "kolkata", "name": "Kolkata", "gold24": 147650, "gold22": 135340},
+    {"slug": "bengaluru", "name": "Bengaluru", "gold24": 147800, "gold22": 135490},
+    {"slug": "hyderabad", "name": "Hyderabad", "gold24": 147650, "gold22": 135340}
+  ],
+  "citySource": {"name": "Business Today", "asOf": "20 Oct 2026, 8:11 am IST", "url": "https://www.businesstoday.in/personal-finance/story/gold-silver-prices-on-october-20-check-latest-rates-in-delhi-mumbai-kolkata-other-cities-562591-2026-10-20"}
+}

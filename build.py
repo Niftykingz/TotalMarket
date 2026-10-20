@@ -10,6 +10,7 @@ import hashlib, html, json, os, re, shutil, sys
 import covers
 import report
 import art
+import tools
 from datetime import datetime, timedelta, timezone
 from urllib.parse import quote
 from zoneinfo import ZoneInfo
@@ -22,6 +23,7 @@ BASE = "/TotalMarket/"                                   # path prefix on GitHub
 SITE_NAME = "TotalMarket"
 TAGLINE = "Indian markets, IPOs, tech and AI news, explained"
 TAG_SLUGS = []
+TOOL_URLS = []
 HOME_TITLE = "TotalMarket: Sensex, Nifty, Gold Rate, Crude Oil, IPO & Global Market News Today"
 HOME_KEYWORDS = ["Sensex today", "Nifty 50", "stock market news India", "gold rate today", "silver price today", "crude oil price",
                  "rupee vs dollar", "IPO news", "Q2 results", "global market news", "US market today", "AI news"]
@@ -234,7 +236,7 @@ def header(meta, path):
         for x in t)
     asof = f'<div class="tcard asof"><span class="tl">As of</span><span class="tv small">{e(meta.get("tickerAsOf"))}</span></div>' if meta.get("tickerAsOf") else ""
     tick = f'<div class="tickers" aria-label="Market snapshot"><div class="wrap trow">{cards}{asof}</div></div>' if t else ""
-    links = [("", "Home")] + [(k + "/", v[0]) for k, v in CATS.items()] + [("market-report/", "Daily report"), ("results/", "Results")]
+    links = [("", "Home")] + [(k + "/", v[0]) for k, v in CATS.items()] + [("market-report/", "Daily report"), ("gold-rate-today/", "Gold rate"), ("calculators/", "Calculators"), ("results/", "Results")]
     nav = "".join(f'<a class="tab{" on" if path == BASE + k else ""}" href="{BASE}{k}">{e(n)}</a>' for k, n in links)
     return f"""<header class="top">
 <div class="wrap bar1">
@@ -686,7 +688,7 @@ def side_panels(posts, results):
     top = sorted(counts.items(), key=lambda kv: -kv[1])[:14]
     trend = ('<section class="panel"><h2>Trending topics</h2><div class="tags">'
              + "".join(f'<a class="tag" href="{BASE}tag/{slug(t)}/">#{e(t)}</a>' for t, _ in top) + "</div></section>") if top else ""
-    return movers + results_widget(results) + trend
+    return tools.side_panel(BASE) + movers + results_widget(results) + trend
 
 
 CATS_LABELS = {v[0] for v in CATS.values()}
@@ -738,7 +740,7 @@ def rss(posts):
 
 def sitemap(posts):
     now = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
-    urls = [(SITE_URL + "/", now, "hourly")] + [(f"{SITE_URL}/{k}/", now, "hourly") for k in CATS] + [(SITE_URL + "/about/", None, "monthly"), (SITE_URL + "/results/", now, "daily"), (SITE_URL + "/market-report/", now, "daily")] + [(f"{SITE_URL}/tag/{t}/", now, "daily") for t in TAG_SLUGS]
+    urls = [(SITE_URL + "/", now, "hourly")] + [(f"{SITE_URL}/{k}/", now, "hourly") for k in CATS] + [(SITE_URL + "/about/", None, "monthly"), (SITE_URL + "/results/", now, "daily"), (SITE_URL + "/market-report/", now, "daily")] + [(u, now, "daily") for u in TOOL_URLS] + [(f"{SITE_URL}/tag/{t}/", now, "daily") for t in TAG_SLUGS]
     urls += [(abs_url(url(p)), p["_dt"].astimezone(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"), None) for p in posts]
     rows = "".join(f"<url><loc>{e(u)}</loc>{f'<lastmod>{m}</lastmod>' if m else ''}{f'<changefreq>{c}</changefreq>' if c else ''}</url>" for u, m, c in urls)
     return f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">{rows}</urlset>\n'
@@ -786,6 +788,10 @@ def main():
     for p in posts:
         write(f"news/{p['id']}/index.html", article_page(p, posts, meta))
     write("about/index.html", about_page(meta))
+    global TOOL_URLS
+    tool_pages, TOOL_URLS = tools.build(page, e, BASE, SITE_URL, meta)
+    for rel, html_ in tool_pages:
+        write(rel, html_)
     write("404.html", page("Page not found", "This page does not exist.", f"{BASE}404.html",
                            f'<div class="empty"><h1>Page not found</h1><p><a href="{BASE}">Go to the latest stories</a></p></div>', meta, noindex=True))
     write("search.json", search_index(posts))

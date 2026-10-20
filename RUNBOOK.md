@@ -21,11 +21,16 @@ Never recommend buying, selling or holding anything; no price targets or tips. W
 - **evening**: tech and startup news, IPO subscription status, Europe/US open, commodity moves; refresh `data/results.json` for the next 7–10 days (remove entries >2 days old).
 - **Festivals**: on major festivals, one festive educational piece (`palette: "festive"`, `coverLabel`, `symbol: "diya"`).
 
+- **Gold & silver rates (premarket, midday, close, and the weekend/holiday midday):** refresh `data/rates.json`. `benchmark` = latest IBJA rates from https://ibjarates.com/ (gold 999/995/916/750/585 per 10 g, silver 999 per kg, `date`, `session` AM/PM; set `note` if IBJA skipped a day). Append the day's PM rates to `history` once per date (keep last 30). `cities` = shop rates per 10 g for 24K/22K from one same-day source, named in `citySource` with time; add cities only when that source covers them. `retailRange` = low–high 24K/22K shop rates across the day's sources, with links. Never copy an old or cached page: check the date on the source. Omit a field rather than guess. `updatedAt` = now.
+
 ## 4. Research
 Several WebSearch calls in one turn ("standard", "extended" if thin) plus WebFetch. Prefer NSE/BSE, SEBI, RBI, PIB, filings, Economic Times, Business Standard, Moneycontrol, Mint, Reuters, CNBC, Kitco, CME FedWatch, Trendlyne/NiftyTrader for FII/DII. Check the newest ~60 posts so you don't repeat stories.
 
 ## 5. Write stories (5–9 per slot; one file for `report`)
 File `data/posts/<YYYY-MM-DD>-<keyword-slug>.json`. Fields per README: title, dek, category, lead (exactly one true per update; unset older ones), edition `<date>-<slot>`, editionLabel `Wed 21 Oct · Pre-market brief`, publishedAt (now, +05:30, one minute apart), readMins, body (array), indiaImpact (required), globalImpact, optional table, **coverHeadline** (3–6 words on a verified number), stat, statLabel, symbol (most specific; vary), flags, companies, optional people (Commons only), seoTitle (search-style, dated for daily prices), tags (6–10 real search phrases), sources.
+
+### Voice: teach, don't just report
+Write like a friendly teacher walking a beginner through the news. Open with what happened in one plain sentence, then explain why it happened and what it means for an ordinary investor or saver. Define every piece of jargon the first time (e.g. "FII — foreign institutional investors, big overseas funds"). Where a number matters, add a short worked example with real figures ("a ₹10 lakh home loan at 8.5% means…"). End the body with a one-line "Key takeaway" paragraph. Still no tips or recommendations.
 
 ## 6. Meta
 Update `data/meta.json`: editionLabel, updatedAt, nextUpdate (next slot that will actually run), ticker (Sensex, Nifty 50, Bank Nifty, USD/INR, Gold, Silver, Brent, US 10Y, Nasdaq, DXY; verified only), tickerAsOf. Keep `history`.
