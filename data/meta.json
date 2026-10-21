@@ -1,26 +1,66 @@
 {
-  "editionLabel": "Wed 21 Oct · Closing wrap",
-  "nextUpdate": "2026-10-21T20:10:00+05:30",
+  "editionLabel": "Wed 21 Oct · Daily market report",
+  "nextUpdate": "2026-10-21T20:45:00+05:30",
   "ticker": [
     {
       "label": "Sensex",
       "value": "73,709.69",
-      "change": "-0.19%"
+      "change": "-0.19%",
+      "asOf": "2026-10-21",
+      "kind": "close",
+      "asOfText": "21 Oct close",
+      "source": {
+        "name": "Business Standard",
+        "url": "https://www.business-standard.com/markets/news/stock-market-live-october-21-bse-sensex-today-nifty50-gift-nifty-crude-oil-prices-jio-platforms-ipo-today-hd-fire-protect-share-price-126102100078_1.html"
+      }
     },
     {
       "label": "Nifty 50",
       "value": "22,811.35",
-      "change": "-0.34%"
+      "change": "-0.34%",
+      "asOf": "2026-10-21",
+      "kind": "close",
+      "asOfText": "21 Oct close",
+      "source": {
+        "name": "Business Standard",
+        "url": "https://www.business-standard.com/markets/news/stock-market-live-october-21-bse-sensex-today-nifty50-gift-nifty-crude-oil-prices-jio-platforms-ipo-today-hd-fire-protect-share-price-126102100078_1.html"
+      }
+    },
+    {
+      "label": "Bank Nifty",
+      "value": "54,976.90",
+      "change": "-0.92%",
+      "asOf": "2026-10-21",
+      "kind": "close",
+      "asOfText": "21 Oct close",
+      "source": {
+        "name": "5paisa",
+        "url": "https://www.5paisa.com/blog/post-market-update-nifty-falls-india-vix-hits-4-month-high-october-21-2026"
+      }
     },
     {
       "label": "India VIX",
-      "value": "",
-      "change": "+6%"
+      "value": "15.7",
+      "change": "+6.1%",
+      "asOf": "2026-10-21",
+      "kind": "close",
+      "asOfText": "21 Oct close",
+      "source": {
+        "name": "Trendlyne",
+        "url": "https://trendlyne.com/posts/5903915/market-closes-lower-as-crude-oil-prices-rise"
+      }
     },
     {
       "label": "USD/INR",
-      "value": "94.56",
-      "change": "+0.4%"
+      "value": "94.43",
+      "change": "+0.51%",
+      "asOf": "2026-10-21",
+      "kind": "close",
+      "asOfText": "21 Oct close",
+      "source": {
+        "name": "Deccan Herald (PTI)",
+        "url": "https://www.deccanherald.com/india/jio-ipo-inflows-lift-rupee-48-paise-to-six-week-high-closes-at-9443-against-dollar-4190107"
+      }
     },
     {
       "label": "MCX Gold",
@@ -53,8 +93,8 @@
       "change": "-0.26%"
     }
   ],
-  "tickerAsOf": "Close, Wed 21 Oct",
-  "updatedAt": "2026-10-21T15:55:00+05:30",
+  "tickerAsOf": "Mixed times, see each item (IST)",
+  "updatedAt": "2026-10-21T20:20:00+05:30",
   "history": {
     "Nifty 50": [
       {
@@ -80,6 +120,11 @@
       {
         "d": "2026-10-19",
         "v": 22888.95
+      },
+      {
+        "d": "2026-10-21",
+        "v": 22811.35,
+        "s": "Business Standard"
       }
     ],
     "Sensex": [
@@ -106,6 +151,22 @@
       {
         "d": "2026-10-19",
         "v": 73852.9
+      },
+      {
+        "d": "2026-10-21",
+        "v": 73709.69,
+        "s": "Business Standard"
+      }
+    ],
+    "Bank Nifty": [
+      {
+        "d": "2026-10-19",
+        "v": 55488.1
+      },
+      {
+        "d": "2026-10-21",
+        "v": 54976.9,
+        "s": "5paisa"
       }
     ]
   }

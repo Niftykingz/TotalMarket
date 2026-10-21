@@ -1,0 +1,378 @@
+{
+  "title": "Stock market today: Nifty ends at 22,811 after 450-point swing; smallcaps sink 2.37%, IT jumps 2.9%",
+  "dek": "An 800-point Sensex rally faded into a second straight loss as oil near $110 and broad selling hit mid and small caps; IT was the only sector in the green.",
+  "category": "markets",
+  "lead": true,
+  "edition": "2026-10-21-report",
+  "editionLabel": "Wed 21 Oct · Daily market report",
+  "publishedAt": "2026-10-21T20:20:00+05:30",
+  "readMins": 4,
+  "body": [
+    "It was a day of two halves. The Sensex jumped as much as 829 points in the morning, to 74,682.19, and the Nifty 50 touched 23,120.90, as Asian markets bounced and money poured into the Jio IPO. By 3 pm both had fallen more than 1.8% from their highs, before the closing auction trimmed the loss. The Sensex ended 143.21 points (0.19%) lower at 73,709.69 and the Nifty 50 fell 77.60 points (0.34%) to 22,811.35, its second straight fall.",
+    "Why the turn? Brent crude stayed near $110 a barrel, keeping inflation worries alive, and US bond yields remain above 5%. Heavyweights HDFC Bank, Bajaj Finance and Eternal together dragged the Sensex down by more than 300 points, Business Standard reported. Selling was far wider than the headline numbers suggest: on NSE, 2,988 shares fell and only 608 rose. The Nifty Midcap 100 lost 1.58% to a six-month low and the Nifty Smallcap 100 fell 2.37% to a four-month low. India VIX, the market's fear gauge, rose about 6% to 15.7.",
+    "IT was the one bright spot. The Nifty IT index rose 2.88% to an eight-month high, with every stock in it ending higher; Infosys (+3.3%), HCL Technologies (+3.2%) and Tech Mahindra (+3.1%) led the Nifty. The rupee also strengthened 48 paise to a six-week high of 94.43 per dollar on Jio IPO inflows and RBI support. After market hours, Eternal reported second-quarter profit of ₹125 crore, up 92%, on revenue up 78% to ₹24,138 crore.",
+    "Key takeaway: when the Nifty falls only 0.34% but five shares fall for every one that rises, most investors' portfolios had a worse day than the index shows."
+  ],
+  "indiaImpact": "The sharp fall in mid and small caps hits retail portfolios and small-cap funds hardest, while a firmer rupee slightly eases import costs. Oil near $110 remains the biggest risk for inflation and corporate costs.",
+  "globalImpact": "Indian shares followed the global pattern of the week: tech stocks bought, rate-sensitive and oil-exposed sectors sold, as oil above $100 and US yields above 5% keep pressure on emerging markets.",
+  "coverHeadline": "NIFTY -0.34%, IT +2.88%",
+  "stat": "-0.34%",
+  "statLabel": "Nifty 50 closes at 22,811.35",
+  "symbol": "candles",
+  "flags": [
+    "IN"
+  ],
+  "companies": [
+    {
+      "name": "Infosys",
+      "ticker": "INFY"
+    },
+    {
+      "name": "Bajaj Finance",
+      "ticker": "BAJFINANCE"
+    },
+    {
+      "name": "Eternal",
+      "ticker": "ETERNAL"
+    }
+  ],
+  "seoTitle": "Stock Market Today 21 Oct: Sensex, Nifty, Top Gainers",
+  "seoDescription": "Stock market today 21 Oct 2026: Nifty 22,811 (-0.34%), Sensex 73,709, smallcaps -2.37%, IT +2.88%; breadth, gainers, losers, rupee 94.43 and what to watch.",
+  "coverAlt": "Cover graphic: Nifty -0.34%, IT index +2.88% on 21 October 2026",
+  "tags": [
+    "Stock market today",
+    "Share market today",
+    "Sensex today",
+    "Nifty today",
+    "Bank Nifty",
+    "FII DII data",
+    "Top gainers and losers",
+    "Sector performance",
+    "Infosys share price",
+    "Eternal Q2 results"
+  ],
+  "piggy": {
+    "happened": "The Nifty 50 closed 0.34% lower at 22,811.35 after swinging about 450 points between its high and low. Mid and small caps fell 1.6–2.4%, while IT stocks rose 2.9%.",
+    "matters": "Five shares fell for every one that rose on NSE, so most investors lost money even though the Nifty barely moved. Oil near $110 and US yields above 5% are the main pressures.",
+    "watch": [
+      "Jio and Paras Healthcare IPO bids on Thursday and Friday (both close 23 Oct)",
+      "Fusion CX listing on Thursday; results from HPCL, Havells, Swiggy and Colgate on Thursday",
+      "FII/DII figures for 21 October, not yet published by our sources"
+    ]
+  },
+  "report": {
+    "date": "2026-10-21",
+    "dateLabel": "Wednesday, 21 October 2026",
+    "mood": "Bearish",
+    "kpis": [
+      {
+        "label": "Sensex",
+        "value": "73,709.69",
+        "change": "-143.21 (-0.19%)",
+        "dir": "down"
+      },
+      {
+        "label": "Nifty 50",
+        "value": "22,811.35",
+        "change": "-77.60 (-0.34%)",
+        "dir": "down"
+      },
+      {
+        "label": "Bank Nifty",
+        "value": "54,976.90",
+        "change": "-511.20 (-0.92%)",
+        "dir": "down"
+      },
+      {
+        "label": "India VIX",
+        "value": "15.7",
+        "change": "+6.1%",
+        "dir": "down"
+      },
+      {
+        "label": "USD/INR",
+        "value": "94.43",
+        "change": "Rupee 48 paise stronger",
+        "dir": "up"
+      },
+      {
+        "label": "Brent crude",
+        "value": "~$110.8",
+        "change": "Intraday, 3:41 pm"
+      },
+      {
+        "label": "Advance / decline",
+        "value": "608 / 2,988",
+        "change": "NSE, breadth negative",
+        "dir": "down"
+      }
+    ],
+    "takeaways": [
+      "The Sensex swung more than 1,400 points: up 829 at the high (74,682.19), down 571 at the low (73,281.78), closing 143 points lower.",
+      "Nifty IT jumped 2.88% to an eight-month high, the only sector to rise; Infosys, HCL Tech and Tech Mahindra each gained over 3%.",
+      "Mid and small caps were hit hard: Midcap 100 −1.58% (six-month low), Smallcap 100 −2.37% (four-month low).",
+      "Breadth was very weak: 608 shares rose and 2,988 fell on NSE, with 362 hitting 52-week lows against 44 highs.",
+      "The rupee rose 48 paise to 94.43, a six-week high, on Jio IPO inflows and RBI support.",
+      "Eternal reported Q2 profit of ₹125 crore (+92%) and revenue of ₹24,138 crore (+78%) after market hours."
+    ],
+    "indices": [
+      {
+        "name": "Nifty 50",
+        "open": "23,016",
+        "high": "23,120.90",
+        "low": "22,663.40",
+        "close": "22,811.35",
+        "change": "-77.60",
+        "pct": "-0.34"
+      },
+      {
+        "name": "Sensex",
+        "open": "",
+        "high": "74,682.19",
+        "low": "73,281.78",
+        "close": "73,709.69",
+        "change": "-143.21",
+        "pct": "-0.19"
+      },
+      {
+        "name": "Bank Nifty",
+        "open": "55,707",
+        "high": "55,866",
+        "low": "",
+        "close": "54,976.90",
+        "change": "-511.20",
+        "pct": "-0.92"
+      }
+    ],
+    "caps": [
+      {
+        "name": "Large caps (Nifty 50)",
+        "pct": "-0.34"
+      },
+      {
+        "name": "Midcaps (Nifty Midcap 100)",
+        "pct": "-1.58"
+      },
+      {
+        "name": "Smallcaps (Nifty Smallcap 100)",
+        "pct": "-2.37"
+      }
+    ],
+    "sectors": [
+      {
+        "name": "IT",
+        "pct": "2.88"
+      },
+      {
+        "name": "Pharma",
+        "pct": "-0.19"
+      },
+      {
+        "name": "FMCG",
+        "pct": "-0.58"
+      },
+      {
+        "name": "Financial Services",
+        "pct": "-1.18"
+      },
+      {
+        "name": "Realty",
+        "pct": "-1.25"
+      },
+      {
+        "name": "Energy",
+        "pct": "-1.39"
+      },
+      {
+        "name": "Auto",
+        "pct": "-1.54"
+      },
+      {
+        "name": "Metal",
+        "pct": "-1.71"
+      },
+      {
+        "name": "Consumer Durables",
+        "pct": "-1.86"
+      },
+      {
+        "name": "Chemicals",
+        "pct": "-2.64"
+      }
+    ],
+    "moversIndex": "Nifty 50",
+    "gainers": [
+      {
+        "name": "Infosys",
+        "price": "₹1,168.00",
+        "pct": "3.30"
+      },
+      {
+        "name": "HCL Technologies",
+        "price": "₹1,424.20",
+        "pct": "3.21"
+      },
+      {
+        "name": "Tech Mahindra",
+        "price": "₹1,834.70",
+        "pct": "3.13"
+      }
+    ],
+    "losers": [
+      {
+        "name": "Bajaj Finance",
+        "price": "₹926.00",
+        "pct": "-3.27"
+      },
+      {
+        "name": "BSE",
+        "price": "₹3,248.30",
+        "pct": "-2.63"
+      },
+      {
+        "name": "Eternal",
+        "price": "₹312.35",
+        "pct": "-2.45"
+      }
+    ],
+    "movers": {
+      "title": "Big movers in the broader market",
+      "up": [
+        {
+          "name": "L&T Technology Services",
+          "pct": "10.7"
+        },
+        {
+          "name": "Wipro",
+          "pct": "3.9"
+        }
+      ],
+      "down": [
+        {
+          "name": "eMudhra",
+          "pct": "-20"
+        },
+        {
+          "name": "ABB India",
+          "pct": "-5.9"
+        },
+        {
+          "name": "Siemens",
+          "pct": "-5.6"
+        },
+        {
+          "name": "Meesho",
+          "pct": "-5.4"
+        }
+      ]
+    },
+    "breadth": {
+      "exchange": "NSE",
+      "advances": 608,
+      "declines": 2988,
+      "unchanged": 102,
+      "highs52": "44",
+      "lows52": "362",
+      "upperCircuit": "62",
+      "lowerCircuit": "254"
+    },
+    "fiiDii": {
+      "asOf": "latest available: Mon 19 Oct",
+      "fii": {
+        "buy": "11,240.6",
+        "sell": "12,389.3",
+        "net": "-1,148.6"
+      },
+      "dii": {
+        "buy": "14,781.3",
+        "sell": "11,580.1",
+        "net": "3,201.2"
+      },
+      "mtd": {
+        "fii": "-49,917.6",
+        "dii": "+51,369.2"
+      },
+      "note": "Provisional figures for Wednesday 21 Oct had not been published by our sources when this report was written. Month-to-date totals run to 19 Oct."
+    },
+    "ipos": [
+      {
+        "name": "HD Fire Protect",
+        "exchange": "NSE, BSE",
+        "segment": "Mainboard",
+        "issuePrice": "₹271",
+        "listingPrice": "₹335 (NSE)",
+        "listingGainPct": "23.6",
+        "close": "",
+        "closeVsIssuePct": "",
+        "note": "IPO subscribed about 92 times; shares pared gains after listing to around ₹306–307 later in the day (about 13% above issue). Closing price not confirmed."
+      }
+    ],
+    "ipoUpcoming": [
+      "Jio Platforms (₹1,065–1,119) and Paras Healthcare (₹660–693): bidding until Fri 23 Oct; Jio was 2.38x subscribed by 3 pm on day one",
+      "Fusion CX lists Thu 22 Oct",
+      "Zetwerk, Tonbo Imaging, Bonfiglioli Transmissions and Sahajanand Medical Technologies list Fri 23 Oct"
+    ],
+    "levels": [
+      {
+        "index": "Nifty 50",
+        "support": "22,700",
+        "resistance": "23,000",
+        "source": "Liquide market recap"
+      },
+      {
+        "index": "Bank Nifty",
+        "support": "54,800",
+        "resistance": "55,200",
+        "source": "Liquide market recap"
+      }
+    ],
+    "watch": [
+      "Thursday results: HPCL, Havells, Swiggy, Colgate-Palmolive, Adani Energy Solutions",
+      "Jio and Paras IPO day-two subscription; Fusion CX listing",
+      "Brent crude near $110 and US 10-year yield",
+      "US Fed meeting on 27–28 October"
+    ]
+  },
+  "sources": [
+    {
+      "name": "Business Standard (live blog, close)",
+      "url": "https://www.business-standard.com/markets/news/stock-market-live-october-21-bse-sensex-today-nifty50-gift-nifty-crude-oil-prices-jio-platforms-ipo-today-hd-fire-protect-share-price-126102100078_1.html"
+    },
+    {
+      "name": "Business Standard (day high and low)",
+      "url": "https://www.business-standard.com/markets/news/why-are-markets-rising-today-sensex-up-800-pts-intraday-nifty-tops-23-100-126102100246_1.html"
+    },
+    {
+      "name": "5paisa post-market",
+      "url": "https://www.5paisa.com/blog/post-market-update-nifty-falls-india-vix-hits-4-month-high-october-21-2026"
+    },
+    {
+      "name": "Liquide market recap",
+      "url": "https://blog.liquide.life/share-market-today-nifty-slips-below-22-900-sensex-falls-143-points-as-financials-metals-drag-markets-lower/"
+    },
+    {
+      "name": "Kotak Neo closing bell",
+      "url": "https://www.kotakneo.com/news/market-news/sensex-and-nifty-slide-as-middle-east-tensions-lift-oil-prices/"
+    },
+    {
+      "name": "Trendlyne market close",
+      "url": "https://trendlyne.com/posts/5903915/market-closes-lower-as-crude-oil-prices-rise"
+    },
+    {
+      "name": "Deccan Herald (rupee close)",
+      "url": "https://www.deccanherald.com/india/jio-ipo-inflows-lift-rupee-48-paise-to-six-week-high-closes-at-9443-against-dollar-4190107"
+    },
+    {
+      "name": "Business Standard (Eternal Q2)",
+      "url": "https://www.business-standard.com/amp/companies/quarterly-results/eternal-q2fy27-net-profit-jumps-92-to-125-crore-revenue-rises-78-126102101130_1.html"
+    },
+    {
+      "name": "HDFC Sky (Jio IPO day 1)",
+      "url": "https://hdfcsky.com/news/jio-platforms-ipo-subscription-status-day-1-at-3-pm"
+    },
+    {
+      "name": "5paisa (FII DII data)",
+      "url": "https://www.5paisa.com/share-market-today/fii-dii-data"
+    }
+  ]
+}
