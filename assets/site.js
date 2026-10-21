@@ -1,9 +1,9 @@
 (function () {
   var root = document.documentElement;
-  // theme toggle (dark is the default look)
+  // theme toggle (light is the default look; dark is optional)
   var btn = document.getElementById("themebtn");
   if (btn) btn.addEventListener("click", function () {
-    var cur = root.dataset.theme || "dark";
+    var cur = root.dataset.theme || "light";
     var next = cur === "light" ? "dark" : "light";
     root.dataset.theme = next;
     try { localStorage.setItem("tm-theme", next); } catch (e) {}
@@ -83,7 +83,7 @@
       s.src = "https://giscus.app/client.js"; s.async = true; s.crossOrigin = "anonymous";
       var a = { repo: gc.dataset.repo, "repo-id": gc.dataset.repoId, category: gc.dataset.category, "category-id": gc.dataset.categoryId,
         mapping: "pathname", strict: "1", "reactions-enabled": "1", "emit-metadata": "0", "input-position": "top",
-        theme: (root.dataset.theme === "light") ? "light" : "transparent_dark", lang: "en", loading: "lazy" };
+        theme: (root.dataset.theme === "dark") ? "transparent_dark" : "light", lang: "en", loading: "lazy" };
       Object.keys(a).forEach(function (k) { s.setAttribute("data-" + k, a[k]); });
       gc.appendChild(s);
     }
