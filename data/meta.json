@@ -1,6 +1,6 @@
 {
-  "editionLabel": "Wed 21 Oct · Daily market report",
-  "nextUpdate": "2026-10-21T20:45:00+05:30",
+  "editionLabel": "Wed 21 Oct · Evening update",
+  "nextUpdate": "2026-10-22T08:45:00+05:30",
   "ticker": [
     {
       "label": "Sensex",
@@ -94,7 +94,7 @@
     }
   ],
   "tickerAsOf": "Mixed times, see each item (IST)",
-  "updatedAt": "2026-10-21T20:20:00+05:30",
+  "updatedAt": "2026-10-21T20:55:00+05:30",
   "history": {
     "Nifty 50": [
       {

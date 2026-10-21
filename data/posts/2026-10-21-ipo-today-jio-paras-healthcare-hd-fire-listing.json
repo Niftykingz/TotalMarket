@@ -1,5 +1,5 @@
 {
-  "title": "IPO today (21 Oct): Jio 2.38x on day 1, Paras Healthcare opens, HD Fire lists at 24% premium",
+  "title": "IPO today (21 Oct): Jio 3.04x on day 1, Paras Healthcare 0.15x, HD Fire lists at 24% premium",
   "dek": "Your daily IPO class: what's open, what listed, what's coming, and one concept explained simply.",
   "category": "startups",
   "lead": false,
@@ -9,7 +9,7 @@
   "publishedAt": "2026-10-21T16:45:00+05:30",
   "body": [
     "Namaste investors, and welcome to today's IPO class. An IPO (initial public offering) is the first time a company sells its shares to the public. Today was a big day: two mainboard IPOs opened, one company listed, and five more list this week. Let's go through it step by step.",
-    "Open now: Jio Platforms (₹1,065–1,119, lot of 12 shares = ₹13,428) was 2.38 times subscribed by 3 pm on day one, HDFC Sky reported. Institutions (QIBs) bid 7.09 times their quota while retail investors were at 0.61 times. Paras Healthcare (₹660–693, lot of 21 shares = ₹14,553) also opened; it runs eight hospitals with 2,211 beds in North India, Bihar and Jharkhand. Its ₹1,450 crore issue is ₹500 crore of new shares and ₹950 crore sold by existing holders. Note the split: only 10% of Paras's issue is reserved for retail, so allotment can be tight. Both close on Friday 23 October and list on Wednesday 28 October.",
+    "Open now: Jio Platforms (₹1,065–1,119, lot of 12 shares = ₹13,428) ended day one 3.04 times subscribed as of about 6 pm, HDFC Sky reported, up from 2.38 times at 3 pm. Institutions (QIBs) bid 9.04 times their quota, HNIs 1.61 times (bids above ₹10 lakh 1.75x, up to ₹10 lakh 1.33x), employees 1.33x, Reliance shareholders 1.41x and retail investors 0.73x. Paras Healthcare (₹660–693, lot of 21 shares = ₹14,553) was 0.15 times subscribed at 5:07 pm, with retail at 0.73x and institutions yet to bid; it runs eight hospitals with 2,211 beds. Its ₹1,450 crore issue is ₹500 crore of new shares and ₹950 crore sold by existing holders, and only 10% is reserved for retail, so allotment can be tight. Both close on Friday 23 October and list on Wednesday 28 October.",
     "Listed today: HD Fire Protect, whose IPO was subscribed about 92 times, opened at ₹335 on NSE against an issue price of ₹271, a 23.6% premium. It then gave up part of the gain and later traded around ₹306–307, about 13% above the issue price, according to reports. Lesson: the listing price is just the first trade of the day; prices can swing a lot in the first hours.",
     "Today's concept: fresh issue vs offer for sale (OFS). In a fresh issue the company creates new shares and keeps the money, for example to repay debt or build hospitals. In an OFS, existing owners sell their shares and the money goes to them, not the company. Jio's IPO is 100% fresh issue (₹27,500 crore goes to repaying debt). HD Fire Protect's was 100% OFS, so the company itself received nothing. Paras is a mix. Worked example: in a ₹1,000 crore IPO that is ₹300 crore fresh and ₹700 crore OFS, the company gets only ₹300 crore to grow; the other ₹700 crore goes to sellers. Neither type is good or bad by itself, but always check who gets the money and why.",
     "Coming up: Fusion CX lists on Thursday 22 October; Zetwerk, Tonbo Imaging, Bonfiglioli Transmissions and Sahajanand Medical Technologies are scheduled to list on Friday 23 October. Grey market premiums (GMP), unofficial prices quoted before listing, are about ₹243–265 for Jio and about ₹45–50 for Paras across trackers, but GMP is unregulated and often wrong, so treat it as gossip, not data.",
@@ -20,13 +20,13 @@
     "rows": [
       {
         "label": "Jio Platforms",
-        "value": "Open · 2.38x",
+        "value": "Open · 3.04x",
         "change": "",
         "note": "₹1,065–1,119 · lot 12 · closes 23 Oct · lists 28 Oct"
       },
       {
         "label": "Paras Healthcare",
-        "value": "Open",
+        "value": "Open · 0.15x",
         "change": "",
         "note": "₹660–693 · lot 21 · ₹500 cr fresh + ₹950 cr OFS · lists 28 Oct"
       },
@@ -70,8 +70,8 @@
   },
   "why": "Seven mainboard IPOs list in one week, so a lot of investor money is tied up in applications and refunds, which can affect liquidity in other small and mid-sized stocks.",
   "indiaImpact": "India's IPO market is having one of its busiest weeks, led by the record Jio issue; strong demand shows confidence, but heavy fund-raising can also weigh on the secondary market, as seen in today's 2.37% smallcap fall.",
-  "coverHeadline": "IPO DAILY: JIO 2.38X",
-  "stat": "2.38X",
+  "coverHeadline": "IPO DAILY: JIO 3.04X",
+  "stat": "3.04X",
   "statLabel": "Jio IPO subscription, day 1",
   "coverContext": "Paras opens · HD Fire lists +24%",
   "coverLabel": "IPO daily",
@@ -122,15 +122,26 @@
     {
       "name": "Groww: Jio Platforms IPO details",
       "url": "https://groww.in/blog/jio-platforms-ipo-to-open-on-october-21-2026"
+    },
+    {
+      "name": "HDFC Sky: Jio IPO day 1 update",
+      "url": "https://hdfcsky.com/news/jio-platforms-ipo-subscription-update-day-1"
+    },
+    {
+      "name": "HDFC Sky: Paras Healthcare day 1",
+      "url": "https://hdfcsky.com/news/paras-healthcare-ipo-subscription-status-day-1"
     }
   ],
   "piggy": {
-    "happened": "Jio Platforms' IPO was 2.38 times subscribed by 3 pm on day one, Paras Healthcare's IPO opened, and HD Fire Protect listed at ₹335, 23.6% above its ₹271 issue price, before paring gains.",
+    "happened": "Jio's IPO ended day one 3.04 times subscribed (institutions 9.04x, retail 0.73x), Paras Healthcare was 0.15 times, and HD Fire Protect listed 23.6% above its issue price.",
     "matters": "Seven mainboard IPOs list this week, so a lot of investor money is tied up in applications. Strong day-one demand shows institutional appetite, but listing prices can swing sharply in the first hours.",
     "watch": [
       "Jio and Paras subscription numbers on 22–23 October, especially the retail category",
       "Fusion CX listing on 22 October; Zetwerk, Tonbo, Bonfiglioli and Sahajanand Medical on 23 October",
       "Allotment on 26 October and listing on 28 October for Jio and Paras"
     ]
-  }
+  },
+  "updatedAt": "2026-10-21T20:53:00+05:30",
+  "status": "update",
+  "changeNote": "Added day-1 end figures: Jio 3.04x by about 6 pm (QIB 9.04x, retail 0.73x) and Paras Healthcare 0.15x at 5:07 pm."
 }

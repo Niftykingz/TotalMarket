@@ -1,0 +1,110 @@
+{
+  "title": "Eternal Q2 results: profit up 92% to ₹125 crore, revenue jumps 78% as Blinkit grows",
+  "dek": "Zomato's parent beat its low base on quick commerce; Blinkit now has 2,751 stores and targets 3,500 by March 2027.",
+  "category": "markets",
+  "lead": true,
+  "readMins": 3,
+  "status": "new",
+  "body": [
+    "Eternal, the company behind Zomato and Blinkit, reported a July–September (Q2 FY27) net profit of ₹125 crore on Wednesday evening, up 92% from ₹65 crore a year earlier, Business Standard reported. Revenue rose 77.6% to ₹24,138 crore.",
+    "Most of the growth came from Blinkit, its 10-minute delivery business. Blinkit's net order value (NOV, the total value of orders placed) rose 79.3% to ₹20,940 crore and its revenue rose 93.6% to ₹19,152 crore. Blinkit's adjusted EBITDA, a measure of operating profit before interest, tax and depreciation, was ₹184 crore. It ended the quarter with 2,751 dark stores (small warehouses used for fast delivery); the company now expects more than 3,500 by March 2027 and about 5,000 by March 2028. Food delivery NOV grew 21.5% to ₹11,445 crore.",
+    "Why is a 92% jump still only ₹125 crore? Because the base was small. Worked example: profit going from ₹65 crore to ₹125 crore is a ₹60 crore rise, which is 92% of ₹65 crore, but it is about 0.5% of the quarter's ₹24,138 crore revenue. That thin margin is normal for a fast-growing delivery business that is spending heavily on new stores. Cash fell to ₹16,475 crore from ₹18,288 crore, which the company linked to festive-season inventory. A headline on Business Standard said profit fell short of estimates; earlier brokerage previews had pencilled in about ₹228–293 crore adjusted profit, though methods differ.",
+    "Key takeaway: Blinkit's growth and first steady profits are the story; investors will watch whether margins rise as store openings speed up."
+  ],
+  "indiaImpact": "Eternal is one of India's largest consumer-internet companies, so its numbers set the tone for Swiggy, which reports on Thursday, and for other new-age tech stocks. Its shares fell 2.45% to ₹312.35 before the results.",
+  "piggy": {
+    "happened": "Eternal's quarterly profit rose 92% to ₹125 crore and revenue rose 78% to ₹24,138 crore, led by Blinkit, whose order value grew 79%.",
+    "matters": "Big percentage jumps from a small base can hide thin margins: profit is about half a rupee for every ₹100 of revenue. The market will compare the numbers with what brokerages expected.",
+    "watch": [
+      "How Eternal shares react on Thursday 22 October",
+      "Swiggy's results on Thursday",
+      "Blinkit store count and margins next quarter"
+    ]
+  },
+  "table": {
+    "title": "Eternal Q2 FY27 at a glance (Business Standard)",
+    "rows": [
+      {
+        "label": "Net profit",
+        "value": "₹125 cr",
+        "change": "+92% YoY",
+        "note": "₹65 cr a year ago"
+      },
+      {
+        "label": "Revenue",
+        "value": "₹24,138 cr",
+        "change": "+77.6% YoY",
+        "note": ""
+      },
+      {
+        "label": "Adjusted EBITDA",
+        "value": "₹666 cr",
+        "change": "+197% YoY",
+        "note": ""
+      },
+      {
+        "label": "Blinkit NOV",
+        "value": "₹20,940 cr",
+        "change": "+79.3% YoY",
+        "note": "2,751 stores"
+      },
+      {
+        "label": "Food delivery NOV",
+        "value": "₹11,445 cr",
+        "change": "+21.5% YoY",
+        "note": "28 mn monthly customers"
+      },
+      {
+        "label": "Cash balance",
+        "value": "₹16,475 cr",
+        "change": "",
+        "note": "From ₹18,288 cr; festive working capital"
+      }
+    ]
+  },
+  "coverHeadline": "ETERNAL PROFIT +92%",
+  "stat": "+92%",
+  "statLabel": "Q2 profit ₹125 crore",
+  "symbol": "growth",
+  "flags": [
+    "IN"
+  ],
+  "companies": [
+    {
+      "name": "Eternal",
+      "ticker": "ETERNAL"
+    },
+    {
+      "name": "Swiggy",
+      "ticker": "SWIGGY"
+    }
+  ],
+  "seoTitle": "Eternal Q2 Results: Profit ₹125 Crore, Blinkit Grows 79%",
+  "seoDescription": "Eternal Q2 FY27 results: net profit up 92% to ₹125 crore, revenue up 78% to ₹24,138 crore; Blinkit NOV up 79% with 2,751 stores. What the numbers mean.",
+  "coverAlt": "Cover graphic: Eternal Q2 profit up 92%",
+  "tags": [
+    "Eternal Q2 results",
+    "Eternal share price",
+    "Zomato share price",
+    "Blinkit",
+    "Q2 results today",
+    "Swiggy Q2 results"
+  ],
+  "sources": [
+    {
+      "name": "Business Standard: Eternal Q2FY27",
+      "url": "https://www.business-standard.com/amp/companies/quarterly-results/eternal-q2fy27-net-profit-jumps-92-to-125-crore-revenue-rises-78-126102101130_1.html"
+    },
+    {
+      "name": "NiftyTrader: Eternal Q2 preview (estimates)",
+      "url": "https://www.niftytrader.in/markets/eternal-q2-fy27-results-on-oct-21/"
+    },
+    {
+      "name": "Liquide market recap (share price)",
+      "url": "https://blog.liquide.life/share-market-today-nifty-slips-below-22-900-sensex-falls-143-points-as-financials-metals-drag-markets-lower/"
+    }
+  ],
+  "edition": "2026-10-21-evening",
+  "editionLabel": "Wed 21 Oct · Evening update",
+  "publishedAt": "2026-10-21T20:55:00+05:30"
+}

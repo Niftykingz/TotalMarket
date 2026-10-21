@@ -1,0 +1,55 @@
+{
+  "title": "Evening markets: Europe firmer, US opens higher before Meta and Tesla results; oil eases on Iran talk",
+  "dek": "Brent slipped back from $111 after Iran's foreign minister signalled openness to diplomacy; gold held near $4,140.",
+  "category": "global",
+  "lead": false,
+  "readMins": 2,
+  "body": [
+    "Global markets were calmer on Wednesday evening (IST). European shares were mostly firmer after two days of losses, led by technology, property and banks, according to Newsquawk's market wrap at 7:50 pm IST (14:20 UTC). Spectacles maker EssilorLuxottica jumped 14.3% on strong sales, while French retailer Carrefour fell 14% after cutting its outlook.",
+    "In the US, stocks opened higher with the tech-heavy Nasdaq 100 supported by results from Super Micro and news around SpaceX. The big events come after the US close: Meta and Tesla report quarterly results, which can move tech shares worldwide, including Indian IT stocks, on Thursday morning.",
+    "Oil turned lower. Brent traded between $107.68 and $111.32 and was near the bottom of that range, and WTI fell from $100.40 to about $96.92, after Iran's foreign minister wrote that Iran was willing to pursue diplomacy while warning it would defend itself. Spot gold held in a $4,106–4,142 range and the dollar index was steady near 101.7.",
+    "Key takeaway: if oil keeps easing from $110, that helps India's rupee and inflation outlook; Meta and Tesla results tonight will set the mood for tech stocks tomorrow."
+  ],
+  "globalImpact": "Signs of diplomacy around Iran cooled oil, the biggest worry for markets this week, while US tech results are the next test for the AI-driven rally.",
+  "indiaImpact": "Lower oil is good news for India's import bill, the rupee and oil-using sectors; US tech results feed into Indian IT shares, which rallied 2.9% today.",
+  "coverHeadline": "OIL EASES FROM $111",
+  "stat": "$111",
+  "statLabel": "Brent range $107.68–111.32",
+  "symbol": "oil",
+  "flags": [
+    "US",
+    "EU",
+    "IR"
+  ],
+  "companies": [
+    {
+      "name": "Meta",
+      "ticker": "META"
+    },
+    {
+      "name": "Tesla",
+      "ticker": "TSLA"
+    }
+  ],
+  "seoTitle": "US Market Today: Meta, Tesla Results Ahead; Oil Eases",
+  "seoDescription": "Evening global markets 21 Oct 2026: Europe firmer, US opens higher before Meta and Tesla results, Brent eases from $111 on Iran diplomacy, gold near $4,140.",
+  "coverAlt": "Cover graphic: Brent oil eases from $111",
+  "tags": [
+    "US stock market",
+    "Global market today",
+    "Crude oil price",
+    "Brent crude",
+    "Meta results",
+    "Tesla results",
+    "European markets"
+  ],
+  "sources": [
+    {
+      "name": "Newsquawk European market wrap, 21 Oct",
+      "url": "https://www.newsquawk.com/headlines/newsquawk-european-market-wrap---21st-october-2026"
+    }
+  ],
+  "edition": "2026-10-21-evening",
+  "editionLabel": "Wed 21 Oct · Evening update",
+  "publishedAt": "2026-10-21T20:54:00+05:30"
+}
