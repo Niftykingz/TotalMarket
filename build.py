@@ -18,8 +18,8 @@ from zoneinfo import ZoneInfo
 ROOT = os.path.dirname(os.path.abspath(__file__))
 DATA = os.path.join(ROOT, "data")
 OUT = os.path.join(ROOT, "docs")
-SITE_URL = "https://niftykingz.github.io/TotalMarket"   # no trailing slash
-BASE = "/TotalMarket/"                                   # path prefix on GitHub Pages
+SITE_URL = "https://totalmarket.co.in"   # no trailing slash
+BASE = "/"                                   # site is served at the domain root
 SITE_NAME = "TotalMarket"
 TAGLINE = "Indian markets, IPOs, tech and AI news, explained"
 TAG_SLUGS = []
@@ -800,6 +800,7 @@ def main():
     write("news-sitemap.xml", news_sitemap(posts))
     write("robots.txt", f"User-agent: *\nAllow: /\nSitemap: {SITE_URL}/sitemap.xml\nSitemap: {SITE_URL}/news-sitemap.xml\n")
     write(".nojekyll", "")
+    write("CNAME", "totalmarket.co.in\n")  # custom domain for GitHub Pages
     print(f"Built {len(posts)} stories into docs/")
 
 

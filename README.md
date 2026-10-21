@@ -1,6 +1,6 @@
 # TotalMarket
 
-Indian markets, IPOs, tech and AI news, explained. Live at **https://niftykingz.github.io/TotalMarket/**
+Indian markets, IPOs, tech and AI news, explained. Live at **https://totalmarket.co.in/**
 
 Stories are researched and written automatically by Claude (an AI model from Anthropic) four times every market day, with one roundup on weekends and market holidays. News and explanation only, not investment advice.
 

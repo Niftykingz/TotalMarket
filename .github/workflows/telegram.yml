@@ -45,7 +45,7 @@ jobs:
           [ -z "$files" ] && { echo "No new stories."; exit 0; }
           python3 - $files <<'PY'
           import json, os, sys, glob, html, urllib.request, urllib.parse
-          site = "https://niftykingz.github.io/TotalMarket"
+          site = "https://totalmarket.co.in"
           tok, chat = os.environ["TG_TOKEN"], os.environ["TG_CHAT"]
           for f in sys.argv[1:]:
               if not os.path.exists(f):
