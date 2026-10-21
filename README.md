@@ -111,3 +111,10 @@ Every story page has a highlighted "Did this story help you?" card with a **Like
 ### Boss Piggy (site guide)
 
 Boss Piggy, a cartoon pig in black glasses and a navy suit, is TotalMarket's market guide. He appears in a small intro on the home page, as the host of the IPO hub and the Learn page, and in a "Boss Piggy explains" box on stories that have a `piggy` field (`happened`, `matters`, `watch`). Images: `assets/piggy/` (head avatars and a 360 px full figure, WebP with transparency); the original is kept in `design/`. He is not shown on story covers or cards.
+
+### Market status, holidays, breadth, corporate events, archive
+
+- `data/market_calendar.json` → header "Market open/closed" pill (computed in the browser from NSE hours and holidays, schedule-based, not live data) and **/stock-market-holidays-2026/**.
+- Home **Market breadth** card reads the newest report's `breadth` (end of day, with source and an NSE link; missing values show "Unavailable").
+- `data/corporate_events.json` + results calendar → **/corporate-events/** (dividends, record dates, results dates, board meetings; filter by type; official NSE notice links when confirmed).
+- **/market-report/** has a date-searchable archive and an index-closing history table; `docs/data/index-closes.csv` is TotalMarket's own record of closes (not NSE official data).

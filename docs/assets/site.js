@@ -139,3 +139,60 @@
     q.addEventListener("keydown", function (ev) { if (ev.key === "Escape") { box.hidden = true; q.blur(); } });
   }
 })();
+
+// ---- market session status (from NSE trading hours + holiday list; schedule-based, not live data)
+(function () {
+  var els = document.querySelectorAll("[data-mstatus]"), nh = document.querySelectorAll("[data-nextholiday]");
+  if (!els.length && !nh.length) return;
+  var base = (document.querySelector(".brand") || {getAttribute: function () { return "/"; }}).getAttribute("href") || "/";
+  fetch(base + "market-calendar.json").then(function (r) { return r.json(); }).then(function (c) {
+    function ist() { var d = new Date(); return new Date(d.getTime() + (d.getTimezoneOffset() + 330) * 60000); }
+    function iso(d) { return d.getFullYear() + "-" + ("0" + (d.getMonth() + 1)).slice(-2) + "-" + ("0" + d.getDate()).slice(-2); }
+    function mins(t) { var p = t.split(":"); return +p[0] * 60 + +p[1]; }
+    function isTrading(d) { var w = d.getDay(); return w !== 0 && w !== 6 && c.holidays.indexOf(iso(d)) < 0; }
+    var now = ist(), m = now.getHours() * 60 + now.getMinutes(), h = c.hours, label, cls;
+    function nextSession() { var d = new Date(now); do { d.setDate(d.getDate() + 1); } while (!isTrading(d)); return d.toLocaleDateString("en-IN", {weekday: "short", day: "numeric", month: "short"}); }
+    if (!isTrading(now)) {
+      var hol = c.names[iso(now)];
+      label = "Market closed" + (hol ? " · " + hol : " · weekend") + " · next " + nextSession() + " 9:15";
+      cls = "closed";
+    } else if (m < mins(h.preOpen[0])) { label = "Pre-market · opens 9:15 am IST"; cls = "pre"; }
+    else if (m < mins(h.normal[0])) { label = "Pre-open session"; cls = "pre"; }
+    else if (m < mins(h.normal[1])) { label = "Market open · closes 3:30 pm IST"; cls = "open"; }
+    else if (m < mins(h.closing[1])) { label = "Closing session"; cls = "pre"; }
+    else { label = "Market closed · next " + nextSession() + " 9:15"; cls = "closed"; }
+    els.forEach(function (el) { el.textContent = label; el.classList.add("ms-" + cls); });
+    var t = iso(now), nxt = c.holidays.filter(function (x) { return x >= t; })[0];
+    nh.forEach(function (el) {
+      if (!nxt) { el.textContent = "—"; return; }
+      var d = new Date(nxt + "T00:00:00");
+      el.innerHTML = d.toLocaleDateString("en-IN", {weekday: "short", day: "numeric", month: "short"}) + "<small>" + (c.names[nxt] || "") + "</small>";
+    });
+  }).catch(function () { els.forEach(function (el) { el.style.display = "none"; }); });
+})();
+
+// ---- corporate events type filter
+(function () {
+  var chips = document.getElementById("evchips"), list = document.getElementById("evlist");
+  if (!chips || !list) return;
+  chips.addEventListener("click", function (ev) {
+    var b = ev.target.closest(".chipf"); if (!b) return;
+    chips.querySelectorAll(".chipf").forEach(function (o) { o.classList.toggle("on", o === b); });
+    var c = b.dataset.cat;
+    list.querySelectorAll("tr[data-type]").forEach(function (tr) { tr.hidden = c !== "all" && tr.dataset.type !== c; });
+  });
+})();
+
+// ---- report archive: find by date
+(function () {
+  var inp = document.getElementById("archdate"), clr = document.getElementById("archclear"), msg = document.getElementById("archmsg"), arch = document.getElementById("archive");
+  if (!inp || !arch) return;
+  function show(d) {
+    var hits = 0;
+    arch.querySelectorAll("li[data-date]").forEach(function (li) { var ok = !d || li.dataset.date === d; li.hidden = !ok; if (ok) hits++; });
+    arch.querySelectorAll("section.arch").forEach(function (s) { s.hidden = !s.querySelector("li:not([hidden])"); });
+    msg.textContent = d ? (hits ? hits + " report found" : "No report for that date (weekend, holiday or before our archive began).") : "";
+  }
+  inp.addEventListener("change", function () { show(inp.value); });
+  clr.addEventListener("click", function () { inp.value = ""; show(""); });
+})();

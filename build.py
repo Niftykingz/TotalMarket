@@ -12,6 +12,7 @@ import report
 import art
 import tools
 import hubs
+import markets
 from datetime import datetime, timedelta, timezone
 from urllib.parse import quote
 from zoneinfo import ZoneInfo
@@ -248,6 +249,7 @@ def header(meta, path):
 <div class="wrap bar1">
 <a class="brand" href="{BASE}"><span class="bm">Total<b>Market</b></span><span class="bt">Markets · Startups · IPOs · Tech · Global</span></a>
 <div class="search" role="search"><input id="q" type="search" placeholder="Search companies, IPOs, news, markets…" aria-label="Search TotalMarket" autocomplete="off"><div id="qres" class="qres" hidden></div></div>
+<a class="mstatus hdr" data-mstatus href="{BASE}stock-market-holidays-2026/" title="Market session from NSE trading hours and holidays">Market status</a>
 <button class="themebtn" id="themebtn" type="button" aria-label="Switch light or dark theme">◐</button>
 </div>
 <nav class="wrap rail" aria-label="Sections">{nav}</nav>
@@ -258,7 +260,7 @@ def header(meta, path):
 def footer():
     return f"""<footer class="wrap foot">
 <p><b>Not investment advice.</b> TotalMarket reports and explains news. It does not recommend buying, selling or holding any security and is not a SEBI-registered investment adviser or research analyst. Do your own research or consult a registered adviser before investing.</p>
-<nav class="footlinks" aria-label="Market data"><b>Market data:</b> <a href="{BASE}nifty-50/">Nifty 50 today</a> · <a href="{BASE}global-indices/">Global indices</a> · <a href="{BASE}gold-rate-today/">Gold rate today</a> · <a href="{BASE}silver-rate-today/">Silver rate today</a> · <a href="{BASE}fii-dii-data/">FII DII data</a> · <a href="{BASE}top-gainers-losers-today/">Top gainers &amp; losers</a> · <a href="{BASE}ipo/">IPO today</a> · <a href="{BASE}results/">Results calendar</a> · <a href="{BASE}market-report/">Daily market report</a> · <a href="{BASE}stock/">Companies A–Z</a> · <a href="{BASE}calculators/">SIP &amp; EMI calculators</a> · <a href="{BASE}learn/">Learn</a></nav>
+<nav class="footlinks" aria-label="Market data"><b>Market data:</b> <a href="{BASE}nifty-50/">Nifty 50 today</a> · <a href="{BASE}global-indices/">Global indices</a> · <a href="{BASE}gold-rate-today/">Gold rate today</a> · <a href="{BASE}silver-rate-today/">Silver rate today</a> · <a href="{BASE}fii-dii-data/">FII DII data</a> · <a href="{BASE}top-gainers-losers-today/">Top gainers &amp; losers</a> · <a href="{BASE}ipo/">IPO today</a> · <a href="{BASE}results/">Results calendar</a> · <a href="{BASE}corporate-events/">Corporate actions</a> · <a href="{BASE}stock-market-holidays-2026/">Market holidays 2026</a> · <a href="{BASE}market-report/">Daily market report</a> · <a href="{BASE}stock/">Companies A–Z</a> · <a href="{BASE}calculators/">SIP &amp; EMI calculators</a> · <a href="{BASE}learn/">Learn</a></nav>
 <p>Stories are written and published automatically by Claude, an AI model from Anthropic, based on the linked reporting. Every story lists its sources. <a href="{BASE}about/">About TotalMarket</a> · <a href="{SITE_URL}/rss.xml">RSS feed</a></p>
 </footer>"""
 
@@ -654,7 +656,7 @@ def report_page(posts, meta):
     path = f"{BASE}market-report/"
     reps = [p for p in posts if p.get("report")]
     body = (f'<div class="sechead"><h1>Daily stock market report</h1><p>Every market day after 8 pm: Sensex, Nifty and Bank Nifty with day high and low, large vs mid vs small caps, sector heatmap, top gainers and losers, FII/DII data, IPO listings, market breadth and what to watch next.</p></div>'
-            + report_banner(reps) + (grouped(reps[1:SECTION_LIMIT], False) if len(reps) > 1 else "")
+            + report_banner(reps) + markets.archive_html(reps, meta, {"e": e, "base": BASE, "url": url})
             + ("" if reps else '<div class="empty"><p>The first report is on its way. It publishes after 8 pm on each market day.</p></div>'))
     return page("Daily Stock Market Report", "Daily Indian stock market report: Sensex and Nifty close, day range, FII DII data, top gainers and losers, sectors, IPO listings and breadth.",
                 path, body, meta, seo_title="Daily Stock Market Report: Sensex, Nifty, FII DII | TotalMarket",
@@ -794,6 +796,7 @@ def home_page(posts, meta, results=()):
         body = (f'<h1 class="sr">{SITE_NAME}: {e(TAGLINE)}</h1>'
                 + piggy_intro()
                 + f'<div class="topgrid">{hero}{stories}{market_widget(posts, meta)}</div>'
+                + markets.breadth_card(posts, {"e": e, "base": BASE, "url": url})
                 + report_banner(posts) + section_cols(posts)
                 + f'<div class="lower">{latest_list(posts)}<div class="side">{side_panels(posts, results)}</div></div>')
     ld = {"@context": "https://schema.org", "@type": "WebSite", "name": SITE_NAME, "url": SITE_URL + "/",
@@ -869,7 +872,7 @@ def main():
     ipages, IPO_LIST = hubs.ipo_pages(posts, ctx)
     COMPANY_SLUGS = set(comps)
     ctx.update({"url": url, "site_url": SITE_URL, "piggy_box": piggy_data, "line_chart": line_chart})
-    extra_pages = (hubs.fii_dii_page(posts, ctx) + hubs.gainers_page(posts, ctx) + hubs.live_page(posts, ctx) + hubs.learn_page(ctx)
+    extra_pages = (markets.holidays_page(ctx) + markets.events_page(posts, results, ctx) + hubs.fii_dii_page(posts, ctx) + hubs.gainers_page(posts, ctx) + hubs.live_page(posts, ctx) + hubs.learn_page(ctx)
                    + hubs.global_page(posts, ctx) + hubs.nifty_page(posts, ctx))
     for rel, html_ in cpages + ipages + extra_pages:
         write(rel, html_)
@@ -896,6 +899,8 @@ def main():
     write("news-sitemap.xml", news_sitemap(posts))
     write("robots.txt", f"User-agent: *\nAllow: /\nSitemap: {SITE_URL}/sitemap.xml\nSitemap: {SITE_URL}/news-sitemap.xml\n")
     write(".nojekyll", "")
+    write("market-calendar.json", markets.calendar_json())
+    write("data/index-closes.csv", markets.index_csv(meta))
     write("CNAME", "totalmarket.co.in\n")  # custom domain for GitHub Pages
     print(f"Built {len(posts)} stories into docs/")
 

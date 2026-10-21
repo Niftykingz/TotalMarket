@@ -511,3 +511,41 @@ a.company small{color:var(--accent-2)}
 .dkpis small{font-family:var(--f-mono);font-size:.8rem}.dkpis small.up{color:var(--up)}.dkpis small.down{color:var(--down)}
 .nchart .lchart{width:100%;height:auto;max-height:260px}
 .footlinks{margin:0 0 12px;line-height:1.9}.footlinks a{color:#93C5FD;text-decoration:none}.footlinks a:hover{text-decoration:underline}
+
+/* ---------- market status, breadth, events, archive ---------- */
+.mstatus{display:inline-flex;align-items:center;gap:6px;font-size:.72rem;font-weight:700;letter-spacing:.03em;padding:4px 10px;border-radius:999px;background:var(--surface-2);color:var(--muted);text-decoration:none;white-space:nowrap}
+.mstatus::before{content:"";width:8px;height:8px;border-radius:50%;background:currentColor}
+.mstatus.ms-open{background:var(--up-bg);color:var(--up)}
+.mstatus.ms-pre{background:var(--pill-amber-bg);color:var(--pill-amber)}
+.mstatus.ms-closed{background:var(--down-bg);color:var(--down)}
+.mstatus.hdr{margin-left:auto;background:var(--head-field);color:var(--head-ink);border:1px solid var(--head-field-line)}
+.mstatus.hdr.ms-open{color:#86EFAC}.mstatus.hdr.ms-pre{color:#FCD34D}.mstatus.hdr.ms-closed{color:#FCA5A5}
+@media (max-width:760px){.mstatus.hdr{order:2;margin-left:0}}
+.breadth h2{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap}
+.breadth h2 .mstatus{font-size:.66rem}
+.bbar{display:flex;height:10px;border-radius:5px;overflow:hidden;margin:4px 0 12px;background:var(--surface-2)}
+.bbar i{display:block;height:100%}.bbar i.up{background:var(--up)}.bbar i.down{background:var(--down)}.bbar i.fl{background:var(--line-2)}
+.bgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px 12px}
+.bgrid div{display:flex;flex-direction:column}
+.bgrid span{font-size:.72rem;color:var(--muted)}
+.bgrid b{font-family:var(--f-mono);font-size:1rem}.bgrid b.up{color:var(--up)}.bgrid b.down{color:var(--down)}
+.bgrid b.small{font-size:.82rem}.bgrid b small{display:block;font-family:var(--f-body);font-weight:400;font-size:.7rem;color:var(--muted)}
+.bgrid .na{font-style:normal;font-family:var(--f-body);font-size:.78rem;color:var(--muted);font-weight:500}
+.bnote{margin:12px 0 0;font-size:.74rem;color:var(--muted)}.bnote a{color:var(--accent)}
+.holi tr.past th,.holi tr.past td{color:var(--muted)}
+.plain{margin:0;padding-left:18px}.plain li{margin:4px 0}
+.evchips{margin:4px 0 12px}
+.evday{font-size:.95rem;margin:14px 0 6px;color:var(--ink)}
+.evtable th small,.evtable td small{display:block;color:var(--muted);font-size:.74rem;font-weight:400}
+.evtable small.per{margin-top:2px}
+.evt{display:inline-block;font-size:.72rem;font-weight:700;padding:2px 8px;border-radius:999px;background:var(--accent-soft);color:var(--accent)}
+.archsearch{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:16px 0}
+.archsearch label{font-weight:600}
+.archsearch input{font:inherit;padding:7px 10px;border:1px solid var(--line-2);border-radius:8px;background:var(--surface);color:var(--ink)}
+.archlist{list-style:none;margin:0;padding:0}
+.archlist li{display:grid;grid-template-columns:110px 1fr;gap:10px;padding:9px 0;border-bottom:1px solid var(--line)}
+.archlist time{font-family:var(--f-mono);font-size:.85rem;color:var(--muted)}
+.archlist a{text-decoration:none;font-weight:600}.archlist a:hover{color:var(--accent)}
+.breadth.wide{margin:18px 0}
+@media (min-width:900px){.breadth.wide .bgrid{grid-template-columns:repeat(9,1fr)}}
+@media (min-width:600px) and (max-width:899px){.breadth.wide .bgrid{grid-template-columns:repeat(5,1fr)}}

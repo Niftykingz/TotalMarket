@@ -1,0 +1,37 @@
+{
+  "year": 2026,
+  "timezone": "Asia/Kolkata",
+  "hours": {"preOpen": ["09:00", "09:15"], "normal": ["09:15", "15:30"], "closing": ["15:30", "16:00"]},
+  "holidays": [
+    {"date": "2026-01-26", "name": "Republic Day"},
+    {"date": "2026-03-03", "name": "Holi"},
+    {"date": "2026-03-26", "name": "Shri Ram Navami"},
+    {"date": "2026-03-31", "name": "Shri Mahavir Jayanti"},
+    {"date": "2026-04-03", "name": "Good Friday"},
+    {"date": "2026-04-14", "name": "Dr. Baba Saheb Ambedkar Jayanti"},
+    {"date": "2026-05-01", "name": "Maharashtra Day"},
+    {"date": "2026-05-28", "name": "Bakri Id"},
+    {"date": "2026-06-26", "name": "Muharram"},
+    {"date": "2026-09-14", "name": "Ganesh Chaturthi"},
+    {"date": "2026-10-02", "name": "Mahatma Gandhi Jayanti"},
+    {"date": "2026-10-20", "name": "Dussehra"},
+    {"date": "2026-11-10", "name": "Diwali-Balipratipada"},
+    {"date": "2026-11-24", "name": "Prakash Gurpurb Sri Guru Nanak Dev"},
+    {"date": "2026-12-25", "name": "Christmas"}
+  ],
+  "weekendHolidays": [
+    {"date": "2026-02-15", "name": "Maha Shivaratri"},
+    {"date": "2026-03-21", "name": "Id-Ul-Fitr"},
+    {"date": "2026-08-15", "name": "Independence Day"},
+    {"date": "2026-11-08", "name": "Diwali Laxmi Pujan"}
+  ],
+  "specialSessions": [
+    {"date": "2026-11-08", "name": "Muhurat trading (Diwali)", "note": "Timings to be notified by NSE in a separate circular."}
+  ],
+  "officialUrl": "https://www.nseindia.com/resources/exchange-communication-holidays",
+  "sources": [
+    {"name": "smallcase (citing NSE circular NSE/CMTR/71775)", "url": "https://www.smallcase.com/learn/nse-holidays-2026/"},
+    {"name": "Bajaj AMC", "url": "https://www.bajajamc.com/knowledge-centre/nse-holidays"}
+  ],
+  "checked": "2026-10-21"
+}
