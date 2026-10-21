@@ -1,0 +1,52 @@
+{
+  "title": "Crude oil: Brent tops $110 for a moment, settles at $108.79 as Hormuz risk lingers",
+  "dek": "Oil hit a five-month high on tanker attacks before easing, and it was rising again in early Asian trade.",
+  "category": "commodities",
+  "lead": false,
+  "readMins": 2,
+  "body": [
+    "Oil prices swung sharply. Brent crude, the global benchmark, briefly climbed above $110 a barrel on Tuesday, its highest in five months, then settled 0.69% lower at $108.79. US crude (WTI, December contract) ended at $98.28. Early on Wednesday Brent was up about 1.1% at $110.03, according to Reuters.",
+    "The reason is the Strait of Hormuz, a narrow sea route between Iran and Oman that carries a large share of the world's oil. Reports of tanker attacks there keep a 'risk premium' in prices: buyers pay extra today in case supply gets disrupted tomorrow. Prices eased during the US session as traders focused on strong company earnings and lower bond yields.",
+    "India imports more than 85% of the crude it uses, so every $10 rise in oil costs the country billions of dollars a year and pushes up the import bill. Worked example: if Brent stays near $110 instead of $100, oil companies' costs per barrel rise about 10%, and that pressure eventually shows up in fuel, transport and plastic prices if it lasts.",
+    "Key takeaway: oil near $110 is the biggest outside risk for Indian inflation and the rupee this week."
+  ],
+  "globalImpact": "High oil raises inflation worldwide and makes it harder for central banks like the Fed to cut rates; energy stocks were the weakest US sector on Tuesday as prices eased.",
+  "indiaImpact": "Costlier oil widens India's trade deficit, weakens the rupee and hurts oil-using sectors like paints, airlines and tyres, while helping upstream producers such as ONGC and Oil India.",
+  "coverHeadline": "BRENT HITS $110",
+  "stat": "$110",
+  "statLabel": "Brent settles at $108.79",
+  "symbol": "oil",
+  "flags": [
+    "IR",
+    "SA",
+    "IN"
+  ],
+  "seoTitle": "Crude Oil Price Today 21 Oct 2026: Brent $108.79, Hit $110, WTI $98",
+  "tags": [
+    "Crude oil price",
+    "Brent crude",
+    "Crude oil price today",
+    "Oil price news",
+    "Strait of Hormuz",
+    "WTI crude",
+    "Petrol diesel price"
+  ],
+  "sources": [
+    {
+      "name": "HDFC Sky: US market close",
+      "url": "https://hdfcsky.com/news/dow-rises-529-oil-retreat-rotation-us-market-close"
+    },
+    {
+      "name": "Capp Notes: Closing Look, 20 Oct",
+      "url": "https://cappnotes.substack.com/p/closing-look-tuesday-october-20-2026"
+    },
+    {
+      "name": "Reuters via Investing.com",
+      "url": "https://ca.investing.com/news/economy-news/asian-stocks-climb-as-strong-earnings-buoy-wall-street-4892172"
+    }
+  ],
+  "edition": "2026-10-21-premarket",
+  "editionLabel": "Wed 21 Oct · Pre-market brief",
+  "publishedAt": "2026-10-21T08:48:00+05:30",
+  "coverDate": "2026-10-20"
+}

@@ -1,0 +1,50 @@
+{
+  "title": "Kospi crashes 3.73% as AI chip worries hit Samsung, SK hynix; rebound under way",
+  "dek": "South Korea's market fell about 21% in seven sessions before this week; foreign and institutional funds sold again on Tuesday.",
+  "category": "global",
+  "lead": false,
+  "readMins": 2,
+  "body": [
+    "South Korea's main index, the Kospi, fell 3.73% (215 points) to 5,552.74 on Tuesday, wiping out a two-day rebound. Losing shares outnumbered gaining ones 771 to 117. Memory-chip maker SK hynix fell 4.23% to its lowest close since April, and Samsung Electronics lost 2.98%.",
+    "The trigger was doubt about the AI boom. Korean chipmakers sell the memory chips that power AI data centres, so when investors worry that companies are spending too much on AI or may struggle to earn it back, these stocks fall first. Profit-taking added to it: foreigners sold a net 535 billion won and local institutions about 1 trillion won, while individual investors bought. The Kospi had already dropped about 21% in seven sessions from 6 October.",
+    "Early on Wednesday, Korean shares were up about 4% as strong US earnings lifted Asia, Reuters reported. Swings this big show how nervous investors are about AI-linked stocks.",
+    "Key takeaway: AI-related stocks worldwide are moving together; big falls in Korea or US chipmakers can spill into Indian IT and technology shares."
+  ],
+  "globalImpact": "Korea is a bellwether for the global chip cycle; heavy selling there signals fragile confidence in AI spending, which affects chip and tech stocks from Taiwan to the US.",
+  "indiaImpact": "India has few large chipmakers, but global AI jitters affect Indian IT services sentiment and foreign fund flows into emerging markets, including India.",
+  "coverHeadline": "KOSPI CRASHES 3.73%",
+  "stat": "-3.73%",
+  "statLabel": "Kospi closes at 5,552.74",
+  "symbol": "chip",
+  "flags": [
+    "KR"
+  ],
+  "seoTitle": "Kospi Crash Today: Why South Korea Stocks Fell 3.73%, Samsung, SK Hynix",
+  "tags": [
+    "Kospi",
+    "Asian markets today",
+    "AI stocks",
+    "Samsung share price",
+    "SK hynix",
+    "Semiconductor stocks",
+    "Global market today"
+  ],
+  "sources": [
+    {
+      "name": "Korea JoongAng Daily",
+      "url": "https://www.koreajoongangdaily.com/business/kospi-slides-nearly-4-on-ai-jitters-unrest-in-france/12930159"
+    },
+    {
+      "name": "UPI",
+      "url": "https://www.upi.com/Top_News/World-News/2026/10/20/kospi-stock-market/4271792535873/"
+    },
+    {
+      "name": "Reuters via Investing.com",
+      "url": "https://ca.investing.com/news/economy-news/asian-stocks-climb-as-strong-earnings-buoy-wall-street-4892172"
+    }
+  ],
+  "edition": "2026-10-21-premarket",
+  "editionLabel": "Wed 21 Oct · Pre-market brief",
+  "publishedAt": "2026-10-21T08:46:00+05:30",
+  "coverDate": "2026-10-20"
+}

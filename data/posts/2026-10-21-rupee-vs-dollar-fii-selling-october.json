@@ -1,0 +1,90 @@
+{
+  "title": "Rupee at 94.92 as FIIs pull ₹49,900 crore from Indian shares in October",
+  "dek": "A softer dollar overnight helps, but steady foreign selling and costly oil keep the rupee near 95.",
+  "category": "commodities",
+  "lead": false,
+  "readMins": 2,
+  "body": [
+    "The rupee last closed at 94.92 per US dollar on Monday, 3 paise weaker, before Tuesday's Dussehra holiday. It reopens today with mixed signals: the dollar index, which measures the dollar against six major currencies, fell 0.26% to 101.71 overnight, which usually helps the rupee, but Brent oil is back near $110.",
+    "The bigger pressure is money leaving India. FIIs, foreign institutional investors such as big overseas funds, sold a net ₹1,148.6 crore of Indian shares on Monday and about ₹49,918 crore so far in October, according to provisional data compiled by 5paisa. DIIs, domestic institutional investors such as Indian mutual funds and insurers, bought ₹3,201 crore on Monday and about ₹51,369 crore this month. When foreign funds sell, they convert rupees into dollars, which pushes the rupee down.",
+    "Worked example: a student paying $20,000 in US college fees needs about ₹18.98 lakh at 94.92. Every 1-rupee fall in the rupee adds ₹20,000 to that bill, while an exporter earning $20,000 gets ₹20,000 more.",
+    "Key takeaway: watch FII flows and oil; together they decide most of the rupee's daily move."
+  ],
+  "table": {
+    "title": "FII and DII cash flows (₹ crore, provisional)",
+    "rows": [
+      {
+        "label": "FII net, 19 Oct",
+        "value": "-1,148.6",
+        "change": "",
+        "note": "Buy 11,240.6 / Sell 12,389.3"
+      },
+      {
+        "label": "DII net, 19 Oct",
+        "value": "+3,201.2",
+        "change": "",
+        "note": "Buy 14,781.3 / Sell 11,580.1"
+      },
+      {
+        "label": "FII net, 16 Oct",
+        "value": "+1,165.9",
+        "change": "",
+        "note": ""
+      },
+      {
+        "label": "FII net, 15 Oct",
+        "value": "-5,285.4",
+        "change": "",
+        "note": ""
+      },
+      {
+        "label": "FII net, October to date",
+        "value": "-49,917.6",
+        "change": "",
+        "note": ""
+      },
+      {
+        "label": "DII net, October to date",
+        "value": "+51,369.2",
+        "change": "",
+        "note": ""
+      }
+    ]
+  },
+  "globalImpact": "A slightly weaker dollar after softer US yields gives emerging-market currencies some relief, but oil-importing countries like India remain under pressure.",
+  "indiaImpact": "A weak rupee makes imports such as oil, electronics and gold costlier and raises the cost of foreign travel and education, while it helps exporters like IT and pharma companies.",
+  "coverHeadline": "RUPEE AT 94.92",
+  "stat": "94.92",
+  "statLabel": "FIIs sold ₹49,918 cr in October",
+  "symbol": "rupee",
+  "flags": [
+    "IN",
+    "US"
+  ],
+  "seoTitle": "Rupee vs Dollar Today 21 Oct 2026: 94.92, FII DII Data October",
+  "tags": [
+    "Rupee vs dollar",
+    "Dollar to rupee",
+    "USD INR today",
+    "FII DII data",
+    "FII selling",
+    "Rupee news"
+  ],
+  "sources": [
+    {
+      "name": "5paisa: FII DII data",
+      "url": "https://www.5paisa.com/share-market-today/fii-dii-data"
+    },
+    {
+      "name": "Kotak Neo: Pre-market 21 Oct",
+      "url": "https://www.kotakneo.com/news/market-news/pre-market-21-october-2026-gift-nifty-points-to-positive-start/"
+    },
+    {
+      "name": "Capp Notes: Closing Look, 20 Oct",
+      "url": "https://cappnotes.substack.com/p/closing-look-tuesday-october-20-2026"
+    }
+  ],
+  "edition": "2026-10-21-premarket",
+  "editionLabel": "Wed 21 Oct · Pre-market brief",
+  "publishedAt": "2026-10-21T08:47:00+05:30"
+}

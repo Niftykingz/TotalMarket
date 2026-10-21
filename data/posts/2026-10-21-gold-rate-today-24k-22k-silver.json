@@ -1,0 +1,107 @@
+{
+  "title": "Gold rate today: 24K near ₹1.47–1.49 lakh, silver around ₹2.3 lakh/kg",
+  "dek": "Global gold slipped as US yields stayed above 5%, but Indian shop rates edged up after the Dussehra break.",
+  "category": "commodities",
+  "lead": false,
+  "readMins": 2,
+  "body": [
+    "Indian gold prices are steady to slightly higher this morning. 24-carat (99.9% pure) gold is quoted at about ₹1,47,440–₹1,48,612 per 10 grams across major cities, and 22-carat (91.6% pure, the usual jewellery grade) at about ₹1,35,150–₹1,36,128, depending on the source and city. Silver is around ₹2.30 lakh per kg.",
+    "Why are global and Indian prices moving differently? Overnight, US gold futures fell 0.42% to about $4,143 an ounce because US bond yields above 5% make interest-paying assets more attractive than gold, which pays nothing. But Indian prices are set in rupees and include import duty and local demand, so a weak rupee (about 94.92 per dollar) keeps them high. Silver rose about 2% globally to $58.10 on industrial demand.",
+    "Worked example: at ₹1,35,500 per 10 g for 22K, a 10-gram chain costs about ₹1,35,500 for the metal, plus 3% GST (about ₹4,065) and the jeweller's making charge, often 8–15% (₹10,800–20,300). So the bill can be ₹1.5–1.6 lakh. The official benchmark from IBJA (India Bullion and Jewellers Association) was ₹1,45,944 for 999 gold on 19 October; IBJA did not publish on Dussehra and its first rates for today come around midday.",
+    "Key takeaway: shop rates differ by a few hundred rupees between cities and websites, so compare the per-gram rate and the making charge, not just the headline price."
+  ],
+  "table": {
+    "title": "Gold rate today in major cities (per 10 g, 21 Oct, Asianet Newsable 8:17 am)",
+    "rows": [
+      {
+        "label": "Delhi",
+        "value": "24K ₹1,48,527",
+        "change": "",
+        "note": "22K ₹1,36,050"
+      },
+      {
+        "label": "Mumbai",
+        "value": "24K ₹1,48,326",
+        "change": "",
+        "note": "22K ₹1,35,867"
+      },
+      {
+        "label": "Chennai",
+        "value": "24K ₹1,48,612",
+        "change": "",
+        "note": "22K ₹1,36,128"
+      },
+      {
+        "label": "Kolkata",
+        "value": "24K ₹1,48,126",
+        "change": "",
+        "note": "22K ₹1,35,684"
+      },
+      {
+        "label": "Bengaluru",
+        "value": "24K ₹1,48,517",
+        "change": "",
+        "note": "22K ₹1,36,041"
+      },
+      {
+        "label": "Hyderabad",
+        "value": "24K ₹1,48,577",
+        "change": "",
+        "note": "22K ₹1,36,096"
+      },
+      {
+        "label": "Silver (1 kg)",
+        "value": "₹2,29,540–2,31,840",
+        "change": "",
+        "note": "Range across cities"
+      },
+      {
+        "label": "Gold (global, Dec futures)",
+        "value": "~$4,143/oz",
+        "change": "-0.42%",
+        "note": "Tuesday close"
+      }
+    ]
+  },
+  "globalImpact": "Gold is being pulled two ways: high US yields and a firm dollar weigh on it, while Middle East tension and oil above $100 keep safe-haven demand alive.",
+  "indiaImpact": "With the rupee near 95 per dollar, Indian gold stays close to record levels even when global prices dip, raising costs for festive and wedding buying ahead of Diwali.",
+  "coverHeadline": "GOLD ₹1.48 LAKH",
+  "stat": "₹1.48",
+  "statLabel": "24K per 10 g, major cities",
+  "symbol": "gold",
+  "flags": [
+    "IN"
+  ],
+  "seoTitle": "Gold Rate Today 21 Oct 2026: 24K ₹1,48,500, 22K ₹1,36,000, Silver ₹2.3 Lakh",
+  "tags": [
+    "Gold rate today",
+    "Gold price today",
+    "22 carat gold rate",
+    "24 carat gold rate",
+    "Silver rate today",
+    "Gold rate in Delhi",
+    "Gold rate in Mumbai",
+    "MCX gold"
+  ],
+  "sources": [
+    {
+      "name": "Asianet Newsable: gold, silver prices 21 Oct",
+      "url": "https://newsable.asianetnews.com/business/gold-silver-prices-today-october-21-check-city-wise-rates-in-delhi-bengaluru-and-more-articleshow-v0479qu"
+    },
+    {
+      "name": "DNA India: gold, silver prices 21 Oct",
+      "url": "https://www.dnaindia.com/personal-finance/report-gold-silver-prices-today-october-21-2026-check-city-wise-rates-in-delhi-mumbai-chennai-kolkata-and-more-3222648"
+    },
+    {
+      "name": "Capp Notes: futures closes",
+      "url": "https://cappnotes.substack.com/p/closing-look-tuesday-october-20-2026"
+    },
+    {
+      "name": "IBJA rates",
+      "url": "https://ibjarates.com/"
+    }
+  ],
+  "edition": "2026-10-21-premarket",
+  "editionLabel": "Wed 21 Oct · Pre-market brief",
+  "publishedAt": "2026-10-21T08:49:00+05:30"
+}

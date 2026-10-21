@@ -1,0 +1,70 @@
+{
+  "title": "Stock market today: Jio IPO opens, Eternal and Adani Green results, Nifty 22,800 in focus",
+  "dek": "Markets reopen after Dussehra with a positive GIFT Nifty, India's biggest IPO and a busy results day.",
+  "category": "markets",
+  "lead": false,
+  "readMins": 2,
+  "body": [
+    "Indian markets reopen today after Tuesday's Dussehra holiday. On Monday the Sensex fell 876 points (1.17%) to 73,852.90 and the Nifty 50 fell 257 points (1.11%) to 22,888.95. GIFT Nifty at 23,012.50 this morning suggests a firmer start, helped by the Dow's 530-point rally.",
+    "The big event is the Jio Platforms IPO, which opens today and closes on Friday. An IPO (initial public offering) is when a company sells shares to the public for the first time. The price band is ₹1,065–1,119, one lot is 12 shares (₹13,428), and the ₹30,213 crore issue is India's largest. Its anchor book, the portion sold to big institutions a day early, drew bids of over ₹2.5 lakh crore. Watch the day-wise subscription figures, which show how many times the shares on offer have been applied for.",
+    "Quarterly results due today include food-delivery company Eternal (which owns Zomato and Blinkit), Adani Green Energy and Mahindra & Mahindra Financial Services. On Thursday, HPCL, Havells, Swiggy and Colgate report. For the Nifty, Kotak Neo's analysts see support near 22,800 and resistance at 23,000–23,200. Support is a level where buyers have tended to step in; resistance is where sellers have tended to appear.",
+    "Key takeaway: today's mood will depend on whether foreign funds keep selling, how oil behaves near $110 and the early demand for Jio's IPO."
+  ],
+  "why": "A huge IPO absorbs cash: investors may sell other shares to apply, which can weigh on the wider market during the subscription days.",
+  "indiaImpact": "The Jio IPO will set a valuation marker for Reliance and telecom stocks, while results from Eternal and Adani Green will guide sentiment in new-age tech and renewable energy shares.",
+  "coverHeadline": "JIO IPO OPENS TODAY",
+  "stat": "JIO",
+  "statLabel": "Plus Eternal, Adani Green results",
+  "coverContext": "GIFT Nifty 23,012 · Results day",
+  "symbol": "candles",
+  "flags": [
+    "IN"
+  ],
+  "companies": [
+    {
+      "name": "Eternal",
+      "ticker": "ETERNAL"
+    },
+    {
+      "name": "Adani Green Energy",
+      "ticker": "ADANIGREEN"
+    },
+    {
+      "name": "Reliance Industries",
+      "ticker": "RELIANCE"
+    }
+  ],
+  "seoTitle": "Stock Market Today 21 Oct 2026: GIFT Nifty, Jio IPO Opens, Q2 Results Today",
+  "tags": [
+    "Stock market today",
+    "Share market today",
+    "Nifty today",
+    "Sensex today",
+    "Jio IPO",
+    "Q2 results today",
+    "Eternal Q2 results",
+    "Adani Green Q2 results",
+    "GIFT Nifty today"
+  ],
+  "sources": [
+    {
+      "name": "Kotak Neo: Pre-market 21 Oct",
+      "url": "https://www.kotakneo.com/news/market-news/pre-market-21-october-2026-gift-nifty-points-to-positive-start/"
+    },
+    {
+      "name": "Groww: Jio Platforms IPO details",
+      "url": "https://groww.in/blog/jio-platforms-ipo-to-open-on-october-21-2026"
+    },
+    {
+      "name": "The Tribune: Jio anchor book",
+      "url": "https://www.tribuneindia.com/news/anchor-book/jio-platforms-rs-8110-crore-anchor-book-attracts-over-rs-2-5-lakh-crore-in-institutional-demand-draws-marquee-global-investors"
+    },
+    {
+      "name": "PSU Connect: Adani Green results date",
+      "url": "https://www.psuconnect.in/Financial/adani-green-energy-to-announce-q2-h1-fy27-results-on-21-october-2026"
+    }
+  ],
+  "edition": "2026-10-21-premarket",
+  "editionLabel": "Wed 21 Oct · Pre-market brief",
+  "publishedAt": "2026-10-21T08:45:00+05:30"
+}

@@ -659,6 +659,8 @@ def cover_name(p):
     logos = sorted(f for f in os.listdir(ld) if not f.endswith(".md")) if os.path.isdir(ld) else []
     key = [VERSION, p["id"], p.get("title"), p.get("coverHeadline"), p["category"], p.get("stat"), p.get("statLabel"), p.get("symbol"),
            p.get("palette"), p.get("coverLabel"), p.get("publishedAt"), art.detect(p), logos]
+    if p.get("coverDate") or p.get("coverContext"):
+        key += [p.get("coverDate"), p.get("coverContext")]
     return f"{p['id']}-{hashlib.md5(json.dumps(key, ensure_ascii=False, default=str).encode()).hexdigest()[:8]}"
 
 

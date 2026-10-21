@@ -1,0 +1,174 @@
+{
+  "title": "Overnight: Dow jumps 530 pts, oil eases off $110, GIFT Nifty points to firm start",
+  "dek": "A rotation into healthcare and value stocks lifted the Dow to a record-style rally while tech stood still; lower oil and yields calmed nerves.",
+  "category": "global",
+  "lead": true,
+  "readMins": 3,
+  "body": [
+    "Wall Street had a good night for 'old economy' shares. The Dow Jones rose 529.85 points (1.02%) to 52,495.88 and the S&P 500 gained 0.28% to 7,712.57, but the tech-heavy Nasdaq was flat at 26,424.82 (-0.02%). Small companies did best: the Russell 2000 rose 1.65%.",
+    "Why the split? Investors moved money out of big tech names like Apple and Meta and into healthcare, utilities and financials. This is called sector rotation: the same pool of money shifting from one group of stocks to another. Healthcare jumped about 2.3% to a record, helped by Eli Lilly, Merck and UnitedHealth, and 3M rose 5.8% on strong results. General Motors fell 6.8% even after beating estimates, because it narrowed its yearly outlook and warned of higher raw-material costs.",
+    "Oil and bonds also helped. Brent crude briefly topped $110 a barrel, a five-month high, before settling at $108.79, and the US 10-year Treasury yield, the interest rate on 10-year US government bonds, slipped to about 5.09–5.12%. Lower yields make shares look more attractive versus safe bonds. In Asia, South Korea's Kospi crashed 3.73% on Tuesday on AI-chip worries, but it was rebounding about 4% early on Wednesday, according to Reuters. GIFT Nifty, a Nifty futures contract traded in Gujarat's GIFT City that hints at how Indian markets may open, was at 23,012.50 at 7:35 am, about 120 points above Nifty's last close of 22,888.95.",
+    "Key takeaway: global markets are calmer this morning than on Monday, but oil near $110 and US yields above 5% remain the two numbers that can quickly turn sentiment."
+  ],
+  "table": {
+    "title": "Overnight snapshot (Tuesday close)",
+    "rows": [
+      {
+        "label": "Dow Jones",
+        "value": "52,495.88",
+        "change": "+1.02%",
+        "note": "+529.85 pts; healthcare, 3M lead"
+      },
+      {
+        "label": "S&P 500",
+        "value": "7,712.57",
+        "change": "+0.28%",
+        "note": ""
+      },
+      {
+        "label": "Nasdaq Composite",
+        "value": "26,424.82",
+        "change": "-0.02%",
+        "note": "Tech flat; Apple, Meta lower"
+      },
+      {
+        "label": "Russell 2000",
+        "value": "2,773.42",
+        "change": "+1.65%",
+        "note": "Small caps outperform"
+      },
+      {
+        "label": "US 10-year yield",
+        "value": "~5.09–5.12%",
+        "change": "-3 to -6 bp",
+        "note": "Sources differ by close time"
+      },
+      {
+        "label": "Dollar index (DXY)",
+        "value": "101.71",
+        "change": "-0.26%",
+        "note": ""
+      },
+      {
+        "label": "USD/JPY",
+        "value": "158.14",
+        "change": "-0.24%",
+        "note": "Yen ~158.3 early Wednesday"
+      },
+      {
+        "label": "EUR/USD",
+        "value": "1.1240",
+        "change": "+0.22%",
+        "note": "French protests weigh on euro"
+      },
+      {
+        "label": "Gold (Dec futures)",
+        "value": "~$4,143/oz",
+        "change": "-0.42%",
+        "note": "Spot dipped near $4,132 intraday"
+      },
+      {
+        "label": "Silver (Dec futures)",
+        "value": "~$58.10/oz",
+        "change": "+1.98%",
+        "note": ""
+      },
+      {
+        "label": "Brent crude",
+        "value": "$108.79",
+        "change": "-0.69%",
+        "note": "Touched above $110 intraday"
+      },
+      {
+        "label": "WTI crude (Dec)",
+        "value": "$98.28",
+        "change": "-0.26%",
+        "note": ""
+      },
+      {
+        "label": "Copper (Dec)",
+        "value": "~$6.62/lb",
+        "change": "+1.19%",
+        "note": ""
+      },
+      {
+        "label": "Nikkei 225",
+        "value": "64,075.42",
+        "change": "-1.30%",
+        "note": "Tuesday; up ~1.3% early Wed"
+      },
+      {
+        "label": "Kospi",
+        "value": "5,552.74",
+        "change": "-3.73%",
+        "note": "Tuesday; chip sell-off"
+      },
+      {
+        "label": "GIFT Nifty",
+        "value": "23,012.50",
+        "change": "+78 pts",
+        "note": "7:35 am IST"
+      },
+      {
+        "label": "Bitcoin",
+        "value": "~$82,800",
+        "change": "+0.9%",
+        "note": ""
+      }
+    ]
+  },
+  "globalImpact": "A rally led by healthcare and value stocks, with lower oil and yields, eases fears of an inflation shock. But US housing data was weak (pending home sales fell to the lowest since 2001), and Asian chip stocks remain fragile.",
+  "indiaImpact": "Indian markets reopen today after the Dussehra holiday and Monday's 876-point Sensex fall. A positive GIFT Nifty, a slightly weaker dollar and oil below $110 support a firmer start, though foreign investors have sold about ₹49,900 crore of Indian shares so far in October.",
+  "coverHeadline": "DOW JUMPS 530 PTS",
+  "stat": "530 PTS",
+  "statLabel": "Dow closes at 52,495.88",
+  "symbol": "globe",
+  "flags": [
+    "US",
+    "KR",
+    "JP"
+  ],
+  "companies": [
+    {
+      "name": "General Motors",
+      "ticker": "GM"
+    },
+    {
+      "name": "3M",
+      "ticker": "MMM"
+    }
+  ],
+  "seoTitle": "Global Market Today 21 Oct 2026: Dow +530, Oil, Gold, GIFT Nifty, US Yields",
+  "tags": [
+    "Global market today",
+    "US stock market",
+    "Dow Jones today",
+    "GIFT Nifty today",
+    "US bond yields",
+    "Crude oil price",
+    "Gold price today",
+    "Stock market today"
+  ],
+  "sources": [
+    {
+      "name": "HDFC Sky: US market close",
+      "url": "https://hdfcsky.com/news/dow-rises-529-oil-retreat-rotation-us-market-close"
+    },
+    {
+      "name": "Capp Notes: Closing Look, 20 Oct",
+      "url": "https://cappnotes.substack.com/p/closing-look-tuesday-october-20-2026"
+    },
+    {
+      "name": "Kotak Neo: Pre-market 21 Oct",
+      "url": "https://www.kotakneo.com/news/market-news/pre-market-21-october-2026-gift-nifty-points-to-positive-start/"
+    },
+    {
+      "name": "Reuters via Investing.com: Asian stocks climb",
+      "url": "https://ca.investing.com/news/economy-news/asian-stocks-climb-as-strong-earnings-buoy-wall-street-4892172"
+    }
+  ],
+  "edition": "2026-10-21-premarket",
+  "editionLabel": "Wed 21 Oct · Pre-market brief",
+  "publishedAt": "2026-10-21T08:50:00+05:30",
+  "coverDate": "2026-10-20"
+}
