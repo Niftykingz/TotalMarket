@@ -27,6 +27,7 @@ TAGLINE = "Indian markets, IPOs, tech and AI news, explained"
 TAG_SLUGS = []
 TOOL_URLS = []
 HUB_URLS = []
+HOLIDAYS_PATH = "stock-market-holidays-2026/"
 COMPANY_SLUGS = set()
 IPO_LIST = []
 HOME_TITLE = "TotalMarket: Sensex, Nifty, Gold Rate, IPO & Market News Today"
@@ -249,7 +250,7 @@ def header(meta, path):
 <div class="wrap bar1">
 <a class="brand" href="{BASE}"><span class="bm">Total<b>Market</b></span><span class="bt">Markets · Startups · IPOs · Tech · Global</span></a>
 <div class="search" role="search"><input id="q" type="search" placeholder="Search companies, IPOs, news, markets…" aria-label="Search TotalMarket" autocomplete="off"><div id="qres" class="qres" hidden></div></div>
-<a class="mstatus hdr" data-mstatus href="{BASE}stock-market-holidays-2026/" title="Market session from NSE trading hours and holidays">Market status</a>
+<a class="mstatus hdr" data-mstatus href="{BASE}{HOLIDAYS_PATH}" title="Market session from NSE trading hours and holidays">Market status</a>
 <button class="themebtn" id="themebtn" type="button" aria-label="Switch light or dark theme">◐</button>
 </div>
 <nav class="wrap rail" aria-label="Sections">{nav}</nav>
@@ -260,7 +261,7 @@ def header(meta, path):
 def footer():
     return f"""<footer class="wrap foot">
 <p><b>Not investment advice.</b> TotalMarket reports and explains news. It does not recommend buying, selling or holding any security and is not a SEBI-registered investment adviser or research analyst. Do your own research or consult a registered adviser before investing.</p>
-<nav class="footlinks" aria-label="Market data"><b>Market data:</b> <a href="{BASE}nifty-50/">Nifty 50 today</a> · <a href="{BASE}global-indices/">Global indices</a> · <a href="{BASE}gold-rate-today/">Gold rate today</a> · <a href="{BASE}silver-rate-today/">Silver rate today</a> · <a href="{BASE}fii-dii-data/">FII DII data</a> · <a href="{BASE}top-gainers-losers-today/">Top gainers &amp; losers</a> · <a href="{BASE}ipo/">IPO today</a> · <a href="{BASE}results/">Results calendar</a> · <a href="{BASE}corporate-events/">Corporate actions</a> · <a href="{BASE}stock-market-holidays-2026/">Market holidays 2026</a> · <a href="{BASE}market-report/">Daily market report</a> · <a href="{BASE}stock/">Companies A–Z</a> · <a href="{BASE}calculators/">SIP &amp; EMI calculators</a> · <a href="{BASE}learn/">Learn</a></nav>
+<nav class="footlinks" aria-label="Market data"><b>Market data:</b> <a href="{BASE}nifty-50/">Nifty 50 today</a> · <a href="{BASE}global-indices/">Global indices</a> · <a href="{BASE}gold-rate-today/">Gold rate today</a> · <a href="{BASE}silver-rate-today/">Silver rate today</a> · <a href="{BASE}fii-dii-data/">FII DII data</a> · <a href="{BASE}top-gainers-losers-today/">Top gainers &amp; losers</a> · <a href="{BASE}ipo/">IPO today</a> · <a href="{BASE}results/">Results calendar</a> · <a href="{BASE}corporate-events/">Corporate actions</a> · <a href="{BASE}{HOLIDAYS_PATH}">Market holidays {HOLIDAYS_PATH.split("-")[-1].strip("/")}</a> · <a href="{BASE}market-report/">Daily market report</a> · <a href="{BASE}stock/">Companies A–Z</a> · <a href="{BASE}calculators/">SIP &amp; EMI calculators</a> · <a href="{BASE}learn/">Learn</a></nav>
 <p>Stories are written and published automatically by Claude, an AI model from Anthropic, based on the linked reporting. Every story lists its sources. <a href="{BASE}about/">About TotalMarket</a> · <a href="{SITE_URL}/rss.xml">RSS feed</a></p>
 </footer>"""
 
@@ -866,7 +867,8 @@ def main():
         shutil.copytree(LOGO_DIR, os.path.join(OUT, "logos"), dirs_exist_ok=True, ignore=shutil.ignore_patterns("*.md"))
     covers.ensure_covers(posts, os.path.join(OUT, "covers"))
     results = load_results()
-    global COMPANY_SLUGS, IPO_LIST, HUB_URLS
+    global COMPANY_SLUGS, IPO_LIST, HUB_URLS, HOLIDAYS_PATH
+    HOLIDAYS_PATH = markets.holidays_path(datetime.now(IST).date())
     ctx = {"page": page, "e": e, "base": BASE, "card": card, "piggy_host": piggy_host, "meta": meta, "slug": slug, "ist": IST, "today": datetime.now(IST).date()}
     cpages, comps = hubs.company_pages(posts, results, ctx)
     ipages, IPO_LIST = hubs.ipo_pages(posts, ctx)
@@ -903,6 +905,8 @@ def main():
     write("data/index-closes.csv", markets.index_csv(meta))
     write("CNAME", "totalmarket.co.in\n")  # custom domain for GitHub Pages
     print(f"Built {len(posts)} stories into docs/")
+    for w in markets.calendar_warnings(datetime.now(IST).date()) + markets.events_warnings(datetime.now(IST).date()):
+        print(w)
 
 
 if __name__ == "__main__":

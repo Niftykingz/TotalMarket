@@ -38,16 +38,49 @@ def calendar():
     return _load("market_calendar.json", {})
 
 
+def years():
+    """All yearly holiday lists, oldest first."""
+    return sorted(calendar().get("years", []), key=lambda y: y["year"])
+
+
+def current_year(today):
+    """The holiday year readers need now: this year if we have it, else the latest we have."""
+    ys = [y["year"] for y in years()]
+    return today.year if today.year in ys else (max(ys) if ys else today.year)
+
+
+def holidays_path(today):
+    return f"stock-market-holidays-{current_year(today)}/"
+
+
+def calendar_warnings(today):
+    """Problems the scheduled runs must fix (printed by build.py)."""
+    ys = [y["year"] for y in years()]
+    out = []
+    if today.year not in ys:
+        out.append(f"WARNING: no NSE holiday list for {today.year} in data/market_calendar.json; add the official list now.")
+    if today.month == 12 and (today.year + 1) not in ys:
+        out.append(f"WARNING: NSE holiday list for {today.year + 1} is missing; NSE usually publishes it in December. Add it as soon as the circular is out.")
+    return out
+
+
 def calendar_json():
     """Small public file the browser uses to show 'Market open / closed' from the schedule."""
     c = calendar()
-    return json.dumps({"hours": c.get("hours"), "holidays": [h["date"] for h in c.get("holidays", [])],
-                       "names": {h["date"]: h["name"] for h in c.get("holidays", [])}}, ensure_ascii=False)
+    hol = [h for y in years() for h in y.get("holidays", [])]
+    return json.dumps({"hours": c.get("hours"), "holidays": [h["date"] for h in hol],
+                       "names": {h["date"]: h["name"] for h in hol}}, ensure_ascii=False)
 
 
 def holidays_page(ctx):
+    out = []
+    for y in years():
+        out += _holidays_page(dict(calendar(), **y), ctx)
+    return out
+
+
+def _holidays_page(c, ctx):
     page, e, base = ctx["page"], ctx["e"], ctx["base"]
-    c = calendar()
     if not c.get("holidays"):
         return []
     today = ctx["today"]
@@ -231,3 +264,13 @@ def archive_html(reps, meta, ctx):
     search = ('<div class="archsearch"><label for="archdate">Find a report by date</label><input type="date" id="archdate">'
               '<button type="button" id="archclear" class="chipf">Show all</button><span id="archmsg" class="cm-note" aria-live="polite"></span></div>')
     return search + f'<div id="archive">{months}</div>' + hist
+
+
+def events_warnings(today):
+    data = _load("corporate_events.json", {})
+    try:
+        upd = datetime.fromisoformat(data.get("updatedAt")).date()
+    except Exception:
+        return ["WARNING: data/corporate_events.json has no valid updatedAt; refresh corporate events."]
+    age = (today - upd).days
+    return [f"WARNING: corporate events last updated {upd.isoformat()} ({age} days ago); refresh data/corporate_events.json in this run."] if age >= 1 else []
