@@ -1,0 +1,10 @@
+{
+  "source": {"name": "5paisa (provisional NSE/BSE cash data)", "url": "https://www.5paisa.com/share-market-today/fii-dii-data"},
+  "updatedAt": "2026-10-21T16:55:00+05:30",
+  "month": {"label": "October 2026 (to 19 Oct)", "fii": {"buy": 164229.2, "sell": 214147.0, "net": -49917.6}, "dii": {"buy": 223970.8, "sell": 172601.8, "net": 51369.2}},
+  "days": [
+    {"date": "2026-10-19", "fii": {"buy": 11240.6, "sell": 12389.3, "net": -1148.6}, "dii": {"buy": 14781.3, "sell": 11580.1, "net": 3201.2}},
+    {"date": "2026-10-16", "fii": {"buy": 19951.6, "sell": 18785.7, "net": 1165.9}, "dii": {"buy": 17201.8, "sell": 20863.1, "net": -3661.3}},
+    {"date": "2026-10-15", "fii": {"buy": 12735.6, "sell": 18021.0, "net": -5285.4}, "dii": {"buy": 19438.6, "sell": 16119.3, "net": 3319.4}}
+  ]
+}

@@ -451,3 +451,24 @@ a.company small{color:var(--accent-2)}
 .upd{color:var(--amber)}
 :root[data-theme="light"] .ipst.st-listing,:root[data-theme="light"] .stbadge.st-developing{background:#FFF4E5;color:#B45309}
 :root[data-theme="light"] .ipst.st-upcoming{background:#F1EBFF;color:#6D28D9}
+
+/* ---------- data pages, live, learn ---------- */
+.dkpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;margin:0 0 16px}
+.dkpis div{background:var(--surface);border:1px solid var(--line-2);border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;gap:4px}
+.dkpis span{color:var(--muted);font-size:.78rem}
+.dkpis b{font-family:var(--f-mono);font-size:1.2rem}
+.dkpis b.up{color:var(--up)}.dkpis b.down{color:var(--down)}
+.gl2{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:16px}
+@media (max-width:760px){.gl2{grid-template-columns:1fr}}
+.lvlist{list-style:none;margin:0;padding:0;border-left:2px solid var(--line-2);margin-left:6px}
+.lv{position:relative;display:grid;grid-template-columns:84px 1fr;gap:12px;padding:12px 0 14px 18px}
+.lv::before{content:"";position:absolute;left:-7px;top:18px;width:12px;height:12px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 3px var(--paper)}
+.lv:first-child::before{background:var(--down);animation:tm-pulse 1.6s infinite}
+.lv time{font-family:var(--f-mono);font-size:.85rem;color:var(--muted);padding-top:2px}
+.lv h3{margin:2px 0 4px;font-size:1.05rem}.lv h3 a{text-decoration:none}.lv h3 a:hover{color:var(--accent-2)}
+.lv p{margin:0;color:var(--muted);font-size:.9rem}
+.lvslot{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--amber)}
+.livedot{display:inline-block;width:12px;height:12px;border-radius:50%;background:var(--down);margin-right:10px;vertical-align:middle;animation:tm-pulse 1.6s infinite}
+@keyframes tm-pulse{0%{box-shadow:0 0 0 0 rgba(239,68,68,.6)}70%{box-shadow:0 0 0 10px rgba(239,68,68,0)}100%{box-shadow:0 0 0 0 rgba(239,68,68,0)}}
+@media (prefers-reduced-motion:reduce){.livedot,.lv:first-child::before{animation:none}}
+@media (max-width:560px){.lv{grid-template-columns:1fr;gap:2px}}

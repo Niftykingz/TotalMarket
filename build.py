@@ -240,7 +240,7 @@ def header(meta, path):
         for x in t)
     asof = f'<div class="tcard asof"><span class="tl">As of</span><span class="tv small">{e(meta.get("tickerAsOf"))}</span></div>' if meta.get("tickerAsOf") else ""
     tick = f'<div class="tickers" aria-label="Market snapshot"><div class="wrap trow">{cards}{asof}</div></div>' if t else ""
-    links = [("", "Home")] + [(k + "/", v[0]) for k, v in CATS.items()] + [("market-report/", "Daily report"), ("ipo/", "IPO"), ("gold-rate-today/", "Gold rate"), ("calculators/", "Calculators"), ("results/", "Results")]
+    links = [("", "Home")] + [(k + "/", v[0]) for k, v in CATS.items()] + [("live/", "Live"), ("market-report/", "Daily report"), ("ipo/", "IPO"), ("fii-dii-data/", "FII/DII"), ("top-gainers-losers-today/", "Gainers & losers"), ("learn/", "Learn"), ("gold-rate-today/", "Gold rate"), ("calculators/", "Calculators"), ("results/", "Results")]
     nav = "".join(f'<a class="tab{" on" if path == BASE + k else ""}" href="{BASE}{k}">{e(n)}</a>' for k, n in links)
     return f"""<header class="top">
 <div class="wrap bar1">
@@ -800,7 +800,9 @@ def main():
     cpages, comps = hubs.company_pages(posts, results, ctx)
     ipages, IPO_LIST = hubs.ipo_pages(posts, ctx)
     COMPANY_SLUGS = set(comps)
-    for rel, html_ in cpages + ipages:
+    ctx.update({"url": url, "site_url": SITE_URL})
+    extra_pages = hubs.fii_dii_page(posts, ctx) + hubs.gainers_page(posts, ctx) + hubs.live_page(posts, ctx) + hubs.learn_page(ctx)
+    for rel, html_ in cpages + ipages + extra_pages:
         write(rel, html_)
         HUB_URLS.append(SITE_URL + "/" + rel.replace("index.html", ""))
     write("index.html", home_page(posts, meta, results))
