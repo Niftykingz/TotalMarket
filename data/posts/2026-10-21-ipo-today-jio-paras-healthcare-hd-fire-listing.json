@@ -1,0 +1,127 @@
+{
+  "title": "IPO today (21 Oct): Jio 2.38x on day 1, Paras Healthcare opens, HD Fire lists at 24% premium",
+  "dek": "Your daily IPO class: what's open, what listed, what's coming, and one concept explained simply.",
+  "category": "startups",
+  "lead": true,
+  "readMins": 4,
+  "edition": "2026-10-21-ipo",
+  "editionLabel": "Wed 21 Oct · IPO daily",
+  "publishedAt": "2026-10-21T16:45:00+05:30",
+  "body": [
+    "Namaste investors, and welcome to today's IPO class. An IPO (initial public offering) is the first time a company sells its shares to the public. Today was a big day: two mainboard IPOs opened, one company listed, and five more list this week. Let's go through it step by step.",
+    "Open now: Jio Platforms (₹1,065–1,119, lot of 12 shares = ₹13,428) was 2.38 times subscribed by 3 pm on day one, HDFC Sky reported. Institutions (QIBs) bid 7.09 times their quota while retail investors were at 0.61 times. Paras Healthcare (₹660–693, lot of 21 shares = ₹14,553) also opened; it runs eight hospitals with 2,211 beds in North India, Bihar and Jharkhand. Its ₹1,450 crore issue is ₹500 crore of new shares and ₹950 crore sold by existing holders. Note the split: only 10% of Paras's issue is reserved for retail, so allotment can be tight. Both close on Friday 23 October and list on Wednesday 28 October.",
+    "Listed today: HD Fire Protect, whose IPO was subscribed about 92 times, opened at ₹335 on NSE against an issue price of ₹271, a 23.6% premium. It then gave up part of the gain and later traded around ₹306–307, about 13% above the issue price, according to reports. Lesson: the listing price is just the first trade of the day; prices can swing a lot in the first hours.",
+    "Today's concept: fresh issue vs offer for sale (OFS). In a fresh issue the company creates new shares and keeps the money, for example to repay debt or build hospitals. In an OFS, existing owners sell their shares and the money goes to them, not the company. Jio's IPO is 100% fresh issue (₹27,500 crore goes to repaying debt). HD Fire Protect's was 100% OFS, so the company itself received nothing. Paras is a mix. Worked example: in a ₹1,000 crore IPO that is ₹300 crore fresh and ₹700 crore OFS, the company gets only ₹300 crore to grow; the other ₹700 crore goes to sellers. Neither type is good or bad by itself, but always check who gets the money and why.",
+    "Coming up: Fusion CX lists on Thursday 22 October; Zetwerk, Tonbo Imaging, Bonfiglioli Transmissions and Sahajanand Medical Technologies are scheduled to list on Friday 23 October. Grey market premiums (GMP), unofficial prices quoted before listing, are about ₹243–265 for Jio and about ₹45–50 for Paras across trackers, but GMP is unregulated and often wrong, so treat it as gossip, not data.",
+    "Key takeaway: before any IPO, check three things in the offer document: how much is fresh issue vs OFS, what the money will be used for, and the company's profit history. This is education, not a recommendation to apply or skip any IPO."
+  ],
+  "table": {
+    "title": "IPO dashboard (mainboard, 21 Oct)",
+    "rows": [
+      {
+        "label": "Jio Platforms",
+        "value": "Open · 2.38x",
+        "change": "",
+        "note": "₹1,065–1,119 · lot 12 · closes 23 Oct · lists 28 Oct"
+      },
+      {
+        "label": "Paras Healthcare",
+        "value": "Open",
+        "change": "",
+        "note": "₹660–693 · lot 21 · ₹500 cr fresh + ₹950 cr OFS · lists 28 Oct"
+      },
+      {
+        "label": "HD Fire Protect",
+        "value": "Listed ₹335",
+        "change": "+23.6%",
+        "note": "Issue ₹271 · later ~₹306–307 (~+13%) · 100% OFS"
+      },
+      {
+        "label": "Fusion CX",
+        "value": "Lists 22 Oct",
+        "change": "",
+        "note": "Price band ₹275–289"
+      },
+      {
+        "label": "Zetwerk",
+        "value": "Lists 23 Oct",
+        "change": "",
+        "note": "₹143–151 · ₹5,012 cr issue"
+      },
+      {
+        "label": "Tonbo Imaging",
+        "value": "Lists 23 Oct",
+        "change": "",
+        "note": "₹665–700 · defence tech"
+      },
+      {
+        "label": "Bonfiglioli Transmissions",
+        "value": "Lists 23 Oct",
+        "change": "",
+        "note": "₹558–586 · ₹2,534 cr issue"
+      },
+      {
+        "label": "Sahajanand Medical Tech",
+        "value": "Lists 23 Oct",
+        "change": "",
+        "note": "₹327–344"
+      }
+    ]
+  },
+  "why": "Seven mainboard IPOs list in one week, so a lot of investor money is tied up in applications and refunds, which can affect liquidity in other small and mid-sized stocks.",
+  "indiaImpact": "India's IPO market is having one of its busiest weeks, led by the record Jio issue; strong demand shows confidence, but heavy fund-raising can also weigh on the secondary market, as seen in today's 2.37% smallcap fall.",
+  "coverHeadline": "IPO DAILY: JIO 2.38X",
+  "stat": "2.38X",
+  "statLabel": "Jio IPO subscription, day 1",
+  "coverContext": "Paras opens · HD Fire lists +24%",
+  "coverLabel": "IPO daily",
+  "symbol": "growth",
+  "flags": [
+    "IN"
+  ],
+  "companies": [
+    {
+      "name": "Reliance Industries",
+      "ticker": "RELIANCE"
+    }
+  ],
+  "seoTitle": "IPO Today 21 Oct 2026: Jio IPO Status, Paras Healthcare IPO, HD Fire Listing",
+  "tags": [
+    "IPO today",
+    "Upcoming IPO",
+    "IPO GMP today",
+    "Jio IPO subscription status",
+    "Paras Healthcare IPO",
+    "HD Fire Protect IPO listing",
+    "IPO listing today",
+    "Fresh issue vs OFS",
+    "Zetwerk IPO listing",
+    "Tonbo Imaging IPO"
+  ],
+  "sources": [
+    {
+      "name": "HDFC Sky: Jio IPO day 1 at 3 pm",
+      "url": "https://hdfcsky.com/news/jio-platforms-ipo-subscription-status-day-1-at-3-pm"
+    },
+    {
+      "name": "IPO Premium: Paras Healthcare IPO",
+      "url": "https://www.ipopremium.in/view/ipo/829/paras-healthcare-limited"
+    },
+    {
+      "name": "HDFC Sky: HD Fire Protect listing",
+      "url": "https://hdfcsky.com/news/hd-fire-protect-shares-trade-23-62-percent-above-ipo-price-after-listing-on-nse-bse"
+    },
+    {
+      "name": "Indian Opinion: HD Fire pares gains",
+      "url": "https://indianopinion.org/hd-fire-protect-lists-at-24-premium-over-ipo-price/"
+    },
+    {
+      "name": "Zerodha: IPO calendar",
+      "url": "https://zerodha.com/ipo/"
+    },
+    {
+      "name": "Groww: Jio Platforms IPO details",
+      "url": "https://groww.in/blog/jio-platforms-ipo-to-open-on-october-21-2026"
+    }
+  ]
+}
