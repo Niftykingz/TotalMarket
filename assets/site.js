@@ -162,6 +162,17 @@
     else if (m < mins(h.closing[1])) { label = "Closing session"; cls = "pre"; }
     else { label = "Market closed · next " + nextSession() + " 9:15"; cls = "closed"; }
     els.forEach(function (el) { el.textContent = label; el.classList.add("ms-" + cls); });
+    // freshness: anything dated before the latest closed session is marked "Last available data"
+    var ls = new Date(now); if (!(isTrading(ls) && m >= mins(h.normal[1]))) { do { ls.setDate(ls.getDate() - 1); } while (!isTrading(ls)); }
+    var lsIso = iso(ls);
+    document.querySelectorAll("p.asof[data-asof]").forEach(function (p) {
+      var old = p.dataset.asof < lsIso, k = p.querySelector(".ak");
+      p.classList.toggle("stale", old);
+      if (k) k.textContent = old ? "Last available data:" : (p.dataset.label || "");
+    });
+    document.querySelectorAll(".tcard[data-asof]").forEach(function (c) {
+      if (c.dataset.asof && c.dataset.kind !== "close" && c.dataset.asof < iso(now) && cls === "open") c.classList.add("stale");
+    });
     var t = iso(now), nxt = c.holidays.filter(function (x) { return x >= t; })[0];
     nh.forEach(function (el) {
       if (!nxt) { el.textContent = "—"; return; }

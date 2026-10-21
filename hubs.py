@@ -324,7 +324,8 @@ def fii_dii_page(posts, ctx):
 
 def gainers_page(posts, ctx):
     page, e, base, url = ctx["page"], ctx["e"], ctx["base"], ctx["url"]
-    rep = next((p for p in posts if p.get("report")), None)
+    import markets
+    rep = markets.latest_report(posts)
     if not rep:
         return []
     r = rep["report"]
@@ -447,7 +448,8 @@ def nifty_page(posts, ctx):
         return []
     last = hist[-1]
     prev = hist[-2] if len(hist) > 1 else None
-    rep = next((p for p in posts if p.get("report")), None)
+    import markets
+    rep = markets.latest_report(posts)
     r = rep["report"] if rep else {}
     row = next((x for x in r.get("indices", []) if x.get("name") == "Nifty 50"), None) if r.get("date") == last["d"] else None
     chg = last["v"] - prev["v"] if prev else None

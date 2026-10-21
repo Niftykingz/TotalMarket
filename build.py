@@ -28,6 +28,7 @@ TAG_SLUGS = []
 TOOL_URLS = []
 HUB_URLS = []
 HOLIDAYS_PATH = "stock-market-holidays-2026/"
+SESSION = datetime.now(ZoneInfo("Asia/Kolkata")).date()  # latest closed NSE session, set in main()
 COMPANY_SLUGS = set()
 IPO_LIST = []
 HOME_TITLE = "TotalMarket: Sensex, Nifty, Gold Rate, IPO & Market News Today"
@@ -238,11 +239,19 @@ def hist_vals(meta, label):
 
 def header(meta, path):
     t = meta.get("ticker") or []
+    def tlabel(x):
+        src = x.get("source") or {}
+        tip = f'Source: {src.get("name", "not given")} · {x.get("asOfText") or x.get("asOf") or "time not given"} IST'
+        return (f'<a class="tl" href="{e(src["url"])}" rel="nofollow noopener" target="_blank" title="{e(tip)}">{e(x.get("label"))}</a>' if src.get("url")
+                else f'<span class="tl" title="{e(tip)}">{e(x.get("label"))}</span>')
     cards = "".join(
-        f'<div class="tcard"><span class="tl">{e(x.get("label"))}</span><span class="tv">{e(x.get("value") or "—")}</span>'
-        f'<span class="tc {"down" if str(x.get("change","")).startswith("-") else "up"}">{e(x.get("change"))}</span>{spark(hist_vals(meta, x.get("label")))}</div>'
+        f'<div class="tcard" data-asof="{e(x.get("asOf") or "")}" data-kind="{e(x.get("kind") or "")}">{tlabel(x)}'
+        + (f'<span class="tv">{e(x["value"])}</span>' if x.get("value") else '<span class="tv na">Unavailable</span>')
+        + f'<span class="tc {"down" if str(x.get("change","")).startswith("-") else "up"}">{e(x.get("change"))}'
+        + (f'<i class="ta">{e(x.get("asOfText"))}</i>' if x.get("asOfText") else "") + f'</span>{spark(hist_vals(meta, x.get("label")))}</div>'
         for x in t)
-    asof = f'<div class="tcard asof"><span class="tl">As of</span><span class="tv small">{e(meta.get("tickerAsOf"))}</span></div>' if meta.get("tickerAsOf") else ""
+    asof = (f'<div class="tcard asof"><span class="tl">As of</span><span class="tv small">{e(meta.get("tickerAsOf"))}</span>'
+            f'<span class="tc small">Not live · tap a name for its source</span></div>') if t else ""
     tick = f'<div class="tickers" aria-label="Market snapshot"><div class="wrap trow">{cards}{asof}</div></div>' if t else ""
     links = [("", "Home")] + [(k + "/", v[0]) for k, v in CATS.items()] + [("live/", "Today"), ("nifty-50/", "Nifty 50"), ("global-indices/", "Global indices"), ("ipo/", "IPO"), ("gold-rate-today/", "Gold rate"), ("silver-rate-today/", "Silver rate"), ("market-report/", "Daily report"), ("results/", "Results"), ("learn/", "Learn")]
     nav = "".join(f'<a class="tab{" on" if path == BASE + k else ""}" href="{BASE}{k}">{e(n)}</a>' for k, n in links)
@@ -643,19 +652,25 @@ def tag_pages(posts, meta):
 TAG_MIN_STORIES = 3
 
 
+def report_date(p):
+    return datetime.fromisoformat((p.get("report") or {}).get("date") or p["_dt"].date().isoformat()).date()
+
+
 def report_banner(posts):
-    reps = [p for p in posts if p.get("report")]
-    if not reps:
+    p = markets.latest_report(posts)
+    if not p:
         return ""
-    p = reps[0]; r = p["report"]
+    r = p["report"]
+    stale = report_date(p) < SESSION
     k = "".join(f'<span class="tk"><span>{e(x.get("label"))}</span>{e(x.get("value"))}<em class="{"down" if str(x.get("change","")).startswith("-") else "up"}">{e(x.get("change"))}</em></span>' for x in (r.get("kpis") or [])[:4])
-    return (f'<a class="rbanner" href="{url(p)}"><span class="eyebrow">Daily market report · {e(r.get("dateLabel") or "")}</span>'
-            f'<b>{e(p["title"])}</b><span class="rk">{k}</span><span class="go">Full report: indices, sectors, gainers &amp; losers, FII/DII, IPO listings →</span></a>')
+    note = (f'<span class="rstale">Latest report available is for {e(r.get("dateLabel") or "")}. The report for {e(SESSION.strftime("%a %-d %b"))} is published after 8 pm IST.</span>' if stale else "")
+    return (f'<a class="rbanner{" stale" if stale else ""}" href="{url(p)}"><span class="eyebrow">{"Last available daily report" if stale else "Daily market report"} · {e(r.get("dateLabel") or "")} · end of day</span>'
+            f'<b>{e(p["title"])}</b><span class="rk">{k}</span>{note}<span class="go">Full report: indices, sectors, gainers &amp; losers, FII/DII, IPO listings →</span></a>')
 
 
 def report_page(posts, meta):
     path = f"{BASE}market-report/"
-    reps = [p for p in posts if p.get("report")]
+    reps = sorted([p for p in posts if p.get("report")], key=report_date, reverse=True)
     body = (f'<div class="sechead"><h1>Daily stock market report</h1><p>Every market day after 8 pm: Sensex, Nifty and Bank Nifty with day high and low, large vs mid vs small caps, sector heatmap, top gainers and losers, FII/DII data, IPO listings, market breadth and what to watch next.</p></div>'
             + report_banner(reps) + markets.archive_html(reps, meta, {"e": e, "base": BASE, "url": url})
             + ("" if reps else '<div class="empty"><p>The first report is on its way. It publishes after 8 pm on each market day.</p></div>'))
@@ -699,7 +714,7 @@ def line_chart(points, w=320, h=150):
     grid = "".join(f'<line x1="44" x2="{w-10}" y1="{Y(v):.1f}" y2="{Y(v):.1f}"/><text x="40" y="{Y(v)+4:.1f}" text-anchor="end">{v:,.0f}</text>'
                    for v in (lo + pad, (lo + hi) / 2, hi - pad))
     labels = "".join(f'<text x="{X(i):.1f}" y="{h-6}" text-anchor="{"end" if i == len(points) - 1 else "start" if i == 0 else "middle"}">{datetime.fromisoformat(x["d"]).strftime("%-d %b")}</text>'
-                     for i, x in enumerate(points) if i in (0, len(points) - 1) or len(points) <= 7)
+                     for i, x in enumerate(points) if i in (0, len(points) - 1) or (len(points) <= 7 and i % 2 == 0 and i < len(points) - 2))
     area = f"44,{h-26} " + pts + f" {X(len(vals)-1):.1f},{h-26}"
     return (f'<svg class="lchart {c}" viewBox="0 0 {w} {h}" role="img" aria-label="Recent closing levels">'
             f'<g class="g">{grid}</g><polygon class="a" points="{area}"/><polyline class="l" points="{pts}"/>'
@@ -713,10 +728,13 @@ def market_widget(posts, meta):
         pts = hist[name]; last = float(pts[-1]["v"]); prev = float(pts[-2]["v"]) if len(pts) > 1 else last
         ch = last - prev; pc = ch / prev * 100 if prev else 0
         tabs.append(f'<button type="button" class="wt{" on" if i == 0 else ""}" data-panel="mw{i}">{e(name)}</button>')
+        ld = datetime.fromisoformat(pts[-1]["d"]).date()
+        src = pts[-1].get("s")
         panels.append(f'<div class="wp" id="mw{i}"{"" if i == 0 else " hidden"}><div class="wbig"><b>{last:,.2f}</b>'
                       f'<span class="{"up" if ch >= 0 else "down"}">{ch:+,.2f} ({pc:+.2f}%)</span></div>{line_chart(pts)}'
-                      f'<p class="wnote">Closing levels, last {len(pts)} sessions</p></div>')
-    rep = next((p for p in posts if p.get("report")), None)
+                      + markets.asof_html(e, ld, "close", [{"name": src or "TotalMarket daily reports", "url": f"{BASE}market-report/"}], SESSION, extra=f"· closing levels, last {len(pts)} sessions")
+                      + '</div>')
+    rep = markets.latest_report(posts)
     gl = ""
     if rep:
         r = rep["report"]
@@ -726,7 +744,8 @@ def market_widget(posts, meta):
         gl = (f'<div class="wtabs sm"><button type="button" class="wt on" data-panel="mg0">Top gainers</button><button type="button" class="wt" data-panel="mg1">Top losers</button></div>'
               f'<div class="wp" id="mg0"><table class="mt"><tbody>{rows(r.get("gainers") or [])}</tbody></table></div>'
               f'<div class="wp" id="mg1" hidden><table class="mt"><tbody>{rows(r.get("losers") or [])}</tbody></table></div>'
-              f'<a class="more" href="{url(rep)}">Full market report →</a>')
+              + markets.asof_html(e, report_date(rep), "eod", [{"name": "Nifty 50 movers in our daily report", "url": url(rep)}] + (rep.get("sources") or [])[:2], SESSION)
+              + f'<a class="more" href="{url(rep)}">Full market report →</a>')
     if not tabs and not gl:
         return ""
     return f'<aside class="widget market"><div class="wtabs">{"".join(tabs)}</div>{"".join(panels)}{gl}</aside>'
@@ -758,15 +777,16 @@ def latest_list(posts):
 
 
 def side_panels(posts, results):
-    rep = next((p for p in posts if p.get("report")), None)
+    rep = markets.latest_report(posts)
     movers = ""
     if rep:
         r = rep["report"]
         rows = "".join(f'<tr><th scope="row">{e(x.get("name"))}</th><td class="num">{e(x.get("price") or "—")}</td>'
                        f'<td class="num {"down" if str(x.get("pct","")).startswith("-") else "up"}">{"" if str(x.get("pct","")).startswith(("-","+")) else "+"}{e(x.get("pct"))}%</td></tr>'
                        for x in (r.get("gainers") or [])[:5] + (r.get("losers") or [])[:5])
-        movers = (f'<section class="panel"><h2>Market movers <small>{e(r.get("moversIndex") or "Nifty 50")} · {e(r.get("dateLabel") or "")}</small></h2>'
-                  f'<table class="mt"><thead><tr><th>Stock</th><th>Price</th><th>% Chg</th></tr></thead><tbody>{rows}</tbody></table></section>')
+        movers = (f'<section class="panel"><h2>Market movers <small>{e(r.get("moversIndex") or "Nifty 50")}</small></h2>'
+                  f'<table class="mt"><thead><tr><th>Stock</th><th>Close</th><th>% Chg</th></tr></thead><tbody>{rows}</tbody></table>'
+                  + markets.asof_html(e, report_date(rep), "eod", (rep.get("sources") or [])[:2], SESSION) + '</section>')
     counts = {}
     for p in posts[:80]:
         for t in p["_tags"]:
@@ -775,7 +795,7 @@ def side_panels(posts, results):
     top = sorted(counts.items(), key=lambda kv: -kv[1])[:14]
     trend = ('<section class="panel"><h2>Trending topics</h2><div class="tags">'
              + "".join(f'<a class="tag" href="{BASE}tag/{slug(t)}/">#{e(t)}</a>' for t, _ in top) + "</div></section>") if top else ""
-    return hubs.ipo_widget(IPO_LIST, e, BASE) + tools.side_panel(BASE) + movers + results_widget(results) + trend
+    return hubs.ipo_widget(IPO_LIST, e, BASE) + tools.side_panel(BASE, lambda d, kind, srcs, extra="": markets.asof_html(e, d, kind, srcs, SESSION, extra)) + movers + results_widget(results) + trend
 
 
 CATS_LABELS = {v[0] for v in CATS.values()}
@@ -797,7 +817,7 @@ def home_page(posts, meta, results=()):
         body = (f'<h1 class="sr">{SITE_NAME}: {e(TAGLINE)}</h1>'
                 + piggy_intro()
                 + f'<div class="topgrid">{hero}{stories}{market_widget(posts, meta)}</div>'
-                + markets.breadth_card(posts, {"e": e, "base": BASE, "url": url})
+                + markets.breadth_card(posts, {"e": e, "base": BASE, "url": url, "session": SESSION})
                 + report_banner(posts) + section_cols(posts)
                 + f'<div class="lower">{latest_list(posts)}<div class="side">{side_panels(posts, results)}</div></div>')
     ld = {"@context": "https://schema.org", "@type": "WebSite", "name": SITE_NAME, "url": SITE_URL + "/",
@@ -869,6 +889,8 @@ def main():
     results = load_results()
     global COMPANY_SLUGS, IPO_LIST, HUB_URLS, HOLIDAYS_PATH
     HOLIDAYS_PATH = markets.holidays_path(datetime.now(IST).date())
+    global SESSION
+    SESSION = markets.latest_session(datetime.now(IST))
     ctx = {"page": page, "e": e, "base": BASE, "card": card, "piggy_host": piggy_host, "meta": meta, "slug": slug, "ist": IST, "today": datetime.now(IST).date()}
     cpages, comps = hubs.company_pages(posts, results, ctx)
     ipages, IPO_LIST = hubs.ipo_pages(posts, ctx)
@@ -905,7 +927,7 @@ def main():
     write("data/index-closes.csv", markets.index_csv(meta))
     write("CNAME", "totalmarket.co.in\n")  # custom domain for GitHub Pages
     print(f"Built {len(posts)} stories into docs/")
-    for w in markets.calendar_warnings(datetime.now(IST).date()) + markets.events_warnings(datetime.now(IST).date()):
+    for w in markets.calendar_warnings(datetime.now(IST).date()) + markets.events_warnings(datetime.now(IST).date()) + markets.ticker_warnings(meta):
         print(w)
 
 

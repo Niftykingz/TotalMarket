@@ -5,55 +5,125 @@
     {
       "label": "Sensex",
       "value": "73,709.69",
-      "change": "-0.19%"
+      "change": "-0.19%",
+      "asOf": "2026-10-21",
+      "kind": "close",
+      "asOfText": "21 Oct close",
+      "source": {
+        "name": "Business Standard",
+        "url": "https://www.business-standard.com/markets/news/stock-market-live-october-21-bse-sensex-today-nifty50-gift-nifty-crude-oil-prices-jio-platforms-ipo-today-hd-fire-protect-share-price-126102100078_1.html"
+      }
     },
     {
       "label": "Nifty 50",
       "value": "22,811.35",
-      "change": "-0.34%"
+      "change": "-0.34%",
+      "asOf": "2026-10-21",
+      "kind": "close",
+      "asOfText": "21 Oct close",
+      "source": {
+        "name": "Business Standard",
+        "url": "https://www.business-standard.com/markets/news/stock-market-live-october-21-bse-sensex-today-nifty50-gift-nifty-crude-oil-prices-jio-platforms-ipo-today-hd-fire-protect-share-price-126102100078_1.html"
+      }
     },
     {
       "label": "India VIX",
       "value": "",
-      "change": "+6%"
+      "change": "+6%",
+      "asOf": "2026-10-21",
+      "kind": "close",
+      "asOfText": "21 Oct close",
+      "source": {
+        "name": "Business Standard",
+        "url": "https://www.business-standard.com/markets/news/stock-market-live-october-21-bse-sensex-today-nifty50-gift-nifty-crude-oil-prices-jio-platforms-ipo-today-hd-fire-protect-share-price-126102100078_1.html"
+      }
     },
     {
       "label": "USD/INR",
       "value": "94.56",
-      "change": "+0.4%"
+      "change": "+0.4%",
+      "asOf": "2026-10-21",
+      "kind": "intraday",
+      "asOfText": "21 Oct, 11:49 am",
+      "source": {
+        "name": "Business Standard",
+        "url": "https://www.business-standard.com/amp/finance/news/rupee-rises-29-paise-to-94-62-against-us-dollar-during-early-trade-126102100233_1.html"
+      }
     },
     {
       "label": "MCX Gold",
       "value": "₹1,45,972",
-      "change": "-0.37%"
+      "change": "-0.37%",
+      "asOf": "2026-10-21",
+      "kind": "intraday",
+      "asOfText": "21 Oct, morning",
+      "source": {
+        "name": "Analytics Insight",
+        "url": "https://www.analyticsinsight.net/business/mcx-gold-falls-037-to-rs-145972-as-oil-prices-remain-elevated-brent-crude-hovers-at-usd-1104"
+      }
     },
     {
       "label": "MCX Silver",
       "value": "₹2,09,207",
-      "change": "-1.08%"
+      "change": "-1.08%",
+      "asOf": "2026-10-21",
+      "kind": "intraday",
+      "asOfText": "21 Oct, morning",
+      "source": {
+        "name": "Analytics Insight",
+        "url": "https://www.analyticsinsight.net/business/mcx-gold-falls-037-to-rs-145972-as-oil-prices-remain-elevated-brent-crude-hovers-at-usd-1104"
+      }
     },
     {
       "label": "Brent",
       "value": "$110.4",
-      "change": "+1.47%"
+      "change": "+1.47%",
+      "asOf": "2026-10-21",
+      "kind": "intraday",
+      "asOfText": "21 Oct, morning",
+      "source": {
+        "name": "Analytics Insight",
+        "url": "https://www.analyticsinsight.net/business/mcx-gold-falls-037-to-rs-145972-as-oil-prices-remain-elevated-brent-crude-hovers-at-usd-1104"
+      }
     },
     {
       "label": "Spot gold",
       "value": "$4,118",
-      "change": "-0.2%"
+      "change": "-0.2%",
+      "asOf": "2026-10-21",
+      "kind": "intraday",
+      "asOfText": "21 Oct, morning",
+      "source": {
+        "name": "Analytics Insight",
+        "url": "https://www.analyticsinsight.net/business/mcx-gold-falls-037-to-rs-145972-as-oil-prices-remain-elevated-brent-crude-hovers-at-usd-1104"
+      }
     },
     {
       "label": "Dow",
       "value": "52,495.88",
-      "change": "+1.02%"
+      "change": "+1.02%",
+      "asOf": "2026-10-20",
+      "kind": "close",
+      "asOfText": "20 Oct close (US)",
+      "source": {
+        "name": "HDFC Sky",
+        "url": "https://hdfcsky.com/news/dow-rises-529-oil-retreat-rotation-us-market-close"
+      }
     },
     {
       "label": "DXY",
       "value": "101.71",
-      "change": "-0.26%"
+      "change": "-0.26%",
+      "asOf": "2026-10-20",
+      "kind": "close",
+      "asOfText": "20 Oct close (US)",
+      "source": {
+        "name": "Capp Notes",
+        "url": "https://cappnotes.substack.com/p/closing-look-tuesday-october-20-2026"
+      }
     }
   ],
-  "tickerAsOf": "Close, Wed 21 Oct",
+  "tickerAsOf": "Mixed times, see each item (IST)",
   "updatedAt": "2026-10-21T15:55:00+05:30",
   "history": {
     "Nifty 50": [
@@ -80,6 +150,11 @@
       {
         "d": "2026-10-19",
         "v": 22888.95
+      },
+      {
+        "d": "2026-10-21",
+        "v": 22811.35,
+        "s": "Business Standard"
       }
     ],
     "Sensex": [
@@ -106,6 +181,11 @@
       {
         "d": "2026-10-19",
         "v": 73852.9
+      },
+      {
+        "d": "2026-10-21",
+        "v": 73709.69,
+        "s": "Business Standard"
       }
     ]
   }

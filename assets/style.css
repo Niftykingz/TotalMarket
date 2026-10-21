@@ -549,3 +549,16 @@ a.company small{color:var(--accent-2)}
 .breadth.wide{margin:18px 0}
 @media (min-width:900px){.breadth.wide .bgrid{grid-template-columns:repeat(9,1fr)}}
 @media (min-width:600px) and (max-width:899px){.breadth.wide .bgrid{grid-template-columns:repeat(5,1fr)}}
+
+/* ---------- freshness labels ---------- */
+.asof{margin:8px 0 0;font-size:.74rem;color:var(--muted);line-height:1.45}
+.asof .ak{font-weight:700;color:var(--ink)}
+.asof a{color:var(--accent)}
+.asof.stale{color:var(--pill-amber)}
+.asof.stale .ak{color:var(--pill-amber);background:var(--pill-amber-bg);padding:1px 6px;border-radius:999px}
+.tcard .ta{display:block;font-style:normal;font-family:var(--f-body);font-size:.62rem;color:var(--tick-muted);margin-top:1px;white-space:nowrap}
+.tcard a.tl{text-decoration:none;color:var(--tick-muted)}.tcard a.tl:hover{text-decoration:underline}
+.tcard .tv.na{font-family:var(--f-body);font-size:.78rem;font-weight:500;color:var(--tick-muted)}
+.tcard.stale .tv{opacity:.65}
+.tcard.asof .tc.small{font-size:.62rem;color:var(--tick-muted);font-family:var(--f-body)}
+.rbanner .rstale{display:block;margin:6px 0 2px;font-size:.82rem;color:#FCD34D}

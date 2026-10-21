@@ -123,7 +123,7 @@ def _holidays_page(c, ctx):
 # ------------------------------------------------------------------ breadth card
 def breadth_card(posts, ctx):
     e, base, url = ctx["e"], ctx["base"], ctx["url"]
-    rep = next((p for p in posts if p.get("report")), None)
+    rep = latest_report(posts)
     b = (rep or {}).get("report", {}).get("breadth") or {}
     def v(k):
         x = b.get(k)
@@ -132,10 +132,14 @@ def breadth_card(posts, ctx):
         r = rep["report"]
         dl = r.get("dateLabel") or ""
         src = ", ".join(s.get("name", "") for s in (rep.get("sources") or [])[:2])
-        foot = (f'<p class="bnote">End of day · {e(dl)} · {e(b.get("exchange") or "NSE")} · figures as reported by {e(src)} in our '
-                f'<a href="{url(rep)}">daily report</a> · <a href="{NSE_MARKET_STATS}" rel="nofollow noopener" target="_blank">Official figures on NSE</a></p>')
+        rd = _d(r.get("date")) or rep["_dt"].date()
+        foot = (asof_html(e, rd, "eod", (rep.get("sources") or [])[:2] + [{"name": "our daily report", "url": url(rep)}], ctx.get("session"),
+                          extra=f'· {b.get("exchange") or "NSE"} breadth as reported (secondary sources)')
+                + f'<p class="bnote">For NSE\'s own figures, see the <a href="{NSE_MARKET_STATS}" rel="nofollow noopener" target="_blank">market statistics panel on nseindia.com</a>.</p>')
+        if not b:
+            foot = asof_html(e, None, "eod")
     else:
-        foot = '<p class="bnote">No market report yet.</p>'
+        foot = asof_html(e, None, "eod")
     adv, dec = b.get("advances"), b.get("declines")
     bar = ""
     try:
@@ -274,3 +278,68 @@ def events_warnings(today):
         return ["WARNING: data/corporate_events.json has no valid updatedAt; refresh corporate events."]
     age = (today - upd).days
     return [f"WARNING: corporate events last updated {upd.isoformat()} ({age} days ago); refresh data/corporate_events.json in this run."] if age >= 1 else []
+
+
+# ------------------------------------------------------------------ freshness and source labels
+KIND_LABEL = {"eod": "End of day", "close": "Close", "intraday": "Intraday, delayed", "benchmark": "Benchmark rate",
+              "historical": "Historical", "schedule": "Schedule"}
+
+
+def _holiday_set():
+    return {h["date"] for y in years() for h in y.get("holidays", [])}
+
+
+def is_trading_day(d):
+    return d.weekday() < 5 and d.isoformat() not in _holiday_set()
+
+
+def latest_session(now):
+    """Most recent NSE session whose 3:30 pm close has passed, as of `now` (IST datetime)."""
+    from datetime import timedelta
+    d = now.date()
+    if not (is_trading_day(d) and (now.hour, now.minute) >= (15, 30)):
+        d -= timedelta(days=1)
+        while not is_trading_day(d):
+            d -= timedelta(days=1)
+    return d
+
+
+def latest_report(posts):
+    """The newest daily report by its market date (not by file order)."""
+    reps = [p for p in posts if p.get("report")]
+    if not reps:
+        return None
+    return max(reps, key=lambda p: ((_d((p.get("report") or {}).get("date")) or p["_dt"].date()), p["_dt"]))
+
+
+def asof_html(e, d, kind, sources=(), session=None, extra=""):
+    """One-line 'as of' label with source links. `d` is the market date the figures belong to.
+    If `d` is older than the latest closed session it is marked 'Last available data'."""
+    srcs = [s for s in (sources or []) if s and s.get("name")]
+    links = ", ".join((f'<a href="{e(s["url"])}" rel="nofollow noopener" target="_blank">{e(s["name"])}</a>' if s.get("url") else e(s["name"])) for s in srcs)
+    if not d:
+        return '<p class="asof stale"><b>Data unavailable</b> · no verified figure for this panel yet.</p>'
+    stale = session is not None and d < session
+    lead = "Last available data:" if stale else KIND_LABEL.get(kind, "")
+    return (f'<p class="asof{" stale" if stale else ""}" data-asof="{d.isoformat()}" data-kind="{e(kind)}" data-label="{e(KIND_LABEL.get(kind, ""))}">'
+            f'<span class="ak">{e(lead)}</span> <time datetime="{d.isoformat()}">{e(_fmt(d))}</time>{(" " + e(extra)) if extra else ""}'
+            + (f' · Source: {links}' if links else "") + "</p>")
+
+
+def ticker_warnings(meta):
+    """Catch conflicting or missing closes between the ticker strip and the recorded history."""
+    out = []
+    hist = meta.get("history") or {}
+    for t in meta.get("ticker") or []:
+        lbl, d = t.get("label"), _d(t.get("asOf"))
+        if lbl in hist and d and t.get("kind") == "close":
+            last = hist[lbl][-1]
+            try:
+                v = float(str(t.get("value", "")).replace(",", ""))
+            except ValueError:
+                continue
+            if last["d"] == d.isoformat() and abs(last["v"] - v) > 0.01:
+                out.append(f"WARNING: {lbl} close {v} in ticker differs from history {last['v']} for {d}; check sources.")
+            if last["d"] < d.isoformat():
+                out.append(f"WARNING: {lbl} close for {d} is in the ticker but not in meta.history; append it.")
+    return out

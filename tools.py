@@ -333,17 +333,26 @@ def calc_pages(page, e, base, meta):
     return out
 
 
-def side_panel(base):
+def side_panel(base, asof=None):
     r = load_rates()
     if not r:
         return ""
     g, b, ch24, ch22, chs = gold_numbers(r)
+    bd = date.fromisoformat(b["date"])
+    lines = ""
+    if asof:
+        lines = asof(bd, "benchmark", [{"name": b["source"], "url": b["url"]}], extra=f'({b.get("session", "")} session)')
+        m = r.get("mcx")
+        rr = r.get("retailRange") or {}
+        if rr.get("date"):
+            lines += asof(date.fromisoformat(rr["date"]), "intraday", rr.get("sources") or [], extra="· shop rates on the gold page")
     def row(lbl, v, ch):
         cls = "" if ch is None else ("up" if ch >= 0 else "down")
         c = "" if ch is None else f'{"+" if ch >= 0 else "−"}{inr(abs(ch))}'
         return f'<tr><th scope="row">{lbl}</th><td class="num">{inr(v)}</td><td class="num {cls}">{c}</td></tr>'
-    return (f'<section class="panel"><h2>Gold &amp; silver today <small>IBJA · {date.fromisoformat(b["date"]).strftime("%-d %b")}</small></h2>'
+    return (f'<section class="panel"><h2>Gold &amp; silver <small>IBJA benchmark</small></h2>'
             f'<table class="mt"><tbody>{row("24K · 10 g", g["999"], ch24)}{row("22K · 10 g", g["916"], ch22)}{row("Silver · 1 kg", b["silver999"], chs)}</tbody></table>'
+            f'{lines}'
             f'<a class="more" href="{base}gold-rate-today/">City rates &amp; calculator →</a> · <a class="more" href="{base}calculators/">SIP &amp; EMI calculators →</a></section>')
 
 
