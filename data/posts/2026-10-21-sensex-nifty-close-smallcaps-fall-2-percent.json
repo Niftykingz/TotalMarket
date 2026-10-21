@@ -1,0 +1,57 @@
+{
+  "title": "Sensex ends 143 pts lower, Nifty 22,811; smallcaps sink 2.37%, IT the only gainer",
+  "dek": "An 800-point morning rally turned into a second straight loss as the broader market sold off and volatility jumped.",
+  "category": "markets",
+  "lead": true,
+  "readMins": 3,
+  "body": [
+    "Indian shares closed lower for a second day. The Sensex fell 143.21 points (0.19%) to 73,709.69 and the Nifty 50 fell 77.60 points (0.34%) to 22,811.35, according to Business Standard. That hides a wild day: the Sensex was up more than 800 points in the morning and down about 580 points at 3 pm, before trimming losses in the closing auction.",
+    "The real damage was outside the big names. The Nifty Midcap 100, which tracks 100 medium-sized companies, fell 1.58%, and the Nifty Smallcap 100 fell 2.37%. Smaller companies usually swing more than large ones, in both directions. Worked example: a ₹1 lakh investment in a smallcap index fund would be worth about ₹97,630 after today's fall, while the same amount in a Nifty 50 fund would be about ₹99,660.",
+    "Nifty IT was the only sector to rise, helped by a weak rupee earlier this month and steady US tech shares. Chemicals, consumer durables and metals fell the most. Eternal (Zomato's parent) slid more than 4% ahead of its results this evening, and Bajaj Finance and Eicher Motors were also among the biggest losers. India VIX, the market's fear gauge, rose about 6%, a sign that traders expect bigger swings. Part of the selling is linked to cash moving into the Jio IPO, which drew more than twice the shares on offer on day one.",
+    "Key takeaway: the headline indices fell only slightly, but most stocks fell much more; when midcaps and smallcaps drop 1.5–2.5% in a day, it signals that investors are cutting riskier bets."
+  ],
+  "indiaImpact": "A sharp fall in midcaps and smallcaps hits many retail portfolios and small-cap mutual funds harder than the Sensex suggests; continued foreign selling (over ₹50,000 crore this month) and high oil keep sentiment fragile.",
+  "coverHeadline": "SMALLCAPS SINK 2.37%",
+  "stat": "-2.37%",
+  "statLabel": "Nifty 50 closes at 22,811.35",
+  "coverContext": "Sensex 73,709.69, -143 pts",
+  "symbol": "candles",
+  "flags": [
+    "IN"
+  ],
+  "companies": [
+    {
+      "name": "Eternal",
+      "ticker": "ETERNAL"
+    },
+    {
+      "name": "Bajaj Finance",
+      "ticker": "BAJFINANCE"
+    },
+    {
+      "name": "Eicher Motors",
+      "ticker": "EICHERMOT"
+    }
+  ],
+  "seoTitle": "Stock Market Today 21 Oct 2026: Sensex -143, Nifty 22,811, Smallcap -2.37%",
+  "tags": [
+    "Stock market today",
+    "Sensex today",
+    "Nifty today",
+    "Share market today",
+    "Smallcap stocks",
+    "Midcap stocks",
+    "India VIX",
+    "Eternal share price",
+    "Bajaj Finance share price"
+  ],
+  "sources": [
+    {
+      "name": "Business Standard: Stock Market LIVE, 21 Oct",
+      "url": "https://www.business-standard.com/markets/news/stock-market-live-october-21-bse-sensex-today-nifty50-gift-nifty-crude-oil-prices-jio-platforms-ipo-today-hd-fire-protect-share-price-126102100078_1.html"
+    }
+  ],
+  "edition": "2026-10-21-close",
+  "editionLabel": "Wed 21 Oct · Closing wrap",
+  "publishedAt": "2026-10-21T15:55:00+05:30"
+}

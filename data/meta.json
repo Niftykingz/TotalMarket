@@ -1,26 +1,26 @@
 {
-  "editionLabel": "Wed 21 Oct · Midday check",
-  "nextUpdate": "2026-10-21T15:45:00+05:30",
+  "editionLabel": "Wed 21 Oct · Closing wrap",
+  "nextUpdate": "2026-10-21T20:10:00+05:30",
   "ticker": [
     {
       "label": "Sensex",
-      "value": "73,766.19",
-      "change": "-0.12%"
+      "value": "73,709.69",
+      "change": "-0.19%"
     },
     {
       "label": "Nifty 50",
-      "value": "22,824.45",
-      "change": "-0.28%"
+      "value": "22,811.35",
+      "change": "-0.34%"
     },
     {
       "label": "India VIX",
-      "value": "16.03",
-      "change": "+8.5%"
+      "value": "",
+      "change": "+6%"
     },
     {
       "label": "USD/INR",
-      "value": "94.62",
-      "change": "+0.32%"
+      "value": "94.56",
+      "change": "+0.4%"
     },
     {
       "label": "MCX Gold",
@@ -53,8 +53,8 @@
       "change": "-0.26%"
     }
   ],
-  "tickerAsOf": "Live 12:00 IST, Wed 21 Oct",
-  "updatedAt": "2026-10-21T12:50:00+05:30",
+  "tickerAsOf": "Close, Wed 21 Oct",
+  "updatedAt": "2026-10-21T15:55:00+05:30",
   "history": {
     "Nifty 50": [
       {

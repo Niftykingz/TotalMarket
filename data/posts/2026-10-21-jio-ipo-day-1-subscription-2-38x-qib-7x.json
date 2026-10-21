@@ -1,0 +1,89 @@
+{
+  "title": "Jio IPO day 1: 2.38x subscribed by 3 pm; QIBs bid 7x, retail at 0.61x",
+  "dek": "Bids for about 47 crore shares came in on the first day of India's biggest IPO.",
+  "category": "startups",
+  "lead": false,
+  "readMins": 2,
+  "body": [
+    "Jio Platforms' IPO was subscribed 2.38 times by 3 pm on day one, HDFC Sky reported: bids came in for about 46.95 crore shares against 19.75 crore on offer to the public (excluding the anchor portion already sold on Monday).",
+    "Big institutions (QIBs) led with 7.09 times their quota. HNIs, the non-institutional investors who apply for more than ₹2 lakh, were at 1.06 times. Reliance shareholders (1.15x) and employees (1.17x) also filled their reserved portions. Retail investors, applying up to ₹2 lakh, were at 0.61 times, which is normal on day one; many retail applicants bid on the last day.",
+    "What does this mean for allotment? If the retail portion ends oversubscribed, each applicant usually gets at most one lot of 12 shares, chosen by lottery. Worked example: at 5 times retail subscription, roughly 1 in 5 applicants would get a lot, and the rest get their blocked money released.",
+    "Key takeaway: institutional demand is very strong; retail and HNI bids on 22–23 October will decide the final number before allotment on 26 October."
+  ],
+  "table": {
+    "title": "Jio Platforms IPO, day 1 at 3 pm (HDFC Sky)",
+    "rows": [
+      {
+        "label": "QIB (ex-anchor)",
+        "value": "7.09x",
+        "change": "",
+        "note": "34.77 cr shares bid vs 4.90 cr"
+      },
+      {
+        "label": "NII (HNI)",
+        "value": "1.06x",
+        "change": "",
+        "note": "bNII 1.05x, sNII 1.07x"
+      },
+      {
+        "label": "Retail",
+        "value": "0.61x",
+        "change": "",
+        "note": "5.21 cr bid vs 8.50 cr"
+      },
+      {
+        "label": "Employees",
+        "value": "1.17x",
+        "change": "",
+        "note": ""
+      },
+      {
+        "label": "Shareholders",
+        "value": "1.15x",
+        "change": "",
+        "note": ""
+      },
+      {
+        "label": "Total",
+        "value": "2.38x",
+        "change": "",
+        "note": "46.95 cr bid vs 19.75 cr offered"
+      }
+    ]
+  },
+  "indiaImpact": "Strong institutional demand, including from foreign funds, supports the rupee and signals confidence in Indian telecom; it also draws cash away from other stocks during the issue.",
+  "coverHeadline": "JIO IPO 2.38X DAY 1",
+  "stat": "2.38X",
+  "statLabel": "Subscription at 3 pm, day 1",
+  "coverContext": "QIB 7.09x · Retail 0.61x",
+  "coverLabel": "IPO watch",
+  "symbol": "growth",
+  "flags": [
+    "IN"
+  ],
+  "companies": [
+    {
+      "name": "Reliance Industries",
+      "ticker": "RELIANCE"
+    }
+  ],
+  "seoTitle": "Jio IPO Subscription Status Day 1: 2.38x, QIB 7.09x, Retail 0.61x",
+  "tags": [
+    "Jio IPO",
+    "Jio IPO subscription status",
+    "Jio Platforms IPO",
+    "IPO subscription status",
+    "Jio IPO day 1",
+    "Jio IPO allotment",
+    "Upcoming IPO"
+  ],
+  "sources": [
+    {
+      "name": "HDFC Sky: Jio IPO day 1 at 3 pm",
+      "url": "https://hdfcsky.com/news/jio-platforms-ipo-subscription-status-day-1-at-3-pm"
+    }
+  ],
+  "edition": "2026-10-21-close",
+  "editionLabel": "Wed 21 Oct · Closing wrap",
+  "publishedAt": "2026-10-21T15:54:00+05:30"
+}
