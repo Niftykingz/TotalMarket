@@ -11,6 +11,7 @@ import covers
 import report
 import art
 import tools
+import hubs
 from datetime import datetime, timedelta, timezone
 from urllib.parse import quote
 from zoneinfo import ZoneInfo
@@ -24,6 +25,9 @@ SITE_NAME = "TotalMarket"
 TAGLINE = "Indian markets, IPOs, tech and AI news, explained"
 TAG_SLUGS = []
 TOOL_URLS = []
+HUB_URLS = []
+COMPANY_SLUGS = set()
+IPO_LIST = []
 HOME_TITLE = "TotalMarket: Sensex, Nifty, Gold Rate, Crude Oil, IPO & Global Market News Today"
 HOME_KEYWORDS = ["Sensex today", "Nifty 50", "stock market news India", "gold rate today", "silver price today", "crude oil price",
                  "rupee vs dollar", "IPO news", "Q2 results", "global market news", "US market today", "AI news"]
@@ -236,7 +240,7 @@ def header(meta, path):
         for x in t)
     asof = f'<div class="tcard asof"><span class="tl">As of</span><span class="tv small">{e(meta.get("tickerAsOf"))}</span></div>' if meta.get("tickerAsOf") else ""
     tick = f'<div class="tickers" aria-label="Market snapshot"><div class="wrap trow">{cards}{asof}</div></div>' if t else ""
-    links = [("", "Home")] + [(k + "/", v[0]) for k, v in CATS.items()] + [("market-report/", "Daily report"), ("gold-rate-today/", "Gold rate"), ("calculators/", "Calculators"), ("results/", "Results")]
+    links = [("", "Home")] + [(k + "/", v[0]) for k, v in CATS.items()] + [("market-report/", "Daily report"), ("ipo/", "IPO"), ("gold-rate-today/", "Gold rate"), ("calculators/", "Calculators"), ("results/", "Results")]
     nav = "".join(f'<a class="tab{" on" if path == BASE + k else ""}" href="{BASE}{k}">{e(n)}</a>' for k, n in links)
     return f"""<header class="top">
 <div class="wrap bar1">
@@ -258,12 +262,20 @@ def footer():
 
 def chip(p):
     c = p["category"]
-    return f'<span class="chip" style="--dot:var(--c-{c})">{e(CATS[c][0])}</span>'
+    st = STATUS_BADGE.get(str(p.get("status") or "").lower())
+    badge = f'<span class="stbadge st-{e(p["status"].lower())}">{e(st)}</span>' if st else ""
+    return f'<span class="chip" style="--dot:var(--c-{c})">{e(CATS[c][0])}</span>{badge}'
+
+
+STATUS_BADGE = {"developing": "Developing story", "update": "Updated", "updated": "Updated"}
 
 
 def meta_row(p):
     src = (p.get("sources") or [{}])[0].get("name")
     bits = [f'<time datetime="{e(p["_dt"].isoformat())}">{e(fmt_ist(p["_dt"]))}</time>']
+    up = parse_dt(p.get("updatedAt"))
+    if up and up > p["_dt"]:
+        bits.append(f'<span class="upd">Updated <time datetime="{e(up.isoformat())}">{e(fmt_ist(up))}</time></span>')
     if p.get("readMins"): bits.append(f'{int(p["readMins"])} min read')
     if src: bits.append(e(src))
     return '<div class="meta">' + "".join(f"<span>{b}</span>" for b in bits) + "</div>"
@@ -275,7 +287,8 @@ def cover_url(p, absolute=False):
 
 
 def cover_img(p, cls, eager=False):
-    return (f'<img class="{cls}" src="{cover_url(p)}" width="1600" height="900" alt="" '
+    alt = p.get("coverAlt") or f'Cover graphic: {p["title"]}'
+    return (f'<img class="{cls}" src="{cover_url(p)}" width="1600" height="900" alt="{e(alt)}" '
             f'{"fetchpriority=\"high\"" if eager else "loading=\"lazy\""} decoding="async">')
 
 
@@ -313,7 +326,10 @@ def people_strip(p):
             continue
         lf = logo_file(c.get("ticker"))
         logo = f'<img src="{BASE}logos/{lf}" alt="" loading="lazy">' if lf else f'<span class="tkb">{e(c.get("ticker") or "")}</span>'
-        comps.append(f'<div class="company">{logo}<span><b>{e(c.get("name"))}</b><small>{e(c.get("ticker") or "")}</small></span></div>')
+        csl = hubs.company_slug(c.get("name") or "")
+        tagname = "a" if csl in COMPANY_SLUGS else "div"
+        href = f' href="{BASE}stock/{csl}/"' if tagname == "a" else ""
+        comps.append(f'<{tagname} class="company"{href}>{logo}<span><b>{e(c.get("name"))}</b><small>{e(c.get("ticker") or "")}{" · All news →" if href else ""}</small></span></{tagname}>')
     if not ppl and not comps:
         return ""
     out = '<div class="pstrip">'
@@ -503,6 +519,7 @@ def article_page(p, posts, meta):
 {dek}
 {meta_row(p)}
 <div class="byline">By Claude (AI) for TotalMarket · automated update</div>
+{f'<p class="chg"><b>What changed</b>{e(p["changeNote"])}</p>' if p.get("changeNote") else ""}
 {people_strip(p)}
 <div class="body">{body_html}</div>
 {report.render(p.get("report"))}
@@ -518,7 +535,7 @@ def article_page(p, posts, meta):
 </div>
 <div class="tags" aria-label="Topics">{"".join(f'<a class="tag" href="{BASE}tag/{slug(t)}/">#{e(t)}</a>' for t in p["_tags"])}</div>
 {'<div class="sources"><h2>Sources</h2><ul>' + srcs + '</ul></div>' if srcs else ''}
-<p class="disc">News and explanation only. This is not investment advice and not a recommendation to buy or sell any security.</p>
+<p class="disc">Written with AI assistance by TotalMarket. Based on the sources linked in this article; key facts and data should be checked against the original sources. This article is for information only and is not investment advice.</p>
 {comments_block(p)}
 </article>
 <div class="fab" aria-label="Like or comment"><button type="button" class="fab-like" data-like-key="{like_key(p)}" aria-label="Like this story">&#9829; <span class="lc">Like</span></button><a class="fab-cm" href="#comments" aria-label="Go to comments">&#128172; Comment</a></div>
@@ -688,7 +705,7 @@ def side_panels(posts, results):
     top = sorted(counts.items(), key=lambda kv: -kv[1])[:14]
     trend = ('<section class="panel"><h2>Trending topics</h2><div class="tags">'
              + "".join(f'<a class="tag" href="{BASE}tag/{slug(t)}/">#{e(t)}</a>' for t, _ in top) + "</div></section>") if top else ""
-    return tools.side_panel(BASE) + movers + results_widget(results) + trend
+    return hubs.ipo_widget(IPO_LIST, e, BASE) + tools.side_panel(BASE) + movers + results_widget(results) + trend
 
 
 CATS_LABELS = {v[0] for v in CATS.values()}
@@ -740,7 +757,7 @@ def rss(posts):
 
 def sitemap(posts):
     now = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
-    urls = [(SITE_URL + "/", now, "hourly")] + [(f"{SITE_URL}/{k}/", now, "hourly") for k in CATS] + [(SITE_URL + "/about/", None, "monthly"), (SITE_URL + "/results/", now, "daily"), (SITE_URL + "/market-report/", now, "daily")] + [(u, now, "daily") for u in TOOL_URLS] + [(f"{SITE_URL}/tag/{t}/", now, "daily") for t in TAG_SLUGS]
+    urls = [(SITE_URL + "/", now, "hourly")] + [(f"{SITE_URL}/{k}/", now, "hourly") for k in CATS] + [(SITE_URL + "/about/", None, "monthly"), (SITE_URL + "/results/", now, "daily"), (SITE_URL + "/market-report/", now, "daily")] + [(u, now, "daily") for u in TOOL_URLS] + [(f"{SITE_URL}/tag/{t}/", now, "daily") for t in TAG_SLUGS] + [(u, now, "daily") for u in HUB_URLS]
     urls += [(abs_url(url(p)), p["_dt"].astimezone(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"), None) for p in posts]
     rows = "".join(f"<url><loc>{e(u)}</loc>{f'<lastmod>{m}</lastmod>' if m else ''}{f'<changefreq>{c}</changefreq>' if c else ''}</url>" for u, m, c in urls)
     return f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">{rows}</urlset>\n'
@@ -778,6 +795,14 @@ def main():
         shutil.copytree(LOGO_DIR, os.path.join(OUT, "logos"), dirs_exist_ok=True, ignore=shutil.ignore_patterns("*.md"))
     covers.ensure_covers(posts, os.path.join(OUT, "covers"))
     results = load_results()
+    global COMPANY_SLUGS, IPO_LIST, HUB_URLS
+    ctx = {"page": page, "e": e, "base": BASE, "card": card, "meta": meta, "slug": slug, "ist": IST, "today": datetime.now(IST).date()}
+    cpages, comps = hubs.company_pages(posts, results, ctx)
+    ipages, IPO_LIST = hubs.ipo_pages(posts, ctx)
+    COMPANY_SLUGS = set(comps)
+    for rel, html_ in cpages + ipages:
+        write(rel, html_)
+        HUB_URLS.append(SITE_URL + "/" + rel.replace("index.html", ""))
     write("index.html", home_page(posts, meta, results))
     write("results/index.html", results_page(results, meta))
     write("market-report/index.html", report_page(posts, meta))

@@ -400,3 +400,54 @@ details.faq p{margin:8px 0 0;color:var(--muted)}
 .toolcard b{font-family:var(--f-display);font-size:1.15rem}
 .toolcard span{color:var(--muted);font-size:.92rem}
 @media (max-width:560px){.cout.three{grid-template-columns:1fr}.lesson{padding:14px 14px 4px}}
+
+/* ---------- IPO hub & company pages ---------- */
+.ipogrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px}
+.ipocard{background:var(--surface);border:1px solid var(--line-2);border-radius:14px;padding:16px;display:flex;flex-direction:column;gap:8px}
+.ipocard h3{margin:0;font-family:var(--f-display);font-size:1.15rem}
+.ipocard h3 a{text-decoration:none}.ipocard h3 a:hover{color:var(--accent-2)}
+.iptop{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap}
+.ipmeta{margin:0;color:var(--muted);font-size:.86rem;font-family:var(--f-mono)}
+.ipbiz{margin:0;font-size:.9rem}
+.ipst{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;padding:3px 9px;border-radius:999px;background:var(--surface-2);color:var(--muted);white-space:nowrap}
+.ipst.st-open{background:var(--up-bg);color:var(--up)}
+.ipst.st-listing{background:#3A2A08;color:var(--amber)}
+.ipst.st-closed{background:var(--accent-soft);color:var(--accent-2)}
+.ipst.st-upcoming{background:#2A1F45;color:#C4B5FD}
+.ipogain{font-weight:700;font-size:.85rem;font-family:var(--f-mono)}
+.ipogain.up{color:var(--up)}.ipogain.down{color:var(--down)}
+.subs{border-top:1px solid var(--line);padding-top:10px;display:flex;flex-direction:column;gap:5px}
+.stot{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+.stot b{font-family:var(--f-mono);font-size:1.35rem;color:var(--up)}
+.stot span{color:var(--muted);font-size:.78rem}
+.sbar{display:grid;grid-template-columns:92px 1fr 64px;align-items:center;gap:8px;font-size:.8rem}
+.sbar span{color:var(--muted)}
+.sbar i{display:block;height:8px;border-radius:4px;background:linear-gradient(90deg,var(--accent),var(--up));width:var(--w);min-width:3px}
+.sbar b{font-family:var(--f-mono);text-align:right}
+.ipodetail{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:18px;align-items:start;margin-bottom:18px}
+.ipodetail .subs{background:var(--surface);border:1px solid var(--line-2);border-radius:12px;padding:14px}
+@media (max-width:760px){.ipodetail{grid-template-columns:1fr}}
+.lessonq{border:1px solid var(--line-2);border-radius:10px;padding:10px 14px;margin:8px 0;background:var(--surface)}
+.lessonq summary{cursor:pointer;font-weight:700}
+.lessonq p{margin:8px 0 2px;color:var(--ink)}
+.ipow ul{list-style:none;margin:0;padding:0}
+.ipow h2 a{float:right;font-size:.8rem;font-weight:600;color:var(--accent-2);text-decoration:none}
+.ipow li a{display:grid;grid-template-columns:1fr auto;gap:2px 8px;padding:9px 0;border-bottom:1px solid var(--line);text-decoration:none}
+.ipow li small{grid-column:1/-1;color:var(--muted);font-family:var(--f-mono);font-size:.76rem}
+.cofacts{display:grid;gap:12px;margin-bottom:18px}
+.colist{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px}
+.colist a{display:flex;flex-direction:column;padding:12px 14px;border:1px solid var(--line-2);border-radius:10px;background:var(--surface);text-decoration:none}
+.colist a:hover{border-color:var(--accent)}
+.colist small{color:var(--muted);font-size:.78rem}
+a.company{text-decoration:none;border-radius:10px;transition:background .15s}
+a.company:hover{background:var(--surface-2)}
+a.company small{color:var(--accent-2)}
+/* editorial status */
+.stbadge{display:inline-block;margin-left:8px;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;padding:3px 9px;border-radius:999px;vertical-align:middle}
+.stbadge.st-developing{background:#3A2A08;color:var(--amber)}
+.stbadge.st-update,.stbadge.st-updated{background:var(--accent-soft);color:var(--accent-2)}
+.chg{margin:10px 0;padding:10px 14px;border-left:3px solid var(--amber);background:var(--surface);border-radius:0 8px 8px 0;font-size:.92rem}
+.chg b{display:block;font-size:.72rem;text-transform:uppercase;letter-spacing:.06em;color:var(--amber);margin-bottom:2px}
+.upd{color:var(--amber)}
+:root[data-theme="light"] .ipst.st-listing,:root[data-theme="light"] .stbadge.st-developing{background:#FFF4E5;color:#B45309}
+:root[data-theme="light"] .ipst.st-upcoming{background:#F1EBFF;color:#6D28D9}

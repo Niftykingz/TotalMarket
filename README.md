@@ -94,3 +94,16 @@ The current covers render this style in code (lit objects, dark backgrounds). Ph
 Every story page has a highlighted "Did this story help you?" card with a **Like** button and a **Comment** button, plus a floating like/comment bar while reading.
 - Likes use the free, no-login Abacus counter (`abacus.jasoncameron.dev`, namespace `totalmarket`, one key per story). One like per browser.
 - Comments use giscus (GitHub Discussions, free, no ads). Set `GISCUS["categoryId"]` in build.py (from https://giscus.app) to switch the comments box on; until then a "Comments are opening soon" note shows. Moderate comments in the repository's Discussions tab.
+
+
+### IPO hub and company pages
+
+- `data/ipos.json` feeds **/ipo/** (open, upcoming, closed and listed IPOs with subscription bars and an "IPO school" FAQ) and one page per IPO at **/ipo/<slug>/**. Status is computed from the dates. See RUNBOOK.md for the fields.
+- **/stock/<slug>/** pages are built for every company in any story's `companies` field, with its next results date from `data/results.json`; **/stock/** lists them A–Z. Company badges on stories link to these pages.
+
+### Editorial fields
+
+- `updatedAt` + `changeNote`: shows "Updated …" and a "What changed" box when a story is revised.
+- `status`: `"developing"` or `"update"` shows a badge next to the section chip.
+- `coverAlt`: alt text for the cover image (defaults to headline + title).
+- `seoDescription`: meta description (defaults to the dek).
