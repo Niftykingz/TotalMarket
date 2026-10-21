@@ -340,6 +340,51 @@ def people_strip(p):
     return out + "</div>"
 
 
+PIGGY_ALT = "Boss Piggy, TotalMarket's market guide: a cartoon pig in black glasses and a navy suit"
+
+
+def piggy_img(kind="head", cls="pg-av", eager=False):
+    src, w, h = {"head": ("boss-piggy-head.webp", 192, 192), "head96": ("boss-piggy-head-96.webp", 96, 96),
+                 "full": ("boss-piggy-360.webp", 216, 360)}[kind]
+    return (f'<img class="{cls}" src="{BASE}assets/piggy/{src}" width="{w}" height="{h}" alt="{e(PIGGY_ALT)}" '
+            f'{"" if eager else "loading=\"lazy\" "}decoding="async">')
+
+
+def piggy_host(title, text, link=None, kind="full"):
+    """Boss Piggy as host of an educational section (IPO hub, Learn page)."""
+    more = f'<a class="pg-link" href="{e(link[0])}">{e(link[1])} →</a>' if link else ""
+    return (f'<aside class="pg-host" aria-label="Boss Piggy, your market guide">{piggy_img(kind, "pg-full")}'
+            f'<div><span class="pg-name">Boss Piggy · your market guide</span><h2>{e(title)}</h2><p>{e(text)}</p>{more}'
+            f'<small>Boss Piggy explains news and ideas; he never tells you what to buy or sell.</small></div></aside>')
+
+
+def piggy_intro():
+    return (f'<aside class="pg-intro" aria-label="Boss Piggy, your market guide">{piggy_img("head96", "pg-av", eager=True)}'
+            f'<p><b>Namaste, I\'m Boss Piggy.</b> I\'ll help make today\'s market news easier to understand: what happened, why it matters and what to watch. '
+            f'<a href="{BASE}learn/">Learn the basics with me →</a></p></aside>')
+
+
+def piggy_box(p):
+    """Compact 'Boss Piggy explains' box: what happened / why it matters / what to watch. Only when the story has a `piggy` field."""
+    g = p.get("piggy")
+    if not isinstance(g, dict) or not g.get("happened"):
+        return ""
+    watch = g.get("watch") or []
+    if isinstance(watch, str):
+        watch = [watch]
+    rows = [("What happened", e(g["happened"]))]
+    if g.get("matters"):
+        rows.append(("Why it matters", e(g["matters"])))
+    if watch:
+        rows.append(("What to watch next", "<ul>" + "".join(f"<li>{e(w)}</li>" for w in watch) + "</ul>"))
+    dev = ' <span class="stbadge st-developing">Developing</span>' if str(p.get("status", "")).lower() == "developing" else ""
+    asof = fmt_ist(parse_dt(p.get("updatedAt")) or p["_dt"])
+    return (f'<aside class="pg-box" aria-label="Boss Piggy explains">'
+            f'<div class="pg-head">{piggy_img("head96", "pg-av")}<div><b>Boss Piggy explains</b>{dev}<small>Simple explanation of the facts in this story · as of {e(asof)}</small></div></div>'
+            + "".join(f'<div class="pg-row"><h3>{k}</h3><div>{v}</div></div>' for k, v in rows)
+            + '<p class="pg-note">Explanation only, based on the sources listed below. Not a recommendation to buy, sell or hold anything.</p></aside>')
+
+
 def why(p):
     return f'<p class="why"><b>Why it matters</b>{e(p["why"])}</p>' if p.get("why") else ""
 
@@ -522,6 +567,7 @@ def article_page(p, posts, meta):
 {f'<p class="chg"><b>What changed</b>{e(p["changeNote"])}</p>' if p.get("changeNote") else ""}
 {people_strip(p)}
 <div class="body">{body_html}</div>
+{piggy_box(p)}
 {report.render(p.get("report"))}
 {data_table(p)}
 {impacts(p)}
@@ -725,7 +771,8 @@ def home_page(posts, meta, results=()):
                    f'<button type="button" class="wt" data-panel="st1">Latest</button></div>'
                    f'<div class="wp" id="st0">{"".join(mini(p) for p in topst)}</div><div class="wp" id="st1" hidden>{"".join(mini(p) for p in others[:5])}</div></aside>')
         body = (f'<h1 class="sr">{SITE_NAME}: {e(TAGLINE)}</h1>'
-                f'<div class="topgrid">{hero}{stories}{market_widget(posts, meta)}</div>'
+                + piggy_intro()
+                + f'<div class="topgrid">{hero}{stories}{market_widget(posts, meta)}</div>'
                 + report_banner(posts) + section_cols(posts)
                 + f'<div class="lower">{latest_list(posts)}<div class="side">{side_panels(posts, results)}</div></div>')
     ld = {"@context": "https://schema.org", "@type": "WebSite", "name": SITE_NAME, "url": SITE_URL + "/",
@@ -796,7 +843,7 @@ def main():
     covers.ensure_covers(posts, os.path.join(OUT, "covers"))
     results = load_results()
     global COMPANY_SLUGS, IPO_LIST, HUB_URLS
-    ctx = {"page": page, "e": e, "base": BASE, "card": card, "meta": meta, "slug": slug, "ist": IST, "today": datetime.now(IST).date()}
+    ctx = {"page": page, "e": e, "base": BASE, "card": card, "piggy_host": piggy_host, "meta": meta, "slug": slug, "ist": IST, "today": datetime.now(IST).date()}
     cpages, comps = hubs.company_pages(posts, results, ctx)
     ipages, IPO_LIST = hubs.ipo_pages(posts, ctx)
     COMPANY_SLUGS = set(comps)

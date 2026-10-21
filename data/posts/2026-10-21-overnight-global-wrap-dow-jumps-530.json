@@ -170,5 +170,14 @@
   "edition": "2026-10-21-premarket",
   "editionLabel": "Wed 21 Oct · Pre-market brief",
   "publishedAt": "2026-10-21T08:50:00+05:30",
-  "coverDate": "2026-10-20"
+  "coverDate": "2026-10-20",
+  "piggy": {
+    "happened": "The Dow rose 1.02% to 52,495.88 on Tuesday as investors moved into healthcare and value stocks, while the Nasdaq was flat. Brent touched $110 before settling at $108.79.",
+    "matters": "Calmer global markets support Indian shares, but oil near $110 and US yields above 5% can quickly change sentiment.",
+    "watch": [
+      "Brent crude around $110",
+      "US 10-year Treasury yield",
+      "The Fed's 27–28 October meeting"
+    ]
+  }
 }

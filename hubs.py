@@ -231,6 +231,7 @@ def ipo_pages(posts, ctx):
     body = (f'<div class="sechead"><h1>IPO today: open, upcoming and recently listed IPOs</h1>'
             f'<p>Every mainboard IPO in one place: price bands, lot sizes, subscription by investor category, listing dates and listing gains, plus a daily lesson on how IPOs work. '
             f'Data as of {e(data.get("asOf") or "")}. Grey market premium is unofficial and shown only for context.</p></div>'
+            + ctx["piggy_host"]("Boss Piggy's IPO guide", "Every IPO below shows the facts first: dates, price band, lot size and who has applied so far. Open any IPO for the full details, and scroll down to my IPO school to learn what each term means before you read the numbers.", (f"{base}learn/", "More lessons"))
             + ("".join(groups) or '<div class="empty"><p>No IPOs listed right now.</p></div>')
             + news
             + f'<section class="lesson"><h2>IPO school: learn the basics</h2>{lessons}</section>'
@@ -385,6 +386,7 @@ def learn_page(ctx):
                 + "".join(f'<details class="lessonq" id="{pre}-{_slug(q)[:40]}"><summary>{e(q)}</summary><p>{e(a)}</p></details>' for q, a in items) + "</section>")
     body = (f'<div class="sechead"><h1>Learn: stock market and IPO basics</h1><p>Short, plain-language lessons on the words you see in TotalMarket stories every day. '
             f'Tap a question to open it. Also see the <a href="{base}calculators/">SIP and EMI calculators</a> and the <a href="{base}ipo/">IPO hub</a>.</p></div>'
+            + ctx["piggy_host"]("Learn with Boss Piggy", "Markets have a lot of jargon. Pick any question below and I'll explain it in plain words, with a small example. Start with Sensex and Nifty, then FIIs, then IPO basics.", (f"{base}ipo/", "See today's IPOs"))
             + sec("Stock market basics", MARKET_LESSONS, "m") + sec("IPO basics", LESSONS, "ipo")
             + '<p class="disc">Education only, not investment advice.</p>')
     faq = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [

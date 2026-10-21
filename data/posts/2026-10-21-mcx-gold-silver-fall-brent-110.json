@@ -80,5 +80,14 @@
   "edition": "2026-10-21-midday",
   "editionLabel": "Wed 21 Oct · Midday check",
   "publishedAt": "2026-10-21T12:47:00+05:30",
-  "companies": []
+  "companies": [],
+  "piggy": {
+    "happened": "MCX gold futures fell 0.37% to ₹1,45,972 per 10 g and silver fell 1.08% on Wednesday morning, as Brent crude rose to about $110.",
+    "matters": "Expensive oil raises inflation worries, which can keep US interest rates high, and higher rates tend to weigh on gold.",
+    "watch": [
+      "Oil prices",
+      "Signals before the Fed's 27–28 October meeting",
+      "Jewellers' shop rates, which add GST and making charges"
+    ]
+  }
 }

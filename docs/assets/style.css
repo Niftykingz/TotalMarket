@@ -477,3 +477,31 @@ a.company small{color:var(--accent-2)}
 @keyframes tm-pulse{0%{box-shadow:0 0 0 0 rgba(239,68,68,.6)}70%{box-shadow:0 0 0 10px rgba(239,68,68,0)}100%{box-shadow:0 0 0 0 rgba(239,68,68,0)}}
 @media (prefers-reduced-motion:reduce){.livedot,.lv:first-child::before{animation:none}}
 @media (max-width:560px){.lv{grid-template-columns:1fr;gap:2px}}
+
+/* ---------- Boss Piggy, the site's market guide ---------- */
+.pg-av{width:56px;height:56px;border-radius:50%;background:var(--accent-soft);border:2px solid var(--line);flex:0 0 auto;object-fit:cover}
+.pg-intro{display:flex;align-items:center;gap:14px;margin:18px 0 14px;padding:10px 16px;background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:12px}
+.pg-intro p{margin:0;font-size:.95rem;color:var(--ink)}
+.pg-intro a{color:var(--accent);font-weight:600;white-space:nowrap;text-decoration:none}
+.pg-intro a:hover{text-decoration:underline}
+.pg-box{margin:22px 0;padding:16px 18px;background:var(--surface);border:1px solid var(--line);border-radius:14px;box-shadow:0 1px 2px rgba(16,24,40,.05)}
+.pg-head{display:flex;align-items:center;gap:12px;margin-bottom:10px}
+.pg-head b{font-family:var(--f-display);font-size:1.12rem;color:var(--ink)}
+.pg-head small{display:block;color:var(--muted);font-size:.8rem}
+.pg-row{display:grid;grid-template-columns:150px 1fr;gap:12px;padding:10px 0;border-top:1px solid var(--line)}
+.pg-row h3{margin:0;font-size:.78rem;text-transform:uppercase;letter-spacing:.05em;color:var(--accent)}
+.pg-row div{font-size:.95rem}
+.pg-row ul{margin:0;padding-left:18px}
+.pg-note{margin:8px 0 0;color:var(--muted);font-size:.78rem}
+.pg-host{display:flex;align-items:center;gap:18px;margin:0 0 18px;padding:16px 20px;background:var(--surface);border:1px solid var(--line);border-radius:14px}
+.pg-full{width:108px;height:auto;flex:0 0 auto}
+.pg-host h2{margin:2px 0 6px;font-family:var(--f-display);font-size:1.25rem}
+.pg-host p{margin:0 0 8px}
+.pg-host small{display:block;color:var(--muted);font-size:.78rem}
+.pg-name{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--accent)}
+.pg-link{color:var(--accent);font-weight:600;text-decoration:none;display:inline-block;margin-bottom:6px}
+@media (max-width:560px){
+  .pg-intro{align-items:flex-start}.pg-intro .pg-av{width:44px;height:44px}
+  .pg-row{grid-template-columns:1fr;gap:4px}
+  .pg-host{flex-direction:column;text-align:center;gap:10px}.pg-full{width:90px}
+}

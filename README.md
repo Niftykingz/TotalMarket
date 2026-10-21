@@ -107,3 +107,7 @@ Every story page has a highlighted "Did this story help you?" card with a **Like
 - `status`: `"developing"` or `"update"` shows a badge next to the section chip.
 - `coverAlt`: alt text for the cover image (defaults to headline + title).
 - `seoDescription`: meta description (defaults to the dek).
+
+### Boss Piggy (site guide)
+
+Boss Piggy, a cartoon pig in black glasses and a navy suit, is TotalMarket's market guide. He appears in a small intro on the home page, as the host of the IPO hub and the Learn page, and in a "Boss Piggy explains" box on stories that have a `piggy` field (`happened`, `matters`, `watch`). Images: `assets/piggy/` (head avatars and a 360 px full figure, WebP with transparency); the original is kept in `design/`. He is not shown on story covers or cards.

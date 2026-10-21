@@ -44,6 +44,9 @@ Write like a friendly teacher walking a beginner through the news. Open with wha
 - **Every story needs** `seoDescription` (140–160 chars, plain summary with the key number), `coverAlt` (one sentence describing the cover, e.g. "Cover graphic: Nifty -0.34%, smallcaps sink 2.37%"), and the usual SEO fields. The AI-transparency footer is added automatically.
 - **End-of-run report in chat:** after publishing, post a short edition status via SendUserMessage: edition date and slot, market status (pre-market/open/closed/holiday), research as-of time, lead headline, number of stories (new vs updated), and a **"Needs verification"** list of anything left out because it couldn't be confirmed (or "None"). Never say something is published unless the push succeeded.
 
+### Boss Piggy explains (site mascot and guide)
+Boss Piggy is TotalMarket's friendly market guide (image in `assets/piggy/`, original in `design/boss-piggy-original.png`; never redraw or restyle him). On the most important 2–4 stories of each run (always the lead, the IPO daily and the daily report), add a `piggy` object: `{"happened": "...", "matters": "...", "watch": ["...", "..."]}`. Rules: `happened` restates only verified facts from this story with their numbers; `matters` explains in plain words why it matters to an ordinary Indian investor or saver; `watch` lists 2–3 concrete, dated upcoming events or data from the sources (results dates, IPO dates, policy meetings, data releases). He never tells readers to buy, sell or hold, never predicts or promises moves, never adds numbers that are not in the story, and labels anything provisional. Don't add `piggy` to every story.
+
 ## 6. Meta
 Update `data/meta.json`: editionLabel, updatedAt, nextUpdate (next slot that will actually run), ticker (Sensex, Nifty 50, Bank Nifty, USD/INR, Gold, Silver, Brent, US 10Y, Nasdaq, DXY; verified only), tickerAsOf. Keep `history`.
 

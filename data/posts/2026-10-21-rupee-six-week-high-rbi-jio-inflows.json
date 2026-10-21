@@ -41,5 +41,14 @@
   ],
   "edition": "2026-10-21-close",
   "editionLabel": "Wed 21 Oct · Closing wrap",
-  "publishedAt": "2026-10-21T15:53:00+05:30"
+  "publishedAt": "2026-10-21T15:53:00+05:30",
+  "piggy": {
+    "happened": "The rupee touched 94.49 per dollar on Wednesday, its strongest in six weeks, helped by money coming in for the Jio IPO and RBI measures.",
+    "matters": "A firmer rupee makes imported oil, gold and electronics slightly cheaper, but analysts quoted in the story expect the gains may not last, with Brent oil near $110.",
+    "watch": [
+      "Brent crude prices",
+      "Foreign investor flows in shares",
+      "Any further RBI steps in the currency market"
+    ]
+  }
 }
