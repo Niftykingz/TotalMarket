@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-21T08:52:00+05:30",
+  "updatedAt": "2026-10-21T12:50:00+05:30",
   "benchmark": {
     "source": "India Bullion and Jewellers Association (IBJA)",
     "url": "https://ibjarates.com/",
@@ -13,7 +13,7 @@
       "585": 85377
     },
     "silver999": 208750,
-    "note": "Latest IBJA rates are from 19 Oct; IBJA did not publish on 20 Oct (Dussehra) and today's first rates come around midday. Rates exclude 3% GST and making charges."
+    "note": "Latest verified IBJA rates are from 19 Oct; IBJA did not publish on 20 Oct (Dussehra) and today's rates could not be confirmed at midday. Rates exclude 3% GST and making charges."
   },
   "history": [
     {

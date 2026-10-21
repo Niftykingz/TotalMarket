@@ -1,0 +1,60 @@
+{
+  "title": "Sensex gives up 800-point jump; Nifty slips to 22,824 at noon as IT gains, midcaps wobble",
+  "dek": "An early rally faded as the Jio IPO drew cash and volatility rose; IT stocks held up while Bajaj Finance and Eicher weighed.",
+  "category": "markets",
+  "lead": true,
+  "readMins": 2,
+  "body": [
+    "Indian shares opened strongly after the Dussehra break but could not hold on. The Sensex was up more than 800 points at its high around 10:50 am, with the Nifty 50 above 23,100, but by noon the Sensex was at 73,766.19, down 86.71 points (0.12%), and the Nifty at 22,824.45, down 64.50 points (0.28%), according to Business Standard.",
+    "Why did the rally fade? Part of the reason is cash: the Jio IPO opened today, and some investors sell other shares to raise money to apply. India VIX, the 'fear gauge' that measures how much traders expect prices to swing, jumped 8.5% to 16.03. Midcap and smallcap indices, which track medium and small companies, fell about 1% in late morning as power, cable and defence stocks were sold, before recovering to roughly flat. Biocon and Swiggy hit 52-week lows, the lowest price in a year.",
+    "IT was the bright spot: Infosys, TCS and Wipro led gains, helped by a weak rupee and steady US tech. UltraTech Cement rose about 3% after reporting a 21.3% jump in second-quarter profit to ₹1,501 crore on Monday. Bajaj Finance, Eicher Motors and Eternal were the biggest Nifty losers ahead of Eternal's results this evening.",
+    "Key takeaway: a big early jump that fades by noon shows buyers are still cautious; foreign selling and the Jio IPO's pull on cash are the two forces to watch into the close."
+  ],
+  "indiaImpact": "A rising VIX and weak midcaps suggest choppy trade for the rest of the week while the ₹30,200 crore Jio IPO is open, even as IT and cement shares find buyers.",
+  "coverHeadline": "NIFTY -0.28% AT NOON",
+  "stat": "-0.28%",
+  "statLabel": "Nifty 50 at 22,824.45, 12:00 pm",
+  "coverContext": "Sensex 73,766 · India VIX +8.5%",
+  "symbol": "candles",
+  "flags": [
+    "IN"
+  ],
+  "companies": [
+    {
+      "name": "Infosys",
+      "ticker": "INFY"
+    },
+    {
+      "name": "UltraTech Cement",
+      "ticker": "ULTRACEMCO"
+    },
+    {
+      "name": "Bajaj Finance",
+      "ticker": "BAJFINANCE"
+    }
+  ],
+  "seoTitle": "Sensex Nifty Today 21 Oct 2026 Midday: Gains Fade, Nifty 22,824, IT Up",
+  "tags": [
+    "Stock market today",
+    "Sensex today",
+    "Nifty today",
+    "Share market today",
+    "India VIX",
+    "Infosys share price",
+    "UltraTech Cement Q2 results",
+    "Midcap stocks"
+  ],
+  "sources": [
+    {
+      "name": "Business Standard: Stock Market LIVE, 21 Oct",
+      "url": "https://www.business-standard.com/markets/news/stock-market-live-october-21-bse-sensex-today-nifty50-gift-nifty-crude-oil-prices-jio-platforms-ipo-today-hd-fire-protect-share-price-126102100078_1.html"
+    },
+    {
+      "name": "Free Press Journal: UltraTech Q2 FY27",
+      "url": "https://www.freepressjournal.in/business/ultratech-cement-reports-213-profit-rise-to-1501-crore-in-q2-fy27"
+    }
+  ],
+  "edition": "2026-10-21-midday",
+  "editionLabel": "Wed 21 Oct · Midday check",
+  "publishedAt": "2026-10-21T12:50:00+05:30"
+}

@@ -1,46 +1,46 @@
 {
-  "editionLabel": "Wed 21 Oct · Pre-market brief",
-  "nextUpdate": "2026-10-21T12:45:00+05:30",
+  "editionLabel": "Wed 21 Oct · Midday check",
+  "nextUpdate": "2026-10-21T15:45:00+05:30",
   "ticker": [
     {
       "label": "Sensex",
-      "value": "73,852.90",
-      "change": "-1.17%"
+      "value": "73,766.19",
+      "change": "-0.12%"
     },
     {
       "label": "Nifty 50",
-      "value": "22,888.95",
-      "change": "-1.11%"
+      "value": "22,824.45",
+      "change": "-0.28%"
     },
     {
-      "label": "GIFT Nifty",
-      "value": "23,012.50",
-      "change": "+0.34%"
+      "label": "India VIX",
+      "value": "16.03",
+      "change": "+8.5%"
     },
     {
       "label": "USD/INR",
-      "value": "94.92",
-      "change": ""
+      "value": "94.62",
+      "change": "+0.32%"
     },
     {
-      "label": "Gold",
-      "value": "$4,143",
-      "change": "-0.42%"
+      "label": "MCX Gold",
+      "value": "₹1,45,972",
+      "change": "-0.37%"
     },
     {
-      "label": "Silver",
-      "value": "$58.10",
-      "change": "+1.98%"
+      "label": "MCX Silver",
+      "value": "₹2,09,207",
+      "change": "-1.08%"
     },
     {
       "label": "Brent",
-      "value": "$108.79",
-      "change": "-0.69%"
+      "value": "$110.4",
+      "change": "+1.47%"
     },
     {
-      "label": "US 10Y",
-      "value": "~5.1%",
-      "change": "-3bp"
+      "label": "Spot gold",
+      "value": "$4,118",
+      "change": "-0.2%"
     },
     {
       "label": "Dow",
@@ -48,18 +48,13 @@
       "change": "+1.02%"
     },
     {
-      "label": "Nasdaq",
-      "value": "26,424.82",
-      "change": "-0.02%"
-    },
-    {
       "label": "DXY",
       "value": "101.71",
       "change": "-0.26%"
     }
   ],
-  "tickerAsOf": "Pre-market, Wed 21 Oct (India: Mon close)",
-  "updatedAt": "2026-10-21T08:52:00+05:30",
+  "tickerAsOf": "Live 12:00 IST, Wed 21 Oct",
+  "updatedAt": "2026-10-21T12:50:00+05:30",
   "history": {
     "Nifty 50": [
       {
