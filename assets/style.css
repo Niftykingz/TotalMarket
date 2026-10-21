@@ -505,3 +505,9 @@ a.company small{color:var(--accent-2)}
   .pg-row{grid-template-columns:1fr;gap:4px}
   .pg-host{flex-direction:column;text-align:center;gap:10px}.pg-full{width:90px}
 }
+.dtype{display:inline-block;font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;padding:2px 7px;border-radius:999px;margin-right:4px}
+.dtype.t-close{background:var(--surface-2);color:var(--muted)}
+.dtype.t-intraday{background:var(--pill-amber-bg);color:var(--pill-amber)}
+.dkpis small{font-family:var(--f-mono);font-size:.8rem}.dkpis small.up{color:var(--up)}.dkpis small.down{color:var(--down)}
+.nchart .lchart{width:100%;height:auto;max-height:260px}
+.footlinks{margin:0 0 12px;line-height:1.9}.footlinks a{color:#93C5FD;text-decoration:none}.footlinks a:hover{text-decoration:underline}

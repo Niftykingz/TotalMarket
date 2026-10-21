@@ -105,5 +105,29 @@
     "name": "Asianet Newsable",
     "asOf": "21 Oct 2026, 8:17 am IST",
     "url": "https://newsable.asianetnews.com/business/gold-silver-prices-today-october-21-check-city-wise-rates-in-delhi-bengaluru-and-more-articleshow-v0479qu"
+  },
+  "mcx": {
+    "asOf": "21 Oct 2026, morning (published 6:30 am IST)",
+    "gold": 145972,
+    "goldChangePct": -0.37,
+    "silver": 209207,
+    "silverChangePct": -1.08,
+    "contract": "December futures",
+    "source": {
+      "name": "Analytics Insight",
+      "url": "https://www.analyticsinsight.net/business/mcx-gold-falls-037-to-rs-145972-as-oil-prices-remain-elevated-brent-crude-hovers-at-usd-1104"
+    }
+  },
+  "silverRetail": {
+    "date": "2026-10-21",
+    "range": [
+      229540,
+      231840
+    ],
+    "note": "Shop rates per kg across six cities quoted by Asianet Newsable on the morning of 21 Oct; GST extra.",
+    "source": {
+      "name": "Asianet Newsable",
+      "url": "https://newsable.asianetnews.com/business/gold-silver-prices-today-october-21-check-city-wise-rates-in-delhi-bengaluru-and-more-articleshow-v0479qu"
+    }
   }
 }

@@ -77,6 +77,8 @@ def build(page, e, base, site_url, meta):
     if rates:
         for rel, html in gold_pages(rates, page, e, base, meta):
             out.append((rel, html)); urls.append(site_url + "/" + rel.replace("index.html", ""))
+        for rel, html in silver_pages(rates, page, e, base, meta):
+            out.append((rel, html)); urls.append(site_url + "/" + rel.replace("index.html", ""))
     for rel, html in calc_pages(page, e, base, meta):
         out.append((rel, html)); urls.append(site_url + "/" + rel.replace("index.html", ""))
     return out, urls
@@ -192,7 +194,8 @@ def gold_pages(r, page, e, base, meta):
     body = (f'<article class="story tool"><nav class="crumbs"><a href="{base}">Home</a> / <a href="{base}commodities/">Commodities &amp; Forex</a></nav>'
             f'<h1>Gold rate today in India: 24K, 22K and silver price</h1>'
             f'<p class="dek">Benchmark rates for {e(d)} ({e(b["session"])} session), explained step by step so you know what you will actually pay.</p>'
-            f'{kpis}<p class="wnote">{e(b.get("note", ""))}</p>{retail}{gold_calc(g, silver)}{per_gram}{cities}{gold_lesson(g, e)}{history}{faq_html(qas, e)}{sources}'
+            f'{kpis}<p class="wnote">{e(b.get("note", ""))}</p>{retail}{mcx_block(r, e, "gold")}'
+            f'<p class="cm-note">Looking for silver? See the <a href="{base}silver-rate-today/">silver rate today</a> page for per-kg, per-10 g and per-gram prices.</p>{gold_calc(g, silver)}{per_gram}{cities}{gold_lesson(g, e)}{history}{faq_html(qas, e)}{sources}'
             f'<p class="disc">Rates are for information only. TotalMarket does not recommend buying or selling gold or silver.</p></article>')
     ld = faq_ld(qas)
     pages.append(("gold-rate-today/index.html", page(
@@ -342,3 +345,80 @@ def side_panel(base):
     return (f'<section class="panel"><h2>Gold &amp; silver today <small>IBJA · {date.fromisoformat(b["date"]).strftime("%-d %b")}</small></h2>'
             f'<table class="mt"><tbody>{row("24K · 10 g", g["999"], ch24)}{row("22K · 10 g", g["916"], ch22)}{row("Silver · 1 kg", b["silver999"], chs)}</tbody></table>'
             f'<a class="more" href="{base}gold-rate-today/">City rates &amp; calculator →</a> · <a class="more" href="{base}calculators/">SIP &amp; EMI calculators →</a></section>')
+
+
+# ------------------------------------------------------------------ silver
+def mcx_block(r, e, metal):
+    m = r.get("mcx")
+    if not m or not m.get(metal):
+        return ""
+    unit = "per 10 g" if metal == "gold" else "per kg"
+    pc = m.get(metal + "ChangePct")
+    src = m.get("source") or {}
+    return (f'<p class="why"><b>MCX {metal} futures ({e(m.get("contract", ""))}):</b> {inr(m[metal])} {unit}'
+            + (f' ({pc:+.2f}%)' if pc is not None else "")
+            + f', as of {e(m.get("asOf"))}, reported by <a href="{e(src.get("url"))}" rel="nofollow noopener">{e(src.get("name"))}</a>. '
+            'Futures prices are for traders and differ from shop rates.</p>')
+
+
+def silver_pages(r, page, e, base, meta):
+    g, b, ch24, ch22, chs = gold_numbers(r)
+    d = dlabel(b["date"])
+    s_kg = b["silver999"]
+    hist = list(reversed(r.get("history") or []))
+    sr = r.get("silverRetail") or {}
+    kpis = ('<div class="rp-kpis">'
+            + kpi("Silver 999 · 1 kg", inr(s_kg), chs)
+            + kpi("Silver 999 · 10 g", inr(s_kg / 100))
+            + kpi("Silver 999 · 1 g", inr(s_kg / 1000, 2))
+            + kpi("Gold 24K · 10 g", inr(g["999"]), ch24)
+            + "</div>")
+    retail = ""
+    if sr.get("range"):
+        lo, hi = sr["range"]
+        src = sr.get("source") or {}
+        retail = (f'<p class="why"><b>Shop rates ({e(dlabel(sr["date"]))}):</b> {inr(lo)}–{inr(hi)} per kg, as quoted by '
+                  f'<a href="{e(src.get("url"))}" rel="nofollow noopener">{e(src.get("name"))}</a>. {e(sr.get("note", ""))}</p>')
+    hrows = "".join(f'<tr><th scope="row">{e(dlabel(h["date"]))}</th><td class="num">{inr(h["silver999"])}</td><td class="num">{inr(h["silver999"] / 1000, 2)}</td></tr>' for h in hist)
+    per = s_kg / 1000
+    coin = per * 100
+    gst = coin * 0.03
+    lesson = f"""<section class="lesson"><h2>Class in 2 minutes: how to read a silver rate</h2>
+<ol class="steps">
+<li><b>Know the purity.</b> Silver 999 is 99.9% pure and is used for bars and coins. Jewellery and utensils are often 925 (sterling silver, 92.5% pure), so they are priced lower per gram before making charges.</li>
+<li><b>Know the unit.</b> Silver is quoted per kilogram. Divide by 1,000 for one gram, or by 100 for 10 grams.</li>
+<li><b>Know what is included.</b> The IBJA benchmark excludes 3% GST and making charges, so shops and coin sellers will charge more.</li>
+<li><b>Know why it moves.</b> Silver follows global prices in dollars, the rupee's value and industrial demand from solar panels and electronics, so it often swings more than gold.</li>
+</ol>
+<div class="worked"><b>Worked example: a 100 g silver 999 coin at today's benchmark</b>
+<table class="dt"><tbody>
+<tr><th scope="row">Rate per gram (benchmark ÷ 1,000)</th><td class="num">{inr(per, 2)}</td></tr>
+<tr><th scope="row">Metal value for 100 g</th><td class="num">{inr(coin)}</td></tr>
+<tr><th scope="row">GST at 3%</th><td class="num">{inr(gst)}</td></tr>
+<tr><th scope="row"><b>Before the seller's premium or making charge</b></th><td class="num"><b>{inr(coin + gst)}</b></td></tr>
+</tbody></table></div></section>"""
+    qas = [
+        ("What is the silver rate today per kg?", f"The IBJA benchmark for silver 999 on {d} ({b['session']}) is {inr(s_kg)} per kilogram, before 3% GST."),
+        ("What is the silver price per gram today?", f"At the {d} benchmark, silver 999 works out to {inr(per, 2)} per gram, or {inr(s_kg / 100)} per 10 grams, before GST."),
+        ("Why is the shop price of silver higher?", "Shops add 3% GST and their own premium or making charges; city rates also include local costs and margins."),
+        ("What is the difference between MCX silver and the shop rate?", "MCX silver is a futures price for traders, for delivery on a future date. Shop rates are for physical silver today and include taxes and margins."),
+    ]
+    sources = (f'<section class="sources"><h2>Sources</h2><ul><li><a href="{e(b["url"])}" rel="nofollow noopener">{e(b["source"])}</a> — benchmark rates</li>'
+               + (f'<li><a href="{e(sr["source"]["url"])}" rel="nofollow noopener">{e(sr["source"]["name"])}</a> — shop rates</li>' if sr.get("source") else "")
+               + (f'<li><a href="{e(r["mcx"]["source"]["url"])}" rel="nofollow noopener">{e(r["mcx"]["source"]["name"])}</a> — MCX futures</li>' if (r.get("mcx") or {}).get("source") else "")
+               + "</ul></section>")
+    body = (f'<article class="story tool"><nav class="crumbs"><a href="{base}">Home</a> / <a href="{base}commodities/">Commodities &amp; Forex</a></nav>'
+            f'<h1>Silver rate today in India: price per kg, 10 g and gram</h1>'
+            f'<p class="dek">IBJA benchmark for {e(d)} ({e(b["session"])} session), with MCX futures, shop rates and the last {len(hist)} trading days.</p>'
+            f'{kpis}<p class="wnote">{e(b.get("note", ""))}</p>{retail}{mcx_block(r, e, "silver")}'
+            f'<section class="lesson"><h2>Silver rate: last {len(hist)} trading days</h2><div class="tablewrap"><table class="dt"><thead><tr><th>Date</th><th>Silver 999 / kg</th><th>Per gram</th></tr></thead><tbody>{hrows}</tbody></table></div></section>'
+            f'{lesson}{faq_html(qas, e)}{sources}'
+            f'<p class="cm-note">Also see: <a href="{base}gold-rate-today/">Gold rate today</a> · <a href="{base}commodities/">Commodities news</a> · <a href="{base}calculators/">Calculators</a></p>'
+            f'<p class="disc">Rates are for information only. TotalMarket does not recommend buying or selling gold or silver.</p></article>')
+    return [("silver-rate-today/index.html", page(
+        "Silver rate today in India",
+        f"Silver rate today: {inr(s_kg)} per kg ({inr(per, 2)} per gram) for silver 999 (IBJA, {d}), plus MCX silver, shop rates and recent history.",
+        f"{base}silver-rate-today/", body, meta,
+        seo_title=f"Silver Rate Today ({date.fromisoformat(b['date']).strftime('%-d %b')}): Price per Kg & Gram | TotalMarket",
+        keywords=["silver rate today", "silver price today", "silver rate per kg", "silver price per gram", "MCX silver", "silver rate in India", "IBJA silver rate"],
+        extra_head=f'<script type="application/ld+json">{json.dumps(faq_ld(qas))}</script>'))]

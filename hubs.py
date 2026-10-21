@@ -218,9 +218,9 @@ def ipo_pages(posts, ctx):
                 + '<p class="disc">IPO details come from offer documents, exchanges and the sources linked above and can change. Grey market premium is unofficial. This page is for information only and is not a recommendation to apply for or avoid any IPO.</p>')
         nm = x["name"]
         kw = [f"{nm} IPO", f"{nm} IPO GMP", f"{nm} IPO subscription status", f"{nm} IPO listing date", f"{nm} IPO price band", f"{nm} IPO allotment status"]
-        title = f"{nm} IPO: Price Band, GMP, Subscription Status, Listing Date"
+        title = f"{nm} IPO: GMP, Subscription, Listing Date"
         out.append((f"ipo/{x['slug']}/index.html", page(title, f"{nm} IPO details: price band, lot size, dates, subscription by category, listing price and latest news.",
-                                                      f"{base}ipo/{x['slug']}/", body, ctx["meta"], keywords=kw, seo_title=f"{title} | TotalMarket")))
+                                                      f"{base}ipo/{x['slug']}/", body, ctx["meta"], keywords=kw)))
     groups = []
     for st in ("open", "listing", "closed", "upcoming", "listed"):
         g = [x for x in ipos if x["_status"] == st]
@@ -243,7 +243,7 @@ def ipo_pages(posts, ctx):
                                        "Upcoming and open IPOs in India: price band, lot size, subscription status by category, listing dates, listing gains and simple IPO lessons.",
                                        f"{base}ipo/", body, ctx["meta"], extra_head=extra,
                                        keywords=["IPO today", "upcoming IPO", "IPO GMP today", "IPO subscription status", "IPO listing today", "new IPO", "mainboard IPO"],
-                                       seo_title="IPO Today: Upcoming IPO List, Subscription Status, GMP & Listing Dates | TotalMarket")))
+                                       seo_title="IPO Today: Upcoming IPOs, GMP & Subscription | TotalMarket")))
     return out, ipos
 
 
@@ -366,17 +366,17 @@ def live_page(posts, ctx):
         f'<div><span class="lvslot">{e((p.get("editionLabel") or "").split("·")[-1].strip())}</span><h3><a href="{url(p)}">{e(p["title"])}</a></h3>'
         f'<p>{e(p.get("dek") or "")}</p></div></li>' for p in todays)
     dl = day.strftime("%-d %B %Y")
-    ld = {"@context": "https://schema.org", "@type": "LiveBlogPosting", "headline": f"Stock market live today, {dl}",
+    ld = {"@context": "https://schema.org", "@type": "LiveBlogPosting", "headline": f"Stock market today: all updates for {dl}",
           "url": ctx["site_url"] + "/live/", "coverageStartTime": todays[-1]["_dt"].isoformat(), "coverageEndTime": todays[0]["_dt"].isoformat(),
           "liveBlogUpdate": [{"@type": "BlogPosting", "headline": p["title"][:110], "datePublished": p["_dt"].isoformat(), "url": ctx["site_url"] + url(p)} for p in todays[:30]]}
-    body = (f'<div class="sechead"><h1><span class="livedot" aria-hidden="true"></span>Stock market live today: {e(dl)}</h1>'
+    body = (f'<div class="sechead"><h1><span class="livedot" aria-hidden="true"></span>Stock market today: all updates for {e(dl)}</h1>'
             f'<p>Every TotalMarket update for {e(dl)} in one timeline, newest first: pre-market brief, midday check, closing wrap, daily report and evening update. '
             f'{len(todays)} updates so far. Times are IST.</p></div><ol class="lvlist">{items}</ol>')
-    return [("live/index.html", page(f"Stock Market Live Today {dl}: Sensex, Nifty, IPO Updates",
-             f"Stock market live updates for {dl}: Sensex, Nifty, IPOs, gold, crude and rupee, all of today's TotalMarket updates in one timeline.",
+    return [("live/index.html", page(f"Stock Market Today {dl}: All Updates on Sensex, Nifty, IPOs",
+             f"Stock market today, {dl}: every TotalMarket update on Sensex, Nifty, IPOs, gold, crude and the rupee in one timeline, newest first.",
              f"{base}live/", body, ctx["meta"], extra_head=f'<script type="application/ld+json">{json.dumps(ld, ensure_ascii=False)}</script>',
-             keywords=["stock market live", "share market live today", "Sensex live", "Nifty live", "stock market today"],
-             seo_title=f"Stock Market Live Today ({dl}): Sensex, Nifty, IPO Updates | TotalMarket"))]
+             keywords=["stock market today", "share market today", "stock market updates", "Sensex today", "Nifty today"],
+             seo_title=f"Stock Market Today ({dl}): All Updates | TotalMarket"))]
 
 
 def learn_page(ctx):
@@ -396,3 +396,103 @@ def learn_page(ctx):
              f"{base}learn/", body, ctx["meta"], extra_head=f'<script type="application/ld+json">{json.dumps(faq, ensure_ascii=False)}</script>',
              keywords=["stock market basics", "share market for beginners", "what is Nifty", "what is FII DII", "IPO basics", "what is GMP"],
              seo_title="Learn Stock Market Basics for Beginners in India | TotalMarket"))]
+
+
+# ------------------------------------------------------------------ evergreen market-data pages
+def _pct_cls(v):
+    s = str(v or "")
+    return "down" if s.startswith("-") else ("up" if s.strip("+") not in ("", "0", "0.0") else "")
+
+
+def global_page(posts, ctx):
+    page, e, base, url = ctx["page"], ctx["e"], ctx["base"], ctx["url"]
+    path = os.path.join(DATA, "global.json")
+    if not os.path.exists(path):
+        return []
+    g = json.load(open(path, encoding="utf-8"))
+    secs = []
+    for reg in g.get("regions", []):
+        rows = "".join(
+            f'<tr><th scope="row">{e(r["name"])}</th><td class="num">{e(r.get("value") or "—")}</td>'
+            f'<td class="num {_pct_cls(r.get("pct") or r.get("change"))}">{e(r.get("change") or "")}</td>'
+            f'<td class="num {_pct_cls(r.get("pct"))}">{e((r["pct"] + "%") if r.get("pct") else "")}</td>'
+            f'<td><span class="dtype t-{e(r.get("type"))}">{"Close" if r.get("type") == "close" else "Intraday"}</span> {e(r.get("asOf"))}</td>'
+            f'<td><a href="{e((r.get("source") or {}).get("url"))}" rel="nofollow noopener" target="_blank">{e((r.get("source") or {}).get("name"))}</a></td></tr>'
+            for r in reg.get("rows", []))
+        secs.append(f'<section class="edition"><h2 class="edhead"><b>{e(reg["region"])}</b></h2><div class="tablewrap"><table class="dt"><thead><tr>'
+                    f'<th>Index</th><th>Level</th><th>Change</th><th>% Chg</th><th>As of</th><th>Source</th></tr></thead><tbody>{rows}</tbody></table></div></section>')
+    news = [p for p in posts if p["category"] == "global"][:6]
+    upd = _d(str(g.get("updatedAt", ""))[:10])
+    piggy = ctx["piggy_box"]({"happened": "This page lists the latest closing (or clearly marked intraday) level of the world's main stock indices, each with its date, time and source.",
+                              "matters": "Overnight moves in the US and Asia often set the mood for Indian markets the next morning, because global funds move money across countries and the same worries (oil, US interest rates, AI stocks) affect everyone.",
+                              "watch": ["The US close each evening (IST night) and GIFT Nifty before 9:15 am", "US 10-year bond yields and the dollar", "Big moves in Asian chip stocks such as Korea and Taiwan"]})
+    body = (f'<nav class="crumbs"><a href="{base}">Home</a> / <a href="{base}global/">Global Markets</a></nav>'
+            f'<div class="sechead"><h1>Global indices today: US, Asia and India</h1>'
+            f'<p>Latest verified levels of the Dow, S&amp;P 500, Nasdaq, Nikkei, Hang Seng, Kospi and more, with what each move means for India. '
+            f'Updated with every pre-market brief{(" · last updated " + e(upd.strftime("%-d %b %Y"))) if upd else ""}. {e(g.get("note") or "")}</p></div>'
+            + "".join(secs) + piggy
+            + ((f'<section class="edition"><h2 class="edhead"><b>Latest global market news</b></h2><div class="grid">{"".join(ctx["card"](p) for p in news)}</div></section>') if news else "")
+            + f'<p class="cm-note">See also: <a href="{base}nifty-50/">Nifty 50 today</a> · <a href="{base}live/">Today\'s updates</a> · <a href="{base}market-report/">Daily market report</a></p>'
+            + '<p class="disc">Index levels are taken from the news sources linked in each row and may be delayed. TotalMarket does not provide live prices. For information only, not investment advice.</p>')
+    return [("global-indices/index.html", page("Global Indices Today: Dow, Nasdaq, Nikkei, Hang Seng & More",
+             "Global indices today: latest Dow Jones, S&P 500, Nasdaq, Nikkei, Hang Seng, Kospi and Shanghai levels with date, source and what the moves mean for India.",
+             f"{base}global-indices/", body, ctx["meta"], keywords=["global market", "global indices", "global market today", "Dow Jones today", "Nasdaq today", "Nikkei today", "Hang Seng today", "US market today"],
+             seo_title="Global Indices Today: Dow, Nasdaq, Nikkei, Hang Seng | TotalMarket"))]
+
+
+def nifty_page(posts, ctx):
+    page, e, base, url, meta = ctx["page"], ctx["e"], ctx["base"], ctx["url"], ctx["meta"]
+    hist = (meta.get("history") or {}).get("Nifty 50") or []
+    if not hist:
+        return []
+    last = hist[-1]
+    prev = hist[-2] if len(hist) > 1 else None
+    rep = next((p for p in posts if p.get("report")), None)
+    r = rep["report"] if rep else {}
+    row = next((x for x in r.get("indices", []) if x.get("name") == "Nifty 50"), None) if r.get("date") == last["d"] else None
+    chg = last["v"] - prev["v"] if prev else None
+    pct = chg / prev["v"] * 100 if prev else None
+    ld = _d(last["d"])
+    kp = [("Last close", f'{last["v"]:,.2f}', f'{chg:+,.2f} ({pct:+.2f}%)' if chg is not None else "")]
+    if row:
+        kp += [("Day open", row.get("open"), ""), ("Day high", row.get("high"), ""), ("Day low", row.get("low"), "")]
+    kpis = '<div class="dkpis">' + "".join(f'<div><span>{e(k)} · {e(_fmt(ld))}</span><b class="{_pct_cls(c)}">{e(v)}</b>{("<small class=\"" + _pct_cls(c) + "\">" + e(c) + "</small>") if c else ""}</div>' for k, v, c in kp) + "</div>"
+    chart = ctx["line_chart"](hist[-30:]) if ctx.get("line_chart") else ""
+    trows = []
+    for i in range(len(hist) - 1, max(0, len(hist) - 15), -1):
+        x, p0 = hist[i], hist[i - 1] if i > 0 else None
+        c = (x["v"] - p0["v"]) if p0 else None
+        trows.append(f'<tr><th scope="row">{e(_fmt(_d(x["d"])))}</th><td class="num">{x["v"]:,.2f}</td>'
+                     f'<td class="num {"down" if c is not None and c < 0 else "up"}">{"" if c is None else f"{c:+,.2f}"}</td>'
+                     f'<td class="num {"down" if c is not None and c < 0 else "up"}">{"" if c is None else f"{c / p0["v"] * 100:+.2f}%"}</td></tr>')
+    def gl(items):
+        return "".join(f'<tr><th scope="row">{e(x.get("name"))}</th><td class="num">{e(x.get("price") or "—")}</td>'
+                       f'<td class="num {_pct_cls(x.get("pct"))}">{"" if str(x.get("pct","")).startswith(("-","+")) else "+"}{e(x.get("pct"))}%</td></tr>' for x in items[:5])
+    movers = ""
+    if r.get("gainers"):
+        movers = (f'<section class="edition"><h2 class="edhead"><b>Top Nifty 50 movers · {e(r.get("dateLabel"))}</b></h2><div class="gl2">'
+                  f'<div class="tablewrap"><table class="dt"><thead><tr><th>Gainers</th><th>Close</th><th>%</th></tr></thead><tbody>{gl(r.get("gainers") or [])}</tbody></table></div>'
+                  f'<div class="tablewrap"><table class="dt"><thead><tr><th>Losers</th><th>Close</th><th>%</th></tr></thead><tbody>{gl(r.get("losers") or [])}</tbody></table></div></div>'
+                  f'<p class="cm-note">From the <a href="{url(rep)}">daily market report for {e(r.get("dateLabel"))}</a>. More on the <a href="{base}top-gainers-losers-today/">top gainers and losers page</a>.</p></section>')
+    reports = [p for p in posts if p.get("report")][:5]
+    rlinks = "".join(f'<li><a href="{url(p)}">{e(p["title"])}</a></li>' for p in reports)
+    piggy = ctx["piggy_box"]({"happened": f"The Nifty 50 last closed at {last['v']:,.2f} on {_fmt(ld)}" + (f", {chg:+,.2f} points ({pct:+.2f}%) from the previous session." if chg is not None else "."),
+                              "matters": "The Nifty 50 tracks 50 of the largest companies on NSE, so it is the quickest way to see how big Indian shares did. Most index funds and many mutual funds are measured against it.",
+                              "watch": ["FII and DII flows, published every evening", "Results from large Nifty companies this week", "Global cues: the US close and GIFT Nifty before 9:15 am"]})
+    body = (f'<nav class="crumbs"><a href="{base}">Home</a> / <a href="{base}markets/">Markets</a></nav>'
+            f'<div class="sechead"><h1>Nifty 50 today: latest close, chart and top movers</h1>'
+            f'<p>Closing levels of the Nifty 50 index from TotalMarket\'s daily market reports, with the day\'s range, the last {len(hist)} sessions and the biggest movers. '
+            f'Data is end-of-day, not live; latest close: {e(_fmt(ld))}.</p></div>'
+            + kpis + (f'<section class="panel nchart"><h2>Nifty 50 closing levels, last {len(hist[-30:])} sessions</h2>{chart}</section>' if chart else "")
+            + piggy + movers
+            + f'<section class="edition"><h2 class="edhead"><b>Nifty 50 history</b></h2><div class="tablewrap"><table class="dt"><thead><tr><th>Date</th><th>Close</th><th>Change</th><th>% Chg</th></tr></thead><tbody>{"".join(trows)}</tbody></table></div></section>'
+            + '<section class="lesson"><h2>About the Nifty 50</h2><p>The Nifty 50 is NSE\'s main index of 50 large, actively traded Indian companies across sectors. Each company\'s weight depends on the value of its shares available for trading (free-float market capitalisation), so the biggest companies move the index most. '
+              'NSE reviews the list twice a year, which is why companies are occasionally added or removed.</p>'
+              '<p>The official, current list of the 50 companies and their weights is published by NSE Indices on <a href="https://www.niftyindices.com/" rel="nofollow noopener" target="_blank">niftyindices.com</a>. We link to it rather than copying it, because it changes after each review.</p></section>'
+            + (f'<section class="lesson"><h2>Recent daily market reports</h2><ul>{rlinks}</ul></section>' if rlinks else "")
+            + f'<p class="cm-note">See also: <a href="{base}global-indices/">Global indices</a> · <a href="{base}fii-dii-data/">FII/DII data</a> · <a href="{base}live/">Today's updates</a></p>'
+            + '<p class="disc">Closing levels as reported in the sources of TotalMarket\'s daily reports. For information only, not investment advice.</p>')
+    return [("nifty-50/index.html", page("Nifty 50 Today: Latest Close, Chart, Top Gainers & Losers",
+             f"Nifty 50 today: last close {last['v']:,.2f} ({_fmt(ld)}), day range, closing history, chart and top gainers and losers, with what the moves mean.",
+             f"{base}nifty-50/", body, meta, keywords=["Nifty 50", "Nifty 50 today", "Nifty today", "Nifty 50 chart", "Nifty closing", "Nifty top gainers"],
+             seo_title="Nifty 50 Today: Latest Close, Chart & Top Movers | TotalMarket"))]

@@ -28,7 +28,7 @@ TOOL_URLS = []
 HUB_URLS = []
 COMPANY_SLUGS = set()
 IPO_LIST = []
-HOME_TITLE = "TotalMarket: Sensex, Nifty, Gold Rate, Crude Oil, IPO & Global Market News Today"
+HOME_TITLE = "TotalMarket: Sensex, Nifty, Gold Rate, IPO & Market News Today"
 HOME_KEYWORDS = ["Sensex today", "Nifty 50", "stock market news India", "gold rate today", "silver price today", "crude oil price",
                  "rupee vs dollar", "IPO news", "Q2 results", "global market news", "US market today", "AI news"]
 IST = ZoneInfo("Asia/Kolkata")
@@ -172,6 +172,8 @@ def page(title, description, path, body, meta, og_type="website", extra_head="",
     kw = (f'<meta name="keywords" content="{e(", ".join(keywords))}">' if keywords else "") + (f'<meta name="news_keywords" content="{e(", ".join(nk))}">' if nk else "")
     og = image or f"{SITE_URL}/assets/og.png"
     full_title = seo_title or (title if title.startswith(SITE_NAME) else f"{title} | {SITE_NAME}")
+    if len(full_title) > 65 and full_title.endswith(f" | {SITE_NAME}"):
+        full_title = full_title[: -len(f" | {SITE_NAME}")]  # keep titles short enough to show fully in search results
     head = f"""<!doctype html>
 <html lang="en-IN">
 <head>
@@ -181,7 +183,7 @@ def page(title, description, path, body, meta, og_type="website", extra_head="",
 <meta name="description" content="{e(description)}">
 {kw}
 <link rel="canonical" href="{e(canon)}">
-{'<meta name="robots" content="noindex">' if noindex else '<meta name="robots" content="index,follow,max-image-preview:large">'}
+{'<meta name="robots" content="noindex,follow">' if noindex else '<meta name="robots" content="index,follow,max-image-preview:large">'}
 <meta property="og:site_name" content="{SITE_NAME}">
 <meta property="og:type" content="{og_type}">
 <meta property="og:title" content="{e(title)}">
@@ -240,7 +242,7 @@ def header(meta, path):
         for x in t)
     asof = f'<div class="tcard asof"><span class="tl">As of</span><span class="tv small">{e(meta.get("tickerAsOf"))}</span></div>' if meta.get("tickerAsOf") else ""
     tick = f'<div class="tickers" aria-label="Market snapshot"><div class="wrap trow">{cards}{asof}</div></div>' if t else ""
-    links = [("", "Home")] + [(k + "/", v[0]) for k, v in CATS.items()] + [("live/", "Live"), ("market-report/", "Daily report"), ("ipo/", "IPO"), ("fii-dii-data/", "FII/DII"), ("top-gainers-losers-today/", "Gainers & losers"), ("learn/", "Learn"), ("gold-rate-today/", "Gold rate"), ("calculators/", "Calculators"), ("results/", "Results")]
+    links = [("", "Home")] + [(k + "/", v[0]) for k, v in CATS.items()] + [("live/", "Today"), ("nifty-50/", "Nifty 50"), ("global-indices/", "Global indices"), ("ipo/", "IPO"), ("gold-rate-today/", "Gold rate"), ("silver-rate-today/", "Silver rate"), ("market-report/", "Daily report"), ("results/", "Results"), ("learn/", "Learn")]
     nav = "".join(f'<a class="tab{" on" if path == BASE + k else ""}" href="{BASE}{k}">{e(n)}</a>' for k, n in links)
     return f"""<header class="top">
 <div class="wrap bar1">
@@ -256,6 +258,7 @@ def header(meta, path):
 def footer():
     return f"""<footer class="wrap foot">
 <p><b>Not investment advice.</b> TotalMarket reports and explains news. It does not recommend buying, selling or holding any security and is not a SEBI-registered investment adviser or research analyst. Do your own research or consult a registered adviser before investing.</p>
+<nav class="footlinks" aria-label="Market data"><b>Market data:</b> <a href="{BASE}nifty-50/">Nifty 50 today</a> · <a href="{BASE}global-indices/">Global indices</a> · <a href="{BASE}gold-rate-today/">Gold rate today</a> · <a href="{BASE}silver-rate-today/">Silver rate today</a> · <a href="{BASE}fii-dii-data/">FII DII data</a> · <a href="{BASE}top-gainers-losers-today/">Top gainers &amp; losers</a> · <a href="{BASE}ipo/">IPO today</a> · <a href="{BASE}results/">Results calendar</a> · <a href="{BASE}market-report/">Daily market report</a> · <a href="{BASE}stock/">Companies A–Z</a> · <a href="{BASE}calculators/">SIP &amp; EMI calculators</a> · <a href="{BASE}learn/">Learn</a></nav>
 <p>Stories are written and published automatically by Claude, an AI model from Anthropic, based on the linked reporting. Every story lists its sources. <a href="{BASE}about/">About TotalMarket</a> · <a href="{SITE_URL}/rss.xml">RSS feed</a></p>
 </footer>"""
 
@@ -383,6 +386,20 @@ def piggy_box(p):
             f'<div class="pg-head">{piggy_img("head96", "pg-av")}<div><b>Boss Piggy explains</b>{dev}<small>Simple explanation of the facts in this story · as of {e(asof)}</small></div></div>'
             + "".join(f'<div class="pg-row"><h3>{k}</h3><div>{v}</div></div>' for k, v in rows)
             + '<p class="pg-note">Explanation only, based on the sources listed below. Not a recommendation to buy, sell or hold anything.</p></aside>')
+
+
+def piggy_data(g):
+    """Boss Piggy box for evergreen data pages (no story timestamp)."""
+    watch = g.get("watch") or []
+    rows = [("What this page shows", e(g["happened"]))]
+    if g.get("matters"):
+        rows.append(("Why it matters", e(g["matters"])))
+    if watch:
+        rows.append(("What to watch", "<ul>" + "".join(f"<li>{e(w)}</li>" for w in watch) + "</ul>"))
+    return (f'<aside class="pg-box" aria-label="Boss Piggy explains">'
+            f'<div class="pg-head">{piggy_img("head96", "pg-av")}<div><b>Boss Piggy explains</b><small>A plain-English guide to the numbers on this page</small></div></div>'
+            + "".join(f'<div class="pg-row"><h3>{k}</h3><div>{v}</div></div>' for k, v in rows)
+            + '<p class="pg-note">Explanation only. Not a recommendation to buy, sell or hold anything.</p></aside>')
 
 
 def why(p):
@@ -614,9 +631,13 @@ def tag_pages(posts, meta):
         path = f"{BASE}tag/{sl}/"
         body = (f'<div class="sechead"><h1>{e(name)}</h1><p>Latest TotalMarket news and explainers on {e(name)}, with what it means for India.</p></div>'
                 + grouped(items[:SECTION_LIMIT], False))
+        thin = len(items) < TAG_MIN_STORIES  # thin tag pages stay reachable but are kept out of search results and the sitemap
         write(f"tag/{sl}/index.html", page(f"{name}: latest news and analysis", f"Latest news on {name}: market moves, key numbers and what it means for India.",
-                                          path, body, meta, keywords=[name, "India", "market news"]))
-    return list(by)
+                                          path, body, meta, keywords=[name, "India", "market news"], noindex=thin))
+    return [sl for sl, (_, items) in by.items() if len(items) >= TAG_MIN_STORIES]
+
+
+TAG_MIN_STORIES = 3
 
 
 def report_banner(posts):
@@ -635,8 +656,8 @@ def report_page(posts, meta):
     body = (f'<div class="sechead"><h1>Daily stock market report</h1><p>Every market day after 8 pm: Sensex, Nifty and Bank Nifty with day high and low, large vs mid vs small caps, sector heatmap, top gainers and losers, FII/DII data, IPO listings, market breadth and what to watch next.</p></div>'
             + report_banner(reps) + (grouped(reps[1:SECTION_LIMIT], False) if len(reps) > 1 else "")
             + ("" if reps else '<div class="empty"><p>The first report is on its way. It publishes after 8 pm on each market day.</p></div>'))
-    return page("Daily Stock Market Report", "Daily Indian stock market report: Sensex, Nifty, Bank Nifty closing, day high and low, FII DII data, top gainers and losers, sector performance, IPO listings and market breadth.",
-                path, body, meta, seo_title="Stock Market Today: Daily Sensex & Nifty Closing Report, FII DII Data, Top Gainers & Losers | TotalMarket",
+    return page("Daily Stock Market Report", "Daily Indian stock market report: Sensex and Nifty close, day range, FII DII data, top gainers and losers, sectors, IPO listings and breadth.",
+                path, body, meta, seo_title="Daily Stock Market Report: Sensex, Nifty, FII DII | TotalMarket",
                 keywords=["stock market today", "share market today", "Sensex today", "Nifty today", "FII DII data", "top gainers and losers", "sector performance", "IPO listing today", "market report"])
 
 
@@ -777,7 +798,7 @@ def home_page(posts, meta, results=()):
                 + f'<div class="lower">{latest_list(posts)}<div class="side">{side_panels(posts, results)}</div></div>')
     ld = {"@context": "https://schema.org", "@type": "WebSite", "name": SITE_NAME, "url": SITE_URL + "/",
           "description": TAGLINE}
-    return page(SITE_NAME, "Sensex and Nifty news, gold and silver rates, crude oil, rupee vs dollar, IPOs, results calendar and overnight global markets, with what each move means for India. Updated four times every market day.",
+    return page(SITE_NAME, "Sensex and Nifty news, gold and silver rates, crude oil, rupee, IPOs, results and global markets, explained simply with what each move means for India.",
                 BASE, body, meta, seo_title=HOME_TITLE, keywords=HOME_KEYWORDS, extra_head=f'<script type="application/ld+json">{json.dumps(ld)}</script>')
 
 
@@ -847,8 +868,9 @@ def main():
     cpages, comps = hubs.company_pages(posts, results, ctx)
     ipages, IPO_LIST = hubs.ipo_pages(posts, ctx)
     COMPANY_SLUGS = set(comps)
-    ctx.update({"url": url, "site_url": SITE_URL})
-    extra_pages = hubs.fii_dii_page(posts, ctx) + hubs.gainers_page(posts, ctx) + hubs.live_page(posts, ctx) + hubs.learn_page(ctx)
+    ctx.update({"url": url, "site_url": SITE_URL, "piggy_box": piggy_data, "line_chart": line_chart})
+    extra_pages = (hubs.fii_dii_page(posts, ctx) + hubs.gainers_page(posts, ctx) + hubs.live_page(posts, ctx) + hubs.learn_page(ctx)
+                   + hubs.global_page(posts, ctx) + hubs.nifty_page(posts, ctx))
     for rel, html_ in cpages + ipages + extra_pages:
         write(rel, html_)
         HUB_URLS.append(SITE_URL + "/" + rel.replace("index.html", ""))
