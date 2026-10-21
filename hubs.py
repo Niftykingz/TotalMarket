@@ -490,7 +490,7 @@ def nifty_page(posts, ctx):
               'NSE reviews the list twice a year, which is why companies are occasionally added or removed.</p>'
               '<p>The official, current list of the 50 companies and their weights is published by NSE Indices on <a href="https://www.niftyindices.com/" rel="nofollow noopener" target="_blank">niftyindices.com</a>. We link to it rather than copying it, because it changes after each review.</p></section>'
             + (f'<section class="lesson"><h2>Recent daily market reports</h2><ul>{rlinks}</ul></section>' if rlinks else "")
-            + f'<p class="cm-note">See also: <a href="{base}global-indices/">Global indices</a> · <a href="{base}fii-dii-data/">FII/DII data</a> · <a href="{base}live/">Today's updates</a></p>'
+            + f'<p class="cm-note">See also: <a href="{base}global-indices/">Global indices</a> · <a href="{base}fii-dii-data/">FII/DII data</a> · <a href="{base}live/">Today\'s updates</a></p>'
             + '<p class="disc">Closing levels as reported in the sources of TotalMarket\'s daily reports. For information only, not investment advice.</p>')
     return [("nifty-50/index.html", page("Nifty 50 Today: Latest Close, Chart, Top Gainers & Losers",
              f"Nifty 50 today: last close {last['v']:,.2f} ({_fmt(ld)}), day range, closing history, chart and top gainers and losers, with what the moves mean.",
