@@ -1,0 +1,52 @@
+{
+  "_note": "FICTIONAL DEMONSTRATION DATA. This is not an RBI publication and does not describe a real RBI decision.",
+  "candidates": [
+    {
+      "source_url": "https://mock.totalmarket.local/rbi/demo-policy-statement",
+      "source_org": "Reserve Bank of India (fictional demo statement)",
+      "published_at": "NOW",
+      "discovered_at": "NOW",
+      "headline": "RBI cuts repo rate by 25 basis points",
+      "category": "policy",
+      "instrument": "Repo rate",
+      "summary": "Fictional test: MPC reduces the policy repo rate.",
+      "demo": true
+    },
+    {
+      "source_url": "https://mock.totalmarket.local/wire/demo-rbi-cut-copy",
+      "source_org": "Demo wire (fictional)",
+      "published_at": "NOW",
+      "discovered_at": "NOW",
+      "headline": "RBI cuts the repo rate by 25 basis points",
+      "category": "policy",
+      "demo": true
+    }
+  ],
+  "briefs": {
+    "RBI cuts repo rate by 25 basis points": {
+      "event": "policy_rate",
+      "org": "Reserve Bank of India",
+      "inject_error": "wrong_pct",
+      "documents": [
+        {
+          "url": "https://mock.totalmarket.local/rbi/demo-policy-statement",
+          "org": "Reserve Bank of India (fictional demo statement)",
+          "published_at": "2026-12-05T10:00:00+05:30",
+          "content": "DEMONSTRATION FIXTURE - FICTIONAL. This text was written for testing the TotalMarket newsroom and is not an RBI publication.\nMonetary policy statement (fictional test data)\nDate: 5 December 2026\nThe Monetary Policy Committee decided today to lower the policy repo rate by 25 basis points, from 6.50 per cent to 6.25 per cent, with immediate effect.\n4 members voted in favour of the decision and 2 members voted against it.\nThe Governor said: \"The committee will remain watchful of the evolving inflation outlook.\"",
+          "mock_extraction": {
+            "facts": [
+              {"key": "repo_old", "label": "Repo rate (before)", "value": "6.50", "unit": "%", "as_of": "2026-12-05", "grp": "repo", "excerpt": "from 6.50 per cent to 6.25 per cent"},
+              {"key": "repo_new", "label": "Repo rate (after)", "value": "6.25", "unit": "%", "as_of": "2026-12-05", "grp": "repo", "excerpt": "from 6.50 per cent to 6.25 per cent"},
+              {"key": "decision_date", "label": "Decision date", "value": "2026-12-05", "unit": "date", "as_of": "2026-12-05", "excerpt": "Date: 5 December 2026"},
+              {"key": "votes_for", "label": "Members voting in favour", "value": "4", "unit": "count", "as_of": "2026-12-05", "excerpt": "4 members voted in favour"},
+              {"key": "votes_against", "label": "Members voting against", "value": "2", "unit": "count", "as_of": "2026-12-05", "excerpt": "2 members voted against"}
+            ],
+            "quotes": [
+              {"text": "The committee will remain watchful of the evolving inflation outlook.", "speaker": "the Governor"}
+            ]
+          }
+        }
+      ]
+    }
+  }
+}
