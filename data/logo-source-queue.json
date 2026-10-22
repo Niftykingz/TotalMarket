@@ -52,10 +52,10 @@
       "symbol": "TCS",
       "company_name": "Tata Consultancy Services",
       "official_source_page": "https://www.tcs.com/who-we-are/newsroom/media-kit",
-      "status": "editorial_usage_review",
+      "status": "official_media_kit_found_permission_review",
       "original_asset_path": null,
       "usage_approved": false,
-      "notes": "Official TCS media kit provides PNG/SVG and states editorial use; verify intended use and brand guidelines."
+      "notes": "Official media kit offers PNG/SVG and editorial imagery, but site-wide legal disclaimer restricts public/commercial redistribution. Written permission or legal review required before rehosting."
     },
     {
       "symbol": "SBIN",
@@ -132,11 +132,11 @@
     {
       "symbol": "NVDA",
       "company_name": "NVIDIA",
-      "official_source_page": "https://www.nvidia.com/",
-      "status": "source_research",
+      "official_source_page": "https://www.nvidia.com/en-gb/about-nvidia/legal-info/logo-brand-usage/",
+      "status": "official_guidelines_found_written_authorization_required",
       "original_asset_path": null,
       "usage_approved": false,
-      "notes": "Official homepage starting point only; locate genuine brand/media kit and terms."
+      "notes": "NVIDIA states logo use must be expressly authorized in writing. Preserve exact original asset and do not upload pending authorization."
     }
   ]
 }
