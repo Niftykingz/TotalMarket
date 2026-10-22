@@ -13,6 +13,15 @@ ROOT = os.path.dirname(os.path.abspath(__file__))
 DATA = os.path.join(ROOT, "data")
 
 
+
+
+def _datefmt(dt, pattern):
+    """Portable strftime for Windows and Unix (no platform-specific %-d/%-I)."""
+    day = str(dt.day)
+    hour = str(dt.hour % 12 or 12)
+    # Substitute tokens before strftime to avoid platform-specific directives.
+    return dt.strftime(pattern.replace("%-d", "__TM_DAY__").replace("%-I", "__TM_HOUR__")).replace("__TM_DAY__", day).replace("__TM_HOUR__", hour)
+
 def _slug(t):
     s = re.sub(r"[^a-z0-9]+", "-", str(t).lower().replace("&", " and ")).strip("-")
     return s[:80] or "x"
@@ -44,7 +53,7 @@ def _d(s):
 
 
 def _fmt(d):
-    return d.strftime("%a %-d %b") if d else "—"
+    return _datefmt(d, "%a %-d %b") if d else "—"
 
 
 # ------------------------------------------------------------------ companies
@@ -77,7 +86,7 @@ def company_pages(posts, results, ctx):
         if nxt:
             facts.append(("Next results", f'{_fmt(nxt[0]["date"])} · {nxt[0]["note"]}'))
         facts.append(("Stories on TotalMarket", str(len(c["posts"]))))
-        facts.append(("Latest update", c["posts"][0]["_dt"].astimezone(ctx["ist"]).strftime("%-d %b %Y, %-I:%M %p IST")))
+        facts.append(("Latest update", _datefmt(c["posts"][0]["_dt"].astimezone(ctx["ist"]), "%-d %b %Y, %-I:%M %p IST")))
         tags = {}
         for p in c["posts"]:
             for t in p["_tags"]:
@@ -362,10 +371,10 @@ def live_page(posts, ctx):
     day = posts[0]["_dt"].astimezone(ist).date()
     todays = [p for p in posts if p["_dt"].astimezone(ist).date() == day]
     items = "".join(
-        f'<li class="lv"><time datetime="{e(p["_dt"].isoformat())}">{e(p["_dt"].astimezone(ist).strftime("%-I:%M %p"))}</time>'
+        f'<li class="lv"><time datetime="{e(p["_dt"].isoformat())}">{e(_datefmt(p["_dt"].astimezone(ist), "%-I:%M %p"))}</time>'
         f'<div><span class="lvslot">{e((p.get("editionLabel") or "").split("·")[-1].strip())}</span><h3><a href="{url(p)}">{e(p["title"])}</a></h3>'
         f'<p>{e(p.get("dek") or "")}</p></div></li>' for p in todays)
-    dl = day.strftime("%-d %B %Y")
+    dl = _datefmt(day, "%-d %B %Y")
     ld = {"@context": "https://schema.org", "@type": "LiveBlogPosting", "headline": f"Stock market today: all updates for {dl}",
           "url": ctx["site_url"] + "/live/", "coverageStartTime": todays[-1]["_dt"].isoformat(), "coverageEndTime": todays[0]["_dt"].isoformat(),
           "liveBlogUpdate": [{"@type": "BlogPosting", "headline": p["title"][:110], "datePublished": p["_dt"].isoformat(), "url": ctx["site_url"] + url(p)} for p in todays[:30]]}
@@ -429,7 +438,7 @@ def global_page(posts, ctx):
     body = (f'<nav class="crumbs"><a href="{base}">Home</a> / <a href="{base}global/">Global Markets</a></nav>'
             f'<div class="sechead"><h1>Global indices today: US, Asia and India</h1>'
             f'<p>Latest verified levels of the Dow, S&amp;P 500, Nasdaq, Nikkei, Hang Seng, Kospi and more, with what each move means for India. '
-            f'Updated with every pre-market brief{(" · last updated " + e(upd.strftime("%-d %b %Y"))) if upd else ""}. {e(g.get("note") or "")}</p></div>'
+            f'Updated with every pre-market brief{(" · last updated " + e(_datefmt(upd, "%-d %b %Y"))) if upd else ""}. {e(g.get("note") or "")}</p></div>'
             + "".join(secs) + piggy
             + ((f'<section class="edition"><h2 class="edhead"><b>Latest global market news</b></h2><div class="grid">{"".join(ctx["card"](p) for p in news)}</div></section>') if news else "")
             + f'<p class="cm-note">See also: <a href="{base}nifty-50/">Nifty 50 today</a> · <a href="{base}live/">Today\'s updates</a> · <a href="{base}market-report/">Daily market report</a></p>'
