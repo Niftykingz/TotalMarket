@@ -1,0 +1,67 @@
+{
+  "title": "Sensex falls about 460 pts, Nifty ends near 22,688; third straight loss as oil, West Asia weigh",
+  "dek": "IT, FMCG and autos lagged; M&M Financial sank nearly 10% after results while Indian Hotels rose. Exact closing figures follow in tonight's report.",
+  "category": "markets",
+  "lead": true,
+  "readMins": 2,
+  "status": "developing",
+  "edition": "2026-10-22-close",
+  "editionLabel": "Thu 22 Oct · Closing wrap",
+  "publishedAt": "2026-10-22T15:55:00+05:30",
+  "body": [
+    "Indian shares fell for a third session on Thursday. Business Standard's closing update reported the Sensex down about 460 points and the Nifty 50 ending near 22,688, roughly 0.5% below Wednesday's close of 22,811.35. These are preliminary figures from the closing headline; tonight's daily report will give the exact closing levels, day range and breadth.",
+    "The pressure came from oil and West Asia: tension around Iran and attacks on ships near the Strait of Hormuz kept Brent near $108–110 a barrel. IT, FMCG and auto shares underperformed, and Lupin, SRF, Tata Motors Passenger Vehicles, Maruti Suzuki and NTPC touched 52-week lows during the day. Silver ETFs fell nearly 3% on bets of another US rate hike.",
+    "Results drove individual stocks. Mahindra & Mahindra Financial Services fell 9.82% to ₹268.25 after its numbers, while Indian Hotels rose 4.7% to ₹788.75 after a 22.6% rise in quarterly profit to ₹350 crore. eMudhra hit a 20% lower circuit, the maximum fall allowed in a day, for a second straight session. Jio's IPO reached 4.3 times subscription by 2:12 pm, with retail at 1.39 times.",
+    "Key takeaway: three losing days in a row show the market is cautious while oil stays near $110; HPCL, Havells, Swiggy and Colgate results after the close are the next triggers."
+  ],
+  "indiaImpact": "Oil near $110 keeps pressure on the rupee, inflation and oil-using sectors such as autos and chemicals; results season is making individual stock moves much bigger than the index moves.",
+  "piggy": {
+    "happened": "The Sensex fell about 460 points and the Nifty ended near 22,688 (preliminary), its third straight fall, with IT, FMCG and autos weakest.",
+    "matters": "A 'lower circuit' like eMudhra's means the stock fell the maximum the exchange allows in one day, so sellers could not find buyers below that price.",
+    "watch": [
+      "Exact closing figures and breadth in tonight's 8:10 pm report",
+      "HPCL, Havells, Swiggy and Colgate results this evening",
+      "Jio and Paras IPOs close on Friday 23 October"
+    ]
+  },
+  "coverHeadline": "NIFTY ENDS NEAR 22,688",
+  "stat": "22,688",
+  "statLabel": "Preliminary close, 22 Oct",
+  "coverContext": "Sensex −460 pts · third straight fall",
+  "symbol": "candles",
+  "flags": [
+    "IN"
+  ],
+  "companies": [
+    {
+      "name": "Mahindra & Mahindra Financial Services",
+      "ticker": "M&MFIN"
+    },
+    {
+      "name": "Indian Hotels",
+      "ticker": "INDHOTEL"
+    }
+  ],
+  "seoTitle": "Stock Market Today 22 Oct: Sensex −460, Nifty Near 22,688",
+  "seoDescription": "Stock market today 22 Oct 2026: Sensex falls about 460 points, Nifty ends near 22,688 (preliminary); IT, FMCG, autos lag; M&M Financial −9.8%, Indian Hotels +4.7%.",
+  "coverAlt": "Cover graphic: Nifty ends near 22,688 on 22 October",
+  "tags": [
+    "Stock market today",
+    "Sensex today",
+    "Nifty today",
+    "Share market today",
+    "M&M Financial share price",
+    "Indian Hotels Q2 results",
+    "eMudhra share price"
+  ],
+  "sources": [
+    {
+      "name": "Business Standard: Stock Market Close, 22 Oct",
+      "url": "https://www.business-standard.com/markets/news/stock-market-live-october-22-nse-bse-sensex-today-nifty50-gift-nifty-jio-ipo-today-126102200085_1.html"
+    },
+    {
+      "name": "Business Standard: eMudhra lower circuit",
+      "url": "https://www.business-standard.com/markets/news/emudhra-share-price-hits-second-straight-20-lower-circuit-at-52-week-low-126102200784_1.html"
+    }
+  ]
+}

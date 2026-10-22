@@ -1,13 +1,13 @@
 {
-  "title": "Jio IPO day 2: 3.7x subscribed, retail portion fully booked; Paras Healthcare at 0.21x",
+  "title": "Jio IPO day 2: 4.3x subscribed, retail portion fully booked; Paras Healthcare at 0.21x",
   "dek": "Institutions bid 9.6 times their quota by midday; one day left for both IPOs.",
   "category": "startups",
   "lead": false,
   "readMins": 2,
   "body": [
-    "Jio Platforms' IPO was subscribed 3.7 times by 12:10 pm on its second day, Business Standard reported: institutions (QIBs) 9.6 times, HNIs 2.87 times and retail investors 1.11 times. The retail portion crossing 1 means every share set aside for small investors has now been applied for.",
+    "Jio Platforms' IPO was subscribed 4.3 times by 2:12 pm on its second day, up from 3.7 times at 12:10 pm, Business Standard reported: institutions (QIBs) 9.78 times, HNIs 4.09 times and retail investors 1.39 times. The retail portion crossing 1 means every share set aside for small investors has now been applied for.",
     "Paras Healthcare's IPO was 0.21 times subscribed at 11:30 am, according to ScanX: retail 1.00 times, HNIs 0.20 times and institutions yet to bid. Institutions often bid on the last day, so the total can change sharply on Friday.",
-    "Worked example: with retail at 1.11 times, there are about 111 applications' worth of shares for every 100 available, so not every applicant will get a lot. Allotment is decided by lottery on 26 October.",
+    "Worked example: with retail at 1.39 times, there are about 139 applications' worth of shares for every 100 available, so not every applicant will get a lot. Allotment is decided by lottery on 26 October.",
     "Key takeaway: Jio's demand is broad across categories; Paras depends on institutions arriving on the final day."
   ],
   "table": {
@@ -15,25 +15,25 @@
     "rows": [
       {
         "label": "Jio · total",
-        "value": "3.7x",
+        "value": "4.3x",
         "change": "",
-        "note": "12:10 pm (Business Standard)"
+        "note": "2:12 pm (Business Standard)"
       },
       {
         "label": "Jio · QIB",
-        "value": "9.6x",
+        "value": "9.78x",
         "change": "",
         "note": ""
       },
       {
         "label": "Jio · NII",
-        "value": "2.87x",
+        "value": "4.09x",
         "change": "",
         "note": ""
       },
       {
         "label": "Jio · retail",
-        "value": "1.11x",
+        "value": "1.39x",
         "change": "",
         "note": "Fully booked"
       },
@@ -52,10 +52,10 @@
     ]
   },
   "indiaImpact": "Jio's strong demand shows deep investor appetite for large Indian listings, while weak early interest in Paras shows that demand is selective.",
-  "coverHeadline": "JIO IPO 3.7X",
-  "stat": "3.7X",
-  "statLabel": "Subscription at 12:10 pm",
-  "coverContext": "Day 2 · retail 1.11x · Paras 0.21x",
+  "coverHeadline": "JIO IPO 4.3X",
+  "stat": "4.3X",
+  "statLabel": "Subscription at 2:12 pm, day 2",
+  "coverContext": "Day 2 · retail 1.39x · Paras 0.21x",
   "coverLabel": "IPO watch",
   "symbol": "coins",
   "flags": [
@@ -67,8 +67,8 @@
       "ticker": "RELIANCE"
     }
   ],
-  "seoTitle": "Jio IPO Subscription Status Day 2: 3.7x, Retail Fully Booked",
-  "seoDescription": "Jio Platforms IPO day 2: 3.7x subscribed by 12:10 pm, QIB 9.6x, NII 2.87x, retail 1.11x; Paras Healthcare IPO 0.21x with retail 1.00x. Closes Friday.",
+  "seoTitle": "Jio IPO Subscription Status Day 2: 4.3x, Retail Fully Booked",
+  "seoDescription": "Jio Platforms IPO day 2: 4.3x subscribed by 2:12 pm, QIB 9.78x, NII 4.09x, retail 1.39x; Paras Healthcare IPO 0.21x with retail 1.00x. Closes Friday 23 Oct.",
   "coverAlt": "Cover graphic: Jio IPO 3.7 times subscribed on day 2",
   "tags": [
     "Jio IPO",
@@ -95,5 +95,7 @@
   "edition": "2026-10-22-midday",
   "editionLabel": "Thu 22 Oct · Midday check",
   "publishedAt": "2026-10-22T12:48:00+05:30",
-  "status": "new"
+  "status": "update",
+  "updatedAt": "2026-10-22T15:55:00+05:30",
+  "changeNote": "Updated to 4.3x total (QIB 9.78x, NII 4.09x, retail 1.39x) as of 2:12 pm, from 3.7x at 12:10 pm."
 }

@@ -1,14 +1,14 @@
 {
-  "editionLabel": "Thu 22 Oct · Midday check",
-  "nextUpdate": "2026-10-22T15:45:00+05:30",
+  "editionLabel": "Thu 22 Oct · Closing wrap",
+  "nextUpdate": "2026-10-22T20:10:00+05:30",
   "ticker": [
     {
       "label": "Sensex",
-      "value": "73,238.21",
-      "change": "-0.64%",
+      "value": "",
+      "change": "~-460 pts",
       "asOf": "2026-10-22",
       "kind": "intraday",
-      "asOfText": "22 Oct, 12:00 pm",
+      "asOfText": "22 Oct close, preliminary",
       "source": {
         "name": "Business Standard",
         "url": "https://www.business-standard.com/markets/news/stock-market-live-october-22-nse-bse-sensex-today-nifty50-gift-nifty-jio-ipo-today-126102200085_1.html"
@@ -16,11 +16,11 @@
     },
     {
       "label": "Nifty 50",
-      "value": "22,635.90",
-      "change": "-0.77%",
+      "value": "~22,688",
+      "change": "~-0.54%",
       "asOf": "2026-10-22",
       "kind": "intraday",
-      "asOfText": "22 Oct, 12:00 pm",
+      "asOfText": "22 Oct close, preliminary",
       "source": {
         "name": "Business Standard",
         "url": "https://www.business-standard.com/markets/news/stock-market-live-october-22-nse-bse-sensex-today-nifty50-gift-nifty-jio-ipo-today-126102200085_1.html"
@@ -115,7 +115,7 @@
     }
   ],
   "tickerAsOf": "Mixed times, see each item (IST)",
-  "updatedAt": "2026-10-22T12:50:00+05:30",
+  "updatedAt": "2026-10-22T15:55:00+05:30",
   "history": {
     "Nifty 50": [
       {
