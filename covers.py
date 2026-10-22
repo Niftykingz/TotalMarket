@@ -70,8 +70,7 @@ def pick(p):
     # Prefer an original, story-specific illustration over generic candles.
     # Explicit story symbols retain editorial priority.
     if not sym or sym == "candles":
-        from graphics_selector import choose_cover_object
-        obj = choose_cover_object(p, obj)
+        obj = analysis(p)["object"]
     d = direction(p)
     if p.get("palette") == "festive":
         theme, obj = "festive", "diya"
@@ -584,8 +583,36 @@ def layout_headline(dr, text, max_w, max_lines=3):
     return font(F_BLACK, 70), [words], 70
 
 
+_CTX = {}
+
+
+def _ctx():
+    if not _CTX:
+        def load(name, default):
+            try:
+                return json.load(open(os.path.join(HERE, "data", name), encoding="utf-8"))
+            except Exception:
+                return default
+        _CTX["meta"] = load("meta.json", {})
+        _CTX["ipos"] = load("ipos.json", {}).get("ipos", [])
+    return _CTX
+
+
+def analysis(p):
+    """Story analysis (event, verified figures, template) from graphics_selector; cached per story."""
+    if "_analysis" not in p:
+        import graphics_selector
+        c = _ctx()
+        p["_analysis"] = graphics_selector.analyze(p, c["meta"], c["ipos"])
+    return p["_analysis"]
+
+
 def render(p, path_webp, path_jpg):
     import art
+    a = analysis(p)
+    if a["template"] != "illustration":
+        import cover_templates
+        return cover_templates.TEMPLATES[a["template"]](p, a, path_webp, path_jpg)
     seed = seed_of(p)
     obj, theme, d, glyph = pick(p)
     _, _, _, label = THEMES[theme]
@@ -665,6 +692,10 @@ def cover_name(p):
     logos = sorted(f for f in os.listdir(ld) if not f.endswith(".md")) if os.path.isdir(ld) else []
     key = [VERSION, p["id"], p.get("title"), p.get("coverHeadline"), p["category"], p.get("stat"), p.get("statLabel"), p.get("symbol"),
            p.get("palette"), p.get("coverLabel"), p.get("publishedAt"), art.detect(p), logos]
+    an = analysis(p)
+    key += [an["template"], an["object"], an["figures"], an["series"]]
+    if an["template"] != "illustration":  # re-render data covers whenever the template code changes
+        key.append(hashlib.md5(open(os.path.join(HERE, "cover_templates.py"), "rb").read()).hexdigest()[:8])
     if p.get("coverDate") or p.get("coverContext"):
         key += [p.get("coverDate"), p.get("coverContext")]
     return f"{p['id']}-{hashlib.md5(json.dumps(key, ensure_ascii=False, default=str).encode()).hexdigest()[:8]}"

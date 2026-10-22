@@ -106,5 +106,23 @@
   ],
   "edition": "2026-10-21-evening",
   "editionLabel": "Wed 21 Oct · Evening update",
-  "publishedAt": "2026-10-21T20:55:00+05:30"
+  "publishedAt": "2026-10-21T20:55:00+05:30",
+  "figures": [
+    {
+      "company": "Eternal",
+      "label": "Net profit",
+      "value": "₹125 cr",
+      "change": "+92%",
+      "vs": "vs Q2 FY26",
+      "period": "Q2 FY27 (Jul–Sep 2026)"
+    },
+    {
+      "company": "Eternal",
+      "label": "Revenue",
+      "value": "₹24,138 cr",
+      "change": "+78%",
+      "vs": "vs Q2 FY26",
+      "period": "Q2 FY27 (Jul–Sep 2026)"
+    }
+  ]
 }

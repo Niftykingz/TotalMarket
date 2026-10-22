@@ -70,5 +70,23 @@
       "Q2 नतीजे",
       "Adani Green शेयर"
     ]
-  }
+  },
+  "figures": [
+    {
+      "company": "Adani Green Energy",
+      "label": "Net profit",
+      "value": "₹747 cr",
+      "change": "−24%",
+      "vs": "vs Q1 FY27",
+      "period": "Q2 FY27 (Jul–Sep 2026) · consolidated"
+    },
+    {
+      "company": "Adani Green Energy",
+      "label": "Revenue from operations",
+      "value": "₹4,019 cr",
+      "change": "+45%",
+      "vs": "vs Q2 FY26",
+      "period": "Q2 FY27 (Jul–Sep 2026) · consolidated"
+    }
+  ]
 }

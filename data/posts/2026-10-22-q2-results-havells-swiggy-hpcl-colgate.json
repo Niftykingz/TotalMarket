@@ -146,5 +146,35 @@
       "Swiggy Q2 नतीजे",
       "HPCL Q2 नतीजे"
     ]
-  }
+  },
+  "figures": [
+    {
+      "company": "Havells India",
+      "label": "Net profit, consolidated",
+      "value": "₹349.22 cr",
+      "change": "+9.7%",
+      "period": "Q2 FY27 (Jul–Sep 2026) · change vs a year ago"
+    },
+    {
+      "company": "Colgate-Palmolive India",
+      "label": "Net profit",
+      "value": "₹341.6 cr",
+      "change": "+4.3%",
+      "period": "Q2 FY27 (Jul–Sep 2026) · change vs a year ago"
+    },
+    {
+      "company": "HPCL",
+      "label": "Net profit, consolidated",
+      "value": "₹3,625.22 cr",
+      "change": "−6.1%",
+      "period": "Q2 FY27 (Jul–Sep 2026) · change vs a year ago"
+    },
+    {
+      "company": "Swiggy",
+      "label": "Net loss, consolidated (₹1,092 cr a year ago)",
+      "value": "−₹922 cr",
+      "change": "Loss narrows",
+      "period": "Q2 FY27 (Jul–Sep 2026) · change vs a year ago"
+    }
+  ]
 }

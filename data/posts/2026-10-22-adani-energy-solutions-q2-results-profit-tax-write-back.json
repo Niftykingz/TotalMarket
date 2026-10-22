@@ -67,5 +67,23 @@
       "Adani Energy Solutions Q2 नतीजे",
       "Q2 नतीजे"
     ]
-  }
+  },
+  "figures": [
+    {
+      "company": "Adani Energy Solutions",
+      "label": "Net profit",
+      "value": "₹1,363.92 cr",
+      "change": "+144.8%",
+      "vs": "vs Q2 FY26",
+      "period": "Q2 FY27 (Jul–Sep 2026) · consolidated"
+    },
+    {
+      "company": "Adani Energy Solutions",
+      "label": "Revenue from operations",
+      "value": "₹10,075.54 cr",
+      "change": "+52.8%",
+      "vs": "vs Q2 FY26",
+      "period": "Q2 FY27 (Jul–Sep 2026) · consolidated"
+    }
+  ]
 }
