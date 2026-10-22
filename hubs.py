@@ -18,7 +18,7 @@ DATA = os.path.join(ROOT, "data")
 def _datefmt(dt, pattern):
     """Portable strftime for Windows and Unix (no platform-specific %-d/%-I)."""
     day = str(dt.day)
-    hour = str(dt.hour % 12 or 12)
+    hour = str(dt.hour % 12 or 12) if "%-I" in pattern else ""
     # Substitute tokens before strftime to avoid platform-specific directives.
     return dt.strftime(pattern.replace("%-d", "__TM_DAY__").replace("%-I", "__TM_HOUR__")).replace("__TM_DAY__", day).replace("__TM_HOUR__", hour)
 
