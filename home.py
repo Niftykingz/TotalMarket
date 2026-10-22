@@ -41,7 +41,7 @@ def short_ago(p, ist):
     mins = int((datetime.now(ist) - p["_dt"]).total_seconds() // 60)
     if mins < 60: return f"{max(mins, 1)}m"
     if mins < 60 * 24: return f"{mins // 60}h"
-    return p["_dt"].astimezone(ist).strftime("%-d %b")
+    return p["_dt"].astimezone(ist).strftime("%d %b")
 
 
 def fresh_badge(kind, text=None):
@@ -92,9 +92,9 @@ def big_chart(points, w=640, h=230, label="Closing levels"):
     grid = "".join(f'<line x1="{L}" x2="{w-R}" y1="{Y(v):.1f}" y2="{Y(v):.1f}"/><text x="{L-8}" y="{Y(v)+4:.1f}" text-anchor="end">{v:,.0f}</text>'
                    for v in [lo + pad + (hi - lo - 2 * pad) * k / 3 for k in range(4)])
     step = max(1, len(points) // 7)
-    xl = "".join(f'<text x="{X(i):.1f}" y="{h-8}" text-anchor="middle">{datetime.fromisoformat(x["d"]).strftime("%-d %b")}</text>'
+    xl = "".join(f'<text x="{X(i):.1f}" y="{h-8}" text-anchor="middle">{datetime.fromisoformat(x["d"]).strftime("%d %b")}</text>'
                  for i, x in enumerate(points) if i % step == 0 or i == len(points) - 1)
-    dots = "".join(f'<circle cx="{X(i):.1f}" cy="{Y(v):.1f}" r="3"><title>{datetime.fromisoformat(points[i]["d"]).strftime("%-d %b %Y")}: {v:,.2f}</title></circle>'
+    dots = "".join(f'<circle cx="{X(i):.1f}" cy="{Y(v):.1f}" r="3"><title>{datetime.fromisoformat(points[i]["d"]).strftime("%d %b %Y")}: {v:,.2f}</title></circle>'
                    for i, v in enumerate(vals))
     area = f"{L},{h-B} {pts} {X(len(vals)-1):.1f},{h-B}"
     return (f'<svg class="bchart {"up" if up else "down"}" viewBox="0 0 {w} {h}" role="img" aria-label="{label}: {len(vals)} sessions, latest {vals[-1]:,.2f}">'
@@ -140,7 +140,7 @@ def dashboard(posts, meta, c):
         pts = hist[n]; last = float(pts[-1]["v"]); prev = float(pts[-2]["v"]) if len(pts) > 1 else None
         chg = f'<span class="{"up" if last >= prev else "down"}">{"▲" if last >= prev else "▼"} {last - prev:+,.2f} ({(last - prev) / prev * 100:+.2f}%)</span>' if prev else ""
         srcs = sorted({x.get("s") for x in pts if x.get("s")})
-        when = datetime.fromisoformat(pts[-1]["d"]).strftime("%-d %b %Y")
+        when = datetime.fromisoformat(pts[-1]["d"]).strftime("%d %b %Y")
         tabs.append(f'<button type="button" class="seg{" on" if i == 0 else ""}" data-panel="dash{i}" aria-pressed="{"true" if i == 0 else "false"}">{e(n)}</button>')
         panels.append(f'<div class="wp" id="dash{i}"{"" if i == 0 else " hidden"}><div class="dhead"><div><span class="dname">{e(n)}</span>'
                       f'<b class="dval">{last:,.2f}</b>{chg}</div><p class="asof">{fresh_badge("close")} Close on {e(when)} · last {len(pts)} sessions'
@@ -170,7 +170,7 @@ def ipo_watch(ipos, c):
     def dr(x):
         try:
             o, cl = date.fromisoformat(x["open"]), date.fromisoformat(x["close"])
-            return f'{o.day}–{cl.strftime("%-d %b %Y")}' if o.month == cl.month else f'{o.strftime("%-d %b")} – {cl.strftime("%-d %b %Y")}'
+            return f'{o.day}–{cl.strftime("%d %b %Y")}' if o.month == cl.month else f'{o.strftime("%d %b")} – {cl.strftime("%d %b %Y")}'
         except Exception:
             return "Dates to be announced"
     cards = "".join(
@@ -234,7 +234,7 @@ def rates_card(meta, c):
     sr = r.get("silverRetail") or {}
     if sr.get("range"):
         try:
-            sd = date.fromisoformat(sr.get("date")).strftime("%-d %b %Y")
+            sd = date.fromisoformat(sr.get("date")).strftime("%d %b %Y")
         except Exception:
             sd = sr.get("date")
         rows.append(("Silver, 1 kg (shops)", inr(sr["range"][0]), None, "silver", sd))
@@ -269,7 +269,7 @@ def earnings(results, c):
               ("Next week", [x for x in results if d(x) and wk_end < d(x) <= nx_end])]
     tabs = "".join(f'<button type="button" class="seg{" on" if i == 0 else ""}" data-panel="earn{i}">{n} <small>{len(g)}</small></button>' for i, (n, g) in enumerate(groups))
     def li(x):
-        when = "Today" if d(x) == today else d(x).strftime("%a %-d %b")
+        when = "Today" if d(x) == today else d(x).strftime("%a %d %b")
         return f'<li><span class="eav" aria-hidden="true">{e(x["company"][:1])}</span><span class="en">{e(x["company"])}<small>{e(x.get("note") or "Results")}</small></span><time>{when}</time></li>'
     panels = "".join(f'<div class="wp" id="earn{i}"{"" if i == 0 else " hidden"}>' + (f'<ul class="elist">{"".join(li(x) for x in g[:7])}</ul>' if g else '<p class="empty-note">No results scheduled in our calendar for this period.</p>') + "</div>"
                      for i, (n, g) in enumerate(groups))
