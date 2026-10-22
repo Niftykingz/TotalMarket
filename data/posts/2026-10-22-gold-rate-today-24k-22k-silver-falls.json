@@ -1,0 +1,99 @@
+{
+  "title": "Gold rate today: 24K falls to about ₹1,46,070 per 10 g, silver near ₹2.3 lakh/kg",
+  "dek": "Shop rates eased overnight as a firmer rupee made imported gold cheaper; global prices were steady.",
+  "category": "commodities",
+  "lead": false,
+  "readMins": 2,
+  "body": [
+    "Indian gold prices are lower this morning. 24-carat gold is quoted at ₹14,607 per gram (about ₹1,46,070 per 10 grams) in Mumbai, Chennai, Kolkata, Bengaluru and Hyderabad, and ₹14,622 in Delhi, according to Asianet Newsable's 7:35 am update. 22-carat, the usual jewellery grade, is ₹13,389 per gram (₹1,33,890 per 10 g). Silver is ₹2,29,900 per kg.",
+    "Why lower? Mainly the rupee. It strengthened about 0.5% on Wednesday to roughly 94.43–94.46 per dollar, and because India imports almost all its gold, a stronger rupee makes each gram cheaper even when global prices barely move. Global gold futures were steady at about $4,150 an ounce. Compared with Asianet's rates yesterday, 24K in Mumbai is about ₹2,256 per 10 g lower.",
+    "Worked example: a 10 g, 22K chain at ₹1,33,890 for the metal, plus a 12% making charge (₹16,067) and 3% GST on both (₹4,499), comes to about ₹1,54,456. The making charge is the part you can negotiate. The official IBJA benchmark for today is published around midday; the latest one we have verified is from 19 October.",
+    "Key takeaway: when the rupee strengthens, Indian gold can get cheaper even if world prices don't move."
+  ],
+  "table": {
+    "title": "Gold rate today (Asianet Newsable, 22 Oct, 7:35 am)",
+    "rows": [
+      {
+        "label": "Delhi",
+        "value": "24K ₹1,46,220",
+        "change": "",
+        "note": "22K ₹1,34,040"
+      },
+      {
+        "label": "Mumbai",
+        "value": "24K ₹1,46,070",
+        "change": "",
+        "note": "22K ₹1,33,890"
+      },
+      {
+        "label": "Chennai",
+        "value": "24K ₹1,46,070",
+        "change": "",
+        "note": "22K ₹1,33,890"
+      },
+      {
+        "label": "Kolkata",
+        "value": "24K ₹1,46,070",
+        "change": "",
+        "note": "22K ₹1,33,890"
+      },
+      {
+        "label": "Bengaluru",
+        "value": "24K ₹1,46,070",
+        "change": "",
+        "note": "22K ₹1,33,890"
+      },
+      {
+        "label": "Hyderabad",
+        "value": "24K ₹1,46,070",
+        "change": "",
+        "note": "22K ₹1,33,890"
+      },
+      {
+        "label": "Silver (1 kg)",
+        "value": "₹2,29,900",
+        "change": "",
+        "note": "All six cities"
+      }
+    ]
+  },
+  "globalImpact": "Gold is holding near $4,150 as Middle East tension supports demand while high US interest rates cap gains.",
+  "indiaImpact": "A firmer rupee is bringing Indian gold prices down a little ahead of Diwali and Dhanteras buying.",
+  "coverHeadline": "GOLD ₹1.46 LAKH",
+  "stat": "₹1.46",
+  "statLabel": "24K per 10 g, most cities",
+  "symbol": "gold",
+  "flags": [
+    "IN"
+  ],
+  "seoTitle": "Gold Rate Today 22 Oct 2026: 24K ₹1,46,070, 22K ₹1,33,890",
+  "seoDescription": "Gold rate today 22 Oct 2026: 24K ₹1,46,070 and 22K ₹1,33,890 per 10 g in most cities, Delhi slightly higher; silver ₹2,29,900 per kg. Why prices fell.",
+  "coverAlt": "Cover graphic: 24K gold about ₹1.46 lakh per 10 grams",
+  "tags": [
+    "Gold rate today",
+    "Gold price today",
+    "22 carat gold rate",
+    "24 carat gold rate",
+    "Silver rate today",
+    "Gold rate in Delhi",
+    "Gold rate in Mumbai"
+  ],
+  "sources": [
+    {
+      "name": "Asianet Newsable: gold, silver prices 22 Oct",
+      "url": "https://newsable.asianetnews.com/business/gold-silver-prices-today-october-22-check-new-latest-rates-in-delhi-mumbai-bengaluru-and-other-cities-articleshow-x65sp0i"
+    },
+    {
+      "name": "Deccan Herald: rupee close",
+      "url": "https://www.deccanherald.com/india/jio-ipo-inflows-lift-rupee-48-paise-to-six-week-high-closes-at-9443-against-dollar-4190107"
+    },
+    {
+      "name": "TradingKey: gold futures",
+      "url": "https://www.tradingkey.com/analysis/stocks/us-stocks/262230966-spacex-musk-spcx-meta-tesla-tradingkey"
+    }
+  ],
+  "edition": "2026-10-22-premarket",
+  "editionLabel": "Thu 22 Oct · Pre-market brief",
+  "publishedAt": "2026-10-22T08:48:00+05:30",
+  "status": "new"
+}

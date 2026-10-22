@@ -1,0 +1,78 @@
+{
+  "title": "Stock market today: weak start signalled; HPCL, Havells, Swiggy results; Fusion CX lists",
+  "dek": "GIFT Nifty is 0.37% lower; Jio and Paras IPOs enter day two and five companies report results.",
+  "category": "markets",
+  "lead": false,
+  "readMins": 2,
+  "body": [
+    "GIFT Nifty at 22,644 this morning points to a softer open after Wednesday's fall, when the Nifty 50 closed at 22,811.35 and smallcaps lost 2.37%. Kotak Neo's analysts see support around 22,700–22,800, with 22,500 next if that breaks, and resistance at 23,000–23,200. Support is a level where buyers have tended to step in; it is not a guarantee.",
+    "Results due today include Hindustan Petroleum (HPCL), Havells India, Swiggy, Colgate-Palmolive India, Adani Energy Solutions and Adani Total Gas. Eternal shares will react to Wednesday evening's numbers: profit up 92% to ₹125 crore. For HPCL, oil near $110 matters because refiners' margins depend on the gap between crude costs and fuel prices.",
+    "Fusion CX lists on NSE and BSE today. Its ₹702 crore IPO (₹275–289 a share; ₹500 crore new shares and ₹202 crore sold by existing holders) was 1.49 times subscribed overall, according to Finology. Jio Platforms' IPO enters day two after ending day one 3.04 times subscribed (retail 0.73 times); Paras Healthcare was 0.15 times. Both close on Friday.",
+    "Key takeaway: a soft open is likely, but company results and IPO demand will drive individual stocks more than the index today."
+  ],
+  "why": "With so many results and IPO events on one day, stock-specific moves can be large even if the Nifty is calm.",
+  "indiaImpact": "HPCL and Adani results will move energy shares; Swiggy's numbers, a day after Eternal's, will set the tone for consumer-internet stocks.",
+  "piggy": {
+    "happened": "Five companies report results today, Fusion CX lists, and the Jio and Paras IPOs enter their second day, while GIFT Nifty points to a weaker open.",
+    "matters": "On busy results days, individual shares can swing 5–10% even when the Nifty moves less than 1%.",
+    "watch": [
+      "Fusion CX's listing price vs its ₹289 upper band",
+      "Jio IPO retail subscription crossing 1x",
+      "Swiggy results compared with Eternal's"
+    ]
+  },
+  "coverHeadline": "RESULTS DAY: HPCL, SWIGGY",
+  "stat": "HPCL",
+  "statLabel": "Plus Havells, Colgate, Adani Energy",
+  "coverContext": "GIFT Nifty 22,644 · Fusion CX lists",
+  "symbol": "candles",
+  "flags": [
+    "IN"
+  ],
+  "companies": [
+    {
+      "name": "Hindustan Petroleum",
+      "ticker": "HINDPETRO"
+    },
+    {
+      "name": "Swiggy",
+      "ticker": "SWIGGY"
+    },
+    {
+      "name": "Havells India",
+      "ticker": "HAVELLS"
+    }
+  ],
+  "seoTitle": "Stock Market Today 22 Oct: GIFT Nifty, Results, Fusion CX IPO",
+  "seoDescription": "Stock market today 22 Oct 2026: GIFT Nifty 22,644 signals a weak start; HPCL, Havells, Swiggy, Colgate results; Fusion CX listing; Jio IPO day 2.",
+  "coverAlt": "Cover graphic: results day for HPCL and Swiggy",
+  "tags": [
+    "Stock market today",
+    "Share market today",
+    "Nifty today",
+    "GIFT Nifty today",
+    "Q2 results today",
+    "Swiggy Q2 results",
+    "HPCL Q2 results",
+    "Fusion CX IPO listing",
+    "Jio IPO"
+  ],
+  "sources": [
+    {
+      "name": "Kotak Neo: Pre-market 22 Oct",
+      "url": "https://www.kotakneo.com/news/market-news/pre-market-22-october-2026-gift-nifty-signals-weak-market-opening/"
+    },
+    {
+      "name": "Finology: Fusion CX IPO",
+      "url": "https://ticker.finology.in/ipo/fusion-cx"
+    },
+    {
+      "name": "HDFC Sky: Jio IPO day 1",
+      "url": "https://hdfcsky.com/news/jio-platforms-ipo-subscription-update-day-1"
+    }
+  ],
+  "edition": "2026-10-22-premarket",
+  "editionLabel": "Thu 22 Oct · Pre-market brief",
+  "publishedAt": "2026-10-22T08:47:00+05:30",
+  "status": "new"
+}

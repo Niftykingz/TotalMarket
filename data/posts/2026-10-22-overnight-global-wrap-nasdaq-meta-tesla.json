@@ -1,0 +1,156 @@
+{
+  "title": "Overnight: Nasdaq +1.05% on AI rally; Meta up, Tesla down after hours; GIFT Nifty signals weak start",
+  "dek": "Wall Street rose for a fourth day, but GIFT Nifty points lower as oil stays above $108 and Indian broader markets stay fragile.",
+  "category": "global",
+  "lead": true,
+  "readMins": 3,
+  "body": [
+    "US stocks rose again on Wednesday. The Dow gained 0.69% to 52,856.09, the S&P 500 added 0.58% to 7,757.17 and the tech-heavy Nasdaq rose 1.05% to 26,702.86, helped by strong results from SpaceX and server maker Supermicro, which lifted AI-linked shares, TradingKey reported. Netflix fell about 5% on a weak outlook.",
+    "After the closing bell, the two big results came in. Meta's shares rose about 2–3% in after-hours trade after revenue of $64.6 billion beat expectations, while Tesla's fell about 3.3% after profit dropped 43%. After-hours trading is thin, so these moves can change when markets open. In Asia, South Korea's Kospi jumped 3.29% on Wednesday after Tuesday's crash.",
+    "Oil swung but ended flat. Brent briefly rose about $2 to $110.85 when Iran's leaders ruled out talks under pressure, then settled at $108.82, up just 3 cents; US crude (WTI) settled at $97.15. Gold futures edged up 0.2% to about $4,150. GIFT Nifty, the Nifty futures contract traded in Gujarat's GIFT City that hints at India's opening, was at 22,644 at 7:35 am, down 0.37% and below Wednesday's Nifty close of 22,811.35.",
+    "Key takeaway: a strong US session isn't enough on its own; GIFT Nifty points to a soft open in India, where oil above $108 and weak mid and small caps remain the worry."
+  ],
+  "table": {
+    "title": "Overnight snapshot (Wednesday close unless noted)",
+    "rows": [
+      {
+        "label": "Dow Jones",
+        "value": "52,856.09",
+        "change": "+0.69%",
+        "note": ""
+      },
+      {
+        "label": "S&P 500",
+        "value": "7,757.17",
+        "change": "+0.58%",
+        "note": "Fourth day of gains"
+      },
+      {
+        "label": "Nasdaq Composite",
+        "value": "26,702.86",
+        "change": "+1.05%",
+        "note": "SpaceX, Supermicro lead"
+      },
+      {
+        "label": "Meta (after hours)",
+        "value": "",
+        "change": "+2–3%",
+        "note": "Revenue beat"
+      },
+      {
+        "label": "Tesla (after hours)",
+        "value": "",
+        "change": "-3.3%",
+        "note": "Profit down 43%"
+      },
+      {
+        "label": "Brent crude",
+        "value": "$108.82",
+        "change": "+0.03%",
+        "note": "Touched $110.85 intraday"
+      },
+      {
+        "label": "WTI crude",
+        "value": "$97.15",
+        "change": "-0.7%",
+        "note": ""
+      },
+      {
+        "label": "Gold (futures)",
+        "value": "~$4,150/oz",
+        "change": "+0.2%",
+        "note": ""
+      },
+      {
+        "label": "Silver (spot)",
+        "value": "~$57.73/oz",
+        "change": "-0.4%",
+        "note": ""
+      },
+      {
+        "label": "Kospi",
+        "value": "",
+        "change": "+3.29%",
+        "note": "Wednesday close"
+      },
+      {
+        "label": "GIFT Nifty",
+        "value": "22,644",
+        "change": "-0.37%",
+        "note": "7:35 am IST"
+      },
+      {
+        "label": "USD/INR",
+        "value": "94.43–94.46",
+        "change": "Rupee +0.5%",
+        "note": "Wednesday close; sources differ slightly"
+      }
+    ]
+  },
+  "globalImpact": "Tech and AI stocks keep leading the US market, while oil near $110 and Middle East risk keep inflation fears alive.",
+  "indiaImpact": "GIFT Nifty points to a weaker open for Indian shares. IT stocks may draw support from strong US tech, while oil-sensitive sectors and small caps stay under pressure.",
+  "piggy": {
+    "happened": "US indices rose 0.6–1.1% on Wednesday; Meta rose and Tesla fell after their results; oil ended flat after a swing to $110.85; GIFT Nifty was 0.37% lower this morning.",
+    "matters": "GIFT Nifty trades before Indian markets open, so it is an early hint of the mood. It is only a hint: the first few minutes after 9:15 am often change the picture.",
+    "watch": [
+      "The Nifty open at 9:15 am vs GIFT Nifty",
+      "Results today: HPCL, Havells, Swiggy, Colgate, Adani Energy Solutions",
+      "Fusion CX listing and day two of the Jio IPO"
+    ]
+  },
+  "coverHeadline": "NASDAQ +1.05%",
+  "stat": "+1.05%",
+  "statLabel": "Nasdaq closes at 26,702.86",
+  "coverDate": "2026-10-21",
+  "symbol": "globe",
+  "flags": [
+    "US",
+    "KR",
+    "IN"
+  ],
+  "companies": [
+    {
+      "name": "Meta",
+      "ticker": "META"
+    },
+    {
+      "name": "Tesla",
+      "ticker": "TSLA"
+    }
+  ],
+  "seoTitle": "Global Market Today 22 Oct: Nasdaq +1%, Meta, Tesla, GIFT Nifty",
+  "seoDescription": "Global markets 22 Oct 2026: Dow 52,856, Nasdaq +1.05%, Meta up and Tesla down after results, Brent $108.82, GIFT Nifty 22,644 points to a weak start.",
+  "coverAlt": "Cover graphic: Nasdaq up 1.05% on 21 October",
+  "tags": [
+    "Global market today",
+    "US stock market",
+    "Nasdaq",
+    "GIFT Nifty today",
+    "Meta results",
+    "Tesla results",
+    "Crude oil price",
+    "Stock market today"
+  ],
+  "sources": [
+    {
+      "name": "TradingKey: US market recap 21 Oct",
+      "url": "https://www.tradingkey.com/analysis/stocks/us-stocks/262230966-spacex-musk-spcx-meta-tesla-tradingkey"
+    },
+    {
+      "name": "Kotak Neo: Pre-market 22 Oct",
+      "url": "https://www.kotakneo.com/news/market-news/pre-market-22-october-2026-gift-nifty-signals-weak-market-opening/"
+    },
+    {
+      "name": "Nation Thailand: Brent settlement",
+      "url": "https://www.nationthailand.com/news/world/40072588"
+    },
+    {
+      "name": "Reuters via Rallies: oil intraday",
+      "url": "https://rallies.ai/news/oil-prices-jump-2-as-iran-knocks-hopes-of-diplomatic-progress-a340ef6dbe857608"
+    }
+  ],
+  "edition": "2026-10-22-premarket",
+  "editionLabel": "Thu 22 Oct · Pre-market brief",
+  "publishedAt": "2026-10-22T08:50:00+05:30",
+  "status": "new"
+}

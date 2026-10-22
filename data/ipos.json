@@ -1,6 +1,6 @@
 {
-  "asOf": "21 Oct 2026, 8:55 pm IST",
-  "updatedAt": "2026-10-21T20:55:00+05:30",
+  "asOf": "22 Oct 2026, 8:50 am IST",
+  "updatedAt": "2026-10-22T08:50:00+05:30",
   "ipos": [
     {
       "name": "Jio Platforms",
@@ -105,8 +105,22 @@
         {
           "name": "Zerodha IPO calendar",
           "url": "https://zerodha.com/ipo/"
+        },
+        {
+          "name": "Finology",
+          "url": "https://ticker.finology.in/ipo/fusion-cx"
         }
-      ]
+      ],
+      "fresh": "₹500 cr",
+      "ofs": "₹202 cr",
+      "subscription": {
+        "asOf": "Final",
+        "total": 1.49,
+        "source": {
+          "name": "Finology",
+          "url": "https://ticker.finology.in/ipo/fusion-cx"
+        }
+      }
     },
     {
       "name": "Zetwerk",

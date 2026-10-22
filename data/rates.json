@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-21T15:55:00+05:30",
+  "updatedAt": "2026-10-22T08:50:00+05:30",
   "benchmark": {
     "source": "India Bullion and Jewellers Association (IBJA)",
     "url": "https://ibjarates.com/",
@@ -42,24 +42,20 @@
     }
   ],
   "retailRange": {
-    "date": "2026-10-21",
+    "date": "2026-10-22",
     "gold24": [
-      147440,
-      148612
+      146070,
+      146220
     ],
     "gold22": [
-      135150,
-      136128
+      133890,
+      134040
     ],
-    "note": "Shop rates quoted on the morning of 21 Oct by Asianet Newsable and DNA India (Good Returns); jewellers add 3% GST and making charges on top.",
+    "note": "Shop rates quoted on the morning of 22 Oct by Asianet Newsable (per-gram rates × 10); jewellers add 3% GST and making charges.",
     "sources": [
       {
         "name": "Asianet Newsable",
-        "url": "https://newsable.asianetnews.com/business/gold-silver-prices-today-october-21-check-city-wise-rates-in-delhi-bengaluru-and-more-articleshow-v0479qu"
-      },
-      {
-        "name": "DNA India",
-        "url": "https://www.dnaindia.com/personal-finance/report-gold-silver-prices-today-october-21-2026-check-city-wise-rates-in-delhi-mumbai-chennai-kolkata-and-more-3222648"
+        "url": "https://newsable.asianetnews.com/business/gold-silver-prices-today-october-22-check-new-latest-rates-in-delhi-mumbai-bengaluru-and-other-cities-articleshow-x65sp0i"
       }
     ]
   },
@@ -67,44 +63,44 @@
     {
       "slug": "delhi",
       "name": "Delhi",
-      "gold24": 148527,
-      "gold22": 136050
+      "gold24": 146220,
+      "gold22": 134040
     },
     {
       "slug": "mumbai",
       "name": "Mumbai",
-      "gold24": 148326,
-      "gold22": 135867
+      "gold24": 146070,
+      "gold22": 133890
     },
     {
       "slug": "chennai",
       "name": "Chennai",
-      "gold24": 148612,
-      "gold22": 136128
+      "gold24": 146070,
+      "gold22": 133890
     },
     {
       "slug": "kolkata",
       "name": "Kolkata",
-      "gold24": 148126,
-      "gold22": 135684
+      "gold24": 146070,
+      "gold22": 133890
     },
     {
       "slug": "bengaluru",
       "name": "Bengaluru",
-      "gold24": 148517,
-      "gold22": 136041
+      "gold24": 146070,
+      "gold22": 133890
     },
     {
       "slug": "hyderabad",
       "name": "Hyderabad",
-      "gold24": 148577,
-      "gold22": 136096
+      "gold24": 146070,
+      "gold22": 133890
     }
   ],
   "citySource": {
     "name": "Asianet Newsable",
-    "asOf": "21 Oct 2026, 8:17 am IST",
-    "url": "https://newsable.asianetnews.com/business/gold-silver-prices-today-october-21-check-city-wise-rates-in-delhi-bengaluru-and-more-articleshow-v0479qu"
+    "asOf": "22 Oct 2026, 7:35 am IST",
+    "url": "https://newsable.asianetnews.com/business/gold-silver-prices-today-october-22-check-new-latest-rates-in-delhi-mumbai-bengaluru-and-other-cities-articleshow-x65sp0i"
   },
   "mcx": {
     "asOf": "21 Oct 2026, morning (published 6:30 am IST)",
@@ -119,15 +115,15 @@
     }
   },
   "silverRetail": {
-    "date": "2026-10-21",
+    "date": "2026-10-22",
     "range": [
-      229540,
-      231840
+      229900,
+      229900
     ],
-    "note": "Shop rates per kg across six cities quoted by Asianet Newsable on the morning of 21 Oct; GST extra.",
+    "note": "Shop rate per kg in six cities quoted by Asianet Newsable on the morning of 22 Oct; GST extra.",
     "source": {
       "name": "Asianet Newsable",
-      "url": "https://newsable.asianetnews.com/business/gold-silver-prices-today-october-21-check-city-wise-rates-in-delhi-bengaluru-and-more-articleshow-v0479qu"
+      "url": "https://newsable.asianetnews.com/business/gold-silver-prices-today-october-22-check-new-latest-rates-in-delhi-mumbai-bengaluru-and-other-cities-articleshow-x65sp0i"
     }
   }
 }

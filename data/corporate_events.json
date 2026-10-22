@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-21T20:55:00+05:30",
+  "updatedAt": "2026-10-22T08:52:00+05:30",
   "officialPages": {
     "announcements": "https://www.nseindia.com/companies-listing/corporate-filings-announcements",
     "actions": "https://www.nseindia.com/companies-listing/corporate-filings-actions",
@@ -217,6 +217,32 @@
       "source": {
         "name": "Business Standard",
         "url": "https://www.business-standard.com/amp/companies/quarterly-results/eternal-q2fy27-net-profit-jumps-92-to-125-crore-revenue-rises-78-126102101130_1.html"
+      }
+    },
+    {
+      "date": "2026-10-22",
+      "company": "JSW Dulux",
+      "type": "Split",
+      "detail": "Stock split 1:10 (face value ₹10 to ₹1); last day to buy for eligibility was 21 Oct",
+      "exDate": "2026-10-22",
+      "recordDate": "2026-10-22",
+      "noticeUrl": "",
+      "source": {
+        "name": "Trade Brains, 17 Oct",
+        "url": "https://tradebrains.in/indian-markets/stocks-in-focus-jsw-dulux-titan-biotech-and-2-other-stocks-set-to-trade-ex-bonus-and-split-next-week-12682298"
+      }
+    },
+    {
+      "date": "2026-10-23",
+      "company": "Titan Biotech",
+      "type": "Bonus",
+      "detail": "Bonus issue 1:4 (one new share for every four held)",
+      "exDate": "2026-10-23",
+      "recordDate": "2026-10-23",
+      "noticeUrl": "",
+      "source": {
+        "name": "Kotak Neo",
+        "url": "https://kotakneo.com/news/stocks/titan-biotech-shares-rises-ahead-of-bonus-issue-record-date-23-october-2026"
       }
     }
   ]

@@ -1,0 +1,62 @@
+{
+  "title": "Meta and Tesla results: Meta revenue beats at $64.6 billion; Tesla profit falls 43%",
+  "dek": "Meta raised its AI spending range again; Tesla's sales were flat as battery supply limited output.",
+  "category": "tech",
+  "lead": false,
+  "readMins": 3,
+  "body": [
+    "Meta Platforms, which owns Facebook, Instagram and WhatsApp, reported July–September revenue of $64.6 billion, up 26% from a year earlier and above the roughly $63.2 billion analysts expected, TradingKey reported. Net profit jumped 264% to $9.86 billion, mostly because last year's quarter carried an unusually high tax charge. Operating profit actually fell 37% because of a $9.9 billion legal settlement with US states over youth mental health. Meta slightly raised the low end of its 2026 capital spending range to $135–145 billion, much of it for AI data centres.",
+    "Tesla's revenue was flat at $28.05 billion, in line with expectations. Adjusted earnings per share of $0.48 beat the $0.45 forecast, but net profit fell 43% to $787 million as spending on AI, the Optimus robot and the Cybercab rose sharply, Electrek reported. Deliveries were 486,532 cars, down 2.1% from a year ago; Tesla said battery supply was the main limit.",
+    "Why does this matter in India? The world's biggest tech companies are still spending record sums on AI. That supports demand for chips and data centres and, indirectly, for Indian IT services firms that help build and run these systems. Worked example: Meta's spending range of $135–145 billion for one year is more than ₹12 lakh crore at about ₹94 per dollar.",
+    "Key takeaway: AI spending keeps rising even as profits come under pressure; watch how US tech shares and Indian IT stocks trade today."
+  ],
+  "indiaImpact": "Strong AI spending by US tech giants supports sentiment for Indian IT services stocks, which rose 2.9% on Wednesday; Tesla's results have little direct impact on Indian companies.",
+  "globalImpact": "Big Tech results drive the US market's mood; heavier AI spending supports chipmakers but raises questions about returns.",
+  "coverHeadline": "META $64.6B REVENUE",
+  "stat": "$64.6B",
+  "statLabel": "Meta Q3 revenue, +26%",
+  "coverDate": "2026-10-21",
+  "symbol": "neural",
+  "flags": [
+    "US"
+  ],
+  "companies": [
+    {
+      "name": "Meta",
+      "ticker": "META"
+    },
+    {
+      "name": "Tesla",
+      "ticker": "TSLA"
+    }
+  ],
+  "seoTitle": "Meta, Tesla Q3 Results 2026: Revenue, Profit, AI Spending",
+  "seoDescription": "Meta Q3 2026 revenue $64.6 billion (+26%) beats estimates and capex range rises; Tesla profit falls 43% on flat $28.05 billion revenue. What it means for Indian IT.",
+  "coverAlt": "Cover graphic: Meta Q3 revenue $64.6 billion",
+  "tags": [
+    "Meta results",
+    "Tesla results",
+    "AI stocks",
+    "US stock market",
+    "Big Tech earnings",
+    "Indian IT stocks"
+  ],
+  "sources": [
+    {
+      "name": "TradingKey: Meta Q3 2026",
+      "url": "https://www.tradingkey.com/analysis/stocks/us-stocks/262230293-meta-platforms-earnings-report-q3-2026-advertising-muse-wonder-capex-tradingkey"
+    },
+    {
+      "name": "Electrek: Tesla Q3 2026 results",
+      "url": "https://electrek.co/2026/10/21/tesla-tsla-q3-2026-financial-results/"
+    },
+    {
+      "name": "TradingKey: after-hours moves",
+      "url": "https://www.tradingkey.com/analysis/stocks/us-stocks/262230966-spacex-musk-spcx-meta-tesla-tradingkey"
+    }
+  ],
+  "edition": "2026-10-22-premarket",
+  "editionLabel": "Thu 22 Oct · Pre-market brief",
+  "publishedAt": "2026-10-22T08:49:00+05:30",
+  "status": "new"
+}
