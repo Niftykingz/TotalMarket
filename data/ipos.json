@@ -129,7 +129,25 @@
       "issuePrice": 289,
       "listingPrice": 305,
       "listingGainPct": 5.54,
-      "afterListing": "₹302.10 on NSE at 10:23 am (+4.53% vs issue); BSE listing ₹292 (+1.04%)"
+      "afterListing": "₹302.10 on NSE at 10:23 am (+4.53% vs issue); BSE listing ₹292 (+1.04%)",
+      "priceSeries": {
+        "label": "NSE price on listing day, ₹",
+        "points": [
+          [
+            "Issue",
+            289
+          ],
+          [
+            "Open",
+            305
+          ],
+          [
+            "10:23 am",
+            302.1
+          ]
+        ],
+        "source": "HDFC Sky"
+      }
     },
     {
       "name": "Zetwerk",

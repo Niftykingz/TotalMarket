@@ -75,7 +75,22 @@
       "value": "₹1,363.92 cr",
       "change": "+144.8%",
       "vs": "vs Q2 FY26",
-      "period": "Q2 FY27 (Jul–Sep 2026) · consolidated"
+      "period": "Q2 FY27 (Jul–Sep 2026) · consolidated",
+      "series": [
+        [
+          "Q2 FY26",
+          557.1
+        ],
+        [
+          "Q1 FY27",
+          1236.56
+        ],
+        [
+          "Q2 FY27",
+          1363.92
+        ]
+      ],
+      "seriesLabel": "Net profit, ₹ crore"
     },
     {
       "company": "Adani Energy Solutions",

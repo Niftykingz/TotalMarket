@@ -78,7 +78,18 @@
       "value": "₹747 cr",
       "change": "−24%",
       "vs": "vs Q1 FY27",
-      "period": "Q2 FY27 (Jul–Sep 2026) · consolidated"
+      "period": "Q2 FY27 (Jul–Sep 2026) · consolidated",
+      "series": [
+        [
+          "Q1 FY27",
+          983
+        ],
+        [
+          "Q2 FY27",
+          747
+        ]
+      ],
+      "seriesLabel": "Net profit, ₹ crore"
     },
     {
       "company": "Adani Green Energy",

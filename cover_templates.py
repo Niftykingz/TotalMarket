@@ -9,7 +9,7 @@ Templates:
   earnings_card company result: metric, value, change and period (light editorial card)
   ipo_card      IPO listing: issue price -> listing price and % gain/loss
 """
-import os
+import os, re
 from PIL import Image, ImageDraw, ImageFilter, ImageFont
 import tmdate
 
@@ -70,6 +70,46 @@ def _rrect(im, box, radius, fill=None, outline=None, width=2):
 
 def _tint(c, k=.14, base=(255, 255, 255)):
     return tuple(int(base[i] * (1 - k) + c[i] * k) for i in range(3))
+
+
+def _line_chart(im, box, pts, col, dark=False, label="", fmt=lambda v: f"{v:,.0f}", base=None):
+    """Point-labelled line chart of verified values. `pts` = [[x_label, value], ...] (2+ points).
+    `base` draws a dashed reference line (e.g. IPO issue price). Scale starts near the data, labelled."""
+    x0, y0, x1, y1 = box
+    vals = [float(v) for _, v in pts]
+    allv = vals + ([float(base)] if base is not None else [])
+    lo, hi = min(allv), max(allv)
+    pad = (hi - lo) * .25 or max(1, hi * .05)
+    lo, hi = lo - pad, hi + pad
+    n = len(vals)
+    X = lambda i: x0 + 40 + i * (x1 - x0 - 80) / max(1, n - 1)
+    Y = lambda v: y1 - 46 - (v - lo) / (hi - lo) * (y1 - y0 - 110)
+    txt, sub, grid = ((255, 255, 255), (203, 213, 225), (255, 255, 255, 40)) if dark else (INK, MUTED, LINE + (255,))
+    S = 2
+    lay = Image.new("RGBA", (W * S, H * S), (0, 0, 0, 0))
+    ld = ImageDraw.Draw(lay)
+    ld.line([(x0 * S, (y1 - 46) * S), (x1 * S, (y1 - 46) * S)], fill=grid, width=2)
+    if base is not None:
+        yb = Y(float(base)) * S
+        for xx in range(int(x0 * S), int(x1 * S), 28):
+            ld.line([(xx, yb), (xx + 14, yb)], fill=(212, 168, 67, 230), width=4)
+    P = [(X(i) * S, Y(v) * S) for i, v in enumerate(vals)]
+    ld.polygon([(P[0][0], (y1 - 46) * S)] + P + [(P[-1][0], (y1 - 46) * S)], fill=col + (40,))
+    ld.line(P, fill=col + (255,), width=10, joint="curve")
+    for i, (px, py) in enumerate(P):
+        r = 16 if i == n - 1 else 11
+        ld.ellipse([px - r, py - r, px + r, py + r], fill=(255, 255, 255, 255))
+        ld.ellipse([px - r + 6, py - r + 6, px + r - 6, py + r - 6], fill=col + (255,))
+    im.alpha_composite(lay.resize((W, H), Image.LANCZOS))
+    dr = ImageDraw.Draw(im)
+    if label:
+        dr.text((x0, y0), label.upper(), font=F(SEMI, 22), fill=sub)
+    vf, xf = F(XB, 28), F(MED, 22)
+    for i, (xl, v) in enumerate(pts):
+        dr.text((X(i), Y(float(v)) - 24), fmt(float(v)), font=vf, fill=txt, anchor="mb")
+        dr.text((X(i), y1 - 14), str(xl), font=xf, fill=sub, anchor="mb")
+    if base is not None:
+        dr.text((x1, Y(float(base)) - 8), "Issue price", font=F(MED, 20), fill=(212, 168, 67), anchor="rb")
 
 
 def _save(im, path_webp, path_jpg):
@@ -161,17 +201,18 @@ def earnings_card(p, a, path_webp, path_jpg):
         per = figs[0].get("period") or ""
         dr.text((238, 270), per, font=F(MED, 30), fill=MUTED)
         x, y = 84, 360
+        ser = next((f for f in figs if isinstance(f.get("series"), list) and len(f["series"]) >= 2), None)
         for f in figs[:2]:
-            card_w = 680
+            card_w = 470 if ser else 680
             dr.rounded_rectangle([x, y, x + card_w, y + 330], radius=24, fill=(255, 255, 255), outline=LINE, width=3)
             dr.text((x + 40, y + 36), f["label"].upper(), font=F(SEMI, 26), fill=MUTED)
-            vf = _fit(dr, f["value"], BLACK, 96, card_w - 80)
+            vf = _fit(dr, f["value"], BLACK, 96 if card_w > 600 else 74, card_w - 80)
             dr.text((x + 40, y + 82), f["value"], font=vf, fill=INK)
             ch = f.get("change") or ""
             if ch:
                 neg = ch.strip()[:1] in "-−"
                 c = DOWN_D if neg else UP_D
-                cf = F(XB, 40)
+                cf = F(XB, 40 if card_w > 600 else 34)
                 tw = dr.textlength(ch, font=cf)
                 dr.rounded_rectangle([x + 40, y + 222, x + 40 + tw + 44, y + 288], radius=14, fill=_tint(c))
                 dr.text((x + 62, y + 255), ch, font=cf, fill=c, anchor="lm")
@@ -179,6 +220,13 @@ def earnings_card(p, a, path_webp, path_jpg):
                 if note:
                     dr.text((x + 40 + tw + 64, y + 255), note, font=F(MED, 26), fill=MUTED, anchor="lm")
             x += card_w + 40
+        if ser:
+            pts = ser["series"]
+            c = DOWN_D if float(pts[-1][1]) < float(pts[0][1]) else UP_D
+            _rrect(im, [1084, 330, W - 84, 720], 24, fill=(255, 255, 255, 255), outline=LINE + (255,), width=3)
+            _line_chart(im, (1112, 356, W - 112, 712), pts, c, dark=False, label=ser.get("seriesLabel") or ser["label"],
+                        fmt=lambda v: f"₹{v:,.0f}")
+            dr = ImageDraw.Draw(im)
     else:
         dr.text((84, 180), "Q2 RESULTS SCORECARD", font=F(BLACK, 64), fill=INK)
         dr.text((86, 262), figs[0].get("period") or "", font=F(MED, 30), fill=MUTED)
@@ -208,10 +256,11 @@ def ipo_card(p, a, path_webp, path_jpg):
     im = _grad((24, 14, 64), (37, 20, 92))
     dr = ImageDraw.Draw(im)
     _kicker(dr, "IPO listing", accent=GOLD)
-    nf = _fit(dr, f["label"], BLACK, 104, 1300)
-    dr.text((84, 170), f["label"], font=nf, fill=(255, 255, 255))
-    # issue -> listing flow
-    y = 420
+    has_chart = isinstance(f.get("series"), list) and len(f["series"]) >= 2
+    nf = _fit(dr, f["label"], BLACK, 88 if has_chart else 104, 1300)
+    dr.text((84, 150 if has_chart else 170), f["label"], font=nf, fill=(255, 255, 255))
+    # issue -> listing flow (raised when a listing-day price chart is shown)
+    y = 300 if has_chart else 420
     for i, (lab, val) in enumerate((("ISSUE PRICE", f["issue"]), ("LISTING PRICE · " + f.get("exchange", ""), f["listing"]))):
         x = 84 + i * 560
         _rrect(im, [x, y, x + 470, y + 230], 26, fill=(255, 255, 255, 22), outline=(255, 255, 255, 70), width=2)
@@ -226,7 +275,12 @@ def ipo_card(p, a, path_webp, path_jpg):
     dr = ImageDraw.Draw(im)
     dr.text((px + 36, y + 34), "LISTING GAIN" if not neg else "LISTING LOSS", font=F(SEMI, 26), fill=(255, 255, 255))
     dr.text((px + 36, y + 84), f["pct"], font=_fit(dr, f["pct"], BLACK, 92, 300), fill=(255, 255, 255))
-    dr.text((84, H - 74), f'Listing {tmdate.fmt(f["date"], "%-d %b %Y").upper() if f.get("date") else ""} · Source: TotalMarket IPO register', font=F(MED, 24), fill=(196, 181, 253))
+    if has_chart:
+        _line_chart(im, (84, 560, W - 84, 800), f["series"], col, dark=True, label=f.get("seriesLabel") or "Price, ₹",
+                    fmt=lambda v: f"₹{v:,.2f}".replace(".00", ""), base=float(re.sub(r"[^\d.]", "", f["issue"])))
+        dr = ImageDraw.Draw(im)
+    src = f.get("seriesSource")
+    dr.text((84, H - 60), f'Listing {tmdate.fmt(f["date"], "%-d %b %Y").upper() if f.get("date") else ""} · Source: TotalMarket IPO register' + (f", {src}" if src else ""), font=F(MED, 24), fill=(196, 181, 253))
     _brand(dr, accent=GOLD)
     _save(im, path_webp, path_jpg)
 

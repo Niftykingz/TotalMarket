@@ -114,7 +114,18 @@
       "value": "₹125 cr",
       "change": "+92%",
       "vs": "vs Q2 FY26",
-      "period": "Q2 FY27 (Jul–Sep 2026)"
+      "period": "Q2 FY27 (Jul–Sep 2026)",
+      "series": [
+        [
+          "Q2 FY26",
+          65
+        ],
+        [
+          "Q2 FY27",
+          125
+        ]
+      ],
+      "seriesLabel": "Net profit, ₹ crore"
     },
     {
       "company": "Eternal",

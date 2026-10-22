@@ -176,7 +176,7 @@ def story_figures(p):
     out = []
     for f in p.get("figures") or []:
         if isinstance(f, dict) and f.get("label") and f.get("value"):
-            out.append({k: str(v) for k, v in f.items() if v is not None})
+            out.append({k: (v if k == "series" else str(v)) for k, v in f.items() if v is not None})
     return out
 
 
@@ -200,8 +200,10 @@ def ipo_figures(p, ipos):
     except ValueError:
         return []
     pct = (lst - iss) / iss * 100
+    ps = x.get("priceSeries") or {}
     return [{"label": x["name"], "issue": f"₹{iss:,.0f}", "listing": f"₹{lst:,.2f}".replace(".00", ""), "pct": f"{pct:+.2f}%",
-             "exchange": "NSE", "date": str(x.get("listing") or "")}]
+             "exchange": "NSE", "date": str(x.get("listing") or ""),
+             "series": ps.get("points") or [], "seriesLabel": ps.get("label") or "", "seriesSource": ps.get("source") or ""}]
 
 
 # ------------------------------------------------------------------ main entry
