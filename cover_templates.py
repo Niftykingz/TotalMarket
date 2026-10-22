@@ -250,37 +250,43 @@ def earnings_card(p, a, path_webp, path_jpg):
 
 # ------------------------------------------------------------------ IPO listing card
 def ipo_card(p, a, path_webp, path_jpg):
+    """Left: company, issue -> listing price, gain/loss. Right: listing-day price chart (when verified points exist)."""
     f = a["figures"][0]
     neg = f["pct"].startswith("-")
     col = DOWN if neg else UP
-    im = _grad((24, 14, 64), (37, 20, 92))
+    im = _grad((22, 12, 60), (40, 22, 96))
     dr = ImageDraw.Draw(im)
     _kicker(dr, "IPO listing", accent=GOLD)
     has_chart = isinstance(f.get("series"), list) and len(f["series"]) >= 2
-    nf = _fit(dr, f["label"], BLACK, 88 if has_chart else 104, 1300)
-    dr.text((84, 150 if has_chart else 170), f["label"], font=nf, fill=(255, 255, 255))
-    # issue -> listing flow (raised when a listing-day price chart is shown)
-    y = 300 if has_chart else 420
-    for i, (lab, val) in enumerate((("ISSUE PRICE", f["issue"]), ("LISTING PRICE · " + f.get("exchange", ""), f["listing"]))):
-        x = 84 + i * 560
-        _rrect(im, [x, y, x + 470, y + 230], 26, fill=(255, 255, 255, 22), outline=(255, 255, 255, 70), width=2)
+    L = 860 if has_chart else W - 168  # width of the left column
+    nf = _fit(dr, f["label"], BLACK, 96, L)
+    dr.text((84, 166), f["label"], font=nf, fill=(255, 255, 255))
+    dr.text((86, 282), f'Listed {tmdate.fmt(f["date"], "%-d %b %Y") if f.get("date") else ""} · {f.get("exchange", "NSE")}', font=F(MED, 30), fill=(196, 181, 253))
+    # issue -> listing price boxes
+    bw = (L - 60) // 2
+    y = 350
+    for i, (lab, val) in enumerate((("ISSUE PRICE", f["issue"]), ("LISTING PRICE", f["listing"]))):
+        x = 84 + i * (bw + 60)
+        _rrect(im, [x, y, x + bw, y + 190], 24, fill=(255, 255, 255, 24), outline=(255, 255, 255, 70), width=2)
         dr = ImageDraw.Draw(im)
-        dr.text((x + 36, y + 34), lab, font=F(SEMI, 26), fill=(203, 213, 225))
-        dr.text((x + 36, y + 84), val, font=F(BLACK, 92), fill=(255, 255, 255))
-    ax = 84 + 470 + 20
-    dr.polygon([(ax, y + 100), (ax + 50, y + 115), (ax, y + 130)], fill=GOLD)
-    dr.line([(ax - 8, y + 115), (ax + 30, y + 115)], fill=GOLD, width=8)
-    px = 84 + 2 * 560 - 20
-    _rrect(im, [px, y, px + 370, y + 230], 26, fill=col + (70,), outline=col + (255,), width=3)
+        dr.text((x + 32, y + 30), lab, font=F(SEMI, 24), fill=(203, 213, 225))
+        dr.text((x + 32, y + 74), val, font=_fit(dr, val, BLACK, 84, bw - 64), fill=(255, 255, 255))
+    ax = 84 + bw + 14
+    dr.polygon([(ax, y + 82), (ax + 32, y + 95), (ax, y + 108)], fill=GOLD)
+    # gain / loss band
+    gy = y + 230
+    _rrect(im, [84, gy, 84 + L, gy + 150], 24, fill=col + (55,), outline=col + (255,), width=3)
     dr = ImageDraw.Draw(im)
-    dr.text((px + 36, y + 34), "LISTING GAIN" if not neg else "LISTING LOSS", font=F(SEMI, 26), fill=(255, 255, 255))
-    dr.text((px + 36, y + 84), f["pct"], font=_fit(dr, f["pct"], BLACK, 92, 300), fill=(255, 255, 255))
+    dr.text((116, gy + 75), "LISTING GAIN" if not neg else "LISTING LOSS", font=F(SEMI, 28), fill=(255, 255, 255), anchor="lm")
+    dr.text((84 + L - 32, gy + 75), f["pct"], font=F(BLACK, 88), fill=(255, 255, 255), anchor="rm")
     if has_chart:
-        _line_chart(im, (84, 560, W - 84, 800), f["series"], col, dark=True, label=f.get("seriesLabel") or "Price, ₹",
+        cx0 = 84 + L + 50
+        _rrect(im, [cx0, 166, W - 84, 730], 26, fill=(255, 255, 255, 16), outline=(255, 255, 255, 50), width=2)
+        _line_chart(im, (cx0 + 30, 196, W - 114, 712), f["series"], col, dark=True, label=f.get("seriesLabel") or "Price, ₹",
                     fmt=lambda v: f"₹{v:,.2f}".replace(".00", ""), base=float(re.sub(r"[^\d.]", "", f["issue"])))
         dr = ImageDraw.Draw(im)
     src = f.get("seriesSource")
-    dr.text((84, H - 60), f'Listing {tmdate.fmt(f["date"], "%-d %b %Y").upper() if f.get("date") else ""} · Source: TotalMarket IPO register' + (f", {src}" if src else ""), font=F(MED, 24), fill=(196, 181, 253))
+    dr.text((84, H - 60), "Source: TotalMarket IPO register" + (f", {src}" if src else ""), font=F(MED, 24), fill=(196, 181, 253))
     _brand(dr, accent=GOLD)
     _save(im, path_webp, path_jpg)
 
