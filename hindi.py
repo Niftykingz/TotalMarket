@@ -34,7 +34,7 @@ STATUS_HI = {"developing": "ताज़ा अपडेट जारी", "upda
 
 # Hindi nav: Hindi pages first, then the (English) data pages people use daily.
 NAV_LINKS = [("hi/", "होम")] + [(f"hi/{k}/", v) for k, v in CAT_HI.items()] + [
-    ("nifty-50/", "Nifty 50"), ("ipo/", "IPO हब"), ("gold-rate-today/", "गोल्ड रेट"), ("silver-rate-today/", "सिल्वर रेट"),
+    ("hi/ipo/", "IPO आज"), ("hi/gold-rate-today/", "सोने का भाव"), ("hi/silver-rate-today/", "चांदी का भाव"), ("nifty-50/", "Nifty 50"),
     ("market-report/", "डेली रिपोर्ट"), ("results/", "नतीजे कैलेंडर"), ("live/", "आज (English)")]
 
 HUB_URLS = []
@@ -68,7 +68,7 @@ def ago(p, ist):
 def footer(base, site_url, piggy_img):
     return f"""<footer class="wrap foot" lang="hi">
 <p><b>निवेश सलाह नहीं।</b> TotalMarket सिर्फ खबरें बताता और समझाता है। यह किसी भी शेयर को खरीदने, बेचने या रखने की सलाह नहीं देता और SEBI-रजिस्टर्ड निवेश सलाहकार या रिसर्च एनालिस्ट नहीं है। निवेश से पहले खुद रिसर्च करें या रजिस्टर्ड सलाहकार से बात करें।</p>
-<nav class="footlinks" aria-label="Market data"><b>मार्केट डेटा:</b> <a href="{base}nifty-50/">Nifty 50 आज</a> · <a href="{base}gold-rate-today/">आज का गोल्ड रेट</a> · <a href="{base}silver-rate-today/">आज का सिल्वर रेट</a> · <a href="{base}fii-dii-data/">FII DII डेटा</a> · <a href="{base}ipo/">IPO</a> · <a href="{base}results/">नतीजों का कैलेंडर</a> · <a href="{base}market-report/">डेली मार्केट रिपोर्ट</a> · <a href="{base}learn/">सीखें</a></nav>
+<nav class="footlinks" aria-label="Market data"><b>मार्केट डेटा:</b> <a href="{base}nifty-50/">Nifty 50 आज</a> · <a href="{base}hi/gold-rate-today/">आज का सोने का भाव</a> · <a href="{base}hi/silver-rate-today/">आज का चांदी का भाव</a> · <a href="{base}fii-dii-data/">FII DII डेटा</a> · <a href="{base}hi/ipo/">IPO आज</a> · <a href="{base}results/">नतीजों का कैलेंडर</a> · <a href="{base}market-report/">डेली मार्केट रिपोर्ट</a> · <a href="{base}learn/">सीखें</a></nav>
 <p class="footpig">{piggy_img("head96", "fp-av")}<span><b>Boss Piggy AI</b> ने लिखा, TotalMarket की AI मार्केट डेस्क। हर खबर AI ने दिए गए स्रोतों के आधार पर तैयार की है और नीचे स्रोतों के लिंक दिए हैं। <a href="{base}hi/about/">TotalMarket के बारे में</a> · <a href="{site_url}/hi/rss.xml">RSS फ़ीड</a> · <a href="{base}" lang="en">English edition</a></span></p>
 </footer>"""
 
@@ -225,10 +225,10 @@ def home(hp, meta, c):
         side = (f'<aside class="widget stories"><div class="wtabs"><button type="button" class="wt on" data-panel="st0">ताज़ा खबरें</button></div>'
                 f'<div class="wp" id="st0">{"".join(_mini(p, c) for p in others[:6])}</div></aside>')
         quick = ('<aside class="widget hi-quick"><h2 class="edhead"><b>रोज़ के काम के पेज</b></h2><ul>'
-                 f'<li><a href="{base}nifty-50/">Nifty 50 आज: क्लोज़ और चार्ट</a></li><li><a href="{base}gold-rate-today/">आज का सोने का भाव (24K, 22K)</a></li>'
-                 f'<li><a href="{base}silver-rate-today/">आज का चांदी का भाव</a></li><li><a href="{base}ipo/">IPO: खुले, आने वाले और लिस्टेड</a></li>'
+                 f'<li><a href="{base}nifty-50/">Nifty 50 आज: क्लोज़ और चार्ट</a></li><li><a href="{base}hi/gold-rate-today/">आज का सोने का भाव (24K, 22K)</a></li>'
+                 f'<li><a href="{base}hi/silver-rate-today/">आज का चांदी का भाव</a></li><li><a href="{base}hi/ipo/">IPO: खुले, आने वाले और लिस्टेड</a></li>'
                  f'<li><a href="{base}fii-dii-data/">FII और DII ने कितना खरीदा-बेचा</a></li><li><a href="{base}results/">इस हफ्ते किसके नतीजे</a></li>'
-                 f'<li><a href="{base}{"stock-market-holidays-2026/"}">शेयर बाज़ार की छुट्टियां</a></li></ul><small>ये डेटा पेज अभी अंग्रेज़ी में हैं।</small></aside>')
+                 f'<li><a href="{base}{"stock-market-holidays-2026/"}">शेयर बाज़ार की छुट्टियां</a></li></ul><small>Nifty, FII-DII, नतीजे और छुट्टियों के पेज अभी अंग्रेज़ी में हैं।</small></aside>')
         body = (f'<h1 class="sr">TotalMarket हिंदी: शेयर बाज़ार, IPO, सोना-चांदी की खबरें आसान हिंदी में</h1>' + intro
                 + f'<div class="topgrid">{hero}{side}{quick}</div>'
                 + '<section class="related"><h2 class="edhead"><b>सभी हिंदी खबरें</b></h2><div class="grid">' + "".join(_card(p, c) for p in others[6:40]) + "</div></section>"
@@ -290,3 +290,233 @@ def build(posts, meta, c):
     for p in hp:
         out.append((f"hi/news/{p['id']}/index.html", article(p, posts, meta, c)))
     return out
+
+
+# ---------------------------------------------------------------- Hindi data pages
+# Built from the same data files as the English pages (data/rates.json, data/ipos.json),
+# so they refresh automatically whenever those files are updated.
+import os as _os
+from datetime import date as _date
+
+_ROOT = _os.path.dirname(_os.path.abspath(__file__))
+PAIRS = {"gold-rate-today/": "hi/gold-rate-today/", "silver-rate-today/": "hi/silver-rate-today/", "ipo/": "hi/ipo/"}
+WEEKDAYS_HI = ["सोमवार", "मंगलवार", "बुधवार", "गुरुवार", "शुक्रवार", "शनिवार", "रविवार"]
+
+
+def hdate(s, weekday=False):
+    try:
+        d = _date.fromisoformat(str(s)[:10])
+    except Exception:
+        return str(s or "")
+    out = f"{d.day} {MONTHS_HI[d.month - 1]} {d.year}"
+    return (WEEKDAYS_HI[d.weekday()] + ", " + out) if weekday else out
+
+
+def _inr(n, dec=0):
+    import tools
+    return tools.inr(n, dec)
+
+
+def _kpi(label, value, sub=""):
+    return f'<div class="rp-kpi"><span class="l">{label}</span><b>{value}</b>{f"<span class=c>{sub}</span>" if sub else ""}</div>'
+
+
+def _faq(qas, e):
+    return ('<section class="lesson"><h2>लोग अक्सर पूछते हैं</h2>'
+            + "".join(f'<details class="faq"><summary>{e(q)}</summary><p>{e(a)}</p></details>' for q, a in qas) + "</section>")
+
+
+def _faq_ld(qas):
+    return {"@context": "https://schema.org", "@type": "FAQPage", "inLanguage": "hi-IN",
+            "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in qas]}
+
+
+def _piggy_data(rows, c):
+    e = c["e"]
+    return (f'<aside class="pg-box" aria-label="Boss Piggy समझाते हैं"><div class="pg-head">{c["piggy_img"]("head96", "pg-av")}<div><b>Boss Piggy समझाते हैं</b>'
+            f'<small>इस पेज के आंकड़ों को आसान हिंदी में समझें</small></div></div>'
+            + "".join(f'<div class="pg-row"><h3>{k}</h3><div>{v}</div></div>' for k, v in rows)
+            + '<p class="pg-note">सिर्फ समझाने के लिए। किसी भी चीज़ को खरीदने, बेचने या रखने की सलाह नहीं।</p></aside>')
+
+
+def _related(hp, cats, c, title):
+    items = [p for p in hp if p["category"] in cats][:4]
+    return ('<section class="related"><h2 class="edhead"><b>' + c["e"](title) + '</b></h2><div class="grid">' + "".join(_card(p, c) for p in items) + "</div></section>") if items else ""
+
+
+def gold_page(r, hp, meta, c):
+    e, base = c["e"], c["base"]
+    b = r["benchmark"]; g = b["gold"]
+    rr = r.get("retailRange") or {}; cs = r.get("citySource") or {}
+    hist = list(reversed(r.get("history") or []))
+    city = next((x for x in r.get("cities", []) if x["slug"] == "mumbai"), (r.get("cities") or [None])[0])
+    day = hdate(rr.get("date") or b["date"], True)
+    kpis = '<div class="rp-kpis">'
+    if city:
+        kpis += _kpi("24 कैरेट · 10 ग्राम (दुकान भाव)", _inr(city["gold24"]), e(city["name"]) + ", " + e(cs.get("name", ""))) + _kpi("22 कैरेट · 10 ग्राम (दुकान भाव)", _inr(city["gold22"]), "गहनों वाला सोना")
+    kpis += _kpi("24 कैरेट · IBJA बेंचमार्क", _inr(g["999"]), hdate(b["date"]) + " तक जांचा गया") + _kpi("18 कैरेट · IBJA", _inr(g["750"])) + "</div>"
+    city_rows = "".join(f'<tr><th scope="row">{e(x["name"])}</th><td class="num">{_inr(x["gold24"])}</td><td class="num">{_inr(x["gold22"])}</td><td class="num">{_inr(x["gold24"]/10)}</td></tr>' for x in r.get("cities", []))
+    cities = (f'<section class="lesson"><h2>शहर के हिसाब से आज का सोने का भाव</h2><p>दुकान भाव प्रति 10 ग्राम, स्रोत <a href="{e(cs.get("url"))}" rel="nofollow noopener">{e(cs.get("name"))}</a> ({e(cs.get("asOf"))})। इसमें GST और मेकिंग चार्ज शामिल नहीं।</p>'
+              f'<div class="tablewrap"><table class="dt"><thead><tr><th>शहर</th><th>24 कैरेट</th><th>22 कैरेट</th><th>24K प्रति ग्राम</th></tr></thead><tbody>{city_rows}</tbody></table></div></section>') if city_rows else ""
+    purity = ('<div class="tablewrap"><table class="dt"><caption>IBJA बेंचमार्क: शुद्धता के हिसाब से भाव (GST से पहले)</caption><thead><tr><th>शुद्धता</th><th>1 ग्राम</th><th>8 ग्राम</th><th>10 ग्राम</th></tr></thead><tbody>'
+              + "".join(f'<tr><th scope="row">{lbl}</th><td class="num">{_inr(g[k]/10)}</td><td class="num">{_inr(g[k]/10*8)}</td><td class="num">{_inr(g[k])}</td></tr>'
+                        for k, lbl in (("999", "24 कैरेट (999)"), ("916", "22 कैरेट (916)"), ("750", "18 कैरेट (750)"), ("585", "14 कैरेट (585)")) if k in g)
+              + "</tbody></table></div>")
+    m = r.get("mcx") or {}
+    mcx = (f'<p class="why"><b>MCX फ्यूचर्स</b>{e(m.get("contract", ""))}: सोना {_inr(m["gold"])} प्रति 10 ग्राम ({m.get("goldChangePct", 0):+.2f}%), {e(m.get("asOf", ""))}, स्रोत '
+           f'<a href="{e((m.get("source") or {}).get("url"))}" rel="nofollow noopener">{e((m.get("source") or {}).get("name"))}</a>। फ्यूचर्स भाव ट्रेडर्स के लिए होता है, दुकान भाव से अलग।</p>') if m.get("gold") else ""
+    g22 = city["gold22"] if city else g["916"]
+    mk, gst = round(g22 * 0.12), round(g22 * 1.12 * 0.03)
+    calc = (f'<section class="lesson"><h2>उदाहरण: 10 ग्राम की 22 कैरेट चेन असल में कितने की पड़ेगी?</h2><div class="worked"><table class="dt"><tbody>'
+            f'<tr><th scope="row">सोने की कीमत (22 कैरेट, 10 ग्राम)</th><td class="num">{_inr(g22)}</td></tr>'
+            f'<tr><th scope="row">मेकिंग चार्ज 12% (दुकान के हिसाब से 8–25%)</th><td class="num">{_inr(mk)}</td></tr>'
+            f'<tr><th scope="row">GST 3% (सोना + मेकिंग पर)</th><td class="num">{_inr(gst)}</td></tr>'
+            f'<tr><th scope="row"><b>कुल</b></th><td class="num"><b>{_inr(g22 + mk + gst)}</b></td></tr></tbody></table>'
+            '<p>मेकिंग चार्ज पर मोलभाव हो सकता है; सोने का भाव और GST तय होते हैं। हमेशा BIS हॉलमार्क (HUID नंबर) वाला सोना लें।</p></div></section>')
+    hrows = "".join(f'<tr><th scope="row">{e(hdate(h["date"]))}</th><td class="num">{_inr(h["gold999"])}</td><td class="num">{_inr(h["gold916"])}</td></tr>' for h in hist)
+    history = (f'<section class="lesson"><h2>पिछले {len(hist)} कारोबारी दिनों का भाव (IBJA)</h2><div class="tablewrap"><table class="dt"><thead><tr><th>तारीख</th><th>24 कैरेट / 10 ग्राम</th><th>22 कैरेट / 10 ग्राम</th></tr></thead><tbody>{hrows}</tbody></table></div></section>') if hrows else ""
+    pig = _piggy_data([("यह पेज क्या दिखाता है", "दुकानों के आज के भाव (शहर के हिसाब से) और IBJA का बेंचमार्क भाव, जिससे ज्वैलर्स अपने भाव तय करते हैं।"),
+                       ("भाव क्यों बदलता है", "भारत में सोने का भाव दो चीज़ों से बनता है: दुनिया में सोने का डॉलर भाव और रुपया-डॉलर रेट। रुपया मज़बूत हो तो सोना सस्ता, कमज़ोर हो तो महंगा।"),
+                       ("ध्यान रखें", "<ul><li>दुकान का बिल = सोने का भाव + मेकिंग चार्ज + 3% GST</li><li>22 कैरेट गहनों के लिए, 24 कैरेट सिक्के और बिस्किट के लिए</li><li>हॉलमार्क और HUID ज़रूर जांचें</li></ul>")], c)
+    qas = [("आज सोने का भाव क्या है?", (f"{day} को {city['name']} में 24 कैरेट सोना {_inr(city['gold24'])} और 22 कैरेट {_inr(city['gold22'])} प्रति 10 ग्राम है ({cs.get('name', '')} के मुताबिक), GST और मेकिंग चार्ज अलग।") if city else f"IBJA के मुताबिक 24 कैरेट {_inr(g['999'])} प्रति 10 ग्राम।"),
+           ("22 कैरेट और 24 कैरेट में क्या फर्क है?", "24 कैरेट 99.9% शुद्ध होता है और सिक्के-बिस्किट में इस्तेमाल होता है। 22 कैरेट (91.6%) में थोड़ी दूसरी धातु मिली होती है ताकि गहने मज़बूत बनें।"),
+           ("ज्वैलर का भाव ऑनलाइन भाव से ज़्यादा क्यों होता है?", "दुकान 3% GST, मेकिंग चार्ज (आमतौर पर 8–25%) और कभी-कभी वेस्टेज जोड़ती है। ऑनलाइन बेंचमार्क में सिर्फ धातु की कीमत होती है।"),
+           ("IBJA भाव क्या है?", "India Bullion and Jewellers Association हर कारोबारी दिन सोने-चांदी का बेंचमार्क भाव जारी करता है, जिसे कई ज्वैलर्स और बैंक आधार मानते हैं।"),
+           ("यह पेज कब अपडेट होता है?", "हर कारोबारी दिन TotalMarket के तय अपडेट में, आमतौर पर सुबह, दोपहर और बाज़ार बंद होने के बाद।")]
+    src = (f'<section class="sources"><h2>स्रोत</h2><ul><li><a href="{e(b["url"])}" rel="nofollow noopener">{e(b["source"])}</a> — बेंचमार्क भाव</li>'
+           + (f'<li><a href="{e(cs["url"])}" rel="nofollow noopener">{e(cs["name"])}</a> — शहरों के भाव</li>' if cs else "") + "</ul></section>")
+    body = (f'<article class="story tool" lang="hi"><nav class="crumbs"><a href="{base}hi/">होम</a> / <a href="{base}hi/commodities/">सोना-चांदी</a></nav>'
+            f'<h1>आज का सोने का भाव: 24 कैरेट, 22 कैरेट ({e(day)})</h1>'
+            f'<p class="dek">भारत के बड़े शहरों में आज का गोल्ड रेट, IBJA बेंचमार्क और असल बिल का आसान हिसाब।</p>'
+            f'{kpis}<p class="wnote">IBJA: {e(hdate(b["date"]))} ({e(b.get("session", ""))}) का नवीनतम जांचा गया भाव। भाव में 3% GST और मेकिंग चार्ज शामिल नहीं।</p>'
+            f'{mcx}{pig}{cities}{calc}{purity}{history}{_faq(qas, e)}'
+            f'<p class="cm-note">चांदी का भाव देखें: <a href="{base}hi/silver-rate-today/">आज का चांदी का भाव</a> · <a href="{base}gold-rate-today/" lang="en">Gold rate today (English)</a></p>{src}'
+            f'<p class="disc">भाव सिर्फ जानकारी के लिए हैं। TotalMarket सोना-चांदी खरीदने या बेचने की सलाह नहीं देता।</p></article>'
+            + _related(hp, ("commodities",), c, "सोना-चांदी की ताज़ा खबरें"))
+    return c["page"]("आज का सोने का भाव", f"आज का सोने का भाव ({day}): 24 कैरेट और 22 कैरेट गोल्ड रेट प्रति 10 ग्राम, दिल्ली, मुंबई, चेन्नई समेत बड़े शहरों में, IBJA बेंचमार्क और GST-मेकिंग चार्ज का हिसाब।"[:165],
+                     f"{base}hi/gold-rate-today/", body, meta, seo_title="आज का सोने का भाव: 24K, 22K गोल्ड रेट प्रति 10 ग्राम",
+                     keywords=["सोने का भाव आज", "आज का गोल्ड रेट", "24 कैरेट सोने का भाव", "22 कैरेट सोने का भाव", "gold rate today in hindi"],
+                     extra_head=f'<script type="application/ld+json">{json.dumps(_faq_ld(qas), ensure_ascii=False)}</script>',
+                     lang="hi", alternates=[("en", c["site_url"] + "/gold-rate-today/"), ("hi", c["site_url"] + "/hi/gold-rate-today/")], switch=(f"{base}gold-rate-today/", "English"))
+
+
+def silver_page(r, hp, meta, c):
+    e, base = c["e"], c["base"]
+    b = r["benchmark"]; s_kg = b["silver999"]
+    sr = r.get("silverRetail") or {}; m = r.get("mcx") or {}
+    hist = list(reversed(r.get("history") or []))
+    shop = sr.get("range") or [None, None]
+    day = hdate(sr.get("date") or b["date"], True)
+    kpis = '<div class="rp-kpis">'
+    if shop[0]:
+        kpis += _kpi("चांदी · 1 किलो (दुकान भाव)", _inr(shop[0]) + ("" if shop[0] == shop[1] else "–" + _inr(shop[1])), e((sr.get("source") or {}).get("name", "")))
+        kpis += _kpi("चांदी · 10 ग्राम", _inr(shop[0] / 100)) + _kpi("चांदी · 1 ग्राम", _inr(shop[0] / 1000, 2))
+    kpis += _kpi("चांदी 999 · IBJA (1 किलो)", _inr(s_kg), hdate(b["date"]) + " तक जांचा गया") + "</div>"
+    mcx = (f'<p class="why"><b>MCX फ्यूचर्स</b>{e(m.get("contract", ""))}: चांदी {_inr(m["silver"])} प्रति किलो ({m.get("silverChangePct", 0):+.2f}%), {e(m.get("asOf", ""))}। फ्यूचर्स भाव दुकान भाव से अलग होता है।</p>') if m.get("silver") else ""
+    hrows = "".join(f'<tr><th scope="row">{e(hdate(h["date"]))}</th><td class="num">{_inr(h["silver999"])}</td><td class="num">{_inr(h["silver999"]/1000, 2)}</td></tr>' for h in hist)
+    history = (f'<section class="lesson"><h2>पिछले {len(hist)} कारोबारी दिनों का भाव (IBJA)</h2><div class="tablewrap"><table class="dt"><thead><tr><th>तारीख</th><th>1 किलो</th><th>1 ग्राम</th></tr></thead><tbody>{hrows}</tbody></table></div></section>') if hrows else ""
+    per = (shop[0] or s_kg) / 1000; coin = per * 100
+    calc = (f'<section class="lesson"><h2>उदाहरण: 100 ग्राम का चांदी का सिक्का</h2><div class="worked"><table class="dt"><tbody>'
+            f'<tr><th scope="row">भाव प्रति ग्राम</th><td class="num">{_inr(per, 2)}</td></tr><tr><th scope="row">100 ग्राम की कीमत</th><td class="num">{_inr(coin)}</td></tr>'
+            f'<tr><th scope="row">GST 3%</th><td class="num">{_inr(coin*0.03)}</td></tr><tr><th scope="row"><b>कुल (विक्रेता के प्रीमियम से पहले)</b></th><td class="num"><b>{_inr(coin*1.03)}</b></td></tr></tbody></table></div></section>')
+    pig = _piggy_data([("यह पेज क्या दिखाता है", "आज का चांदी का दुकान भाव, IBJA बेंचमार्क और MCX फ्यूचर्स, प्रति किलो, 10 ग्राम और 1 ग्राम में।"),
+                       ("चांदी सोने से ज़्यादा क्यों हिलती है", "चांदी गहनों के साथ-साथ सोलर पैनल और इलेक्ट्रॉनिक्स में भी लगती है, इसलिए उद्योगों की मांग बदलने पर इसका भाव सोने से ज़्यादा ऊपर-नीचे होता है।"),
+                       ("ध्यान रखें", "<ul><li>999 चांदी सिक्के-बार के लिए, 925 (स्टर्लिंग) गहनों के लिए</li><li>भाव में 3% GST और मेकिंग चार्ज शामिल नहीं</li></ul>")], c)
+    qas = [("आज चांदी का भाव क्या है?", (f"{day} को दुकानों में चांदी करीब {_inr(shop[0])} प्रति किलो है ({(sr.get('source') or {}).get('name', '')} के मुताबिक), GST अलग।") if shop[0] else f"IBJA के मुताबिक चांदी 999 {_inr(s_kg)} प्रति किलो।"),
+           ("1 ग्राम चांदी का भाव कैसे निकालें?", "प्रति किलो भाव को 1,000 से भाग दें। 10 ग्राम के लिए 100 से भाग दें।"),
+           ("चांदी 999 और 925 में क्या फर्क है?", "999 चांदी 99.9% शुद्ध होती है। 925 या स्टर्लिंग सिल्वर 92.5% शुद्ध होती है और गहनों-बर्तनों में इस्तेमाल होती है।")]
+    body = (f'<article class="story tool" lang="hi"><nav class="crumbs"><a href="{base}hi/">होम</a> / <a href="{base}hi/commodities/">सोना-चांदी</a></nav>'
+            f'<h1>आज का चांदी का भाव: प्रति किलो, 10 ग्राम और 1 ग्राम ({e(day)})</h1>'
+            f'<p class="dek">आज का सिल्वर रेट, IBJA बेंचमार्क, MCX फ्यूचर्स और पिछले दिनों का ट्रेंड, आसान हिंदी में।</p>'
+            f'{kpis}<p class="wnote">IBJA: {e(hdate(b["date"]))} का नवीनतम जांचा गया भाव। भाव में 3% GST शामिल नहीं।</p>{mcx}{pig}{calc}{history}{_faq(qas, e)}'
+            f'<p class="cm-note"><a href="{base}hi/gold-rate-today/">आज का सोने का भाव</a> · <a href="{base}silver-rate-today/" lang="en">Silver rate today (English)</a></p>'
+            f'<p class="disc">भाव सिर्फ जानकारी के लिए हैं। TotalMarket चांदी खरीदने या बेचने की सलाह नहीं देता।</p></article>'
+            + _related(hp, ("commodities",), c, "सोना-चांदी की ताज़ा खबरें"))
+    return c["page"]("आज का चांदी का भाव", f"आज का चांदी का भाव ({day}): सिल्वर रेट प्रति किलो, 10 ग्राम और 1 ग्राम, IBJA बेंचमार्क, MCX फ्यूचर्स और 100 ग्राम सिक्के का पूरा हिसाब।"[:165],
+                     f"{base}hi/silver-rate-today/", body, meta, seo_title="आज का चांदी का भाव: सिल्वर रेट प्रति किलो, 1 ग्राम",
+                     keywords=["चांदी का भाव आज", "आज का सिल्वर रेट", "चांदी का रेट प्रति किलो", "silver rate today in hindi"],
+                     extra_head=f'<script type="application/ld+json">{json.dumps(_faq_ld(qas), ensure_ascii=False)}</script>',
+                     lang="hi", alternates=[("en", c["site_url"] + "/silver-rate-today/"), ("hi", c["site_url"] + "/hi/silver-rate-today/")], switch=(f"{base}silver-rate-today/", "English"))
+
+
+STATUS_IPO_HI = {"open": "अभी खुले IPO", "upcoming": "आने वाले IPO", "closed": "बंद, लिस्टिंग का इंतज़ार", "listing": "आज लिस्टिंग", "listed": "हाल में लिस्ट हुए"}
+
+
+def _ipo_card(x, st, c):
+    e, base = c["e"], c["base"]
+    rows = [("तारीख", f'{hdate(x.get("open"))} – {hdate(x.get("close"))}' if x.get("open") else "—"),
+            ("प्राइस बैंड", x.get("priceBand") or "—"), ("लॉट साइज़", f'{x["lot"]} शेयर' if x.get("lot") else "—")]
+    if x.get("minAmount"): rows.append(("कम से कम निवेश", _inr(x["minAmount"])))
+    if x.get("issueSize"): rows.append(("इश्यू साइज़", x["issueSize"]))
+    if x.get("allotment"): rows.append(("अलॉटमेंट", hdate(x["allotment"])))
+    if x.get("listing"): rows.append(("लिस्टिंग", hdate(x["listing"])))
+    sub = x.get("subscription") or {}
+    if sub.get("total") is not None:
+        parts = [f'कुल {sub["total"]} गुना'] + [f'{lbl} {sub[k]} गुना' for k, lbl in (("qib", "QIB"), ("nii", "HNI/NII"), ("retail", "रिटेल")) if sub.get(k) is not None]
+        rows.append(("सब्सक्रिप्शन", ", ".join(parts) + f' ({sub.get("asOf", "")}, {(sub.get("source") or {}).get("name", "")})'))
+    if x.get("listingPrice"):
+        rows.append(("लिस्टिंग भाव", f'{_inr(x["listingPrice"], 2 if x["listingPrice"] % 1 else 0)} (इश्यू भाव {_inr(x.get("issuePrice") or 0)} से {x.get("listingGainPct", 0):+.2f}%)'))
+    if (x.get("gmp") or {}).get("value") and st in ("open", "upcoming", "closed"):
+        rows.append(("GMP (अनौपचारिक)", f'{x["gmp"]["value"]} ({x["gmp"].get("asOf", "")}) · ग्रे मार्केट प्रीमियम अनाधिकारिक है, भरोसेमंद संकेत नहीं'))
+    tr = "".join(f'<tr><th scope="row">{e(k)}</th><td>{e(v)}</td></tr>' for k, v in rows)
+    return (f'<section class="lesson ipo-hi"><h3><a href="{base}ipo/{e(x["slug"])}/" lang="en">{e(x["name"])} IPO</a> <span class="stbadge">{e(x.get("segment", ""))}</span></h3>'
+            f'<div class="tablewrap"><table class="dt"><tbody>{tr}</tbody></table></div></section>')
+
+
+def ipo_page(hp, meta, c):
+    import hubs
+    e, base = c["e"], c["base"]
+    data = hubs.load_ipos() if hasattr(hubs, "load_ipos") else json.load(open(_os.path.join(_ROOT, "data", "ipos.json"), encoding="utf-8"))
+    today = datetime.now(c["ist"]).date()
+    groups = {}
+    for x in data.get("ipos", []):
+        groups.setdefault(hubs.ipo_status(x, today), []).append(x)
+    secs = ""
+    for st in ("listing", "open", "upcoming", "closed", "listed"):
+        if groups.get(st):
+            secs += f'<h2 class="edhead"><b>{STATUS_IPO_HI[st]}</b></h2>' + "".join(_ipo_card(x, st, c) for x in groups[st])
+    lessons = [("IPO क्या है?", "जब कोई कंपनी पहली बार आम लोगों को अपने शेयर बेचती है, उसे IPO कहते हैं। इसके बाद शेयर NSE और BSE पर बाकी शेयरों की तरह खरीदे-बेचे जाते हैं।"),
+               ("प्राइस बैंड और कट-ऑफ", "कंपनी एक दायरा तय करती है, जैसे ₹660–693। आखिरी भाव आमतौर पर ऊपरी भाव होता है। रिटेल निवेशक 'कट-ऑफ' चुनकर तय होने वाला भाव स्वीकार कर सकते हैं।"),
+               ("लॉट साइज़", "IPO में तय बंडल यानी लॉट में आवेदन होता है। लॉट 21 शेयर का और भाव ₹693 हो तो कम से कम निवेश 21 × ₹693 = ₹14,553।"),
+               ("'10 गुना सब्सक्राइब' का मतलब", "हर उपलब्ध शेयर के लिए 10 शेयरों के आवेदन आए। रिटेल हिस्सा ओवरसब्सक्राइब हो तो अलॉटमेंट कंप्यूटर लॉटरी से होता है, इसलिए बहुत लोगों को शेयर नहीं मिलते।"),
+               ("GMP पर भरोसा क्यों न करें", "ग्रे मार्केट प्रीमियम अनाधिकारिक, बिना नियम का भाव है। यह जल्दी बदलता है और कई बार लिस्टिंग इससे बहुत अलग होती है।")]
+    learn = '<section class="lesson"><h2>Boss Piggy की IPO क्लास</h2>' + "".join(f'<details class="faq"><summary>{e(q)}</summary><p>{e(a)}</p></details>' for q, a in lessons) + "</section>"
+    host = (f'<aside class="pg-host" lang="hi">{c["piggy_img"]("full", "pg-full")}<div><span class="pg-name">Boss Piggy · आपका मार्केट गाइड</span>'
+            '<h2>IPO में पैसा लगाने से पहले ये तीन बातें देखें</h2><p>कंपनी क्या करती है, पैसा किस काम में लगेगा (नए शेयर या OFS), और भाव कमाई के हिसाब से कितना है। सिर्फ सब्सक्रिप्शन या GMP देखकर फैसला न करें।</p>'
+            '<small>Boss Piggy खबरें और बातें समझाते हैं; वे कभी नहीं बताते कि क्या खरीदें या बेचें।</small></div></aside>')
+    body = (f'<article class="story tool" lang="hi"><nav class="crumbs"><a href="{base}hi/">होम</a> / <a href="{base}hi/startups/">IPO और स्टार्टअप</a></nav>'
+            f'<h1>IPO आज: खुले, आने वाले और लिस्ट हुए IPO</h1>'
+            f'<p class="dek">प्राइस बैंड, लॉट साइज़, सब्सक्रिप्शन स्टेटस, अलॉटमेंट और लिस्टिंग की तारीख एक जगह। आंकड़े {e(data.get("asOf", ""))} तक।</p>'
+            f'{host}{secs}{learn}<p class="cm-note"><a href="{base}ipo/" lang="en">IPO hub (English)</a> पर हर IPO का पूरा पेज और स्रोत हैं।</p>'
+            f'<p class="disc">यह पेज सिर्फ जानकारी के लिए है। TotalMarket किसी IPO में आवेदन करने या न करने की सलाह नहीं देता।</p></article>'
+            + _related(hp, ("startups",), c, "IPO की ताज़ा हिंदी खबरें"))
+    names = ", ".join(x["name"] for x in (groups.get("open") or [])[:3])
+    d = (f"आज के IPO: {names} का सब्सक्रिप्शन स्टेटस, प्राइस बैंड, लॉट साइज़, अलॉटमेंट और लिस्टिंग की तारीख। आने वाले और हाल में लिस्ट हुए IPO भी।" if names
+         else "आने वाले IPO, सब्सक्रिप्शन स्टेटस, प्राइस बैंड, लॉट साइज़, अलॉटमेंट और लिस्टिंग की तारीख, आसान हिंदी में।")[:165]
+    return c["page"]("IPO आज: सब्सक्रिप्शन स्टेटस और आने वाले IPO", d, f"{base}hi/ipo/", body, meta, seo_title="IPO आज: सब्सक्रिप्शन स्टेटस, आने वाले IPO | TotalMarket",
+                     keywords=["IPO आज", "आने वाले IPO", "IPO सब्सक्रिप्शन स्टेटस", "IPO GMP आज", "upcoming IPO in hindi"],
+                     lang="hi", alternates=[("en", c["site_url"] + "/ipo/"), ("hi", c["site_url"] + "/hi/ipo/")], switch=(f"{base}ipo/", "English"))
+
+
+def data_pages(posts, meta, c):
+    hp = [p for p in posts if has_hi(p)]
+    out = []
+    try:
+        r = json.load(open(_os.path.join(_ROOT, "data", "rates.json"), encoding="utf-8"))
+        out += [("hi/gold-rate-today/index.html", gold_page(r, hp, meta, c)), ("hi/silver-rate-today/index.html", silver_page(r, hp, meta, c))]
+    except Exception as ex:
+        print("WARNING Hindi gold/silver pages skipped:", ex)
+    out.append(("hi/ipo/index.html", ipo_page(hp, meta, c)))
+    HUB_URLS.extend(c["site_url"] + "/" + rel.replace("index.html", "") for rel, _ in out)
+    return out
+
+
+def link_english(rel, html_, site_url, base="/"):
+    """Add hreflang + a direct 'हिंदी' switch to an English page that has a Hindi twin."""
+    key = rel.replace("index.html", "")
+    if key not in PAIRS:
+        return html_
+    hi = PAIRS[key]
+    tags = (f'<link rel="alternate" hreflang="en" href="{site_url}/{key}"><link rel="alternate" hreflang="hi" href="{site_url}/{hi}">'
+            f'<link rel="alternate" hreflang="x-default" href="{site_url}/{key}">')
+    return html_.replace("</head>", tags + "</head>", 1).replace(f'class="langsw" href="{base}hi/"', f'class="langsw" href="{base}{hi}"', 1).replace('>हिंदी</a>', '>हिंदी में देखें</a>', 1)

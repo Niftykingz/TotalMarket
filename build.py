@@ -872,6 +872,8 @@ def news_sitemap(posts):
 
 
 def write(rel, content):
+    if rel.endswith(".html"):
+        content = hindi.link_english(rel, content, SITE_URL, BASE)
     path = os.path.join(OUT, rel)
     os.makedirs(os.path.dirname(path), exist_ok=True)
     with open(path, "w", encoding="utf-8") as f:
@@ -918,6 +920,8 @@ def main():
             "piggy_img": piggy_img, "parse_dt": parse_dt, "ist": IST, "report": report, "like_key": like_key, "comments_block": comments_block,
             "slug": slug, "page_keywords": page_keywords, "site_name": SITE_NAME, "data_table": data_table}
     for rel, html_ in hindi.build(posts, meta, hctx):
+        write(rel, html_)
+    for rel, html_ in hindi.data_pages(posts, meta, hctx):
         write(rel, html_)
     global TOOL_URLS
     tool_pages, TOOL_URLS = tools.build(page, e, BASE, SITE_URL, meta)

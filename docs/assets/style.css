@@ -561,3 +561,5 @@ a.company small{color:var(--accent-2)}
 [lang="hi"] h1,[lang="hi"] h2,[lang="hi"] h3,[lang="hi"] .hero1 b{font-family:"Noto Sans Devanagari",var(--f-display),sans-serif;line-height:1.35}
 [lang="hi"] .body p{line-height:1.85}
 .hi-quick ul{list-style:none;margin:8px 0;padding:0;display:grid;gap:8px}.hi-quick li a{font-weight:500}.hi-quick small{color:var(--muted);font-size:.74rem}
+.main{grid-template-columns:minmax(0,1fr)}.main>*{min-width:0}
+.story{grid-template-columns:minmax(0,1fr)}.story>*{min-width:0}
