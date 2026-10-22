@@ -257,7 +257,7 @@ def header(meta, path, lang="en", switch=None):
     sw = f'<a class="langsw" href="{e(sw_url)}" hreflang="{"en" if lang == "hi" else "hi"}" lang="{"en" if lang == "hi" else "hi"}">{e(sw_label)}</a>'
     return f"""<header class="top">
 <div class="wrap bar1">
-<a class="brand" href="{BASE}{"hi/" if lang == "hi" else ""}"><span class="bm">Total<b>Market</b></span><span class="bt">Markets · Startups · IPOs · Tech · Global</span></a>
+<a class="brand" href="{BASE}{"hi/" if lang == "hi" else ""}"><img class="brand-pig" src="{BASE}assets/piggy/boss-piggy-head-96.webp" width="48" height="48" alt="" fetchpriority="high"><span class="bm">Total<b>Market</b></span><span class="bt">Markets · Startups · IPOs · Tech · Global</span></a>
 <div class="search" role="search"><input id="q" type="search" placeholder="{"कंपनी, IPO, खबरें खोजें…" if lang == "hi" else "Search companies, IPOs, news, markets…"}" aria-label="Search TotalMarket" autocomplete="off"><div id="qres" class="qres" hidden></div></div>
 <a class="mstatus hdr" data-mstatus href="{BASE}{HOLIDAYS_PATH}" title="Market session from NSE trading hours and holidays">Market status</a>
 {sw}
