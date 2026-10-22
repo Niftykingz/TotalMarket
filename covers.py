@@ -633,7 +633,8 @@ def render(p, path_webp, path_jpg):
     try:
         from datetime import datetime
         ds = (p.get("report") or {}).get("date") or p.get("coverDate") or p.get("publishedAt")
-        date_s = datetime.fromisoformat(str(ds).replace("Z", "+00:00")).strftime("%-d %b %Y").upper()
+        import tmdate
+        date_s = tmdate.fmt(ds, "%-d %b %Y").upper()
     except Exception:
         date_s = ""
     line2 = " · ".join(s for s in (ctx, date_s) if s)

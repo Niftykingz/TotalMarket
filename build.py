@@ -291,12 +291,24 @@ def subnav(path):
     return f'<div class="subnav"><nav class="wrap srail" aria-label="{e(CATS[key][0])} sections">{links}</nav></div>'
 
 
-def tick_kind(x):
+TICK_STATUS_LABEL = {"EOD": "End-of-day close", "DELAYED": "Delayed figure as reported", "PRELIMINARY": "Preliminary figure",
+                     "UNAVAILABLE": "No verified figure", "LIVE": "Live"}
+
+
+def tick_status(x):
+    """Status of a ticker item. TotalMarket has no licensed real-time feed, so LIVE is never produced."""
+    if not str(x.get("value") or "").strip():
+        return "UNAVAILABLE"
+    if "prelim" in str(x.get("asOfText") or "").lower():
+        return "PRELIMINARY"
     k = str(x.get("kind") or "").lower()
-    t = str(x.get("asOfText") or "")
-    if "prelim" in t.lower():
-        return "Prelim"
-    return {"close": "EOD", "intraday": "Delayed"}.get(k, "")
+    if k in ("close", "eod", "settle"):
+        return "EOD"
+    return "DELAYED"
+
+
+def tick_kind(x):  # kept for older callers
+    return {"EOD": "EOD", "DELAYED": "Delayed", "PRELIMINARY": "Prelim"}.get(tick_status(x), "")
 
 
 def ticker(meta):
@@ -304,25 +316,31 @@ def ticker(meta):
     if not t:
         return ""
     def card(x):
-        ch = str(x.get("change") or "")
+        st = tick_status(x)
+        ch = str(x.get("change") or "") if st != "UNAVAILABLE" else ""
         down = ch.lstrip("~≈ ").startswith(("-", "−"))
         arrow = ("▼ " if down else "▲ ") if ch and ch[:1] in "+-−~≈" else ""
         if ch.startswith(("~", "≈")):
             ch = "≈" + ch.lstrip("~≈ ").lstrip("+")
-        src = x.get("source") or {}
-        title = " · ".join(filter(None, [x.get("asOfText"), "Source: " + src.get("name") if src.get("name") else ""]))
-        k = tick_kind(x)
-        return (f'<div class="tcard" title="{e(title)}"><span class="tl">{e(x.get("label"))}{f' <em class="tk tk-{k.lower()}">{k}</em>' if k else ""}</span>'
-                f'<span class="tv">{e(x.get("value") or "—")}</span>'
-                f'<span class="tc {"down" if down else "up"}">{arrow}{e(ch.lstrip("+"))}</span>{spark(hist_vals(meta, x.get("label")))}'
-                f'<span class="tw">{e(x.get("asOfText") or "")}</span></div>')
+        src = (x.get("source") or {}).get("name") or ""
+        when = x.get("asOfText") or ("As-of time not recorded" if st != "UNAVAILABLE" else "")
+        title = " · ".join(filter(None, [x.get("label"), TICK_STATUS_LABEL[st], when, ("Source: " + src) if src else "Source not recorded"]))
+        val = e(x.get("value")) if st != "UNAVAILABLE" else '<span class="na">Unavailable</span>'
+        sp = spark(hist_vals(meta, x.get("label"))) if st != "UNAVAILABLE" else ""
+        return (f'<li class="tcard st-{st.lower()}" title="{e(title)}"><span class="tl">{e(x.get("label"))}<em class="tk tk-{st.lower()}">{st}</em></span>'
+                f'<span class="tv">{val}</span>'
+                f'<span class="tc {"down" if down else "up"}">{arrow}{e(ch.lstrip("+"))}</span>{sp}'
+                f'<span class="tw">{e(when)}{(" · " + e(src)) if src else ""}</span></li>')
     srcs = []
     for x in t:
-        s = (x.get("source") or {}).get("name")
-        if s and s not in srcs: srcs.append(s)
-    note = (f'<div class="wrap tnote"><span><b>Not live.</b> {e(meta.get("tickerAsOf") or "")} · EOD = end-of-day close · Delayed = intraday figure as reported · Prelim = preliminary</span>'
-            f'<span>Sources: {e(", ".join(srcs[:6]))}</span></div>')
-    return f'<div class="tickers" aria-label="Market snapshot (not live)"><div class="wrap trow">{"".join(card(x) for x in t)}</div>{note}</div>'
+        s_ = (x.get("source") or {}).get("name")
+        if s_ and s_ not in srcs: srcs.append(s_)
+    note = (f'<div class="wrap tnote"><span><b>Not live.</b> Each card shows its own date and source. EOD = end-of-day close · DELAYED = figure as reported during the session · '
+            f'PRELIMINARY = early figure, may change · UNAVAILABLE = no verified figure</span><span>Sources: {e(", ".join(srcs[:6]))}</span></div>')
+    arrows = ('<button type="button" class="tnav prev" aria-label="Scroll market snapshot left" disabled>&#8249;</button>'
+              '<button type="button" class="tnav next" aria-label="Scroll market snapshot right">&#8250;</button>')
+    return (f'<section class="tickers" aria-label="Market snapshot (not live)"><div class="wrap tbox">{arrows}'
+            f'<ul class="trow" tabindex="0" aria-label="Market snapshot cards, use arrow keys to scroll">{"".join(card(x) for x in t)}</ul></div>{note}</section>')
 
 
 def header(meta, path, lang="en", switch=None):

@@ -71,11 +71,12 @@ def hero(posts, c):
         f'<small><time datetime="{e(p["_dt"].isoformat())}">{e(c["ago"](p))}</time></small></div></a></article>' for p in side)
     used = {lead["id"]} | {p["id"] for p in side}
     tl = "".join(
-        f'<li><time datetime="{e(p["_dt"].isoformat())}">{e(short_ago(p, c["ist"]))}</time><a href="{url(p)}">{e(p["title"])}</a></li>'
+        f'<li style="--dot:var(--c-{p["category"]})"><a href="{url(p)}"><time datetime="{e(p["_dt"].isoformat())}" title="{e(c["ago"](p))}">{e(short_ago(p, c["ist"]))}</time>'
+        f'<span class="tlc">{e(c["cats"][p["category"]][0])}</span><b>{e(p["title"])}</b></a></li>'
         for p in [x for x in posts if x["id"] not in used][:7])
     latest = (f'<aside class="panel tline" aria-label="Latest news">{shead(c, "Latest news", "news", c["base"] + "live/", h="h2")}'
               f'<ol>{tl}</ol><a class="btn ghost full" href="{c["base"]}live/">View all news {icon("arrow", "ia")}</a></aside>')
-    return f'<section class="g12 herorow"><div class="c6">{big}</div><div class="c3 sstack">{sec}</div><div class="c3">{latest}</div></section>'
+    return f'<section class="g12 herorow"><div class="c6 hr-main">{big}</div><div class="c3 sstack">{sec}</div><div class="c3 hr-latest">{latest}</div></section>'
 
 
 # ------------------------------------------------------------------ dashboard

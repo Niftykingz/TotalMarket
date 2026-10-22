@@ -316,3 +316,27 @@
     });
   });
 })();
+
+// ---- ticker: arrow buttons, keyboard scrolling, end-state detection (no auto-scroll)
+(function () {
+  var box = document.querySelector(".tbox"); if (!box) return;
+  var row = box.querySelector(".trow"), prev = box.querySelector(".tnav.prev"), next = box.querySelector(".tnav.next");
+  if (!row) return;
+  function step() { return Math.max(160, row.clientWidth * 0.8); }
+  function update() {
+    var max = row.scrollWidth - row.clientWidth - 2;
+    if (prev) prev.disabled = row.scrollLeft <= 2;
+    if (next) next.disabled = row.scrollLeft >= max;
+    box.classList.toggle("at-start", row.scrollLeft <= 2);
+    box.classList.toggle("at-end", row.scrollLeft >= max);
+  }
+  if (prev) prev.addEventListener("click", function () { row.scrollBy({ left: -step(), behavior: "smooth" }); });
+  if (next) next.addEventListener("click", function () { row.scrollBy({ left: step(), behavior: "smooth" }); });
+  row.addEventListener("keydown", function (ev) {
+    if (ev.key === "ArrowRight") { row.scrollBy({ left: 180, behavior: "smooth" }); ev.preventDefault(); }
+    if (ev.key === "ArrowLeft") { row.scrollBy({ left: -180, behavior: "smooth" }); ev.preventDefault(); }
+  });
+  row.addEventListener("scroll", update, { passive: true });
+  window.addEventListener("resize", update);
+  update();
+})();

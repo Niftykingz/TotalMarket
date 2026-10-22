@@ -7,6 +7,7 @@ keyword rules on its title, tags, companies and session. Nothing is invented: a
 widget without verified data is left out.
 """
 import json, re
+import tmdate
 from datetime import datetime
 
 # topic key -> (label, rule). Order = chip order. Rules receive the story dict.
@@ -197,7 +198,7 @@ def w_pulse(posts, meta, c):
         if len(pts) >= 2:
             last, prev = float(pts[-1]["v"]), float(pts[-2]["v"])
             ch = (last - prev) / prev * 100
-            when = datetime.fromisoformat(pts[-1]["d"]).strftime("%-d %b")
+            when = tmdate.fmt(pts[-1]["d"], "%-d %b")
             rows.append(f'<tr><th scope="row">{e(n)}<small>Close {e(when)}</small></th><td class="num">{last:,.2f}</td>'
                         f'<td class="num"><span class="pchip {"up" if ch >= 0 else "down"}">{ch:+.2f}%</span></td></tr>')
     rep = next((p for p in posts if p.get("report")), None)
@@ -224,7 +225,7 @@ def w_earnings(results, c):
     up = [x for x in results if x["date"] >= today][:6]
     if not up:
         return ""
-    rows = "".join(f'<li><span>{e(x["company"])}</span><time>{"Today" if x["date"] == today else x["date"].strftime("%a %-d %b")}</time></li>' for x in up)
+    rows = "".join(f'<li><span>{e(x["company"])}</span><time>{"Today" if x["date"] == today else tmdate.fmt(x["date"], "%a %-d %b")}</time></li>' for x in up)
     return f'<section class="panel sw"><h2 class="swh">Earnings this week</h2><ul class="swe">{rows}</ul><a class="vall" href="{base}results/">Results calendar →</a></section>'
 
 
