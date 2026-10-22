@@ -89,7 +89,7 @@ def main():
                         data = request(item["original_url"])
                         if len(data) > 8_000_000:
                             raise ValueError("asset exceeds 8 MB")
-                        if item["original_format"] == ".png" and not data.startswith(b"\\x89PNG\\r\\n\\x1a\\n"):
+                        if item["original_format"] == ".png" and not data.startswith(bytes.fromhex("89504e470d0a1a0a")):
                             raise ValueError("invalid PNG signature")
                         if item["original_format"] == ".svg" and b"<svg" not in data[:4096].lower():
                             raise ValueError("invalid SVG")
@@ -106,7 +106,7 @@ def main():
         output["companies"].append(record)
         print(symbol, len(record["candidates"]), "candidate(s)", file=sys.stderr)
         time.sleep(0.2)
-    OUTPUT.write_text(json.dumps(output, indent=2, ensure_ascii=False) + "\\n", encoding="utf-8")
+    OUTPUT.write_text(json.dumps(output, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     print("Wrote", OUTPUT, "(unapproved candidate list)")
 
 if __name__ == "__main__":
