@@ -59,10 +59,17 @@ def parse_dt(s):
         return None
 
 
+
+def portable_strftime(dt, pattern):
+    """Support unpadded day/hour on Windows as well as Unix."""
+    return (dt.strftime(pattern.replace("%-d", "__TM_DAY__").replace("%-I", "__TM_HOUR__"))
+            .replace("__TM_DAY__", str(dt.day))
+            .replace("__TM_HOUR__", str(dt.hour % 12 or 12)))
+
 def fmt_ist(d, with_date=True):
     d = d.astimezone(IST)
-    t = d.strftime("%-I:%M %p").lower()
-    return (d.strftime("%-d %b %Y, ") + t + " IST") if with_date else t + " IST"
+    t = portable_strftime(d, "%-I:%M %p").lower()
+    return (portable_strftime(d, "%-d %b %Y, ") + t + " IST") if with_date else t + " IST"
 
 
 def paras(p):
@@ -531,7 +538,7 @@ def results_widget(results):
     for d, rs in list(by.items())[:4]:
         names = "".join(f'<li class="{"big" if r["big"] else ""}">{e(r["company"])}</li>' for r in rs[:7])
         more = f'<li class="more">+{len(rs)-7} more</li>' if len(rs) > 7 else ""
-        cols.append(f'<div class="rday"><h3>{e(d.strftime("%a %-d %b"))}</h3><ul>{names}{more}</ul></div>')
+        cols.append(f'<div class="rday"><h3>{e(portable_strftime(d, "%a %-d %b"))}</h3><ul>{names}{more}</ul></div>')
     return (f'<section class="rwidget"><div class="rhead"><h2>Upcoming results</h2><a href="{BASE}results/">Full calendar →</a></div>'
             f'<div class="rdays">{"".join(cols)}</div></section>')
 
@@ -542,7 +549,7 @@ def results_page(results, meta):
     days = []
     for d, rs in by.items():
         rows = "".join(f'<tr class="{"big" if r["big"] else ""}"><th scope="row">{e(r["company"])}</th><td>{e(r["note"])}</td></tr>' for r in rs)
-        days.append(f'<section class="rsec"><h2 class="edhead"><b>{e(d.strftime("%A %-d %B"))}</b><span>{len(rs)} {"company" if len(rs)==1 else "companies"}</span></h2>'
+        days.append(f'<section class="rsec"><h2 class="edhead"><b>{e(portable_strftime(d, "%A %-d %B"))}</b><span>{len(rs)} {"company" if len(rs)==1 else "companies"}</span></h2>'
                     f'<div class="tablewrap"><table class="dt rtable"><tbody>{rows}</tbody></table></div></section>')
     body = (f'<div class="sechead"><h1>Upcoming results</h1><p>Quarterly results dates for listed Indian companies. Large companies are in bold. '
             f'Dates come from company announcements and can change, so check the exchange filing on the day.</p></div>'
@@ -562,7 +569,7 @@ def grouped(posts, show_lead):
         groups.setdefault(p.get("edition") or p["_dt"].astimezone(IST).date().isoformat(), []).append(p)
     first = True
     for items in groups.values():
-        label = items[0].get("editionLabel") or items[0]["_dt"].astimezone(IST).strftime("%a %-d %b")
+        label = items[0].get("editionLabel") or portable_strftime(items[0]["_dt"].astimezone(IST), "%a %-d %b")
         rest = items
         sec = [f'<section class="edition"><h2 class="edhead"><b>{e(label)}</b><span>{len(items)} {"story" if len(items)==1 else "stories"}</span></h2>']
         if first and show_lead:
@@ -749,7 +756,7 @@ def ago(p):
     mins = int((datetime.now(IST) - p["_dt"]).total_seconds() // 60)
     if mins < 60: return f"{max(mins,1)} min ago"
     if mins < 60 * 24: return f"{mins // 60} hours ago" if mins >= 120 else "1 hour ago"
-    return p["_dt"].astimezone(IST).strftime("%-d %b")
+    return portable_strftime(p["_dt"].astimezone(IST), "%-d %b")
 
 
 def mini(p, cls="mini"):
@@ -767,7 +774,7 @@ def line_chart(points, w=320, h=150):
     c = "up" if vals[-1] >= vals[0] else "down"
     grid = "".join(f'<line x1="44" x2="{w-10}" y1="{Y(v):.1f}" y2="{Y(v):.1f}"/><text x="40" y="{Y(v)+4:.1f}" text-anchor="end">{v:,.0f}</text>'
                    for v in (lo + pad, (lo + hi) / 2, hi - pad))
-    labels = "".join(f'<text x="{X(i):.1f}" y="{h-6}" text-anchor="{"end" if i == len(points) - 1 else "start" if i == 0 else "middle"}">{datetime.fromisoformat(x["d"]).strftime("%-d %b")}</text>'
+    labels = "".join(f'<text x="{X(i):.1f}" y="{h-6}" text-anchor="{"end" if i == len(points) - 1 else "start" if i == 0 else "middle"}">{portable_strftime(datetime.fromisoformat(x["d"]), "%-d %b")}</text>'
                      for i, x in enumerate(points) if i in (0, len(points) - 1) or len(points) <= 7)
     area = f"44,{h-26} " + pts + f" {X(len(vals)-1):.1f},{h-26}"
     return (f'<svg class="lchart {c}" viewBox="0 0 {w} {h}" role="img" aria-label="Recent closing levels">'
@@ -861,10 +868,10 @@ def home_page(posts, meta, results=()):
 
 
 def search_index(posts):
-    rows = [{"t": p["title"], "u": url(p), "c": CATS[p["category"]][0], "k": " ".join(p["_tags"]), "d": p["_dt"].astimezone(IST).strftime("%-d %b")}
+    rows = [{"t": p["title"], "u": url(p), "c": CATS[p["category"]][0], "k": " ".join(p["_tags"]), "d": portable_strftime(p["_dt"].astimezone(IST), "%-d %b")}
             for p in posts[:400]]
     rows += [{"t": p["hi"]["title"], "u": hindi.hurl(p, BASE), "c": "हिंदी · " + hindi.CAT_HI[p["category"]], "k": " ".join(p["_tags"]) + " hindi " + p["title"],
-              "d": p["_dt"].astimezone(IST).strftime("%-d %b")} for p in posts[:400] if hindi.has_hi(p)]
+              "d": portable_strftime(p["_dt"].astimezone(IST), "%-d %b")} for p in posts[:400] if hindi.has_hi(p)]
     return json.dumps(rows, ensure_ascii=False)
 
 
