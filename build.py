@@ -15,6 +15,7 @@ import hubs
 import markets
 import hindi
 import home
+import category
 from datetime import datetime, timedelta, timezone
 from urllib.parse import quote
 from zoneinfo import ZoneInfo
@@ -243,9 +244,44 @@ def hist_vals(meta, label):
 
 NAV_MAIN = [("", "Home"), ("markets/", "Markets"), ("tech/", "Tech & AI"), ("startups/", "Startups & IPOs"), ("policy/", "Policy & Economy"),
             ("global/", "Global Markets"), ("commodities/", "Commodities & Forex"), ("nifty-50/", "Nifty 50"), ("gold-rate-today/", "Gold rate")]
-NAV_MORE = [("live/", "Today: all updates"), ("market-report/", "Daily market report"), ("global-indices/", "Global indices"), ("ipo/", "IPO hub"),
-            ("silver-rate-today/", "Silver rate"), ("fii-dii-data/", "FII / DII data"), ("top-gainers-losers-today/", "Gainers & losers"),
-            ("results/", "Results calendar"), ("corporate-events/", "Corporate actions"), ("stock/", "Companies A–Z"), ("calculators/", "Calculators"), ("learn/", "Learn")]
+NAV_MORE_GROUPS = [
+    ("Market data", [("live/", "Today: all updates"), ("market-report/", "Daily market report"), ("global-indices/", "Global indices"),
+                     ("top-gainers-losers-today/", "Gainers & losers"), ("fii-dii-data/", "FII / DII data"), ("silver-rate-today/", "Silver rate")]),
+    ("Market tools", [("ipo/", "IPO calendar"), ("results/", "Earnings calendar"), ("corporate-events/", "Corporate actions"),
+                      ("__HOLIDAYS__", "Market holidays"), ("stock/", "Companies A–Z"), ("calculators/", "SIP & EMI calculators")]),
+    ("Learning", [("learn/", "Learn with Boss Piggy"), ("ipo/#learn", "IPO basics")]),
+    ("TotalMarket", [("about/", "About TotalMarket"), ("hi/", "हिंदी संस्करण")]),
+]
+NAV_MORE = [x for _, g in NAV_MORE_GROUPS for x in g]
+
+# Secondary tabs shown under the main navigation for each section (existing pages and filters only).
+SUBNAV = {
+    "markets": [("markets/", "Overview"), ("markets/#feed", "News"), ("nifty-50/", "Indices"), ("top-gainers-losers-today/", "Top movers"),
+                ("market-report/", "Sectors & breadth"), ("fii-dii-data/", "FII / DII"), ("results/", "Earnings"), ("corporate-events/", "Corporate actions")],
+    "tech": [("tech/", "Overview"), ("tech/#topic-ai", "AI"), ("tech/#topic-bigtech", "Big Tech"), ("tech/#topic-cyber", "Cybersecurity"),
+             ("tech/#topic-chips", "Semiconductors"), ("tech/#topic-aistartups", "AI Startups"), ("tech/#topic-deals", "Deals"), ("tech/#topic-regulation", "Regulation")],
+    "startups": [("startups/", "Overview"), ("startups/#topic-funding", "Startup funding"), ("ipo/", "IPO center"), ("startups/#topic-subscription", "Subscription status"),
+                 ("startups/#topic-listing", "Listings")],
+    "policy": [("policy/", "Overview"), ("policy/#topic-rbi", "RBI"), ("policy/#topic-inflation", "Inflation"), ("policy/#topic-budget", "Union Budget"),
+               ("policy/#topic-tax", "Taxation"), ("policy/#topic-govt", "Government & regulators")],
+    "global": [("global/", "Overview"), ("global-indices/", "Global indices"), ("global/#topic-us", "US"), ("global/#topic-asia", "Asia"),
+               ("global/#topic-europe", "Europe"), ("global/#topic-cb", "Central banks")],
+    "commodities": [("commodities/", "Overview"), ("gold-rate-today/", "Gold rate"), ("silver-rate-today/", "Silver rate"), ("commodities/#topic-crude", "Crude oil"),
+                    ("commodities/#topic-forex", "Rupee & forex")],
+}
+SUBNAV_OWNER = {"nifty-50/": "markets", "top-gainers-losers-today/": "markets", "market-report/": "markets", "fii-dii-data/": "markets",
+                "results/": "markets", "corporate-events/": "markets", "global-indices/": "global", "gold-rate-today/": "commodities",
+                "silver-rate-today/": "commodities", "ipo/": "startups"}
+
+
+def subnav(path):
+    rel = path[len(BASE):] if path.startswith(BASE) else path
+    first = rel.split("/")[0] + "/" if rel else ""
+    key = rel.split("/")[0] if rel.split("/")[0] in SUBNAV else SUBNAV_OWNER.get(first)
+    if not key:
+        return ""
+    links = "".join(f'<a class="stab{" on" if (BASE + k) == path else ""}" href="{BASE}{k}"{" aria-current=\"page\"" if (BASE + k) == path else ""}>{e(n)}</a>' for k, n in SUBNAV[key])
+    return f'<div class="subnav"><nav class="wrap srail" aria-label="{e(CATS[key][0])} sections">{links}</nav></div>'
 
 
 def tick_kind(x):
@@ -287,10 +323,21 @@ def header(meta, path, lang="en", switch=None):
         main, more = hindi.NAV_LINKS[:9], hindi.NAV_LINKS[9:] + [("live/", "Today (English)")]
     else:
         main, more = NAV_MAIN, NAV_MORE
-    on = lambda k: " on" if path == BASE + k else ""
+    rel = path[len(BASE):] if path.startswith(BASE) else path
+    owner = SUBNAV_OWNER.get(rel.split("/")[0] + "/") if rel else None
+    on = lambda k: " on" if (path == BASE + k or (k and k == rel.split("/")[0] + "/" and k[:-1] in CATS)) else ""
     nav = "".join(f'<a class="tab{on(k)}" href="{BASE}{k}"{" aria-current=\"page\"" if on(k) else ""}>{e(n)}</a>' for k, n in main)
-    more_links = "".join(f'<a href="{BASE}{k}">{e(n)}</a>' for k, n in more)
-    all_links = "".join(f'<a class="{on(k).strip()}" href="{BASE}{k}">{e(n)}</a>' for k, n in main + more)
+    if lang == "hi":
+        more_links = "".join(f'<a href="{BASE}{k}">{e(n)}</a>' for k, n in more)
+    else:
+        more_links = "".join(f'<div class="mgrp"><b>{e(t)}</b>' + "".join(f'<a href="{BASE}{HOLIDAYS_PATH if k == "__HOLIDAYS__" else k}">{e(n)}</a>' for k, n in g) + "</div>"
+                             for t, g in NAV_MORE_GROUPS)
+    seen_m = set(); allm = []
+    for k, n in main + more:
+        k = HOLIDAYS_PATH if k == "__HOLIDAYS__" else k
+        if k not in seen_m:
+            seen_m.add(k); allm.append((k, n))
+    all_links = "".join(f'<a class="{on(k).strip()}" href="{BASE}{k}">{e(n)}</a>' for k, n in allm)
     sw_url, sw_label = switch or ((f"{BASE}", "English") if lang == "hi" else (f"{BASE}hi/", "हिंदी"))
     sw = f'<a class="langsw" href="{e(sw_url)}" hreflang="{"en" if lang == "hi" else "hi"}" lang="{"en" if lang == "hi" else "hi"}">{e(sw_label)}</a>'
     ph = "कंपनी, IPO, खबरें खोजें…" if lang == "hi" else "Search companies, IPOs, news, markets…"
@@ -304,7 +351,8 @@ def header(meta, path, lang="en", switch=None):
 <button class="themebtn" id="themebtn" type="button" aria-label="Switch light or dark theme"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M21 13.2A8.5 8.5 0 1 1 10.8 3a6.7 6.7 0 0 0 10.2 10.2Z"/></svg></button>
 <details class="mnav"><summary aria-label="Open menu"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></summary><nav class="mpanel" aria-label="All sections">{all_links}</nav></details>
 </div>
-<div class="navbar"><nav class="wrap rail" aria-label="Sections">{nav}<details class="more"><summary>{"और" if lang == "hi" else "More"} <span aria-hidden="true">▾</span></summary><div class="mdrop">{more_links}</div></details></nav></div>
+<div class="navbar"><nav class="wrap rail" aria-label="Sections">{nav}<details class="more"><summary>{"और" if lang == "hi" else "More"} <span aria-hidden="true">▾</span></summary><div class="mdrop{"" if lang == "hi" else " grouped"}">{more_links}</div></details></nav></div>
+{"" if lang == "hi" else subnav(path)}
 </header>
 {ticker(meta)}"""
 
@@ -733,16 +781,27 @@ def report_page(posts, meta):
                 keywords=["stock market today", "share market today", "Sensex today", "Nifty today", "FII DII data", "top gainers and losers", "sector performance", "IPO listing today", "market report"])
 
 
-def section_page(key, posts, meta):
+def status_badge(p):
+    st = STATUS_BADGE.get(str(p.get("status") or "").lower())
+    return f'<span class="stbadge st-{e(str(p["status"]).lower())}">{e(st)}</span>' if st else ""
+
+
+def section_page(key, posts, meta, results=()):
     name, blurb = CATS[key]
-    items = [p for p in posts if p["category"] == key][:SECTION_LIMIT]
     path = f"{BASE}{key}/"
-    body = (f'<div class="sechead"><h1>{e(name)}</h1><p>{e(blurb)}</p></div>'
-            + (grouped(items, False) if items else '<div class="empty"><p>No stories here yet. This section fills up with the next update.</p></div>'))
+    cc = {"e": e, "url": url, "base": BASE, "cover_url": cover_url, "ago": ago, "ist": IST, "cats": CATS, "slug": slug,
+          "cat_labels": CATS_LABELS, "company_slugs": COMPANY_SLUGS, "status_badge": status_badge, "limit": SECTION_LIMIT,
+          "ipo_widget": hubs.ipo_widget(IPO_LIST, e, BASE),
+          "rates_card": home.rates_card(meta, {"e": e, "base": BASE})}
+    body = category.body(key, posts, meta, results, cc)
     kw = {"markets": ["Sensex today", "Nifty 50", "stock market news India", "share market today"], "tech": ["AI news", "tech news India"],
           "startups": ["IPO news", "upcoming IPO", "startup funding India"], "policy": ["RBI policy", "SEBI news", "budget"],
           "global": ["global market news", "US stock market", "Fed rate"], "commodities": ["gold rate today", "silver price today", "crude oil price", "rupee vs dollar"]}[key]
-    return page(f"{name} news today", blurb, path, body, meta, keywords=kw)
+    items = [p for p in posts if p["category"] == key][:30]
+    ld = {"@context": "https://schema.org", "@type": "CollectionPage", "name": f"{name} news", "url": abs_url(path), "description": blurb,
+          "mainEntity": {"@type": "ItemList", "itemListElement": [{"@type": "ListItem", "position": i + 1, "url": abs_url(url(p))} for i, p in enumerate(items)]}}
+    return page(f"{name} news today", blurb, path, body, meta, keywords=kw,
+                extra_head=f'<script type="application/ld+json">{json.dumps(ld, ensure_ascii=False)}</script>')
 
 
 def ago(p):
@@ -950,7 +1009,7 @@ def main():
     global TAG_SLUGS
     TAG_SLUGS = tag_pages(posts, meta)
     for k in CATS:
-        write(f"{k}/index.html", section_page(k, posts, meta))
+        write(f"{k}/index.html", section_page(k, posts, meta, results))
     for p in posts:
         write(f"news/{p['id']}/index.html", article_page(p, posts, meta))
     write("about/index.html", about_page(meta))

@@ -263,3 +263,56 @@
   } else start();
   document.addEventListener("click", function (ev) { if (ev.target.closest(".seg")) setTimeout(drawVisible, 30); });
 })();
+
+// ---- category pages: topic chips + session filter + Load more (all stories are in the HTML)
+(function () {
+  var root = document.querySelector("[data-filter-root]");
+  if (!root) return;
+  var feedEl = root.querySelector(".cfeed"), grid = feedEl && feedEl.querySelector(".fgrid");
+  var feat = root.querySelector(".feat"), chipsEl = document.querySelector("[data-topic-chips]"), sel = document.querySelector("[data-session-filter]");
+  var more = feedEl && feedEl.querySelector(".fmore"), countEl = feedEl && feedEl.querySelector(".fcount"), empty = feedEl && feedEl.querySelector(".fempty");
+  if (!grid) { if (feat) return; }
+  var cards = grid ? Array.prototype.slice.call(grid.querySelectorAll(".fcard")) : [];
+  var size = +(feedEl ? feedEl.dataset.page : 12) || 12, step = +(feedEl ? feedEl.dataset.step : 9) || 9, shown = size;
+  var topic = "all", sess = "";
+  function match(c) {
+    var t = (c.dataset.topics || "").split(" ");
+    return (topic === "all" || t.indexOf(topic) >= 0) && (!sess || c.dataset.session === sess);
+  }
+  function render() {
+    var filtering = topic !== "all" || sess;
+    if (feat) feat.hidden = !!filtering;
+    var list = cards.filter(function (c) { return filtering ? match(c) : !c.dataset.feat; });
+    cards.forEach(function (c) { c.hidden = true; });
+    list.forEach(function (c, i) { c.hidden = i >= shown; });
+    if (more) more.hidden = list.length <= shown;
+    if (empty) empty.hidden = list.length > 0;
+    if (countEl) countEl.textContent = filtering ? list.length + (list.length === 1 ? " story" : " stories") : "";
+    if (feedEl) feedEl.hidden = !filtering && list.length === 0;
+  }
+  if (chipsEl) chipsEl.addEventListener("click", function (ev) {
+    var b = ev.target.closest(".chipf"); if (!b || b.disabled) return;
+    chipsEl.querySelectorAll(".chipf").forEach(function (o) { var on = o === b; o.classList.toggle("on", on); o.setAttribute("aria-pressed", on ? "true" : "false"); });
+    topic = b.dataset.topic; shown = size; render();
+    if (window.gtag) gtag("event", "category_filter", { topic: topic });
+  });
+  if (sel) sel.addEventListener("change", function () { sess = sel.value; shown = size; render(); });
+  if (more) more.addEventListener("click", function () { shown += step; render(); });
+  render();
+})();
+
+// ---- category pages: open a topic from the URL (#topic-ai) — used by the section tabs
+(function () {
+  function apply() {
+    var m = /^#topic-([a-z]+)$/.exec(location.hash || ""); if (!m) return;
+    var b = document.querySelector('[data-topic-chips] .chipf[data-topic="' + m[1] + '"]');
+    if (b && !b.disabled) { b.click(); var f = document.getElementById("feed"); if (f) f.scrollIntoView({ block: "start" }); }
+  }
+  window.addEventListener("hashchange", apply); apply();
+  document.querySelectorAll('[data-topic-chips] .chipf').forEach(function (b) {
+    b.addEventListener("click", function () {
+      var h = b.dataset.topic === "all" ? " " : "#topic-" + b.dataset.topic;
+      try { history.replaceState(null, "", h === " " ? location.pathname : h); } catch (e) {}
+    });
+  });
+})();
