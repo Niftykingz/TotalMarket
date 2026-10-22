@@ -207,7 +207,7 @@ def page(title, description, path, body, meta, og_type="website", extra_head="",
 <meta name="google-site-verification" content="R-bU7412W25OlS3wPOdJYbHHIF8P7FdcDqTH9Zd-Xfo">
 <script async src="https://www.googletagmanager.com/gtag/js?id={GA_ID}"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){{dataLayer.push(arguments)}}gtag("js",new Date());gtag("config","{GA_ID}");</script>
-<link rel="icon" href="{BASE}assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="{BASE}favicon.ico" sizes="48x48"><link rel="icon" href="{BASE}assets/favicon-48.png" type="image/png" sizes="48x48"><link rel="icon" href="{BASE}assets/icon-192.png" type="image/png" sizes="192x192"><link rel="apple-touch-icon" href="{BASE}assets/apple-touch-icon.png"><link rel="manifest" href="{BASE}site.webmanifest">
 <link rel="alternate" type="application/rss+xml" title="{SITE_NAME}" href="{rss_link}">
 <script>try{{var t=localStorage.getItem("tm-theme");if(t)document.documentElement.dataset.theme=t}}catch(e){{}}</script>
 {FONTS}{hindi.FONT if lang == "hi" else ""}
@@ -937,7 +937,12 @@ def main():
     write(".nojekyll", "")
     write("market-calendar.json", markets.calendar_json())
     write("data/index-closes.csv", markets.index_csv(meta))
-    write("CNAME", "totalmarket.co.in\n")  # custom domain for GitHub Pages
+    write("CNAME", "totalmarket.co.in\n")
+    shutil.copy(os.path.join(ROOT, "assets", "favicon.ico"), os.path.join(OUT, "favicon.ico"))
+    write("site.webmanifest", json.dumps({"name": "TotalMarket", "short_name": "TotalMarket", "start_url": "/", "display": "standalone",
+                                          "background_color": "#102A43", "theme_color": "#102A43",
+                                          "icons": [{"src": "/assets/icon-192.png", "sizes": "192x192", "type": "image/png"},
+                                                    {"src": "/assets/icon-512.png", "sizes": "512x512", "type": "image/png"}]}))  # custom domain for GitHub Pages
     print(f"Built {len(posts)} stories into docs/")
     for w in markets.calendar_warnings(datetime.now(IST).date()) + markets.events_warnings(datetime.now(IST).date()):
         print(w)
