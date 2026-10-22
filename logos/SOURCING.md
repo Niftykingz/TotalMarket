@@ -1,11 +1,12 @@
-# Official company logo acquisition
+# Official company logo acquisition — preserve originals
 
-Logo intake checklist:
 1. Confirm company identity using symbol, full legal name and ISIN from official exchange records.
-2. Find the logo on the company's official brand/press/media resource, or an authorized provider.
-3. Record original URL, usage terms, retrieval date, and approval notes.
-4. Only after permission/usage review, normalize a *genuine* source image to a transparent 256×256 PNG without distorting proportions.
-5. Add approved image and company record to `data/company-logos.json` and run `python scripts/verify-logos.py`.
-6. Keep pending/missing companies as initial-based placeholders; never present a generated symbol as an official logo.
+2. Obtain an official, permitted logo asset from the company's press/brand resources or an authorized provider.
+3. Record the original source URL, format, dimensions (if known), usage terms, retrieval date and review decision.
+4. **Preserve the exact original asset.** Never resize, crop, stretch, recolor, add transparency, convert formats, or force 256×256. Rectangular and square logos both remain in their native proportions.
+5. Keep original SVG, PNG, WebP or JPEG as supplied when safe and suitable. Sanitize/review SVG for security before website use; do not silently alter the archived source.
+6. Add the approved original logo and company record to `data/company-logos.json` and run `python scripts/verify-logos.py`.
+7. Display with CSS `object-fit: contain` in a responsive box; preserve aspect ratio and show natural padding if needed.
+8. When rights or source are unclear, use a separate neutral text placeholder; never generate an imitation of the company's official logo.
 
-Official company marks remain the property of their respective owners. Do not bulk-download arbitrary web images or claim redistribution rights merely because images are publicly accessible.
+Company marks remain the property of their owners. A publicly downloadable image does not automatically grant redistribution rights.
