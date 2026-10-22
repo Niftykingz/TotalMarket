@@ -7,19 +7,19 @@
       "symbol": "RELIANCE",
       "company_name": "Reliance Industries",
       "official_source_page": "https://www.ril.com/news-media/resource-center/media-kit/reliance-industries-limited",
-      "status": "restricted_reuse_review",
+      "status": "official_media_kit_verified_reuse_restricted",
       "original_asset_path": null,
       "usage_approved": false,
-      "notes": "Reliance website legal notice restricts reproduction and redistribution. Obtain authorization or documented applicable permission."
+      "notes": "PNG and JPG master, roundel, horizontal originals; RIL legal notice restricts reproduction/rehosting."
     },
     {
       "symbol": "JIO",
       "company_name": "Jio",
       "official_source_page": "https://www.ril.com/news-media/resource-center/media-kit/jio",
-      "status": "restricted_reuse_review",
+      "status": "official_media_kit_verified_reuse_restricted",
       "original_asset_path": null,
       "usage_approved": false,
-      "notes": "Reliance website legal notice restricts reproduction and redistribution. Obtain authorization or documented applicable permission."
+      "notes": "Official Jio media kit offers PNG/JPG variants; RIL legal notice restricts reproduction/rehosting."
     },
     {
       "symbol": "HDFCBANK",
@@ -42,20 +42,20 @@
     {
       "symbol": "INFY",
       "company_name": "Infosys",
-      "official_source_page": "https://www.infosys.com/",
-      "status": "source_research",
+      "official_source_page": "https://www.infosys.com/newsroom/journalist-resources.html",
+      "status": "official_journalist_logo_gallery_found",
       "original_asset_path": null,
       "usage_approved": false,
-      "notes": "Official homepage starting point only; locate genuine brand/media kit and terms."
+      "notes": "Infosys journalist resources link to high- and low-resolution logos for publication; specific asset and license review outstanding."
     },
     {
       "symbol": "TCS",
       "company_name": "Tata Consultancy Services",
       "official_source_page": "https://www.tcs.com/who-we-are/newsroom/media-kit",
-      "status": "official_media_kit_found_permission_review",
+      "status": "official_media_kit_verified_editorial_only_review",
       "original_asset_path": null,
       "usage_approved": false,
-      "notes": "Official media kit offers PNG/SVG and editorial imagery, but site-wide legal disclaimer restricts public/commercial redistribution. Written permission or legal review required before rehosting."
+      "notes": "Black/white PNG, SVG and AI originals; editorial-use media kit, but legal disclaimer restricts commercial/public reuse."
     },
     {
       "symbol": "SBIN",
