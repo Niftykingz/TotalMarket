@@ -567,3 +567,11 @@ a.company small{color:var(--accent-2)}
 .brand-pig{grid-row:1 / span 2;width:46px;height:46px;border-radius:50%;background:#fff;border:2px solid #60A5FA;object-fit:cover}
 .brand .bm,.brand .bt{grid-column:2}
 @media (max-width:640px){.brand-pig{width:40px;height:40px}}
+/* stronger contrast: active nav tab + ticker change chips */
+.rail{padding:6px 0;align-items:center}
+.tab{padding:7px 12px;border-bottom:0;border-radius:999px}
+.tab:hover{background:rgba(255,255,255,.08)}
+.tab.on{background:#fff;color:#102A43;font-weight:700;border-bottom:0;box-shadow:0 1px 0 rgba(0,0,0,.2)}
+.tcard .tc{justify-self:start;font-weight:700;padding:1px 6px;border-radius:4px;margin-top:2px}
+.tcard .tc.up{background:color-mix(in srgb,var(--tick-up) 14%,transparent)}
+.tcard .tc.down{background:color-mix(in srgb,var(--tick-down) 14%,transparent)}

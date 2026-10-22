@@ -245,7 +245,7 @@ def header(meta, path, lang="en", switch=None):
     t = meta.get("ticker") or []
     cards = "".join(
         f'<div class="tcard"><span class="tl">{e(x.get("label"))}</span><span class="tv">{e(x.get("value") or "—")}</span>'
-        f'<span class="tc {"down" if str(x.get("change","")).startswith("-") else "up"}">{e(x.get("change"))}</span>{spark(hist_vals(meta, x.get("label")))}</div>'
+        f'<span class="tc {"down" if str(x.get("change","")).lstrip("~≈ ").startswith(("-", "−")) else "up"}">{e(x.get("change"))}</span>{spark(hist_vals(meta, x.get("label")))}</div>'
         for x in t)
     asof = f'<div class="tcard asof"><span class="tl">As of</span><span class="tv small">{e(meta.get("tickerAsOf"))}</span></div>' if meta.get("tickerAsOf") else ""
     tick = f'<div class="tickers" aria-label="Market snapshot"><div class="wrap trow">{cards}{asof}</div></div>' if t else ""
