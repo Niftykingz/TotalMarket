@@ -1,6 +1,6 @@
 {
-  "asOf": "22 Oct 2026, 8:50 am IST",
-  "updatedAt": "2026-10-22T08:50:00+05:30",
+  "asOf": "22 Oct 2026, 12:50 pm IST",
+  "updatedAt": "2026-10-22T12:50:00+05:30",
   "ipos": [
     {
       "name": "Jio Platforms",
@@ -19,16 +19,14 @@
       "fresh": "₹30,213 cr (27 crore shares)",
       "ofs": "None",
       "subscription": {
-        "asOf": "21 Oct, ~6 pm (day 1)",
-        "total": 3.04,
-        "qib": 9.04,
-        "nii": 1.61,
-        "retail": 0.73,
-        "employee": 1.33,
-        "shareholder": 1.41,
+        "asOf": "22 Oct, 12:10 pm (day 2)",
+        "total": 3.7,
+        "qib": 9.6,
+        "nii": 2.87,
+        "retail": 1.11,
         "source": {
-          "name": "HDFC Sky",
-          "url": "https://hdfcsky.com/news/jio-platforms-ipo-subscription-update-day-1"
+          "name": "Business Standard",
+          "url": "https://www.business-standard.com/markets/news/stock-market-live-october-22-nse-bse-sensex-today-nifty50-gift-nifty-jio-ipo-today-126102200085_1.html"
         }
       },
       "gmp": {
@@ -79,14 +77,15 @@
         }
       ],
       "subscription": {
-        "asOf": "21 Oct, 5:07 pm (day 1)",
-        "total": 0.15,
+        "asOf": "22 Oct, 11:30 am (day 2)",
+        "total": 0.21,
         "qib": 0.0,
-        "nii": 0.08,
-        "retail": 0.73,
+        "nii": 0.2,
+        "retail": 1.0,
+        "employee": 0.0,
         "source": {
-          "name": "HDFC Sky",
-          "url": "https://hdfcsky.com/news/paras-healthcare-ipo-subscription-status-day-1"
+          "name": "ScanX",
+          "url": "https://scanx.trade/stock-market-news/ipo/paras-healthcare-ipo-day-2-subscribed-0-21x-retail-1-00x-qib-nil-check-allotment-status/54195150"
         }
       }
     },
@@ -107,20 +106,28 @@
           "url": "https://zerodha.com/ipo/"
         },
         {
-          "name": "Finology",
-          "url": "https://ticker.finology.in/ipo/fusion-cx"
+          "name": "HDFC Sky",
+          "url": "https://hdfcsky.com/news/fusion-cx-shares-rise-5-percent-on-nse-debut"
         }
       ],
       "fresh": "₹500 cr",
       "ofs": "₹202 cr",
       "subscription": {
         "asOf": "Final",
-        "total": 1.49,
+        "total": 3.03,
+        "qib": 2.34,
+        "nii": 4.62,
+        "retail": 5.8,
         "source": {
-          "name": "Finology",
-          "url": "https://ticker.finology.in/ipo/fusion-cx"
+          "name": "HDFC Sky",
+          "url": "https://hdfcsky.com/news/fusion-cx-shares-rise-5-percent-on-nse-debut"
         }
-      }
+      },
+      "listed": true,
+      "issuePrice": 289,
+      "listingPrice": 305,
+      "listingGainPct": 5.54,
+      "afterListing": "₹302.10 on NSE at 10:23 am (+4.53% vs issue); BSE listing ₹292 (+1.04%)"
     },
     {
       "name": "Zetwerk",

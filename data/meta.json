@@ -1,29 +1,29 @@
 {
-  "editionLabel": "Thu 22 Oct · Pre-market brief",
-  "nextUpdate": "2026-10-22T12:45:00+05:30",
+  "editionLabel": "Thu 22 Oct · Midday check",
+  "nextUpdate": "2026-10-22T15:45:00+05:30",
   "ticker": [
     {
       "label": "Sensex",
-      "value": "73,709.69",
-      "change": "-0.19%",
-      "asOf": "2026-10-21",
-      "kind": "close",
-      "asOfText": "21 Oct close",
+      "value": "73,238.21",
+      "change": "-0.64%",
+      "asOf": "2026-10-22",
+      "kind": "intraday",
+      "asOfText": "22 Oct, 12:00 pm",
       "source": {
         "name": "Business Standard",
-        "url": "https://www.business-standard.com/markets/news/stock-market-live-october-21-bse-sensex-today-nifty50-gift-nifty-crude-oil-prices-jio-platforms-ipo-today-hd-fire-protect-share-price-126102100078_1.html"
+        "url": "https://www.business-standard.com/markets/news/stock-market-live-october-22-nse-bse-sensex-today-nifty50-gift-nifty-jio-ipo-today-126102200085_1.html"
       }
     },
     {
       "label": "Nifty 50",
-      "value": "22,811.35",
-      "change": "-0.34%",
-      "asOf": "2026-10-21",
-      "kind": "close",
-      "asOfText": "21 Oct close",
+      "value": "22,635.90",
+      "change": "-0.77%",
+      "asOf": "2026-10-22",
+      "kind": "intraday",
+      "asOfText": "22 Oct, 12:00 pm",
       "source": {
         "name": "Business Standard",
-        "url": "https://www.business-standard.com/markets/news/stock-market-live-october-21-bse-sensex-today-nifty50-gift-nifty-crude-oil-prices-jio-platforms-ipo-today-hd-fire-protect-share-price-126102100078_1.html"
+        "url": "https://www.business-standard.com/markets/news/stock-market-live-october-22-nse-bse-sensex-today-nifty50-gift-nifty-jio-ipo-today-126102200085_1.html"
       }
     },
     {
@@ -52,14 +52,14 @@
     },
     {
       "label": "USD/INR",
-      "value": "94.43",
-      "change": "+0.51%",
-      "asOf": "2026-10-21",
-      "kind": "close",
-      "asOfText": "21 Oct close",
+      "value": "94.50",
+      "change": "-0.13%",
+      "asOf": "2026-10-22",
+      "kind": "intraday",
+      "asOfText": "22 Oct, early trade",
       "source": {
         "name": "Deccan Herald (PTI)",
-        "url": "https://www.deccanherald.com/india/jio-ipo-inflows-lift-rupee-48-paise-to-six-week-high-closes-at-9443-against-dollar-4190107"
+        "url": "https://www.deccanherald.com/business/markets/rupee-falls-12-paise-to-9450-against-us-dollar-in-early-trade-4190973"
       }
     },
     {
@@ -115,7 +115,7 @@
     }
   ],
   "tickerAsOf": "Mixed times, see each item (IST)",
-  "updatedAt": "2026-10-22T08:50:00+05:30",
+  "updatedAt": "2026-10-22T12:50:00+05:30",
   "history": {
     "Nifty 50": [
       {

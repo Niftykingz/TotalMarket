@@ -7,7 +7,7 @@
   "body": [
     "GIFT Nifty at 22,644 this morning points to a softer open after Wednesday's fall, when the Nifty 50 closed at 22,811.35 and smallcaps lost 2.37%. Kotak Neo's analysts see support around 22,700–22,800, with 22,500 next if that breaks, and resistance at 23,000–23,200. Support is a level where buyers have tended to step in; it is not a guarantee.",
     "Results due today include Hindustan Petroleum (HPCL), Havells India, Swiggy, Colgate-Palmolive India, Adani Energy Solutions and Adani Total Gas. Eternal shares will react to Wednesday evening's numbers: profit up 92% to ₹125 crore. For HPCL, oil near $110 matters because refiners' margins depend on the gap between crude costs and fuel prices.",
-    "Fusion CX lists on NSE and BSE today. Its ₹702 crore IPO (₹275–289 a share; ₹500 crore new shares and ₹202 crore sold by existing holders) was 1.49 times subscribed overall, according to Finology. Jio Platforms' IPO enters day two after ending day one 3.04 times subscribed (retail 0.73 times); Paras Healthcare was 0.15 times. Both close on Friday.",
+    "Fusion CX lists on NSE and BSE today. Its ₹702 crore IPO (₹275–289 a share; ₹500 crore new shares and ₹202 crore sold by existing holders) was 3.03 times subscribed overall (retail 5.80 times), according to HDFC Sky. Jio Platforms' IPO enters day two after ending day one 3.04 times subscribed (retail 0.73 times); Paras Healthcare was 0.15 times. Both close on Friday.",
     "Key takeaway: a soft open is likely, but company results and IPO demand will drive individual stocks more than the index today."
   ],
   "why": "With so many results and IPO events on one day, stock-specific moves can be large even if the Nifty is calm.",
@@ -63,16 +63,18 @@
       "url": "https://www.kotakneo.com/news/market-news/pre-market-22-october-2026-gift-nifty-signals-weak-market-opening/"
     },
     {
-      "name": "Finology: Fusion CX IPO",
-      "url": "https://ticker.finology.in/ipo/fusion-cx"
-    },
-    {
       "name": "HDFC Sky: Jio IPO day 1",
       "url": "https://hdfcsky.com/news/jio-platforms-ipo-subscription-update-day-1"
+    },
+    {
+      "name": "HDFC Sky: Fusion CX",
+      "url": "https://hdfcsky.com/news/fusion-cx-shares-rise-5-percent-on-nse-debut"
     }
   ],
   "edition": "2026-10-22-premarket",
   "editionLabel": "Thu 22 Oct · Pre-market brief",
   "publishedAt": "2026-10-22T08:47:00+05:30",
-  "status": "new"
+  "status": "update",
+  "updatedAt": "2026-10-22T12:50:00+05:30",
+  "changeNote": "Corrected Fusion CX's subscription to 3.03 times (final, per HDFC Sky); an earlier source showed 1.49 times, likely a partial figure."
 }

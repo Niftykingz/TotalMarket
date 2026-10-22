@@ -1,0 +1,72 @@
+{
+  "title": "Sensex down 471 pts, Nifty at 22,636 by noon as West Asia tension and oil weigh",
+  "dek": "Chemicals, autos and metals led losses; mid and small caps fell about 1% as the rupee slipped to 94.50.",
+  "category": "markets",
+  "lead": true,
+  "readMins": 2,
+  "body": [
+    "Indian shares fell for a third session on Thursday morning. At 12 noon the Sensex was down 471.48 points (0.64%) at 73,238.21 and the Nifty 50 was down 175.45 points (0.77%) at 22,635.90, below the 22,700–22,800 support zone analysts had flagged, Business Standard reported.",
+    "The main worry is West Asia. Tension around Iran and attacks on ships near the Strait of Hormuz keep oil near $108–110 a barrel, and India imports most of its crude, so costlier oil hurts the rupee, company costs and inflation. Chemicals, autos and metals were the weakest sectors; Power Grid, Mahindra & Mahindra and Nestle India were the biggest Nifty losers. The Nifty Midcap fell 1.04% and the Smallcap 0.91%. The rupee eased 12 paise to about 94.50 per dollar in early trade.",
+    "Worked example: a 0.77% fall in the Nifty means a ₹1 lakh Nifty index fund is worth about ₹99,230 at this moment, a drop of ₹770 since yesterday's close. Mid-session prices change constantly, so the close at 3:30 pm can look quite different.",
+    "Key takeaway: oil and West Asia headlines are steering the market this week; watch whether the Nifty recovers above 22,700 into the close."
+  ],
+  "indiaImpact": "Costlier oil and a weaker rupee hurt sectors that use oil, such as autos, chemicals, paints and airlines, while the broader selling extends this week's losses in small-company shares.",
+  "piggy": {
+    "happened": "By noon the Sensex was 471 points lower and the Nifty 0.77% lower at 22,635.90, with chemicals, autos and metals weakest.",
+    "matters": "These are mid-session numbers, not the close. Oil near $110 is the main pressure because India imports most of the crude it uses.",
+    "watch": [
+      "The 3:30 pm close and whether the Nifty gets back above 22,700",
+      "Results this evening: HPCL, Havells, Swiggy, Colgate",
+      "Oil and West Asia headlines"
+    ]
+  },
+  "coverHeadline": "NIFTY -0.77% AT NOON",
+  "stat": "-0.77%",
+  "statLabel": "Nifty 50 at 22,635.90, 12:00 pm",
+  "coverContext": "Sensex 73,238 · West Asia, oil weigh",
+  "symbol": "candles",
+  "flags": [
+    "IN",
+    "IR"
+  ],
+  "companies": [
+    {
+      "name": "Power Grid",
+      "ticker": "POWERGRID"
+    },
+    {
+      "name": "Mahindra & Mahindra",
+      "ticker": "M&M"
+    },
+    {
+      "name": "Nestle India",
+      "ticker": "NESTLEIND"
+    }
+  ],
+  "seoTitle": "Sensex Nifty Today 22 Oct Midday: Nifty 22,636, Oil Weighs",
+  "seoDescription": "Sensex and Nifty at noon on 22 Oct 2026: Sensex −471 at 73,238, Nifty −0.77% at 22,636; chemicals, autos, metals fall on West Asia tension; rupee 94.50.",
+  "coverAlt": "Cover graphic: Nifty down 0.77% at noon",
+  "tags": [
+    "Stock market today",
+    "Sensex today",
+    "Nifty today",
+    "Share market today",
+    "Crude oil price",
+    "Rupee vs dollar",
+    "Midcap stocks"
+  ],
+  "sources": [
+    {
+      "name": "Business Standard: Stock Market LIVE, 22 Oct",
+      "url": "https://www.business-standard.com/markets/news/stock-market-live-october-22-nse-bse-sensex-today-nifty50-gift-nifty-jio-ipo-today-126102200085_1.html"
+    },
+    {
+      "name": "Deccan Herald (PTI): rupee early trade",
+      "url": "https://www.deccanherald.com/business/markets/rupee-falls-12-paise-to-9450-against-us-dollar-in-early-trade-4190973"
+    }
+  ],
+  "edition": "2026-10-22-midday",
+  "editionLabel": "Thu 22 Oct · Midday check",
+  "publishedAt": "2026-10-22T12:50:00+05:30",
+  "status": "new"
+}

@@ -1,0 +1,47 @@
+{
+  "title": "Adani Green Q2: profit ₹747 crore, down 24% from last quarter; shares fall for 5th day",
+  "dek": "Profit rose 16% from a year ago, but lower grid availability and slower capacity additions hurt the quarter.",
+  "category": "markets",
+  "lead": false,
+  "readMins": 2,
+  "body": [
+    "Adani Green Energy reported a consolidated net profit of ₹747 crore for July–September, down 24% from ₹983 crore in the previous quarter but up 16% from a year earlier, Business Standard reported. Revenue from operations was ₹4,019 crore, 6% lower than last quarter and 45% higher than a year ago.",
+    "QoQ means 'quarter on quarter', compared with the three months just before; YoY means 'year on year', compared with the same quarter last year. Both matter: YoY shows the long-term trend, QoQ shows recent momentum. The company added 621 MW of capacity in the quarter, less than in recent quarters, and lower grid availability was linked to delayed transmission lines. Net debt stood at about ₹1.03 lakh crore.",
+    "The shares fell as much as 3.7% to ₹1,210.70 and were down 1.22% at ₹1,243.10 at 12:11 pm, a fifth straight fall and about 8% over five sessions.",
+    "Key takeaway: strong yearly growth but a weaker quarter; transmission delays and debt are the things to watch for Adani Green."
+  ],
+  "indiaImpact": "Adani Green is one of India's largest renewable-energy companies, so delays in grid connections matter for the country's clean-energy targets and for other power stocks.",
+  "coverHeadline": "ADANI GREEN PROFIT -24%",
+  "stat": "-24%",
+  "statLabel": "Q2 profit ₹747 cr, QoQ",
+  "symbol": "candles",
+  "flags": [
+    "IN"
+  ],
+  "companies": [
+    {
+      "name": "Adani Green Energy",
+      "ticker": "ADANIGREEN"
+    }
+  ],
+  "seoTitle": "Adani Green Q2 Results: Profit ₹747 Crore, Down 24% QoQ",
+  "seoDescription": "Adani Green Energy Q2 FY27: net profit ₹747 crore (−24% QoQ, +16% YoY), revenue ₹4,019 crore (+45% YoY); shares fall for a fifth day. What QoQ and YoY mean.",
+  "coverAlt": "Cover graphic: Adani Green Q2 profit down 24% quarter on quarter",
+  "tags": [
+    "Adani Green Q2 results",
+    "Adani Green share price",
+    "Q2 results today",
+    "Adani Group stocks",
+    "Renewable energy stocks"
+  ],
+  "sources": [
+    {
+      "name": "Business Standard: Adani Green Q2",
+      "url": "https://www.business-standard.com/markets/news/adani-green-shares-extend-fall-to-5th-day-down-4-as-q2-pat-dips-24-qoq-126102200476_1.html"
+    }
+  ],
+  "edition": "2026-10-22-midday",
+  "editionLabel": "Thu 22 Oct · Midday check",
+  "publishedAt": "2026-10-22T12:47:00+05:30",
+  "status": "new"
+}
