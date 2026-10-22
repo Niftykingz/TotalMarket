@@ -169,7 +169,22 @@ def abs_url(path):
 
 def desc(p):
     d = p.get("dek") or p["_paras"][0]
+    if len(d) < 110 and p.get("_paras"):  # too short for a search snippet: add the story's first sentence
+        first = re.split(r"(?<=[.!?])\s", p["_paras"][0], maxsplit=1)[0]
+        if first and first not in d:
+            d = (d.rstrip(". ") + ". " + first).strip()
     return d if len(d) <= 160 else d[:157].rsplit(" ", 1)[0] + "…"
+
+
+def smart_title(t, limit=65):
+    """Shorten an over-long <title> at the last natural break (|, :, ;, –, comma) before the limit, never mid-word."""
+    if len(t) <= limit:
+        return t
+    cut = t[:limit + 1]
+    i = max(cut.rfind(sep) for sep in (" | ", ": ", "; ", ". ", " – ", " - ", ", "))  # keep as much as fits
+    if i >= 30:
+        return t[:i].rstrip(" ,;:–-")
+    return cut[:limit].rsplit(" ", 1)[0].rstrip(" ,;:–-")
 
 
 FONTS = ('<link rel="preconnect" href="https://fonts.googleapis.com">'
@@ -185,6 +200,7 @@ def page(title, description, path, body, meta, og_type="website", extra_head="",
     full_title = seo_title or (title if title.startswith(SITE_NAME) else f"{title} | {SITE_NAME}")
     if len(full_title) > 65 and full_title.endswith(f" | {SITE_NAME}"):
         full_title = full_title[: -len(f" | {SITE_NAME}")]  # keep titles short enough to show fully in search results
+    full_title = smart_title(full_title)
     alt_html = "".join(f'<link rel="alternate" hreflang="{h}" href="{e(u)}">' for h, u in (alternates or []))
     if alternates:
         alt_html += f'<link rel="alternate" hreflang="x-default" href="{e(dict(alternates).get("en", canon))}">'
@@ -215,7 +231,7 @@ def page(title, description, path, body, meta, og_type="website", extra_head="",
 <meta name="google-site-verification" content="R-bU7412W25OlS3wPOdJYbHHIF8P7FdcDqTH9Zd-Xfo">
 <script async src="https://www.googletagmanager.com/gtag/js?id={GA_ID}"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){{dataLayer.push(arguments)}}gtag("js",new Date());gtag("config","{GA_ID}");</script>
-<link rel="icon" type="image/png" sizes="48x48" href="{BASE}assets/favicon-48.png"><link rel="icon" type="image/x-icon" sizes="any" href="{BASE}favicon.ico"><link rel="apple-touch-icon" sizes="180x180" href="{BASE}assets/apple-touch-icon.png"><link rel="manifest" href="{BASE}site.webmanifest">
+<link rel="icon" type="image/png" sizes="48x48" href="{BASE}assets/favicon-48.png"><link rel="icon" type="image/png" sizes="96x96" href="{BASE}assets/favicon-96.png"><link rel="icon" type="image/png" sizes="144x144" href="{BASE}assets/favicon-144.png"><link rel="icon" type="image/x-icon" sizes="any" href="{BASE}favicon.ico"><link rel="apple-touch-icon" sizes="180x180" href="{BASE}assets/apple-touch-icon.png"><link rel="manifest" href="{BASE}site.webmanifest">
 <link rel="alternate" type="application/rss+xml" title="{SITE_NAME}" href="{rss_link}">
 <script>try{{var t=localStorage.getItem("tm-theme");if(t)document.documentElement.dataset.theme=t}}catch(e){{}}</script>
 {FONTS}{hindi.FONT if lang == "hi" else ""}
@@ -257,7 +273,7 @@ NAV_MORE_GROUPS = [
     ("Market tools", [("ipo/", "IPO calendar"), ("results/", "Earnings calendar"), ("corporate-events/", "Corporate actions"),
                       ("__HOLIDAYS__", "Market holidays"), ("stock/", "Companies A–Z"), ("calculators/", "SIP & EMI calculators")]),
     ("Learning", [("learn/", "Learn with Boss Piggy"), ("ipo/#learn", "IPO basics")]),
-    ("TotalMarket", [("about/", "About TotalMarket"), ("hi/", "हिंदी संस्करण")]),
+    ("TotalMarket", [("about/", "About TotalMarket"), ("editorial-policy/", "Editorial policy"), ("corrections/", "Corrections"), ("contact/", "Contact"), ("hi/", "हिंदी संस्करण")]),
 ]
 NAV_MORE = [x for _, g in NAV_MORE_GROUPS for x in g]
 
@@ -339,7 +355,7 @@ def ticker(meta):
             f'PRELIMINARY = early figure, may change · UNAVAILABLE = no verified figure</span><span>Sources: {e(", ".join(srcs[:6]))}</span></div>')
     arrows = ('<button type="button" class="tnav prev" aria-label="Scroll market snapshot left" disabled>&#8249;</button>'
               '<button type="button" class="tnav next" aria-label="Scroll market snapshot right">&#8250;</button>')
-    return (f'<section class="tickers" aria-label="Market snapshot (not live)"><div class="wrap tbox">{arrows}'
+    return (f'<section class="tickers" aria-label="Market snapshot (not live)" data-nosnippet><div class="wrap tbox">{arrows}'
             f'<ul class="trow" tabindex="0" aria-label="Market snapshot cards, use arrow keys to scroll">{"".join(card(x) for x in t)}</ul></div>{note}</section>')
 
 
@@ -390,7 +406,8 @@ def footer(lang="en"):
             ("News", [("live/", "Latest updates"), ("tech/", "Tech & AI"), ("startups/", "Startups & IPOs"), ("policy/", "Policy & economy"), ("global/", "Global markets"), ("commodities/", "Commodities & forex")]),
             ("Tools", [("ipo/", "IPO hub"), ("results/", "Results calendar"), ("corporate-events/", "Corporate actions"), (HOLIDAYS_PATH, "Market holidays"),
                        ("gold-rate-today/", "Gold rate"), ("silver-rate-today/", "Silver rate"), ("calculators/", "SIP & EMI calculators"), ("stock/", "Companies A–Z")]),
-            ("About", [("about/", "About TotalMarket"), ("learn/", "Learn with Boss Piggy"), ("hi/", "हिंदी संस्करण")])]
+            ("About", [("about/", "About TotalMarket"), ("editorial-policy/", "Editorial policy"), ("corrections/", "Corrections"), ("contact/", "Contact"),
+                       ("learn/", "Learn with Boss Piggy"), ("hi/", "हिंदी संस्करण")])]
     colhtml = "".join(f'<nav aria-label="{e(t)}"><h2>{e(t)}</h2>' + "".join(f'<a href="{BASE}{k}">{e(n)}</a>' for k, n in links) + "</nav>" for t, links in cols)
     return f"""<footer class="foot">
 <div class="wrap fgrid">
@@ -407,7 +424,7 @@ def footer(lang="en"):
 def chip(p):
     c = p["category"]
     st = STATUS_BADGE.get(str(p.get("status") or "").lower())
-    badge = f'<span class="stbadge st-{e(p["status"].lower())}">{e(st)}</span>' if st else ""
+    badge = f'<span class="stbadge st-{e(p["status"].lower())}" data-nosnippet>{e(st)}</span>' if st else ""
     return f'<span class="chip" style="--dot:var(--c-{c})">{e(CATS[c][0])}</span>{badge}'
 
 
@@ -521,7 +538,7 @@ def piggy_box(p):
         rows.append(("Why it matters", e(g["matters"])))
     if watch:
         rows.append(("What to watch next", "<ul>" + "".join(f"<li>{e(w)}</li>" for w in watch) + "</ul>"))
-    dev = ' <span class="stbadge st-developing">Developing</span>' if str(p.get("status", "")).lower() == "developing" else ""
+    dev = ' <span class="stbadge st-developing" data-nosnippet>Developing</span>' if str(p.get("status", "")).lower() == "developing" else ""
     asof = fmt_ist(parse_dt(p.get("updatedAt")) or p["_dt"])
     return (f'<aside class="pg-box" aria-label="Boss Piggy explains">'
             f'<div class="pg-head">{piggy_img("head96", "pg-av")}<div><b>Boss Piggy explains</b>{dev}<small>Simple explanation of the facts in this story · as of {e(asof)}</small></div></div>'
@@ -648,6 +665,19 @@ def grouped(posts, show_lead):
     return "\n".join(out)
 
 
+ORG_ID = "https://totalmarket.co.in/#organization"
+
+
+def org_ld():
+    """Publisher facts that are true and on the site: name, URL, existing logo, policy pages, contact channel."""
+    return {"@context": "https://schema.org", "@type": "NewsMediaOrganization", "@id": ORG_ID, "name": SITE_NAME, "url": SITE_URL + "/",
+            "logo": {"@type": "ImageObject", "url": f"{SITE_URL}/assets/logo.png", "width": 512, "height": 512},
+            "publishingPrinciples": f"{SITE_URL}/editorial-policy/", "correctionsPolicy": f"{SITE_URL}/corrections/",
+            "verificationFactCheckingPolicy": f"{SITE_URL}/editorial-policy/", "actionableFeedbackPolicy": f"{SITE_URL}/contact/",
+            "contactPoint": {"@type": "ContactPoint", "contactType": "corrections and feedback", "url": CONTACT_URL}}
+
+
+CONTACT_URL = "https://github.com/Niftykingz/TotalMarket/issues"
 GA_ID = "G-B21DEZHZYT"  # Google Analytics 4 measurement ID (owner's property)
 
 # Likes: free no-login counter (Abacus). Comments: giscus (GitHub Discussions).
@@ -696,11 +726,12 @@ def article_page(p, posts, meta):
         "@context": "https://schema.org", "@type": "NewsArticle",
         "headline": p["title"][:110], "description": desc(p),
         "datePublished": p["_dt"].isoformat(), "dateModified": (parse_dt(p.get("updatedAt")) or p["_dt"]).isoformat(),
-        "mainEntityOfPage": link, "image": [cover_url(p, True)],
+        "mainEntityOfPage": link, "image": [abs_url(cover_url(p)), cover_url(p, True)],
         "articleSection": CATS[p["category"]][0],
         "author": {"@type": "Organization", "name": SITE_NAME, "url": SITE_URL + "/about/"},
-        "publisher": {"@type": "Organization", "name": SITE_NAME,
-                      "logo": {"@type": "ImageObject", "url": f"{SITE_URL}/assets/logo.png"}},
+        "publisher": {"@type": "Organization", "@id": ORG_ID, "name": SITE_NAME,
+                      "logo": {"@type": "ImageObject", "url": f"{SITE_URL}/assets/logo.png", "width": 512, "height": 512}},
+        "isAccessibleForFree": True, "inLanguage": "en-IN",
     }
     ld["keywords"] = ", ".join(page_keywords(p))
     crumbs = {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
@@ -762,9 +793,39 @@ def about_page(meta):
 <p><b>Analytics and likes.</b> The site uses Google Analytics to count visits and popular stories, and a simple anonymous counter for likes. Comments, when enabled, are stored in GitHub Discussions.</p>
 <p><b>Accuracy.</b> Stories state only facts found in their sources and link to them so you can check. AI can still make mistakes, so for anything that affects a decision, open the original source.</p>
 <p><b>Not investment advice.</b> TotalMarket reports and explains news. It never recommends buying, selling or holding any security, does not give price targets, and is not registered with SEBI as an investment adviser or research analyst.</p>
+<p><b>Policies.</b> Read our <a href="{BASE}editorial-policy/">editorial policy</a> and <a href="{BASE}corrections/">corrections policy</a>, or <a href="{BASE}contact/">contact us</a>.</p>
 <p><b>Follow along.</b> Subscribe with any feed reader using the <a href="{SITE_URL}/rss.xml">RSS feed</a>.</p>
 </div></article>"""
-    return page("About TotalMarket", "How TotalMarket covers Indian markets and tech news, and how its AI-written stories are made.", path, body, meta)
+    return page("About TotalMarket", "How TotalMarket covers Indian markets and tech news, and how its AI-written stories are made, sourced and corrected.", path, body, meta,
+                extra_head=f'<script type="application/ld+json">{json.dumps(org_ld(), ensure_ascii=False)}</script>')
+
+
+def policy_pages(meta):
+    """About-the-newsroom pages. Facts only: how stories are actually produced, sourced, corrected and how to reach us."""
+    pages = []
+    def mk(slug_, title, d, html_):
+        path = f"{BASE}{slug_}/"
+        body = f'<article class="story"><h1>{e(title)}</h1><div class="body">{html_}</div></article>'
+        crumbs = {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "Home", "item": SITE_URL + "/"},
+            {"@type": "ListItem", "position": 2, "name": title, "item": SITE_URL + path}]}
+        pages.append((f"{slug_}/index.html", page(title, d, path, body, meta,
+                      extra_head=f'<script type="application/ld+json">{json.dumps([org_ld(), crumbs], ensure_ascii=False)}</script>')))
+    mk("editorial-policy", "Editorial policy", "How TotalMarket chooses, sources, checks and labels its AI-written market news, and what it never publishes.",
+       f"""<p><b>Who writes the stories.</b> Every story on TotalMarket is researched and written by <b>Boss Piggy AI</b>, TotalMarket's AI market desk, and published under the TotalMarket name. We do not present AI-written stories as the work of human reporters, and we do not invent bylines, credentials or quotes.</p>
+<p><b>Sources.</b> Each story lists the sources it is based on at the end of the page. For company results we use the company's exchange filing on NSE or BSE where we can read it, and say so when a figure is still "as reported" by a news outlet. Market data is labelled EOD (end-of-day close), DELAYED or PRELIMINARY with its date and source; TotalMarket has no live price feed and never labels data as live.</p>
+<p><b>Checks before publishing.</b> A story is published only when its key facts, dates and figures appear in the cited sources. Significant or disputed figures are checked against a second source; when sources disagree we say so or leave the figure out. Numbers shown on cover graphics come only from that verified data.</p>
+<p><b>What we never publish.</b> Buy, sell or hold recommendations, price targets or tips. TotalMarket is not registered with SEBI as an investment adviser or research analyst.</p>
+<p><b>Updates.</b> When a developing story changes, the page shows an "Updated" time and a "What changed" note. See the <a href="{BASE}corrections/">corrections policy</a>.</p>""")
+    mk("corrections", "Corrections policy", "How TotalMarket fixes mistakes: what is corrected, how changes are shown on the page and how to report an error.",
+       f"""<p>If a fact, figure, date or name in a TotalMarket story is wrong, we correct it on the same page as soon as we confirm the error.</p>
+<p><b>How corrections are shown.</b> The story keeps its original publication time, gains an "Updated" time, and shows a <b>What changed</b> note at the top that says what was corrected (for example, a subscription figure replaced with the final number). Updates to developing stories, such as preliminary closing figures replaced by exact closes, are shown the same way.</p>
+<p><b>Report an error.</b> Open an issue on our public GitHub repository at <a href="{CONTACT_URL}" rel="noopener">{CONTACT_URL}</a> with the page link and what is wrong, ideally with a source. Reports are reviewed during the next scheduled update.</p>""")
+    mk("contact", "Contact TotalMarket", "How to reach TotalMarket to report an error, suggest a story or give feedback.",
+       f"""<p>The best way to reach TotalMarket is through our public GitHub repository: <a href="{CONTACT_URL}" rel="noopener">{CONTACT_URL}</a>. Open an issue to report an error, suggest a story or send feedback.</p>
+<p>Please include the link to the page you are writing about. For corrections, see the <a href="{BASE}corrections/">corrections policy</a>; for how stories are made, see the <a href="{BASE}editorial-policy/">editorial policy</a>.</p>
+<p>TotalMarket does not give personal investment advice, so we cannot answer questions about what to buy or sell.</p>""")
+    return pages
 
 
 def tag_pages(posts, meta):
@@ -808,7 +869,7 @@ def report_page(posts, meta):
 
 def status_badge(p):
     st = STATUS_BADGE.get(str(p.get("status") or "").lower())
-    return f'<span class="stbadge st-{e(str(p["status"]).lower())}">{e(st)}</span>' if st else ""
+    return f'<span class="stbadge st-{e(str(p["status"]).lower())}" data-nosnippet>{e(st)}</span>' if st else ""
 
 
 def section_page(key, posts, meta, results=()):
@@ -938,8 +999,8 @@ def home_page(posts, meta, results=()):
     hc = {"e": e, "url": url, "base": BASE, "cover_url": cover_url, "ago": ago, "ist": IST, "cats": CATS, "site_name": SITE_NAME, "tagline": TAGLINE,
           "holidays": HOLIDAYS_PATH, "latest_list": latest_list}
     body = home.body(posts, meta, results, IPO_LIST, hc)
-    ld = {"@context": "https://schema.org", "@type": "WebSite", "name": SITE_NAME, "url": SITE_URL + "/",
-          "description": TAGLINE}
+    ld = [{"@context": "https://schema.org", "@type": "WebSite", "@id": SITE_URL + "/#website", "name": SITE_NAME, "url": SITE_URL + "/",
+           "description": TAGLINE, "inLanguage": "en-IN", "publisher": {"@id": ORG_ID}}, org_ld()]
     return page(SITE_NAME, "Sensex and Nifty news, gold and silver rates, crude oil, rupee, IPOs, results and global markets, explained simply with what each move means for India.",
                 BASE, body, meta, seo_title=HOME_TITLE, keywords=HOME_KEYWORDS, extra_head=f'<script type="application/ld+json">{json.dumps(ld)}</script>')
 
@@ -1054,6 +1115,9 @@ def main():
     for p in posts:
         write(f"news/{p['id']}/index.html", article_page(p, posts, meta))
     write("about/index.html", about_page(meta))
+    for rel, html_ in policy_pages(meta):
+        write(rel, html_)
+        HUB_URLS.append(SITE_URL + "/" + rel.replace("index.html", ""))
     hctx = {"page": page, "e": e, "base": BASE, "site_url": SITE_URL, "abs_url": abs_url, "url": url, "cover_url": cover_url, "cover_img": cover_img,
             "piggy_img": piggy_img, "parse_dt": parse_dt, "ist": IST, "report": report, "like_key": like_key, "comments_block": comments_block,
             "slug": slug, "page_keywords": page_keywords, "site_name": SITE_NAME, "data_table": data_table}
