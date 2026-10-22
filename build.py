@@ -14,6 +14,7 @@ import tools
 import hubs
 import markets
 import hindi
+import home
 from datetime import datetime, timedelta, timezone
 from urllib.parse import quote
 from zoneinfo import ZoneInfo
@@ -165,8 +166,7 @@ def desc(p):
 
 FONTS = ('<link rel="preconnect" href="https://fonts.googleapis.com">'
          '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>'
-         '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@600;700'
-         '&family=IBM+Plex+Sans:wght@400;500;600&family=Inter:wght@500;600;700&display=swap">')
+         '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@700;800&display=swap">')
 
 
 def page(title, description, path, body, meta, og_type="website", extra_head="", noindex=False, image=None, seo_title=None, keywords=(), news_kw=None, lang="en", alternates=None, switch=None):
@@ -216,7 +216,7 @@ def page(title, description, path, body, meta, og_type="website", extra_head="",
 </head>
 <body>
 {header(meta, path, lang, switch)}
-<main class="wrap main">
+<main class="wrap main" id="main">
 {body}
 </main>
 {footer(lang)}
@@ -241,40 +241,93 @@ def hist_vals(meta, label):
     return [x.get("v") for x in (meta.get("history") or {}).get(label, [])]
 
 
-def header(meta, path, lang="en", switch=None):
+NAV_MAIN = [("", "Home"), ("markets/", "Markets"), ("tech/", "Tech & AI"), ("startups/", "Startups & IPOs"), ("policy/", "Policy & Economy"),
+            ("global/", "Global Markets"), ("commodities/", "Commodities & Forex"), ("nifty-50/", "Nifty 50"), ("gold-rate-today/", "Gold rate")]
+NAV_MORE = [("live/", "Today: all updates"), ("market-report/", "Daily market report"), ("global-indices/", "Global indices"), ("ipo/", "IPO hub"),
+            ("silver-rate-today/", "Silver rate"), ("fii-dii-data/", "FII / DII data"), ("top-gainers-losers-today/", "Gainers & losers"),
+            ("results/", "Results calendar"), ("corporate-events/", "Corporate actions"), ("stock/", "Companies A–Z"), ("calculators/", "Calculators"), ("learn/", "Learn")]
+
+
+def tick_kind(x):
+    k = str(x.get("kind") or "").lower()
+    t = str(x.get("asOfText") or "")
+    if "prelim" in t.lower():
+        return "Prelim"
+    return {"close": "EOD", "intraday": "Delayed"}.get(k, "")
+
+
+def ticker(meta):
     t = meta.get("ticker") or []
-    cards = "".join(
-        f'<div class="tcard"><span class="tl">{e(x.get("label"))}</span><span class="tv">{e(x.get("value") or "—")}</span>'
-        f'<span class="tc {"down" if str(x.get("change","")).lstrip("~≈ ").startswith(("-", "−")) else "up"}">{e(x.get("change"))}</span>{spark(hist_vals(meta, x.get("label")))}</div>'
-        for x in t)
-    asof = f'<div class="tcard asof"><span class="tl">As of</span><span class="tv small">{e(meta.get("tickerAsOf"))}</span></div>' if meta.get("tickerAsOf") else ""
-    tick = f'<div class="tickers" aria-label="Market snapshot"><div class="wrap trow">{cards}{asof}</div></div>' if t else ""
-    links = [("", "Home")] + [(k + "/", v[0]) for k, v in CATS.items()] + [("live/", "Today"), ("nifty-50/", "Nifty 50"), ("global-indices/", "Global indices"), ("ipo/", "IPO"), ("gold-rate-today/", "Gold rate"), ("silver-rate-today/", "Silver rate"), ("market-report/", "Daily report"), ("results/", "Results"), ("learn/", "Learn")]
+    if not t:
+        return ""
+    def card(x):
+        ch = str(x.get("change") or "")
+        down = ch.lstrip("~≈ ").startswith(("-", "−"))
+        arrow = ("▼ " if down else "▲ ") if ch and ch[:1] in "+-−~≈" else ""
+        if ch.startswith(("~", "≈")):
+            ch = "≈" + ch.lstrip("~≈ ").lstrip("+")
+        src = x.get("source") or {}
+        title = " · ".join(filter(None, [x.get("asOfText"), "Source: " + src.get("name") if src.get("name") else ""]))
+        k = tick_kind(x)
+        return (f'<div class="tcard" title="{e(title)}"><span class="tl">{e(x.get("label"))}{f' <em class="tk tk-{k.lower()}">{k}</em>' if k else ""}</span>'
+                f'<span class="tv">{e(x.get("value") or "—")}</span>'
+                f'<span class="tc {"down" if down else "up"}">{arrow}{e(ch.lstrip("+"))}</span>{spark(hist_vals(meta, x.get("label")))}'
+                f'<span class="tw">{e(x.get("asOfText") or "")}</span></div>')
+    srcs = []
+    for x in t:
+        s = (x.get("source") or {}).get("name")
+        if s and s not in srcs: srcs.append(s)
+    note = (f'<div class="wrap tnote"><span><b>Not live.</b> {e(meta.get("tickerAsOf") or "")} · EOD = end-of-day close · Delayed = intraday figure as reported · Prelim = preliminary</span>'
+            f'<span>Sources: {e(", ".join(srcs[:6]))}</span></div>')
+    return f'<div class="tickers" aria-label="Market snapshot (not live)"><div class="wrap trow">{"".join(card(x) for x in t)}</div>{note}</div>'
+
+
+def header(meta, path, lang="en", switch=None):
     if lang == "hi":
-        links = hindi.NAV_LINKS
-    nav = "".join(f'<a class="tab{" on" if path == BASE + k else ""}" href="{BASE}{k}">{e(n)}</a>' for k, n in links)
+        main, more = hindi.NAV_LINKS[:9], hindi.NAV_LINKS[9:] + [("live/", "Today (English)")]
+    else:
+        main, more = NAV_MAIN, NAV_MORE
+    on = lambda k: " on" if path == BASE + k else ""
+    nav = "".join(f'<a class="tab{on(k)}" href="{BASE}{k}"{" aria-current=\"page\"" if on(k) else ""}>{e(n)}</a>' for k, n in main)
+    more_links = "".join(f'<a href="{BASE}{k}">{e(n)}</a>' for k, n in more)
+    all_links = "".join(f'<a class="{on(k).strip()}" href="{BASE}{k}">{e(n)}</a>' for k, n in main + more)
     sw_url, sw_label = switch or ((f"{BASE}", "English") if lang == "hi" else (f"{BASE}hi/", "हिंदी"))
     sw = f'<a class="langsw" href="{e(sw_url)}" hreflang="{"en" if lang == "hi" else "hi"}" lang="{"en" if lang == "hi" else "hi"}">{e(sw_label)}</a>'
-    return f"""<header class="top">
-<div class="wrap bar1">
-<a class="brand" href="{BASE}{"hi/" if lang == "hi" else ""}"><img class="brand-pig" src="{BASE}assets/piggy/boss-piggy-head-96.webp" width="48" height="48" alt="" fetchpriority="high"><span class="bm">Total<b>Market</b></span><span class="bt">Markets · Startups · IPOs · Tech · Global</span></a>
-<div class="search" role="search"><input id="q" type="search" placeholder="{"कंपनी, IPO, खबरें खोजें…" if lang == "hi" else "Search companies, IPOs, news, markets…"}" aria-label="Search TotalMarket" autocomplete="off"><div id="qres" class="qres" hidden></div></div>
-<a class="mstatus hdr" data-mstatus href="{BASE}{HOLIDAYS_PATH}" title="Market session from NSE trading hours and holidays">Market status</a>
+    ph = "कंपनी, IPO, खबरें खोजें…" if lang == "hi" else "Search companies, IPOs, news, markets…"
+    return f"""<a class="skip" href="#main">{"मुख्य सामग्री पर जाएं" if lang == "hi" else "Skip to content"}</a>
+<header class="top">
+<div class="wrap hbar">
+<a class="brand" href="{BASE}{"hi/" if lang == "hi" else ""}" aria-label="TotalMarket home"><img class="brand-pig" src="{BASE}assets/piggy/boss-piggy-head-96.webp" width="48" height="48" alt="" fetchpriority="high"><span class="bm">Total<b>Market</b></span><span class="bt">Markets · Startups · IPOs · Tech · Global</span></a>
+<div class="search" role="search"><input id="q" type="search" placeholder="{ph}" aria-label="Search TotalMarket" autocomplete="off"><button type="button" class="sbtn" aria-label="Search" onclick="document.getElementById('q').focus()"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></button><div id="qres" class="qres" hidden></div></div>
+<a class="mstatus hdr sk" data-mstatus href="{BASE}{HOLIDAYS_PATH}" title="Market session from NSE trading hours and holidays (schedule-based)">Market status</a>
 {sw}
-<button class="themebtn" id="themebtn" type="button" aria-label="Switch light or dark theme">◐</button>
+<button class="themebtn" id="themebtn" type="button" aria-label="Switch light or dark theme"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M21 13.2A8.5 8.5 0 1 1 10.8 3a6.7 6.7 0 0 0 10.2 10.2Z"/></svg></button>
+<details class="mnav"><summary aria-label="Open menu"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></summary><nav class="mpanel" aria-label="All sections">{all_links}</nav></details>
 </div>
-<nav class="wrap rail" aria-label="Sections">{nav}</nav>
+<div class="navbar"><nav class="wrap rail" aria-label="Sections">{nav}<details class="more"><summary>{"और" if lang == "hi" else "More"} <span aria-hidden="true">▾</span></summary><div class="mdrop">{more_links}</div></details></nav></div>
 </header>
-{tick}"""
+{ticker(meta)}"""
 
 
 def footer(lang="en"):
     if lang == "hi":
         return hindi.footer(BASE, SITE_URL, piggy_img)
-    return f"""<footer class="wrap foot">
-<p><b>Not investment advice.</b> TotalMarket reports and explains news. It does not recommend buying, selling or holding any security and is not a SEBI-registered investment adviser or research analyst. Do your own research or consult a registered adviser before investing.</p>
-<nav class="footlinks" aria-label="Market data"><b>Market data:</b> <a href="{BASE}nifty-50/">Nifty 50 today</a> · <a href="{BASE}global-indices/">Global indices</a> · <a href="{BASE}gold-rate-today/">Gold rate today</a> · <a href="{BASE}silver-rate-today/">Silver rate today</a> · <a href="{BASE}fii-dii-data/">FII DII data</a> · <a href="{BASE}top-gainers-losers-today/">Top gainers &amp; losers</a> · <a href="{BASE}ipo/">IPO today</a> · <a href="{BASE}results/">Results calendar</a> · <a href="{BASE}corporate-events/">Corporate actions</a> · <a href="{BASE}{HOLIDAYS_PATH}">Market holidays {HOLIDAYS_PATH.split("-")[-1].strip("/")}</a> · <a href="{BASE}market-report/">Daily market report</a> · <a href="{BASE}stock/">Companies A–Z</a> · <a href="{BASE}calculators/">SIP &amp; EMI calculators</a> · <a href="{BASE}learn/">Learn</a></nav>
-<p class="footpig">{piggy_img("head96", "fp-av")}<span><b>Written by Boss Piggy AI</b>, TotalMarket's AI market desk. Every story is researched and written by AI from the linked reporting and lists its sources. <a href="{BASE}about/">About TotalMarket</a> · <a href="{SITE_URL}/rss.xml">RSS feed</a></span></p>
+    cols = [("Markets", [("markets/", "Market news"), ("nifty-50/", "Nifty 50 today"), ("global-indices/", "Global indices"), ("top-gainers-losers-today/", "Gainers & losers"),
+                         ("fii-dii-data/", "FII / DII data"), ("market-report/", "Daily market report")]),
+            ("News", [("live/", "Latest updates"), ("tech/", "Tech & AI"), ("startups/", "Startups & IPOs"), ("policy/", "Policy & economy"), ("global/", "Global markets"), ("commodities/", "Commodities & forex")]),
+            ("Tools", [("ipo/", "IPO hub"), ("results/", "Results calendar"), ("corporate-events/", "Corporate actions"), (HOLIDAYS_PATH, "Market holidays"),
+                       ("gold-rate-today/", "Gold rate"), ("silver-rate-today/", "Silver rate"), ("calculators/", "SIP & EMI calculators"), ("stock/", "Companies A–Z")]),
+            ("About", [("about/", "About TotalMarket"), ("learn/", "Learn with Boss Piggy"), ("hi/", "हिंदी संस्करण")])]
+    colhtml = "".join(f'<nav aria-label="{e(t)}"><h2>{e(t)}</h2>' + "".join(f'<a href="{BASE}{k}">{e(n)}</a>' for k, n in links) + "</nav>" for t, links in cols)
+    return f"""<footer class="foot">
+<div class="wrap fgrid">
+<div class="fbrand"><a class="brand" href="{BASE}"><img class="brand-pig" src="{BASE}assets/piggy/boss-piggy-head-96.webp" width="48" height="48" alt="" loading="lazy"><span class="bm">Total<b>Market</b></span><span class="bt">Markets · Startups · IPOs · Tech · Global</span></a>
+<p>Indian and global market news, IPOs, results and gold rates, explained simply. Written by <b>Boss Piggy AI</b>, TotalMarket's AI market desk; every story lists its sources.</p>
+<div class="fsub"><b>Get every update</b><span>Follow with any feed reader.</span><a class="btn sm" href="{SITE_URL}/rss.xml">RSS feed</a> <a class="btn ghost sm" href="{SITE_URL}/hi/rss.xml" lang="hi">हिंदी RSS</a></div></div>
+{colhtml}
+</div>
+<div class="wrap fdisc"><p><b>Not investment advice.</b> TotalMarket reports and explains news. It does not recommend buying, selling or holding any security and is not a SEBI-registered investment adviser or research analyst. Market data on this site is not real-time: figures are end-of-day or delayed, as labelled, with sources. Do your own research or consult a registered adviser before investing.</p>
+<p>© {datetime.now(IST).year} TotalMarket · <a href="{BASE}about/">About</a> · <a href="{SITE_URL}/sitemap.xml">Sitemap</a></p></div>
 </footer>"""
 
 
@@ -798,24 +851,9 @@ CATS_LABELS = {v[0] for v in CATS.values()}
 
 
 def home_page(posts, meta, results=()):
-    if not posts:
-        body = '<div class="empty"><p>The first update is on its way.</p></div>'
-    else:
-        lead_p = next((p for p in posts[:12] if p.get("lead")), posts[0])
-        others = [p for p in posts if p is not lead_p]
-        hero = (f'<a class="hero1" href="{url(lead_p)}" style="--dot:var(--c-{lead_p["category"]})"><img src="{cover_url(lead_p)}" width="1600" height="900" alt="" fetchpriority="high">'
-                f'<span class="hov"><em>{e(CATS[lead_p["category"]][0])}</em><b>{e(lead_p["title"])}</b><i>{e(lead_p.get("dek") or "")}</i>'
-                f'<small>{e(ago(lead_p))} · By TotalMarket · {int(lead_p.get("readMins") or 2)} min read</small></span></a>')
-        topst = [p for p in others if p.get("stat")][:5] or others[:5]
-        stories = (f'<aside class="widget stories"><div class="wtabs"><button type="button" class="wt on" data-panel="st0">Top stories</button>'
-                   f'<button type="button" class="wt" data-panel="st1">Latest</button></div>'
-                   f'<div class="wp" id="st0">{"".join(mini(p) for p in topst)}</div><div class="wp" id="st1" hidden>{"".join(mini(p) for p in others[:5])}</div></aside>')
-        body = (f'<h1 class="sr">{SITE_NAME}: {e(TAGLINE)}</h1>'
-                + piggy_intro()
-                + f'<div class="topgrid">{hero}{stories}{market_widget(posts, meta)}</div>'
-                + markets.breadth_card(posts, {"e": e, "base": BASE, "url": url})
-                + report_banner(posts) + section_cols(posts)
-                + f'<div class="lower">{latest_list(posts)}<div class="side">{side_panels(posts, results)}</div></div>')
+    hc = {"e": e, "url": url, "base": BASE, "cover_url": cover_url, "ago": ago, "ist": IST, "cats": CATS, "site_name": SITE_NAME, "tagline": TAGLINE,
+          "holidays": HOLIDAYS_PATH, "latest_list": latest_list}
+    body = home.body(posts, meta, results, IPO_LIST, hc)
     ld = {"@context": "https://schema.org", "@type": "WebSite", "name": SITE_NAME, "url": SITE_URL + "/",
           "description": TAGLINE}
     return page(SITE_NAME, "Sensex and Nifty news, gold and silver rates, crude oil, rupee, IPOs, results and global markets, explained simply with what each move means for India.",

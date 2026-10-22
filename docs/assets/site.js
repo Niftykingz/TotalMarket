@@ -196,3 +196,21 @@
   inp.addEventListener("change", function () { show(inp.value); });
   clr.addEventListener("click", function () { inp.value = ""; show(""); });
 })();
+
+// ---- v2: segmented tabs (dashboard, earnings) + close open menus on outside click / Escape
+(function () {
+  document.querySelectorAll(".segs").forEach(function (group) {
+    var btns = group.querySelectorAll(".seg[data-panel]");
+    btns.forEach(function (b) {
+      b.addEventListener("click", function () {
+        btns.forEach(function (o) {
+          var on = o === b; o.classList.toggle("on", on); o.setAttribute("aria-pressed", on ? "true" : "false");
+          var p = document.getElementById(o.dataset.panel); if (p) p.hidden = !on;
+        });
+      });
+    });
+  });
+  function closeAll(except) { document.querySelectorAll("details.more[open],details.mnav[open]").forEach(function (d) { if (d !== except) d.open = false; }); }
+  document.addEventListener("click", function (ev) { closeAll(ev.target.closest("details.more,details.mnav")); });
+  document.addEventListener("keydown", function (ev) { if (ev.key === "Escape") closeAll(null); });
+})();
