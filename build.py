@@ -262,7 +262,7 @@ def footer():
     return f"""<footer class="wrap foot">
 <p><b>Not investment advice.</b> TotalMarket reports and explains news. It does not recommend buying, selling or holding any security and is not a SEBI-registered investment adviser or research analyst. Do your own research or consult a registered adviser before investing.</p>
 <nav class="footlinks" aria-label="Market data"><b>Market data:</b> <a href="{BASE}nifty-50/">Nifty 50 today</a> · <a href="{BASE}global-indices/">Global indices</a> · <a href="{BASE}gold-rate-today/">Gold rate today</a> · <a href="{BASE}silver-rate-today/">Silver rate today</a> · <a href="{BASE}fii-dii-data/">FII DII data</a> · <a href="{BASE}top-gainers-losers-today/">Top gainers &amp; losers</a> · <a href="{BASE}ipo/">IPO today</a> · <a href="{BASE}results/">Results calendar</a> · <a href="{BASE}corporate-events/">Corporate actions</a> · <a href="{BASE}{HOLIDAYS_PATH}">Market holidays {HOLIDAYS_PATH.split("-")[-1].strip("/")}</a> · <a href="{BASE}market-report/">Daily market report</a> · <a href="{BASE}stock/">Companies A–Z</a> · <a href="{BASE}calculators/">SIP &amp; EMI calculators</a> · <a href="{BASE}learn/">Learn</a></nav>
-<p>Stories are written and published automatically by Claude, an AI model from Anthropic, based on the linked reporting. Every story lists its sources. <a href="{BASE}about/">About TotalMarket</a> · <a href="{SITE_URL}/rss.xml">RSS feed</a></p>
+<p class="footpig">{piggy_img("head96", "fp-av")}<span><b>Written by Boss Piggy AI</b>, TotalMarket's AI market desk. Every story is researched and written by AI from the linked reporting and lists its sources. <a href="{BASE}about/">About TotalMarket</a> · <a href="{SITE_URL}/rss.xml">RSS feed</a></span></p>
 </footer>"""
 
 
@@ -583,7 +583,7 @@ def article_page(p, posts, meta):
 <h1>{e(p['title'])}</h1>
 {dek}
 {meta_row(p)}
-<div class="byline">By Claude (AI) for TotalMarket · automated update</div>
+<div class="byline">{piggy_img("head96", "by-av")}<span>By <b>Boss Piggy AI</b> · TotalMarket AI market desk</span></div>
 {f'<p class="chg"><b>What changed</b>{e(p["changeNote"])}</p>' if p.get("changeNote") else ""}
 {people_strip(p)}
 <div class="body">{body_html}</div>
@@ -601,7 +601,7 @@ def article_page(p, posts, meta):
 </div>
 <div class="tags" aria-label="Topics">{"".join(f'<a class="tag" href="{BASE}tag/{slug(t)}/">#{e(t)}</a>' for t in p["_tags"])}</div>
 {'<div class="sources"><h2>Sources</h2><ul>' + srcs + '</ul></div>' if srcs else ''}
-<p class="disc">Written with AI assistance by TotalMarket. Based on the sources linked in this article; key facts and data should be checked against the original sources. This article is for information only and is not investment advice.</p>
+<p class="disc">Written by Boss Piggy AI for TotalMarket. Based on the sources linked in this article; key facts and data should be checked against the original sources. This article is for information only and is not investment advice.</p>
 {comments_block(p)}
 </article>
 <div class="fab" aria-label="Like or comment"><button type="button" class="fab-like" data-like-key="{like_key(p)}" aria-label="Like this story">&#9829; <span class="lc">Like</span></button><a class="fab-cm" href="#comments" aria-label="Go to comments">&#128172; Comment</a></div>
@@ -616,7 +616,7 @@ def about_page(meta):
 <h1>About TotalMarket</h1>
 <div class="body">
 <p>TotalMarket is a free news site for Indian investors and traders who also follow technology. It covers stock market moves and upcoming results, IPOs and startup funding, tech and AI, RBI and SEBI decisions, overnight global markets, and gold, silver, crude oil and currencies, with what each move means globally and for India.</p>
-<p><b>How it is made.</b> Every story is researched and written automatically by Claude, an AI model made by Anthropic, using reporting from the sources linked at the end of each story. The site updates four times on each market day: a pre-market brief around 8:45 am, a midday check around 12:45 pm, a closing wrap around 3:45 pm and an evening tech and startups update around 8:45 pm IST, with one roundup on weekends and market holidays.</p>
+<p><b>How it is made.</b> Every story is researched and written automatically by Boss Piggy AI, TotalMarket's AI market desk, using reporting from the sources linked at the end of each story. The site updates four times on each market day: a pre-market brief around 8:45 am, a midday check around 12:45 pm, a closing wrap around 3:45 pm and an evening tech and startups update around 8:45 pm IST, with one roundup on weekends and market holidays.</p>
 <p><b>Analytics and likes.</b> The site uses Google Analytics to count visits and popular stories, and a simple anonymous counter for likes. Comments, when enabled, are stored in GitHub Discussions.</p>
 <p><b>Accuracy.</b> Stories state only facts found in their sources and link to them so you can check. AI can still make mistakes, so for anything that affects a decision, open the original source.</p>
 <p><b>Not investment advice.</b> TotalMarket reports and explains news. It never recommends buying, selling or holding any security, does not give price targets, and is not registered with SEBI as an investment adviser or research analyst.</p>

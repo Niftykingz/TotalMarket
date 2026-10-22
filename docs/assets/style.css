@@ -549,3 +549,7 @@ a.company small{color:var(--accent-2)}
 .breadth.wide{margin:18px 0}
 @media (min-width:900px){.breadth.wide .bgrid{grid-template-columns:repeat(9,1fr)}}
 @media (min-width:600px) and (max-width:899px){.breadth.wide .bgrid{grid-template-columns:repeat(5,1fr)}}
+.byline{display:flex;align-items:center;gap:8px}
+.by-av{width:28px;height:28px;border-radius:50%;background:var(--card,#fff);border:1px solid var(--line);object-fit:cover}
+.footpig{display:flex;align-items:center;gap:10px}
+.fp-av{width:40px;height:40px;flex:none;border-radius:50%;border:1px solid var(--line);object-fit:cover}
