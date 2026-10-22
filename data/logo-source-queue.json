@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "updated_on": "2026-10-22",
+  "purpose": "Official-source discovery queue; not a claim of usage permission or completed downloads.",
+  "items": [
+    {
+      "symbol": "RELIANCE",
+      "company_name": "Reliance Industries Limited",
+      "official_source_page": "https://www.ril.com/news-media/resource-center/media-kit/reliance-industries-limited",
+      "asset_type": "official PNG offered",
+      "status": "source_found_pending_rights_and_asset_review",
+      "notes": "Official Reliance media kit lists PNG master and roundel variants. Select suitable genuine variant and check reuse terms."
+    },
+    {
+      "symbol": "TCS",
+      "company_name": "Tata Consultancy Services Limited",
+      "official_source_page": "https://www.tcs.com/who-we-are/newsroom/media-kit",
+      "guidelines_url": "https://www.tcs.com/content/dam/global-tcs/en/pdfs/who-we-are/brand/tcs-logo-usage-guidelines-07052025.pdf",
+      "asset_type": "official PNG offered",
+      "status": "source_found_pending_rights_and_asset_review",
+      "notes": "Official TCS media kit offers black/white PNG and SVG. Review editorial use and brand guidelines."
+    }
+  ]
+}
