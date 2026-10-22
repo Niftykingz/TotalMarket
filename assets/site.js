@@ -263,29 +263,3 @@
   } else start();
   document.addEventListener("click", function (ev) { if (ev.target.closest(".seg")) setTimeout(drawVisible, 30); });
 })();
-
-// ---- v2: TradingView Symbol Overview widget, injected only when scrolled near (or on click)
-(function () {
-  var slot = document.querySelector(".tv-slot[data-tv-config]");
-  if (!slot) return;
-  var done = false;
-  function load() {
-    if (done) return; done = true;
-    var cfg; try { cfg = JSON.parse(slot.dataset.tvConfig); } catch (e) { return; }
-    cfg.colorTheme = document.documentElement.dataset.theme === "dark" ? "dark" : "light";
-    var wrap = document.createElement("div"); wrap.className = "tradingview-widget-container";
-    var inner = document.createElement("div"); inner.className = "tradingview-widget-container__widget";
-    wrap.appendChild(inner);
-    var sc = document.createElement("script"); sc.type = "text/javascript"; sc.async = true;
-    sc.src = "https://s3.tradingview.com/external-embedding/embed-widget-symbol-overview.js";
-    sc.innerHTML = JSON.stringify(cfg);
-    wrap.appendChild(sc);
-    slot.innerHTML = ""; slot.appendChild(wrap);
-    if (window.gtag) gtag("event", "tv_chart_load");
-  }
-  var btn = slot.querySelector(".tv-load"); if (btn) btn.addEventListener("click", load);
-  if ("IntersectionObserver" in window) {
-    var io = new IntersectionObserver(function (en) { if (en.some(function (x) { return x.isIntersecting; })) { load(); io.disconnect(); } }, { rootMargin: "200px" });
-    io.observe(slot);
-  }
-})();

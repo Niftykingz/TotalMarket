@@ -255,26 +255,6 @@ def rates_card(meta, c):
 
 
 # ------------------------------------------------------------------ earnings, report, education, tools
-TV_SYMBOLS = [["Gold", "OANDA:XAUUSD|1M"], ["Brent crude", "TVC:UKOIL|1M"], ["USD/INR", "FX_IDC:USDINR|1M"],
-              ["Nasdaq 100", "FOREXCOM:NSXUSD|1M"], ["Dow Jones", "FOREXCOM:DJI|1M"], ["Bitcoin", "BITSTAMP:BTCUSD|1M"]]
-
-
-def tv_widget(c):
-    """One TradingView Symbol Overview widget, loaded only when scrolled near (site.js)."""
-    cfg = {"symbols": TV_SYMBOLS, "chartOnly": False, "width": "100%", "height": 420, "locale": "en", "colorTheme": "light",
-           "autosize": True, "showVolume": False, "showMA": False, "hideDateRanges": False, "hideMarketStatus": False,
-           "hideSymbolLogo": False, "scalePosition": "right", "scaleMode": "Normal", "fontFamily": "Inter, sans-serif",
-           "fontSize": "10", "noTimeScale": False, "valuesTracking": "1", "changeMode": "price-and-percent", "chartType": "area",
-           "lineWidth": 2, "lineType": 0, "dateRanges": ["1d|1", "1m|30", "3m|60", "12m|1D", "60m|1W", "all|1M"]}
-    names = " · ".join(x[0] for x in TV_SYMBOLS)
-    return (f'<section class="panel tvw" aria-label="Global markets chart">'
-            f'{shead(c, "Global markets chart", "globe", c["base"] + "global-indices/", "Global indices")}'
-            f'<div class="tv-slot" data-tv-config="{c["e"](json.dumps(cfg))}"><div class="tv-ph"><div class="sk-block"></div>'
-            f'<p>Interactive chart for {c["e"](names)} loads here.</p><button type="button" class="btn ghost sm tv-load">Load chart now</button></div></div>'
-            f'<p class="asof"><span class="fb fb-delayed">Third-party</span> Chart and prices by <a href="https://www.tradingview.com/" rel="noopener nofollow" target="_blank">TradingView</a>; '
-            f'may be delayed and are not checked by TotalMarket. Loads only when you scroll here, to keep the page fast.</p></section>')
-
-
 def earnings(results, c):
     e, base = c["e"], c["base"]
     today = datetime.now(c["ist"]).date()
@@ -338,6 +318,5 @@ def body(posts, meta, results, ipos, c):
             + dashboard(posts, meta, c)
             + f'<div class="g12"><div class="c9">{ipo_watch(ipos, c)}</div><div class="c3">{piggy_panel(c)}</div></div>'
             + f'<div class="g12 cols4"><div class="c9 cols3">{cols}</div><div class="c3">{rates_card(meta, c)}</div></div>'
-            + tv_widget(c)
             + f'<div class="g12"><div class="c4">{earnings(results, c)}</div><div class="c4">{report_card(posts, c)}</div><div class="c4">{education(c)}{tools_grid(c)}</div></div>'
             + c["latest_list"](posts[:16]).replace("</ul></section>", f'</ul><a class="btn ghost full" href="{c["base"]}live/">See every update {icon("arrow", "ia")}</a></section>'))
