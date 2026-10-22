@@ -886,3 +886,11 @@ img[loading="lazy"]{background:linear-gradient(90deg,var(--surface-2),var(--line
 @media (max-width:1100px) and (min-width:861px){.mstatus.hdr{display:none}}
 @media (min-width:1101px),(max-width:860px){.mstatus.hdr{display:inline-flex}}
 @media (max-width:860px){.mstatus.hdr{order:6;font-size:.7rem}.tnote span:last-child{display:none}}
+.lwc{position:relative}
+.lwc-chart{height:260px;margin-top:8px}
+.lwc-attr{margin:4px 0 0;font-size:.66rem;color:var(--muted)}.lwc-attr a{color:inherit}
+.tv-slot{min-height:420px;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--surface)}
+.tv-slot .tradingview-widget-container{height:420px}
+.tv-ph{height:420px;display:grid;place-content:center;justify-items:center;gap:10px;text-align:center;color:var(--muted);font-size:.86rem;padding:20px}
+.sk-block{width:min(520px,80vw);height:180px;border-radius:10px;background:linear-gradient(90deg,var(--surface-2),var(--line),var(--surface-2));background-size:200% 100%;animation:skl 1.2s infinite}
+@media (prefers-reduced-motion:reduce){.sk-block{animation:none}}

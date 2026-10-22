@@ -214,3 +214,78 @@
   document.addEventListener("click", function (ev) { closeAll(ev.target.closest("details.more,details.mnav")); });
   document.addEventListener("keydown", function (ev) { if (ev.key === "Escape") closeAll(null); });
 })();
+
+// ---- v2: interactive index charts with TradingView Lightweight Charts (our own EOD data).
+// The server-rendered SVG chart stays in place if the library cannot load.
+(function () {
+  var boxes = document.querySelectorAll(".lwc[data-series]");
+  if (!boxes.length) return;
+  var SRC = "https://unpkg.com/lightweight-charts@4.2.0/dist/lightweight-charts.standalone.production.js";
+  var started = false;
+  function css(v) { return getComputedStyle(document.documentElement).getPropertyValue(v).trim(); }
+  function draw(box) {
+    if (box.dataset.done || !window.LightweightCharts || box.offsetWidth < 50) return;
+    var pts; try { pts = JSON.parse(box.dataset.series); } catch (e) { return; }
+    if (!pts || pts.length < 2) return;
+    var up = pts[pts.length - 1][1] >= pts[0][1], col = up ? css("--up") || "#16A34A" : css("--down") || "#DC2626";
+    var holder = document.createElement("div"); holder.className = "lwc-chart";
+    var svg = box.querySelector("svg");
+    try {
+      var chart = LightweightCharts.createChart(holder, {
+        height: 260, autoSize: true,
+        layout: { background: { type: "solid", color: "transparent" }, textColor: css("--muted") || "#5B6B82", fontFamily: "Inter, system-ui, sans-serif" },
+        grid: { vertLines: { visible: false }, horzLines: { color: css("--line") || "#E2E8F0" } },
+        rightPriceScale: { borderVisible: false }, timeScale: { borderVisible: false, fixLeftEdge: true, fixRightEdge: true },
+        crosshair: { mode: 1 }, handleScroll: { mouseWheel: false, pressedMouseMove: true, horzTouchDrag: true, vertTouchDrag: false },
+        handleScale: { mouseWheel: false, pinch: true, axisPressedMouseMove: true }
+      });
+      var s = chart.addAreaSeries({ lineColor: col, topColor: col + "40", bottomColor: col + "05", lineWidth: 2, priceLineVisible: false });
+      s.setData(pts.map(function (p) { return { time: p[0], value: p[1] }; }));
+      chart.timeScale().fitContent();
+      if (svg) svg.style.display = "none";
+      box.appendChild(holder);
+      var a = document.createElement("p"); a.className = "lwc-attr";
+      a.innerHTML = 'Chart: <a href="https://www.tradingview.com/" rel="noopener nofollow" target="_blank">TradingView Lightweight Charts™</a> · data: TotalMarket daily closes';
+      box.appendChild(a);
+      box.dataset.done = "1";
+    } catch (e) { if (svg) svg.style.display = ""; holder.remove(); }
+  }
+  function drawVisible() { boxes.forEach(function (b) { if (!b.closest("[hidden]")) draw(b); }); }
+  function start() {
+    if (started) return; started = true;
+    if (window.LightweightCharts) return drawVisible();
+    var sc = document.createElement("script"); sc.src = SRC; sc.async = true; sc.crossOrigin = "anonymous";
+    sc.onload = drawVisible; document.head.appendChild(sc);
+  }
+  if ("IntersectionObserver" in window) {
+    var io = new IntersectionObserver(function (en) { if (en.some(function (x) { return x.isIntersecting; })) { start(); io.disconnect(); } }, { rootMargin: "300px" });
+    boxes.forEach(function (b) { io.observe(b); });
+  } else start();
+  document.addEventListener("click", function (ev) { if (ev.target.closest(".seg")) setTimeout(drawVisible, 30); });
+})();
+
+// ---- v2: TradingView Symbol Overview widget, injected only when scrolled near (or on click)
+(function () {
+  var slot = document.querySelector(".tv-slot[data-tv-config]");
+  if (!slot) return;
+  var done = false;
+  function load() {
+    if (done) return; done = true;
+    var cfg; try { cfg = JSON.parse(slot.dataset.tvConfig); } catch (e) { return; }
+    cfg.colorTheme = document.documentElement.dataset.theme === "dark" ? "dark" : "light";
+    var wrap = document.createElement("div"); wrap.className = "tradingview-widget-container";
+    var inner = document.createElement("div"); inner.className = "tradingview-widget-container__widget";
+    wrap.appendChild(inner);
+    var sc = document.createElement("script"); sc.type = "text/javascript"; sc.async = true;
+    sc.src = "https://s3.tradingview.com/external-embedding/embed-widget-symbol-overview.js";
+    sc.innerHTML = JSON.stringify(cfg);
+    wrap.appendChild(sc);
+    slot.innerHTML = ""; slot.appendChild(wrap);
+    if (window.gtag) gtag("event", "tv_chart_load");
+  }
+  var btn = slot.querySelector(".tv-load"); if (btn) btn.addEventListener("click", load);
+  if ("IntersectionObserver" in window) {
+    var io = new IntersectionObserver(function (en) { if (en.some(function (x) { return x.isIntersecting; })) { load(); io.disconnect(); } }, { rootMargin: "200px" });
+    io.observe(slot);
+  }
+})();
