@@ -64,7 +64,7 @@ def portable_strftime(dt, pattern):
     """Support unpadded day/hour on Windows as well as Unix."""
     return (dt.strftime(pattern.replace("%-d", "__TM_DAY__").replace("%-I", "__TM_HOUR__"))
             .replace("__TM_DAY__", str(dt.day))
-            .replace("__TM_HOUR__", str(dt.hour % 12 or 12)))
+            .replace("__TM_HOUR__", str(dt.hour % 12 or 12) if "%-I" in pattern else ""))
 
 def fmt_ist(d, with_date=True):
     d = d.astimezone(IST)
