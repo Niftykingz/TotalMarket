@@ -24,20 +24,20 @@
     {
       "symbol": "HDFCBANK",
       "company_name": "HDFC Bank",
-      "official_source_page": "https://www.hdfcbank.com/",
-      "status": "source_research",
+      "official_source_page": "https://www.hdfc.bank.in/news-room",
+      "status": "official_media_kit_logo_assets_found",
       "original_asset_path": null,
       "usage_approved": false,
-      "notes": "Official homepage starting point only; locate genuine brand/media kit and terms."
+      "notes": "HDFC Bank media kit offers regular, reverse, and black/white logo JPEGs for news coverage."
     },
     {
       "symbol": "ICICIBANK",
       "company_name": "ICICI Bank",
       "official_source_page": "https://www.icicibank.com/",
-      "status": "source_research",
+      "status": "official_website_only_no_media_kit_confirmed",
       "original_asset_path": null,
       "usage_approved": false,
-      "notes": "Official homepage starting point only; locate genuine brand/media kit and terms."
+      "notes": "Official site located; no downloadable official logo media kit verified in this search."
     },
     {
       "symbol": "INFY",
@@ -60,83 +60,83 @@
     {
       "symbol": "SBIN",
       "company_name": "State Bank of India",
-      "official_source_page": "https://sbi.co.in/",
-      "status": "source_research",
+      "official_source_page": "https://sbi.bank.in",
+      "status": "official_website_only_no_media_kit_confirmed",
       "original_asset_path": null,
       "usage_approved": false,
-      "notes": "Official homepage starting point only; locate genuine brand/media kit and terms."
+      "notes": "SBI moved its official corporate site to sbi.bank.in; no official downloadable logo media kit verified."
     },
     {
       "symbol": "AXISBANK",
       "company_name": "Axis Bank",
-      "official_source_page": "https://www.axisbank.com/",
-      "status": "source_research",
+      "official_source_page": "https://www.axis.bank.in/about-us",
+      "status": "official_media_centre_found_no_logo_kit",
       "original_asset_path": null,
       "usage_approved": false,
-      "notes": "Official homepage starting point only; locate genuine brand/media kit and terms."
+      "notes": "Official About Us page includes media center/gallery, but logo kit not verified."
     },
     {
       "symbol": "KOTAKBANK",
       "company_name": "Kotak Mahindra Bank",
-      "official_source_page": "https://www.kotak.com/",
-      "status": "source_research",
+      "official_source_page": "https://www.kotak.bank.in/en/about-us/our-corporate-identity.html",
+      "status": "official_brand_identity_page_found_no_download",
       "original_asset_path": null,
       "usage_approved": false,
-      "notes": "Official homepage starting point only; locate genuine brand/media kit and terms."
+      "notes": "Official corporate identity explains Kotak symbol; no official logo download confirmed."
     },
     {
       "symbol": "BAJFINANCE",
       "company_name": "Bajaj Finance",
-      "official_source_page": "https://www.bajajfinserv.in/",
-      "status": "source_research",
+      "official_source_page": "https://www.bajajfinserv.in/finance-digital-annual-report-fy26/index.html",
+      "status": "official_brand_assets_in_report_no_logo_kit",
       "original_asset_path": null,
       "usage_approved": false,
-      "notes": "Official homepage starting point only; locate genuine brand/media kit and terms."
+      "notes": "Bajaj Finance annual report contains brand identity; Bajaj Auto media kit is NOT Bajaj Finance."
     },
     {
       "symbol": "TATAMOTORS",
       "company_name": "Tata Motors",
-      "official_source_page": "https://www.tatamotors.com/",
-      "status": "source_research",
+      "official_source_page": "https://www.tatamotors.com/newsroom/media-library/",
+      "status": "official_media_library_logo_found",
       "original_asset_path": null,
       "usage_approved": false,
-      "notes": "Official homepage starting point only; locate genuine brand/media kit and terms."
+      "notes": "Official Tata Motors media library has Tata Motors logo and Connecting Aspirations logo."
     },
     {
       "symbol": "ADANIENT",
       "company_name": "Adani Enterprises",
-      "official_source_page": "https://www.adani.com/",
-      "status": "source_research",
+      "official_source_page": "https://www.adani.com/newsroom/media-kit",
+      "status": "official_adani_group_logo_kit_found",
       "original_asset_path": null,
       "usage_approved": false,
-      "notes": "Official homepage starting point only; locate genuine brand/media kit and terms."
+      "notes": "Adani Group media kit offers group logo variants; verify suitability for Adani Enterprises specifically."
     },
     {
       "symbol": "ETERNAL",
       "company_name": "Eternal",
-      "official_source_page": "https://www.eternal.com/",
-      "status": "source_research",
+      "official_source_page": "https://www.eternal.com/brand/resources/logos/",
+      "status": "official_downloadable_logo_kit_found_editorial_only",
       "original_asset_path": null,
       "usage_approved": false,
-      "notes": "Official homepage starting point only; locate genuine brand/media kit and terms."
+      "notes": "Official Eternal PNG and SVG logos, light/dark horizontal variants; brand resources specify editorial-only use."
     },
     {
       "symbol": "SWIGGY",
       "company_name": "Swiggy",
-      "official_source_page": "https://www.swiggy.com/",
-      "status": "source_research",
+      "official_source_page": "https://www.swiggy.com/corporate/newsroom/",
+      "status": "official_media_kit_brand_guidelines_found_editorial_only",
       "original_asset_path": null,
       "usage_approved": false,
-      "notes": "Official homepage starting point only; locate genuine brand/media kit and terms."
+      "notes": "Swiggy corporate newsroom contains media kit/brand guidelines; editorial-only content terms."
     },
     {
       "symbol": "NVDA",
       "company_name": "NVIDIA",
       "official_source_page": "https://www.nvidia.com/en-gb/about-nvidia/legal-info/logo-brand-usage/",
-      "status": "official_guidelines_found_written_authorization_required",
+      "status": "official_brand_logo_page_found_written_permission_required",
       "original_asset_path": null,
       "usage_approved": false,
-      "notes": "NVIDIA states logo use must be expressly authorized in writing. Preserve exact original asset and do not upload pending authorization."
+      "notes": "Official horizontal/vertical logos and guidelines; express written authorization required."
     }
   ]
 }
