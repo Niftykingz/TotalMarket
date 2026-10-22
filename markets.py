@@ -30,7 +30,7 @@ def _d(s):
 
 
 def _fmt(d, long=False):
-    return d.strftime("%A, %-d %B %Y" if long else "%a %-d %b") if d else "—"
+    return d.strftime("%A, %d %B %Y" if long else "%a %d %b") if d else "—"
 
 
 # ------------------------------------------------------------------ market calendar
@@ -87,13 +87,13 @@ def _holidays_page(c, ctx):
     yr = c.get("year", today.year)
     nxt = next((h for h in c["holidays"] if _d(h["date"]) >= today), None)
     rows = "".join(
-        f'<tr class="{"past" if _d(h["date"]) < today else ""}"><th scope="row">{e(_d(h["date"]).strftime("%-d %b %Y"))}</th><td>{e(_d(h["date"]).strftime("%A"))}</td><td>{e(h["name"])}</td></tr>'
+        f'<tr class="{"past" if _d(h["date"]) < today else ""}"><th scope="row">{e(_d(h["date"]).strftime("%d %b %Y"))}</th><td>{e(_d(h["date"]).strftime("%A"))}</td><td>{e(h["name"])}</td></tr>'
         for h in c["holidays"])
-    wk = "".join(f'<li>{e(_d(h["date"]).strftime("%-d %b"))} ({e(_d(h["date"]).strftime("%A"))}): {e(h["name"])}</li>' for h in c.get("weekendHolidays", []))
-    sp = "".join(f'<li><b>{e(_d(s["date"]).strftime("%-d %b %Y"))}, {e(s["name"])}.</b> {e(s.get("note", ""))}</li>' for s in c.get("specialSessions", []))
+    wk = "".join(f'<li>{e(_d(h["date"]).strftime("%d %b"))} ({e(_d(h["date"]).strftime("%A"))}): {e(h["name"])}</li>' for h in c.get("weekendHolidays", []))
+    sp = "".join(f'<li><b>{e(_d(s["date"]).strftime("%d %b %Y"))}, {e(s["name"])}.</b> {e(s.get("note", ""))}</li>' for s in c.get("specialSessions", []))
     hrs = c.get("hours", {})
     srcs = " and ".join(f'<a href="{e(s["url"])}" rel="nofollow noopener" target="_blank">{e(s["name"])}</a>' for s in c.get("sources", []))
-    nxt_html = (f'<div class="dkpis"><div><span>Next market holiday</span><b>{e(_d(nxt["date"]).strftime("%a %-d %b"))}</b><small>{e(nxt["name"])}</small></div>'
+    nxt_html = (f'<div class="dkpis"><div><span>Next market holiday</span><b>{e(_d(nxt["date"]).strftime("%a %d %b"))}</b><small>{e(nxt["name"])}</small></div>'
                 f'<div><span>Holidays on weekdays in {yr}</span><b>{len(c["holidays"])}</b></div>'
                 f'<div><span>Normal session</span><b>{e(hrs.get("normal", ["", ""])[0])}–{e(hrs.get("normal", ["", ""])[1])}</b><small>IST, Monday–Friday</small></div></div>') if nxt else ""
     piggy = ctx["piggy_box"]({"happened": f"This is the list of weekdays in {yr} when NSE's equity market is shut, plus the normal trading hours.",
@@ -211,7 +211,7 @@ def events_page(posts, results, ctx):
         f'<button type="button" class="chipf" data-cat="{e(t)}">{e(t)}</button>' for t in types) + "</div>"
     notes = "".join(f'<details class="lessonq"><summary>What is a {e(t.lower())}?</summary><p>{e(TYPE_NOTES[t])}</p></details>' for t in types if t in TYPE_NOTES)
     host = ctx["piggy_host"]("Boss Piggy reads the notices", "Companies must tell the exchange about dividends, results dates, board meetings and other big news. I list each one with its date and a link to check it on NSE, and explain what each kind of event means below.", (f"{base}learn/", "More lessons"), "full")
-    upd = datetime.fromisoformat(data["updatedAt"]).strftime("%-d %b %Y, %-I:%M %p IST") if data.get("updatedAt") else ""
+    upd = datetime.fromisoformat(data["updatedAt"]).strftime("%d %b %Y, %I:%M %p IST") if data.get("updatedAt") else ""
     body = (f'<nav class="crumbs"><a href="{base}">Home</a> / <a href="{base}markets/">Markets</a></nav>'
             f'<div class="sechead"><h1>Corporate actions and events: dividends, results, board meetings</h1>'
             f'<p>Upcoming record dates, dividends, results dates and board meetings for listed Indian companies. Each item names its source; where an official NSE notice link is not yet confirmed, it links to the matching NSE filings page to check. Last updated {e(upd)}.</p></div>'
