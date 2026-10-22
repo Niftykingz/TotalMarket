@@ -9,7 +9,7 @@ import hashlib, json, math, os, re
 import numpy as np
 from PIL import Image, ImageDraw, ImageFilter, ImageFont
 
-VERSION = "p6"
+VERSION = "p7-original-variety"
 W, H = 1600, 900
 HERE = os.path.dirname(os.path.abspath(__file__))
 FD = os.path.join(HERE, "fonts")
@@ -67,6 +67,11 @@ def pick(p):
     if not sym:
         _, sym, _ = art.detect(p)
     obj = SYMBOL_OBJ.get(sym) or CAT_OBJ.get(p["category"], "candles")
+    # Prefer an original, story-specific illustration over generic candles.
+    # Explicit story symbols retain editorial priority.
+    if not sym or sym == "candles":
+        from graphics_selector import choose_cover_object
+        obj = choose_cover_object(p, obj)
     d = direction(p)
     if p.get("palette") == "festive":
         theme, obj = "festive", "diya"
