@@ -1,24 +1,142 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "updated_on": "2026-10-22",
-  "purpose": "Official-source discovery queue; not a claim of usage permission or completed downloads.",
+  "policy": "Do not download, rehost or publish third-party trademarks before usage-rights review; preserve exact source bytes, format, colors and dimensions.",
   "items": [
     {
       "symbol": "RELIANCE",
-      "company_name": "Reliance Industries Limited",
+      "company_name": "Reliance Industries",
       "official_source_page": "https://www.ril.com/news-media/resource-center/media-kit/reliance-industries-limited",
-      "asset_type": "official PNG offered",
-      "status": "source_found_pending_rights_and_asset_review",
-      "notes": "Official Reliance media kit lists PNG master and roundel variants. Select suitable genuine variant and check reuse terms."
+      "status": "restricted_reuse_review",
+      "original_asset_path": null,
+      "usage_approved": false,
+      "notes": "Reliance website legal notice restricts reproduction and redistribution. Obtain authorization or documented applicable permission."
+    },
+    {
+      "symbol": "JIO",
+      "company_name": "Jio",
+      "official_source_page": "https://www.ril.com/news-media/resource-center/media-kit/jio",
+      "status": "restricted_reuse_review",
+      "original_asset_path": null,
+      "usage_approved": false,
+      "notes": "Reliance website legal notice restricts reproduction and redistribution. Obtain authorization or documented applicable permission."
+    },
+    {
+      "symbol": "HDFCBANK",
+      "company_name": "HDFC Bank",
+      "official_source_page": "https://www.hdfcbank.com/",
+      "status": "source_research",
+      "original_asset_path": null,
+      "usage_approved": false,
+      "notes": "Official homepage starting point only; locate genuine brand/media kit and terms."
+    },
+    {
+      "symbol": "ICICIBANK",
+      "company_name": "ICICI Bank",
+      "official_source_page": "https://www.icicibank.com/",
+      "status": "source_research",
+      "original_asset_path": null,
+      "usage_approved": false,
+      "notes": "Official homepage starting point only; locate genuine brand/media kit and terms."
+    },
+    {
+      "symbol": "INFY",
+      "company_name": "Infosys",
+      "official_source_page": "https://www.infosys.com/",
+      "status": "source_research",
+      "original_asset_path": null,
+      "usage_approved": false,
+      "notes": "Official homepage starting point only; locate genuine brand/media kit and terms."
     },
     {
       "symbol": "TCS",
-      "company_name": "Tata Consultancy Services Limited",
+      "company_name": "Tata Consultancy Services",
       "official_source_page": "https://www.tcs.com/who-we-are/newsroom/media-kit",
-      "guidelines_url": "https://www.tcs.com/content/dam/global-tcs/en/pdfs/who-we-are/brand/tcs-logo-usage-guidelines-07052025.pdf",
-      "asset_type": "official PNG offered",
-      "status": "source_found_pending_rights_and_asset_review",
-      "notes": "Official TCS media kit offers black/white PNG and SVG. Review editorial use and brand guidelines."
+      "status": "editorial_usage_review",
+      "original_asset_path": null,
+      "usage_approved": false,
+      "notes": "Official TCS media kit provides PNG/SVG and states editorial use; verify intended use and brand guidelines."
+    },
+    {
+      "symbol": "SBIN",
+      "company_name": "State Bank of India",
+      "official_source_page": "https://sbi.co.in/",
+      "status": "source_research",
+      "original_asset_path": null,
+      "usage_approved": false,
+      "notes": "Official homepage starting point only; locate genuine brand/media kit and terms."
+    },
+    {
+      "symbol": "AXISBANK",
+      "company_name": "Axis Bank",
+      "official_source_page": "https://www.axisbank.com/",
+      "status": "source_research",
+      "original_asset_path": null,
+      "usage_approved": false,
+      "notes": "Official homepage starting point only; locate genuine brand/media kit and terms."
+    },
+    {
+      "symbol": "KOTAKBANK",
+      "company_name": "Kotak Mahindra Bank",
+      "official_source_page": "https://www.kotak.com/",
+      "status": "source_research",
+      "original_asset_path": null,
+      "usage_approved": false,
+      "notes": "Official homepage starting point only; locate genuine brand/media kit and terms."
+    },
+    {
+      "symbol": "BAJFINANCE",
+      "company_name": "Bajaj Finance",
+      "official_source_page": "https://www.bajajfinserv.in/",
+      "status": "source_research",
+      "original_asset_path": null,
+      "usage_approved": false,
+      "notes": "Official homepage starting point only; locate genuine brand/media kit and terms."
+    },
+    {
+      "symbol": "TATAMOTORS",
+      "company_name": "Tata Motors",
+      "official_source_page": "https://www.tatamotors.com/",
+      "status": "source_research",
+      "original_asset_path": null,
+      "usage_approved": false,
+      "notes": "Official homepage starting point only; locate genuine brand/media kit and terms."
+    },
+    {
+      "symbol": "ADANIENT",
+      "company_name": "Adani Enterprises",
+      "official_source_page": "https://www.adani.com/",
+      "status": "source_research",
+      "original_asset_path": null,
+      "usage_approved": false,
+      "notes": "Official homepage starting point only; locate genuine brand/media kit and terms."
+    },
+    {
+      "symbol": "ETERNAL",
+      "company_name": "Eternal",
+      "official_source_page": "https://www.eternal.com/",
+      "status": "source_research",
+      "original_asset_path": null,
+      "usage_approved": false,
+      "notes": "Official homepage starting point only; locate genuine brand/media kit and terms."
+    },
+    {
+      "symbol": "SWIGGY",
+      "company_name": "Swiggy",
+      "official_source_page": "https://www.swiggy.com/",
+      "status": "source_research",
+      "original_asset_path": null,
+      "usage_approved": false,
+      "notes": "Official homepage starting point only; locate genuine brand/media kit and terms."
+    },
+    {
+      "symbol": "NVDA",
+      "company_name": "NVIDIA",
+      "official_source_page": "https://www.nvidia.com/",
+      "status": "source_research",
+      "original_asset_path": null,
+      "usage_approved": false,
+      "notes": "Official homepage starting point only; locate genuine brand/media kit and terms."
     }
   ]
 }
