@@ -36,7 +36,7 @@ def lakh(n):
 
 def dlabel(s):
     d = date.fromisoformat(s)
-    return d.strftime("%a %-d %b %Y")
+    return d.strftime("%a %d %b %Y")
 
 
 def load_rates():
@@ -201,7 +201,7 @@ def gold_pages(r, page, e, base, meta):
     pages.append(("gold-rate-today/index.html", page(
         f"Gold rate today in India", f"Gold rate today: 24K {inr(g['999'])}, 22K {inr(g['916'])} per 10 g and silver {inr(silver)} per kg (IBJA, {d}). City rates, history and a jewellery price calculator.",
         f"{base}gold-rate-today/", body, meta,
-        seo_title=f"Gold Rate Today ({date.fromisoformat(b['date']).strftime('%-d %b %Y')}): 24K, 22K, 18K & Silver Price in India | TotalMarket",
+        seo_title=f"Gold Rate Today ({date.fromisoformat(b['date']).strftime('%d %b %Y')}): 24K, 22K, 18K & Silver Price in India | TotalMarket",
         keywords=["gold rate today", "gold price today India", "22 carat gold rate", "24 carat gold rate", "18 carat gold rate", "silver rate today",
                   "silver price per kg", "IBJA gold rate", "gold rate per gram", "gold rate Delhi", "gold rate Mumbai", "gold rate Chennai",
                   "gold rate Bangalore", "gold rate Hyderabad", "gold rate Kolkata", "making charges gold", "gold GST", "1 sovereign gold rate"],
@@ -342,7 +342,7 @@ def side_panel(base):
         cls = "" if ch is None else ("up" if ch >= 0 else "down")
         c = "" if ch is None else f'{"+" if ch >= 0 else "−"}{inr(abs(ch))}'
         return f'<tr><th scope="row">{lbl}</th><td class="num">{inr(v)}</td><td class="num {cls}">{c}</td></tr>'
-    return (f'<section class="panel"><h2>Gold &amp; silver today <small>IBJA · {date.fromisoformat(b["date"]).strftime("%-d %b")}</small></h2>'
+    return (f'<section class="panel"><h2>Gold &amp; silver today <small>IBJA · {date.fromisoformat(b["date"]).strftime("%d %b")}</small></h2>'
             f'<table class="mt"><tbody>{row("24K · 10 g", g["999"], ch24)}{row("22K · 10 g", g["916"], ch22)}{row("Silver · 1 kg", b["silver999"], chs)}</tbody></table>'
             f'<a class="more" href="{base}gold-rate-today/">City rates &amp; calculator →</a> · <a class="more" href="{base}calculators/">SIP &amp; EMI calculators →</a></section>')
 
@@ -419,6 +419,6 @@ def silver_pages(r, page, e, base, meta):
         "Silver rate today in India",
         f"Silver rate today: {inr(s_kg)} per kg ({inr(per, 2)} per gram) for silver 999 (IBJA, {d}), plus MCX silver, shop rates and recent history.",
         f"{base}silver-rate-today/", body, meta,
-        seo_title=f"Silver Rate Today ({date.fromisoformat(b['date']).strftime('%-d %b')}): Price per Kg & Gram | TotalMarket",
+        seo_title=f"Silver Rate Today ({date.fromisoformat(b['date']).strftime('%d %b')}): Price per Kg & Gram | TotalMarket",
         keywords=["silver rate today", "silver price today", "silver rate per kg", "silver price per gram", "MCX silver", "silver rate in India", "IBJA silver rate"],
         extra_head=f'<script type="application/ld+json">{json.dumps(faq_ld(qas))}</script>'))]
