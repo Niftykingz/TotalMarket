@@ -708,8 +708,12 @@ def ensure_covers(posts, out_dir):
         stem = cover_name(p)
         wp, jp = stem + ".webp", stem + ".jpg"
         keep.update((wp, jp))
+        sm = stem + "-800.webp"
+        keep.add(sm)
         if not (os.path.exists(os.path.join(out_dir, wp)) and os.path.exists(os.path.join(out_dir, jp))):
             render(p, os.path.join(out_dir, wp), os.path.join(out_dir, jp))
+        if not os.path.exists(os.path.join(out_dir, sm)):  # responsive derivative for cards and phones
+            Image.open(os.path.join(out_dir, wp)).convert("RGB").resize((800, 450), Image.LANCZOS).save(os.path.join(out_dir, sm), "WEBP", quality=80, method=6)
         p["_cover"], p["_cover_og"] = wp, jp
     for f in os.listdir(out_dir):
         if f.endswith((".png", ".jpg", ".webp")) and f not in keep:

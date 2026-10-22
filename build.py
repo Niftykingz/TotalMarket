@@ -993,9 +993,25 @@ def news_sitemap(posts):
             f'xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">{rows}</urlset>\n')
 
 
+_COVER_IMG = re.compile(r'<img([^>]*?) src="(/covers/[^"]+?)\.webp"([^>]*)>')
+
+
+def responsive_covers(html_):
+    """Give every cover image an 800px + 1600px srcset so phones and small cards download the small file."""
+    def rep(m):
+        before, stem, after = m.group(1), m.group(2), m.group(3)
+        if "srcset=" in before + after or stem.endswith("-800"):
+            return m.group(0)
+        hero = 'fetchpriority="high"' in before + after
+        sizes = "(max-width: 1100px) 100vw, 760px" if hero else "(max-width: 700px) 100vw, 420px"
+        return f'<img{before} src="{stem}.webp" srcset="{stem}-800.webp 800w, {stem}.webp 1600w" sizes="{sizes}"{after}>'
+    return _COVER_IMG.sub(rep, html_)
+
+
 def write(rel, content):
     if rel.endswith(".html"):
         content = hindi.link_english(rel, content, SITE_URL, BASE)
+        content = responsive_covers(content)
     path = os.path.join(OUT, rel)
     os.makedirs(os.path.dirname(path), exist_ok=True)
     with open(path, "w", encoding="utf-8") as f:

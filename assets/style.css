@@ -1022,3 +1022,10 @@ img[loading="lazy"]{background:linear-gradient(90deg,var(--surface-2),var(--line
 @media (max-width:860px){.tcard{flex-basis:160px;width:160px}}
 /* mobile priority: market overview (ticker) → main headline → latest news → secondary stories */
 @media (max-width:700px){.herorow .hr-main{order:1}.herorow .hr-latest{order:2}.herorow .sstack{order:3}}
+/* Phase 4: comfortable touch targets on phones (24px minimum, WCAG 2.2 target size) */
+@media (max-width:860px){
+  .foot nav a{display:block;padding:6px 0}
+  .vall{min-height:32px;padding:4px 0}
+  .asof a,.dfoot a,.pul a{display:inline-block;padding:4px 0}
+  .tags a,.rates li a,.substat li a{min-height:28px}
+}
