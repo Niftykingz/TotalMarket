@@ -13,6 +13,7 @@ import art
 import tools
 import hubs
 import markets
+import hindi
 from datetime import datetime, timedelta, timezone
 from urllib.parse import quote
 from zoneinfo import ZoneInfo
@@ -168,7 +169,7 @@ FONTS = ('<link rel="preconnect" href="https://fonts.googleapis.com">'
          '&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap">')
 
 
-def page(title, description, path, body, meta, og_type="website", extra_head="", noindex=False, image=None, seo_title=None, keywords=(), news_kw=None):
+def page(title, description, path, body, meta, og_type="website", extra_head="", noindex=False, image=None, seo_title=None, keywords=(), news_kw=None, lang="en", alternates=None, switch=None):
     canon = abs_url(path)
     nk = list(news_kw if news_kw else keywords)[:10]
     kw = (f'<meta name="keywords" content="{e(", ".join(keywords))}">' if keywords else "") + (f'<meta name="news_keywords" content="{e(", ".join(nk))}">' if nk else "")
@@ -176,8 +177,12 @@ def page(title, description, path, body, meta, og_type="website", extra_head="",
     full_title = seo_title or (title if title.startswith(SITE_NAME) else f"{title} | {SITE_NAME}")
     if len(full_title) > 65 and full_title.endswith(f" | {SITE_NAME}"):
         full_title = full_title[: -len(f" | {SITE_NAME}")]  # keep titles short enough to show fully in search results
+    alt_html = "".join(f'<link rel="alternate" hreflang="{h}" href="{e(u)}">' for h, u in (alternates or []))
+    if alternates:
+        alt_html += f'<link rel="alternate" hreflang="x-default" href="{e(dict(alternates).get("en", canon))}">'
+    rss_link = f"{SITE_URL}/hi/rss.xml" if lang == "hi" else f"{SITE_URL}/rss.xml"
     head = f"""<!doctype html>
-<html lang="en-IN">
+<html lang="{"hi-IN" if lang == "hi" else "en-IN"}">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -193,7 +198,7 @@ def page(title, description, path, body, meta, og_type="website", extra_head="",
 <meta property="og:url" content="{e(canon)}">
 <meta property="og:image" content="{e(og)}">
 <meta property="og:image:width" content="1200"><meta property="og:image:height" content="675">
-<meta property="og:locale" content="en_IN">
+<meta property="og:locale" content="{"hi_IN" if lang == "hi" else "en_IN"}">{alt_html}
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{e(title)}">
 <meta name="twitter:description" content="{e(description)}">
@@ -203,18 +208,18 @@ def page(title, description, path, body, meta, og_type="website", extra_head="",
 <script async src="https://www.googletagmanager.com/gtag/js?id={GA_ID}"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){{dataLayer.push(arguments)}}gtag("js",new Date());gtag("config","{GA_ID}");</script>
 <link rel="icon" href="{BASE}assets/favicon.svg" type="image/svg+xml">
-<link rel="alternate" type="application/rss+xml" title="{SITE_NAME}" href="{SITE_URL}/rss.xml">
+<link rel="alternate" type="application/rss+xml" title="{SITE_NAME}" href="{rss_link}">
 <script>try{{var t=localStorage.getItem("tm-theme");if(t)document.documentElement.dataset.theme=t}}catch(e){{}}</script>
-{FONTS}
+{FONTS}{hindi.FONT if lang == "hi" else ""}
 <link rel="stylesheet" href="{BASE}assets/style.css">
 {extra_head}
 </head>
 <body>
-{header(meta, path)}
+{header(meta, path, lang, switch)}
 <main class="wrap main">
 {body}
 </main>
-{footer()}
+{footer(lang)}
 <script src="{BASE}assets/site.js" defer></script>
 </body>
 </html>
@@ -236,7 +241,7 @@ def hist_vals(meta, label):
     return [x.get("v") for x in (meta.get("history") or {}).get(label, [])]
 
 
-def header(meta, path):
+def header(meta, path, lang="en", switch=None):
     t = meta.get("ticker") or []
     cards = "".join(
         f'<div class="tcard"><span class="tl">{e(x.get("label"))}</span><span class="tv">{e(x.get("value") or "—")}</span>'
@@ -245,12 +250,17 @@ def header(meta, path):
     asof = f'<div class="tcard asof"><span class="tl">As of</span><span class="tv small">{e(meta.get("tickerAsOf"))}</span></div>' if meta.get("tickerAsOf") else ""
     tick = f'<div class="tickers" aria-label="Market snapshot"><div class="wrap trow">{cards}{asof}</div></div>' if t else ""
     links = [("", "Home")] + [(k + "/", v[0]) for k, v in CATS.items()] + [("live/", "Today"), ("nifty-50/", "Nifty 50"), ("global-indices/", "Global indices"), ("ipo/", "IPO"), ("gold-rate-today/", "Gold rate"), ("silver-rate-today/", "Silver rate"), ("market-report/", "Daily report"), ("results/", "Results"), ("learn/", "Learn")]
+    if lang == "hi":
+        links = hindi.NAV_LINKS
     nav = "".join(f'<a class="tab{" on" if path == BASE + k else ""}" href="{BASE}{k}">{e(n)}</a>' for k, n in links)
+    sw_url, sw_label = switch or ((f"{BASE}", "English") if lang == "hi" else (f"{BASE}hi/", "हिंदी"))
+    sw = f'<a class="langsw" href="{e(sw_url)}" hreflang="{"en" if lang == "hi" else "hi"}" lang="{"en" if lang == "hi" else "hi"}">{e(sw_label)}</a>'
     return f"""<header class="top">
 <div class="wrap bar1">
-<a class="brand" href="{BASE}"><span class="bm">Total<b>Market</b></span><span class="bt">Markets · Startups · IPOs · Tech · Global</span></a>
-<div class="search" role="search"><input id="q" type="search" placeholder="Search companies, IPOs, news, markets…" aria-label="Search TotalMarket" autocomplete="off"><div id="qres" class="qres" hidden></div></div>
+<a class="brand" href="{BASE}{"hi/" if lang == "hi" else ""}"><span class="bm">Total<b>Market</b></span><span class="bt">Markets · Startups · IPOs · Tech · Global</span></a>
+<div class="search" role="search"><input id="q" type="search" placeholder="{"कंपनी, IPO, खबरें खोजें…" if lang == "hi" else "Search companies, IPOs, news, markets…"}" aria-label="Search TotalMarket" autocomplete="off"><div id="qres" class="qres" hidden></div></div>
 <a class="mstatus hdr" data-mstatus href="{BASE}{HOLIDAYS_PATH}" title="Market session from NSE trading hours and holidays">Market status</a>
+{sw}
 <button class="themebtn" id="themebtn" type="button" aria-label="Switch light or dark theme">◐</button>
 </div>
 <nav class="wrap rail" aria-label="Sections">{nav}</nav>
@@ -258,7 +268,9 @@ def header(meta, path):
 {tick}"""
 
 
-def footer():
+def footer(lang="en"):
+    if lang == "hi":
+        return hindi.footer(BASE, SITE_URL, piggy_img)
     return f"""<footer class="wrap foot">
 <p><b>Not investment advice.</b> TotalMarket reports and explains news. It does not recommend buying, selling or holding any security and is not a SEBI-registered investment adviser or research analyst. Do your own research or consult a registered adviser before investing.</p>
 <nav class="footlinks" aria-label="Market data"><b>Market data:</b> <a href="{BASE}nifty-50/">Nifty 50 today</a> · <a href="{BASE}global-indices/">Global indices</a> · <a href="{BASE}gold-rate-today/">Gold rate today</a> · <a href="{BASE}silver-rate-today/">Silver rate today</a> · <a href="{BASE}fii-dii-data/">FII DII data</a> · <a href="{BASE}top-gainers-losers-today/">Top gainers &amp; losers</a> · <a href="{BASE}ipo/">IPO today</a> · <a href="{BASE}results/">Results calendar</a> · <a href="{BASE}corporate-events/">Corporate actions</a> · <a href="{BASE}{HOLIDAYS_PATH}">Market holidays {HOLIDAYS_PATH.split("-")[-1].strip("/")}</a> · <a href="{BASE}market-report/">Daily market report</a> · <a href="{BASE}stock/">Companies A–Z</a> · <a href="{BASE}calculators/">SIP &amp; EMI calculators</a> · <a href="{BASE}learn/">Learn</a></nav>
@@ -583,6 +595,7 @@ def article_page(p, posts, meta):
 <h1>{e(p['title'])}</h1>
 {dek}
 {meta_row(p)}
+{f'<p class="hi-note" lang="hi"><a href="{hindi.hurl(p, BASE)}">यह खबर हिंदी में पढ़ें →</a></p>' if hindi.has_hi(p) else ""}
 <div class="byline">{piggy_img("head96", "by-av")}<span>By <b>Boss Piggy AI</b> · TotalMarket AI market desk</span></div>
 {f'<p class="chg"><b>What changed</b>{e(p["changeNote"])}</p>' if p.get("changeNote") else ""}
 {people_strip(p)}
@@ -606,8 +619,11 @@ def article_page(p, posts, meta):
 </article>
 <div class="fab" aria-label="Like or comment"><button type="button" class="fab-like" data-like-key="{like_key(p)}" aria-label="Like this story">&#9829; <span class="lc">Like</span></button><a class="fab-cm" href="#comments" aria-label="Go to comments">&#128172; Comment</a></div>
 {rel}"""
+    alts = [("en", link), ("hi", abs_url(hindi.hurl(p, BASE)))] if hindi.has_hi(p) else None
+    sw = (hindi.hurl(p, BASE), "हिंदी में पढ़ें") if alts else None
     return page(p["title"], p.get("seoDescription") or desc(p), path, body, meta, og_type="article", extra_head=extra, image=cover_url(p, True),
-                seo_title=(p.get("seoTitle") + f" | {SITE_NAME}") if p.get("seoTitle") else None, keywords=page_keywords(p), news_kw=p["_tags"][:10])
+                seo_title=(p.get("seoTitle") + f" | {SITE_NAME}") if p.get("seoTitle") else None, keywords=page_keywords(p), news_kw=p["_tags"][:10],
+                alternates=alts, switch=sw)
 
 
 def about_page(meta):
@@ -807,8 +823,11 @@ def home_page(posts, meta, results=()):
 
 
 def search_index(posts):
-    return json.dumps([{"t": p["title"], "u": url(p), "c": CATS[p["category"]][0], "k": " ".join(p["_tags"]), "d": p["_dt"].astimezone(IST).strftime("%-d %b")}
-                       for p in posts[:400]], ensure_ascii=False)
+    rows = [{"t": p["title"], "u": url(p), "c": CATS[p["category"]][0], "k": " ".join(p["_tags"]), "d": p["_dt"].astimezone(IST).strftime("%-d %b")}
+            for p in posts[:400]]
+    rows += [{"t": p["hi"]["title"], "u": hindi.hurl(p, BASE), "c": "हिंदी · " + hindi.CAT_HI[p["category"]], "k": " ".join(p["_tags"]) + " hindi " + p["title"],
+              "d": p["_dt"].astimezone(IST).strftime("%-d %b")} for p in posts[:400] if hindi.has_hi(p)]
+    return json.dumps(rows, ensure_ascii=False)
 
 
 def rss(posts):
@@ -831,6 +850,8 @@ def sitemap(posts):
     now = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
     urls = [(SITE_URL + "/", now, "hourly")] + [(f"{SITE_URL}/{k}/", now, "hourly") for k in CATS] + [(SITE_URL + "/about/", None, "monthly"), (SITE_URL + "/results/", now, "daily"), (SITE_URL + "/market-report/", now, "daily")] + [(u, now, "daily") for u in TOOL_URLS] + [(f"{SITE_URL}/tag/{t}/", now, "daily") for t in TAG_SLUGS] + [(u, now, "daily") for u in HUB_URLS]
     urls += [(abs_url(url(p)), p["_dt"].astimezone(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"), None) for p in posts]
+    urls += [(u, now, "hourly") for u in hindi.HUB_URLS]
+    urls += [(abs_url(hindi.hurl(p, BASE)), p["_dt"].astimezone(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"), None) for p in posts if hindi.has_hi(p)]
     rows = "".join(f"<url><loc>{e(u)}</loc>{f'<lastmod>{m}</lastmod>' if m else ''}{f'<changefreq>{c}</changefreq>' if c else ''}</url>" for u, m, c in urls)
     return f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">{rows}</urlset>\n'
 
@@ -841,7 +862,11 @@ def news_sitemap(posts):
         f"<url><loc>{e(abs_url(url(p)))}</loc><news:news><news:publication><news:name>{SITE_NAME}</news:name>"
         f"<news:language>en</news:language></news:publication><news:publication_date>{p['_dt'].isoformat()}</news:publication_date>"
         f"<news:title>{e(p['title'])}</news:title></news:news></url>"
-        for p in posts if p["_dt"] >= cutoff)
+        for p in posts if p["_dt"] >= cutoff) + "".join(
+        f"<url><loc>{e(abs_url(hindi.hurl(p, BASE)))}</loc><news:news><news:publication><news:name>{SITE_NAME}</news:name>"
+        f"<news:language>hi</news:language></news:publication><news:publication_date>{p['_dt'].isoformat()}</news:publication_date>"
+        f"<news:title>{e(p['hi']['title'])}</news:title></news:news></url>"
+        for p in posts if p["_dt"] >= cutoff and hindi.has_hi(p))
     return ('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" '
             f'xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">{rows}</urlset>\n')
 
@@ -889,6 +914,11 @@ def main():
     for p in posts:
         write(f"news/{p['id']}/index.html", article_page(p, posts, meta))
     write("about/index.html", about_page(meta))
+    hctx = {"page": page, "e": e, "base": BASE, "site_url": SITE_URL, "abs_url": abs_url, "url": url, "cover_url": cover_url, "cover_img": cover_img,
+            "piggy_img": piggy_img, "parse_dt": parse_dt, "ist": IST, "report": report, "like_key": like_key, "comments_block": comments_block,
+            "slug": slug, "page_keywords": page_keywords, "site_name": SITE_NAME, "data_table": data_table}
+    for rel, html_ in hindi.build(posts, meta, hctx):
+        write(rel, html_)
     global TOOL_URLS
     tool_pages, TOOL_URLS = tools.build(page, e, BASE, SITE_URL, meta)
     for rel, html_ in tool_pages:

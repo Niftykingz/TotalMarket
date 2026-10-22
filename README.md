@@ -118,3 +118,7 @@ Boss Piggy, a cartoon pig in black glasses and a navy suit, is TotalMarket's mar
 - Home **Market breadth** card reads the newest report's `breadth` (end of day, with source and an NSE link; missing values show "Unavailable").
 - `data/corporate_events.json` + results calendar → **/corporate-events/** (dividends, record dates, results dates, board meetings; filter by type; official NSE notice links when confirmed).
 - **/market-report/** has a date-searchable archive and an index-closing history table; `docs/data/index-closes.csv` is TotalMarket's own record of closes (not NSE official data).
+
+## Hindi edition
+
+Add a `hi` object to any story to publish it at `/hi/news/<id>/` (see `hindi.py` for fields). Hindi pages link to the English version with hreflang tags, and the English page shows "हिंदी में पढ़ें".

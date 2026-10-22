@@ -553,3 +553,11 @@ a.company small{color:var(--accent-2)}
 .by-av{width:28px;height:28px;border-radius:50%;background:var(--card,#fff);border:1px solid var(--line);object-fit:cover}
 .footpig{display:flex;align-items:center;gap:10px}
 .fp-av{width:40px;height:40px;flex:none;border-radius:50%;border:1px solid var(--line);object-fit:cover}
+/* language switch + Hindi edition */
+.langsw{flex:none;font-size:.82rem;font-weight:600;padding:5px 10px;border-radius:999px;border:1px solid var(--line);color:var(--accent);text-decoration:none;background:var(--surface);white-space:nowrap}
+.langsw:hover{border-color:var(--accent)}
+.hi-note{margin:6px 0;font-size:.86rem}.hi-note a{font-weight:600}
+[lang="hi"]{font-family:"Noto Sans Devanagari",var(--f-body,"IBM Plex Sans"),sans-serif}
+[lang="hi"] h1,[lang="hi"] h2,[lang="hi"] h3,[lang="hi"] .hero1 b{font-family:"Noto Sans Devanagari",var(--f-display),sans-serif;line-height:1.35}
+[lang="hi"] .body p{line-height:1.85}
+.hi-quick ul{list-style:none;margin:8px 0;padding:0;display:grid;gap:8px}.hi-quick li a{font-weight:500}.hi-quick small{color:var(--muted);font-size:.74rem}

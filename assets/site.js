@@ -115,7 +115,7 @@
   }
 
   // search
-  var q = document.getElementById("q"), box = document.getElementById("qres"), idx = null, base = (document.querySelector(".brand") || {}).getAttribute ? document.querySelector(".brand").getAttribute("href") : "/";
+  var q = document.getElementById("q"), box = document.getElementById("qres"), idx = null, base = ((document.querySelector(".brand") || {}).getAttribute ? document.querySelector(".brand").getAttribute("href") : "/").replace(/hi\/$/, "");
   function load(cb) {
     if (idx) return cb();
     fetch(base + "search.json").then(function (r) { return r.json(); }).then(function (d) { idx = d; cb(); }).catch(function () { idx = []; cb(); });
@@ -144,7 +144,7 @@
 (function () {
   var els = document.querySelectorAll("[data-mstatus]"), nh = document.querySelectorAll("[data-nextholiday]");
   if (!els.length && !nh.length) return;
-  var base = (document.querySelector(".brand") || {getAttribute: function () { return "/"; }}).getAttribute("href") || "/";
+  var base = ((document.querySelector(".brand") || {getAttribute: function () { return "/"; }}).getAttribute("href") || "/").replace(/hi\/$/, "");
   fetch(base + "market-calendar.json").then(function (r) { return r.json(); }).then(function (c) {
     function ist() { var d = new Date(); return new Date(d.getTime() + (d.getTimezoneOffset() + 330) * 60000); }
     function iso(d) { return d.getFullYear() + "-" + ("0" + (d.getMonth() + 1)).slice(-2) + "-" + ("0" + d.getDate()).slice(-2); }
