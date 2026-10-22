@@ -215,7 +215,7 @@ def page(title, description, path, body, meta, og_type="website", extra_head="",
 <meta name="google-site-verification" content="R-bU7412W25OlS3wPOdJYbHHIF8P7FdcDqTH9Zd-Xfo">
 <script async src="https://www.googletagmanager.com/gtag/js?id={GA_ID}"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){{dataLayer.push(arguments)}}gtag("js",new Date());gtag("config","{GA_ID}");</script>
-<link rel="icon" href="{BASE}favicon.ico" sizes="48x48"><link rel="icon" href="{BASE}assets/favicon-48.png" type="image/png" sizes="48x48"><link rel="icon" href="{BASE}assets/icon-192.png" type="image/png" sizes="192x192"><link rel="apple-touch-icon" href="{BASE}assets/apple-touch-icon.png"><link rel="manifest" href="{BASE}site.webmanifest">
+<link rel="icon" type="image/png" sizes="48x48" href="{BASE}assets/favicon-48.png"><link rel="icon" type="image/x-icon" sizes="any" href="{BASE}favicon.ico"><link rel="apple-touch-icon" sizes="180x180" href="{BASE}assets/apple-touch-icon.png"><link rel="manifest" href="{BASE}site.webmanifest">
 <link rel="alternate" type="application/rss+xml" title="{SITE_NAME}" href="{rss_link}">
 <script>try{{var t=localStorage.getItem("tm-theme");if(t)document.documentElement.dataset.theme=t}}catch(e){{}}</script>
 {FONTS}{hindi.FONT if lang == "hi" else ""}
