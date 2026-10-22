@@ -243,7 +243,7 @@ def ipo_pages(posts, ctx):
             + ctx["piggy_host"]("Boss Piggy's IPO guide", "Every IPO below shows the facts first: dates, price band, lot size and who has applied so far. Open any IPO for the full details, and scroll down to my IPO school to learn what each term means before you read the numbers.", (f"{base}learn/", "More lessons"))
             + ("".join(groups) or '<div class="empty"><p>No IPOs listed right now.</p></div>')
             + news
-            + f'<section class="lesson"><h2>IPO school: learn the basics</h2>{lessons}</section>'
+            + f'<section class="lesson" id="learn"><h2>IPO school: learn the basics</h2>{lessons}</section>'
             + '<p class="disc">For information and education only. TotalMarket does not recommend applying for or avoiding any IPO.</p>')
     faq = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
         {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in LESSONS]}

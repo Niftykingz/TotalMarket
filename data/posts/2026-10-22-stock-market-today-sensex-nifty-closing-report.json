@@ -1,0 +1,399 @@
+{
+  "title": "Stock market today: Sensex sheds 460 pts, Nifty 22,687.65 as oil jumps to $112; media, FMCG, IT drag",
+  "dek": "A third straight fall as Brent jumped about 3% after attacks on Saudi Aramco; two shares fell for every one that rose, and FIIs sold about ₹3,459 crore.",
+  "category": "markets",
+  "lead": true,
+  "edition": "2026-10-22-report",
+  "editionLabel": "Thu 22 Oct · Daily market report",
+  "publishedAt": "2026-10-22T20:40:00+05:30",
+  "readMins": 4,
+  "body": [
+    "Indian shares fell for a third straight session on Thursday. The Sensex closed 460.30 points (0.62%) lower at 73,249.39 and the Nifty 50 fell 123.70 points (0.54%) to 22,687.65, IIFL and HDFC Sky reported. Bank Nifty held up better, slipping 0.26% to 54,832.35, but the Nifty Midcap 100 fell 0.87% and the Smallcap 100 1.17%.",
+    "Oil was the trigger. Brent jumped about 3% to roughly $112.5 a barrel by 3:45 pm after attacks on Saudi Aramco's oilfields, Business Standard reported. India imports most of its crude, so costlier oil raises inflation worries and hurts companies that use fuel. Media (−2.34%), FMCG (−1.74%) and IT (−1.31%) were the weakest sectors; Nestle India fell after a food-safety regulator notice and eMudhra hit its 20% lower circuit again.",
+    "Foreign investors sold a net ₹3,458.70 crore on Thursday while domestic institutions bought ₹2,891.32 crore, according to Whalesbook; gross provisional figures were not yet available from the exchanges. On Wednesday FIIs had been small net buyers of ₹1,022.3 crore.",
+    "After the bell, results came in: Havells' profit rose 9.7% to ₹349.22 crore on revenue up 34.6%; Colgate-Palmolive India earned ₹341.6 crore (+4.3%); HPCL posted a consolidated profit of ₹3,625.22 crore, down 6.1% from a year ago; and Swiggy's loss narrowed to ₹922 crore as revenue rose 36%.",
+    "Key takeaway: with oil above $110 and foreign selling back, the market stays nervous; Friday's Infosys results and the end of the Jio IPO are the next big events."
+  ],
+  "report": {
+    "date": "2026-10-22",
+    "dateLabel": "Thursday, 22 October 2026",
+    "mood": "Bearish",
+    "kpis": [
+      {
+        "label": "Sensex",
+        "value": "73,249.39",
+        "change": "-460.30 (-0.62%)",
+        "dir": "down"
+      },
+      {
+        "label": "Nifty 50",
+        "value": "22,687.65",
+        "change": "-123.70 (-0.54%)",
+        "dir": "down"
+      },
+      {
+        "label": "Bank Nifty",
+        "value": "54,832.35",
+        "change": "-0.26%",
+        "dir": "down"
+      },
+      {
+        "label": "Nifty Midcap 100",
+        "value": "-0.87%",
+        "change": "Broader market weaker",
+        "dir": "down"
+      },
+      {
+        "label": "Brent crude",
+        "value": "~$112.5",
+        "change": "+3%, 3:45 pm IST"
+      },
+      {
+        "label": "Advance / decline",
+        "value": "1,323 / 2,670",
+        "change": "Exchange not stated in source",
+        "dir": "down"
+      }
+    ],
+    "takeaways": [
+      "Third straight fall: the Sensex lost 460.30 points and the Nifty 123.70 points as Brent jumped about 3% to roughly $112.5 after attacks on Saudi Aramco facilities.",
+      "Media (−2.34%), FMCG (−1.74%) and IT (−1.31%) fell the most; 12 of the sector indices tracked ended lower and Pharma was the most resilient (−0.21%).",
+      "Selling was broad: about two shares fell for every one that rose, and the midcap and smallcap indices lost 0.87% and 1.17%.",
+      "Foreign investors sold a net ₹3,458.70 crore while domestic institutions bought ₹2,891.32 crore, as reported by Whalesbook (gross provisional data not yet confirmed).",
+      "After the bell: Havells profit rose 9.7% to ₹349 crore, Colgate's rose 4.3% to ₹341.6 crore, HPCL earned ₹3,625 crore (consolidated) and Swiggy's loss narrowed to ₹922 crore."
+    ],
+    "indices": [
+      {
+        "name": "Nifty 50",
+        "open": "",
+        "high": "22,785",
+        "low": "",
+        "close": "22,687.65",
+        "change": "-123.70",
+        "pct": "-0.54"
+      },
+      {
+        "name": "Sensex",
+        "open": "",
+        "high": "",
+        "low": "",
+        "close": "73,249.39",
+        "change": "-460.30",
+        "pct": "-0.62"
+      },
+      {
+        "name": "Bank Nifty",
+        "open": "",
+        "high": "",
+        "low": "",
+        "close": "54,832.35",
+        "change": "",
+        "pct": "-0.26"
+      }
+    ],
+    "caps": [
+      {
+        "name": "Large caps (Nifty 50)",
+        "pct": "-0.54"
+      },
+      {
+        "name": "Midcaps (Nifty Midcap 100)",
+        "pct": "-0.87"
+      },
+      {
+        "name": "Smallcaps (Nifty Smallcap 100)",
+        "pct": "-1.17"
+      }
+    ],
+    "sectors": [
+      {
+        "name": "Pharma",
+        "pct": "-0.21"
+      },
+      {
+        "name": "Bank",
+        "pct": "-0.26"
+      },
+      {
+        "name": "Financial Services",
+        "pct": "-0.27"
+      },
+      {
+        "name": "Metal",
+        "pct": "-0.81"
+      },
+      {
+        "name": "Auto",
+        "pct": "-0.83"
+      },
+      {
+        "name": "Consumer Durables",
+        "pct": "-0.91"
+      },
+      {
+        "name": "CPSE",
+        "pct": "-0.99"
+      },
+      {
+        "name": "Energy",
+        "pct": "-1.11"
+      },
+      {
+        "name": "MNC",
+        "pct": "-1.20"
+      },
+      {
+        "name": "IT",
+        "pct": "-1.31"
+      },
+      {
+        "name": "FMCG",
+        "pct": "-1.74"
+      },
+      {
+        "name": "Media",
+        "pct": "-2.34"
+      }
+    ],
+    "moversIndex": "Nifty 50",
+    "gainers": [
+      {
+        "name": "Bajaj Finance",
+        "price": "₹942.10",
+        "pct": "1.74"
+      },
+      {
+        "name": "Cipla",
+        "price": "₹1,330.90",
+        "pct": "1.29"
+      },
+      {
+        "name": "UltraTech Cement",
+        "price": "₹10,958.00",
+        "pct": "1.00"
+      }
+    ],
+    "losers": [
+      {
+        "name": "Nestle India",
+        "price": "₹1,189.90",
+        "pct": "-2.78"
+      },
+      {
+        "name": "Eternal",
+        "price": "₹304.45",
+        "pct": "-2.53"
+      },
+      {
+        "name": "HDFC Life",
+        "price": "₹528.35",
+        "pct": "-2.09"
+      }
+    ],
+    "movers": {
+      "title": "Big movers in the broader market",
+      "up": [
+        {
+          "name": "Tata Teleservices (Maharashtra)",
+          "pct": "18.6"
+        }
+      ],
+      "down": [
+        {
+          "name": "eMudhra",
+          "pct": "-20"
+        },
+        {
+          "name": "M&M Financial Services",
+          "pct": "-9.8"
+        },
+        {
+          "name": "Zydus Wellness",
+          "pct": "-3.4"
+        },
+        {
+          "name": "Yes Bank",
+          "pct": "-2.2"
+        }
+      ]
+    },
+    "breadth": {
+      "exchange": "Exchange not stated",
+      "advances": 1323,
+      "declines": 2670,
+      "unchanged": 155
+    },
+    "fiiDii": {
+      "asOf": "Thu 22 Oct (net only) and Wed 21 Oct (provisional)",
+      "fii": {
+        "buy": "",
+        "sell": "",
+        "net": "-3,458.70"
+      },
+      "dii": {
+        "buy": "",
+        "sell": "",
+        "net": "2,891.32"
+      },
+      "mtd": {
+        "fii": "-48,895.3 (to 21 Oct)",
+        "dii": "+52,983.5 (to 21 Oct)"
+      },
+      "note": "22 Oct net figures as reported by Whalesbook; NSE's own report could not be read by our tools. On 21 Oct FIIs bought a net ₹1,022.3 crore (buy 17,003.9, sell 15,981.6) and DIIs ₹1,614.3 crore, per 5paisa's copy of provisional exchange data."
+    },
+    "ipos": [
+      {
+        "name": "Fusion CX",
+        "exchange": "NSE, BSE",
+        "segment": "Mainboard",
+        "issuePrice": "₹289",
+        "listingPrice": "₹305 (NSE), ₹292 (BSE)",
+        "listingGainPct": "5.54",
+        "close": "",
+        "closeVsIssuePct": "",
+        "note": "Issue was 3.03 times subscribed; traded at ₹302.10 at 10:23 am. Closing price not yet verified."
+      }
+    ],
+    "ipoUpcoming": [
+      "Jio Platforms (₹1,065–1,119): 4.38 times subscribed by 3 pm on day 2, QIBs 10.07 times; bidding closes Fri 23 Oct",
+      "Paras Healthcare (₹660–693): 0.21 times at 11:30 am on day 2; closes Fri 23 Oct",
+      "Zetwerk, Tonbo Imaging, Bonfiglioli Transmissions and Sahajanand Medical Technologies list Fri 23 Oct"
+    ],
+    "levels": [
+      {
+        "index": "Nifty 50",
+        "support": "22,200–22,400",
+        "resistance": "22,900",
+        "source": "Religare Broking via Business Standard"
+      }
+    ],
+    "watch": [
+      "Friday results: Infosys, IndusInd Bank, Dr Reddy's, JSW Steel, BPCL, Tata Motors",
+      "Last day of the Jio Platforms and Paras Healthcare IPOs",
+      "Four listings on Friday: Zetwerk, Tonbo Imaging, Bonfiglioli, Sahajanand Medical",
+      "Brent above $110 and the US Fed meeting on 27–28 October"
+    ]
+  },
+  "indiaImpact": "Oil above $110 raises India's import bill, pressures the rupee and squeezes oil-using sectors such as FMCG, paints and autos; broad selling again hit small-company shares hardest.",
+  "globalImpact": "Attacks on Saudi oil facilities pushed Brent to about $112, reviving inflation fears worldwide and keeping emerging markets under pressure.",
+  "coverHeadline": "NIFTY −0.54%, BRENT $112",
+  "stat": "−0.54%",
+  "statLabel": "Nifty 50 closes at 22,687.65",
+  "coverContext": "Sensex −460.30 · third straight fall",
+  "coverLabel": "Daily market report",
+  "symbol": "candles",
+  "flags": [
+    "IN"
+  ],
+  "companies": [
+    {
+      "name": "Nestle India",
+      "ticker": "NESTLEIND"
+    },
+    {
+      "name": "Bajaj Finance",
+      "ticker": "BAJFINANCE"
+    },
+    {
+      "name": "Eternal",
+      "ticker": "ETERNAL"
+    }
+  ],
+  "seoTitle": "Stock Market Today 22 Oct: Sensex, Nifty, Top Gainers",
+  "seoDescription": "Stock market today 22 Oct 2026: Nifty 22,687.65 (−0.54%), Sensex 73,249.39 (−460.30); Brent $112, media, FMCG, IT fall; FIIs sell ₹3,459 cr; gainers, losers.",
+  "coverAlt": "Cover graphic: Nifty 50 down 0.54% as Brent crude hits $112 on 22 October 2026",
+  "tags": [
+    "Stock market today",
+    "Sensex today",
+    "Nifty today",
+    "Daily market report",
+    "FII DII data",
+    "Brent crude"
+  ],
+  "piggy": {
+    "happened": "The Nifty fell 0.54% to 22,687.65 and the Sensex 460 points as Brent crude jumped to about $112; media, FMCG and IT fell most.",
+    "matters": "FIIs (foreign funds) sold about ₹3,459 crore while DIIs (Indian funds) bought about ₹2,891 crore. When foreigners sell and Indian funds buy, the fall is cushioned but not stopped.",
+    "watch": [
+      "Infosys, IndusInd Bank and Dr Reddy's results on Friday",
+      "Last day of the Jio and Paras IPOs",
+      "Brent crude above $110"
+    ]
+  },
+  "sources": [
+    {
+      "name": "IIFL: Sensex falls 460 points, Nifty below 22,700",
+      "url": "https://www.indiainfoline.com/news/markets/stock-market-today-sensex-falls-460-points-nifty-closes-below-22700-media-fmcg-and-it-stocks-drag"
+    },
+    {
+      "name": "HDFC Sky: Market close, 22 Oct",
+      "url": "https://hdfcsky.com/news/market-close-report-today-nifty-sensex-fall-for-third-straight-session-as-oil-tops-110"
+    },
+    {
+      "name": "Business Standard: Stock Market Close, 22 Oct",
+      "url": "https://www.business-standard.com/markets/news/stock-market-live-october-22-nse-bse-sensex-today-nifty50-gift-nifty-jio-ipo-today-126102200085_1.html"
+    },
+    {
+      "name": "Liquide: share market today, 22 Oct",
+      "url": "https://blog.liquide.life/share-market-today-nifty-slips-below-22-700-sensex-falls-460-points-as-fmcg-energy-and-it-drag-markets-lower/"
+    },
+    {
+      "name": "Whalesbook: FIIs sell ₹3,459 crore on 22 Oct",
+      "url": "https://www.whalesbook.com/news/English/sebiexchange/FIIs-Sell-Rs-3459-Crore-Nifty-Slides-054percent-on-Oct-22/6ada162579a16deaeafa76b8"
+    },
+    {
+      "name": "5paisa: FII/DII provisional data",
+      "url": "https://www.5paisa.com/share-market-today/fii-dii-data"
+    },
+    {
+      "name": "HDFC Sky: Jio IPO 4.38x by 3 pm, day 2",
+      "url": "https://hdfcsky.com/news/jio-platforms-ipo-subscription-hits-4-38x-by-3-pm-ist-on-day-2"
+    },
+    {
+      "name": "Business Standard: Havells Q2",
+      "url": "https://www.business-standard.com/companies/quarterly-results/havells-q2-net-profit-rises-9-7-to-349-cr-as-revenue-grows-34-6-126102201111_1.html"
+    },
+    {
+      "name": "Business Standard: Colgate-Palmolive India Q2",
+      "url": "https://business-standard.com/companies/quarterly-results/colgate-palmolive-india-q2-net-profit-rises-4-3-revenue-up-12-3-126102201170_1.html"
+    },
+    {
+      "name": "Free Press Journal: HPCL Q2 FY27",
+      "url": "https://www.freepressjournal.in/business/hpcl-q2-fy27-net-profit-falls-607-to-362522-crore-revenue-rises-26"
+    },
+    {
+      "name": "Business Today: Swiggy Q2",
+      "url": "https://www.businesstoday.in/markets/trending-stocks/story/swiggy-q2-results-loss-narrows-to-rs-922-cr-revenue-jumps-36-instamart-loss-at-rs-895-cr-563095-2026-10-22"
+    }
+  ],
+  "hi": {
+    "title": "शेयर बाज़ार आज: Sensex 460 अंक टूटा, Nifty 22,687.65 पर; तेल $112 पर, मीडिया, FMCG, IT में गिरावट",
+    "dek": "Saudi Aramco पर हमलों के बाद Brent करीब 3% उछला और बाज़ार लगातार तीसरे दिन गिरा; हर एक चढ़ने वाले शेयर पर दो गिरे, FII ने करीब ₹3,459 करोड़ बेचे।",
+    "body": [
+      "गुरुवार को भारतीय शेयर बाज़ार लगातार तीसरे सेशन में गिरा। IIFL और HDFC Sky के मुताबिक Sensex 460.30 अंक (0.62%) गिरकर 73,249.39 पर और Nifty 50 123.70 अंक (0.54%) गिरकर 22,687.65 पर बंद हुआ। Bank Nifty कम गिरा, 0.26% फिसलकर 54,832.35 पर, लेकिन Nifty Midcap 100 0.87% और Smallcap 100 1.17% टूटे।",
+      "वजह तेल रहा। Business Standard के मुताबिक Saudi Aramco के तेल क्षेत्रों पर हमलों के बाद दोपहर 3:45 बजे तक Brent करीब 3% उछलकर लगभग $112.5 प्रति बैरल पहुंच गया। भारत अपना ज़्यादातर कच्चा तेल आयात करता है, इसलिए महंगा तेल महंगाई की चिंता बढ़ाता है और ईंधन इस्तेमाल करने वाली कंपनियों को नुकसान पहुंचाता है। मीडिया (−2.34%), FMCG (−1.74%) और IT (−1.31%) सबसे कमज़ोर सेक्टर रहे; फूड सेफ्टी रेगुलेटर के नोटिस के बाद Nestle India गिरा और eMudhra फिर 20% के लोअर सर्किट पर रहा।",
+      "Whalesbook के मुताबिक गुरुवार को विदेशी निवेशकों (FII) ने ₹3,458.70 करोड़ के शेयर शुद्ध रूप से बेचे, जबकि घरेलू संस्थाओं (DII) ने ₹2,891.32 करोड़ के खरीदे; एक्सचेंज के पूरे प्रोविज़नल आंकड़े अभी उपलब्ध नहीं थे। बुधवार को FII ने ₹1,022.3 करोड़ की शुद्ध खरीदारी की थी।",
+      "बाज़ार बंद होने के बाद नतीजे आए: Havells का मुनाफा 9.7% बढ़कर ₹349.22 करोड़, आय 34.6% बढ़ी; Colgate-Palmolive India का मुनाफा ₹341.6 करोड़ (+4.3%); HPCL का कंसॉलिडेटेड मुनाफा ₹3,625.22 करोड़, साल भर पहले से 6.1% कम; और Swiggy का घाटा घटकर ₹922 करोड़ रहा, आय 36% बढ़ी।",
+      "सबसे ज़रूरी बात: तेल $110 से ऊपर और विदेशी बिकवाली की वापसी से बाज़ार घबराया हुआ है; शुक्रवार को Infosys के नतीजे और Jio IPO का आखिरी दिन अगले बड़े ट्रिगर हैं।"
+    ],
+    "indiaImpact": "$110 से ऊपर का तेल भारत का आयात बिल बढ़ाता है, रुपये पर दबाव डालता है और FMCG, पेंट, ऑटो जैसे तेल इस्तेमाल करने वाले सेक्टरों का मुनाफा घटाता है; व्यापक बिकवाली से छोटी कंपनियों के शेयर फिर सबसे ज़्यादा गिरे।",
+    "globalImpact": "Saudi तेल ठिकानों पर हमलों से Brent करीब $112 पहुंचा, जिससे दुनिया भर में महंगाई का डर फिर बढ़ा और उभरते बाज़ारों पर दबाव बना रहा।",
+    "piggy": {
+      "happened": "Nifty 0.54% गिरकर 22,687.65 और Sensex 460 अंक गिरा, क्योंकि Brent करीब $112 पहुंचा; मीडिया, FMCG और IT सबसे ज़्यादा गिरे।",
+      "matters": "FII (विदेशी फंड) ने करीब ₹3,459 करोड़ बेचे और DII (भारतीय फंड) ने करीब ₹2,891 करोड़ खरीदे। जब विदेशी बेचें और भारतीय फंड खरीदें, तो गिरावट कुछ थमती है पर रुकती नहीं।",
+      "watch": [
+        "शुक्रवार को Infosys, IndusInd Bank और Dr Reddy's के नतीजे",
+        "Jio और Paras IPO का आखिरी दिन",
+        "Brent कच्चा तेल $110 से ऊपर"
+      ]
+    },
+    "seoTitle": "शेयर बाज़ार आज 22 अक्टूबर: Sensex 460 अंक गिरा, Nifty 22,687",
+    "seoDescription": "22 अक्टूबर डेली रिपोर्ट: Nifty 22,687.65 (−0.54%), Sensex 73,249.39 (−460.30); Brent $112, मीडिया, FMCG, IT में गिरावट, FII ने ₹3,459 करोड़ बेचे; टॉप गेनर्स-लूज़र्स।",
+    "tags": [
+      "शेयर बाज़ार आज",
+      "डेली मार्केट रिपोर्ट",
+      "Sensex आज",
+      "Nifty आज",
+      "FII DII डेटा"
+    ]
+  }
+}

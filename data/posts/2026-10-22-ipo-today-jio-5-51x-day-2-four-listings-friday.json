@@ -1,0 +1,129 @@
+{
+  "title": "IPO today (22 Oct): Jio 5.51x after day 2, Fusion CX lists at 5.5% premium, four listings Friday",
+  "dek": "Your daily IPO class: what's open, what listed, what's coming, and what 'shareholder quota' means.",
+  "category": "startups",
+  "lead": false,
+  "edition": "2026-10-22-evening",
+  "editionLabel": "Thu 22 Oct · Evening update",
+  "publishedAt": "2026-10-22T21:05:00+05:30",
+  "readMins": 4,
+  "body": [
+    "Open now. Jio Platforms' IPO was 5.51 times subscribed by 6:57 pm on its second day, according to IPOji's tracker: institutions (QIBs) 13.14 times, wealthy individuals (NIIs) 5.91 times, retail investors 1.53 times, employees 2.09 times and Reliance shareholders 4.01 times. Paras Healthcare was 0.21 times subscribed at 11:30 am, ScanX reported; we could not confirm its end-of-day figure. Both close on Friday 23 October.",
+    "Listed today. Fusion CX opened at ₹305 on NSE, 5.54% above its ₹289 issue price, and ₹292 on BSE, after a 3.03-times-subscribed issue. A modest listing after decent demand is a reminder that subscription numbers don't promise big gains.",
+    "Coming Friday. Zetwerk (₹143–151), Tonbo Imaging (₹665–700), Bonfiglioli Transmissions (₹558–586) and Sahajanand Medical Technologies (₹327–344) are expected to list on NSE and BSE on 23 October. We will report their opening prices against these bands.",
+    "Today's concept: the shareholder quota. Some IPOs set aside shares only for people who already own the parent company's stock. In Jio's case, Reliance Industries shareholders can apply in this quota as well as the retail one, which can raise their chance of getting an allotment. The 4.01x figure is demand for that separate bucket.",
+    "Key takeaway: Jio's demand keeps rising, with institutions bidding over 13 times their quota, but allotment is decided by lottery on 26 October, so most retail applicants should expect to miss out."
+  ],
+  "table": {
+    "title": "IPO dashboard, 22 Oct",
+    "columns": [
+      "IPO",
+      "Status",
+      "Detail"
+    ],
+    "rows": [
+      {
+        "label": "Jio Platforms",
+        "value": "Open, 5.51x",
+        "note": "QIB 13.14x · NII 5.91x · retail 1.53x (6:57 pm)"
+      },
+      {
+        "label": "Paras Healthcare",
+        "value": "Open, 0.21x",
+        "note": "11:30 am day 2; closes Fri"
+      },
+      {
+        "label": "Fusion CX",
+        "value": "Listed ₹305",
+        "note": "+5.54% vs ₹289 issue (NSE)"
+      },
+      {
+        "label": "Zetwerk · Tonbo · Bonfiglioli · Sahajanand",
+        "value": "List Fri 23 Oct",
+        "note": "NSE and BSE"
+      }
+    ]
+  },
+  "indiaImpact": "Jio's strong institutional demand shows big investors still want large Indian listings even as the wider market falls on oil worries.",
+  "coverHeadline": "JIO IPO 5.51X",
+  "stat": "5.51X",
+  "statLabel": "Subscription after day 2",
+  "coverContext": "QIB 13.14x · retail 1.53x · closes Fri",
+  "coverLabel": "IPO daily",
+  "symbol": "coins",
+  "flags": [
+    "IN"
+  ],
+  "companies": [
+    {
+      "name": "Reliance Industries",
+      "ticker": "RELIANCE"
+    }
+  ],
+  "seoTitle": "IPO Today 22 Oct: Jio IPO 5.51x Day 2, Fusion CX Listing",
+  "seoDescription": "Jio Platforms IPO 5.51x subscribed after day 2 (QIB 13.14x, retail 1.53x), Paras 0.21x, Fusion CX lists at ₹305, and four IPOs list Friday 23 Oct. Explained simply.",
+  "coverAlt": "Cover graphic: Jio IPO 5.51 times subscribed after day 2",
+  "tags": [
+    "IPO today",
+    "Jio IPO subscription status",
+    "Fusion CX IPO",
+    "Zetwerk IPO listing",
+    "Upcoming IPO"
+  ],
+  "piggy": {
+    "happened": "Jio's IPO reached 5.51 times subscription after day 2, Fusion CX listed 5.5% above its issue price, and four IPOs list on Friday.",
+    "matters": "Each investor group has its own bucket. Retail at 1.53x means about 153 applications' worth of shares for every 100 available, so many will get nothing.",
+    "watch": [
+      "Final Jio and Paras figures on Friday",
+      "Opening prices of Zetwerk, Tonbo, Bonfiglioli and Sahajanand",
+      "Jio allotment on 26 October"
+    ]
+  },
+  "sources": [
+    {
+      "name": "IPOji: Jio Platforms IPO subscription (22 Oct, 6:57 pm)",
+      "url": "https://www.ipoji.com/ipo-subscription/jio-platforms-ipo"
+    },
+    {
+      "name": "HDFC Sky: Jio IPO 4.38x by 3 pm",
+      "url": "https://hdfcsky.com/news/jio-platforms-ipo-subscription-hits-4-38x-by-3-pm-ist-on-day-2"
+    },
+    {
+      "name": "ScanX: Paras day 2",
+      "url": "https://scanx.trade/stock-market-news/ipo/paras-healthcare-ipo-day-2-subscribed-0-21x-retail-1-00x-qib-nil-check-allotment-status/54195150"
+    },
+    {
+      "name": "Univest: Zetwerk, Tonbo, Bonfiglioli, Sahajanand before 23 Oct debut",
+      "url": "https://univest.in/blogs/zetwerk-vs-sahajanand-medical-bonfiglioli-tonbo-imaging-listing-price-subscription-status-before-23-oct-debut"
+    }
+  ],
+  "hi": {
+    "title": "IPO आज (22 अक्टूबर): दूसरे दिन Jio 5.51 गुना, Fusion CX की 5.5% प्रीमियम पर लिस्टिंग, शुक्रवार को चार लिस्टिंग",
+    "dek": "रोज़ की IPO क्लास: क्या खुला है, क्या लिस्ट हुआ, क्या आने वाला है, और 'शेयरहोल्डर कोटा' क्या होता है।",
+    "body": [
+      "खुले IPO: IPOji के ट्रैकर के मुताबिक Jio Platforms का IPO दूसरे दिन शाम 6:57 बजे तक 5.51 गुना सब्सक्राइब हुआ: संस्थागत निवेशक (QIB) 13.14 गुना, बड़े निवेशक (NII) 5.91 गुना, रिटेल निवेशक 1.53 गुना, कर्मचारी 2.09 गुना और Reliance शेयरहोल्डर 4.01 गुना। ScanX के मुताबिक Paras Healthcare सुबह 11:30 बजे 0.21 गुना पर था; दिन के आखिर का आंकड़ा हम पक्का नहीं कर सके। दोनों शुक्रवार 23 अक्टूबर को बंद होंगे।",
+      "आज लिस्ट हुआ: Fusion CX NSE पर ₹305 पर खुला, ₹289 के इश्यू भाव से 5.54% ऊपर, और BSE पर ₹292 पर; इश्यू 3.03 गुना सब्सक्राइब हुआ था। अच्छी मांग के बाद भी छोटी लिस्टिंग याद दिलाती है कि सब्सक्रिप्शन बड़े मुनाफे की गारंटी नहीं है।",
+      "शुक्रवार को: Zetwerk (₹143–151), Tonbo Imaging (₹665–700), Bonfiglioli Transmissions (₹558–586) और Sahajanand Medical Technologies (₹327–344) के 23 अक्टूबर को NSE और BSE पर लिस्ट होने की उम्मीद है। इनके ओपनिंग भाव हम प्राइस बैंड से तुलना करके बताएंगे।",
+      "आज का कॉन्सेप्ट: शेयरहोल्डर कोटा। कुछ IPO में शेयरों का एक हिस्सा सिर्फ उन लोगों के लिए होता है जिनके पास पहले से पेरेंट कंपनी के शेयर हैं। Jio में Reliance Industries के शेयरहोल्डर इस कोटे और रिटेल, दोनों में आवेदन कर सकते हैं, जिससे अलॉटमेंट की संभावना बढ़ सकती है। 4.01 गुना उसी अलग हिस्से की मांग है।",
+      "सबसे ज़रूरी बात: Jio की मांग बढ़ती जा रही है, संस्थागत निवेशकों ने अपने कोटे से 13 गुना से ज़्यादा बोली लगाई, लेकिन अलॉटमेंट 26 अक्टूबर को लॉटरी से होगा, इसलिए ज़्यादातर रिटेल आवेदकों को शेयर न मिलने के लिए तैयार रहना चाहिए।"
+    ],
+    "tableTitle": "IPO डैशबोर्ड, 22 अक्टूबर",
+    "indiaImpact": "Jio में संस्थागत निवेशकों की मज़बूत मांग दिखाती है कि तेल की चिंता से बाज़ार गिरने के बावजूद बड़े निवेशक बड़े भारतीय IPO में पैसा लगाना चाहते हैं।",
+    "piggy": {
+      "happened": "दूसरे दिन Jio IPO 5.51 गुना भरा, Fusion CX इश्यू भाव से 5.5% ऊपर लिस्ट हुआ, और शुक्रवार को चार IPO लिस्ट होंगे।",
+      "matters": "हर निवेशक समूह का अलग हिस्सा होता है। रिटेल 1.53 गुना मतलब हर 100 शेयरों के लिए करीब 153 के आवेदन, यानी कई लोगों को शेयर नहीं मिलेंगे।",
+      "watch": [
+        "शुक्रवार को Jio और Paras के फाइनल आंकड़े",
+        "Zetwerk, Tonbo, Bonfiglioli और Sahajanand के ओपनिंग भाव",
+        "26 अक्टूबर को Jio अलॉटमेंट"
+      ]
+    },
+    "seoTitle": "IPO आज: Jio IPO दूसरे दिन 5.51 गुना, Fusion CX लिस्टिंग",
+    "seoDescription": "Jio Platforms IPO दूसरे दिन 5.51 गुना सब्सक्राइब (QIB 13.14, रिटेल 1.53 गुना), Paras 0.21 गुना, Fusion CX ₹305 पर लिस्ट, शुक्रवार 23 अक्टूबर को चार IPO की लिस्टिंग।",
+    "tags": [
+      "IPO आज",
+      "Jio IPO सब्सक्रिप्शन स्टेटस",
+      "IPO न्यूज़ हिंदी"
+    ]
+  }
+}

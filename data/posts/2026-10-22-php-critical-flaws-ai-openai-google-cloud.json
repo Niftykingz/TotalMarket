@@ -1,0 +1,67 @@
+{
+  "title": "Critical PHP flaws found with AI help force emergency patches; OpenAI models come to Google Cloud",
+  "dek": "Finland briefly shut some government web services; separately, Google Cloud customers will be able to buy OpenAI models and Codex.",
+  "category": "tech",
+  "lead": false,
+  "edition": "2026-10-22-evening",
+  "editionLabel": "Thu 22 Oct · Evening update",
+  "publishedAt": "2026-10-22T21:20:00+05:30",
+  "readMins": 3,
+  "body": [
+    "Two critical security flaws in PHP, the programming language behind a large share of websites, could let attackers run their own code on servers without logging in, the PHP project said. Finland temporarily shut some government web services and other organisations took pages offline while they patched. OpenAI said its AI helped find the bugs and disclosed them to PHP's maintainers; the security firm Wiz found them independently.",
+    "Why it matters for India: many Indian government, bank and business websites run on PHP. Website owners should install the patched PHP versions; ordinary users don't need to do anything except keep using trusted sites.",
+    "In business news, OpenAI said its frontier models and its Codex coding tool will be sold through Google Cloud's Model Garden and Marketplace, with general availability planned in the coming weeks. Companies can use existing Google Cloud spending commitments to pay for them, which makes it easier for large firms already on Google Cloud to adopt OpenAI tools.",
+    "Separately, the BBC reported that some Google DeepMind researchers have resigned over the company's military AI work; Google said such contracts are reviewed against its AI principles.",
+    "Key takeaway: AI is now finding serious software bugs faster, which helps defenders but also raises the stakes for patching quickly."
+  ],
+  "indiaImpact": "Indian websites built on PHP need quick patching; Indian IT services firms that run client systems may see extra security work.",
+  "globalImpact": "AI-assisted bug hunting is speeding up both discovery and disclosure of serious flaws, while cloud providers increasingly sell rival AI labs' models side by side.",
+  "coverHeadline": "PHP FLAWS: PATCH NOW",
+  "stat": "PATCH NOW",
+  "statLabel": "Two critical PHP vulnerabilities",
+  "coverContext": "Found with AI help · OpenAI on Google Cloud",
+  "coverLabel": "Tech & AI",
+  "symbol": "shield",
+  "flags": [
+    "FI",
+    "US"
+  ],
+  "topics": [
+    "cyber",
+    "ai",
+    "bigtech",
+    "deals"
+  ],
+  "seoTitle": "Critical PHP Flaws Found With AI; OpenAI on Google Cloud",
+  "seoDescription": "Two critical PHP flaws found with AI help forced emergency patches and site shutdowns; OpenAI models come to Google Cloud. What it means for Indian websites.",
+  "coverAlt": "Cover graphic: critical PHP vulnerabilities, patch now",
+  "tags": [
+    "Cybersecurity",
+    "PHP vulnerability",
+    "OpenAI",
+    "Google Cloud",
+    "AI news"
+  ],
+  "sources": [
+    {
+      "name": "PHP.net security archive",
+      "url": "https://www.php.net/archive/2026.php#2026-10-21-5"
+    },
+    {
+      "name": "OpenAI: coordinated disclosure of critical vulnerabilities",
+      "url": "https://openai.com/index/coordinated-disclosure-of-critical-vulnerabilities/"
+    },
+    {
+      "name": "OpenAI: OpenAI models on Google Cloud",
+      "url": "https://openai.com/index/openai-models-google-cloud/"
+    },
+    {
+      "name": "BBC: DeepMind staff resign over military AI work",
+      "url": "https://www.bbc.com/news/articles/cmreyvepnv0po"
+    },
+    {
+      "name": "The Neuron: AI news, 22 Oct",
+      "url": "https://www.theneuron.ai/digest/everything-that-happened-in-ai-today-thursday-october-22-2026/"
+    }
+  ]
+}

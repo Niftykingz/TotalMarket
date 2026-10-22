@@ -4,38 +4,38 @@
   "ticker": [
     {
       "label": "Sensex",
-      "value": "",
-      "change": "~-460 pts",
+      "value": "73,249.39",
+      "change": "-0.62%",
       "asOf": "2026-10-22",
-      "kind": "intraday",
-      "asOfText": "22 Oct close, preliminary",
+      "kind": "close",
+      "asOfText": "22 Oct close",
       "source": {
-        "name": "Business Standard",
-        "url": "https://www.business-standard.com/markets/news/stock-market-live-october-22-nse-bse-sensex-today-nifty50-gift-nifty-jio-ipo-today-126102200085_1.html"
+        "name": "HDFC Sky: Market close, 22 Oct",
+        "url": "https://hdfcsky.com/news/market-close-report-today-nifty-sensex-fall-for-third-straight-session-as-oil-tops-110"
       }
     },
     {
       "label": "Nifty 50",
-      "value": "~22,688",
-      "change": "~-0.54%",
+      "value": "22,687.65",
+      "change": "-0.54%",
       "asOf": "2026-10-22",
-      "kind": "intraday",
-      "asOfText": "22 Oct close, preliminary",
+      "kind": "close",
+      "asOfText": "22 Oct close",
       "source": {
-        "name": "Business Standard",
-        "url": "https://www.business-standard.com/markets/news/stock-market-live-october-22-nse-bse-sensex-today-nifty50-gift-nifty-jio-ipo-today-126102200085_1.html"
+        "name": "IIFL: Sensex falls 460 points, Nifty below 22,700",
+        "url": "https://www.indiainfoline.com/news/markets/stock-market-today-sensex-falls-460-points-nifty-closes-below-22700-media-fmcg-and-it-stocks-drag"
       }
     },
     {
       "label": "Bank Nifty",
-      "value": "54,976.90",
-      "change": "-0.92%",
-      "asOf": "2026-10-21",
+      "value": "54,832.35",
+      "change": "-0.26%",
+      "asOf": "2026-10-22",
       "kind": "close",
-      "asOfText": "21 Oct close",
+      "asOfText": "22 Oct close",
       "source": {
-        "name": "5paisa",
-        "url": "https://www.5paisa.com/blog/post-market-update-nifty-falls-india-vix-hits-4-month-high-october-21-2026"
+        "name": "IIFL: Sensex falls 460 points, Nifty below 22,700",
+        "url": "https://www.indiainfoline.com/news/markets/stock-market-today-sensex-falls-460-points-nifty-closes-below-22700-media-fmcg-and-it-stocks-drag"
       }
     },
     {
@@ -74,14 +74,14 @@
     },
     {
       "label": "Brent",
-      "value": "$108.82",
-      "change": "+0.03%",
-      "asOf": "2026-10-21",
-      "kind": "close",
-      "asOfText": "21 Oct settle",
+      "value": "~$112.5",
+      "change": "+3%",
+      "asOf": "2026-10-22",
+      "kind": "intraday",
+      "asOfText": "22 Oct, 3:45 pm IST",
       "source": {
-        "name": "Nation Thailand",
-        "url": "https://www.nationthailand.com/news/world/40072588"
+        "name": "Business Standard: Stock Market Close, 22 Oct",
+        "url": "https://www.business-standard.com/markets/news/stock-market-live-october-22-nse-bse-sensex-today-nifty50-gift-nifty-jio-ipo-today-126102200085_1.html"
       }
     },
     {
@@ -146,6 +146,11 @@
         "d": "2026-10-21",
         "v": 22811.35,
         "s": "Business Standard"
+      },
+      {
+        "d": "2026-10-22",
+        "v": 22687.65,
+        "s": "IIFL"
       }
     ],
     "Sensex": [
@@ -177,6 +182,11 @@
         "d": "2026-10-21",
         "v": 73709.69,
         "s": "Business Standard"
+      },
+      {
+        "d": "2026-10-22",
+        "v": 73249.39,
+        "s": "HDFC Sky"
       }
     ],
     "Bank Nifty": [
@@ -188,6 +198,11 @@
         "d": "2026-10-21",
         "v": 54976.9,
         "s": "5paisa"
+      },
+      {
+        "d": "2026-10-22",
+        "v": 54832.35,
+        "s": "IIFL"
       }
     ]
   }

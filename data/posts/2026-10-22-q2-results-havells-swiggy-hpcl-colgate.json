@@ -1,0 +1,150 @@
+{
+  "title": "Q2 results: Havells profit up 9.7%, Swiggy loss narrows to ₹922 crore, HPCL earns ₹3,625 crore",
+  "dek": "Colgate's profit rose 4.3%; HPCL's profit fell 6.1% from a year ago but it swung back from a large first-quarter loss.",
+  "category": "markets",
+  "lead": false,
+  "edition": "2026-10-22-report",
+  "editionLabel": "Thu 22 Oct · Daily market report",
+  "publishedAt": "2026-10-22T20:45:00+05:30",
+  "readMins": 3,
+  "body": [
+    "Four big companies reported July–September results after Thursday's close. Havells India's consolidated profit rose 9.72% to ₹349.22 crore and revenue from operations jumped 34.57% to ₹6,432 crore, Business Standard reported; cables grew 47.9% to ₹2,999 crore on higher copper prices, and Lloyd consumer durables 28.4% to ₹615 crore.",
+    "Colgate-Palmolive India's profit rose 4.3% to ₹341.6 crore on revenue up 12.3% to ₹1,705.8 crore, with high-single-digit toothpaste volume growth. Swiggy's consolidated loss narrowed to ₹922 crore from ₹1,092 crore a year earlier as revenue grew 36.1% to ₹7,571 crore; its quick-commerce arm Instamart lost ₹895 crore, Business Today reported.",
+    "HPCL reported a consolidated profit of ₹3,625.22 crore (standalone ₹3,482.62 crore), 6.1% lower than a year ago but a sharp turnaround from a ₹12,264.67 crore loss in the April–June quarter, the Free Press Journal reported. Revenue rose 26% to ₹1,39,113.50 crore. 'Consolidated' includes subsidiaries and joint ventures; 'standalone' is the company alone, which is why there are two profit figures.",
+    "These figures are as reported by news outlets citing the companies' filings; the exchange filings were not yet available to us and figures will be checked against them. Adani Energy Solutions' numbers could not be confirmed tonight.",
+    "Key takeaway: Havells and Colgate grew steadily, Swiggy is losing less money, and HPCL's swing shows how much oil-marketing profits depend on crude prices and government LPG compensation."
+  ],
+  "table": {
+    "title": "Q2 FY27 results (₹ crore)",
+    "columns": [
+      "Company",
+      "Profit / loss",
+      "Revenue"
+    ],
+    "rows": [
+      {
+        "label": "Havells India",
+        "value": "349.22 (+9.7%)",
+        "change": "6,432 (+34.6%)",
+        "note": "Consolidated"
+      },
+      {
+        "label": "Colgate-Palmolive India",
+        "value": "341.6 (+4.3%)",
+        "change": "1,705.8 (+12.3%)",
+        "note": ""
+      },
+      {
+        "label": "HPCL",
+        "value": "3,625.22 (−6.1%)",
+        "change": "1,39,113.50 (+26%)",
+        "note": "Consolidated; standalone profit 3,482.62"
+      },
+      {
+        "label": "Swiggy",
+        "value": "−922 (loss; −1,092 a year ago)",
+        "change": "7,571 (+36.1%)",
+        "note": "Consolidated"
+      }
+    ]
+  },
+  "indiaImpact": "Havells' strong cable sales reflect construction and power-sector demand; HPCL's results matter for fuel pricing and oil-marketing stocks while crude stays above $110.",
+  "coverHeadline": "Q2: HAVELLS +9.7%",
+  "stat": "+9.7%",
+  "statLabel": "Havells Q2 profit growth",
+  "coverContext": "Swiggy loss ₹922 cr · HPCL ₹3,625 cr",
+  "coverLabel": "Results",
+  "symbol": "growth",
+  "flags": [
+    "IN"
+  ],
+  "companies": [
+    {
+      "name": "Havells India",
+      "ticker": "HAVELLS"
+    },
+    {
+      "name": "Swiggy",
+      "ticker": "SWIGGY"
+    },
+    {
+      "name": "Hindustan Petroleum",
+      "ticker": "HINDPETRO"
+    },
+    {
+      "name": "Colgate-Palmolive India",
+      "ticker": "COLPAL"
+    }
+  ],
+  "seoTitle": "Q2 Results: Havells, Swiggy, HPCL, Colgate Profit, Revenue",
+  "seoDescription": "Q2 FY27 results 22 Oct 2026: Havells profit ₹349 cr (+9.7%), Swiggy loss narrows to ₹922 cr, HPCL earns ₹3,625 cr, Colgate ₹341.6 cr (+4.3%). Key numbers explained.",
+  "coverAlt": "Cover graphic: Havells Q2 profit up 9.7%; Swiggy and HPCL results",
+  "tags": [
+    "Q2 results",
+    "Havells Q2 results",
+    "Swiggy Q2 results",
+    "HPCL Q2 results",
+    "Colgate Q2 results"
+  ],
+  "topics": [
+    "earnings",
+    "company"
+  ],
+  "piggy": {
+    "happened": "Havells' profit rose 9.7%, Colgate's 4.3%, Swiggy's loss shrank to ₹922 crore and HPCL earned ₹3,625 crore in July–September.",
+    "matters": "Always check whether a profit figure is consolidated (with subsidiaries) or standalone. HPCL's two numbers differ by about ₹143 crore for that reason.",
+    "watch": [
+      "Share price reactions on Friday",
+      "Exchange filings to confirm the figures",
+      "Adani Energy Solutions' numbers"
+    ]
+  },
+  "sources": [
+    {
+      "name": "Business Standard: Havells Q2",
+      "url": "https://www.business-standard.com/companies/quarterly-results/havells-q2-net-profit-rises-9-7-to-349-cr-as-revenue-grows-34-6-126102201111_1.html"
+    },
+    {
+      "name": "Business Standard: Colgate-Palmolive India Q2",
+      "url": "https://business-standard.com/companies/quarterly-results/colgate-palmolive-india-q2-net-profit-rises-4-3-revenue-up-12-3-126102201170_1.html"
+    },
+    {
+      "name": "Business Today: Swiggy Q2",
+      "url": "https://www.businesstoday.in/markets/trending-stocks/story/swiggy-q2-results-loss-narrows-to-rs-922-cr-revenue-jumps-36-instamart-loss-at-rs-895-cr-563095-2026-10-22"
+    },
+    {
+      "name": "Free Press Journal: HPCL Q2 FY27",
+      "url": "https://www.freepressjournal.in/business/hpcl-q2-fy27-net-profit-falls-607-to-362522-crore-revenue-rises-26"
+    }
+  ],
+  "hi": {
+    "title": "Q2 नतीजे: Havells का मुनाफा 9.7% बढ़ा, Swiggy का घाटा घटकर ₹922 करोड़, HPCL ने कमाए ₹3,625 करोड़",
+    "dek": "Colgate का मुनाफा 4.3% बढ़ा; HPCL का मुनाफा साल भर पहले से 6.1% कम, लेकिन पहली तिमाही के बड़े घाटे से वापसी।",
+    "body": [
+      "गुरुवार को बाज़ार बंद होने के बाद चार बड़ी कंपनियों ने जुलाई–सितंबर तिमाही के नतीजे दिए। Business Standard के मुताबिक Havells India का कंसॉलिडेटेड मुनाफा 9.72% बढ़कर ₹349.22 करोड़ और कामकाज से आय 34.57% बढ़कर ₹6,432 करोड़ रही; तांबे के ऊंचे भाव से केबल कारोबार 47.9% बढ़कर ₹2,999 करोड़ और Lloyd 28.4% बढ़कर ₹615 करोड़ रहा।",
+      "Colgate-Palmolive India का मुनाफा 4.3% बढ़कर ₹341.6 करोड़ और आय 12.3% बढ़कर ₹1,705.8 करोड़ रही। Business Today के मुताबिक Swiggy का कंसॉलिडेटेड घाटा साल भर पहले के ₹1,092 करोड़ से घटकर ₹922 करोड़ रहा, आय 36.1% बढ़कर ₹7,571 करोड़; क्विक कॉमर्स Instamart का घाटा ₹895 करोड़ रहा।",
+      "Free Press Journal के मुताबिक HPCL का कंसॉलिडेटेड मुनाफा ₹3,625.22 करोड़ (स्टैंडअलोन ₹3,482.62 करोड़) रहा, साल भर पहले से 6.1% कम, लेकिन अप्रैल–जून तिमाही के ₹12,264.67 करोड़ के घाटे से ज़ोरदार वापसी। आय 26% बढ़कर ₹1,39,113.50 करोड़ रही। 'कंसॉलिडेटेड' में सहायक कंपनियां और जॉइंट वेंचर शामिल होते हैं, 'स्टैंडअलोन' सिर्फ कंपनी का, इसीलिए मुनाफे के दो आंकड़े हैं।",
+      "ये आंकड़े कंपनियों की फाइलिंग के हवाले से समाचार माध्यमों ने दिए हैं; एक्सचेंज फाइलिंग अभी हमें उपलब्ध नहीं थी, उससे मिलान किया जाएगा। Adani Energy Solutions के आंकड़े आज रात पक्के नहीं हो सके।",
+      "सबसे ज़रूरी बात: Havells और Colgate ने स्थिर ग्रोथ दी, Swiggy का घाटा घट रहा है, और HPCL का उतार-चढ़ाव दिखाता है कि तेल कंपनियों का मुनाफा कच्चे तेल के भाव और सरकारी LPG मुआवज़े पर कितना टिका है।"
+    ],
+    "tableTitle": "Q2 FY27 नतीजे (₹ करोड़)",
+    "indiaImpact": "Havells की केबल बिक्री निर्माण और बिजली क्षेत्र की मांग दिखाती है; कच्चा तेल $110 से ऊपर रहते HPCL के नतीजे ईंधन कीमतों और तेल कंपनियों के शेयरों के लिए अहम हैं।",
+    "piggy": {
+      "happened": "जुलाई–सितंबर में Havells का मुनाफा 9.7% और Colgate का 4.3% बढ़ा, Swiggy का घाटा घटकर ₹922 करोड़ रहा और HPCL ने ₹3,625 करोड़ कमाए।",
+      "matters": "हमेशा देखें कि मुनाफा कंसॉलिडेटेड (सहायक कंपनियों समेत) है या स्टैंडअलोन। HPCL के दोनों आंकड़ों में करीब ₹143 करोड़ का फर्क इसी वजह से है।",
+      "watch": [
+        "शुक्रवार को शेयरों की प्रतिक्रिया",
+        "एक्सचेंज फाइलिंग से आंकड़ों का मिलान",
+        "Adani Energy Solutions के आंकड़े"
+      ]
+    },
+    "seoTitle": "Q2 नतीजे: Havells, Swiggy, HPCL, Colgate का मुनाफा",
+    "seoDescription": "22 अक्टूबर Q2 FY27 नतीजे: Havells का मुनाफा ₹349 करोड़ (+9.7%), Swiggy का घाटा घटकर ₹922 करोड़, HPCL ने ₹3,625 करोड़ कमाए, Colgate ₹341.6 करोड़ (+4.3%)।",
+    "tags": [
+      "Q2 नतीजे",
+      "Havells Q2 नतीजे",
+      "Swiggy Q2 नतीजे",
+      "HPCL Q2 नतीजे"
+    ]
+  }
+}

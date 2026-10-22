@@ -1,0 +1,143 @@
+{
+  "title": "Evening markets: Nasdaq slides about 2% on AI jitters; Brent above $111 after Aramco attack; gold slips",
+  "dek": "Meta fell about 5% despite beating forecasts, Tesla cut its 2026 spending plan, and European shares opened lower.",
+  "category": "global",
+  "lead": false,
+  "edition": "2026-10-22-evening",
+  "editionLabel": "Thu 22 Oct · Evening update",
+  "publishedAt": "2026-10-22T21:10:00+05:30",
+  "readMins": 3,
+  "body": [
+    "US stocks fell on Thursday. By about 11:20 am New York time (8:50 pm IST), the Nasdaq was down 2.07% at 26,149.19, the S&P 500 down 1.16% at 7,667.23 and the Dow down 0.22% at 52,737.84, Yahoo Finance's live page showed. Chip stocks led the fall on worries that spending on AI data centres could slow; Lam Research dropped about 9%.",
+    "Big Tech results moved shares. Meta was down about 5.6% even after beating revenue forecasts and announcing a 2-for-1 stock split, as investors weighed its rising AI spending. Tesla cut its 2026 capital spending plan to $20 billion from $25 billion, Fortune reported, raising questions about how fast it can move into AI and robots.",
+    "Oil kept climbing after a deadly attack on Saudi Arabia's Dammam airport and an Aramco oil field. Brent traded at $111.45 (+2.42%) and US crude at $98.53. Gold fell 1.9% to about $4,071 an ounce, and the US 10-year yield eased to about 5.01%. In Europe, the Stoxx 600 had fallen 0.92% in early trade.",
+    "Key takeaway: falling US tech shares and oil above $110 point to another cautious start for Indian markets on Friday; watch GIFT Nifty in the morning brief."
+  ],
+  "table": {
+    "title": "Evening snapshot (about 8:50 pm IST)",
+    "rows": [
+      {
+        "label": "Nasdaq",
+        "value": "26,149.19",
+        "change": "-2.07%",
+        "note": "Yahoo Finance"
+      },
+      {
+        "label": "S&P 500",
+        "value": "7,667.23",
+        "change": "-1.16%",
+        "note": ""
+      },
+      {
+        "label": "Dow",
+        "value": "52,737.84",
+        "change": "-0.22%",
+        "note": ""
+      },
+      {
+        "label": "Brent crude",
+        "value": "$111.45",
+        "change": "+2.42%",
+        "note": "After Aramco attack"
+      },
+      {
+        "label": "WTI crude",
+        "value": "$98.53",
+        "change": "+1.42%",
+        "note": ""
+      },
+      {
+        "label": "Gold",
+        "value": "$4,071.30",
+        "change": "-1.90%",
+        "note": ""
+      },
+      {
+        "label": "US 10-year yield",
+        "value": "5.01%",
+        "change": "",
+        "note": "Eased about 11 bp"
+      }
+    ]
+  },
+  "indiaImpact": "Weak US tech shares may weigh on Indian IT stocks on Friday, while oil above $110 keeps pressure on the rupee and oil-using sectors; softer gold may bring small relief to jewellery buyers before Dhanteras.",
+  "globalImpact": "A sell-off in AI-linked chip stocks and fresh Middle East attacks pushed investors away from risk worldwide.",
+  "coverHeadline": "NASDAQ −2%, BRENT $111",
+  "stat": "−2%",
+  "statLabel": "Nasdaq at mid-session",
+  "coverContext": "Meta −5.6% · Tesla cuts capex · gold −1.9%",
+  "coverLabel": "Evening markets",
+  "symbol": "globe",
+  "flags": [
+    "US",
+    "SA"
+  ],
+  "companies": [
+    {
+      "name": "Meta",
+      "ticker": "META"
+    },
+    {
+      "name": "Tesla",
+      "ticker": "TSLA"
+    }
+  ],
+  "seoTitle": "US Stocks Today: Nasdaq Falls 2%, Brent $111, Meta Slides",
+  "seoDescription": "Evening markets 22 Oct 2026: Nasdaq −2.07%, S&P 500 −1.16% on AI jitters; Meta −5.6%, Tesla cuts 2026 capex to $20 billion; Brent $111.45, gold −1.9%.",
+  "coverAlt": "Cover graphic: Nasdaq down about 2% and Brent at $111 on 22 October 2026",
+  "tags": [
+    "US stock market",
+    "Nasdaq today",
+    "Brent crude",
+    "Meta shares",
+    "Tesla capex"
+  ],
+  "piggy": {
+    "happened": "US tech shares fell sharply mid-session, Meta dropped despite good results, and Brent rose above $111 after an attack on Saudi oil facilities.",
+    "matters": "These are mid-session US figures, not closing prices. Indian markets react to the US close, which comes after midnight IST.",
+    "watch": [
+      "The US close overnight",
+      "GIFT Nifty before 9:15 am Friday",
+      "Infosys results on Friday"
+    ]
+  },
+  "sources": [
+    {
+      "name": "Yahoo Finance: Stock market today, 22 Oct",
+      "url": "https://finance.yahoo.com/markets/live/stock-market-today-thursday-october-22-dow-sp-500-nasdaq-tesla-meta-112217857.html"
+    },
+    {
+      "name": "Fortune: Markets sell off worldwide",
+      "url": "https://fortune.com/2026/10/22/markets-sell-off-worldwide-further-conflict-looms-middle-east-elon-musk-cuts-capex-guidance/"
+    }
+  ],
+  "hi": {
+    "title": "शाम के बाज़ार: AI की चिंता से Nasdaq करीब 2% गिरा; Aramco हमले के बाद Brent $111 के ऊपर; सोना फिसला",
+    "dek": "अनुमान से बेहतर नतीजों के बावजूद Meta करीब 5% गिरा, Tesla ने 2026 का खर्च घटाया, और यूरोप के शेयर नीचे खुले।",
+    "body": [
+      "गुरुवार को अमेरिकी शेयर गिरे। Yahoo Finance के लाइव पेज के मुताबिक न्यूयॉर्क समय सुबह करीब 11:20 बजे (भारतीय समय रात 8:50) Nasdaq 2.07% गिरकर 26,149.19, S&P 500 1.16% गिरकर 7,667.23 और Dow 0.22% गिरकर 52,737.84 पर था। AI डेटा सेंटर पर खर्च धीमा होने की चिंता में चिप शेयर सबसे ज़्यादा गिरे; Lam Research करीब 9% टूटा।",
+      "बड़ी टेक कंपनियों के नतीजों ने शेयर हिलाए। आय के अनुमान से बेहतर रहने और 2-के-बदले-1 स्टॉक स्प्लिट के ऐलान के बावजूद Meta करीब 5.6% नीचे था, क्योंकि निवेशक बढ़ते AI खर्च को तौल रहे थे। Fortune के मुताबिक Tesla ने 2026 का पूंजी खर्च $25 अरब से घटाकर $20 अरब किया।",
+      "सऊदी अरब के Dammam एयरपोर्ट और Aramco तेल क्षेत्र पर घातक हमले के बाद तेल चढ़ता रहा। Brent $111.45 (+2.42%) और अमेरिकी कच्चा तेल $98.53 पर था। सोना 1.9% गिरकर करीब $4,071 प्रति औंस और अमेरिका की 10 साल की यील्ड करीब 5.01% पर आई। यूरोप में Stoxx 600 शुरुआती कारोबार में 0.92% गिरा था।",
+      "सबसे ज़रूरी बात: अमेरिकी टेक शेयरों की गिरावट और $110 से ऊपर का तेल शुक्रवार को भारतीय बाज़ार की एक और सतर्क शुरुआत का इशारा देते हैं; सुबह की ब्रीफ में GIFT Nifty देखें।"
+    ],
+    "tableTitle": "शाम का हाल (भारतीय समय करीब रात 8:50)",
+    "indiaImpact": "अमेरिकी टेक शेयरों की कमज़ोरी शुक्रवार को भारतीय IT शेयरों पर असर डाल सकती है, जबकि $110 से ऊपर का तेल रुपये और तेल इस्तेमाल करने वाले सेक्टरों पर दबाव बनाए रखेगा; सोने की नरमी धनतेरस से पहले खरीदारों को थोड़ी राहत दे सकती है।",
+    "globalImpact": "AI से जुड़े चिप शेयरों में बिकवाली और मध्य-पूर्व में नए हमलों से दुनिया भर में निवेशक जोखिम से दूर हुए।",
+    "piggy": {
+      "happened": "अमेरिकी टेक शेयर दिन के बीच तेज़ी से गिरे, अच्छे नतीजों के बावजूद Meta फिसला, और सऊदी तेल ठिकानों पर हमले के बाद Brent $111 के ऊपर गया।",
+      "matters": "ये अमेरिकी बाज़ार के दिन के बीच के आंकड़े हैं, क्लोज़ नहीं। भारतीय बाज़ार अमेरिकी क्लोज़ पर प्रतिक्रिया देता है, जो भारतीय समय आधी रात के बाद आता है।",
+      "watch": [
+        "रात में अमेरिकी बाज़ार का क्लोज़",
+        "शुक्रवार सुबह 9:15 से पहले GIFT Nifty",
+        "शुक्रवार को Infosys के नतीजे"
+      ]
+    },
+    "seoTitle": "अमेरिकी बाज़ार आज: Nasdaq 2% गिरा, Brent $111, Meta फिसला",
+    "seoDescription": "22 अक्टूबर शाम के बाज़ार: AI की चिंता से Nasdaq −2.07%, S&P 500 −1.16%; Meta −5.6%, Tesla ने 2026 खर्च घटाकर $20 अरब किया; Brent $111.45, सोना −1.9%।",
+    "tags": [
+      "अमेरिकी बाज़ार",
+      "ग्लोबल बाज़ार",
+      "Brent कच्चा तेल"
+    ]
+  }
+}
