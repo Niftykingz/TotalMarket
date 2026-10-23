@@ -131,6 +131,38 @@ class WrongFigures(V2):
         self.assertIn("FAILED at GRAPHICS_GENERATION", st)
 
 
+class ChartLabels(V2):
+    def _items(self, layout):
+        return [i["label"] for i in JOBS[layout]["graphic"]["chart"]["items"]]
+
+    def test_value_borrowed_from_another_figure_blocked(self):
+        def m(j):  # smallcap's verified -2.94% drawn on the Midcap 100 bar
+            for i in j["graphic"]["chart"]["items"]:
+                if i["label"] == "Midcap 100":
+                    i["pct"] = "-2.94%"
+        st = core.status(self.mutated("index_board", m))
+        self.assertIn("FAILED at GRAPHICS_GENERATION", st)
+        self.assertIn("Midcap 100", st)
+
+    def test_rescaled_figure_blocked_on_chart(self):
+        def m(j):  # 7,663.43 ÷ 1,00,000 ≈ 0.08 used to pass as a "scaled" figure
+            j["graphic"]["chart"]["items"][0]["pct"] = "+0.08%"
+        st = core.status(self.mutated("global_bars", m))
+        self.assertIn("FAILED at GRAPHICS_GENERATION", st)
+        self.assertIn("Dow Jones", st)
+
+    def test_unmatched_label_needs_explicit_figure_link(self):
+        def m(j):
+            j["graphic"]["chart"]["items"][0]["label"] = "Benchmark"
+        st = core.status(self.mutated("stock_move", m))
+        self.assertIn("no verified figure with a matching label", st)
+
+        def linked(j):
+            j["graphic"]["chart"]["items"][0]["label"] = "Benchmark"
+            j["graphic"]["chart"]["items"][0]["figures"] = ["hatsun"]
+        self.assertNotIn("matching label", core.status(self.mutated("stock_move", linked)))
+
+
 class Publishing(V2):
     def test_passed_v2_story_is_published_with_its_pinned_graphic(self):
         run = self.run_job(copy.deepcopy(JOBS["ipo_subscription"]))
