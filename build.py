@@ -773,8 +773,9 @@ def article_page(p, posts, meta):
 <div class="byline">{piggy_img("head96", "by-av")}<span>By <b>Boss Piggy AI</b> · TotalMarket AI market desk</span></div>
 {f'<p class="chg"><b>What changed</b>{e(p["changeNote"])}</p>' if p.get("changeNote") else ""}
 {people_strip(p)}
-{report.render(p.get("report")) if p.get("reportType") == "weekly_market" else ""}
+{report.render_weekly(p.get("report")) if p.get("reportType") == "weekly_market" else ""}
 <div class="body">{body_html}</div>
+{report.render_outlook(p.get("report")) if p.get("reportType") == "weekly_market" else ""}
 {piggy_box(p)}
 {report.render(p.get("report")) if p.get("reportType") != "weekly_market" else ""}
 {data_table(p)}

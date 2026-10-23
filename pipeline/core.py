@@ -381,25 +381,53 @@ def stage4_article(job, ver, gfx, root, write=True):
                 if f and f.get("value") not in (None, ""):
                     output.append((spec, f))
             return output
+        def week_pct(spec, f):
+            """Weekly % recomputed here from two verified closes (spec["weekAgo"] = id of the close a week earlier)."""
+            w = verified.get(spec.get("weekAgo") or "")
+            try:
+                a, b = N.to_float(w["value"]), N.to_float(f["value"])
+                return f"{(b - a) / a * 100:+.2f}" if a else ""
+            except (TypeError, KeyError, ValueError):
+                return ""
         rows, cards = [], []
         for spec, f in selected("indices"):
             label = str(spec.get("label") or f["label"])
             value, change = str(f["value"]), str(f.get("change") or "")
-            rows.append({"name": label, "close": value, "change": change,
-                         "source": str(f.get("source") or ""), "asOf": str(f.get("as_of") or "")})
-            cards.append({"label": label + " close", "value": value,
-                          "change": (change + " pts") if change else "",
-                          "dir": "down" if change.startswith("-") else "up" if change.startswith("+") else "flat"})
+            if re.fullmatch(r"[+\-]?\d+(\.\d+)?", change):      # exchange sends bare numbers: show sign + 2 dp
+                change = f"{float(change):+.2f}"
+            pf = verified.get(spec.get("pct") or "")
+            pct = str(pf["value"]) if pf else ""
+            row = {"name": label, "close": value, "change": change,
+                   "source": str(f.get("source") or ""), "asOf": str(f.get("as_of") or "")}
+            if pct:
+                row["pct"] = pct
+            wk = week_pct(spec, f)
+            if wk:
+                row["week"] = wk
+            rows.append(row)
+            if spec.get("kpi", True):
+                sign = change or pct
+                cards.append({"label": label, "value": value,
+                              "change": " · ".join(x for x in ((change + " pts") if change else "", (pct + "%") if pct else "") if x),
+                              "dir": "down" if sign.startswith("-") else "up" if sign.startswith("+") or (sign and sign[0].isdigit()) else "flat"})
         def percentage_rows(group):
-            return [{"name": str(spec.get("label") or f["label"]), "pct": str(f["value"])}
-                    for spec, f in selected(group)]
+            out = []
+            for spec, f in selected(group):
+                row = {"name": str(spec.get("label") or f["label"]), "pct": str(f["value"])}
+                base = verified.get(spec.get("close") or "")
+                wk = week_pct(spec, base) if base else ""
+                if wk:
+                    row["week"] = wk
+                out.append(row)
+            return out
         sectors = percentage_rows("sectors")
         caps = percentage_rows("caps")
         global_moves = percentage_rows("global")
         gainers = percentage_rows("gainers")
         losers = percentage_rows("losers")
         post["report"] = {
-            "dateLabel": "Friday market close",
+            "dateLabel": str(specs.get("dateLabel") or "Friday market close"),
+            "weekLabel": str(specs.get("weekLabel") or ""),
             "kpis": cards, "indices": rows, "sectors": sectors, "caps": caps,
             "global": global_moves, "gainers": gainers, "losers": losers,
             "takeaways": art.get("reportTakeaways") or [],
@@ -423,12 +451,17 @@ def stage4_article(job, ver, gfx, root, write=True):
             di = verified[flows["diiNet"]]
             # A net-only flow card is legitimate: purchases/sales are not invented.
             if str(fi.get("as_of"))[:10] == str(di.get("as_of"))[:10]:
+                gross = all(flows.get(k) in verified for k in ("fiiBuy", "fiiSell", "diiBuy", "diiSell"))
                 post["report"]["fiiDii"] = {
                     "asOf": str(fi.get("as_of") or "")[:10],
                     "fii": {"net": str(fi["value"])},
                     "dii": {"net": str(di["value"])},
-                    "note": "Verified net cash flows only; gross buy/sell data not available."
+                    "note": str(specs.get("fiiDiiNote") or "Verified net cash flows only; gross buy/sell data not available.")
                 }
+                if gross:
+                    for who in ("fii", "dii"):
+                        post["report"]["fiiDii"][who].update(buy=str(verified[flows[who + "Buy"]]["value"]),
+                                                             sell=str(verified[flows[who + "Sell"]]["value"]))
         post["visualAudit"] = {
             "verifiedFigureIds": sorted({spec["id"] for group in
                 ("indices", "sectors", "caps", "global", "gainers", "losers")

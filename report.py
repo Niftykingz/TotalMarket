@@ -1,5 +1,6 @@
 """Render the structured Daily Market Report (story field "report") as rich HTML."""
 import html
+import re
 
 e = lambda s: html.escape(str(s if s is not None else ""), quote=True)
 
@@ -9,6 +10,29 @@ def num(v):
         return float(str(v).replace(",", "").replace("%", "").replace("₹", "").replace("+", "").strip())
     except Exception:
         return None
+
+
+def inr_group(n, dec=2):
+    """Indian digit grouping (1,45,972.00) for numbers the exchange sends ungrouped."""
+    sign = "-" if n < 0 else ""
+    whole, frac = f"{abs(n):.{dec}f}".split(".") if dec else (f"{abs(n):.0f}", "")
+    if len(whole) > 3:
+        head, tail = whole[:-3], whole[-3:]
+        head = ",".join([head[max(0, i - 2):i] for i in range(len(head), 0, -2)][::-1])
+        whole = head + "," + tail
+    return sign + whole + ("." + frac if frac else "")
+
+
+def fmt_num(v, signed=False):
+    """Format a verified value for display without changing it: grouping and 2 decimals only."""
+    if v in (None, ""):
+        return ""
+    s = str(v).strip()
+    if not re.fullmatch(r"[+\-−]?\d+(\.\d+)?", s):
+        return s                      # already formatted by the source (e.g. "73,123.83")
+    n = float(s.replace("−", "-"))
+    out = inr_group(n)
+    return ("+" + out) if signed and n > 0 else out
 
 
 def fmt_pct(v):
@@ -30,6 +54,8 @@ def section(title, body, sub=""):
 
 def mood_banner(r):
     mood = r.get("mood") or ""
+    if not mood and r.get("weekLabel") is not None and r.get("dateLabel"):
+        return f'<div class="rp-mood flat"><span class="rp-moodtag">{e(r.get("dateLabel"))}</span></div>'
     m = mood.lower()
     c = "down" if "bear" in m or "weak" in m else "up" if "bull" in m or "strong" in m else "flat"
     arrow = {"down": "▼", "up": "▲", "flat": "◆"}[c]
@@ -43,7 +69,7 @@ def kpis(r):
         return ""
     cards = "".join(
         f'<div class="rp-kpi {k.get("dir") or cls(k.get("change"))}"><span class="l">{e(k.get("label"))}</span>'
-        f'<span class="v">{e(k.get("value"))}</span><span class="c">{e(k.get("change") or "")}</span></div>' for k in items)
+        f'<span class="v">{e(fmt_num(k.get("value")))}</span><span class="c">{e(k.get("change") or "")}</span></div>' for k in items)
     return f'<div class="rp-kpis">{cards}</div>'
 
 
@@ -87,24 +113,43 @@ def indices(r):
     if not rows:
         return ""
     has_pct = any(x.get("pct") not in (None, "") for x in rows)
+    has_week = any(x.get("week") not in (None, "") for x in rows)
     has_range = any(all(x.get(k) not in (None, "") for k in ("high", "low")) for x in rows)
     heads = "<th>Index</th><th>Close</th><th>Point change</th>"
     if has_pct:
-        heads += "<th>Change %</th>"
+        heads += "<th>Day %</th>"
+    if has_week:
+        heads += "<th>Week %</th>"
     if has_range:
         heads += "<th>Day low → day high</th>"
     trs = []
     for x in rows:
         row = (f'<tr><th scope="row">{e(x.get("name"))}</th>'
-               f'<td class="num">{e(x.get("close"))}</td>'
-               f'<td class="num {cls(x.get("change"))}">{e(x.get("change") or "—")}</td>')
+               f'<td class="num">{e(fmt_num(x.get("close")))}</td>'
+               f'<td class="num {cls(x.get("change"))}">{e(fmt_num(x.get("change"), True) or "—")}</td>')
         if has_pct:
             row += f'<td class="num {cls(x.get("pct"))}">{fmt_pct(x.get("pct"))}</td>'
+        if has_week:
+            row += f'<td class="num {cls(x.get("week"))}">{fmt_pct(x.get("week"))}</td>'
         if has_range:
             row += f'<td class="rng">{range_bar(x.get("open"), x.get("high"), x.get("low"), x.get("close"))}</td>'
         trs.append(row + "</tr>")
-    return section("Verified index scoreboard", '<div class="tablewrap"><table class="dt rp-idx">'
-                   f'<thead><tr>{heads}</tr></thead><tbody>{"".join(trs)}</tbody></table></div>')
+    src = sorted({x.get("source") for x in rows if x.get("source")})
+    return section("Index scoreboard", '<div class="tablewrap"><table class="dt rp-idx">'
+                   f'<thead><tr>{heads}</tr></thead><tbody>{"".join(trs)}</tbody></table></div>',
+                   "Closing levels; day and week changes. Week % is recomputed from the verified closes a week apart." if has_week else "")
+
+
+def week_chart(r):
+    rows = [{"name": x.get("name"), "pct": x.get("week")} for x in (r.get("indices") or []) + (r.get("caps") or [])
+            if x.get("week") not in (None, "") and "VIX" not in str(x.get("name")).upper()]
+    seen, uniq = set(), []
+    for x in rows:
+        if x["name"] not in seen:
+            seen.add(x["name"]); uniq.append(x)
+    if len(uniq) < 2:
+        return ""
+    return bars(uniq, "How the week went", r.get("weekLabel") or "Change over the week, from the previous Friday's close")
 
 def bars(items, title, sub=""):
     vals = [num(x.get("pct")) for x in items]
@@ -129,6 +174,8 @@ def caps_summary(caps):
     if len(vals) < 2:
         return ""
     best = max(vals, key=lambda t: t[1]); worst = min(vals, key=lambda t: t[1])
+    if best[1] < 0:
+        return f"All fell: {best[0]} least ({fmt_pct(best[1])}), {worst[0]} most ({fmt_pct(worst[1])})."
     return f"{best[0]} did best ({fmt_pct(best[1])}) and {worst[0]} did worst ({fmt_pct(worst[1])})."
 
 
@@ -141,10 +188,13 @@ def heatmap(r):
     tiles = []
     for s in secs:
         v = num(s["pct"]); a = .18 + .72 * abs(v) / mx
-        tiles.append(f'<div class="rp-tile {cls(v)}" style="--a:{a:.2f}"><span>{e(s.get("name"))}</span><b>{fmt_pct(v)}</b></div>')
+        wk = f'<small>Week {fmt_pct(s["week"])}</small>' if s.get("week") not in (None, "") else ""
+        tiles.append(f'<div class="rp-tile {cls(v)}" style="--a:{a:.2f}"><span>{e(s.get("name"))}</span><b>{fmt_pct(v)}</b>{wk}</div>')
     best, worst = secs[0], secs[-1]
-    sub = f'Best: {best.get("name")} ({fmt_pct(best["pct"])}). Worst: {worst.get("name")} ({fmt_pct(worst["pct"])}).'
-    return section("Sector heatmap", f'<div class="rp-heat">{"".join(tiles)}</div>', sub)
+    sub = (f'Every sector shown fell. Smallest fall: {best.get("name")} ({fmt_pct(best["pct"])}); biggest: {worst.get("name")} ({fmt_pct(worst["pct"])}).'
+           if num(best["pct"]) < 0 else
+           f'Best: {best.get("name")} ({fmt_pct(best["pct"])}). Worst: {worst.get("name")} ({fmt_pct(worst["pct"])}).')
+    return section("Sector heatmap", f'<div class="rp-heat">{"".join(tiles)}</div>', sub + (" Tiles show the day's change." if any(x.get("week") for x in secs) else ""))
 
 
 def movers_list(items, up):
@@ -195,9 +245,9 @@ def flow_card(name, x):
     if not x:
         return ""
     n = num(x.get("net"))
-    return (f'<div class="rp-flow {cls(n)}"><span class="who">{e(name)}</span><b class="net">{"+" if n and n > 0 else ""}{e(x.get("net"))} cr</b>'
+    return (f'<div class="rp-flow {cls(n)}"><span class="who">{e(name)}</span><b class="net">{e(fmt_num(x.get("net"), True))} cr</b>'
             f'<span class="tag">{"Net buyers" if n and n > 0 else "Net sellers" if n else ""}</span>'
-            f'<div class="bs"><span>Bought ₹{e(x.get("buy") or "—")} cr</span><span>Sold ₹{e(x.get("sell") or "—")} cr</span></div></div>')
+            f'<div class="bs"><span>Bought ₹{e(fmt_num(x.get("buy")) or "—")} cr</span><span>Sold ₹{e(fmt_num(x.get("sell")) or "—")} cr</span></div></div>')
 
 
 def fii_dii(r):
@@ -210,7 +260,12 @@ def fii_dii(r):
         mt = (f'<div class="rp-stats"><div class="rp-stat {cls(mtd.get("fii"))}"><span>FII month to date</span><b>₹{e(mtd.get("fii"))} cr</b></div>'
               f'<div class="rp-stat {cls(mtd.get("dii"))}"><span>DII month to date</span><b>₹{e(mtd.get("dii"))} cr</b></div></div>')
     note = f'<p class="rp-note">{e(f.get("note"))}</p>' if f.get("note") else ""
-    return section(f"FII / DII activity (cash, {f.get('asOf') or 'provisional'})",
+    try:
+        import datetime as _dt
+        when = _dt.date.fromisoformat(str(f.get("asOf"))[:10]).strftime("%a ") + str(int(str(f.get("asOf"))[8:10])) + _dt.date.fromisoformat(str(f.get("asOf"))[:10]).strftime(" %b")
+    except ValueError:
+        when = f.get("asOf") or "provisional"
+    return section(f"FII / DII activity (cash market, {when})",
                    f'<div class="rp-flows">{flow_card("FIIs / FPIs", f.get("fii"))}{flow_card("DIIs", f.get("dii"))}</div>{mt}{note}')
 
 
@@ -246,6 +301,27 @@ def bullets(title, items, cls_):
     if not items:
         return ""
     return section(title, f'<ul class="rp-list {cls_}">{"".join(f"<li>{e(i)}</li>" for i in items)}</ul>')
+
+
+def render_weekly(r):
+    """Weekly/Friday report: hero KPIs, then performance, participation; the outlook goes after the analysis."""
+    if not r:
+        return ""
+    caps = r.get("caps") or []
+    parts = [mood_banner(r), kpis(r),
+             bullets("Key takeaways", r.get("takeaways"), "take"),
+             week_chart(r), indices(r),
+             bars(caps, "Large, mid and small caps on Friday", caps_summary(caps)) if caps else "",
+             heatmap(r), breadth(r), fii_dii(r), gainers_losers(r), ipos(r),
+             bars(r.get("global") or [], "Global and commodity cues", "") if r.get("global") else ""]
+    return '<div class="report rp-weekly">' + "".join(p for p in parts if p) + "</div>"
+
+
+def render_outlook(r):
+    if not r:
+        return ""
+    out = levels(r) + bullets("What to watch next week", r.get("watch"), "watch")
+    return f'<div class="report rp-weekly">{out}</div>' if out else ""
 
 
 def render(r):
