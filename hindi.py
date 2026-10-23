@@ -439,17 +439,19 @@ def silver_page(r, hp, meta, c):
                      lang="hi", alternates=[("en", c["site_url"] + "/silver-rate-today/"), ("hi", c["site_url"] + "/hi/silver-rate-today/")], switch=(f"{base}silver-rate-today/", "English"))
 
 
-STATUS_IPO_HI = {"open": "अभी खुले IPO", "upcoming": "आने वाले IPO", "closed": "बंद, लिस्टिंग का इंतज़ार", "listing": "आज लिस्टिंग", "listed": "हाल में लिस्ट हुए"}
+STATUS_IPO_HI = {"open": "अभी खुले IPO", "upcoming": "आने वाले IPO", "closed": "बोली बंद, अलॉटमेंट/लिस्टिंग का इंतज़ार", "listing": "आज लिस्टिंग", "listed": "हाल में लिस्ट हुए"}
+BADGE_HI = {"open": "अभी खुला", "upcoming": "जल्द खुलेगा", "closed": "बोली बंद", "listing": "आज लिस्टिंग", "listed": "लिस्ट हो गया"}
 
 
 def _ipo_card(x, st, c):
     e, base = c["e"], c["base"]
-    rows = [("तारीख", f'{hdate(x.get("open"))} – {hdate(x.get("close"))}' if x.get("open") else "—"),
+    rows = [("स्थिति", BADGE_HI.get(st, "")),
+            ("तारीख", f'{hdate(x.get("open"))} सुबह 10 बजे – {hdate(x.get("close"))} शाम 5 बजे (IST)' if x.get("open") else "—"),
             ("प्राइस बैंड", x.get("priceBand") or "—"), ("लॉट साइज़", f'{x["lot"]} शेयर' if x.get("lot") else "—")]
     if x.get("minAmount"): rows.append(("कम से कम निवेश", _inr(x["minAmount"])))
     if x.get("issueSize"): rows.append(("इश्यू साइज़", x["issueSize"]))
     if x.get("allotment"): rows.append(("अलॉटमेंट", hdate(x["allotment"])))
-    if x.get("listing"): rows.append(("लिस्टिंग", hdate(x["listing"])))
+    if x.get("listing"): rows.append(("लिस्टिंग", hdate(x["listing"]) + ", सुबह 10 बजे से ट्रेडिंग"))
     sub = x.get("subscription") or {}
     if sub.get("total") is not None:
         parts = [f'कुल {sub["total"]} गुना'] + [f'{lbl} {sub[k]} गुना' for k, lbl in (("qib", "QIB"), ("nii", "HNI/NII"), ("retail", "रिटेल")) if sub.get(k) is not None]
@@ -459,7 +461,8 @@ def _ipo_card(x, st, c):
     if (x.get("gmp") or {}).get("value") and st in ("open", "upcoming", "closed"):
         rows.append(("GMP (अनौपचारिक)", f'{x["gmp"]["value"]} ({x["gmp"].get("asOf", "")}) · ग्रे मार्केट प्रीमियम अनाधिकारिक है, भरोसेमंद संकेत नहीं'))
     tr = "".join(f'<tr><th scope="row">{e(k)}</th><td>{e(v)}</td></tr>' for k, v in rows)
-    return (f'<section class="lesson ipo-hi"><h3><a href="{base}ipo/{e(x["slug"])}/" lang="en">{e(x["name"])} IPO</a> <span class="stbadge">{e(x.get("segment", ""))}</span></h3>'
+    import hubs
+    return (f'<section class="lesson ipo-hi"{hubs.ipo_data_attrs(x, "hi")}><span class="ipst st-{st}" data-ipo-badge>{e(BADGE_HI.get(st, ""))}</span><h3><a href="{base}ipo/{e(x["slug"])}/" lang="en">{e(x["name"])} IPO</a> <span class="stbadge">{e(x.get("segment", ""))}</span></h3>'
             f'<div class="tablewrap"><table class="dt"><tbody>{tr}</tbody></table></div></section>')
 
 
@@ -467,10 +470,10 @@ def ipo_page(hp, meta, c):
     import hubs
     e, base = c["e"], c["base"]
     data = hubs.load_ipos() if hasattr(hubs, "load_ipos") else json.load(open(_os.path.join(_ROOT, "data", "ipos.json"), encoding="utf-8"))
-    today = datetime.now(c["ist"]).date()
+    now = datetime.now(c["ist"])
     groups = {}
     for x in data.get("ipos", []):
-        groups.setdefault(hubs.ipo_status(x, today), []).append(x)
+        groups.setdefault(hubs.ipo_status(x, now), []).append(x)
     secs = ""
     for st in ("listing", "open", "upcoming", "closed", "listed"):
         if groups.get(st):

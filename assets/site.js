@@ -340,3 +340,58 @@
   window.addEventListener("resize", update);
   update();
 })();
+
+/* IPO status in IST, kept correct after the page was built (opens 10 am, bidding closes 5 pm,
+   allotment day, trading from 10 am on listing day). Data comes from data-ipo-* attributes. */
+(function () {
+  var EN = {open: "Open now", upcoming: "Upcoming", closed: "Bidding closed", listing: "Listing today", listed: "Listed"};
+  var HI = {open: "अभी खुला", upcoming: "जल्द खुलेगा", closed: "बोली बंद", listing: "आज लिस्टिंग", listed: "लिस्ट हो गया"};
+  var MON = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+  function t(v) { return v ? new Date(v.length === 10 ? v + "T00:00:00+05:30" : v) : null; }
+  function istDay(d) { var x = new Date(d.getTime() + 330 * 60000); return x.toISOString().slice(0, 10); }
+  function clock(d) { var x = new Date(d.getTime() + 330 * 60000), h = x.getUTCHours(), m = x.getUTCMinutes();
+    return (h % 12 || 12) + (m ? ":" + ("0" + m).slice(-2) : "") + (h < 12 ? " am" : " pm"); }
+  function day(d, now) { var a = istDay(d), b = istDay(now), tm = istDay(new Date(now.getTime() + 864e5));
+    if (a === b) return "today"; if (a === tm) return "tomorrow";
+    var x = new Date(d.getTime() + 330 * 60000); return ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"][x.getUTCDay()] + " " + x.getUTCDate() + " " + MON[x.getUTCMonth()]; }
+  function status(el, now) {
+    var o = t(el.dataset.ipoOpen), c = t(el.dataset.ipoClose), l = t(el.dataset.ipoList), listed = el.dataset.ipoListed === "1";
+    if (listed && (!l || now >= l)) return "listed";
+    if (l && istDay(now) >= istDay(l)) return "listing";
+    if (c && now >= c) return "closed";
+    if (o && now >= o) return "open";
+    return "upcoming";
+  }
+  function phase(el, st, now) {
+    var o = t(el.dataset.ipoOpen), c = t(el.dataset.ipoClose), a = el.dataset.ipoAllot, l = t(el.dataset.ipoList);
+    if (st === "upcoming" && o) return "Opens " + day(o, now) + ", " + clock(o);
+    if (st === "open" && c) return "Bidding closes " + day(c, now) + ", " + clock(c);
+    if (st === "closed") {
+      var today = istDay(now);
+      if (a && a > today) return "Bidding closed · allotment " + day(t(a), now) + (l ? " · lists " + day(l, now) : "");
+      if (a && a === today) return "Allotment today" + (l ? " · lists " + day(l, now) : "");
+      return "Allotment done" + (l ? " · lists " + day(l, now) + ", " + clock(l) : "");
+    }
+    if (st === "listing" && l) return now < l ? "Lists today, trading from " + clock(l) : "Listing today · trading now";
+    return null;
+  }
+  function run() {
+    var now = new Date();
+    document.querySelectorAll("[data-ipo-close]").forEach(function (el) {
+      var st = status(el, now), hi = el.dataset.ipoLang === "hi";
+      var b = el.querySelector("[data-ipo-badge]");
+      if (b) { b.textContent = (hi ? HI : EN)[st]; b.className = b.className.replace(/st-\w+/, "st-" + st); }
+      var p = el.querySelector("[data-ipo-phase]"), ph = phase(el, st, now);
+      if (p && ph && !hi) p.textContent = ph;
+      el.dataset.ipoNow = st;
+    });
+    document.querySelectorAll("[data-ipo-group]").forEach(function (g) {
+      var cards = g.querySelectorAll("[data-ipo-now]"), sts = {};
+      cards.forEach(function (c) { sts[c.dataset.ipoNow] = 1; });
+      var keys = Object.keys(sts), h = g.querySelector(".edhead b");
+      if (h && keys.length === 1 && keys[0] !== g.dataset.ipoGroup) h.textContent = EN[keys[0]];
+    });
+  }
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", run); else run();
+  setInterval(run, 60000);
+})();

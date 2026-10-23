@@ -1,0 +1,39 @@
+name: Rebuild site
+# Rebuilds and publishes the site through the strict pipeline gate (no new articles).
+# Runs when site code (IPO timing, templates, scripts) changes on main, or on demand.
+"on":
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'hubs.py'
+      - 'home.py'
+      - 'hindi.py'
+      - 'build.py'
+      - 'assets/site.js'
+      - 'assets/style.css'
+      - '.github/workflows/rebuild-site.yml'
+concurrency:
+  group: totalmarket-main-publisher
+  cancel-in-progress: false
+permissions:
+  contents: write
+jobs:
+  rebuild:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+          ref: main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install pillow numpy matplotlib
+      - name: Tests
+        run: python3 -m unittest discover -s tests
+      - name: Dry run (gate + build into a temp folder)
+        run: python3 -m pipeline publish --dry-run
+      - name: Publish
+        run: python3 -m pipeline publish -m "Rebuild site (IPO timing and status refresh)"
