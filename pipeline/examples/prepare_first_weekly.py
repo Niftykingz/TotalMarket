@@ -16,6 +16,12 @@ article={
     "dek":"Friday close with verified index dashboard, market breadth context, sector commentary and next-week risks.",
     "category":"markets","lead":True,"readMins":4,
     "reportType":"weekly_market",
+    # Declarative slots: only verified figure IDs are rendered. A category with
+    # no source-backed data remains absent, never a fabricated chart or table.
+    "visualSpec":{
+        "indices":[{"id":"nifty","label":"Nifty 50"},{"id":"sensex","label":"Sensex"}],
+        "sectors":[],"caps":[],"global":[],"gainers":[],"losers":[]
+    },
     "reportTakeaways":["Friday benchmarks closed lower after recovering from intraday lows.","Broader-market and sector weakness warrants attention beyond headline indices."],
     "reportWatch":["Crude oil, rupee and quarterly earnings","Institutional cash flows and exchange-verified expiry positioning"],
     "body":[
