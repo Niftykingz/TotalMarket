@@ -205,6 +205,19 @@ def stage2_verify(collected):
     return {"verified": verified, "rejected": rejected, "examples": collected["examples"]}, errs
 
 
+def stage2_with_remote_evidence(collected, root=ROOT):
+    """Require original-source evidence BEFORE creating graphics or articles."""
+    from . import source_audit
+    cfg_path = Path(root) / "pipeline" / "config.json"
+    cfg = json.loads(cfg_path.read_text(encoding="utf-8")) if cfg_path.is_file() else {}
+    verified, errors = stage2_verify(collected)
+    if cfg.get("require_live_evidence", True):
+        ok, source_errors = source_audit.audit(collected)
+        if not ok:
+            errors.extend("REMOTE_EVIDENCE: " + e for e in source_errors)
+    return verified, errors
+
+
 def _cands(ver, with_examples=False):
     figs = list(ver["verified"]) + (list(ver["examples"]) if with_examples else [])
     return N.candidates(figs)
@@ -432,7 +445,7 @@ def run_job(job_path, root=ROOT, render=True):
     edition_date = str(job["article"].get("edition") or job["article"].get("publishedAt"))[:10]
     steps = [
         lambda: stage1_collect(job, edition_date),
-        lambda: stage2_verify(run.load(1)),
+        lambda: stage2_with_remote_evidence(run.load(1), root),
         lambda: stage3_graphic(job, run.load(2), run, root, render=render),
         lambda: stage4_article(job, run.load(2), run.load(3), root),
         lambda: (None, qa_checks(job["slug"], run.load(2), run.load(3), run.load(4), root)),
