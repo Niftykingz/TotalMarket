@@ -1,0 +1,56 @@
+{
+ "verified": [
+  {
+   "id": "tot",
+   "label": "Jio IPO total subscription",
+   "value": "22.19",
+   "source": "hdfc",
+   "evidence": "subscribed 22.19 times overall by 7:00 PM IST on October 23, 2026",
+   "as_of": "2026-10-23",
+   "key": true
+  },
+  {
+   "id": "qib",
+   "label": "Jio IPO QIB subscription",
+   "value": "70.55",
+   "source": "hdfc",
+   "evidence": "QIB subscription at 70.55 times, NII at 14.00 times and retail at 2.72 times.",
+   "as_of": "2026-10-23",
+   "key": true
+  },
+  {
+   "id": "nii",
+   "label": "Jio IPO NII subscription",
+   "value": "14.00",
+   "source": "hdfc",
+   "evidence": "QIB subscription at 70.55 times, NII at 14.00 times and retail at 2.72 times.",
+   "as_of": "2026-10-23"
+  },
+  {
+   "id": "rii",
+   "label": "Jio IPO retail subscription",
+   "value": "2.72",
+   "source": "hdfc",
+   "evidence": "QIB subscription at 70.55 times, NII at 14.00 times and retail at 2.72 times.",
+   "as_of": "2026-10-23"
+  },
+  {
+   "id": "emp",
+   "label": "Jio IPO employee subscription",
+   "value": "2.93",
+   "source": "hdfc",
+   "evidence": "The employee-reserved category was subscribed 2.93 times",
+   "as_of": "2026-10-23"
+  },
+  {
+   "id": "sh",
+   "label": "Jio IPO shareholder subscription",
+   "value": "7.60",
+   "source": "hdfc",
+   "evidence": "the shareholder reservation portion recorded 7.60 times",
+   "as_of": "2026-10-23"
+  }
+ ],
+ "rejected": [],
+ "examples": []
+}

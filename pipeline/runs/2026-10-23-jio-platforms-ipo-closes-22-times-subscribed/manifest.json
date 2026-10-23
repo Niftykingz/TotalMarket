@@ -1,0 +1,42 @@
+{
+ "slug": "2026-10-23-jio-platforms-ipo-closes-22-times-subscribed",
+ "job": "pipeline/inbox/2026-10-23-jio-platforms-ipo-closes-22-times-subscribed.json",
+ "job_sha256": "251761e013a4093796b973ed8973a9af7a62d3047fb3b7ccd29c5367a72be285",
+ "stages": {
+  "DATA_COLLECTION": {
+   "status": "PASS",
+   "sha256": "67470cce3d954c40a63f232a846f0ab5860d7a5ef3d10b95f33cfade7494bca2",
+   "errors": [],
+   "started": "2026-10-23T23:28:14+05:30",
+   "finished": "2026-10-23T23:28:17+05:30"
+  },
+  "DATA_VERIFICATION": {
+   "status": "PASS",
+   "sha256": "9adb35edc50b1990c6ccc011f2f9ca11315ee39bb467ffa4b03efd3d553d8aaf",
+   "errors": [],
+   "started": "2026-10-23T23:28:17+05:30",
+   "finished": "2026-10-23T23:28:18+05:30"
+  },
+  "GRAPHICS_GENERATION": {
+   "status": "PASS",
+   "sha256": "a56656cb6f415215dd7e98c623b1573210c24f18225c089ec1917e1dbf7e1481",
+   "errors": [],
+   "started": "2026-10-23T23:28:18+05:30",
+   "finished": "2026-10-23T23:28:18+05:30"
+  },
+  "ARTICLE_WRITING": {
+   "status": "PASS",
+   "sha256": "5f3ea21b98e815eddfeba36371d4b6c6e00babb4667f36884f7c40a623842537",
+   "errors": [],
+   "started": "2026-10-23T23:28:18+05:30",
+   "finished": "2026-10-23T23:28:18+05:30"
+  },
+  "FINAL_QA": {
+   "status": "PASS",
+   "sha256": "289bca1da01556bf87bc6e8b29aa1c72c58c7786fed5847f738f53410a53069d",
+   "errors": [],
+   "started": "2026-10-23T23:28:18+05:30",
+   "finished": "2026-10-23T23:28:18+05:30"
+  }
+ }
+}

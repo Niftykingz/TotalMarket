@@ -1,0 +1,131 @@
+{
+ "fields": {
+  "coverHeadline": "JIO IPO 22.19X SUBSCRIBED",
+  "stat": "22.19x",
+  "coverDate": "2026-10-23",
+  "symbol": "growth",
+  "flags": [
+   "IN"
+  ],
+  "companies": [
+   {
+    "name": "Jio Platforms",
+    "ticker": "JIOPLATFORMS"
+   }
+  ],
+  "chart": {
+   "type": "ipo_subscription",
+   "title": "IPO demand · bidding closed",
+   "asOf": "23 Oct 2026, 7:00 pm IST",
+   "source": "HDFC Sky",
+   "items": [
+    {
+     "label": "Total",
+     "value": "22.19x",
+     "role": "total",
+     "note": "Times subscribed, Jio Platforms"
+    },
+    {
+     "label": "Institutions (QIB)",
+     "value": "70.55x"
+    },
+    {
+     "label": "Wealthy individuals (NII)",
+     "value": "14.00x"
+    },
+    {
+     "label": "Shareholders",
+     "value": "7.60x"
+    },
+    {
+     "label": "Employees",
+     "value": "2.93x"
+    },
+    {
+     "label": "Retail",
+     "value": "2.72x"
+    }
+   ]
+  }
+ },
+ "analysis": {
+  "event": "ipo",
+  "instruments": [],
+  "companies": [
+   "Jio Platforms"
+  ],
+  "direction": "down",
+  "template": "ipo_subscription",
+  "object": "growth",
+  "figures": [
+   {
+    "label": "Total",
+    "value": "22.19x",
+    "role": "total",
+    "note": "Times subscribed, Jio Platforms"
+   },
+   {
+    "label": "Institutions (QIB)",
+    "value": "70.55x"
+   },
+   {
+    "label": "Wealthy individuals (NII)",
+    "value": "14.00x"
+   },
+   {
+    "label": "Shareholders",
+    "value": "7.60x"
+   },
+   {
+    "label": "Employees",
+    "value": "2.93x"
+   },
+   {
+    "label": "Retail",
+    "value": "2.72x"
+   }
+  ],
+  "series": [],
+  "reason": "ipo story with a verified ipo_subscription chart",
+  "data_required": true,
+  "missing": "",
+  "chart": {
+   "type": "ipo_subscription",
+   "title": "IPO demand · bidding closed",
+   "asOf": "23 Oct 2026, 7:00 pm IST",
+   "source": "HDFC Sky",
+   "items": [
+    {
+     "label": "Total",
+     "value": "22.19x",
+     "role": "total",
+     "note": "Times subscribed, Jio Platforms"
+    },
+    {
+     "label": "Institutions (QIB)",
+     "value": "70.55x"
+    },
+    {
+     "label": "Wealthy individuals (NII)",
+     "value": "14.00x"
+    },
+    {
+     "label": "Shareholders",
+     "value": "7.60x"
+    },
+    {
+     "label": "Employees",
+     "value": "2.93x"
+    },
+    {
+     "label": "Retail",
+     "value": "2.72x"
+    }
+   ]
+  }
+ },
+ "headline": "Jio Platforms IPO closes 22.19 times subscribed",
+ "files": {
+  "cover.jpg": "df2a74d8a080fb5d1fa38b1cf4f35f8abe3f2efb0b64b7f1d1f642dc6b83e1cd"
+ }
+}

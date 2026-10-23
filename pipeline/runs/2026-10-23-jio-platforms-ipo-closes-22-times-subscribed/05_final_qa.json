@@ -1,0 +1,13 @@
+{
+ "checked": [
+  "DATA_COLLECTION",
+  "DATA_VERIFICATION",
+  "GRAPHICS_GENERATION",
+  "ARTICLE_WRITING"
+ ],
+ "errors": [],
+ "post_sha256": "30c298ee6e9f135abd62fc6ba8c998094f074d4bc70e1af550e3e8cb13479c81",
+ "graphic": {
+  "cover.jpg": "df2a74d8a080fb5d1fa38b1cf4f35f8abe3f2efb0b64b7f1d1f642dc6b83e1cd"
+ }
+}
