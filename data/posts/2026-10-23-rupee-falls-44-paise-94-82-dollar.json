@@ -1,0 +1,49 @@
+{
+ "title": "Rupee falls 44 paise to 94.82 per dollar as crude oil jumps and shares slide",
+ "dek": "The rupee's eight-session winning streak ended on Thursday; expensive oil is the main pressure.",
+ "category": "commodities",
+ "lead": false,
+ "readMins": 2,
+ "body": [
+  "The rupee closed at 94.82 against the US dollar on Thursday (provisional), 44 paise weaker than Wednesday's 94.38, PTI reported. It opened at 94.47 and fell as far as 94.94 during the day. Business Standard said the move snapped an eight-session winning streak.",
+  "Why: oil. Brent crude rose 3.23% to $112.33 during Indian trading hours, PTI reported, after attacks on Saudi energy infrastructure, and Indian shares fell for a third day. India pays for oil in dollars, so when crude rises, oil companies need more dollars, which weakens the rupee. A softer dollar index (down 0.17% to 101.60) and lower US bond yields limited the fall.",
+  "Worked example: a student paying $20,000 in fees needs ₹18,96,400 at 94.82, compared with ₹18,87,600 at 94.38 — about ₹8,800 more after one day's move.",
+  "Key takeaway: watch Brent and FII flows together; both pushed the rupee lower on Thursday. Our rupee and dollar data are on /global-indices/ and the ticker above (all figures dated, not live)."
+ ],
+ "indiaImpact": "A weaker rupee makes imports such as oil, electronics and foreign education costlier, and can add to inflation.",
+ "globalImpact": "The dollar itself was slightly weaker, so the rupee's fall was mainly an oil story.",
+ "coverHeadline": "RUPEE 94.82 PER DOLLAR",
+ "stat": "94.82",
+ "statLabel": "Thursday close, down 44 paise",
+ "coverDate": "2026-10-22",
+ "symbol": "rupee",
+ "flags": [
+  "IN",
+  "US"
+ ],
+ "seoTitle": "Rupee vs Dollar: Rupee Falls 44 Paise to 94.82",
+ "seoDescription": "Rupee vs dollar 22 Oct 2026: rupee closes 44 paise lower at 94.82 (provisional) as Brent jumps 3.23% to $112.33 and shares slide; dollar index at 101.60.",
+ "coverAlt": "Cover graphic: rupee at 94.82 per dollar after a 44-paise fall",
+ "tags": [
+  "Rupee vs dollar",
+  "Dollar rate today",
+  "USD INR today",
+  "Rupee news",
+  "Rupee falls",
+  "Forex market India"
+ ],
+ "sources": [
+  {
+   "name": "PTI via The Sen Times: Rupee closes at 94.82",
+   "url": "https://thesentimes.com/rupee-slumps-44-paise-to-close-at-94-82-against-us-dollar/"
+  },
+  {
+   "name": "Business Standard: Rupee snaps eight-day winning streak",
+   "url": "https://business-standard.com/amp/finance/news/rupee-snaps-eight-day-winning-streak-as-rise-in-crude-offsets-inflows-126102201371_1.html"
+  }
+ ],
+ "edition": "2026-10-23-premarket",
+ "editionLabel": "Fri 23 Oct · Pre-market brief",
+ "publishedAt": "2026-10-23T09:06:00+05:30",
+ "status": "new"
+}

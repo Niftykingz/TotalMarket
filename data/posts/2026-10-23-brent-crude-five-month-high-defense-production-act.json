@@ -1,0 +1,75 @@
+{
+ "title": "Brent crude settles at $113.17, up 4%, as Houthis hit Saudi sites; Trump invokes Defense Production Act",
+ "dek": "Oil is near its highest since early May. For India, which buys most of its crude abroad, every dollar matters for fuel costs, the rupee and inflation.",
+ "category": "commodities",
+ "lead": false,
+ "readMins": 3,
+ "body": [
+  "Brent crude, the global oil benchmark, settled at $113.17 a barrel on Thursday, up 4.00%, and US crude (WTI) at $99.47, up 2.39%, according to CappNotes' closing summary. At 8:12 am IST on Friday, Brent's December contract was at $114.16, up 0.94%, Business Standard reported, and Reuters said it touched $114, a five-month high.",
+  "Why: Yemen's Houthis and Saudi Arabia are in open hostilities, with strikes on government sites in Riyadh, a Saudi Aramco site at Yanbu and two airports, and Iran has continued attacking ships near the Strait of Hormuz, a narrow sea lane that much of the world's oil passes through, Investing.com reported. Reports that the US and Israel may take fresh action against Iran added to supply worries.",
+  "The US response: President Trump declared petroleum production and refining essential to national defence and invoked part of the Defense Production Act, a Cold War-era law, which lets the government offer financial incentives for oil and gas projects. The aim is to bring down US fuel prices before the 3 November elections, Investing.com reported. New output takes time, so the order does not add barrels immediately.",
+  "What it means for India: a higher oil price raises the cost of every barrel India imports. Oil marketers like HPCL, BPCL and IOC see margins squeezed when crude rises faster than pump prices; HPCL's standalone profit fell 9% in July–September, Business Standard reported, as costlier crude hit fuel margins. BPCL reports its results today.",
+  "Worked example: at about 94.8 rupees to the dollar, one barrel at $113.17 costs roughly ₹10,731 (113.17 × 94.82), compared with about ₹10,318 at Wednesday's $108.82 settle at the same exchange rate — about ₹412 more per barrel in one day.",
+  "Key takeaway: oil is the market's biggest outside risk for India right now; watch Brent alongside the rupee, because both together set India's fuel import bill."
+ ],
+ "indiaImpact": "Costlier crude weighs on the rupee, oil marketers' margins and inflation, and can keep foreign investors cautious.",
+ "globalImpact": "Supply fears from the Gulf are pushing oil higher even as the US tries to boost domestic output.",
+ "coverHeadline": "BRENT $113 · 5-MONTH HIGH",
+ "stat": "$113.17",
+ "statLabel": "Brent settle, +4.00% on 22 Oct",
+ "coverDate": "2026-10-22",
+ "symbol": "oil",
+ "flags": [
+  "SA",
+  "US",
+  "IN"
+ ],
+ "companies": [
+  {
+   "name": "Hindustan Petroleum",
+   "ticker": "HINDPETRO"
+  },
+  {
+   "name": "Bharat Petroleum",
+   "ticker": "BPCL"
+  }
+ ],
+ "seoTitle": "Crude Oil Price Today: Brent $113, 5-Month High",
+ "seoDescription": "Crude oil price 23 Oct 2026: Brent settles at $113.17 (+4.00%) and trades at $114.16 in Asia as Houthis hit Saudi sites; Trump invokes Defense Production Act.",
+ "coverAlt": "Cover graphic: oil barrel as Brent settles at $113.17, a five-month high",
+ "tags": [
+  "Crude oil price today",
+  "Brent crude",
+  "Oil price news",
+  "Defense Production Act oil",
+  "Saudi Aramco attack",
+  "Petrol diesel price India",
+  "WTI crude"
+ ],
+ "sources": [
+  {
+   "name": "CappNotes: Closing Look, 22 Oct",
+   "url": "https://cappnotes.substack.com/p/closing-look-thursday-october-22"
+  },
+  {
+   "name": "Business Standard: Market live, 23 Oct",
+   "url": "https://www.business-standard.com/markets/news/stock-market-live-october-23-nse-bse-sensex-today-nifty50-gift-nifty-crude-oil-prices-jio-ipo-q2-results-today-126102300078_1.html"
+  },
+  {
+   "name": "Reuters via Business Standard: Asian shares, 23 Oct",
+   "url": "https://www.business-standard.com/markets/news/asian-shares-slip-as-tech-rout-boosts-bonds-dents-rate-hike-bets-126102300074_1.html"
+  },
+  {
+   "name": "Investing.com: Oil cools as Trump invokes Defense Production Act",
+   "url": "https://ca.investing.com/news/commodities-news/oil-prices-cool-from-5month-highs-as-trump-invokes-defense-production-act-4898346"
+  },
+  {
+   "name": "Business Standard: Stocks to watch, 23 Oct",
+   "url": "https://www.business-standard.com/markets/news/stocks-to-watch-emudhra-infosys-swiggy-hpcl-havells-sun-pharma-jsl-126102300089_1.html"
+  }
+ ],
+ "edition": "2026-10-23-premarket",
+ "editionLabel": "Fri 23 Oct · Pre-market brief",
+ "publishedAt": "2026-10-23T09:05:00+05:30",
+ "status": "new"
+}

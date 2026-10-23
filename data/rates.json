@@ -1,129 +1,135 @@
 {
-  "updatedAt": "2026-10-22T08:50:00+05:30",
-  "benchmark": {
-    "source": "India Bullion and Jewellers Association (IBJA)",
-    "url": "https://ibjarates.com/",
-    "date": "2026-10-19",
-    "session": "PM",
-    "gold": {
-      "999": 145944,
-      "995": 145360,
-      "916": 133685,
-      "750": 109458,
-      "585": 85377
-    },
-    "silver999": 208750,
-    "note": "Latest verified IBJA rates are from 19 Oct; IBJA did not publish on 20 Oct (Dussehra) and today's rates could not be confirmed at midday. Rates exclude 3% GST and making charges."
+ "updatedAt": "2026-10-23T09:00:00+05:30",
+ "benchmark": {
+  "source": "India Bullion and Jewellers Association (IBJA)",
+  "url": "https://ibjarates.com/",
+  "date": "2026-10-21",
+  "session": "PM",
+  "gold": {
+   "999": 144105,
+   "995": 143528,
+   "916": 132000,
+   "750": 108079,
+   "585": 84301
   },
-  "history": [
-    {
-      "date": "2026-10-14",
-      "gold999": 146064,
-      "gold916": 133795,
-      "silver999": 213822
-    },
-    {
-      "date": "2026-10-15",
-      "gold999": 145942,
-      "gold916": 133683,
-      "silver999": 208275
-    },
-    {
-      "date": "2026-10-16",
-      "gold999": 146426,
-      "gold916": 134126,
-      "silver999": 210918
-    },
-    {
-      "date": "2026-10-19",
-      "gold999": 145944,
-      "gold916": 133685,
-      "silver999": 208750
-    }
-  ],
-  "retailRange": {
-    "date": "2026-10-22",
-    "gold24": [
-      146070,
-      146220
-    ],
-    "gold22": [
-      133890,
-      134040
-    ],
-    "note": "Shop rates quoted on the morning of 22 Oct by Asianet Newsable (per-gram rates × 10); jewellers add 3% GST and making charges.",
-    "sources": [
-      {
-        "name": "Asianet Newsable",
-        "url": "https://newsable.asianetnews.com/business/gold-silver-prices-today-october-22-check-new-latest-rates-in-delhi-mumbai-bengaluru-and-other-cities-articleshow-x65sp0i"
-      }
-    ]
+  "silver999": 206783,
+  "note": "Latest dated IBJA rates (21 Oct, PM). A dated IBJA rate for 22 Oct could not be confirmed on the morning of 23 Oct. Rates exclude 3% GST and making charges."
+ },
+ "history": [
+  {
+   "date": "2026-10-14",
+   "gold999": 146064,
+   "gold916": 133795,
+   "silver999": 213822
   },
-  "cities": [
-    {
-      "slug": "delhi",
-      "name": "Delhi",
-      "gold24": 146220,
-      "gold22": 134040
-    },
-    {
-      "slug": "mumbai",
-      "name": "Mumbai",
-      "gold24": 146070,
-      "gold22": 133890
-    },
-    {
-      "slug": "chennai",
-      "name": "Chennai",
-      "gold24": 146070,
-      "gold22": 133890
-    },
-    {
-      "slug": "kolkata",
-      "name": "Kolkata",
-      "gold24": 146070,
-      "gold22": 133890
-    },
-    {
-      "slug": "bengaluru",
-      "name": "Bengaluru",
-      "gold24": 146070,
-      "gold22": 133890
-    },
-    {
-      "slug": "hyderabad",
-      "name": "Hyderabad",
-      "gold24": 146070,
-      "gold22": 133890
-    }
-  ],
-  "citySource": {
-    "name": "Asianet Newsable",
-    "asOf": "22 Oct 2026, 7:35 am IST",
-    "url": "https://newsable.asianetnews.com/business/gold-silver-prices-today-october-22-check-new-latest-rates-in-delhi-mumbai-bengaluru-and-other-cities-articleshow-x65sp0i"
+  {
+   "date": "2026-10-15",
+   "gold999": 145942,
+   "gold916": 133683,
+   "silver999": 208275
   },
-  "mcx": {
-    "asOf": "21 Oct 2026, morning (published 6:30 am IST)",
-    "gold": 145972,
-    "goldChangePct": -0.37,
-    "silver": 209207,
-    "silverChangePct": -1.08,
-    "contract": "December futures",
-    "source": {
-      "name": "Analytics Insight",
-      "url": "https://www.analyticsinsight.net/business/mcx-gold-falls-037-to-rs-145972-as-oil-prices-remain-elevated-brent-crude-hovers-at-usd-1104"
-    }
+  {
+   "date": "2026-10-16",
+   "gold999": 146426,
+   "gold916": 134126,
+   "silver999": 210918
   },
-  "silverRetail": {
-    "date": "2026-10-22",
-    "range": [
-      229900,
-      229900
-    ],
-    "note": "Shop rate per kg in six cities quoted by Asianet Newsable on the morning of 22 Oct; GST extra.",
-    "source": {
-      "name": "Asianet Newsable",
-      "url": "https://newsable.asianetnews.com/business/gold-silver-prices-today-october-22-check-new-latest-rates-in-delhi-mumbai-bengaluru-and-other-cities-articleshow-x65sp0i"
-    }
+  {
+   "date": "2026-10-19",
+   "gold999": 145944,
+   "gold916": 133685,
+   "silver999": 208750
+  },
+  {
+   "date": "2026-10-21",
+   "gold999": 144105,
+   "gold916": 132000,
+   "silver999": 206783
   }
+ ],
+ "retailRange": {
+  "date": "2026-10-23",
+  "gold24": [
+   144370,
+   144520
+  ],
+  "gold22": [
+   132340,
+   132490
+  ],
+  "note": "Indicative shop rates quoted early on 23 Oct by the Sunday Guardian (per-gram rates × 10), set before Indian bullion trading opened; GST and making charges extra.",
+  "sources": [
+   {
+    "name": "Sunday Guardian: Gold price today, 23 Oct",
+    "url": "https://sundayguardianlive.com/business/live-gold-price-today-mcx-gold-falls-144-lakh-silver-crashes-5000-as-oil-surge-113-trump-iran-war-fed-rate-check-latest-24k-22k-18k-gold-rate-in-delhi-mumbai-kerala-chennai-more-310421/"
+   }
+  ]
+ },
+ "cities": [
+  {
+   "slug": "delhi",
+   "name": "Delhi",
+   "gold24": 144520,
+   "gold22": 132490
+  },
+  {
+   "slug": "mumbai",
+   "name": "Mumbai",
+   "gold24": 144370,
+   "gold22": 132340
+  },
+  {
+   "slug": "chennai",
+   "name": "Chennai",
+   "gold24": 144370,
+   "gold22": 132340
+  },
+  {
+   "slug": "kolkata",
+   "name": "Kolkata",
+   "gold24": 144370,
+   "gold22": 132340
+  },
+  {
+   "slug": "bengaluru",
+   "name": "Bengaluru",
+   "gold24": 144370,
+   "gold22": 132340
+  },
+  {
+   "slug": "hyderabad",
+   "name": "Hyderabad",
+   "gold24": 144370,
+   "gold22": 132340
+  }
+ ],
+ "citySource": {
+  "name": "Sunday Guardian",
+  "asOf": "23 Oct 2026, 5:16 am IST",
+  "url": "https://sundayguardianlive.com/business/live-gold-price-today-mcx-gold-falls-144-lakh-silver-crashes-5000-as-oil-surge-113-trump-iran-war-fed-rate-check-latest-24k-22k-18k-gold-rate-in-delhi-mumbai-kerala-chennai-more-310421/"
+ },
+ "mcx": {
+  "asOf": "21 Oct 2026, morning (published 6:30 am IST)",
+  "gold": 145972,
+  "goldChangePct": -0.37,
+  "silver": 209207,
+  "silverChangePct": -1.08,
+  "contract": "December futures",
+  "source": {
+   "name": "Analytics Insight",
+   "url": "https://www.analyticsinsight.net/business/mcx-gold-falls-037-to-rs-145972-as-oil-prices-remain-elevated-brent-crude-hovers-at-usd-1104"
+  }
+ },
+ "silverRetail": {
+  "date": "2026-10-23",
+  "range": [
+   213400,
+   213400
+  ],
+  "note": "Delhi shop rate per kg quoted early on 23 Oct by the Sunday Guardian; GST extra.",
+  "source": {
+   "name": "Sunday Guardian: Gold price today, 23 Oct",
+   "url": "https://sundayguardianlive.com/business/live-gold-price-today-mcx-gold-falls-144-lakh-silver-crashes-5000-as-oil-surge-113-trump-iran-war-fed-rate-check-latest-24k-22k-18k-gold-rate-in-delhi-mumbai-kerala-chennai-more-310421/"
+  }
+ }
 }

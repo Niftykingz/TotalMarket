@@ -1,0 +1,241 @@
+{
+ "title": "Overnight: Nasdaq sinks 2.6% on AI-spending fears, Meta −7%; Brent settles at $113; GIFT Nifty up 128 pts",
+ "dek": "A tech sell-off and a sharp bond rally on Wall Street, oil at a five-month high, gold down nearly 3% — yet GIFT Nifty points to a firmer start in India.",
+ "category": "global",
+ "lead": true,
+ "readMins": 4,
+ "body": [
+  "Wall Street split sharply on Thursday. The tech-heavy Nasdaq Composite fell 2.60% (694 points) to 26,008.86 and the S&P 500 lost 1.21% to 7,663.43, while the Dow Jones edged up 0.02% to 52,867.98, AP reported. Business Standard called it the Nasdaq's worst session since June.",
+  "The trigger was worry about how much money big companies are spending on artificial intelligence. Meta fell 6.98% after its results and spending plans, Tesla 3.08%, Nvidia 4.40% and AMD 8.10%; the Philadelphia semiconductor index, a basket of chip makers, dropped 6.72%, according to CappNotes' closing summary of Yahoo Finance quotes. Investors are asking a simple question: when will these huge data-centre bills start paying for themselves?",
+  "Money moved into safe US government bonds. The 10-year Treasury yield fell by about 17–19 basis points to roughly 4.96% (sources differ slightly). A basis point is one-hundredth of a percentage point, so this was a big one-day move; when yields fall, bond prices rise. Traders also cut their bets on a US interest-rate hike in December: futures implied an 85% chance, down from higher levels, Reuters reported.",
+  "Oil kept climbing. Brent crude settled at $113.17 a barrel, up 4.00%, and US crude (WTI) at $99.47, up 2.39%, CappNotes reported — near their highest since early May after Yemen's Houthis struck Saudi sites including an Aramco facility at Yanbu and Iran kept attacking ships near the Strait of Hormuz, according to Investing.com. President Trump invoked part of the Defense Production Act, a Cold War-era law, to offer incentives for US oil and gas output. At 8:12 am IST Brent was at $114.16, up 0.94%. Gold dropped nearly 3% overnight to about $4,022 an ounce, and silver futures were 2.24% lower this morning.",
+  "In Asia on Friday morning, Japan's Nikkei was 1.3% lower and South Korea's Kospi 1.7% lower, while Hong Kong's Hang Seng was up 0.1% after Thursday's 3% fall, Reuters reported; Taiwan's market was shut because of a typhoon. GIFT Nifty, the Nifty futures contract traded in GIFT City that hints at India's opening, was at 22,839.50 at 8:23 am IST, up 128 points and above Thursday's Nifty close of 22,687.65.",
+  "Key takeaway: AI-spending fears hit tech stocks around the world, but GIFT Nifty points to a firmer start in India; with Brent above $113, oil remains the biggest risk for an economy that imports most of its crude."
+ ],
+ "table": {
+  "title": "Overnight snapshot (Thursday US close unless noted)",
+  "rows": [
+   {
+    "label": "Dow Jones",
+    "value": "52,867.98",
+    "change": "+0.02%",
+    "note": ""
+   },
+   {
+    "label": "S&P 500",
+    "value": "7,663.43",
+    "change": "-1.21%",
+    "note": ""
+   },
+   {
+    "label": "Nasdaq Composite",
+    "value": "26,008.86",
+    "change": "-2.60%",
+    "note": "Worst day since June"
+   },
+   {
+    "label": "Philadelphia chip index",
+    "value": "10,731.98",
+    "change": "-6.72%",
+    "note": "Per CappNotes"
+   },
+   {
+    "label": "Meta",
+    "value": "$648.85",
+    "change": "-6.98%",
+    "note": "After results, AI spending"
+   },
+   {
+    "label": "Tesla",
+    "value": "$374.58",
+    "change": "-3.08%",
+    "note": ""
+   },
+   {
+    "label": "US 10-year yield",
+    "value": "~4.96%",
+    "change": "-17 to -19 bp",
+    "note": "Sources differ slightly"
+   },
+   {
+    "label": "Dollar index (DXY)",
+    "value": "101.65",
+    "change": "-0.13%",
+    "note": "Per CappNotes"
+   },
+   {
+    "label": "USD/JPY",
+    "value": "156.44",
+    "change": "-0.2%",
+    "note": "Fri morning, after -0.9% Thu"
+   },
+   {
+    "label": "Brent crude",
+    "value": "$113.17",
+    "change": "+4.00%",
+    "note": "Settle; $114.16 at 8:12 am IST"
+   },
+   {
+    "label": "WTI crude",
+    "value": "$99.47",
+    "change": "+2.39%",
+    "note": "Settle"
+   },
+   {
+    "label": "Gold (spot)",
+    "value": "~$4,022/oz",
+    "change": "~-3%",
+    "note": "Thursday drop; flat Fri morning"
+   },
+   {
+    "label": "Nikkei 225",
+    "value": "",
+    "change": "-1.3%",
+    "note": "Fri morning"
+   },
+   {
+    "label": "Kospi",
+    "value": "",
+    "change": "-1.7%",
+    "note": "Fri morning"
+   },
+   {
+    "label": "Hang Seng",
+    "value": "",
+    "change": "+0.1%",
+    "note": "Fri morning, after -3% Thu"
+   },
+   {
+    "label": "Bitcoin",
+    "value": "~$81,150–81,290",
+    "change": "-3.6% to -4.3%",
+    "note": "Sources differ"
+   },
+   {
+    "label": "GIFT Nifty",
+    "value": "22,839.50",
+    "change": "+128 pts",
+    "note": "8:23 am IST"
+   },
+   {
+    "label": "USD/INR",
+    "value": "94.82",
+    "change": "Rupee -44 paise",
+    "note": "Thursday close (provisional, PTI)"
+   }
+  ]
+ },
+ "globalImpact": "A rotation out of AI and chip stocks into government bonds, plus oil at five-month highs, is making markets more nervous about both growth and inflation.",
+ "indiaImpact": "GIFT Nifty points to a positive open after three days of losses. IT stocks report against a weak global tech mood (Infosys results today), and oil above $113 keeps pressure on the rupee, fuel retailers and inflation.",
+ "piggy": {
+  "happened": "The Nasdaq fell 2.60% and Meta 6.98% on AI-spending worries; the US 10-year yield dropped about 17–19 basis points; Brent settled at $113.17; GIFT Nifty was 128 points higher at 8:23 am.",
+  "matters": "Falling US yields can make emerging markets like India look more attractive to foreign funds, but expensive oil works the other way, by raising India's import bill. That tug-of-war is why the open can look different from the close.",
+  "watch": [
+   "The Nifty open at 9:15 am vs GIFT Nifty",
+   "Infosys results today and how IT stocks react",
+   "Last day of the Jio Platforms and Paras Healthcare IPOs; four listings today"
+  ]
+ },
+ "coverHeadline": "NASDAQ −2.6% ON AI FEARS",
+ "stat": "-2.60%",
+ "statLabel": "Nasdaq closes at 26,008.86",
+ "coverDate": "2026-10-22",
+ "symbol": "globe",
+ "flags": [
+  "US",
+  "JP",
+  "KR",
+  "IN"
+ ],
+ "companies": [
+  {
+   "name": "Meta",
+   "ticker": "META"
+  },
+  {
+   "name": "Tesla",
+   "ticker": "TSLA"
+  },
+  {
+   "name": "Nvidia",
+   "ticker": "NVDA"
+  }
+ ],
+ "seoTitle": "Global Markets: Nasdaq −2.6%, Brent $113, GIFT Nifty Up",
+ "seoDescription": "Global markets 23 Oct 2026: Nasdaq falls 2.60% on AI-spending fears, Meta −6.98%, US 10-year yield near 4.96%, Brent $113.17, GIFT Nifty 22,839.50.",
+ "coverAlt": "Cover graphic: Nasdaq down 2.6% on 22 October as AI-spending fears hit tech",
+ "tags": [
+  "Global market today",
+  "US stock market",
+  "Nasdaq crash",
+  "GIFT Nifty today",
+  "Meta shares",
+  "Crude oil price",
+  "US bond yields",
+  "Stock market today"
+ ],
+ "sources": [
+  {
+   "name": "AP via ABC News: How US indexes fared 22 Oct",
+   "url": "https://abcnews.com/Business/wireStory/major-us-stock-indexes-fared-thursday-10222026-137490327"
+  },
+  {
+   "name": "Yahoo Finance: Stock market today, 22 Oct",
+   "url": "https://finance.yahoo.com/markets/article/stock-market-today-thursday-october-22-dow-sp-500-nasdaq-tesla-meta-112217857.html"
+  },
+  {
+   "name": "CappNotes: Closing Look, 22 Oct",
+   "url": "https://cappnotes.substack.com/p/closing-look-thursday-october-22"
+  },
+  {
+   "name": "Reuters via Business Standard: Asian shares, 23 Oct",
+   "url": "https://www.business-standard.com/markets/news/asian-shares-slip-as-tech-rout-boosts-bonds-dents-rate-hike-bets-126102300074_1.html"
+  },
+  {
+   "name": "Business Standard: Market live, 23 Oct",
+   "url": "https://www.business-standard.com/markets/news/stock-market-live-october-23-nse-bse-sensex-today-nifty50-gift-nifty-crude-oil-prices-jio-ipo-q2-results-today-126102300078_1.html"
+  },
+  {
+   "name": "Investing.com: Oil cools as Trump invokes Defense Production Act",
+   "url": "https://ca.investing.com/news/commodities-news/oil-prices-cool-from-5month-highs-as-trump-invokes-defense-production-act-4898346"
+  }
+ ],
+ "hi": {
+  "title": "रात का हाल: AI खर्च की चिंता से Nasdaq 2.6% गिरा, Meta −7%; Brent $113 पर; GIFT Nifty 128 अंक ऊपर",
+  "dek": "Wall Street पर टेक शेयर टूटे और बॉन्ड में तेज़ खरीदारी हुई, कच्चा तेल पांच महीने के ऊंचे स्तर पर, सोना करीब 3% नीचे — फिर भी GIFT Nifty भारत में बेहतर शुरुआत का इशारा दे रहा है।",
+  "body": [
+   "गुरुवार को अमेरिकी बाज़ार बंटा हुआ रहा। टेक शेयरों वाला Nasdaq Composite 2.60% (694 अंक) गिरकर 26,008.86 पर और S&P 500 1.21% गिरकर 7,663.43 पर बंद हुआ, जबकि Dow Jones 0.02% बढ़कर 52,867.98 पर रहा (AP)। Business Standard के मुताबिक यह जून के बाद Nasdaq का सबसे खराब दिन था।",
+   "वजह थी AI पर बड़ी कंपनियों का भारी खर्च। Meta 6.98%, Tesla 3.08%, Nvidia 4.40% और AMD 8.10% गिरे; चिप कंपनियों का Philadelphia semiconductor index 6.72% टूटा (CappNotes)। निवेशक पूछ रहे हैं: डेटा सेंटर पर इतना खर्च कब कमाई देगा?",
+   "पैसा सुरक्षित अमेरिकी सरकारी बॉन्ड में गया। 10 साल की Treasury yield करीब 17–19 basis points गिरकर लगभग 4.96% पर आ गई (स्रोतों में थोड़ा फर्क है)। एक basis point यानी 0.01 प्रतिशत अंक; yield गिरने का मतलब है बॉन्ड की कीमत बढ़ना। Reuters के मुताबिक दिसंबर में अमेरिकी ब्याज दर बढ़ने की संभावना futures में घटकर 85% रह गई।",
+   "कच्चा तेल और चढ़ा। Brent $113.17 प्रति बैरल (+4.00%) और WTI $99.47 (+2.39%) पर settle हुआ (CappNotes) — मई की शुरुआत के बाद के ऊंचे स्तर के पास। Investing.com के मुताबिक यमन के Houthis ने सऊदी ठिकानों पर हमले किए, जिनमें Yanbu में Aramco की एक साइट भी है, और Hormuz के पास ईरान के हमले जारी हैं। राष्ट्रपति Trump ने तेल-गैस उत्पादन बढ़ाने के लिए Defense Production Act का एक हिस्सा लागू किया। सुबह 8:12 बजे Brent $114.16 (+0.94%) पर था। सोना रातोंरात करीब 3% गिरकर लगभग $4,022 प्रति औंस पर आया और चांदी के futures सुबह 2.24% नीचे थे।",
+   "शुक्रवार सुबह एशिया में जापान का Nikkei 1.3% और दक्षिण कोरिया का Kospi 1.7% नीचे था, जबकि Hang Seng 0.1% ऊपर रहा (Reuters); तूफ़ान के कारण ताइवान का बाज़ार बंद रहा। GIFT Nifty सुबह 8:23 बजे 22,839.50 पर था, 128 अंक ऊपर — गुरुवार के Nifty close 22,687.65 से ऊपर।",
+   "मुख्य सीख: AI खर्च की चिंता ने दुनिया भर में टेक शेयर गिराए, पर GIFT Nifty भारत में बेहतर शुरुआत दिखा रहा है; Brent $113 से ऊपर होने से तेल भारत के लिए सबसे बड़ा जोखिम बना हुआ है।"
+  ],
+  "globalImpact": "AI और चिप शेयरों से निकलकर पैसा सरकारी बॉन्ड में जा रहा है, और तेल पांच महीने के ऊंचे स्तर पर है — इससे ग्रोथ और महंगाई दोनों को लेकर चिंता बढ़ी है।",
+  "indiaImpact": "तीन दिन की गिरावट के बाद GIFT Nifty सकारात्मक शुरुआत का इशारा दे रहा है। आज Infosys के नतीजे कमज़ोर ग्लोबल टेक माहौल में आएंगे, और $113 से ऊपर तेल रुपये, तेल कंपनियों और महंगाई पर दबाव बनाए रखेगा।",
+  "piggy": {
+   "happened": "AI खर्च की चिंता से Nasdaq 2.60% और Meta 6.98% गिरा; अमेरिकी 10 साल की yield करीब 17–19 basis points गिरी; Brent $113.17 पर settle हुआ; GIFT Nifty सुबह 8:23 बजे 128 अंक ऊपर था।",
+   "matters": "अमेरिकी yield गिरने से भारत जैसे बाज़ार विदेशी फंडों को ज़्यादा आकर्षक लग सकते हैं, पर महंगा तेल भारत का आयात बिल बढ़ाता है। इसी खींचतान से शुरुआत और close अलग दिख सकते हैं।",
+   "watch": [
+    "सुबह 9:15 बजे Nifty की शुरुआत बनाम GIFT Nifty",
+    "आज Infosys के नतीजे और IT शेयरों की प्रतिक्रिया",
+    "Jio Platforms और Paras Healthcare IPO का आखिरी दिन; आज चार लिस्टिंग"
+   ]
+  },
+  "tableTitle": "रात का हाल (अमेरिकी गुरुवार close, जब तक अलग न लिखा हो)",
+  "seoTitle": "ग्लोबल बाज़ार: Nasdaq −2.6%, Brent $113, GIFT Nifty ऊपर",
+  "seoDescription": "ग्लोबल बाज़ार 23 अक्टूबर 2026: AI खर्च की चिंता से Nasdaq 2.60% गिरा, Meta −6.98%, अमेरिकी 10 साल yield करीब 4.96%, Brent $113.17, GIFT Nifty 22,839.50 पर।",
+  "tags": [
+   "ग्लोबल बाज़ार आज",
+   "अमेरिकी शेयर बाज़ार",
+   "Nasdaq",
+   "GIFT Nifty आज",
+   "कच्चा तेल का भाव",
+   "शेयर बाज़ार आज"
+  ]
+ },
+ "edition": "2026-10-23-premarket",
+ "editionLabel": "Fri 23 Oct · Pre-market brief",
+ "publishedAt": "2026-10-23T09:02:00+05:30",
+ "status": "new"
+}

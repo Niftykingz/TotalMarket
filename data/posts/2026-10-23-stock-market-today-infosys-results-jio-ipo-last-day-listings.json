@@ -1,0 +1,173 @@
+{
+ "title": "Stock market today: GIFT Nifty up 128 pts; Infosys, Dr Reddy's, JSW Steel results; Jio IPO's last day, four listings",
+ "dek": "After three straight falls, futures point higher. FIIs sold a net ₹3,458.70 crore on Thursday while DIIs bought ₹2,891.30 crore; a busy results and IPO day follows.",
+ "category": "markets",
+ "lead": false,
+ "readMins": 4,
+ "body": [
+  "Indian shares look set for a firmer start on Friday. GIFT Nifty was at 22,839.50 at 8:23 am, up 128 points, Business Standard reported, compared with Thursday's Nifty close of 22,687.65 (down 0.54%), which was the index's third straight fall.",
+  "Foreign investors kept selling. On Thursday, FIIs (foreign institutional investors — big overseas funds) bought ₹13,627.50 crore of shares and sold ₹17,086.20 crore, a net sale of ₹3,458.70 crore. DIIs (domestic institutions such as mutual funds and insurers) bought ₹16,242.80 crore and sold ₹13,351.50 crore, a net purchase of ₹2,891.30 crore. These are provisional cash-market figures as reported by 5paisa; NSE's own FII/DII page did not show the table when we checked. Simple maths: DIIs absorbed about 84% of what FIIs sold on a net basis (2,891.30 ÷ 3,458.70).",
+  "Results today: Infosys, IndusInd Bank, Dr Reddy's Laboratories, JSW Steel, BPCL, Adani Power, Coforge, Godrej Properties, Shriram Finance, CG Power, Bank of India, Jindal Steel, Mastek and Newgen Software are among the companies reporting July–September numbers, according to Business Standard and Upstox. Most announce during or after market hours, so the share reaction often comes on the next trading day.",
+  "From Thursday evening's results: Swiggy's consolidated loss narrowed to ₹922 crore from ₹1,092 crore a year earlier on revenue up 36.14% to ₹7,571 crore (Upstox); HPCL's standalone profit fell 9% to ₹3,483 crore, and Jindal Stainless's profit rose 11% to ₹898 crore (Business Standard). Colgate-Palmolive India declared an interim dividend of ₹24 a share with 2 November as the record date. eMudhra said it will exit the global SSL/TLS certificate business after problems were found in some of its certificates; it said no data was breached.",
+  "IPOs: today is the last day to bid for Jio Platforms (₹1,065–1,119 a share), which was 5.51 times subscribed at the end of day two, and Paras Healthcare. Four companies are expected to list on NSE and BSE today: Zetwerk (price band ₹143–151), Tonbo Imaging (₹665–700), Bonfiglioli Transmissions (₹558–586) and Sahajanand Medical Technologies (₹327–344). We will report their opening prices against the issue price. See all dates on our IPO page (/ipo/).",
+  "Key takeaway: futures point higher, but foreign selling, oil above $113 and a heavy results day (with Infosys the big one for IT) can quickly change the mood — the 9:15 am open is only the first data point."
+ ],
+ "table": {
+  "title": "FII/DII cash market, Thu 22 Oct (₹ crore, provisional)",
+  "rows": [
+   {
+    "label": "FII buy",
+    "value": "13,627.50",
+    "change": "",
+    "note": ""
+   },
+   {
+    "label": "FII sell",
+    "value": "17,086.20",
+    "change": "",
+    "note": ""
+   },
+   {
+    "label": "FII net",
+    "value": "-3,458.70",
+    "change": "Net sellers",
+    "note": ""
+   },
+   {
+    "label": "DII buy",
+    "value": "16,242.80",
+    "change": "",
+    "note": ""
+   },
+   {
+    "label": "DII sell",
+    "value": "13,351.50",
+    "change": "",
+    "note": ""
+   },
+   {
+    "label": "DII net",
+    "value": "+2,891.30",
+    "change": "Net buyers",
+    "note": "As reported by 5paisa"
+   }
+  ]
+ },
+ "why": "With many results and IPO events on one day, stock-specific moves can be larger than the index move.",
+ "globalImpact": "A tech sell-off on Wall Street and oil at $113 set a cautious global backdrop for Friday.",
+ "indiaImpact": "Infosys and Coforge results test IT stocks after the US tech slide; JSW Steel and Jindal Steel matter for metals, BPCL for oil marketers, and IndusInd Bank for private banks.",
+ "piggy": {
+  "happened": "GIFT Nifty was 128 points higher at 8:23 am; on Thursday FIIs sold a net ₹3,458.70 crore and DIIs bought a net ₹2,891.30 crore (provisional); Infosys, Dr Reddy's and JSW Steel report today; the Jio IPO closes today.",
+  "matters": "When FIIs sell and DIIs buy, Indian funds are cushioning the market. Watching both numbers each evening tells you who is in control of the day's flows.",
+  "watch": [
+   "Infosys Q2 results (today) and its revenue guidance",
+   "Listing prices of Zetwerk, Tonbo, Bonfiglioli and Sahajanand today",
+   "Final Jio Platforms IPO subscription this evening"
+  ]
+ },
+ "coverHeadline": "RESULTS DAY: INFOSYS",
+ "stat": "INFOSYS",
+ "statLabel": "Plus Dr Reddy's, JSW Steel, BPCL",
+ "coverContext": "GIFT Nifty 22,839.50 · Jio IPO last day",
+ "symbol": "candles",
+ "flags": [
+  "IN"
+ ],
+ "companies": [
+  {
+   "name": "Infosys",
+   "ticker": "INFY"
+  },
+  {
+   "name": "IndusInd Bank",
+   "ticker": "INDUSINDBK"
+  },
+  {
+   "name": "Dr Reddy's Laboratories",
+   "ticker": "DRREDDY"
+  },
+  {
+   "name": "JSW Steel",
+   "ticker": "JSWSTEEL"
+  },
+  {
+   "name": "Bharat Petroleum",
+   "ticker": "BPCL"
+  },
+  {
+   "name": "Swiggy",
+   "ticker": "SWIGGY"
+  }
+ ],
+ "seoTitle": "Stock Market Today: Infosys Results, Jio IPO Last Day",
+ "seoDescription": "Stock market today 23 Oct 2026: GIFT Nifty 22,839.50 (+128), FIIs sold ₹3,458.70 cr, Infosys, Dr Reddy's, JSW Steel results; Jio IPO closes; four listings.",
+ "coverAlt": "Cover graphic: results day for Infosys, Dr Reddy's and JSW Steel",
+ "tags": [
+  "Stock market today",
+  "Share market today",
+  "Nifty today",
+  "GIFT Nifty today",
+  "Infosys Q2 results",
+  "FII DII data",
+  "Jio IPO last day",
+  "IPO listing today"
+ ],
+ "sources": [
+  {
+   "name": "Business Standard: Market live, 23 Oct",
+   "url": "https://www.business-standard.com/markets/news/stock-market-live-october-23-nse-bse-sensex-today-nifty50-gift-nifty-crude-oil-prices-jio-ipo-q2-results-today-126102300078_1.html"
+  },
+  {
+   "name": "5paisa: FII DII data (cash, provisional)",
+   "url": "https://www.5paisa.com/share-market-today/fii-dii-data"
+  },
+  {
+   "name": "Upstox: Stocks to watch, 23 Oct",
+   "url": "https://upstox.com/news/market-news/stocks/stocks-to-watch-oct-23-e-mudhra-swiggy-infosys-coforge-nuvoco-vistas-blue-stone-jewellery-mastek-adani-power/article-202258/"
+  },
+  {
+   "name": "Business Standard: Stocks to watch, 23 Oct",
+   "url": "https://www.business-standard.com/markets/news/stocks-to-watch-emudhra-infosys-swiggy-hpcl-havells-sun-pharma-jsl-126102300089_1.html"
+  }
+ ],
+ "hi": {
+  "title": "शेयर बाज़ार आज: GIFT Nifty 128 अंक ऊपर; Infosys, Dr Reddy's, JSW Steel के नतीजे; Jio IPO का आखिरी दिन, चार लिस्टिंग",
+  "dek": "लगातार तीन दिन की गिरावट के बाद futures ऊपर हैं। गुरुवार को FIIs ने ₹3,458.70 करोड़ की शुद्ध बिकवाली की, DIIs ने ₹2,891.30 करोड़ खरीदे; आज नतीजों और IPO का व्यस्त दिन है।",
+  "body": [
+   "शुक्रवार को भारतीय शेयर बेहतर शुरुआत करते दिख रहे हैं। Business Standard के मुताबिक GIFT Nifty सुबह 8:23 बजे 22,839.50 पर था, 128 अंक ऊपर; गुरुवार को Nifty 22,687.65 पर (0.54% नीचे) बंद हुआ था, लगातार तीसरी गिरावट।",
+   "विदेशी निवेशकों की बिकवाली जारी रही। गुरुवार को FIIs (विदेशी संस्थागत निवेशक — बड़े विदेशी फंड) ने ₹13,627.50 करोड़ के शेयर खरीदे और ₹17,086.20 करोड़ के बेचे, यानी ₹3,458.70 करोड़ की शुद्ध बिकवाली। DIIs (म्यूचुअल फंड, बीमा कंपनियां जैसी घरेलू संस्थाएं) ने ₹16,242.80 करोड़ खरीदे और ₹13,351.50 करोड़ बेचे, यानी ₹2,891.30 करोड़ की शुद्ध खरीद। ये 5paisa के बताए provisional cash-market आंकड़े हैं; हमने जब देखा तब NSE के FII/DII पेज पर टेबल नहीं दिखी। आसान हिसाब: FIIs की शुद्ध बिकवाली का करीब 84% DIIs ने संभाला (2,891.30 ÷ 3,458.70)।",
+   "आज के नतीजे: Business Standard और Upstox के मुताबिक Infosys, IndusInd Bank, Dr Reddy's Laboratories, JSW Steel, BPCL, Adani Power, Coforge, Godrej Properties, Shriram Finance, CG Power, Bank of India, Jindal Steel, Mastek और Newgen Software जुलाई–सितंबर के नतीजे देंगी। ज़्यादातर कंपनियां बाज़ार के समय या बाद में नतीजे देती हैं, इसलिए शेयर पर असर अक्सर अगले कारोबारी दिन दिखता है।",
+   "गुरुवार शाम के नतीजे: Swiggy का consolidated घाटा एक साल पहले के ₹1,092 करोड़ से घटकर ₹922 करोड़ रहा, revenue 36.14% बढ़कर ₹7,571 करोड़ (Upstox); HPCL का standalone मुनाफा 9% घटकर ₹3,483 करोड़ और Jindal Stainless का मुनाफा 11% बढ़कर ₹898 करोड़ रहा (Business Standard)। Colgate-Palmolive India ने ₹24 प्रति शेयर का अंतरिम डिविडेंड घोषित किया, record date 2 नवंबर। eMudhra ने कहा कि कुछ सर्टिफिकेट में दिक्कत मिलने के बाद वह ग्लोबल SSL/TLS सर्टिफिकेट कारोबार से बाहर निकलेगी; कंपनी के मुताबिक कोई डेटा लीक नहीं हुआ।",
+   "IPO: आज Jio Platforms (₹1,065–1,119 प्रति शेयर) में बोली लगाने का आखिरी दिन है, जो दूसरे दिन के अंत तक 5.51 गुना subscribe हुआ था; Paras Healthcare का भी आखिरी दिन है। आज चार कंपनियां NSE और BSE पर लिस्ट होने वाली हैं: Zetwerk (price band ₹143–151), Tonbo Imaging (₹665–700), Bonfiglioli Transmissions (₹558–586) और Sahajanand Medical Technologies (₹327–344)। हम इनकी शुरुआती कीमत issue price के मुकाबले बताएंगे।",
+   "मुख्य सीख: futures ऊपर हैं, पर विदेशी बिकवाली, $113 से ऊपर तेल और नतीजों से भरा दिन (IT के लिए Infosys सबसे अहम) माहौल जल्दी बदल सकते हैं — सुबह 9:15 बजे की शुरुआत बस पहला संकेत है।"
+  ],
+  "why": "एक ही दिन में कई नतीजे और IPO होने से कुछ शेयरों में हलचल इंडेक्स से ज़्यादा हो सकती है।",
+  "globalImpact": "Wall Street पर टेक शेयरों की गिरावट और $113 का तेल शुक्रवार के लिए सतर्क माहौल बनाते हैं।",
+  "indiaImpact": "अमेरिकी टेक गिरावट के बाद Infosys और Coforge के नतीजे IT शेयरों की परीक्षा लेंगे; मेटल के लिए JSW Steel और Jindal Steel, तेल कंपनियों के लिए BPCL और प्राइवेट बैंकों के लिए IndusInd Bank अहम हैं।",
+  "piggy": {
+   "happened": "GIFT Nifty सुबह 8:23 बजे 128 अंक ऊपर था; गुरुवार को FIIs ने ₹3,458.70 करोड़ की शुद्ध बिकवाली और DIIs ने ₹2,891.30 करोड़ की शुद्ध खरीद की (provisional); आज Infosys, Dr Reddy's और JSW Steel के नतीजे हैं; Jio IPO आज बंद होगा।",
+   "matters": "जब FIIs बेचते हैं और DIIs खरीदते हैं, तो घरेलू फंड बाज़ार को सहारा देते हैं। हर शाम दोनों आंकड़े देखने से पता चलता है कि पैसे के बहाव पर किसका ज़ोर है।",
+   "watch": [
+    "आज Infosys के Q2 नतीजे और revenue guidance",
+    "आज Zetwerk, Tonbo, Bonfiglioli और Sahajanand की लिस्टिंग कीमत",
+    "आज शाम Jio Platforms IPO का अंतिम subscription"
+   ]
+  },
+  "tableTitle": "FII/DII cash market, गुरुवार 22 अक्टूबर (₹ करोड़, provisional)",
+  "seoTitle": "शेयर बाज़ार आज: Infosys नतीजे, Jio IPO का आखिरी दिन",
+  "seoDescription": "शेयर बाज़ार आज 23 अक्टूबर 2026: GIFT Nifty 22,839.50 (+128), FIIs ने ₹3,458.70 करोड़ बेचे, Infosys, Dr Reddy's, JSW Steel के नतीजे; Jio IPO बंद; चार लिस्टिंग।",
+  "tags": [
+   "शेयर बाज़ार आज",
+   "Nifty आज",
+   "GIFT Nifty आज",
+   "Infosys Q2 नतीजे",
+   "FII DII डेटा",
+   "Jio IPO आखिरी दिन",
+   "IPO लिस्टिंग आज"
+  ]
+ },
+ "edition": "2026-10-23-premarket",
+ "editionLabel": "Fri 23 Oct · Pre-market brief",
+ "publishedAt": "2026-10-23T09:03:00+05:30",
+ "status": "new"
+}

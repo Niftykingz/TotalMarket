@@ -1,261 +1,275 @@
 {
-  "updatedAt": "2026-10-22T12:50:00+05:30",
-  "officialPages": {
-    "announcements": "https://www.nseindia.com/companies-listing/corporate-filings-announcements",
-    "actions": "https://www.nseindia.com/companies-listing/corporate-filings-actions",
-    "boardMeetings": "https://www.nseindia.com/companies-listing/corporate-filings-board-meetings",
-    "results": "https://www.nseindia.com/companies-listing/corporate-filings-financial-results"
+ "updatedAt": "2026-10-23T09:00:00+05:30",
+ "officialPages": {
+  "announcements": "https://www.nseindia.com/companies-listing/corporate-filings-announcements",
+  "actions": "https://www.nseindia.com/companies-listing/corporate-filings-actions",
+  "boardMeetings": "https://www.nseindia.com/companies-listing/corporate-filings-board-meetings",
+  "results": "https://www.nseindia.com/companies-listing/corporate-filings-financial-results"
+ },
+ "events": [
+  {
+   "date": "2026-10-21",
+   "company": "ICICI Prudential AMC",
+   "type": "Dividend",
+   "detail": "Interim dividend ₹30 per share",
+   "exDate": "2026-10-21",
+   "recordDate": "2026-10-21",
+   "noticeUrl": "",
+   "source": {
+    "name": "Trade Brains, 18 Oct",
+    "url": "https://tradebrains.in/indian-markets/techm-irfc-and-8-other-stocks-turning-ex-dividend-next-week-to-keep-on-your-radar-12681988"
+   }
   },
-  "events": [
-    {
-      "date": "2026-10-21",
-      "company": "ICICI Prudential AMC",
-      "type": "Dividend",
-      "detail": "Interim dividend ₹30 per share",
-      "exDate": "2026-10-21",
-      "recordDate": "2026-10-21",
-      "noticeUrl": "",
-      "source": {
-        "name": "Trade Brains, 18 Oct",
-        "url": "https://tradebrains.in/indian-markets/techm-irfc-and-8-other-stocks-turning-ex-dividend-next-week-to-keep-on-your-radar-12681988"
-      }
-    },
-    {
-      "date": "2026-10-21",
-      "company": "Mangalore Refinery and Petrochemicals",
-      "ticker": "MRPL",
-      "type": "Dividend",
-      "detail": "Interim dividend ₹3 per share",
-      "exDate": "2026-10-21",
-      "recordDate": "2026-10-21",
-      "noticeUrl": "",
-      "source": {
-        "name": "Trade Brains, 18 Oct",
-        "url": "https://tradebrains.in/indian-markets/techm-irfc-and-8-other-stocks-turning-ex-dividend-next-week-to-keep-on-your-radar-12681988"
-      }
-    },
-    {
-      "date": "2026-10-21",
-      "company": "Elecon Engineering",
-      "type": "Dividend",
-      "detail": "Interim dividend ₹0.50 per share",
-      "exDate": "2026-10-21",
-      "recordDate": "2026-10-21",
-      "noticeUrl": "",
-      "source": {
-        "name": "Trade Brains, 18 Oct",
-        "url": "https://tradebrains.in/indian-markets/techm-irfc-and-8-other-stocks-turning-ex-dividend-next-week-to-keep-on-your-radar-12681988"
-      }
-    },
-    {
-      "date": "2026-10-22",
-      "company": "Tips Music",
-      "type": "Dividend",
-      "detail": "Interim dividend ₹6.50 per share",
-      "exDate": "2026-10-22",
-      "recordDate": "2026-10-22",
-      "noticeUrl": "",
-      "source": {
-        "name": "Trade Brains, 18 Oct",
-        "url": "https://tradebrains.in/indian-markets/techm-irfc-and-8-other-stocks-turning-ex-dividend-next-week-to-keep-on-your-radar-12681988"
-      }
-    },
-    {
-      "date": "2026-10-22",
-      "company": "Angel One",
-      "type": "Dividend",
-      "detail": "Interim dividend ₹1.40 per share",
-      "exDate": "2026-10-22",
-      "recordDate": "2026-10-22",
-      "noticeUrl": "",
-      "source": {
-        "name": "Trade Brains, 18 Oct",
-        "url": "https://tradebrains.in/indian-markets/techm-irfc-and-8-other-stocks-turning-ex-dividend-next-week-to-keep-on-your-radar-12681988"
-      }
-    },
-    {
-      "date": "2026-10-23",
-      "company": "Tech Mahindra",
-      "ticker": "TECHM",
-      "type": "Dividend",
-      "detail": "Interim dividend ₹15 per share",
-      "exDate": "2026-10-23",
-      "recordDate": "2026-10-23",
-      "noticeUrl": "",
-      "source": {
-        "name": "Trade Brains, 18 Oct",
-        "url": "https://tradebrains.in/indian-markets/techm-irfc-and-8-other-stocks-turning-ex-dividend-next-week-to-keep-on-your-radar-12681988"
-      }
-    },
-    {
-      "date": "2026-10-23",
-      "company": "360 ONE WAM",
-      "type": "Dividend",
-      "detail": "Interim dividend ₹7.50 per share",
-      "exDate": "2026-10-23",
-      "recordDate": "2026-10-23",
-      "noticeUrl": "",
-      "source": {
-        "name": "Trade Brains, 18 Oct",
-        "url": "https://tradebrains.in/indian-markets/techm-irfc-and-8-other-stocks-turning-ex-dividend-next-week-to-keep-on-your-radar-12681988"
-      }
-    },
-    {
-      "date": "2026-10-23",
-      "company": "ICICI Lombard General Insurance",
-      "ticker": "ICICIGI",
-      "type": "Dividend",
-      "detail": "Interim dividend ₹7 per share",
-      "exDate": "2026-10-23",
-      "recordDate": "2026-10-23",
-      "noticeUrl": "",
-      "source": {
-        "name": "Trade Brains, 18 Oct",
-        "url": "https://tradebrains.in/indian-markets/techm-irfc-and-8-other-stocks-turning-ex-dividend-next-week-to-keep-on-your-radar-12681988"
-      }
-    },
-    {
-      "date": "2026-10-23",
-      "company": "HDB Financial Services",
-      "type": "Dividend",
-      "detail": "Interim dividend ₹2 per share",
-      "exDate": "2026-10-23",
-      "recordDate": "2026-10-23",
-      "noticeUrl": "",
-      "source": {
-        "name": "Trade Brains, 18 Oct",
-        "url": "https://tradebrains.in/indian-markets/techm-irfc-and-8-other-stocks-turning-ex-dividend-next-week-to-keep-on-your-radar-12681988"
-      }
-    },
-    {
-      "date": "2026-10-23",
-      "company": "Indian Railway Finance Corporation",
-      "ticker": "IRFC",
-      "type": "Dividend",
-      "detail": "Interim dividend ₹1.15 per share",
-      "exDate": "2026-10-23",
-      "recordDate": "2026-10-23",
-      "noticeUrl": "",
-      "source": {
-        "name": "Trade Brains, 18 Oct",
-        "url": "https://tradebrains.in/indian-markets/techm-irfc-and-8-other-stocks-turning-ex-dividend-next-week-to-keep-on-your-radar-12681988"
-      }
-    },
-    {
-      "date": "2026-10-19",
-      "company": "UltraTech Cement",
-      "ticker": "ULTRACEMCO",
-      "type": "Financial results",
-      "detail": "Q2 FY27: consolidated net profit ₹1,501 crore (+21.3%), net sales ₹23,024 crore (+18.9%)",
-      "noticeUrl": "",
-      "source": {
-        "name": "Free Press Journal",
-        "url": "https://www.freepressjournal.in/business/ultratech-cement-reports-213-profit-rise-to-1501-crore-in-q2-fy27"
-      }
-    },
-    {
-      "date": "2026-10-23",
-      "company": "Oberoi Realty",
-      "type": "Dividend",
-      "detail": "Interim dividend ₹2 per share",
-      "exDate": "2026-10-23",
-      "recordDate": "2026-10-23",
-      "noticeUrl": "",
-      "source": {
-        "name": "Anand Rathi dividend list",
-        "url": "https://anandrathi.com/share-market-today/upcoming-dividend"
-      },
-      "ticker": "OBEROIRLTY"
-    },
-    {
-      "date": "2026-10-23",
-      "company": "LTM Ltd",
-      "type": "Dividend",
-      "detail": "Dividend ₹25 per share",
-      "exDate": "2026-10-23",
-      "recordDate": "2026-10-23",
-      "noticeUrl": "",
-      "source": {
-        "name": "Anand Rathi dividend list",
-        "url": "https://anandrathi.com/share-market-today/upcoming-dividend"
-      }
-    },
-    {
-      "date": "2026-10-23",
-      "company": "Modison",
-      "type": "Dividend",
-      "detail": "Dividend ₹4 per share",
-      "exDate": "2026-10-23",
-      "recordDate": "2026-10-23",
-      "noticeUrl": "",
-      "source": {
-        "name": "Anand Rathi dividend list",
-        "url": "https://anandrathi.com/share-market-today/upcoming-dividend"
-      }
-    },
-    {
-      "date": "2026-10-27",
-      "company": "L&T Technology Services",
-      "type": "Dividend",
-      "detail": "Dividend ₹20 per share",
-      "exDate": "2026-10-27",
-      "recordDate": "2026-10-27",
-      "noticeUrl": "",
-      "source": {
-        "name": "Anand Rathi dividend list",
-        "url": "https://anandrathi.com/share-market-today/upcoming-dividend"
-      },
-      "ticker": "LTTS"
-    },
-    {
-      "date": "2026-10-21",
-      "company": "Eternal",
-      "ticker": "ETERNAL",
-      "type": "Financial results",
-      "detail": "Q2 FY27: net profit ₹125 crore (+92%), revenue ₹24,138 crore (+77.6%)",
-      "noticeUrl": "",
-      "source": {
-        "name": "Business Standard",
-        "url": "https://www.business-standard.com/amp/companies/quarterly-results/eternal-q2fy27-net-profit-jumps-92-to-125-crore-revenue-rises-78-126102101130_1.html"
-      }
-    },
-    {
-      "date": "2026-10-22",
-      "company": "JSW Dulux",
-      "type": "Split",
-      "detail": "Stock split 1:10 (face value ₹10 to ₹1); last day to buy for eligibility was 21 Oct",
-      "exDate": "2026-10-22",
-      "recordDate": "2026-10-22",
-      "noticeUrl": "",
-      "source": {
-        "name": "Trade Brains, 17 Oct",
-        "url": "https://tradebrains.in/indian-markets/stocks-in-focus-jsw-dulux-titan-biotech-and-2-other-stocks-set-to-trade-ex-bonus-and-split-next-week-12682298"
-      }
-    },
-    {
-      "date": "2026-10-23",
-      "company": "Titan Biotech",
-      "type": "Bonus",
-      "detail": "Bonus issue 1:4 (one new share for every four held)",
-      "exDate": "2026-10-23",
-      "recordDate": "2026-10-23",
-      "noticeUrl": "",
-      "source": {
-        "name": "Kotak Neo",
-        "url": "https://kotakneo.com/news/stocks/titan-biotech-shares-rises-ahead-of-bonus-issue-record-date-23-october-2026"
-      }
-    },
-    {
-      "date": "2026-10-21",
-      "company": "Adani Green Energy",
-      "ticker": "ADANIGREEN",
-      "type": "Financial results",
-      "detail": "Q2 FY27: consolidated net profit ₹747 crore (−24% QoQ, +16% YoY), revenue ₹4,019 crore (+45% YoY)",
-      "noticeUrl": "",
-      "source": {
-        "name": "Business Standard",
-        "url": "https://www.business-standard.com/markets/news/adani-green-shares-extend-fall-to-5th-day-down-4-as-q2-pat-dips-24-qoq-126102200476_1.html"
-      }
-    }
-  ]
+  {
+   "date": "2026-10-21",
+   "company": "Mangalore Refinery and Petrochemicals",
+   "ticker": "MRPL",
+   "type": "Dividend",
+   "detail": "Interim dividend ₹3 per share",
+   "exDate": "2026-10-21",
+   "recordDate": "2026-10-21",
+   "noticeUrl": "",
+   "source": {
+    "name": "Trade Brains, 18 Oct",
+    "url": "https://tradebrains.in/indian-markets/techm-irfc-and-8-other-stocks-turning-ex-dividend-next-week-to-keep-on-your-radar-12681988"
+   }
+  },
+  {
+   "date": "2026-10-21",
+   "company": "Elecon Engineering",
+   "type": "Dividend",
+   "detail": "Interim dividend ₹0.50 per share",
+   "exDate": "2026-10-21",
+   "recordDate": "2026-10-21",
+   "noticeUrl": "",
+   "source": {
+    "name": "Trade Brains, 18 Oct",
+    "url": "https://tradebrains.in/indian-markets/techm-irfc-and-8-other-stocks-turning-ex-dividend-next-week-to-keep-on-your-radar-12681988"
+   }
+  },
+  {
+   "date": "2026-10-22",
+   "company": "Tips Music",
+   "type": "Dividend",
+   "detail": "Interim dividend ₹6.50 per share",
+   "exDate": "2026-10-22",
+   "recordDate": "2026-10-22",
+   "noticeUrl": "",
+   "source": {
+    "name": "Trade Brains, 18 Oct",
+    "url": "https://tradebrains.in/indian-markets/techm-irfc-and-8-other-stocks-turning-ex-dividend-next-week-to-keep-on-your-radar-12681988"
+   }
+  },
+  {
+   "date": "2026-10-22",
+   "company": "Angel One",
+   "type": "Dividend",
+   "detail": "Interim dividend ₹1.40 per share",
+   "exDate": "2026-10-22",
+   "recordDate": "2026-10-22",
+   "noticeUrl": "",
+   "source": {
+    "name": "Trade Brains, 18 Oct",
+    "url": "https://tradebrains.in/indian-markets/techm-irfc-and-8-other-stocks-turning-ex-dividend-next-week-to-keep-on-your-radar-12681988"
+   }
+  },
+  {
+   "date": "2026-10-23",
+   "company": "Tech Mahindra",
+   "ticker": "TECHM",
+   "type": "Dividend",
+   "detail": "Interim dividend ₹15 per share",
+   "exDate": "2026-10-23",
+   "recordDate": "2026-10-23",
+   "noticeUrl": "",
+   "source": {
+    "name": "Trade Brains, 18 Oct",
+    "url": "https://tradebrains.in/indian-markets/techm-irfc-and-8-other-stocks-turning-ex-dividend-next-week-to-keep-on-your-radar-12681988"
+   }
+  },
+  {
+   "date": "2026-10-23",
+   "company": "360 ONE WAM",
+   "type": "Dividend",
+   "detail": "Interim dividend ₹7.50 per share",
+   "exDate": "2026-10-23",
+   "recordDate": "2026-10-23",
+   "noticeUrl": "",
+   "source": {
+    "name": "Trade Brains, 18 Oct",
+    "url": "https://tradebrains.in/indian-markets/techm-irfc-and-8-other-stocks-turning-ex-dividend-next-week-to-keep-on-your-radar-12681988"
+   }
+  },
+  {
+   "date": "2026-10-23",
+   "company": "ICICI Lombard General Insurance",
+   "ticker": "ICICIGI",
+   "type": "Dividend",
+   "detail": "Interim dividend ₹7 per share",
+   "exDate": "2026-10-23",
+   "recordDate": "2026-10-23",
+   "noticeUrl": "",
+   "source": {
+    "name": "Trade Brains, 18 Oct",
+    "url": "https://tradebrains.in/indian-markets/techm-irfc-and-8-other-stocks-turning-ex-dividend-next-week-to-keep-on-your-radar-12681988"
+   }
+  },
+  {
+   "date": "2026-10-23",
+   "company": "HDB Financial Services",
+   "type": "Dividend",
+   "detail": "Interim dividend ₹2 per share",
+   "exDate": "2026-10-23",
+   "recordDate": "2026-10-23",
+   "noticeUrl": "",
+   "source": {
+    "name": "Trade Brains, 18 Oct",
+    "url": "https://tradebrains.in/indian-markets/techm-irfc-and-8-other-stocks-turning-ex-dividend-next-week-to-keep-on-your-radar-12681988"
+   }
+  },
+  {
+   "date": "2026-10-23",
+   "company": "Indian Railway Finance Corporation",
+   "ticker": "IRFC",
+   "type": "Dividend",
+   "detail": "Interim dividend ₹1.15 per share",
+   "exDate": "2026-10-23",
+   "recordDate": "2026-10-23",
+   "noticeUrl": "",
+   "source": {
+    "name": "Trade Brains, 18 Oct",
+    "url": "https://tradebrains.in/indian-markets/techm-irfc-and-8-other-stocks-turning-ex-dividend-next-week-to-keep-on-your-radar-12681988"
+   }
+  },
+  {
+   "date": "2026-10-19",
+   "company": "UltraTech Cement",
+   "ticker": "ULTRACEMCO",
+   "type": "Financial results",
+   "detail": "Q2 FY27: consolidated net profit ₹1,501 crore (+21.3%), net sales ₹23,024 crore (+18.9%)",
+   "noticeUrl": "",
+   "source": {
+    "name": "Free Press Journal",
+    "url": "https://www.freepressjournal.in/business/ultratech-cement-reports-213-profit-rise-to-1501-crore-in-q2-fy27"
+   }
+  },
+  {
+   "date": "2026-10-23",
+   "company": "Oberoi Realty",
+   "type": "Dividend",
+   "detail": "Interim dividend ₹2 per share",
+   "exDate": "2026-10-23",
+   "recordDate": "2026-10-23",
+   "noticeUrl": "",
+   "source": {
+    "name": "Anand Rathi dividend list",
+    "url": "https://anandrathi.com/share-market-today/upcoming-dividend"
+   },
+   "ticker": "OBEROIRLTY"
+  },
+  {
+   "date": "2026-10-23",
+   "company": "LTM Ltd",
+   "type": "Dividend",
+   "detail": "Dividend ₹25 per share",
+   "exDate": "2026-10-23",
+   "recordDate": "2026-10-23",
+   "noticeUrl": "",
+   "source": {
+    "name": "Anand Rathi dividend list",
+    "url": "https://anandrathi.com/share-market-today/upcoming-dividend"
+   }
+  },
+  {
+   "date": "2026-10-23",
+   "company": "Modison",
+   "type": "Dividend",
+   "detail": "Dividend ₹4 per share",
+   "exDate": "2026-10-23",
+   "recordDate": "2026-10-23",
+   "noticeUrl": "",
+   "source": {
+    "name": "Anand Rathi dividend list",
+    "url": "https://anandrathi.com/share-market-today/upcoming-dividend"
+   }
+  },
+  {
+   "date": "2026-10-27",
+   "company": "L&T Technology Services",
+   "type": "Dividend",
+   "detail": "Dividend ₹20 per share",
+   "exDate": "2026-10-27",
+   "recordDate": "2026-10-27",
+   "noticeUrl": "",
+   "source": {
+    "name": "Anand Rathi dividend list",
+    "url": "https://anandrathi.com/share-market-today/upcoming-dividend"
+   },
+   "ticker": "LTTS"
+  },
+  {
+   "date": "2026-10-21",
+   "company": "Eternal",
+   "ticker": "ETERNAL",
+   "type": "Financial results",
+   "detail": "Q2 FY27: net profit ₹125 crore (+92%), revenue ₹24,138 crore (+77.6%)",
+   "noticeUrl": "",
+   "source": {
+    "name": "Business Standard",
+    "url": "https://www.business-standard.com/amp/companies/quarterly-results/eternal-q2fy27-net-profit-jumps-92-to-125-crore-revenue-rises-78-126102101130_1.html"
+   }
+  },
+  {
+   "date": "2026-10-22",
+   "company": "JSW Dulux",
+   "type": "Split",
+   "detail": "Stock split 1:10 (face value ₹10 to ₹1); last day to buy for eligibility was 21 Oct",
+   "exDate": "2026-10-22",
+   "recordDate": "2026-10-22",
+   "noticeUrl": "",
+   "source": {
+    "name": "Trade Brains, 17 Oct",
+    "url": "https://tradebrains.in/indian-markets/stocks-in-focus-jsw-dulux-titan-biotech-and-2-other-stocks-set-to-trade-ex-bonus-and-split-next-week-12682298"
+   }
+  },
+  {
+   "date": "2026-10-23",
+   "company": "Titan Biotech",
+   "type": "Bonus",
+   "detail": "Bonus issue 1:4 (one new share for every four held)",
+   "exDate": "2026-10-23",
+   "recordDate": "2026-10-23",
+   "noticeUrl": "",
+   "source": {
+    "name": "Kotak Neo",
+    "url": "https://kotakneo.com/news/stocks/titan-biotech-shares-rises-ahead-of-bonus-issue-record-date-23-october-2026"
+   }
+  },
+  {
+   "date": "2026-10-21",
+   "company": "Adani Green Energy",
+   "ticker": "ADANIGREEN",
+   "type": "Financial results",
+   "detail": "Q2 FY27: consolidated net profit ₹747 crore (−24% QoQ, +16% YoY), revenue ₹4,019 crore (+45% YoY)",
+   "noticeUrl": "",
+   "source": {
+    "name": "Business Standard",
+    "url": "https://www.business-standard.com/markets/news/adani-green-shares-extend-fall-to-5th-day-down-4-as-q2-pat-dips-24-qoq-126102200476_1.html"
+   }
+  },
+  {
+   "date": "2026-11-02",
+   "company": "Colgate-Palmolive India",
+   "ticker": "COLPAL",
+   "type": "Dividend",
+   "detail": "First interim dividend ₹24 per share (FY27)",
+   "exDate": "",
+   "recordDate": "2026-11-02",
+   "noticeUrl": "",
+   "source": {
+    "name": "Business Standard: Stocks to watch, 23 Oct",
+    "url": "https://www.business-standard.com/markets/news/stocks-to-watch-emudhra-infosys-swiggy-hpcl-havells-sun-pharma-jsl-126102300089_1.html"
+   }
+  }
+ ]
 }

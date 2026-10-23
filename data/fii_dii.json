@@ -1,75 +1,88 @@
 {
-  "source": {
-    "name": "5paisa (provisional NSE/BSE cash data)",
-    "url": "https://www.5paisa.com/share-market-today/fii-dii-data"
+ "source": {
+  "name": "5paisa (NSE provisional cash data; NSE page did not show the table on 23 Oct)",
+  "url": "https://www.5paisa.com/share-market-today/fii-dii-data"
+ },
+ "updatedAt": "2026-10-23T09:00:00+05:30",
+ "month": {
+  "label": "October 2026 (to 22 Oct)",
+  "fii": {
+   "buy": 194860.6,
+   "sell": 247214.8,
+   "net": -52354.0
   },
-  "updatedAt": "2026-10-22T20:30:00+05:30",
-  "month": {
-    "label": "October 2026 (to 21 Oct)",
-    "fii": {
-      "buy": 181233.1,
-      "sell": 230128.6,
-      "net": -48895.3
-    },
-    "dii": {
-      "buy": 238902.4,
-      "sell": 185919.0,
-      "net": 52983.5
-    }
+  "dii": {
+   "buy": 255145.2,
+   "sell": 199270.5,
+   "net": 55874.8
+  }
+ },
+ "days": [
+  {
+   "date": "2026-10-22",
+   "fii": {
+    "buy": 13627.5,
+    "sell": 17086.2,
+    "net": -3458.7
+   },
+   "dii": {
+    "buy": 16242.8,
+    "sell": 13351.5,
+    "net": 2891.3
+   }
   },
-  "days": [
-    {
-      "date": "2026-10-21",
-      "fii": {
-        "buy": 17003.9,
-        "sell": 15981.6,
-        "net": 1022.3
-      },
-      "dii": {
-        "buy": 14931.6,
-        "sell": 13317.2,
-        "net": 1614.3
-      }
-    },
-    {
-      "date": "2026-10-19",
-      "fii": {
-        "buy": 11240.6,
-        "sell": 12389.3,
-        "net": -1148.6
-      },
-      "dii": {
-        "buy": 14781.3,
-        "sell": 11580.1,
-        "net": 3201.2
-      }
-    },
-    {
-      "date": "2026-10-16",
-      "fii": {
-        "buy": 19951.6,
-        "sell": 18785.7,
-        "net": 1165.9
-      },
-      "dii": {
-        "buy": 17201.8,
-        "sell": 20863.1,
-        "net": -3661.3
-      }
-    },
-    {
-      "date": "2026-10-15",
-      "fii": {
-        "buy": 12735.6,
-        "sell": 18021.0,
-        "net": -5285.4
-      },
-      "dii": {
-        "buy": 19438.6,
-        "sell": 16119.3,
-        "net": 3319.4
-      }
-    }
-  ],
-  "note": "Gross figures for 21 Oct from 5paisa's copy of provisional exchange data. For 22 Oct only net figures were reported (FII −₹3,458.70 cr, DII +₹2,891.32 cr, Whalesbook); they will be added here once gross provisional data is published. NSE's own FII/DII report could not be read by our tools."
+  {
+   "date": "2026-10-21",
+   "fii": {
+    "buy": 17003.9,
+    "sell": 15981.6,
+    "net": 1022.3
+   },
+   "dii": {
+    "buy": 14931.6,
+    "sell": 13317.2,
+    "net": 1614.3
+   }
+  },
+  {
+   "date": "2026-10-19",
+   "fii": {
+    "buy": 11240.6,
+    "sell": 12389.3,
+    "net": -1148.6
+   },
+   "dii": {
+    "buy": 14781.3,
+    "sell": 11580.1,
+    "net": 3201.2
+   }
+  },
+  {
+   "date": "2026-10-16",
+   "fii": {
+    "buy": 19951.6,
+    "sell": 18785.7,
+    "net": 1165.9
+   },
+   "dii": {
+    "buy": 17201.8,
+    "sell": 20863.1,
+    "net": -3661.3
+   }
+  },
+  {
+   "date": "2026-10-15",
+   "fii": {
+    "buy": 12735.6,
+    "sell": 18021.0,
+    "net": -5285.4
+   },
+   "dii": {
+    "buy": 19438.6,
+    "sell": 16119.3,
+    "net": 3319.4
+   }
+  }
+ ],
+ "note": "Gross figures for 21 Oct from 5paisa's copy of provisional exchange data. For 22 Oct only net figures were reported (FII −₹3,458.70 cr, DII +₹2,891.32 cr, Whalesbook); they will be added here once gross provisional data is published. NSE's own FII/DII report could not be read by our tools."
 }
