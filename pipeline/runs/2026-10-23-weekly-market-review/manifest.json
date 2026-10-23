@@ -1,0 +1,42 @@
+{
+ "slug": "2026-10-23-weekly-market-review",
+ "job": "pipeline/inbox/2026-10-23-weekly-market-review.json",
+ "job_sha256": "088dd9a11d23ab90f11be1e24becf524d330ebeee7e5ba7e8b01162b983c99e2",
+ "stages": {
+  "DATA_COLLECTION": {
+   "status": "PASS",
+   "sha256": "0b43bd98f0e61295d97dfca46d378cf840c9f1c2c1576849616a2d71c938b0e9",
+   "errors": [],
+   "started": "2026-10-23T22:15:08+05:30",
+   "finished": "2026-10-23T22:15:10+05:30"
+  },
+  "DATA_VERIFICATION": {
+   "status": "PASS",
+   "sha256": "1bfa7c83cfa091fc615d5fbde5b47a917ab35696d9a4744f0ee87717002f7d26",
+   "errors": [],
+   "started": "2026-10-23T22:15:10+05:30",
+   "finished": "2026-10-23T22:15:13+05:30"
+  },
+  "GRAPHICS_GENERATION": {
+   "status": "PASS",
+   "sha256": "d4c9fa3bad17e081be9309ab65f4dd126cb1b8de53671014ac09a91f7eb5f764",
+   "errors": [],
+   "started": "2026-10-23T22:15:13+05:30",
+   "finished": "2026-10-23T22:15:13+05:30"
+  },
+  "ARTICLE_WRITING": {
+   "status": "PASS",
+   "sha256": "1a0180b79fa67ccd4016ebbb04f2fbd2d63d140016e47685e96d9cce2a745398",
+   "errors": [],
+   "started": "2026-10-23T22:15:13+05:30",
+   "finished": "2026-10-23T22:15:13+05:30"
+  },
+  "FINAL_QA": {
+   "status": "PASS",
+   "sha256": "8297472d7737dbf6005575faaa54dfbffdcc84a3b76f506b193d56932e68f03b",
+   "errors": [],
+   "started": "2026-10-23T22:15:13+05:30",
+   "finished": "2026-10-23T22:15:13+05:30"
+  }
+ }
+}

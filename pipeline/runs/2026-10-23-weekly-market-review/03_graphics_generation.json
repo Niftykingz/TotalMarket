@@ -1,0 +1,79 @@
+{
+ "fields": {
+  "coverHeadline": "NIFTY ENDS AT 22,600",
+  "stat": "22,600",
+  "statLabel": "Nifty 50 close",
+  "coverDate": "2026-10-23",
+  "symbol": "candles",
+  "flags": [
+   "IN"
+  ],
+  "chart": {
+   "type": "index_board",
+   "title": "Indian markets · close",
+   "asOf": "Close, Fri 23 Oct 2026",
+   "source": "ChiniMandi, Business Standard",
+   "items": [
+    {
+     "label": "Sensex",
+     "value": "73,123.83",
+     "change": "-125.56"
+    },
+    {
+     "label": "Nifty 50",
+     "value": "22,600.00",
+     "change": "-87.65"
+    }
+   ]
+  }
+ },
+ "analysis": {
+  "event": "market_preview",
+  "instruments": [
+   "Nifty 50",
+   "Sensex"
+  ],
+  "companies": [],
+  "direction": "down",
+  "template": "index_board",
+  "object": "candles",
+  "figures": [
+   {
+    "label": "Sensex",
+    "value": "73,123.83",
+    "change": "-125.56"
+   },
+   {
+    "label": "Nifty 50",
+    "value": "22,600.00",
+    "change": "-87.65"
+   }
+  ],
+  "series": [],
+  "reason": "market_preview story with a verified index_board chart",
+  "data_required": true,
+  "missing": "",
+  "chart": {
+   "type": "index_board",
+   "title": "Indian markets · close",
+   "asOf": "Close, Fri 23 Oct 2026",
+   "source": "ChiniMandi, Business Standard",
+   "items": [
+    {
+     "label": "Sensex",
+     "value": "73,123.83",
+     "change": "-125.56"
+    },
+    {
+     "label": "Nifty 50",
+     "value": "22,600.00",
+     "change": "-87.65"
+    }
+   ]
+  }
+ },
+ "headline": "Indian Markets End Week Under Pressure: Nifty at 22,600, Sensex at 73,123.83",
+ "files": {
+  "cover.jpg": "83adfa156d2ebbd7fa46d9d44aed74b23a80d9e35fc59894a79f5aeedd841e8e"
+ }
+}

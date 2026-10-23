@@ -1,0 +1,100 @@
+{
+  "slug": "2026-10-23-weekly-market-review",
+  "collection": {
+    "sources": [
+      {
+        "id": "cm",
+        "name": "ChiniMandi: Sensex down 125 points, Nifty at 22,600",
+        "url": "https://www.chinimandi.com/sensex-down-125-points-nifty-at-22600/",
+        "published": "2026-10-23T15:45:00+05:30"
+      },
+      {
+        "id": "bs",
+        "name": "Business Standard: Market close, 23 Oct",
+        "url": "https://www.business-standard.com/markets/news/stock-market-live-october-23-nse-bse-sensex-today-nifty50-gift-nifty-crude-oil-prices-jio-ipo-q2-results-today-126102300078_1.html",
+        "published": "2026-10-23T15:41:00+05:30"
+      }
+    ],
+    "examples": [],
+    "figures": [
+      {
+        "id": "sensex",
+        "label": "Sensex close",
+        "value": "73,123.83",
+        "source": "cm",
+        "evidence": "Sensex: closed at 73,123.83, down 125.56 points",
+        "as_of": "2026-10-23",
+        "change": "-125.56",
+        "key": true
+      },
+      {
+        "id": "nifty",
+        "label": "Nifty 50 close",
+        "value": "22,600.00",
+        "source": "cm",
+        "evidence": "Nifty 50: ended at 22,600.00, down 87.65 points",
+        "as_of": "2026-10-23",
+        "change": "-87.65",
+        "key": true
+      }
+    ]
+  },
+  "graphic": {
+    "headline": "Indian Markets End Week Under Pressure: Nifty at 22,600, Sensex at 73,123.83",
+    "coverHeadline": "NIFTY ENDS AT 22,600",
+    "stat": "22,600",
+    "statLabel": "Nifty 50 close",
+    "symbol": "candles",
+    "flags": [
+      "IN"
+    ],
+    "coverDate": "2026-10-23",
+    "chart": {
+      "type": "index_board",
+      "title": "Indian markets · close",
+      "asOf": "Close, Fri 23 Oct 2026",
+      "source": "ChiniMandi, Business Standard",
+      "items": [
+        {
+          "label": "Sensex",
+          "value": "73,123.83",
+          "change": "-125.56"
+        },
+        {
+          "label": "Nifty 50",
+          "value": "22,600.00",
+          "change": "-87.65"
+        }
+      ]
+    }
+  },
+  "article": {
+    "title": "Indian Markets End Week Under Pressure: Nifty at 22,600, Sensex at 73,123.83",
+    "dek": "On Friday 23 October 2026, Nifty 50 ended at 22,600.00 and Sensex at 73,123.83 as the market sell-off continued.",
+    "category": "markets",
+    "lead": true,
+    "readMins": 3,
+    "body": [
+      "Indian stocks ended Friday 23 October under pressure. The Nifty 50 closed at 22,600.00, down 87.65 points in the session. The Sensex closed at 73,123.83, down 125.56 points.",
+      "The reported declines describe Friday’s session rather than the full five-session return.",
+      "The full weekly large-cap gainers and losers ranking is omitted because the available source dataset does not establish a verified five-session return for every constituent."
+    ],
+    "indiaImpact": "The headline benchmarks ended lower on Friday; daily declines should not be confused with full-week performance.",
+    "seoTitle": "Nifty 50, Sensex Closing Review: 23 October 2026",
+    "seoDescription": "Indian markets ended 23 October lower, with Nifty 50 at 22,600.00 and Sensex at 73,123.83.",
+    "sources": [
+      {
+        "name": "ChiniMandi: Sensex down 125 points, Nifty at 22,600",
+        "url": "https://www.chinimandi.com/sensex-down-125-points-nifty-at-22600/"
+      },
+      {
+        "name": "Business Standard: Market close, 23 Oct",
+        "url": "https://www.business-standard.com/markets/news/stock-market-live-october-23-nse-bse-sensex-today-nifty50-gift-nifty-crude-oil-prices-jio-ipo-q2-results-today-126102300078_1.html"
+      }
+    ],
+    "publishedAt": "2026-10-23T19:00:00+05:30",
+    "edition": "2026-10-23-weekly",
+    "editionLabel": "Fri 23 Oct · Weekly market review",
+    "status": "new"
+  }
+}
