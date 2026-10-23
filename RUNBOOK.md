@@ -1,12 +1,12 @@
 # TotalMarket automation runbook
 
-Updates run inside the owner's Claude chat. Each scheduled message names a slot; follow that slot below, publish, then **schedule the next slot** (step 9) so the chain never breaks.
+Two recurring Claude scheduled tasks start the runs ("TotalMarket news update" at 08:45, 12:45, 15:45 and 20:45 IST daily; "TotalMarket daily market report" at 20:10 IST on weekdays). Each run starts in a fresh session: work out the slot from the IST time, follow it below, commit the job and data files, and let the GitHub publish queue publish (step 8). A failed run never stops later runs.
 
 Slots (IST): `premarket` 08:45 · `midday` 12:45 · `close` 15:45 · `report` 20:10 · `evening` 20:45.
-On weekends and NSE holidays only `midday` runs, as a "Weekend roundup" or "Market holiday briefing"; every other slot is skipped (still do step 9).
+On weekends and NSE holidays only `midday` runs, as a "Weekend roundup" or "Market holiday briefing"; at every other slot stop without changing anything.
 
 ## 1. Prepare
-- `cd /home/claude/totalmarket && git pull --rebase origin main` (if the folder is missing, clone `https://github.com/Niftykingz/TotalMarket` there).
+- Attach the repository with `mcp__claude-code-remote__add_repo` (owner `Niftykingz`, repo `TotalMarket`, access `push`), then `git clone https://github.com/Niftykingz/TotalMarket /home/claude/totalmarket` (or `git pull --rebase origin main` if it exists). If `python3 -c "import PIL, numpy"` fails: `pip install --break-system-packages pillow numpy`.
 - Check the IST time and whether NSE is open today.
 
 ## 2. Scope and rules
@@ -92,7 +92,5 @@ The research workspace cannot reach publisher pages from code, so it never build
 ## 8. Publish (publish queue on GitHub Actions)
 Commit only job files and data files, then push: `git add pipeline/inbox data/*.json && git -c user.name="TotalMarket Bot" -c user.email="noreply@anthropic.com" commit -m "<editionLabel>: <N> jobs" && git push origin HEAD` (on rejection: `git pull --rebase origin main`, push again). **Never commit `docs/`, `data/posts/` or `pipeline/runs/` from the workspace, and never run `build.py` or `pipeline publish` there** (a local rebuild fails the source gate and would drop live stories). The push starts `.github/workflows/publish-queue.yml`: it re-runs every job with the remote source audit, publishes all READY jobs in one gated build, archives them to `pipeline/archive/`, retries failed jobs at 10:05, 17:05 and 00:05 IST, and checks each new page on the live site. After pushing, check the run: `gh api "repos/Niftykingz/TotalMarket/actions/runs?per_page=5" --jq '.workflow_runs[]|select(.name=="Publish queue")|[.status,.conclusion,.head_sha[0:7]]|@tsv'` and, when it finishes, open each new article URL. Report published / failed jobs (with the queue's reason) in the run report; a failed job stays in the inbox — fix its evidence and push again, or list it under "Needs verification". The scheduled message only starts this workflow; it never publishes by itself.
 
-## 9. Schedule the next slot (always, even when skipping)
-Use `send_later` with `at` = the next slot time in UTC (IST − 5:30) and the message:
-`TotalMarket scheduled run: <slot> slot for <Ddd D Mon>. Follow RUNBOOK.md.`
-Order: premarket → midday → close → report → evening → next day's premarket. On weekends/holidays you may jump straight to that day's midday and then the next market day's premarket.
+## 9. Scheduling
+Runs are started by the recurring scheduled tasks; do not book follow-up runs with `send_later`. The publish queue also retries failed jobs and refreshes time-based pages at 10:05, 17:05 and 00:05 IST.
