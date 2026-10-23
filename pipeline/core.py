@@ -364,6 +364,31 @@ def stage4_article(job, ver, gfx, root, write=True):
             errs.append(f"article missing {k}")
     post = dict(art)
     post.update(gfx["fields"])                   # graphic fields come from the verified graphic stage, unchanged
+    # Derive structured visuals only from independently verified collection figures.
+    # An absent metric produces no chart/table row: never backfill with estimates.
+    if art.get("reportType") == "weekly_market":
+        verified = {f["id"]: f for f in ver.get("verified", [])}
+        specs = [("nifty", "Nifty 50"), ("sensex", "Sensex")]
+        rows, cards = [], []
+        for fid, label in specs:
+            fig = verified.get(fid)
+            if not fig:
+                continue
+            value = str(fig.get("value") or "")
+            change = str(fig.get("change") or "")
+            if not value:
+                continue
+            rows.append({"name": label, "close": value, "change": change})
+            cards.append({"label": label + " close", "value": value,
+                          "change": (change + " pts") if change else "",
+                          "dir": "down" if change.startswith("-") else "up" if change.startswith("+") else "flat"})
+        post["report"] = {
+            "dateLabel": "Friday market close",
+            "kpis": cards,
+            "indices": rows,
+            "takeaways": art.get("reportTakeaways") or [],
+            "watch": art.get("reportWatch") or []
+        }
     src_urls = {s["url"] for s in job["collection"]["sources"]}
     for s in post.get("sources") or []:
         if s.get("url") not in src_urls:
