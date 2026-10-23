@@ -108,7 +108,7 @@ def cmd_publish(dry_run, root=ROOT, message=None, run_tests=True):
     msg = message or f"Publish via pipeline: {len(ready)} verified articles"
     trailer = "\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01EepqV255MWYbzjUN28a3RF"
     git = ["git", "-c", "user.name=TotalMarket Bot", "-c", "user.email=noreply@anthropic.com"]
-    sh(["git", "checkout", "--", "__pycache__"], root)
+    sh(["git", "checkout", "--", "__pycache__", "tests/__pycache__"], root)
     sh(["git", "add", "-A", "data", "docs", "pipeline"], root)
     rc, out = sh(git + ["commit", "-q", "-m", msg + trailer], root)
     if rc != 0 and "nothing to commit" not in out:
