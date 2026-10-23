@@ -37,6 +37,8 @@ jobs:
           parts = [f"{k}={len(v.get('rows', [])) or v.get('count', 0)}" for k, v in d.items()]
           msg = f"status={s.get('status')} target={s.get('targetDate')} datasets: {', '.join(parts) or 'none'} | errors: {'; '.join(s.get('errors', [])) or 'none'}"
           print(("::notice" if d else "::warning") + " title=NSE collection::" + msg.replace("\n", " ")[:900])
+          for name, info in (s.get("diagnostics") or {}).items():
+              print(f"::notice title=NSE shape {name}::" + json.dumps(info)[:900])
           PY
       - name: Upload audit snapshot, including partial results
         if: always()

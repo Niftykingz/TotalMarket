@@ -51,9 +51,9 @@ def date_from_timestamp(value):
     if not value:
         return None
     # NSE commonly uses '23-Oct-2026 15:30:00'; never substitute collection date.
-    for fmt in ("%d-%b-%Y %H:%M:%S", "%d-%b-%Y", "%d-%m-%Y %H:%M:%S"):
+    for fmt in ("%d-%b-%Y %H:%M:%S", "%d-%b-%Y %H:%M", "%d-%b-%Y", "%d-%m-%Y %H:%M:%S", "%d-%m-%Y"):
         try:
-            return dt.datetime.strptime(str(value), fmt).date().isoformat()
+            return dt.datetime.strptime(str(value).strip(), fmt).date().isoformat()
         except ValueError:
             pass
     return None
@@ -76,11 +76,30 @@ def collect(asof=None, fetch=None):
         except Exception:
             pass
 
+    snap["diagnostics"] = {}
+
+    def shape(name, payload):
+        """Record field names and timestamp strings only (never values) so format drift is visible."""
+        d = {"type": type(payload).__name__}
+        if isinstance(payload, dict):
+            d["keys"] = sorted(payload)[:20]
+            d["timestamp"] = str(payload.get("timestamp"))[:40] if "timestamp" in payload else None
+            rows = payload.get("data") if isinstance(payload.get("data"), list) else []
+        else:
+            rows = payload if isinstance(payload, list) else []
+        if rows and isinstance(rows[0], dict):
+            d["rowKeys"] = sorted(rows[0])[:40]
+            d["rowTimestamps"] = sorted({str(r.get(k))[:40] for r in rows[:60] if isinstance(r, dict)
+                                         for k in ("lastUpdateTime", "timeVal", "date") if r.get(k)})[:5]
+        d["rows"] = len(rows)
+        snap["diagnostics"][name] = d
+
     def get(name, path):
         try:
             payload = fetch(path)
             if not isinstance(payload, (dict, list)):
                 raise ValueError("unexpected payload shape")
+            shape(name, payload)
             return payload
         except Exception as exc:
             snap["errors"].append(name + ": " + str(exc)[:180])
@@ -93,7 +112,7 @@ def collect(asof=None, fetch=None):
         for x in idx["data"]:
             if not isinstance(x, dict) or x.get("index") not in INDEXES:
                 continue
-            stamp = date_from_timestamp(x.get("lastUpdateTime") or x.get("timeVal"))
+            stamp = date_from_timestamp(x.get("lastUpdateTime") or x.get("timeVal") or idx.get("timestamp"))
             if stamp != today:
                 continue
             value = numeric(x.get("last"))
@@ -112,6 +131,9 @@ def collect(asof=None, fetch=None):
 
     movers_path = "/api/equity-stockIndices?index=" + urllib.parse.quote("NIFTY 50")
     stocks = get("nifty50", movers_path)
+    if stocks is None:  # NSE's own site requests this index with '+' for the space
+        movers_path = "/api/equity-stockIndices?index=" + urllib.parse.quote_plus("NIFTY 50")
+        stocks = get("nifty50_alt", movers_path)
     if isinstance(stocks, dict) and isinstance(stocks.get("data"), list):
         rows = []
         for x in stocks["data"]:
@@ -149,6 +171,8 @@ def collect(asof=None, fetch=None):
             snap["errors"].append("institutionalFlows: matching-date FII and DII rows unavailable")
 
     snap["status"] = "complete" if len(snap["datasets"]) == 3 and not snap["errors"] else "partial"
+    if snap["status"] == "complete" or "movers" in snap["datasets"]:
+        snap["errors"] = [e for e in snap["errors"] if not e.startswith("nifty50:")]  # recovered by the alt path
     return snap
 
 
