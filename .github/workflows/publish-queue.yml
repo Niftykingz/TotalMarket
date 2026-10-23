@@ -1,0 +1,47 @@
+name: Publish queue
+# The only scheduled-news publishing path. Research runs commit job files to pipeline/inbox/
+# and data-file updates; this workflow verifies every job (including the remote source audit),
+# publishes all READY jobs in one gated build, archives them, and checks the live site.
+# A failed job stays in the inbox and is retried on the next run; it never blocks other jobs.
+"on":
+  push:
+    branches: [main]
+    paths:
+      - 'pipeline/inbox/**'
+      - 'data/meta.json'
+      - 'data/rates.json'
+      - 'data/ipos.json'
+      - 'data/fii_dii.json'
+      - 'data/global.json'
+      - 'data/results.json'
+      - 'data/corporate_events.json'
+      - 'data/market_calendar.json'
+  schedule:
+    # retry failed jobs and refresh time-based pages (IPO status, market status): 10:05, 17:05 and 00:05 IST
+    - cron: '35 4 * * *'
+    - cron: '35 11 * * *'
+    - cron: '35 18 * * *'
+  workflow_dispatch:
+concurrency:
+  group: totalmarket-main-publisher
+  cancel-in-progress: false
+permissions:
+  contents: write
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install pillow numpy matplotlib
+      - name: Tests
+        run: python3 -m unittest discover -s tests
+      - name: Verify jobs, publish, archive, check live site
+        run: python3 -m pipeline queue

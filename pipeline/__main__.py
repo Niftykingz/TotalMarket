@@ -37,6 +37,34 @@ def cmd_run(paths, root=ROOT):
     return 1 if bad else 0
 
 
+def cmd_check(paths, root=ROOT):
+    """Offline pre-check for research runs that cannot reach publisher pages: stages 1–5 in a
+    throw-away copy of the site data. The remote source audit is skipped HERE ONLY; nothing is
+    written to the repository and nothing can be published. The publish queue on GitHub runs
+    every stage again with the remote audit before anything goes live."""
+    tmp = Path(tempfile.mkdtemp(prefix="tm-check-"))
+    for d in ("data", "logos"):
+        if (root / d).is_dir():
+            shutil.copytree(root / d, tmp / d)
+    (tmp / "pipeline").mkdir()
+    cfg = json.loads((root / "pipeline" / "config.json").read_text(encoding="utf-8"))
+    cfg["require_live_evidence"] = False
+    (tmp / "pipeline" / "config.json").write_text(json.dumps(cfg), encoding="utf-8")
+    log, core.LOG = core.LOG, tmp / "pipeline" / "log.jsonl"
+    bad = 0
+    try:
+        for p in paths:
+            run = core.run_job(Path(p).resolve(), tmp)
+            s = core.status(run)
+            print(f"{run.slug}: {s} (offline pre-check; remote source audit runs in the publish queue)")
+            if s == "READY":
+                print(f"  cover preview: {run.dir / 'cover.jpg'}")
+            bad += s != "READY"
+    finally:
+        core.LOG = log
+    return 1 if bad else 0
+
+
 def cmd_status(root=ROOT):
     for p in jobs(root):
         slug = json.loads(p.read_text(encoding="utf-8"))["slug"]
@@ -162,6 +190,8 @@ def main(argv=None):
     sub.add_parser("retry")
     sub.add_parser("status")
     pb = sub.add_parser("publish"); pb.add_argument("--dry-run", action="store_true"); pb.add_argument("-m", "--message")
+    ck = sub.add_parser("check"); ck.add_argument("jobs", nargs="+")
+    sub.add_parser("queue")
     a = ap.parse_args(argv)
     if a.cmd == "run":
         return cmd_run(a.jobs)
@@ -170,6 +200,14 @@ def main(argv=None):
         return cmd_run(todo) if todo else 0
     if a.cmd == "status":
         return cmd_status()
+    if a.cmd == "check":
+        return cmd_check(a.jobs)
+    if a.cmd == "queue":
+        from pipeline import queue
+        return queue.main()
+    if os.environ.get("TM_PIPELINE_OFFLINE") == "1":
+        print("REFUSED: publishing is disabled in offline mode")
+        return 4
     return cmd_publish(a.dry_run, message=a.message)
 
 

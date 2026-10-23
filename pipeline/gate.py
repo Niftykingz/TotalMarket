@@ -52,7 +52,12 @@ def verify_post(slug, root=core.ROOT):
         collected = run.load(1)
         # Optional strict mode. Keep disabled until audited rollout; when enabled,
         # the production gate independently fetches every source and fails closed.
-        if config(root).get("require_live_evidence", True):
+        pub = run.m.get("stages", {}).get("PUBLISH", {})
+        published = pub.get("status") == "PASS" and run.load(6).get("post_sha256") == art.get("post_sha256")
+        # New articles: the remote source audit must pass now. Articles already published
+        # through this gate keep their verified, unchanged version even if a source page later
+        # changes (live blogs scroll, pages are edited): drift is a correction, never a deletion.
+        if config(root).get("require_live_evidence", True) and not published:
             ok, source_errors = source_audit.audit(collected)
             if not ok:
                 return "remote source audit failed: " + "; ".join(source_errors[:3])
