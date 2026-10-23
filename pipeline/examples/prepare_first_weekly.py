@@ -71,4 +71,4 @@ job={"slug":"2026-10-23-weekly-market-review","collection":job_collection,"graph
 out=root/"pipeline/inbox"/"2026-10-23-weekly-market-review.json"
 out.parent.mkdir(parents=True,exist_ok=True)
 out.write_text(json.dumps(job,ensure_ascii=False,indent=2))
-print("Prepared expanded Friday report with verified-source context and benchmark chart; incomplete datasets disclosed.")
+print("Prepared expanded Friday report with verified-source context, benchmark chart and editorial dashboard layout; incomplete datasets disclosed.")
