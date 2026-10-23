@@ -286,6 +286,12 @@ header.top{background:var(--head);color:var(--head-ink);border-bottom:1px solid 
 .rp-tile.up{background:rgba(34,197,94,var(--a))} .rp-tile.down{background:rgba(239,68,68,var(--a))} .rp-tile:not(.up):not(.down){background:var(--line)}
 .rp-tile span{font-weight:600;font-size:.86rem;color:var(--ink)}
 .rp-tile b{font-family:var(--f-mono);font-variant-numeric:tabular-nums;letter-spacing:-.01em;font-size:1.02rem;color:var(--ink)}
+.rp-tile small{font-family:var(--f-mono);font-variant-numeric:tabular-nums;font-size:.72rem;color:var(--ink);opacity:.8}
+.rp-weekly{gap:18px}
+.rp-weekly .rp-kpis{grid-template-columns:repeat(auto-fill,minmax(160px,1fr))}
+@media(max-width:560px){.rp-bar{grid-template-columns:minmax(78px,110px) 1fr 62px;gap:7px;font-size:.82rem}
+.rp-heat{grid-template-columns:repeat(2,minmax(0,1fr))}.rp-weekly .rp-kpis{grid-template-columns:repeat(2,minmax(0,1fr))}
+.rp-kpi .v{font-size:1.02rem}.rp-weekly{gap:14px}}
 .rp-gl{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
 .rp-gl h3{font-size:.8rem;text-transform:uppercase;letter-spacing:.06em;margin:0 0 6px}
 .rp-movers{list-style:none;margin:0;padding:0;display:grid;counter-reset:m;border:1px solid var(--line);border-radius:8px;overflow:hidden;background:var(--surface)}
