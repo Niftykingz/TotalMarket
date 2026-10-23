@@ -1,0 +1,179 @@
+{
+ "widgets": [
+  {
+   "tv": "ticker-tape",
+   "loaded": "1",
+   "html": 2360,
+   "iframes": [
+    [
+     1232,
+     58,
+     "https://www.tradingview-widget.com/embed-widget/ticker-tape/?locale=en#%7B%22symbols%22%3A"
+    ]
+   ]
+  },
+  {
+   "tv": "single-quote",
+   "loaded": "1",
+   "html": 1568,
+   "iframes": [
+    [
+     291,
+     69,
+     "https://www.tradingview-widget.com/embed-widget/single-quote/?locale=en#%7B%22symbol%22%3A"
+    ]
+   ]
+  },
+  {
+   "tv": "single-quote",
+   "loaded": "1",
+   "html": 1568,
+   "iframes": [
+    [
+     291,
+     69,
+     "https://www.tradingview-widget.com/embed-widget/single-quote/?locale=en#%7B%22symbol%22%3A"
+    ]
+   ]
+  },
+  {
+   "tv": "single-quote",
+   "loaded": "1",
+   "html": 1568,
+   "iframes": [
+    [
+     291,
+     69,
+     "https://www.tradingview-widget.com/embed-widget/single-quote/?locale=en#%7B%22symbol%22%3A"
+    ]
+   ]
+  },
+  {
+   "tv": "single-quote",
+   "loaded": "1",
+   "html": 1566,
+   "iframes": [
+    [
+     291,
+     69,
+     "https://www.tradingview-widget.com/embed-widget/single-quote/?locale=en#%7B%22symbol%22%3A"
+    ]
+   ]
+  },
+  {
+   "tv": "single-quote",
+   "loaded": "",
+   "html": 51,
+   "iframes": []
+  },
+  {
+   "tv": "single-quote",
+   "loaded": "",
+   "html": 51,
+   "iframes": []
+  },
+  {
+   "tv": "single-quote",
+   "loaded": "",
+   "html": 51,
+   "iframes": []
+  },
+  {
+   "tv": "single-quote",
+   "loaded": "",
+   "html": 51,
+   "iframes": []
+  },
+  {
+   "tv": "single-quote",
+   "loaded": "",
+   "html": 51,
+   "iframes": []
+  },
+  {
+   "tv": "single-quote",
+   "loaded": "",
+   "html": 51,
+   "iframes": []
+  },
+  {
+   "tv": "single-quote",
+   "loaded": "",
+   "html": 51,
+   "iframes": []
+  },
+  {
+   "tv": "single-quote",
+   "loaded": "",
+   "html": 51,
+   "iframes": []
+  },
+  {
+   "tv": "single-quote",
+   "loaded": "",
+   "html": 51,
+   "iframes": []
+  },
+  {
+   "tv": "single-quote",
+   "loaded": "",
+   "html": 51,
+   "iframes": []
+  },
+  {
+   "tv": "single-quote",
+   "loaded": "",
+   "html": 51,
+   "iframes": []
+  },
+  {
+   "tv": "single-quote",
+   "loaded": "",
+   "html": 51,
+   "iframes": []
+  },
+  {
+   "tv": "single-quote",
+   "loaded": "",
+   "html": 51,
+   "iframes": []
+  },
+  {
+   "tv": "single-quote",
+   "loaded": "",
+   "html": 51,
+   "iframes": []
+  },
+  {
+   "tv": "single-quote",
+   "loaded": "",
+   "html": 51,
+   "iframes": []
+  },
+  {
+   "tv": "single-quote",
+   "loaded": "",
+   "html": 51,
+   "iframes": []
+  },
+  {
+   "tv": "single-quote",
+   "loaded": "",
+   "html": 51,
+   "iframes": []
+  },
+  {
+   "tv": "single-quote",
+   "loaded": "",
+   "html": 51,
+   "iframes": []
+  },
+  {
+   "tv": "single-quote",
+   "loaded": "",
+   "html": 51,
+   "iframes": []
+  }
+ ],
+ "console": []
+}
