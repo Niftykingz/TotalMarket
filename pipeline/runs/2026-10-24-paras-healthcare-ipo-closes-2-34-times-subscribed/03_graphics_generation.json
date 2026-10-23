@@ -1,0 +1,107 @@
+{
+ "fields": {
+  "coverHeadline": "PARAS IPO 2.34X SUBSCRIBED",
+  "stat": "2.34x",
+  "coverDate": "2026-10-23",
+  "symbol": "growth",
+  "flags": [
+   "IN"
+  ],
+  "companies": [
+   {
+    "name": "Paras Healthcare",
+    "ticker": "PARASHEALTH"
+   }
+  ],
+  "chart": {
+   "type": "ipo_subscription",
+   "title": "IPO demand · bidding closed",
+   "asOf": "23 Oct 2026, 5:00 pm IST",
+   "source": "HDFC Sky",
+   "items": [
+    {
+     "label": "Total",
+     "value": "2.34x",
+     "role": "total",
+     "note": "Times subscribed, Paras Healthcare"
+    },
+    {
+     "label": "Institutions (QIB)",
+     "value": "3.25x"
+    },
+    {
+     "label": "Retail",
+     "value": "2.10x"
+    },
+    {
+     "label": "Wealthy individuals (NII)",
+     "value": "0.69x"
+    }
+   ]
+  }
+ },
+ "analysis": {
+  "event": "ipo",
+  "instruments": [],
+  "companies": [
+   "Paras Healthcare"
+  ],
+  "direction": "down",
+  "template": "ipo_subscription",
+  "object": "growth",
+  "figures": [
+   {
+    "label": "Total",
+    "value": "2.34x",
+    "role": "total",
+    "note": "Times subscribed, Paras Healthcare"
+   },
+   {
+    "label": "Institutions (QIB)",
+    "value": "3.25x"
+   },
+   {
+    "label": "Retail",
+    "value": "2.10x"
+   },
+   {
+    "label": "Wealthy individuals (NII)",
+    "value": "0.69x"
+   }
+  ],
+  "series": [],
+  "reason": "ipo story with a verified ipo_subscription chart",
+  "data_required": true,
+  "missing": "",
+  "chart": {
+   "type": "ipo_subscription",
+   "title": "IPO demand · bidding closed",
+   "asOf": "23 Oct 2026, 5:00 pm IST",
+   "source": "HDFC Sky",
+   "items": [
+    {
+     "label": "Total",
+     "value": "2.34x",
+     "role": "total",
+     "note": "Times subscribed, Paras Healthcare"
+    },
+    {
+     "label": "Institutions (QIB)",
+     "value": "3.25x"
+    },
+    {
+     "label": "Retail",
+     "value": "2.10x"
+    },
+    {
+     "label": "Wealthy individuals (NII)",
+     "value": "0.69x"
+    }
+   ]
+  }
+ },
+ "headline": "Paras Healthcare IPO closes 2.34 times subscribed",
+ "files": {
+  "cover.jpg": "f550973492df09d93a405c804bb10b4bd59381279ef12a7f0a1b38bfc66acb91"
+ }
+}

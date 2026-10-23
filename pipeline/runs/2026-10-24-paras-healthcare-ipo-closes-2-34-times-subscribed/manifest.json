@@ -1,0 +1,42 @@
+{
+ "slug": "2026-10-24-paras-healthcare-ipo-closes-2-34-times-subscribed",
+ "job": "pipeline/inbox/2026-10-24-paras-healthcare-ipo-closes-2-34-times-subscribed.json",
+ "job_sha256": "43b5b4063d3328762c42301dd14167b8100cd23ad9d42a448f338e78486b689f",
+ "stages": {
+  "DATA_COLLECTION": {
+   "status": "PASS",
+   "sha256": "bd5af61cf0f3be93228e0c1d44e8787c3020a84d54d57650bbbc6cc4a6039bd4",
+   "errors": [],
+   "started": "2026-10-24T00:02:40+05:30",
+   "finished": "2026-10-24T00:02:42+05:30"
+  },
+  "DATA_VERIFICATION": {
+   "status": "PASS",
+   "sha256": "d1129c6bae44883d2eec45db43925685861ee9098f2d54d723a73a3b624fd6eb",
+   "errors": [],
+   "started": "2026-10-24T00:02:42+05:30",
+   "finished": "2026-10-24T00:02:43+05:30"
+  },
+  "GRAPHICS_GENERATION": {
+   "status": "PASS",
+   "sha256": "5ebe09f0777cf50ba9f8fd447c18f904dba99eadcc7794ec9f41a01dedd76bbc",
+   "errors": [],
+   "started": "2026-10-24T00:02:43+05:30",
+   "finished": "2026-10-24T00:02:43+05:30"
+  },
+  "ARTICLE_WRITING": {
+   "status": "PASS",
+   "sha256": "429b555cc30e0623f1986170751eec46cb81b9c2dcd0c58432f53ee5af222ef3",
+   "errors": [],
+   "started": "2026-10-24T00:02:43+05:30",
+   "finished": "2026-10-24T00:02:43+05:30"
+  },
+  "FINAL_QA": {
+   "status": "PASS",
+   "sha256": "1a9103185fde94c4f0f9d52ae3857001f5449b5229cd47df80df86774e181b74",
+   "errors": [],
+   "started": "2026-10-24T00:02:43+05:30",
+   "finished": "2026-10-24T00:02:43+05:30"
+  }
+ }
+}

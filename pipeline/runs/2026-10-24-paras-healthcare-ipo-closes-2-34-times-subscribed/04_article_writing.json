@@ -1,0 +1,96 @@
+{
+ "post_path": "data/posts/2026-10-24-paras-healthcare-ipo-closes-2-34-times-subscribed.json",
+ "post": {
+  "title": "Paras Healthcare IPO closes 2.34 times subscribed; wealthy investors' quota only 0.69 times filled",
+  "dek": "Institutions bid 3.25 times and retail investors 2.10 times their quotas. Allotment is due on Monday 26 October, listing on Wednesday 28 October.",
+  "category": "startups",
+  "lead": false,
+  "readMins": 2,
+  "body": [
+   "Paras Healthcare's ₹1,450 crore IPO closed on Friday 2.34 times subscribed, according to HDFC Sky's figures at 5:00 pm, when bidding ended. Institutions (QIBs, excluding anchor investors) bid for 3.25 times the shares set aside for them and retail investors for 2.10 times. The quota for wealthy individuals (NIIs) was only 0.69 times filled.",
+   "What it means for applicants: retail demand was a little over twice the shares available, so not every retail applicant will get shares; allotment is decided by a computerised lottery. Allotment is due on Monday 26 October and the shares are due to list on NSE and BSE on Wednesday 28 October. The price band was ₹660 to ₹693 a share.",
+   "Key takeaway: demand was modest and uneven. Unfilled NII shares can be offered to other categories under the issue's rules, and the listing price is set by buyers and sellers on listing day, not by the subscription number. This is education, not a recommendation."
+  ],
+  "indiaImpact": "A hospital chain from North India and Bihar met only moderate demand in the same week as Jio Platforms' far larger IPO, a sign of how selective investors were.",
+  "seoTitle": "Paras Healthcare IPO Subscription: 2.34x, QIB 3.25x, Retail 2.10x",
+  "seoDescription": "Paras Healthcare IPO closes 2.34 times subscribed on 23 Oct 2026: QIB 3.25x, retail 2.10x, NII 0.69x at 5 pm (HDFC Sky). Allotment 26 Oct, listing 28 Oct.",
+  "coverAlt": "Cover graphic: Paras Healthcare IPO subscribed 2.34 times, QIB 3.25 times",
+  "tags": [
+   "Paras Healthcare IPO subscription status",
+   "Paras Healthcare IPO",
+   "IPO subscription status",
+   "Paras Healthcare IPO allotment date",
+   "Paras Healthcare listing date",
+   "IPO today"
+  ],
+  "sources": [
+   {
+    "name": "HDFC Sky: Paras Healthcare IPO subscription status, day 3",
+    "url": "https://hdfcsky.com/news/paras-healthcare-ipo-subscription-status-day-3"
+   }
+  ],
+  "coverLabel": "IPO daily",
+  "edition": "2026-10-24-late",
+  "editionLabel": "Sat 24 Oct · Late update",
+  "publishedAt": "2026-10-24T00:10:00+05:30",
+  "status": "new",
+  "hi": {
+   "title": "Paras Healthcare IPO 2.34 गुना subscribe होकर बंद; NII हिस्सा सिर्फ 0.69 गुना भरा",
+   "dek": "QIB ने 3.25 गुना और retail निवेशकों ने 2.10 गुना बोली लगाई। allotment सोमवार 26 अक्टूबर को, लिस्टिंग बुधवार 28 अक्टूबर को।",
+   "body": [
+    "HDFC Sky के शाम 5:00 बजे के आंकड़ों के मुताबिक Paras Healthcare का ₹1,450 करोड़ का IPO शुक्रवार को 2.34 गुना subscribe होकर बंद हुआ। QIB (anchor निवेशकों को छोड़कर) ने अपने हिस्से के 3.25 गुना और retail निवेशकों ने 2.10 गुना बोली लगाई। NII का हिस्सा सिर्फ 0.69 गुना भरा।",
+    "आवेदकों के लिए मतलब: retail मांग उपलब्ध शेयरों से दोगुने से थोड़ी ज़्यादा रही, इसलिए हर retail आवेदक को शेयर नहीं मिलेंगे; allotment कंप्यूटर lottery से होता है। Allotment सोमवार 26 अक्टूबर को और लिस्टिंग बुधवार 28 अक्टूबर को NSE और BSE पर होनी है। प्राइस बैंड ₹660 से ₹693 प्रति शेयर था।",
+    "मुख्य सीख: मांग मध्यम और असमान रही। लिस्टिंग भाव subscription से नहीं, लिस्टिंग के दिन खरीदारों और बेचने वालों से तय होता है। यह शिक्षा है, सलाह नहीं।"
+   ],
+   "indiaImpact": "उत्तर भारत और बिहार की अस्पताल कंपनी को Jio के बड़े IPO वाले हफ्ते में मध्यम मांग मिली।",
+   "seoTitle": "Paras Healthcare IPO subscription: 2.34 गुना, QIB 3.25 गुना",
+   "seoDescription": "Paras Healthcare IPO 23 अक्टूबर 2026 को 2.34 गुना subscribe होकर बंद: QIB 3.25 गुना, retail 2.10 गुना, NII 0.69 गुना (शाम 5 बजे, HDFC Sky)।",
+   "tags": [
+    "Paras Healthcare IPO सब्सक्रिप्शन",
+    "Paras Healthcare IPO",
+    "IPO सब्सक्रिप्शन स्टेटस",
+    "Paras Healthcare IPO allotment"
+   ]
+  },
+  "coverHeadline": "PARAS IPO 2.34X SUBSCRIBED",
+  "stat": "2.34x",
+  "coverDate": "2026-10-23",
+  "symbol": "growth",
+  "flags": [
+   "IN"
+  ],
+  "companies": [
+   {
+    "name": "Paras Healthcare",
+    "ticker": "PARASHEALTH"
+   }
+  ],
+  "chart": {
+   "type": "ipo_subscription",
+   "title": "IPO demand · bidding closed",
+   "asOf": "23 Oct 2026, 5:00 pm IST",
+   "source": "HDFC Sky",
+   "items": [
+    {
+     "label": "Total",
+     "value": "2.34x",
+     "role": "total",
+     "note": "Times subscribed, Paras Healthcare"
+    },
+    {
+     "label": "Institutions (QIB)",
+     "value": "3.25x"
+    },
+    {
+     "label": "Retail",
+     "value": "2.10x"
+    },
+    {
+     "label": "Wealthy individuals (NII)",
+     "value": "0.69x"
+    }
+   ]
+  }
+ },
+ "post_sha256": "42efde2e22a9fea3e945289c3b1d69c7ad14db66439a34603fa7d8f617620efd"
+}

@@ -1,0 +1,64 @@
+{
+ "verified": [
+  {
+   "id": "tot",
+   "label": "Paras Healthcare IPO total subscription",
+   "value": "2.34",
+   "source": "hdfc",
+   "evidence": "subscribed 2.34 times overall as of 5:00 PM IST on October 23, 2026",
+   "as_of": "2026-10-23",
+   "key": true
+  },
+  {
+   "id": "qib",
+   "label": "Paras Healthcare IPO QIB subscription",
+   "value": "3.25",
+   "source": "hdfc",
+   "evidence": "excluding anchor investors, was subscribed 3.25 times",
+   "as_of": "2026-10-23",
+   "key": true
+  },
+  {
+   "id": "nii",
+   "label": "Paras Healthcare IPO NII subscription",
+   "value": "0.69",
+   "source": "hdfc",
+   "evidence": "category was subscribed 0.69 times",
+   "as_of": "2026-10-23"
+  },
+  {
+   "id": "rii",
+   "label": "Paras Healthcare IPO retail subscription",
+   "value": "2.10",
+   "source": "hdfc",
+   "evidence": "recorded 2.10 times subscription",
+   "as_of": "2026-10-23"
+  },
+  {
+   "id": "size",
+   "label": "Paras Healthcare IPO issue size",
+   "value": "1,450",
+   "source": "hdfc",
+   "evidence": "The book-built issue has a total size of ₹1,450 crore",
+   "as_of": "2026-10-23"
+  },
+  {
+   "id": "lo",
+   "label": "Paras Healthcare IPO price band lower end",
+   "value": "660",
+   "source": "hdfc",
+   "evidence": "The price band is ₹660 to ₹693 per share.",
+   "as_of": "2026-10-23"
+  },
+  {
+   "id": "hi",
+   "label": "Paras Healthcare IPO price band upper end",
+   "value": "693",
+   "source": "hdfc",
+   "evidence": "The price band is ₹660 to ₹693 per share.",
+   "as_of": "2026-10-23"
+  }
+ ],
+ "rejected": [],
+ "examples": []
+}
