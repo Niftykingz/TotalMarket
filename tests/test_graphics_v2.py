@@ -155,6 +155,11 @@ class Publishing(V2):
         for f in sorted(glob.glob(str(ROOT / "data" / "posts" / "*.json"))):
             p = json.loads(open(f, encoding="utf-8").read())
             p["id"] = os.path.basename(f)[:-5]
+            # A blocked article is intentionally absent from the built site.
+            # Do not require a cover for an article rejected by source verification.
+            allowed, _reason = gate.allowed(p, ROOT)
+            if not allowed:
+                continue
             if p.get("chart"):
                 continue
             if covers.cover_name(p) not in live:
