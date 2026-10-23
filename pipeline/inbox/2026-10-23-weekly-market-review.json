@@ -108,7 +108,9 @@
       "caps": [],
       "global": [],
       "gainers": [],
-      "losers": []
+      "losers": [],
+      "breadth": {},
+      "fiiDii": {}
     },
     "reportTakeaways": [
       "Friday benchmarks closed lower after recovering from intraday lows.",
