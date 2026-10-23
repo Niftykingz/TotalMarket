@@ -48,7 +48,13 @@ job_collection=json.loads(json.dumps(base["collection"]))
 existing_urls={source["url"] for source in job_collection["sources"]}
 for source in article["sources"]:
     if source["url"] not in existing_urls:
-        job_collection["sources"].append(source)
+        source_id="report_extra_"+str(len(existing_urls)+1)
+        job_collection["sources"].append({
+            "id":source_id,
+            "name":source["name"],
+            "url":source["url"],
+            "published":"2026-10-23T19:00:00+05:30"
+        })
         existing_urls.add(source["url"])
 graphic=dict(base["graphic"])
 graphic["headline"]=article["title"]
