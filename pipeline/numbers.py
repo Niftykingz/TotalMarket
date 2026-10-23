@@ -64,12 +64,13 @@ def figure_values(figs):
     return vals
 
 
-def candidates(figs):
-    """(value, why) pairs the checker accepts, computed only from verified figures."""
+def candidates(figs, scales=SCALES):
+    """(value, why) pairs the checker accepts, computed only from verified figures.
+    Graphics pass scales=(1,): a chart shows figures as verified, never unit-rescaled."""
     base = figure_values(figs)
     out = []
     for fid, v in base:
-        for s in SCALES:
+        for s in scales:
             out.append((v * s, fid if s == 1 else f"{fid}×{s}"))
             if s != 1:
                 out.append((v / s, f"{fid}÷{s}"))

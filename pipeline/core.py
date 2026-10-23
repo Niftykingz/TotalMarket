@@ -283,6 +283,52 @@ def headline_matches_chart(post, analysis):
     return [b[0] for b in bad]
 
 
+LABEL_IGNORE = {"the", "of", "and", "from", "in", "on", "at", "to", "vs", "for", "by", "close", "closing", "change",
+                "pct", "price", "rate", "index", "settle", "value", "level", "nifty", "ipo", "subscription",
+                "times", "subscribed", "cr", "crore", "am", "pm", "ist", "day", "today", "fri", "mon", "tue",
+                "wed", "thu", "sat", "sun", "oct", "barrel", "per", "previous", "prev"}
+LABEL_SYNONYMS = {"pat": "profit", "weakest": "low", "lowest": "low", "intraday": "low", "strongest": "high",
+                  "highest": "high", "revenue": "revenue", "sales": "revenue", "institution": "qib",
+                  "institutional": "qib", "rii": "retail", "individual": "nii", "employe": "employee",
+                  "usd": "inr", "rupee": "inr", "dollar": "dxy", "dxy": "dxy", "dow": "dow", "spx": "500",
+                  "sp": "500", "bps": "bps", "basis": "bps"}
+
+
+def label_tokens(label):
+    words = [w for w in re.split(r"[^a-z0-9]+", str(label).casefold()) if len(w) > 1]
+    words = [w[:-1] if len(w) > 4 and w.endswith("s") else w for w in words]
+    words = [LABEL_SYNONYMS.get(w, w) for w in words]
+    named = {w for w in words if w not in LABEL_IGNORE and not w.isdigit()}
+    return named or {w for w in words if w.isdigit()}
+
+
+def chart_item_problems(analysis, ver):
+    """Each chart item's numbers must come from verified figures with a matching label
+    (or the figure ids listed in item["figures"]), at face value — no unit rescaling."""
+    ch = analysis.get("chart") or {}
+    figs = list(ver["verified"])
+    out = []
+    for item in ch.get("items") or []:
+        nums = " ".join(str(item.get(k) or "") for k in ("value", "change", "pct", "prev", "issue", "listing"))
+        if not N.mentions(nums):
+            continue
+        ids = item.get("figures")
+        if ids:
+            linked = [f for f in figs if f["id"] in ids]
+        else:
+            want = label_tokens(item.get("label", ""))
+            linked = [f for f in figs if want & label_tokens(f.get("label", ""))]
+        if not linked:
+            out.append(f"chart item '{item.get('label')}' has no verified figure with a matching label "
+                       "(name the figure ids in item['figures'])")
+            continue
+        bad = N.unsupported(nums, N.candidates(linked, scales=(1,)))
+        if bad:
+            out.append(f"chart item '{item.get('label')}' shows {[b[0] for b in bad]} not in its own verified figures "
+                       f"{[f['id'] for f in linked]}")
+    return out
+
+
 def stage3_graphic(job, ver, run, root, render=True):
     import covers, graphics_selector
     g = dict(job.get("graphic") or {})
@@ -303,6 +349,7 @@ def stage3_graphic(job, ver, run, root, render=True):
     if a.get("data_required") and a["template"] == "illustration":
         errs.append("MISSING_DATA: " + (a.get("missing") or f"{a['event']} story needs a data-driven graphic") +
                     ". Collect the figures and retry; never publish this story with a generic illustration.")
+    errs += chart_item_problems(a, ver)
     if a["template"] != "illustration":
         off = headline_matches_chart(post, a)
         if off:

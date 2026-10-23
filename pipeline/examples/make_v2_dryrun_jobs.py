@@ -116,7 +116,7 @@ JOBS.append({"slug": "2026-10-23-v2-policy-rate", "collection": {"sources": src(
   "flags": ["IN"], "coverDate": "2026-10-07",
   "chart": {"type": "policy_rate", "title": "RBI policy · 7 Oct 2026", "asOf": "MPC decision, 7 Oct 2026", "source": "GKToday, Adda247",
             "items": [{"label": "Repo rate (before)", "value": "5.25%", "role": "before"}, {"label": "Repo rate (after)", "value": "5.50%", "role": "after"},
-                      {"label": "Change", "value": "+25 bps", "role": "change"}]}},
+                      {"label": "Change", "value": "+25 bps", "role": "change", "figures": ["bps"]}]}},
  "article": article("RBI raised the repo rate by 25 bps to 5.50% from 5.25%", "The MPC raised the rate by 25 basis points on 7 October.",
   ["On 7 October the RBI's MPC raised the repo rate by 25 basis points, from 5.25% to 5.50%."], "policy", ["gk", "adda"])})
 
