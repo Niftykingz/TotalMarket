@@ -212,7 +212,7 @@ def stage1_source_first(job, edition_date, root=ROOT):
     cfg = json.loads(cfg_path.read_text(encoding="utf-8")) if cfg_path.is_file() else {}
     if cfg.get("source_recovery", False) and not errors:
         from .source_audit import recover_evidence
-        collected, unresolved = recover_evidence(collected)
+        collected, unresolved = recover_evidence(collected, root=root)
         # No unsupported values may reach a graphic or article.
         errors.extend("SOURCE_RECOVERY: " + e for e in unresolved)
     return collected, errors
@@ -225,9 +225,13 @@ def stage2_with_remote_evidence(collected, root=ROOT):
     cfg = json.loads(cfg_path.read_text(encoding="utf-8")) if cfg_path.is_file() else {}
     verified, errors = stage2_verify(collected)
     if cfg.get("require_live_evidence", True):
-        ok, source_errors = source_audit.audit(collected)
+        ok, source_errors = source_audit.audit(collected, root=root)
         if not ok:
             errors.extend("REMOTE_EVIDENCE: " + e for e in source_errors)
+    else:  # archived exchange datasets are checked even offline: it needs no network
+        ok, source_errors = source_audit.audit_datasets(collected, root=root)
+        if not ok:
+            errors.extend("DATASET_EVIDENCE: " + e for e in source_errors)
     return verified, errors
 
 

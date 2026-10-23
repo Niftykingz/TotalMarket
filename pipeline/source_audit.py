@@ -4,15 +4,21 @@ Network access is only to public HTTPS hosts. It does not treat a job's
 self-supplied evidence string as proof. This is an additional source check,
 not a guarantee that a publisher's claim is true.
 """
+import gzip
+import hashlib
 import html
 import ipaddress
+import json
 import re
+from pathlib import Path
 import socket
 import urllib.parse
 import urllib.request
 from html.parser import HTMLParser
 
 MAX_BYTES = 1_500_000
+ROOT = Path(__file__).resolve().parent.parent
+SNAPSHOT_DIR = "data/market_snapshots/"
 
 class EvidenceError(ValueError):
     pass
@@ -80,7 +86,82 @@ def fetch_public_text(url, timeout=10):
         doc = " ".join(parser.parts)
     return clean(doc)
 
-def audit(collected, fetcher=fetch_public_text):
+# ------------------------------------------------------------ exchange datasets
+# A source with "dataset" points at a raw exchange response archived by the collector workflow
+# (.github/workflows/collect-nse-market-data.yml). Its "page text" is rebuilt here from those raw
+# bytes, so an evidence quote can only match what the exchange actually returned.
+
+def _fmt(v):
+    return "" if v is None else str(v)
+
+
+def _lines_all_indices(d):
+    ts = d.get("timestamp", "")
+    out = []
+    for x in d.get("data") or []:
+        if not isinstance(x, dict) or not x.get("index"):
+            continue
+        out.append(f"{x['index']}: last {_fmt(x.get('last'))}, change {_fmt(x.get('variation'))} points, "
+                   f"{_fmt(x.get('percentChange'))}% (previous close {_fmt(x.get('previousClose'))}; open {_fmt(x.get('open'))}, "
+                   f"high {_fmt(x.get('high'))}, low {_fmt(x.get('low'))}; advances {_fmt(x.get('advances'))}, "
+                   f"declines {_fmt(x.get('declines'))}, unchanged {_fmt(x.get('unchanged'))}; "
+                   f"one week ago {_fmt(x.get('oneWeekAgoVal'))} on {_fmt(x.get('oneWeekAgo'))}) as of {ts}")
+    return out
+
+
+def _lines_fii_dii(d):
+    return [f"{x.get('category')} {x.get('date')}: bought {x.get('buyValue')} crore, sold {x.get('sellValue')} crore, "
+            f"net {x.get('netValue')} crore" for x in d if isinstance(x, dict)]
+
+
+DATASET_FORMATS = {"api_allIndices": _lines_all_indices, "api_fiidiiTradeReact": _lines_fii_dii}
+
+
+def dataset_lines(source, root=None):
+    """Human-readable lines rebuilt from the archived raw exchange response (fail closed)."""
+    root = Path(root or ROOT)
+    rel = str(source.get("dataset") or "")
+    if not rel.startswith(SNAPSHOT_DIR) or ".." in rel or not rel.endswith(".json.gz"):
+        raise EvidenceError("dataset must be an archived file under " + SNAPSHOT_DIR)
+    f = root / rel
+    if not f.is_file():
+        raise EvidenceError(f"dataset {rel} is not in the repository")
+    raw = gzip.decompress(f.read_bytes())
+    digest = hashlib.sha256(raw).hexdigest()
+    if digest != source.get("sha256"):
+        raise EvidenceError(f"dataset {rel} sha256 does not match the source record")
+    snap = f.parent / "snapshot.json"
+    recorded = {v.get("sha256") for v in (json.loads(snap.read_text(encoding="utf-8")).get("raw") or {}).values()} if snap.is_file() else set()
+    if digest not in recorded:
+        raise EvidenceError(f"dataset {rel} is not the response the collector recorded")
+    fmt = DATASET_FORMATS.get(f.name[:-len(".json.gz")])
+    if not fmt:
+        raise EvidenceError(f"no reader for dataset {f.name}")
+    return fmt(json.loads(raw))
+
+
+def dataset_text(source, root=None):
+    return clean(" | ".join(dataset_lines(source, root)))
+
+
+def _page_for(source, fetcher, root):
+    return dataset_text(source, root) if source.get("dataset") else fetcher(source.get("url", ""))
+
+
+def audit_datasets(collected, root=None):
+    """Offline part of the audit: figures from archived exchange datasets only."""
+    ds = {s["id"] for s in collected.get("sources", []) if s.get("dataset")}
+    figs = [f for f in collected.get("figures", []) if f.get("source") in ds]
+    if not figs:
+        return True, []
+    return _audit(dict(collected, figures=figs), fetcher=lambda url: (_ for _ in ()).throw(EvidenceError("not a dataset")), root=root)
+
+
+def audit(collected, fetcher=fetch_public_text, root=None):
+    return _audit(collected, fetcher, root)
+
+
+def _audit(collected, fetcher=fetch_public_text, root=None):
     """Return (success, errors). Every figure's quoted evidence must exist on
     the linked source page; unreachable/paywalled/JS-only sources fail closed.
     """
@@ -93,10 +174,10 @@ def audit(collected, fetcher=fetch_public_text):
         if not source:
             errors.append(f"{fid}: missing source")
             continue
-        url = source.get("url", "")
+        url = source.get("dataset") or source.get("url", "")
         if url not in cache:
             try:
-                cache[url] = fetcher(url)
+                cache[url] = _page_for(source, fetcher, root)
             except Exception as exc:
                 cache[url] = exc
         page = cache[url]
@@ -109,7 +190,7 @@ def audit(collected, fetcher=fetch_public_text):
     return not errors, errors
 
 
-def recover_evidence(collected, fetcher=fetch_public_text):
+def recover_evidence(collected, fetcher=fetch_public_text, root=None):
     """Repair stale/incorrect quotations from the linked original source.
 
     Retain a figure only when its *existing* value, change and pct occur
@@ -129,10 +210,10 @@ def recover_evidence(collected, fetcher=fetch_public_text):
         if not src:
             unresolved.append(f"{fig.get('id')}: missing original source")
             continue
-        url = src.get("url", "")
+        url = src.get("dataset") or src.get("url", "")
         if url not in cache:
             try:
-                cache[url] = fetcher(url)
+                cache[url] = _page_for(src, fetcher, root)
             except Exception as exc:
                 cache[url] = exc
         page = cache[url]

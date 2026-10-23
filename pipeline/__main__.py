@@ -193,6 +193,8 @@ def main(argv=None):
     pb = sub.add_parser("publish"); pb.add_argument("--dry-run", action="store_true"); pb.add_argument("-m", "--message")
     ck = sub.add_parser("check"); ck.add_argument("jobs", nargs="+")
     sub.add_parser("queue")
+    dl = sub.add_parser("dataset-lines", help="print the evidence lines an archived exchange dataset supports")
+    dl.add_argument("dataset"); dl.add_argument("--grep", default="")
     a = ap.parse_args(argv)
     if a.cmd == "run":
         return cmd_run(a.jobs)
@@ -206,6 +208,16 @@ def main(argv=None):
     if a.cmd == "queue":
         from pipeline import queue
         return queue.main()
+    if a.cmd == "dataset-lines":
+        import gzip, hashlib
+        from pipeline import source_audit
+        rel = a.dataset.replace("\\", "/")
+        sha = hashlib.sha256(gzip.decompress((ROOT / rel).read_bytes())).hexdigest()
+        print(f'source: {{"dataset": "{rel}", "sha256": "{sha}"}}')
+        for line in source_audit.dataset_lines({"dataset": rel, "sha256": sha}):
+            if a.grep.casefold() in line.casefold():
+                print(line)
+        return 0
     if os.environ.get("TM_PIPELINE_OFFLINE") == "1":
         print("REFUSED: publishing is disabled in offline mode")
         return 4

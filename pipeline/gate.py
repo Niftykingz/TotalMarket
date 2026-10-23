@@ -58,9 +58,12 @@ def verify_post(slug, root=core.ROOT):
         # through this gate keep their verified, unchanged version even if a source page later
         # changes (live blogs scroll, pages are edited): drift is a correction, never a deletion.
         if config(root).get("require_live_evidence", True) and not published:
-            ok, source_errors = source_audit.audit(collected)
+            ok, source_errors = source_audit.audit(collected, root=root)
             if not ok:
                 return "remote source audit failed: " + "; ".join(source_errors[:3])
+        ok, source_errors = source_audit.audit_datasets(collected, root=root)   # offline, always
+        if not ok:
+            return "exchange dataset check failed: " + "; ".join(source_errors[:3])
         ver, errs = core.stage2_verify(collected)            # re-run verification on the saved dataset
         if errs or core.canon(ver["verified"]) != core.canon(run.load(2)["verified"]):
             return "saved verification no longer reproduces"
