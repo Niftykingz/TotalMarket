@@ -167,7 +167,8 @@ def ipo_watch(ipos, c):
     e, base = c["e"], c["base"]
     order = {"listing": 0, "open": 1, "upcoming": 2, "closed": 3}
     live = sorted([x for x in ipos if x.get("_status") in order], key=lambda x: (order[x["_status"]], x.get("open") or ""))[:3]
-    label = {"open": "Open now", "upcoming": "Upcoming", "closed": "Closed · listing soon", "listing": "Listing today"}
+    label = {"open": "Open now", "upcoming": "Upcoming", "closed": "Bidding closed", "listing": "Listing today"}
+    import hubs
     def dr(x):
         try:
             o, cl = date.fromisoformat(x["open"]), date.fromisoformat(x["close"])
@@ -175,8 +176,9 @@ def ipo_watch(ipos, c):
         except Exception:
             return "Dates to be announced"
     cards = "".join(
-        f'<article class="ipoc"><a href="{base}ipo/{e(x["slug"])}/"><div class="ipot"><span class="ipoav" aria-hidden="true">{e(x["name"][:1])}</span>'
-        f'<div><h3>{e(x["name"])} IPO</h3><span class="ipst st-{x["_status"]}">{label[x["_status"]]}</span></div></div>'
+        f'<article class="ipoc"{hubs.ipo_data_attrs(x)}><a href="{base}ipo/{e(x["slug"])}/"><div class="ipot"><span class="ipoav" aria-hidden="true">{e(x["name"][:1])}</span>'
+        f'<div><h3>{e(x["name"])} IPO</h3><span class="ipst st-{x["_status"]}" data-ipo-badge>{label[x["_status"]]}</span>'
+        f'<small class="ipphase" data-ipo-phase>{e(x.get("_phase") or "")}</small></div></div>'
         f'<dl><div><dt>Price band</dt><dd>{e(x.get("priceBand") or "—")}</dd></div><div><dt>Issue size</dt><dd>{e(x.get("issueSize") or "—")}</dd></div>'
         f'<div><dt>Dates</dt><dd>{e(dr(x))}</dd></div></dl></a></article>' for x in live)
     subs = [x for x in ipos if x.get("_status") in ("open", "closed", "listing") and (x.get("subscription") or {}).get("total") is not None][:4]

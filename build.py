@@ -1113,7 +1113,7 @@ def main():
     results = load_results()
     global COMPANY_SLUGS, IPO_LIST, HUB_URLS, HOLIDAYS_PATH
     HOLIDAYS_PATH = markets.holidays_path(datetime.now(IST).date())
-    ctx = {"page": page, "e": e, "base": BASE, "card": card, "piggy_host": piggy_host, "meta": meta, "slug": slug, "ist": IST, "today": datetime.now(IST).date()}
+    ctx = {"page": page, "e": e, "base": BASE, "card": card, "piggy_host": piggy_host, "meta": meta, "slug": slug, "ist": IST, "today": datetime.now(IST).date(), "now": datetime.now(IST)}
     cpages, comps = hubs.company_pages(posts, results, ctx)
     ipages, IPO_LIST = hubs.ipo_pages(posts, ctx)
     COMPANY_SLUGS = set(comps)

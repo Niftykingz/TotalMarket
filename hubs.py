@@ -7,7 +7,7 @@ Both are generated from data the update runs already write:
 import json
 import os
 import re
-from datetime import date, datetime
+from datetime import date, datetime, time, timedelta, timezone
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
 DATA = os.path.join(ROOT, "data")
@@ -127,22 +127,102 @@ def load_ipos():
     return json.load(open(path, encoding="utf-8"))
 
 
-def ipo_status(x, today):
-    o, c, l = _d(x.get("open")), _d(x.get("close")), _d(x.get("listing"))
-    if x.get("listingPrice") or (l and l <= today and x.get("listed")):
+# ------------------------------------------------------------------ IPO timeline (IST)
+# Indian mainboard and SME IPOs: bidding opens 10:00 am on the open date and closes 5:00 pm
+# on the close date (UPI mandates must be accepted by then); allotment is finalised on the
+# allotment date (T+1); shares start trading at 10:00 am on the listing date (T+3), after
+# the 9:00–10:00 special pre-open session. A record may override any time with
+# openTime / closeTime / listingTime ("HH:MM", IST).
+IST_TZ = timezone(timedelta(hours=5, minutes=30))
+OPEN_AT, CLOSE_AT, LIST_AT = time(10, 0), time(17, 0), time(10, 0)
+
+
+def _hm(x, key, default):
+    try:
+        h, m = str(x.get(key) or "").split(":")
+        return time(int(h), int(m))
+    except Exception:
+        return default
+
+
+def _now(now):
+    """Accept a datetime (any zone) or a bare date (treated as midday IST, the old behaviour)."""
+    if isinstance(now, datetime):
+        return now.astimezone(IST_TZ) if now.tzinfo else now.replace(tzinfo=IST_TZ)
+    if isinstance(now, date):
+        return datetime.combine(now, time(12, 0), IST_TZ)
+    return datetime.now(IST_TZ)
+
+
+def ipo_times(x):
+    """Key moments of an IPO as IST datetimes (None when the date is unknown)."""
+    at = lambda d, t: datetime.combine(d, t, IST_TZ) if d else None
+    o, c, a, l = _d(x.get("open")), _d(x.get("close")), _d(x.get("allotment")), _d(x.get("listing"))
+    return {"open": at(o, _hm(x, "openTime", OPEN_AT)), "close": at(c, _hm(x, "closeTime", CLOSE_AT)),
+            "allotment": a, "listing": at(l, _hm(x, "listingTime", LIST_AT))}
+
+
+def ipo_status(x, now=None):
+    """upcoming → open → closed (allotment / awaiting listing) → listing (listing day) → listed."""
+    n = _now(now)
+    t = ipo_times(x)
+    if x.get("listingPrice") or (x.get("listed") and t["listing"] and n >= t["listing"]):
         return "listed"
-    if l and l <= today:
-        return "listing"
-    if c and c < today:
+    if t["listing"] and n.date() >= t["listing"].date():
+        return "listing"          # listing day (before 10 am: pre-open; after: trading, price not yet recorded)
+    if t["close"] and n >= t["close"]:
         return "closed"
-    if o and o <= today <= (c or o):
+    if t["open"] and n >= t["open"]:
         return "open"
-    if o and o > today:
+    if t["open"]:
         return "upcoming"
-    return "upcoming" if not o else "closed"
+    return "closed" if t["close"] and n.date() > t["close"].date() else "upcoming"
 
 
-STATUS_LABEL = {"open": "Open now", "upcoming": "Upcoming", "closed": "Closed · awaiting listing", "listing": "Listing today", "listed": "Listed"}
+def _when(dt, n):
+    d = dt.date() if isinstance(dt, datetime) else dt
+    if d == n.date():
+        return "today"
+    if d == n.date() + timedelta(days=1):
+        return "tomorrow"
+    return _fmt(d)
+
+
+def _clock(dt):
+    h = dt.hour % 12 or 12
+    return f"{h}{':' + format(dt.minute, '02d') if dt.minute else ''} {'am' if dt.hour < 12 else 'pm'}"
+
+
+def ipo_phase(x, now=None):
+    """One plain line for readers: what happens next and when (IST)."""
+    n, t, st = _now(now), ipo_times(x), ipo_status(x, now)
+    if st == "upcoming" and t["open"]:
+        return f"Opens {_when(t['open'], n)}, {_clock(t['open'])}"
+    if st == "open" and t["close"]:
+        return f"Bidding closes {_when(t['close'], n)}, {_clock(t['close'])}"
+    if st == "closed":
+        a = t["allotment"]
+        if a and a > n.date():
+            return f"Bidding closed · allotment {_when(a, n)}" + (f" · lists {_fmt(t['listing'].date())}" if t["listing"] else "")
+        if a and a == n.date():
+            return "Allotment today" + (f" · lists {_when(t['listing'], n)}" if t["listing"] else "")
+        return "Allotment done" + (f" · lists {_when(t['listing'], n)}, {_clock(t['listing'])}" if t["listing"] else " · listing date to be announced")
+    if st == "listing" and t["listing"]:
+        return f"Lists today, trading from {_clock(t['listing'])}" if n < t["listing"] else "Listing today · trading now"
+    if st == "listed" and t["listing"]:
+        return f"Listed {_fmt(t['listing'].date())}"
+    return ""
+
+
+def ipo_data_attrs(x, lang="en"):
+    """data-* attributes the browser script uses to keep the status correct after the page was built."""
+    t = ipo_times(x)
+    iso = lambda v: v.isoformat() if isinstance(v, datetime) else (v.isoformat() if v else "")
+    return (f' data-ipo-open="{iso(t["open"])}" data-ipo-close="{iso(t["close"])}" data-ipo-allot="{iso(t["allotment"])}"'
+            f' data-ipo-list="{iso(t["listing"])}" data-ipo-listed="{1 if (x.get("listingPrice") or x.get("listed")) else 0}" data-ipo-lang="{lang}"')
+
+
+STATUS_LABEL = {"open": "Open now", "upcoming": "Upcoming", "closed": "Bidding closed", "listing": "Listing today", "listed": "Listed"}
 
 LESSONS = [
     ("What is an IPO?", "An initial public offering is the first time a company sells its shares to the public. After the IPO, the shares trade on NSE and BSE like any other stock."),
@@ -170,12 +250,14 @@ def _sub_html(sub, e):
 
 
 def _ipo_rows(x, e):
-    rows = [("Status", STATUS_LABEL.get(x["_status"], "")), ("Segment", x.get("segment") or "Mainboard"), ("Exchanges", x.get("exchange") or "NSE, BSE"),
+    lab, ph = STATUS_LABEL.get(x["_status"], ""), x.get("_phase") or ""
+    rows = [("Status", ph if ph.startswith(lab) else " · ".join(v for v in (lab, ph) if v)), ("Segment", x.get("segment") or "Mainboard"), ("Exchanges", x.get("exchange") or "NSE, BSE"),
             ("Price band", x.get("priceBand")), ("Lot size", f'{x["lot"]} shares' if x.get("lot") else None),
             ("Minimum investment", _inr(x["minAmount"]) + " (at upper band)" if x.get("minAmount") else None),
             ("Issue size", x.get("issueSize")), ("Fresh issue", x.get("fresh")), ("Offer for sale (OFS)", x.get("ofs")),
-            ("Opens", _fmt(_d(x.get("open"))) if x.get("open") else None), ("Closes", _fmt(_d(x.get("close"))) if x.get("close") else None),
-            ("Allotment", _fmt(_d(x.get("allotment"))) if x.get("allotment") else None), ("Listing", _fmt(_d(x.get("listing"))) if x.get("listing") else None),
+            ("Opens", f'{_fmt(_d(x.get("open")))}, {_clock(ipo_times(x)["open"])} IST' if x.get("open") else None),
+            ("Closes", f'{_fmt(_d(x.get("close")))}, {_clock(ipo_times(x)["close"])} IST (bidding and UPI mandate cut-off)' if x.get("close") else None),
+            ("Allotment", _fmt(_d(x.get("allotment"))) if x.get("allotment") else None), ("Listing", f'{_fmt(_d(x.get("listing")))}, trading from {_clock(ipo_times(x)["listing"])} IST' if x.get("listing") else None),
             ("Issue price", _inr(x["issuePrice"]) if x.get("issuePrice") else None),
             ("Listing price", f'{_inr(x["listingPrice"])} ({x["listingGainPct"]:+.1f}%)' if x.get("listingPrice") and x.get("listingGainPct") is not None else None),
             ("After listing", x.get("afterListing")),
@@ -184,29 +266,27 @@ def _ipo_rows(x, e):
 
 
 def _ipo_card(x, e, base):
-    meta = " · ".join(v for v in [x.get("priceBand"), f'lot {x["lot"]}' if x.get("lot") else None,
-                                  f'closes {_fmt(_d(x.get("close")))}' if x["_status"] == "open" else None,
-                                  f'opens {_fmt(_d(x.get("open")))}' if x["_status"] == "upcoming" and x.get("open") else None,
-                                  f'lists {_fmt(_d(x.get("listing")))}' if x.get("listing") and x["_status"] != "listed" else None] if v)
+    meta = " · ".join(v for v in [x.get("priceBand"), f'lot {x["lot"]}' if x.get("lot") else None] if v)
     gain = ""
     if x.get("listingGainPct") is not None:
         gain = f'<span class="ipogain {"up" if x["listingGainPct"] >= 0 else "down"}">{x["listingGainPct"]:+.1f}% on listing</span>'
-    return (f'<article class="ipocard"><div class="iptop"><span class="ipst st-{x["_status"]}">{e(STATUS_LABEL[x["_status"]])}</span>{gain}</div>'
-            f'<h3><a href="{base}ipo/{x["slug"]}/">{e(x["name"])} IPO</a></h3><p class="ipmeta">{e(meta)}</p>'
+    return (f'<article class="ipocard"{ipo_data_attrs(x)}><div class="iptop"><span class="ipst st-{x["_status"]}" data-ipo-badge>{e(STATUS_LABEL[x["_status"]])}</span>{gain}</div>'
+            f'<h3><a href="{base}ipo/{x["slug"]}/">{e(x["name"])} IPO</a></h3><p class="ipphase" data-ipo-phase>{e(x.get("_phase") or "")}</p><p class="ipmeta">{e(meta)}</p>'
             f'{("<p class=\"ipbiz\">" + e(x["business"]) + "</p>") if x.get("business") else ""}{_sub_html(x.get("subscription"), e)}</article>')
 
 
 def ipo_pages(posts, ctx):
     page, e, base, card = ctx["page"], ctx["e"], ctx["base"], ctx["card"]
     data = load_ipos()
-    today = ctx["today"]
+    now = ctx.get("now") or ctx["today"]
     ipos = []
     for x in data.get("ipos", []):
         if not x.get("name"):
             continue
         x = dict(x)
         x["slug"] = x.get("slug") or _slug(x["name"])
-        x["_status"] = ipo_status(x, today)
+        x["_status"] = ipo_status(x, now)
+        x["_phase"] = ipo_phase(x, now)
         ipos.append(x)
     order = {"open": 0, "listing": 1, "closed": 2, "upcoming": 3, "listed": 4}
     ipos.sort(key=lambda x: (order[x["_status"]], _d(x.get("close")) or _d(x.get("listing")) or date.max))
@@ -234,7 +314,7 @@ def ipo_pages(posts, ctx):
     for st in ("open", "listing", "closed", "upcoming", "listed"):
         g = [x for x in ipos if x["_status"] == st]
         if g:
-            groups.append(f'<section class="edition"><h2 class="edhead"><b>{e(STATUS_LABEL[st])}</b><span>{len(g)}</span></h2><div class="ipogrid">{"".join(_ipo_card(x, e, base) for x in g)}</div></section>')
+            groups.append(f'<section class="edition" data-ipo-group="{st}"><h2 class="edhead"><b>{e(STATUS_LABEL[st])}</b><span>{len(g)}</span></h2><div class="ipogrid">{"".join(_ipo_card(x, e, base) for x in g)}</div></section>')
     lessons = "".join(f'<details class="lessonq"><summary>{e(q)}</summary><p>{e(a)}</p></details>' for q, a in LESSONS)
     news = (f'<section class="edition"><h2 class="edhead"><b>Latest IPO news and IPO daily</b></h2><div class="grid">{"".join(card(p) for p in ipo_posts[:12])}</div></section>') if ipo_posts else ""
     body = (f'<div class="sechead"><h1>IPO today: open, upcoming and recently listed IPOs</h1>'
@@ -260,7 +340,7 @@ def ipo_widget(ipos, e, base):
     live = [x for x in ipos if x["_status"] in ("open", "listing", "closed", "upcoming")][:5]
     if not live:
         return ""
-    rows = "".join(f'<li><a href="{base}ipo/{x["slug"]}/"><b>{e(x["name"])}</b><span class="ipst st-{x["_status"]}">{e(STATUS_LABEL[x["_status"]])}</span>'
+    rows = "".join(f'<li{ipo_data_attrs(x)}><a href="{base}ipo/{x["slug"]}/"><b>{e(x["name"])}</b><span class="ipst st-{x["_status"]}" data-ipo-badge>{e(STATUS_LABEL[x["_status"]])}</span>'
                    f'<small>{e(x.get("priceBand") or "")}{" · " + format(float(x["subscription"]["total"]), ".2f") + "x" if x.get("subscription") else ""}</small></a></li>' for x in live)
     return f'<section class="panel ipow"><h2>IPO watch <a href="{base}ipo/">All IPOs →</a></h2><ul>{rows}</ul></section>'
 
