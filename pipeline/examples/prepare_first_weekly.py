@@ -3,6 +3,8 @@ The pipeline, not this script, decides whether the story can be published.
 """
 import json
 from pathlib import Path
+import sys
+sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 from pipeline.examples.make_v2_dryrun_jobs import JOBS
 root=Path(__file__).resolve().parents[2]
 base=JOBS[0]
