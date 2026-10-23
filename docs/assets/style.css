@@ -1029,3 +1029,6 @@ img[loading="lazy"]{background:linear-gradient(90deg,var(--surface-2),var(--line
   .asof a,.dfoot a,.pul a{display:inline-block;padding:4px 0}
   .tags a,.rates li a,.substat li a{min-height:28px}
 }
+.ipphase{font-size:.84rem;font-weight:600;color:var(--ink-2,#334155);margin:.15rem 0 .1rem}
+small.ipphase{display:block;margin-top:4px}
+.ipo-hi>.ipst{display:inline-block;margin-bottom:6px}
