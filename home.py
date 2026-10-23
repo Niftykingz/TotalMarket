@@ -7,6 +7,7 @@ made-up number. Each market block carries its data type (EOD / delayed),
 source and last-update time.
 """
 import json, os
+import tradingview
 from datetime import datetime, timedelta, date
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
@@ -317,8 +318,10 @@ def body(posts, meta, results, ipos, c):
         return '<div class="empty"><p>The first update is on its way.</p></div>'
     cols = "".join(cat_col(posts, k, i, c) for k, i in (("tech", "tech"), ("global", "globe"), ("commodities", "coin")))
     return (f'<h1 class="sr">{c["e"](c["site_name"])}: {c["e"](c["tagline"])}</h1>'
+            + tradingview.ticker_tape()
             + hero(posts, c)
             + dashboard(posts, meta, c)
+            + tradingview.overview_panel(shead(c, "Market prices", "chart", c["base"] + "nifty-50/", "Nifty 50 page"))
             + f'<div class="g12"><div class="c9">{ipo_watch(ipos, c)}</div><div class="c3">{piggy_panel(c)}</div></div>'
             + f'<div class="g12 cols4"><div class="c9 cols3">{cols}</div><div class="c3">{rates_card(meta, c)}</div></div>'
             + f'<div class="g12"><div class="c4">{earnings(results, c)}</div><div class="c4">{report_card(posts, c)}</div><div class="c4">{education(c)}{tools_grid(c)}</div></div>'

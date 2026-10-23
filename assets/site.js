@@ -395,3 +395,35 @@
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", run); else run();
   setInterval(run, 60000);
 })();
+
+// TradingView widgets (third-party prices): injected only when the slot nears the screen,
+// so they never slow the first paint. Theme follows the site theme at load time.
+(function () {
+  var slots = document.querySelectorAll(".tvw[data-tv]");
+  if (!slots.length) return;
+  function load(el) {
+    if (el.dataset.loaded) return;
+    el.dataset.loaded = "1";
+    var cfg = {};
+    try { cfg = JSON.parse(el.dataset.tvConfig || "{}"); } catch (e) { return; }
+    var dark = (document.documentElement.dataset.theme || "light") === "dark";
+    cfg.colorTheme = dark ? "dark" : "light";
+    var box = document.createElement("div");
+    box.className = "tradingview-widget-container";
+    var inner = document.createElement("div");
+    inner.className = "tradingview-widget-container__widget";
+    box.appendChild(inner);
+    var s = document.createElement("script");
+    s.src = "https://s3.tradingview.com/external-embedding/embed-widget-" + el.dataset.tv + ".js";
+    s.async = true;
+    s.text = JSON.stringify(cfg);
+    box.appendChild(s);
+    el.innerHTML = "";
+    el.appendChild(box);
+  }
+  if (!("IntersectionObserver" in window)) { slots.forEach(load); return; }
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (en) { if (en.isIntersecting) { io.unobserve(en.target); load(en.target); } });
+  }, { rootMargin: "300px 0px" });
+  window.addEventListener("load", function () { slots.forEach(function (el) { io.observe(el); }); });
+})();
