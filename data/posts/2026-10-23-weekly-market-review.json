@@ -4,6 +4,15 @@
  "category": "markets",
  "lead": true,
  "readMins": 7,
+ "reportType": "weekly_market",
+ "reportTakeaways": [
+  "Friday benchmark closing moves are verified against cited source evidence.",
+  "Weekly percentage returns and sector rankings remain unpublished without comparable verified datasets."
+ ],
+ "reportWatch": [
+  "Monitor crude oil, quarterly earnings and institutional flows.",
+  "Check expiry positioning against timestamped exchange data before drawing conclusions."
+ ],
  "body": [
   "FRIDAY CLOSING DASHBOARD | Nifty 50 closed at 22,600.00, down 87.65 points; Sensex ended at 73,123.83, down 125.56 points. The chart accompanying this report compares the two closing benchmarks and their Friday point changes.",
   "WEEKLY MARKET PERFORMANCE | The full-week benchmark and broader-market percentage changes are withheld until the original publisher's supporting figures pass the evidence audit. Friday's closing moves must not be mistaken for weekly returns.",
@@ -70,6 +79,43 @@
     "value": "22,600.00",
     "change": "-87.65"
    }
+  ]
+ },
+ "report": {
+  "dateLabel": "Friday market close",
+  "kpis": [
+   {
+    "label": "Nifty 50 close",
+    "value": "22,600.00",
+    "change": "-87.65 pts",
+    "dir": "down"
+   },
+   {
+    "label": "Sensex close",
+    "value": "73,123.83",
+    "change": "-125.56 pts",
+    "dir": "down"
+   }
+  ],
+  "indices": [
+   {
+    "name": "Nifty 50",
+    "close": "22,600.00",
+    "change": "-87.65"
+   },
+   {
+    "name": "Sensex",
+    "close": "73,123.83",
+    "change": "-125.56"
+   }
+  ],
+  "takeaways": [
+   "Friday benchmark closing moves are verified against cited source evidence.",
+   "Weekly percentage returns and sector rankings remain unpublished without comparable verified datasets."
+  ],
+  "watch": [
+   "Monitor crude oil, quarterly earnings and institutional flows.",
+   "Check expiry positioning against timestamped exchange data before drawing conclusions."
   ]
  }
 }
