@@ -1,0 +1,169 @@
+{
+ "slug": "2026-10-23-jio-platforms-ipo-closes-22-times-subscribed",
+ "collection": {
+  "sources": [
+   {
+    "id": "hdfc",
+    "name": "HDFC Sky: Jio Platforms IPO subscription status on final day",
+    "url": "https://hdfcsky.com/news/jio-ipo-subscribed-22-19x-on-final-day",
+    "published": "2026-10-23T21:09:00+05:30"
+   }
+  ],
+  "figures": [
+   {
+    "id": "tot",
+    "label": "Jio IPO total subscription",
+    "value": "22.19",
+    "source": "hdfc",
+    "evidence": "subscribed 22.19 times overall by 7:00 PM IST on October 23, 2026",
+    "as_of": "2026-10-23",
+    "key": true
+   },
+   {
+    "id": "qib",
+    "label": "Jio IPO QIB subscription",
+    "value": "70.55",
+    "source": "hdfc",
+    "evidence": "QIB subscription at 70.55 times, NII at 14.00 times and retail at 2.72 times.",
+    "as_of": "2026-10-23",
+    "key": true
+   },
+   {
+    "id": "nii",
+    "label": "Jio IPO NII subscription",
+    "value": "14.00",
+    "source": "hdfc",
+    "evidence": "QIB subscription at 70.55 times, NII at 14.00 times and retail at 2.72 times.",
+    "as_of": "2026-10-23"
+   },
+   {
+    "id": "rii",
+    "label": "Jio IPO retail subscription",
+    "value": "2.72",
+    "source": "hdfc",
+    "evidence": "QIB subscription at 70.55 times, NII at 14.00 times and retail at 2.72 times.",
+    "as_of": "2026-10-23"
+   },
+   {
+    "id": "emp",
+    "label": "Jio IPO employee subscription",
+    "value": "2.93",
+    "source": "hdfc",
+    "evidence": "The employee-reserved category was subscribed 2.93 times",
+    "as_of": "2026-10-23"
+   },
+   {
+    "id": "sh",
+    "label": "Jio IPO shareholder subscription",
+    "value": "7.60",
+    "source": "hdfc",
+    "evidence": "the shareholder reservation portion recorded 7.60 times",
+    "as_of": "2026-10-23"
+   }
+  ],
+  "examples": []
+ },
+ "graphic": {
+  "headline": "Jio Platforms IPO closes 22.19 times subscribed",
+  "coverHeadline": "JIO IPO 22.19X SUBSCRIBED",
+  "stat": "22.19x",
+  "symbol": "growth",
+  "flags": [
+   "IN"
+  ],
+  "coverDate": "2026-10-23",
+  "companies": [
+   {
+    "name": "Jio Platforms",
+    "ticker": "JIOPLATFORMS"
+   }
+  ],
+  "chart": {
+   "type": "ipo_subscription",
+   "title": "IPO demand · bidding closed",
+   "asOf": "23 Oct 2026, 7:00 pm IST",
+   "source": "HDFC Sky",
+   "items": [
+    {
+     "label": "Total",
+     "value": "22.19x",
+     "role": "total",
+     "note": "Times subscribed, Jio Platforms"
+    },
+    {
+     "label": "Institutions (QIB)",
+     "value": "70.55x"
+    },
+    {
+     "label": "Wealthy individuals (NII)",
+     "value": "14.00x"
+    },
+    {
+     "label": "Shareholders",
+     "value": "7.60x"
+    },
+    {
+     "label": "Employees",
+     "value": "2.93x"
+    },
+    {
+     "label": "Retail",
+     "value": "2.72x"
+    }
+   ]
+  }
+ },
+ "article": {
+  "title": "Jio Platforms IPO closes 22.19 times subscribed; institutions bid 70.55 times their quota",
+  "dek": "Retail demand was 2.72 times; allotment is due on Monday 26 October and listing on Wednesday 28 October.",
+  "category": "startups",
+  "lead": false,
+  "readMins": 2,
+  "body": [
+   "Jio Platforms' IPO closed on Friday 22.19 times subscribed, according to HDFC Sky's tally as of 7:00 pm, two hours after bidding ended at 5 pm. Institutions (QIBs) bid for 70.55 times the shares set aside for them, wealthy individuals (NIIs) 14.00 times and retail investors 2.72 times. The employee quota was 2.93 times subscribed and the quota for Reliance shareholders 7.60 times.",
+   "What it means for applicants: with retail demand at 2.72 times the shares available, most retail applications will not get shares; allotment is decided by a computerised lottery. Allotment is due on Monday 26 October and the shares are due to list on NSE and BSE on Wednesday 28 October, with trading from 10 am.",
+   "Key takeaway: institutions drove the demand, bidding 70.55 times their quota, while retail demand was far lower. A high subscription does not decide the listing price, which is set by buyers and sellers on listing day. This is education, not a recommendation."
+  ],
+  "indiaImpact": "India's largest IPO drew strong demand from institutions, while most retail applicants will miss out in the allotment lottery.",
+  "seoTitle": "Jio IPO Subscription: 22.19x, QIB 70.55x, Retail 2.72x",
+  "seoDescription": "Jio Platforms IPO closes 22.19 times subscribed on 23 Oct 2026: QIB 70.55x, NII 14.00x, retail 2.72x as of 7 pm (HDFC Sky). Allotment 26 Oct, listing 28 Oct.",
+  "coverAlt": "Cover graphic: Jio Platforms IPO subscribed 22.19 times, QIB 70.55 times",
+  "tags": [
+   "Jio IPO subscription status",
+   "Jio Platforms IPO",
+   "IPO subscription status",
+   "Jio IPO allotment date",
+   "Jio IPO listing date",
+   "IPO today"
+  ],
+  "sources": [
+   {
+    "name": "HDFC Sky: Jio Platforms IPO subscription status on final day",
+    "url": "https://hdfcsky.com/news/jio-ipo-subscribed-22-19x-on-final-day"
+   }
+  ],
+  "coverLabel": "IPO daily",
+  "edition": "2026-10-23-evening",
+  "editionLabel": "Fri 23 Oct · Evening update",
+  "publishedAt": "2026-10-23T23:45:00+05:30",
+  "status": "new",
+  "hi": {
+   "title": "Jio Platforms IPO 22.19 गुना subscribe होकर बंद; QIB ने 70.55 गुना बोली लगाई",
+   "dek": "आखिरी दिन संस्थागत निवेशकों की मांग सबसे ज़्यादा रही; retail हिस्सा 2.72 गुना भरा।",
+   "body": [
+    "HDFC Sky के शाम 7 बजे तक के आंकड़ों के मुताबिक Jio Platforms का IPO शुक्रवार को 22.19 गुना subscribe होकर बंद हुआ; बोली शाम 5 बजे बंद हुई थी। QIB ने अपने हिस्से के 70.55 गुना, NII ने 14.00 गुना और retail निवेशकों ने 2.72 गुना बोली लगाई। कर्मचारियों का हिस्सा 2.93 गुना और Reliance शेयरधारकों का हिस्सा 7.60 गुना भरा।",
+    "आवेदकों के लिए मतलब: retail मांग उपलब्ध शेयरों से 2.72 गुना होने के कारण ज़्यादातर retail आवेदकों को शेयर नहीं मिलेंगे; allotment कंप्यूटर lottery से होता है। Allotment सोमवार 26 अक्टूबर को और लिस्टिंग बुधवार 28 अक्टूबर को NSE और BSE पर होनी है, ट्रेडिंग सुबह 10 बजे से।",
+    "मुख्य सीख: मांग संस्थागत निवेशकों से आई, जिन्होंने अपने हिस्से के 70.55 गुना बोली लगाई, जबकि retail मांग काफी कम रही। ज़्यादा subscription लिस्टिंग भाव तय नहीं करता। यह शिक्षा है, सलाह नहीं।"
+   ],
+   "indiaImpact": "भारत के सबसे बड़े IPO में संस्थागत निवेशकों की मज़बूत मांग दिखी।",
+   "seoTitle": "Jio IPO subscription: 22.19 गुना, QIB 70.55 गुना",
+   "seoDescription": "Jio Platforms IPO 23 अक्टूबर 2026 को 22.19 गुना subscribe होकर बंद: QIB 70.55 गुना, NII 14.00 गुना, retail 2.72 गुना (शाम 7 बजे तक, HDFC Sky)। allotment 26 अक्टूबर।",
+   "tags": [
+    "Jio IPO सब्सक्रिप्शन स्टेटस",
+    "Jio Platforms IPO",
+    "IPO सब्सक्रिप्शन स्टेटस",
+    "Jio IPO allotment"
+   ]
+  }
+ }
+}

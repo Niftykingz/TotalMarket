@@ -95,3 +95,10 @@ class PublishedStability(Base):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class HindiDates(unittest.TestCase):
+    def test_hindi_dates_and_times_are_not_figures(self):
+        from pipeline import numbers as N
+        got = [raw for raw, _, _ in N.mentions("allotment 26 अक्टूबर, ट्रेडिंग सुबह 10 बजे से; 23 अक्टूबर 2026 को ₹26 करोड़")]
+        self.assertEqual(got, ["₹26"])

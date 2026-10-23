@@ -1,6 +1,6 @@
 {
- "asOf": "23 Oct 2026, 2:10 pm IST",
- "updatedAt": "2026-10-23T15:52:00+05:30",
+ "asOf": "23 Oct 2026, 7:00 pm IST",
+ "updatedAt": "2026-10-23T23:45:00+05:30",
  "ipos": [
   {
    "name": "Jio Platforms",
@@ -19,14 +19,16 @@
    "fresh": "₹30,213 cr (27 crore shares)",
    "ofs": "None",
    "subscription": {
-    "asOf": "23 Oct, 2:10 pm (final day)",
-    "total": 9.81,
-    "qib": 23.47,
-    "nii": 11.97,
-    "retail": 2.28,
+    "asOf": "23 Oct, 7:00 pm (bidding closed 5 pm)",
+    "total": 22.19,
+    "qib": 70.55,
+    "nii": 14.0,
+    "retail": 2.72,
+    "employee": 2.93,
+    "shareholder": 7.6,
     "source": {
-     "name": "Business Standard: Market close, 23 Oct",
-     "url": "https://www.business-standard.com/markets/news/stock-market-live-october-23-nse-bse-sensex-today-nifty50-gift-nifty-crude-oil-prices-jio-ipo-q2-results-today-126102300078_1.html"
+     "name": "HDFC Sky",
+     "url": "https://hdfcsky.com/news/jio-ipo-subscribed-22-19x-on-final-day"
     }
    },
    "gmp": {

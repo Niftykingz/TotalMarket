@@ -49,6 +49,7 @@ def cmd_check(paths, root=ROOT):
     (tmp / "pipeline").mkdir()
     cfg = json.loads((root / "pipeline" / "config.json").read_text(encoding="utf-8"))
     cfg["require_live_evidence"] = False
+    cfg["source_recovery"] = False      # both network steps run in the publish queue instead
     (tmp / "pipeline" / "config.json").write_text(json.dumps(cfg), encoding="utf-8")
     log, core.LOG = core.LOG, tmp / "pipeline" / "log.jsonl"
     bad = 0

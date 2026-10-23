@@ -12,6 +12,9 @@ import re
 
 MONTHS = r"(?:jan|feb|mar|apr|may|jun|jul|aug|sep|sept|oct|nov|dec)[a-z]*\.?"
 R_DATE = re.compile(rf"\b\d{{1,2}}(?:st|nd|rd|th)?\s+{MONTHS}(?:\s+\d{{4}})?\b|\b{MONTHS}\s+\d{{1,2}}(?:st|nd|rd|th)?(?:,?\s+\d{{4}})?\b|\b\d{{4}}-\d{{2}}-\d{{2}}\b", re.I)
+HI_MONTHS = "जनवरी|फ़रवरी|फरवरी|मार्च|अप्रैल|अप्रेल|मई|जून|जुलाई|अगस्त|सितंबर|सितम्बर|अक्टूबर|अक्तूबर|नवंबर|नवम्बर|दिसंबर|दिसम्बर"
+R_DATE_HI = re.compile(rf"(?<![\d,.])\d{{1,2}}\s+(?:{HI_MONTHS})(?:\s+\d{{4}})?")
+R_TIME_HI = re.compile(r"(?:सुबह|दोपहर|शाम|रात)\s+\d{1,2}(?::\d{2})?\s+बजे")
 R_TIME = re.compile(r"\b\d{1,2}(?::\d{2})?\s*(?:am|pm|a\.m\.|p\.m\.)|\b\d{1,2}:\d{2}\b", re.I)
 R_LABEL = re.compile(r"\b(?:q[1-4]|h[12]|fy\s?\d{2,4}|\d{1,2}[- ]?(?:week|day|month|year|session|member|lakh-share)s?)\b|\b\d{2,3}[kK]\b|\b(?:nifty|sensex|midcap|smallcap|next|bse|s&p)\s?(?:50|30|100|150|250|500)\b(?![,.]\d)|\b\d{1,3}(?:st|nd|rd|th)\b|\b(?:24|22|18|14)\s?(?:k|carat|ct)\b|\b(?:10|2)\s?(?:-year|y)\b|\b\d+-for-\d+\b|\((?:999|995|916|750|585)\)|\b(?:999|995|916|750|585)\s+(?:gold|purity|fine)", re.I)
 R_URL = re.compile(r"https?://\S+|/[a-z0-9\-/]+/", re.I)
@@ -27,7 +30,7 @@ def to_float(s):
 def mentions(text):
     """Numeric mentions in text that need support: [(raw, value, decimals)]."""
     t = str(text or "")
-    for rx in (R_URL, R_DATE, R_TIME, R_LABEL):
+    for rx in (R_URL, R_DATE, R_DATE_HI, R_TIME, R_TIME_HI, R_LABEL):
         t = rx.sub(" ", t)
     out = []
     for m in R_NUM.finditer(t):
