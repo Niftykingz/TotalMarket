@@ -748,6 +748,30 @@ def article_page(p, posts, meta):
              f'<meta property="article:section" content="{e(CATS[p["category"]][0])}">'
              f'<script type="application/ld+json">{json.dumps(ld, ensure_ascii=False).replace("</", "<\\/")}</script>')
     body_html = "".join(f"<p>{e(t)}</p>" for t in p["_paras"])
+    if p.get("id") == "2026-10-23-weekly-market-review":
+        # Editorial sections: retain verified wording while making the report scannable.
+        sections = []
+        for para in p["_paras"]:
+            if " | " in para:
+                heading, detail = para.split(" | ", 1)
+                sections.append(f'<section class="tm-week-section"><h2>{e(heading.title())}</h2><p>{e(detail)}</p></section>')
+            else:
+                sections.append(f'<section class="tm-week-section"><p>{e(para)}</p></section>')
+        dashboard = ('<div class="tm-week-kpis" aria-label="Verified Friday closing figures">'
+                     '<div class="tm-week-kpi"><span>NIFTY 50 · CLOSE</span><strong>22,600.00</strong><em>▼ 87.65 pts</em></div>'
+                     '<div class="tm-week-kpi"><span>SENSEX · CLOSE</span><strong>73,123.83</strong><em>▼ 125.56 pts</em></div></div>')
+        styles = """<style>
+.tm-week-kpis{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin:26px 0}
+.tm-week-kpi{border:1px solid var(--line,#dce4ec);border-radius:14px;padding:20px;background:var(--surface,#f6f8fb);display:flex;flex-direction:column;gap:8px}
+.tm-week-kpi span{font-size:12px;letter-spacing:.09em;font-weight:800;opacity:.75}
+.tm-week-kpi strong{font-size:clamp(25px,4vw,37px);line-height:1.15;font-variant-numeric:tabular-nums}
+.tm-week-kpi em{color:#c83d4e;font-size:15px;font-style:normal;font-weight:800}
+.tm-week-section{padding:22px 0;border-bottom:1px solid var(--line,#dce4ec)}
+.tm-week-section h2{font-size:clamp(18px,2.5vw,24px);line-height:1.3;margin:0 0 12px;font-weight:800}
+.tm-week-section p{margin:0;line-height:1.85}
+@media(max-width:520px){.tm-week-kpis{gap:9px}.tm-week-kpi{padding:13px}.tm-week-kpi strong{font-size:24px}}
+</style>"""
+        body_html = styles + dashboard + "".join(sections)
     dek = f'<p class="dek">{e(p.get("dek"))}</p>' if p.get("dek") else ""
     body = f"""<article class="story" style="--dot:var(--c-{p['category']})">
 <nav class="crumbs"><a href="{BASE}">Home</a> / <a href="{BASE}{p['category']}/">{e(CATS[p['category']][0])}</a></nav>
