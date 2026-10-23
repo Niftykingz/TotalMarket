@@ -21,5 +21,7 @@ def to_dt(value):
 
 def fmt(value, pattern):
     d = to_dt(value)
-    out = d.strftime(pattern.replace("%-d", "\x00D\x00").replace("%-I", "\x00I\x00"))
-    return out.replace("\x00D\x00", str(d.day)).replace("\x00I\x00", str(d.hour % 12 or 12))
+    # NUL sentinels truncate strftime output on some Linux libc builds.
+    # Use printable sentinels that strftime preserves on Windows and Linux.
+    out = d.strftime(pattern.replace("%-d", "__TM_DAY__").replace("%-I", "__TM_HOUR__"))
+    return out.replace("__TM_DAY__", str(d.day)).replace("__TM_HOUR__", str(d.hour % 12 or 12))
