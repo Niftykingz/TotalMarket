@@ -61,13 +61,25 @@ def indices(r):
     rows = r.get("indices") or []
     if not rows:
         return ""
-    trs = "".join(
-        f'<tr><th scope="row">{e(x.get("name"))}</th><td class="num">{e(x.get("close"))}</td>'
-        f'<td class="num {cls(x.get("pct"))}">{e(x.get("change") or "")}<br><small>{fmt_pct(x.get("pct"))}</small></td>'
-        f'<td class="rng">{range_bar(x.get("open"), x.get("high"), x.get("low"), x.get("close"))}</td></tr>' for x in rows)
-    return section("Index scoreboard", f'<div class="tablewrap"><table class="dt rp-idx"><thead><tr><th>Index</th><th>Close</th><th>Change</th>'
-                   f'<th>Day low → day high (● close, | open)</th></tr></thead><tbody>{trs}</tbody></table></div>')
-
+    has_pct = any(x.get("pct") not in (None, "") for x in rows)
+    has_range = any(all(x.get(k) not in (None, "") for k in ("high", "low")) for x in rows)
+    heads = "<th>Index</th><th>Close</th><th>Point change</th>"
+    if has_pct:
+        heads += "<th>Change %</th>"
+    if has_range:
+        heads += "<th>Day low → day high</th>"
+    trs = []
+    for x in rows:
+        row = (f'<tr><th scope="row">{e(x.get("name"))}</th>'
+               f'<td class="num">{e(x.get("close"))}</td>'
+               f'<td class="num {cls(x.get("change"))}">{e(x.get("change") or "—")}</td>')
+        if has_pct:
+            row += f'<td class="num {cls(x.get("pct"))}">{fmt_pct(x.get("pct"))}</td>'
+        if has_range:
+            row += f'<td class="rng">{range_bar(x.get("open"), x.get("high"), x.get("low"), x.get("close"))}</td>'
+        trs.append(row + "</tr>")
+    return section("Verified index scoreboard", '<div class="tablewrap"><table class="dt rp-idx">'
+                   f'<thead><tr>{heads}</tr></thead><tbody>{"".join(trs)}</tbody></table></div>')
 
 def bars(items, title, sub=""):
     vals = [num(x.get("pct")) for x in items]
