@@ -3,6 +3,9 @@ name: Publish first weekly review
   push:
     paths:
       - '.github/workflows/publish-first-weekly-review.yml'
+      - 'pipeline/core.py'
+      - 'pipeline/source_audit.py'
+      - 'pipeline/config.json'
   workflow_dispatch:
 permissions:
   contents: write
