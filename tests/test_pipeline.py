@@ -9,6 +9,7 @@ import sys
 import tempfile
 import unittest
 from pathlib import Path
+from unittest.mock import patch
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
@@ -64,8 +65,13 @@ class Base(unittest.TestCase):
             shutil.copy(ROOT / "data" / f, self.root / "data" / f)
         (self.root / "pipeline" / "config.json").write_text(json.dumps({"enforce_from": "2026-10-23T15:00:00+05:30"}))
         self._log, core.LOG = core.LOG, self.root / "pipeline" / "log.jsonl"
+        # Legacy stage tests exercise numeric/graphics/QA logic; independent
+        # source fetching is tested separately with deterministic offline fixtures.
+        self._remote_patch = patch("pipeline.source_audit.audit", return_value=(True, []))
+        self._remote_patch.start()
 
     def tearDown(self):
+        self._remote_patch.stop()
         core.LOG = self._log
         self.tmp.cleanup()
 
