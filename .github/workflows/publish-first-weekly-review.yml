@@ -31,3 +31,4 @@ jobs:
       - name: Publish only after all checks
         run: |
           python3 -m pipeline publish -m "Weekly market review: 19–23 October 2026"
+# Retry with source-supported benchmark figures only.
