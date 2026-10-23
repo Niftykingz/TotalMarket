@@ -9,7 +9,7 @@ saved files, so a hand-edited manifest cannot unlock publishing).
 import json
 from pathlib import Path
 
-from . import core
+from . import core, source_audit
 
 CONFIG = core.PIPE / "config.json"
 
@@ -50,6 +50,12 @@ def verify_post(slug, root=core.ROOT):
         if core.sha_file(post_file) != art.get("post_sha256"):
             return "post file differs from the version that passed ARTICLE_WRITING"
         collected = run.load(1)
+        # Optional strict mode. Keep disabled until audited rollout; when enabled,
+        # the production gate independently fetches every source and fails closed.
+        if config(root).get("require_live_evidence", False):
+            ok, source_errors = source_audit.audit(collected)
+            if not ok:
+                return "remote source audit failed: " + "; ".join(source_errors[:3])
         ver, errs = core.stage2_verify(collected)            # re-run verification on the saved dataset
         if errs or core.canon(ver["verified"]) != core.canon(run.load(2)["verified"]):
             return "saved verification no longer reproduces"
