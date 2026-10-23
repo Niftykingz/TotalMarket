@@ -16,7 +16,7 @@ article={
     "dek":"On Friday 23 October 2026, Nifty 50 ended at 22,600.00 and Sensex at 73,123.83 as the market sell-off continued.",
     "category":"markets","lead":True,"readMins":3,
     "body":[
-        "Indian stocks ended Friday 23 October under pressure. The Nifty 50 closed at 22,600.00, down 87.65 points (0.39%) in the session. The Sensex closed at 73,123.83, down 125.56 points (0.17%).",
+        "Indian stocks ended Friday 23 October under pressure. The Nifty 50 closed at 22,600.00, down 87.65 points in the session. The Sensex closed at 73,123.83, down 125.56 points.",
         "Broader indices also fell on Friday: the Nifty Midcap 100 lost 2.21% and the Nifty Smallcap 100 declined 2.94%. These are Friday session moves, not weekly returns.",
         "The full weekly large-cap gainers and losers ranking is omitted because the available source dataset does not establish a verified five-session return for every constituent."
     ],
@@ -30,9 +30,16 @@ article={
 }
 graphic=dict(base["graphic"])
 graphic["headline"]=article["title"]
-graphic["coverHeadline"]="NIFTY ENDS AT 22,600, DOWN 0.39%"
+graphic["coverHeadline"]="NIFTY ENDS AT 22,600"
 graphic["coverDate"]="2026-10-23"
-job={"slug":"2026-10-23-weekly-market-review","collection":base["collection"],"graphic":graphic,"article":article}
+# Omit percentage claims whose linked publisher evidence could not be found.
+job_collection=json.loads(json.dumps(base["collection"]))
+job_collection["figures"]=[f for f in job_collection["figures"] if f["id"] not in {"sensex_pct","nifty_pct"}]
+graphic["stat"]="22,600"
+for item in graphic["chart"]["items"]:
+    if item["label"] in {"Sensex","Nifty 50"}:
+        item.pop("pct",None)
+job={"slug":"2026-10-23-weekly-market-review","collection":job_collection,"graphic":graphic,"article":article}
 out=root/"pipeline/inbox"/"2026-10-23-weekly-market-review.json"
 out.parent.mkdir(parents=True,exist_ok=True)
 out.write_text(json.dumps(job,ensure_ascii=False,indent=2))
