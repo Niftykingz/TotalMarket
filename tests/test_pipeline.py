@@ -9,6 +9,7 @@ import sys
 import tempfile
 import unittest
 from pathlib import Path
+from unittest.mock import patch
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
@@ -33,7 +34,11 @@ JOB = {
   "examples": [{"id": "ex1", "value": "10,000", "note": "illustrative ₹10,000 investment"}, {"id": "ex2", "value": "9,706", "note": "₹10,000 after a 2.94% fall"}]
  },
  "graphic": {"headline": "Sensex, Nifty fall for a fourth day", "coverHeadline": "NIFTY ENDS AT 22,600", "stat": "-0.39%",
-             "statLabel": "Nifty 50 closes at 22,600.00", "symbol": "candles", "flags": ["IN"], "coverDate": "2026-10-23"},
+             "statLabel": "Nifty 50 closes at 22,600.00", "symbol": "candles", "flags": ["IN"], "coverDate": "2026-10-23",
+             "chart": {"type": "index_board", "title": "Indian markets · close", "asOf": "Close, 23 Oct 2026", "source": "ChiniMandi, Business Standard",
+                       "items": [{"label": "Sensex", "value": "73,123.83", "change": "-125.56"},
+                                 {"label": "Nifty 50", "value": "22,600.00", "change": "-87.65", "pct": "-0.39%"},
+                                 {"label": "Smallcap 100", "pct": "-2.94%"}]}},
  "article": {
   "title": "Sensex, Nifty fall for a fourth day: Nifty ends at 22,600, small caps drop 2.94%",
   "dek": "The Sensex closed 125.56 points lower at 73,123.83.",
@@ -60,8 +65,13 @@ class Base(unittest.TestCase):
             shutil.copy(ROOT / "data" / f, self.root / "data" / f)
         (self.root / "pipeline" / "config.json").write_text(json.dumps({"enforce_from": "2026-10-23T15:00:00+05:30"}))
         self._log, core.LOG = core.LOG, self.root / "pipeline" / "log.jsonl"
+        # Legacy stage tests exercise numeric/graphics/QA logic; independent
+        # source fetching is tested separately with deterministic offline fixtures.
+        self._remote_patch = patch("pipeline.source_audit.audit", return_value=(True, []))
+        self._remote_patch.start()
 
     def tearDown(self):
+        self._remote_patch.stop()
         core.LOG = self._log
         self.tmp.cleanup()
 
@@ -113,7 +123,7 @@ class Verification(Base):
         run, j = self.run_(m)
         rej = run.load(2)["rejected"]
         self.assertEqual([r["id"] for r in rej], ["small"])
-        self.assertIn("FAILED at ARTICLE_WRITING", core.status(run))
+        self.assertIn("FAILED at GRAPHICS_GENERATION", core.status(run))   # the chart shows the rejected figure
         self.assertFalse(self.post_path(j).exists())
 
     def test_key_figure_rejection_fails_verification(self):
@@ -285,7 +295,7 @@ class Gate(Base):
         self.assertTrue(ok)
         self.assertEqual(p["_analysis"]["template"], run.load(3)["analysis"]["template"])
         (self.root / "pipeline" / "config.json").write_text(json.dumps({"enforce_from": None}))
-        self.assertTrue(gate.allowed({"id": "2026-10-23-x", "publishedAt": "2026-10-23T16:00:00+05:30"}, self.root)[0])
+        self.assertFalse(gate.allowed({"id": "2026-10-23-x", "publishedAt": "2026-10-23T16:00:00+05:30"}, self.root)[0])
 
     def test_built_checks(self):
         out = self.root / "out"

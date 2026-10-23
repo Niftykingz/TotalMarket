@@ -28,7 +28,7 @@ RUNS = PIPE / "runs"
 LOG = PIPE / "log.jsonl"
 IST = timezone(timedelta(hours=5, minutes=30))
 STAGES = ["DATA_COLLECTION", "DATA_VERIFICATION", "GRAPHICS_GENERATION", "ARTICLE_WRITING", "FINAL_QA", "PUBLISH"]
-GRAPHIC_FIELDS = ("coverHeadline", "stat", "statLabel", "coverContext", "coverDate", "symbol", "coverLabel", "palette", "flags", "companies", "figures")
+GRAPHIC_FIELDS = ("coverHeadline", "stat", "statLabel", "coverContext", "coverDate", "symbol", "coverLabel", "palette", "flags", "companies", "figures", "chart")
 TEXT_FIELDS = ("title", "dek", "why", "indiaImpact", "globalImpact", "seoTitle", "seoDescription", "coverAlt", "changeNote")
 PLACEHOLDER = re.compile(r"lorem ipsum|placeholder|\bTBD\b|\bTODO\b|\bXX+\b|\bdemo(nstration)?\b|fictional|test data|\[insert|\{\{", re.I)
 MAX_SOURCE_AGE_DAYS = 3
@@ -205,6 +205,19 @@ def stage2_verify(collected):
     return {"verified": verified, "rejected": rejected, "examples": collected["examples"]}, errs
 
 
+def stage2_with_remote_evidence(collected, root=ROOT):
+    """Require original-source evidence BEFORE creating graphics or articles."""
+    from . import source_audit
+    cfg_path = Path(root) / "pipeline" / "config.json"
+    cfg = json.loads(cfg_path.read_text(encoding="utf-8")) if cfg_path.is_file() else {}
+    verified, errors = stage2_verify(collected)
+    if cfg.get("require_live_evidence", True):
+        ok, source_errors = source_audit.audit(collected)
+        if not ok:
+            errors.extend("REMOTE_EVIDENCE: " + e for e in source_errors)
+    return verified, errors
+
+
 def _cands(ver, with_examples=False):
     figs = list(ver["verified"]) + (list(ver["examples"]) if with_examples else [])
     return N.candidates(figs)
@@ -233,10 +246,24 @@ def graphic_numbers(post, analysis):
     """Every number that will appear on the cover."""
     texts = [str(post.get(k) or "") for k in ("coverHeadline", "stat", "statLabel", "coverContext")]
     for f in analysis.get("figures") or []:
-        for k in ("value", "change", "pct", "issue", "listing"):
+        for k in ("value", "change", "pct", "issue", "listing", "prev", "note", "label"):
             if f.get(k):
                 texts.append(str(f[k]))
+    ch = analysis.get("chart") or {}
+    texts += [str(ch.get(k) or "") for k in ("title", "asOf", "period")]
     return " | ".join(texts)
+
+
+def headline_matches_chart(post, analysis):
+    """Numbers in the cover headline and stat must be figures shown in the chart itself."""
+    figs = []
+    for k, f in enumerate(analysis.get("figures") or []):
+        for key in ("value", "change", "pct", "issue", "listing", "prev"):
+            if f.get(key) not in (None, ""):
+                figs.append({"id": f"c{k}{key}", "value": f[key]})
+    cands = N.candidates(figs)
+    bad = N.unsupported(" ".join(str(post.get(k) or "") for k in ("coverHeadline", "stat")), cands)
+    return [b[0] for b in bad]
 
 
 def stage3_graphic(job, ver, run, root, render=True):
@@ -256,6 +283,13 @@ def stage3_graphic(job, ver, run, root, render=True):
     if bad:
         errs.append(f"graphic shows unverified numbers: {[b[0] for b in bad]}")
     errs += logo_problems(post.get("companies"), root)
+    if a.get("data_required") and a["template"] == "illustration":
+        errs.append("MISSING_DATA: " + (a.get("missing") or f"{a['event']} story needs a data-driven graphic") +
+                    ". Collect the figures and retry; never publish this story with a generic illustration.")
+    if a["template"] != "illustration":
+        off = headline_matches_chart(post, a)
+        if off:
+            errs.append(f"cover headline/stat numbers not shown in the chart: {off}")
     out = {"fields": {k: post[k] for k in GRAPHIC_FIELDS if k in post}, "analysis": a,
            "headline": post["title"], "files": {}}
     if not errs and render:
@@ -373,6 +407,15 @@ def qa_checks(slug, ver, gfx, art_out, root, compare_render=True):
                 errs.append(f"graphic {name} is not a valid image: {ex}")
     if not gfx.get("files"):
         errs.append("no rendered graphic recorded")
+    a0 = gfx.get("analysis") or {}
+    if a0.get("template") not in (None, "illustration") and a0.get("figures"):
+        figs = [{"id": f"g{k}{key}", "value": f[key]} for k, f in enumerate(a0["figures"]) for key in ("value", "change", "pct", "issue", "listing", "prev") if f.get(key) not in (None, "")]
+        shown = {round(abs(N.to_float(f["value"])), 6) for f in figs if N.to_float(f["value"]) == N.to_float(f["value"])}
+        said = {round(abs(v), 6) for _, v, _ in N.mentions(f'{post.get("title", "")} {post.get("dek", "")}')}
+        if said and not (said & shown) and not any(N.supported(v, 2, N.candidates(figs)) for v in said):
+            errs.append("headline/dek numbers do not match any figure in the graphic")
+    if a0.get("data_required") and a0.get("template") == "illustration":
+        errs.append("financial story without its data-driven graphic")
     if not compare_render:  # gate re-checks: the build pins the verified analysis instead (see gate.allowed)
         return errs
     # the cover the site will build must show the same verified analysis
@@ -402,7 +445,7 @@ def run_job(job_path, root=ROOT, render=True):
     edition_date = str(job["article"].get("edition") or job["article"].get("publishedAt"))[:10]
     steps = [
         lambda: stage1_collect(job, edition_date),
-        lambda: stage2_verify(run.load(1)),
+        lambda: stage2_with_remote_evidence(run.load(1), root),
         lambda: stage3_graphic(job, run.load(2), run, root, render=render),
         lambda: stage4_article(job, run.load(2), run.load(3), root),
         lambda: (None, qa_checks(job["slug"], run.load(2), run.load(3), run.load(4), root)),
@@ -430,6 +473,9 @@ def run_job(job_path, root=ROOT, render=True):
             return run
         sha = run.save(i, out)            # saved before the next stage begins
         run.record(i, "PASS" if not errs else "FAILED", sha=sha, errors=errs, started=started)
+        if any(str(e).startswith("MISSING_DATA") for e in errs):
+            run.m["retry"] = {"reason": "missing figures for the data graphic", "after": "collect the figures, update the job, run `python3 -m pipeline retry`"}
+            run.save_manifest()
         if errs:
             if i == 4:  # never leave an unchecked article in data/posts
                 pass
