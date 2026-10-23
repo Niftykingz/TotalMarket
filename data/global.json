@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-10-23T09:00:00+05:30",
+ "updatedAt": "2026-10-23T15:52:00+05:30",
  "note": "Closing levels unless marked intraday. TotalMarket does not show live prices; figures come from the reports linked in each row.",
  "regions": [
   {
@@ -7,26 +7,26 @@
    "rows": [
     {
      "name": "Nifty 50",
-     "value": "22,687.65",
-     "change": "-123.70",
-     "pct": "-0.54",
-     "asOf": "Thu 22 Oct, close",
+     "value": "22,600.00",
+     "change": "-87.65",
+     "pct": "-0.39",
+     "asOf": "Fri 23 Oct, close",
      "type": "close",
      "source": {
-      "name": "IIFL: Sensex falls 460 points, Nifty below 22,700",
-      "url": "https://www.indiainfoline.com/news/markets/stock-market-today-sensex-falls-460-points-nifty-closes-below-22700-media-fmcg-and-it-stocks-drag"
+      "name": "ChiniMandi: Sensex down 125 points, Nifty at 22,600",
+      "url": "https://www.chinimandi.com/sensex-down-125-points-nifty-at-22600/"
      }
     },
     {
      "name": "Sensex",
-     "value": "73,249.39",
-     "change": "-460.30",
-     "pct": "-0.62",
-     "asOf": "Thu 22 Oct, close",
+     "value": "73,123.83",
+     "change": "-125.56",
+     "pct": "-0.17",
+     "asOf": "Fri 23 Oct, close",
      "type": "close",
      "source": {
-      "name": "HDFC Sky: Market close, 22 Oct",
-      "url": "https://hdfcsky.com/news/market-close-report-today-nifty-sensex-fall-for-third-straight-session-as-oil-tops-110"
+      "name": "ChiniMandi: Sensex down 125 points, Nifty at 22,600",
+      "url": "https://www.chinimandi.com/sensex-down-125-points-nifty-at-22600/"
      }
     },
     {
@@ -39,18 +39,6 @@
      "source": {
       "name": "IIFL: Sensex falls 460 points, Nifty below 22,700",
       "url": "https://www.indiainfoline.com/news/markets/stock-market-today-sensex-falls-460-points-nifty-closes-below-22700-media-fmcg-and-it-stocks-drag"
-     }
-    },
-    {
-     "name": "GIFT Nifty",
-     "value": "22,839.50",
-     "change": "+128.00",
-     "pct": "",
-     "asOf": "Fri 23 Oct, 8:23 am IST (pre-open)",
-     "type": "intraday",
-     "source": {
-      "name": "Business Standard: Market live, 23 Oct",
-      "url": "https://www.business-standard.com/markets/news/stock-market-live-october-23-nse-bse-sensex-today-nifty50-gift-nifty-crude-oil-prices-jio-ipo-q2-results-today-126102300078_1.html"
      }
     }
    ]

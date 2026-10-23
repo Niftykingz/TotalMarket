@@ -1,6 +1,6 @@
 {
- "asOf": "23 Oct 2026, 12:10 pm IST",
- "updatedAt": "2026-10-23T13:00:00+05:30",
+ "asOf": "23 Oct 2026, 2:10 pm IST",
+ "updatedAt": "2026-10-23T15:52:00+05:30",
  "ipos": [
   {
    "name": "Jio Platforms",
@@ -19,13 +19,13 @@
    "fresh": "₹30,213 cr (27 crore shares)",
    "ofs": "None",
    "subscription": {
-    "asOf": "23 Oct, 12:10 pm (final day)",
-    "total": 6.9,
-    "qib": 14.46,
-    "nii": 9.45,
-    "retail": 2.02,
+    "asOf": "23 Oct, 2:10 pm (final day)",
+    "total": 9.81,
+    "qib": 23.47,
+    "nii": 11.97,
+    "retail": 2.28,
     "source": {
-     "name": "Business Standard: Market live, 23 Oct",
+     "name": "Business Standard: Market close, 23 Oct",
      "url": "https://www.business-standard.com/markets/news/stock-market-live-october-23-nse-bse-sensex-today-nifty50-gift-nifty-crude-oil-prices-jio-ipo-q2-results-today-126102300078_1.html"
     }
    },

@@ -1,29 +1,29 @@
 {
- "editionLabel": "Fri 23 Oct · Midday check",
- "nextUpdate": "2026-10-23T15:45:00+05:30",
+ "editionLabel": "Fri 23 Oct · Closing wrap",
+ "nextUpdate": "2026-10-23T20:10:00+05:30",
  "ticker": [
   {
    "label": "Sensex",
-   "value": "72,680.89",
-   "change": "-0.78%",
+   "value": "73,123.83",
+   "change": "-0.17%",
    "asOf": "2026-10-23",
-   "kind": "intraday",
-   "asOfText": "23 Oct, 11:00 am IST (delayed)",
+   "kind": "close",
+   "asOfText": "23 Oct close",
    "source": {
-    "name": "Business Standard: Market live, 23 Oct",
-    "url": "https://www.business-standard.com/markets/news/stock-market-live-october-23-nse-bse-sensex-today-nifty50-gift-nifty-crude-oil-prices-jio-ipo-q2-results-today-126102300078_1.html"
+    "name": "ChiniMandi: Sensex down 125 points, Nifty at 22,600",
+    "url": "https://www.chinimandi.com/sensex-down-125-points-nifty-at-22600/"
    }
   },
   {
    "label": "Nifty 50",
-   "value": "22,448.15",
-   "change": "-1.06%",
+   "value": "22,600.00",
+   "change": "-0.39%",
    "asOf": "2026-10-23",
-   "kind": "intraday",
-   "asOfText": "23 Oct, 11:00 am IST (delayed)",
+   "kind": "close",
+   "asOfText": "23 Oct close",
    "source": {
-    "name": "Business Standard: Market live, 23 Oct",
-    "url": "https://www.business-standard.com/markets/news/stock-market-live-october-23-nse-bse-sensex-today-nifty50-gift-nifty-crude-oil-prices-jio-ipo-q2-results-today-126102300078_1.html"
+    "name": "ChiniMandi: Sensex down 125 points, Nifty at 22,600",
+    "url": "https://www.chinimandi.com/sensex-down-125-points-nifty-at-22600/"
    }
   },
   {
@@ -134,7 +134,7 @@
   }
  ],
  "tickerAsOf": "Mixed times, see each item (IST)",
- "updatedAt": "2026-10-23T13:00:00+05:30",
+ "updatedAt": "2026-10-23T15:52:00+05:30",
  "history": {
   "Nifty 50": [
    {
