@@ -24,6 +24,20 @@ jobs:
         id: collect
         continue-on-error: true
         run: python3 pipeline/market_data/collect_nse.py --output pipeline/market_data/latest.json
+      - name: Report what was collected
+        if: always()
+        run: |
+          python3 - <<'PY'
+          import json, pathlib
+          p = pathlib.Path("pipeline/market_data/latest.json")
+          if not p.is_file():
+              print("::warning title=NSE collection::no snapshot written"); raise SystemExit
+          s = json.loads(p.read_text(encoding="utf-8"))
+          d = s.get("datasets", {})
+          parts = [f"{k}={len(v.get('rows', [])) or v.get('count', 0)}" for k, v in d.items()]
+          msg = f"status={s.get('status')} target={s.get('targetDate')} datasets: {', '.join(parts) or 'none'} | errors: {'; '.join(s.get('errors', [])) or 'none'}"
+          print(("::notice" if d else "::warning") + " title=NSE collection::" + msg.replace("\n", " ")[:900])
+          PY
       - name: Upload audit snapshot, including partial results
         if: always()
         uses: actions/upload-artifact@v4

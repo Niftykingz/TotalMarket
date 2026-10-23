@@ -1,16 +1,7 @@
 name: Publish first weekly review
 "on":
-  push:
-    paths:
-      - '.github/workflows/publish-first-weekly-review.yml'
-      - 'pipeline/core.py'
-      - 'build.py'
-      - 'report.py'
-      - 'docs/assets/style.css'
-      - 'pipeline/source_audit.py'
-      - 'pipeline/config.json'
-      - 'pipeline/examples/prepare_first_weekly.py'
-      - 'tests/test_graphics_v2.py'
+  # Manual only: code pushes used to re-run this one-off job and republish the
+  # 23 Oct review on every unrelated change. Run it from the Actions tab when needed.
   workflow_dispatch:
 concurrency:
   group: totalmarket-main-publisher
