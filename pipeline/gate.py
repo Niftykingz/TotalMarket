@@ -16,13 +16,13 @@ CONFIG = core.PIPE / "config.json"
 
 def config(root=core.ROOT):
     p = Path(root) / "pipeline" / "config.json"
-    return json.loads(p.read_text(encoding="utf-8")) if p.is_file() else {"enforce_from": None}
+    return json.loads(p.read_text(encoding="utf-8")) if p.is_file() else {}
 
 
 def enforced(p, cfg):
     start = cfg.get("enforce_from")
     if not start:
-        return False
+        return True  # missing configuration must never disable the gate
     t0 = core.parse_dt(start)
     for k in ("publishedAt", "updatedAt"):
         if p.get(k):
@@ -52,7 +52,7 @@ def verify_post(slug, root=core.ROOT):
         collected = run.load(1)
         # Optional strict mode. Keep disabled until audited rollout; when enabled,
         # the production gate independently fetches every source and fails closed.
-        if config(root).get("require_live_evidence", False):
+        if config(root).get("require_live_evidence", True):
             ok, source_errors = source_audit.audit(collected)
             if not ok:
                 return "remote source audit failed: " + "; ".join(source_errors[:3])
@@ -75,7 +75,7 @@ def allowed(p, root=core.ROOT):
     market data files change later."""
     cfg = config(root)
     if not enforced(p, cfg):
-        return True, "legacy (before enforcement)"
+        return True, "legacy (before enforcement)"  # historical posts only
     why = verify_post(p["id"], root)
     if not why:
         a = core.Run(p["id"], root).load(3)["analysis"]
