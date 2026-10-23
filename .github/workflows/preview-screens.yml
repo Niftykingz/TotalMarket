@@ -7,7 +7,7 @@ name: Preview screenshots
     inputs:
       pages:
         description: "space-separated path=name pairs"
-        default: "tools/preview/symbols.html=symbols"
+        default: "tools/preview/symbols.html=symbols index.html=home"
 permissions:
   contents: write
 jobs:
@@ -22,8 +22,9 @@ jobs:
       - run: pip install pillow numpy matplotlib playwright && python -m playwright install --with-deps chromium
       - name: Build draft site (not published)
         run: |
-          mkdir -p /tmp/site && cp -r docs/. /tmp/site/ && cp -r tools /tmp/site/tools
+          mkdir -p /tmp/site && cp -r docs/. /tmp/site/
           TM_BUILD_OUT=/tmp/site python3 build.py || true
+          cp -r tools /tmp/site/tools
       - run: python3 tools/preview/shoot.py /tmp/site /tmp/shots ${{ github.event.inputs.pages }}
       - name: Commit screenshots to preview-shots branch
         run: |
