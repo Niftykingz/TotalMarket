@@ -13,6 +13,8 @@ with sync_playwright() as p:
         for dev, w, h, mob in (("desktop", 1280, 900, False), ("mobile", 390, 844, True)):
             pg = b.new_page(viewport={"width": w, "height": h}, device_scale_factor=1, is_mobile=mob)
             pg.goto(f"http://127.0.0.1:8765/{path}", wait_until="load", timeout=60000)
+            pg.wait_for_timeout(3000)
+            pg.evaluate("""async () => { for (let y = 0; y < document.body.scrollHeight; y += 500) { window.scrollTo(0, y); await new Promise(r => setTimeout(r, 250)); } window.scrollTo(0, 0); }""")
             pg.wait_for_timeout(15000)
             pg.screenshot(path=str(out / f"{name}-{dev}.png"), full_page=True)
             pg.close()
