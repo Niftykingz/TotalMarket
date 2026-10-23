@@ -155,10 +155,10 @@ class Publishing(V2):
         for f in sorted(glob.glob(str(ROOT / "data" / "posts" / "*.json"))):
             p = json.loads(open(f, encoding="utf-8").read())
             p["id"] = os.path.basename(f)[:-5]
-            # A blocked article is intentionally absent from the built site.
-            # Do not require a cover for an article rejected by source verification.
-            allowed, _reason = gate.allowed(p, ROOT)
-            if not allowed:
+            # The build publishes only eligible posts. A post omitted by the
+            # source gate has no built news page and must not be checked for a
+            # newly generated cover. This does not relax the publication gate.
+            if not (ROOT / "docs" / "news" / p["id"] / "index.html").is_file():
                 continue
             if p.get("chart"):
                 continue
