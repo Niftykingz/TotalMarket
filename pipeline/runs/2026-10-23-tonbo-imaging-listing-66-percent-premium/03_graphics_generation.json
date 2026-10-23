@@ -1,0 +1,57 @@
+{
+ "fields": {
+  "coverHeadline": "TONBO LISTS 66% HIGHER",
+  "stat": "+65.71%",
+  "statLabel": "₹1,160 vs ₹700 issue (NSE)",
+  "coverDate": "2026-10-23",
+  "symbol": "growth",
+  "coverLabel": "IPO listing",
+  "flags": [
+   "IN"
+  ],
+  "companies": [
+   {
+    "name": "Tonbo Imaging India",
+    "ticker": "TONBO"
+   }
+  ]
+ },
+ "analysis": {
+  "event": "ipo_listing",
+  "instruments": [],
+  "companies": [
+   "Tonbo Imaging India"
+  ],
+  "direction": "up",
+  "template": "ipo_card",
+  "object": "growth",
+  "figures": [
+   {
+    "label": "Tonbo Imaging India",
+    "issue": "₹700",
+    "listing": "₹1,160",
+    "pct": "+65.71%",
+    "exchange": "NSE",
+    "date": "2026-10-23",
+    "series": [
+     [
+      "Issue",
+      700
+     ],
+     [
+      "Open",
+      1160
+     ]
+    ],
+    "seriesLabel": "NSE price on listing day, ₹",
+    "seriesSource": "Upstox"
+   }
+  ],
+  "series": [],
+  "reason": "listing with issue and listing price in the IPO register"
+ },
+ "headline": "Tonbo Imaging India lists at ₹1,160, 65.71% above its ₹700 issue price",
+ "files": {
+  "cover.jpg": "421cf74b6834e47c39f2ee4193280136cd1e2f47aa420fbb139dd3ceabca8fa3"
+ }
+}

@@ -1,0 +1,42 @@
+{
+ "slug": "2026-10-23-tonbo-imaging-listing-66-percent-premium",
+ "job": "pipeline/inbox/2026-10-23-tonbo-imaging-listing-66-percent-premium.json",
+ "job_sha256": "9751fd2bdd6510fc38a37c663b995ca2ce19cf4b46bc865f913e5b5898f0d4ac",
+ "stages": {
+  "DATA_COLLECTION": {
+   "status": "PASS",
+   "sha256": "df79ff9d21da8735d7895134b7d46fc1670044e13b84c16e6d34ceab23b5ef60",
+   "errors": [],
+   "started": "2026-10-23T19:05:51+05:30",
+   "finished": "2026-10-23T19:05:51+05:30"
+  },
+  "DATA_VERIFICATION": {
+   "status": "PASS",
+   "sha256": "42fe6b2262c2f42590b23f1ada4bc8345e63899d6954f045d5aec71fff0aadd7",
+   "errors": [],
+   "started": "2026-10-23T19:05:51+05:30",
+   "finished": "2026-10-23T19:05:51+05:30"
+  },
+  "GRAPHICS_GENERATION": {
+   "status": "PASS",
+   "sha256": "db5ab3a4a7db3f81fe02540c7ca54b59f2393db98a47ce6e55f012d3981a1633",
+   "errors": [],
+   "started": "2026-10-23T19:05:51+05:30",
+   "finished": "2026-10-23T19:05:52+05:30"
+  },
+  "ARTICLE_WRITING": {
+   "status": "PASS",
+   "sha256": "827aa5ea2d6c7e9ca92d18886f0a9323a2cadb84130a47feab4bf1f6c044a9f1",
+   "errors": [],
+   "started": "2026-10-23T19:05:52+05:30",
+   "finished": "2026-10-23T19:05:52+05:30"
+  },
+  "FINAL_QA": {
+   "status": "PASS",
+   "sha256": "ddc94c7052280bc8b82cb80a35b5967273178c254490e8f451534a8a3cf6868f",
+   "errors": [],
+   "started": "2026-10-23T19:05:52+05:30",
+   "finished": "2026-10-23T19:05:52+05:30"
+  }
+ }
+}

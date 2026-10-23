@@ -1,0 +1,135 @@
+{
+ "edition_date": "2026-10-23",
+ "sources": [
+  {
+   "id": "upt",
+   "name": "Upstox: Tonbo lists at 66% premium",
+   "url": "https://upstox.com/news/market-news/ipo/tonbo-imaging-india-shares-list-at-66-premium-on-nse-here-s-how-much-investors-made-per-lot/article-202269/",
+   "published": "2026-10-23T10:05:00+05:30"
+  },
+  {
+   "id": "upb",
+   "name": "Upstox: Bonfiglioli lists at par",
+   "url": "https://upstox.com/news/market-news/ipo/bonfiglioli-transmissions-shares-list-at-par-with-ipo-issue-price-on-nse-bse/article-202272/",
+   "published": "2026-10-23T10:05:00+05:30"
+  }
+ ],
+ "figures": [
+  {
+   "id": "issue",
+   "label": "Tonbo issue price",
+   "value": "700",
+   "source": "upt",
+   "evidence": "Final issue price: ₹700 per share",
+   "as_of": "2026-10-23",
+   "key": true
+  },
+  {
+   "id": "listing",
+   "label": "Tonbo NSE listing price",
+   "value": "1,160",
+   "source": "upt",
+   "evidence": "NSE listing price: ₹1,160 (65.71% premium)",
+   "as_of": "2026-10-23",
+   "key": true
+  },
+  {
+   "id": "gain",
+   "label": "Tonbo listing gain %",
+   "value": "65.71",
+   "source": "upt",
+   "evidence": "NSE listing price: ₹1,160 (65.71% premium)",
+   "as_of": "2026-10-23",
+   "key": true
+  },
+  {
+   "id": "bse",
+   "label": "Tonbo BSE listing price",
+   "value": "1,162",
+   "source": "upt",
+   "evidence": "BSE listing price: ₹1,162 (66% premium)",
+   "as_of": "2026-10-23"
+  },
+  {
+   "id": "sub",
+   "label": "Tonbo total subscription",
+   "value": "135.90",
+   "source": "upt",
+   "evidence": "Total subscription: 135.90x",
+   "as_of": "2026-10-23"
+  },
+  {
+   "id": "qib",
+   "label": "Tonbo QIB subscription",
+   "value": "293.56",
+   "source": "upt",
+   "evidence": "QIB subscription: 293.56x",
+   "as_of": "2026-10-23"
+  },
+  {
+   "id": "nii",
+   "label": "Tonbo NII subscription",
+   "value": "170.94",
+   "source": "upt",
+   "evidence": "NII subscription: 170.94x",
+   "as_of": "2026-10-23"
+  },
+  {
+   "id": "rii",
+   "label": "Tonbo retail subscription",
+   "value": "31.07",
+   "source": "upt",
+   "evidence": "Retail subscription: 31.07x",
+   "as_of": "2026-10-23"
+  },
+  {
+   "id": "lot",
+   "label": "Tonbo lot size",
+   "value": "21",
+   "source": "upt",
+   "evidence": "Lot size: 21 shares (lot cost ₹14,700)",
+   "as_of": "2026-10-23"
+  },
+  {
+   "id": "lotcost",
+   "label": "Tonbo lot cost",
+   "value": "14,700",
+   "source": "upt",
+   "evidence": "Lot size: 21 shares (lot cost ₹14,700)",
+   "as_of": "2026-10-23"
+  },
+  {
+   "id": "lotgain",
+   "label": "Tonbo gain per lot",
+   "value": "9,660",
+   "source": "upt",
+   "evidence": "Gain per lot: ₹9,660 at the NSE listing price, taking the investment value to ₹24,360",
+   "as_of": "2026-10-23"
+  },
+  {
+   "id": "lotvalue",
+   "label": "Tonbo lot value at listing",
+   "value": "24,360",
+   "source": "upt",
+   "evidence": "Gain per lot: ₹9,660 at the NSE listing price, taking the investment value to ₹24,360",
+   "as_of": "2026-10-23"
+  },
+  {
+   "id": "ofs",
+   "label": "Tonbo offer for sale size, ₹ crore",
+   "value": "852.18",
+   "source": "upt",
+   "evidence": "Issue size: Offer-for-sale of 1.22 crore shares valued at ₹852.18 crore; no fresh issue",
+   "as_of": "2026-10-23"
+  },
+  {
+   "id": "bon_sub",
+   "label": "Bonfiglioli total subscription",
+   "value": "46.06",
+   "source": "upb",
+   "evidence": "Total subscription: 46.06x",
+   "as_of": "2026-10-23"
+  }
+ ],
+ "examples": []
+}

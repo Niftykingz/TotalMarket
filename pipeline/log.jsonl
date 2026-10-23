@@ -4,3 +4,11 @@
 {"blocked":[],"dry_run":true,"event":"publish","ok":true,"out":"/tmp/tm-dryrun-w7y_5tz9","ready":[],"ts":"2026-10-23T17:43:26+05:30"}
 {"blocked":[],"dry_run":false,"event":"publish_gate","ready":[],"ts":"2026-10-23T17:43:26+05:30"}
 {"blocked":[],"commit":"6e2623d44a15603f16a969dd27971054a6cfc28a","event":"publish","ok":true,"ready":[],"ts":"2026-10-23T17:43:49+05:30"}
+{"errors":[],"event":"stage","slug":"2026-10-23-tonbo-imaging-listing-66-percent-premium","stage":"DATA_COLLECTION","status":"PASS","ts":"2026-10-23T19:05:51+05:30"}
+{"errors":[],"event":"stage","slug":"2026-10-23-tonbo-imaging-listing-66-percent-premium","stage":"DATA_VERIFICATION","status":"PASS","ts":"2026-10-23T19:05:51+05:30"}
+{"errors":[],"event":"stage","slug":"2026-10-23-tonbo-imaging-listing-66-percent-premium","stage":"GRAPHICS_GENERATION","status":"PASS","ts":"2026-10-23T19:05:52+05:30"}
+{"errors":[],"event":"stage","slug":"2026-10-23-tonbo-imaging-listing-66-percent-premium","stage":"ARTICLE_WRITING","status":"PASS","ts":"2026-10-23T19:05:52+05:30"}
+{"errors":[],"event":"stage","slug":"2026-10-23-tonbo-imaging-listing-66-percent-premium","stage":"FINAL_QA","status":"PASS","ts":"2026-10-23T19:05:52+05:30"}
+{"blocked":[],"dry_run":true,"event":"publish_gate","ready":["2026-10-23-tonbo-imaging-listing-66-percent-premium"],"ts":"2026-10-23T19:05:58+05:30"}
+{"blocked":[],"dry_run":true,"event":"publish","ok":true,"out":"/tmp/tm-dryrun-s648bvb3","ready":["2026-10-23-tonbo-imaging-listing-66-percent-premium"],"ts":"2026-10-23T19:06:01+05:30"}
+{"blocked":[],"dry_run":false,"event":"publish_gate","ready":["2026-10-23-tonbo-imaging-listing-66-percent-premium"],"ts":"2026-10-23T19:06:01+05:30"}

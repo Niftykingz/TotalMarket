@@ -1,0 +1,216 @@
+{
+ "slug": "2026-10-23-tonbo-imaging-listing-66-percent-premium",
+ "collection": {
+  "sources": [
+   {
+    "id": "upt",
+    "name": "Upstox: Tonbo lists at 66% premium",
+    "url": "https://upstox.com/news/market-news/ipo/tonbo-imaging-india-shares-list-at-66-premium-on-nse-here-s-how-much-investors-made-per-lot/article-202269/",
+    "published": "2026-10-23T10:05:00+05:30"
+   },
+   {
+    "id": "upb",
+    "name": "Upstox: Bonfiglioli lists at par",
+    "url": "https://upstox.com/news/market-news/ipo/bonfiglioli-transmissions-shares-list-at-par-with-ipo-issue-price-on-nse-bse/article-202272/",
+    "published": "2026-10-23T10:05:00+05:30"
+   }
+  ],
+  "figures": [
+   {
+    "id": "issue",
+    "label": "Tonbo issue price",
+    "value": "700",
+    "source": "upt",
+    "evidence": "Final issue price: ₹700 per share",
+    "as_of": "2026-10-23",
+    "key": true
+   },
+   {
+    "id": "listing",
+    "label": "Tonbo NSE listing price",
+    "value": "1,160",
+    "source": "upt",
+    "evidence": "NSE listing price: ₹1,160 (65.71% premium)",
+    "as_of": "2026-10-23",
+    "key": true
+   },
+   {
+    "id": "gain",
+    "label": "Tonbo listing gain %",
+    "value": "65.71",
+    "source": "upt",
+    "evidence": "NSE listing price: ₹1,160 (65.71% premium)",
+    "as_of": "2026-10-23",
+    "key": true
+   },
+   {
+    "id": "bse",
+    "label": "Tonbo BSE listing price",
+    "value": "1,162",
+    "source": "upt",
+    "evidence": "BSE listing price: ₹1,162 (66% premium)",
+    "as_of": "2026-10-23"
+   },
+   {
+    "id": "sub",
+    "label": "Tonbo total subscription",
+    "value": "135.90",
+    "source": "upt",
+    "evidence": "Total subscription: 135.90x",
+    "as_of": "2026-10-23"
+   },
+   {
+    "id": "qib",
+    "label": "Tonbo QIB subscription",
+    "value": "293.56",
+    "source": "upt",
+    "evidence": "QIB subscription: 293.56x",
+    "as_of": "2026-10-23"
+   },
+   {
+    "id": "nii",
+    "label": "Tonbo NII subscription",
+    "value": "170.94",
+    "source": "upt",
+    "evidence": "NII subscription: 170.94x",
+    "as_of": "2026-10-23"
+   },
+   {
+    "id": "rii",
+    "label": "Tonbo retail subscription",
+    "value": "31.07",
+    "source": "upt",
+    "evidence": "Retail subscription: 31.07x",
+    "as_of": "2026-10-23"
+   },
+   {
+    "id": "lot",
+    "label": "Tonbo lot size",
+    "value": "21",
+    "source": "upt",
+    "evidence": "Lot size: 21 shares (lot cost ₹14,700)",
+    "as_of": "2026-10-23"
+   },
+   {
+    "id": "lotcost",
+    "label": "Tonbo lot cost",
+    "value": "14,700",
+    "source": "upt",
+    "evidence": "Lot size: 21 shares (lot cost ₹14,700)",
+    "as_of": "2026-10-23"
+   },
+   {
+    "id": "lotgain",
+    "label": "Tonbo gain per lot",
+    "value": "9,660",
+    "source": "upt",
+    "evidence": "Gain per lot: ₹9,660 at the NSE listing price, taking the investment value to ₹24,360",
+    "as_of": "2026-10-23"
+   },
+   {
+    "id": "lotvalue",
+    "label": "Tonbo lot value at listing",
+    "value": "24,360",
+    "source": "upt",
+    "evidence": "Gain per lot: ₹9,660 at the NSE listing price, taking the investment value to ₹24,360",
+    "as_of": "2026-10-23"
+   },
+   {
+    "id": "ofs",
+    "label": "Tonbo offer for sale size, ₹ crore",
+    "value": "852.18",
+    "source": "upt",
+    "evidence": "Issue size: Offer-for-sale of 1.22 crore shares valued at ₹852.18 crore; no fresh issue",
+    "as_of": "2026-10-23"
+   },
+   {
+    "id": "bon_sub",
+    "label": "Bonfiglioli total subscription",
+    "value": "46.06",
+    "source": "upb",
+    "evidence": "Total subscription: 46.06x",
+    "as_of": "2026-10-23"
+   }
+  ],
+  "examples": []
+ },
+ "graphic": {
+  "headline": "Tonbo Imaging India lists at ₹1,160, 65.71% above its ₹700 issue price",
+  "coverHeadline": "TONBO LISTS 66% HIGHER",
+  "stat": "+65.71%",
+  "statLabel": "₹1,160 vs ₹700 issue (NSE)",
+  "coverDate": "2026-10-23",
+  "symbol": "growth",
+  "coverLabel": "IPO listing",
+  "flags": [
+   "IN"
+  ],
+  "companies": [
+   {
+    "name": "Tonbo Imaging India",
+    "ticker": "TONBO"
+   }
+  ]
+ },
+ "article": {
+  "title": "Tonbo Imaging India lists at ₹1,160, 65.71% above its ₹700 issue price",
+  "dek": "The defence-electronics maker's debut turned each 21-share lot of ₹14,700 into ₹24,360 at the opening price.",
+  "category": "startups",
+  "lead": false,
+  "readMins": 2,
+  "body": [
+   "Tonbo Imaging India opened at ₹1,160 on NSE on Friday, 65.71% above its issue price of ₹700, and at ₹1,162 on BSE, Upstox reported. The IPO was subscribed 135.90 times in total. Institutions (QIBs) bid for 293.56 times the shares set aside for them, wealthy individuals (NIIs) 170.94 times and retail investors 31.07 times.",
+   "Worked example: one lot was 21 shares, costing ₹14,700 at the issue price. At the ₹1,160 opening price, that lot was worth ₹24,360, a paper gain of ₹9,660. Most retail applicants would not have received any shares: retail demand was 31 times the shares available, so allotment was by lottery.",
+   "The issue was entirely an offer for sale (OFS) worth about ₹852 crore. In an OFS, existing shareholders sell their own shares, so the money goes to them, not to the company.",
+   "Key takeaway: heavy demand often comes with a big listing gain, but it isn't a rule. Bonfiglioli Transmissions was subscribed 46 times and still opened flat today. This is education, not a recommendation."
+  ],
+  "indiaImpact": "Strong demand for a defence-technology listing shows investors want exposure to the sector, even on a weak market day.",
+  "seoTitle": "Tonbo Imaging Listing: Shares Open 65.71% Higher at ₹1,160",
+  "seoDescription": "Tonbo Imaging IPO listing 23 Oct 2026: shares open at ₹1,160 on NSE, 65.71% above the ₹700 issue price, after 135.90x subscription; ₹9,660 gain per 21-share lot.",
+  "coverAlt": "Cover graphic: Tonbo Imaging India lists at ₹1,160 against a ₹700 issue price",
+  "tags": [
+   "Tonbo Imaging IPO listing",
+   "Tonbo Imaging share price",
+   "Tonbo IPO",
+   "IPO listing today",
+   "IPO listing gain",
+   "Defence stocks IPO"
+  ],
+  "sources": [
+   {
+    "name": "Upstox: Tonbo Imaging India shares list at 66% premium on NSE",
+    "url": "https://upstox.com/news/market-news/ipo/tonbo-imaging-india-shares-list-at-66-premium-on-nse-here-s-how-much-investors-made-per-lot/article-202269/"
+   },
+   {
+    "name": "Upstox: Bonfiglioli Transmissions lists at par",
+    "url": "https://upstox.com/news/market-news/ipo/bonfiglioli-transmissions-shares-list-at-par-with-ipo-issue-price-on-nse-bse/article-202272/"
+   }
+  ],
+  "edition": "2026-10-23-midday",
+  "editionLabel": "Fri 23 Oct · Midday check",
+  "publishedAt": "2026-10-23T12:59:00+05:30",
+  "updatedAt": "2026-10-23T19:10:00+05:30",
+  "status": "update",
+  "changeNote": "Republished through the new verified-data pipeline; added BSE price, issue type and Hindi version",
+  "hi": {
+   "title": "Tonbo Imaging India ₹1,160 पर लिस्ट, ₹700 के issue price से 65.71% ऊपर; IPO 135.90 गुना भरा था",
+   "dek": "डिफेंस-इलेक्ट्रॉनिक्स कंपनी की लिस्टिंग पर ₹14,700 का 21 शेयरों का एक lot शुरुआती भाव पर ₹24,360 का हो गया।",
+   "body": [
+    "Upstox के मुताबिक Tonbo Imaging India शुक्रवार को NSE पर ₹1,160 पर खुला, जो ₹700 के issue price से 65.71% ऊपर है, और BSE पर ₹1,162 पर। IPO कुल 135.90 गुना subscribe हुआ था — QIB ने अपने हिस्से के 293.56 गुना, NII ने 170.94 गुना और retail निवेशकों ने 31.07 गुना बोली लगाई।",
+    "उदाहरण: एक lot में 21 शेयर थे, जिसकी issue price पर कीमत ₹14,700 थी। ₹1,160 के शुरुआती भाव पर उस lot की कीमत ₹24,360 हुई, यानी ₹9,660 का कागज़ी फायदा। ज़्यादातर retail आवेदकों को शेयर नहीं मिले होंगे, क्योंकि retail मांग उपलब्ध शेयरों से 31 गुना थी और allotment lottery से हुआ।",
+    "पूरा issue offer for sale (OFS) था, करीब ₹852 करोड़ का। OFS में मौजूदा शेयरधारक अपने शेयर बेचते हैं, इसलिए पैसा उन्हें जाता है, कंपनी को नहीं।",
+    "मुख्य सीख: भारी मांग के साथ अक्सर बड़ी लिस्टिंग बढ़त आती है, पर यह नियम नहीं है — Bonfiglioli Transmissions 46 गुना subscribe होकर भी आज बराबर भाव पर खुला। यह शिक्षा है, सलाह नहीं।"
+   ],
+   "indiaImpact": "कमज़ोर बाज़ार के दिन भी डिफेंस-टेक्नोलॉजी लिस्टिंग की मज़बूत मांग दिखाती है कि निवेशक इस सेक्टर में दिलचस्पी रखते हैं।",
+   "changeNote": "सत्यापित डेटा के साथ नई जांच प्रक्रिया से अपडेट किया गया",
+   "seoTitle": "Tonbo Imaging लिस्टिंग: शेयर ₹1,160 पर, 65.71% ऊपर",
+   "seoDescription": "Tonbo Imaging IPO लिस्टिंग 23 अक्टूबर 2026: शेयर NSE पर ₹1,160 पर खुले, ₹700 के issue price से 65.71% ऊपर; IPO 135.90 गुना भरा; 21 शेयरों के lot पर ₹9,660 का फायदा।",
+   "tags": [
+    "Tonbo Imaging IPO लिस्टिंग",
+    "Tonbo Imaging शेयर प्राइस",
+    "IPO लिस्टिंग आज",
+    "IPO लिस्टिंग गेन"
+   ]
+  }
+ }
+}
