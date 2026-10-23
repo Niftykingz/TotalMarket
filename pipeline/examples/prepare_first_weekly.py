@@ -20,7 +20,8 @@ article={
     # no source-backed data remains absent, never a fabricated chart or table.
     "visualSpec":{
         "indices":[{"id":"nifty","label":"Nifty 50"},{"id":"sensex","label":"Sensex"}],
-        "sectors":[],"caps":[],"global":[],"gainers":[],"losers":[]
+        "sectors":[],"caps":[],"global":[],"gainers":[],"losers":[],
+        "breadth":{}, "fiiDii":{}
     },
     "reportTakeaways":["Friday benchmarks closed lower after recovering from intraday lows.","Broader-market and sector weakness warrants attention beyond headline indices."],
     "reportWatch":["Crude oil, rupee and quarterly earnings","Institutional cash flows and exchange-verified expiry positioning"],
