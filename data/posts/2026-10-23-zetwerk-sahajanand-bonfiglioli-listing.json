@@ -1,0 +1,104 @@
+{
+ "title": "Zetwerk lists at 5.46% premium; Sahajanand Medical opens 7.9% higher, Bonfiglioli flat at its issue price",
+ "dek": "Three more debuts on Friday show how different listing days can be: modest gains for Zetwerk and Sahajanand, none for a 46-times-subscribed Bonfiglioli.",
+ "category": "startups",
+ "lead": false,
+ "readMins": 3,
+ "body": [
+  "Zetwerk Manufacturing Businesses opened at ₹159.25 on NSE, 5.46% above its ₹151 issue price, and at ₹159 on BSE, Free Press Journal reported. Its ₹5,012 crore IPO, made up of ₹2,830 crore of new shares and a ₹2,182 crore offer for sale, was subscribed about 3.1 times (3.06–3.10 times; sources differ): QIBs 4.73 times, NIIs 1.40 times and retail 0.73 times, meaning the retail portion was not fully taken up.",
+  "Sahajanand Medical Technologies, a maker of heart stents, opened about 7.9% above its ₹344 issue price, at around ₹371 on NSE (Upstox and Zee Business report a 7.9% premium; Upstox's article gives both ₹371 and ₹373). Its ₹475 crore offer-for-sale IPO was subscribed 14.2 times, with QIBs at 34 times.",
+  "Bonfiglioli Transmissions listed at ₹586 on both NSE and BSE, exactly its issue price, even though its ₹2,533.66 crore IPO (all offer for sale) was subscribed 46.06 times: QIBs 120.78 times, NIIs 40.40 times and retail 5.91 times, Upstox reported.",
+  "Today's concept: why subscription doesn't decide the listing. The listing price is set in a short pre-open auction on listing day, where buyers and sellers place orders. It reflects how much new buyers will pay right now, not how many people applied last week. A weak market morning, like today's, can cool that demand.",
+  "Key takeaway: of today's four listings, the most and least subscribed (Tonbo at 135.90 times, Zetwerk at about 3 times) both opened higher, while Bonfiglioli at 46 times opened flat — subscription is a demand signal, not a listing forecast. This is education, not a recommendation."
+ ],
+ "table": {
+  "title": "Listings, Fri 23 Oct (NSE opening price)",
+  "rows": [
+   {
+    "label": "Tonbo Imaging",
+    "value": "₹1,160",
+    "change": "+65.71%",
+    "note": "Issue ₹700 · 135.90x"
+   },
+   {
+    "label": "Sahajanand Medical",
+    "value": "~₹371",
+    "change": "~+7.9%",
+    "note": "Issue ₹344 · 14.2x"
+   },
+   {
+    "label": "Zetwerk",
+    "value": "₹159.25",
+    "change": "+5.46%",
+    "note": "Issue ₹151 · ~3.1x"
+   },
+   {
+    "label": "Bonfiglioli Transmissions",
+    "value": "₹586",
+    "change": "0%",
+    "note": "Issue ₹586 · 46.06x"
+   }
+  ]
+ },
+ "indiaImpact": "A crowded IPO calendar, including Jio's ₹30,213 crore issue closing today, is testing how much money investors have for new listings.",
+ "coverHeadline": "ZETWERK LISTS 5.46% UP",
+ "stat": "+5.46%",
+ "statLabel": "₹159.25 vs ₹151 issue (NSE)",
+ "coverDate": "2026-10-23",
+ "symbol": "growth",
+ "flags": [
+  "IN"
+ ],
+ "coverLabel": "IPO listing",
+ "companies": [
+  {
+   "name": "Zetwerk Manufacturing Businesses",
+   "ticker": "ZETWERK"
+  },
+  {
+   "name": "Sahajanand Medical Technologies",
+   "ticker": "SMT"
+  },
+  {
+   "name": "Bonfiglioli Transmissions",
+   "ticker": "BONFIGLIOLI"
+  }
+ ],
+ "seoTitle": "Zetwerk, Sahajanand, Bonfiglioli IPO Listing Today",
+ "seoDescription": "IPO listing 23 Oct 2026: Zetwerk opens at ₹159.25 (+5.46%), Sahajanand Medical about 7.9% above ₹344, Bonfiglioli flat at ₹586 despite 46.06x subscription.",
+ "coverAlt": "Cover graphic: Zetwerk lists at ₹159.25 against a ₹151 issue price",
+ "tags": [
+  "Zetwerk IPO listing",
+  "Zetwerk share price",
+  "Sahajanand Medical IPO listing",
+  "Bonfiglioli Transmissions listing",
+  "IPO listing today",
+  "IPO listing gain"
+ ],
+ "sources": [
+  {
+   "name": "Free Press Journal: Zetwerk lists at ₹159.25",
+   "url": "https://www.freepressjournal.in/business/zetwerk-shares-list-at-55-premium-stock-makes-positive-market-debut-at-15925-on-nse"
+  },
+  {
+   "name": "Upstox: Zetwerk lists at 5.4% premium",
+   "url": "https://upstox.com/news/market-news/ipo/zetwerk-manufacturing-listing-shares-list-at-5-4-premium-over-ipo-price-on-nse/article-202275/"
+  },
+  {
+   "name": "Upstox: Sahajanand Medical lists at 7.9% premium",
+   "url": "https://upstox.com/news/market-news/ipo/sahajanand-medical-technologies-ipo-makes-debut-with-7-9-premium-at-373-apiece-on-the-nse/article-202276/"
+  },
+  {
+   "name": "Zee Business: Sahajanand lists at 7.89% premium",
+   "url": "https://www.zeebiz.com/markets/stocks/news-sahajanand-medical-technologies-shares-list-at-789-premium-what-should-investors-do-now-404406"
+  },
+  {
+   "name": "Upstox: Bonfiglioli lists at par",
+   "url": "https://upstox.com/news/market-news/ipo/bonfiglioli-transmissions-shares-list-at-par-with-ipo-issue-price-on-nse-bse/article-202272/"
+  }
+ ],
+ "edition": "2026-10-23-midday",
+ "editionLabel": "Fri 23 Oct · Midday check",
+ "publishedAt": "2026-10-23T13:00:00+05:30",
+ "status": "new"
+}

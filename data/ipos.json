@@ -1,267 +1,375 @@
 {
-  "asOf": "22 Oct 2026, 6:57 pm IST",
-  "updatedAt": "2026-10-22T21:05:00+05:30",
-  "ipos": [
-    {
-      "name": "Jio Platforms",
-      "slug": "jio-platforms",
-      "segment": "Mainboard",
-      "exchange": "NSE, BSE",
-      "business": "Reliance's telecom and digital arm, India's largest mobile operator.",
-      "open": "2026-10-21",
-      "close": "2026-10-23",
-      "allotment": "2026-10-26",
-      "listing": "2026-10-28",
-      "priceBand": "₹1,065–1,119",
-      "lot": 12,
-      "minAmount": 13428,
-      "issueSize": "₹30,213 cr",
-      "fresh": "₹30,213 cr (27 crore shares)",
-      "ofs": "None",
-      "subscription": {
-        "asOf": "22 Oct, 6:57 pm (end of day 2)",
-        "total": 5.51,
-        "qib": 13.14,
-        "nii": 5.91,
-        "retail": 1.53,
-        "employee": 2.09,
-        "shareholder": 4.01,
-        "source": {
-          "name": "IPOji: Jio Platforms IPO subscription (22 Oct, 6:57 pm)",
-          "url": "https://www.ipoji.com/ipo-subscription/jio-platforms-ipo"
-        }
-      },
-      "gmp": {
-        "value": "₹243–265",
-        "asOf": "20–21 Oct"
-      },
-      "note": "Anchor book of ₹8,110 crore drew bids of over ₹2.5 lakh crore. ₹27,500 crore of proceeds will repay Reliance Jio Infocomm's debt.",
-      "sources": [
-        {
-          "name": "Groww",
-          "url": "https://groww.in/blog/jio-platforms-ipo-to-open-on-october-21-2026"
-        },
-        {
-          "name": "HDFC Sky",
-          "url": "https://hdfcsky.com/news/jio-platforms-ipo-subscription-status-day-1-at-3-pm"
-        },
-        {
-          "name": "The Tribune",
-          "url": "https://www.tribuneindia.com/news/anchor-book/jio-platforms-rs-8110-crore-anchor-book-attracts-over-rs-2-5-lakh-crore-in-institutional-demand-draws-marquee-global-investors"
-        }
-      ]
-    },
-    {
-      "name": "Paras Healthcare",
-      "slug": "paras-healthcare",
-      "segment": "Mainboard",
-      "exchange": "NSE, BSE",
-      "business": "Runs eight hospitals with 2,211 beds in North India, Bihar and Jharkhand under the Paras Health brand.",
-      "open": "2026-10-21",
-      "close": "2026-10-23",
-      "allotment": "2026-10-26",
-      "listing": "2026-10-28",
-      "priceBand": "₹660–693",
-      "lot": 21,
-      "minAmount": 14553,
-      "issueSize": "₹1,450 cr",
-      "fresh": "₹500 cr",
-      "ofs": "₹950 cr",
-      "gmp": {
-        "value": "₹45–50",
-        "asOf": "21 Oct"
-      },
-      "note": "Quota: anchor 45%, QIB 30%, HNI 15%, retail 10%.",
-      "sources": [
-        {
-          "name": "IPO Premium",
-          "url": "https://www.ipopremium.in/view/ipo/829/paras-healthcare-limited"
-        }
-      ],
-      "subscription": {
-        "asOf": "22 Oct, 11:30 am (day 2)",
-        "total": 0.21,
-        "qib": 0.0,
-        "nii": 0.2,
-        "retail": 1.0,
-        "employee": 0.0,
-        "source": {
-          "name": "ScanX",
-          "url": "https://scanx.trade/stock-market-news/ipo/paras-healthcare-ipo-day-2-subscribed-0-21x-retail-1-00x-qib-nil-check-allotment-status/54195150"
-        }
-      }
-    },
-    {
-      "name": "Fusion CX",
-      "slug": "fusion-cx",
-      "segment": "Mainboard",
-      "exchange": "NSE, BSE",
-      "open": "2026-10-14",
-      "close": "2026-10-16",
-      "listing": "2026-10-22",
-      "priceBand": "₹275–289",
-      "lot": 51,
-      "issueSize": "₹702 cr",
-      "sources": [
-        {
-          "name": "Zerodha IPO calendar",
-          "url": "https://zerodha.com/ipo/"
-        },
-        {
-          "name": "HDFC Sky",
-          "url": "https://hdfcsky.com/news/fusion-cx-shares-rise-5-percent-on-nse-debut"
-        }
-      ],
-      "fresh": "₹500 cr",
-      "ofs": "₹202 cr",
-      "subscription": {
-        "asOf": "Final",
-        "total": 3.03,
-        "qib": 2.34,
-        "nii": 4.62,
-        "retail": 5.8,
-        "source": {
-          "name": "HDFC Sky",
-          "url": "https://hdfcsky.com/news/fusion-cx-shares-rise-5-percent-on-nse-debut"
-        }
-      },
-      "listed": true,
-      "issuePrice": 289,
-      "listingPrice": 305,
-      "listingGainPct": 5.54,
-      "afterListing": "₹302.10 on NSE at 10:23 am (+4.53% vs issue); BSE listing ₹292 (+1.04%)",
-      "priceSeries": {
-        "label": "NSE price on listing day, ₹",
-        "points": [
-          [
-            "Issue",
-            289
-          ],
-          [
-            "Open",
-            305
-          ],
-          [
-            "10:23 am",
-            302.1
-          ]
-        ],
-        "source": "HDFC Sky"
-      }
-    },
-    {
-      "name": "Zetwerk",
-      "slug": "zetwerk",
-      "segment": "Mainboard",
-      "exchange": "NSE, BSE",
-      "open": "2026-10-15",
-      "close": "2026-10-19",
-      "listing": "2026-10-23",
-      "priceBand": "₹143–151",
-      "lot": 99,
-      "issueSize": "₹5,012 cr",
-      "sources": [
-        {
-          "name": "Zerodha IPO calendar",
-          "url": "https://zerodha.com/ipo/"
-        }
-      ]
-    },
-    {
-      "name": "Tonbo Imaging India",
-      "slug": "tonbo-imaging",
-      "segment": "Mainboard",
-      "exchange": "NSE, BSE",
-      "business": "Defence-technology company making imaging and night-vision systems.",
-      "open": "2026-10-15",
-      "close": "2026-10-19",
-      "listing": "2026-10-23",
-      "priceBand": "₹665–700",
-      "lot": 21,
-      "issueSize": "₹852 cr",
-      "sources": [
-        {
-          "name": "Zerodha IPO calendar",
-          "url": "https://zerodha.com/ipo/"
-        }
-      ]
-    },
-    {
-      "name": "Bonfiglioli Transmissions",
-      "slug": "bonfiglioli-transmissions",
-      "segment": "Mainboard",
-      "exchange": "NSE, BSE",
-      "open": "2026-10-15",
-      "close": "2026-10-19",
-      "listing": "2026-10-23",
-      "priceBand": "₹558–586",
-      "lot": 25,
-      "issueSize": "₹2,534 cr",
-      "sources": [
-        {
-          "name": "Zerodha IPO calendar",
-          "url": "https://zerodha.com/ipo/"
-        }
-      ]
-    },
-    {
-      "name": "Sahajanand Medical Technologies",
-      "slug": "sahajanand-medical-technologies",
-      "segment": "Mainboard",
-      "exchange": "NSE, BSE",
-      "open": "2026-10-15",
-      "close": "2026-10-19",
-      "listing": "2026-10-23",
-      "priceBand": "₹327–344",
-      "lot": 43,
-      "issueSize": "₹475 cr",
-      "sources": [
-        {
-          "name": "Zerodha IPO calendar",
-          "url": "https://zerodha.com/ipo/"
-        }
-      ]
-    },
-    {
-      "name": "HD Fire Protect",
-      "slug": "hd-fire-protect",
-      "segment": "Mainboard",
-      "exchange": "NSE, BSE",
-      "open": "2026-10-13",
-      "close": "2026-10-15",
-      "listing": "2026-10-21",
-      "listed": true,
-      "priceBand": "₹258–271",
-      "lot": 55,
-      "issueSize": "₹712 cr",
-      "fresh": "None",
-      "ofs": "₹712 cr (100% OFS by promoters)",
-      "issuePrice": 271,
-      "listingPrice": 335,
-      "listingGainPct": 23.6,
-      "afterListing": "Pared gains to about ₹306–307 on 21 Oct (about 13% above issue price)",
-      "subscription": {
-        "asOf": "Final",
-        "total": 91.95,
-        "qib": 256.11,
-        "nii": 202.12,
-        "retail": 29.51,
-        "employee": 1.23,
-        "source": {
-          "name": "HDFC Sky",
-          "url": "https://hdfcsky.com/news/hd-fire-protect-shares-trade-23-62-percent-above-ipo-price-after-listing-on-nse-bse"
-        }
-      },
-      "sources": [
-        {
-          "name": "HDFC Sky",
-          "url": "https://hdfcsky.com/news/hd-fire-protect-shares-trade-23-62-percent-above-ipo-price-after-listing-on-nse-bse"
-        },
-        {
-          "name": "Indian Opinion",
-          "url": "https://indianopinion.org/hd-fire-protect-lists-at-24-premium-over-ipo-price/"
-        }
-      ]
+ "asOf": "23 Oct 2026, 12:10 pm IST",
+ "updatedAt": "2026-10-23T13:00:00+05:30",
+ "ipos": [
+  {
+   "name": "Jio Platforms",
+   "slug": "jio-platforms",
+   "segment": "Mainboard",
+   "exchange": "NSE, BSE",
+   "business": "Reliance's telecom and digital arm, India's largest mobile operator.",
+   "open": "2026-10-21",
+   "close": "2026-10-23",
+   "allotment": "2026-10-26",
+   "listing": "2026-10-28",
+   "priceBand": "₹1,065–1,119",
+   "lot": 12,
+   "minAmount": 13428,
+   "issueSize": "₹30,213 cr",
+   "fresh": "₹30,213 cr (27 crore shares)",
+   "ofs": "None",
+   "subscription": {
+    "asOf": "23 Oct, 12:10 pm (final day)",
+    "total": 6.9,
+    "qib": 14.46,
+    "nii": 9.45,
+    "retail": 2.02,
+    "source": {
+     "name": "Business Standard: Market live, 23 Oct",
+     "url": "https://www.business-standard.com/markets/news/stock-market-live-october-23-nse-bse-sensex-today-nifty50-gift-nifty-crude-oil-prices-jio-ipo-q2-results-today-126102300078_1.html"
     }
-  ]
+   },
+   "gmp": {
+    "value": "₹243–265",
+    "asOf": "20–21 Oct"
+   },
+   "note": "Anchor book of ₹8,110 crore drew bids of over ₹2.5 lakh crore. ₹27,500 crore of proceeds will repay Reliance Jio Infocomm's debt.",
+   "sources": [
+    {
+     "name": "Groww",
+     "url": "https://groww.in/blog/jio-platforms-ipo-to-open-on-october-21-2026"
+    },
+    {
+     "name": "HDFC Sky",
+     "url": "https://hdfcsky.com/news/jio-platforms-ipo-subscription-status-day-1-at-3-pm"
+    },
+    {
+     "name": "The Tribune",
+     "url": "https://www.tribuneindia.com/news/anchor-book/jio-platforms-rs-8110-crore-anchor-book-attracts-over-rs-2-5-lakh-crore-in-institutional-demand-draws-marquee-global-investors"
+    }
+   ]
+  },
+  {
+   "name": "Paras Healthcare",
+   "slug": "paras-healthcare",
+   "segment": "Mainboard",
+   "exchange": "NSE, BSE",
+   "business": "Runs eight hospitals with 2,211 beds in North India, Bihar and Jharkhand under the Paras Health brand.",
+   "open": "2026-10-21",
+   "close": "2026-10-23",
+   "allotment": "2026-10-26",
+   "listing": "2026-10-28",
+   "priceBand": "₹660–693",
+   "lot": 21,
+   "minAmount": 14553,
+   "issueSize": "₹1,450 cr",
+   "fresh": "₹500 cr",
+   "ofs": "₹950 cr",
+   "gmp": {
+    "value": "₹45–50",
+    "asOf": "21 Oct"
+   },
+   "note": "Quota: anchor 45%, QIB 30%, HNI 15%, retail 10%.",
+   "sources": [
+    {
+     "name": "IPO Premium",
+     "url": "https://www.ipopremium.in/view/ipo/829/paras-healthcare-limited"
+    }
+   ],
+   "subscription": {
+    "asOf": "22 Oct (end of day 2)",
+    "total": 0.36,
+    "source": {
+     "name": "HDFC Sky",
+     "url": "https://hdfcsky.com/"
+    }
+   }
+  },
+  {
+   "name": "Fusion CX",
+   "slug": "fusion-cx",
+   "segment": "Mainboard",
+   "exchange": "NSE, BSE",
+   "open": "2026-10-14",
+   "close": "2026-10-16",
+   "listing": "2026-10-22",
+   "priceBand": "₹275–289",
+   "lot": 51,
+   "issueSize": "₹702 cr",
+   "sources": [
+    {
+     "name": "Zerodha IPO calendar",
+     "url": "https://zerodha.com/ipo/"
+    },
+    {
+     "name": "HDFC Sky",
+     "url": "https://hdfcsky.com/news/fusion-cx-shares-rise-5-percent-on-nse-debut"
+    }
+   ],
+   "fresh": "₹500 cr",
+   "ofs": "₹202 cr",
+   "subscription": {
+    "asOf": "Final",
+    "total": 3.03,
+    "qib": 2.34,
+    "nii": 4.62,
+    "retail": 5.8,
+    "source": {
+     "name": "HDFC Sky",
+     "url": "https://hdfcsky.com/news/fusion-cx-shares-rise-5-percent-on-nse-debut"
+    }
+   },
+   "listed": true,
+   "issuePrice": 289,
+   "listingPrice": 305,
+   "listingGainPct": 5.54,
+   "afterListing": "₹302.10 on NSE at 10:23 am (+4.53% vs issue); BSE listing ₹292 (+1.04%)",
+   "priceSeries": {
+    "label": "NSE price on listing day, ₹",
+    "points": [
+     [
+      "Issue",
+      289
+     ],
+     [
+      "Open",
+      305
+     ],
+     [
+      "10:23 am",
+      302.1
+     ]
+    ],
+    "source": "HDFC Sky"
+   }
+  },
+  {
+   "name": "Zetwerk",
+   "slug": "zetwerk",
+   "segment": "Mainboard",
+   "exchange": "NSE, BSE",
+   "open": "2026-10-15",
+   "close": "2026-10-19",
+   "listing": "2026-10-23",
+   "priceBand": "₹143–151",
+   "lot": 99,
+   "issueSize": "₹5,012 cr",
+   "sources": [
+    {
+     "name": "Zerodha IPO calendar",
+     "url": "https://zerodha.com/ipo/"
+    },
+    {
+     "name": "Free Press Journal: Zetwerk lists at ₹159.25",
+     "url": "https://www.freepressjournal.in/business/zetwerk-shares-list-at-55-premium-stock-makes-positive-market-debut-at-15925-on-nse"
+    }
+   ],
+   "issuePrice": 151,
+   "listingPrice": 159.25,
+   "listingGainPct": 5.46,
+   "listed": true,
+   "fresh": "₹2,830 cr",
+   "ofs": "₹2,182 cr",
+   "subscription": {
+    "asOf": "Final",
+    "total": 3.06,
+    "qib": 4.73,
+    "nii": 1.4,
+    "retail": 0.73,
+    "source": {
+     "name": "Free Press Journal: Zetwerk lists at ₹159.25",
+     "url": "https://www.freepressjournal.in/business/zetwerk-shares-list-at-55-premium-stock-makes-positive-market-debut-at-15925-on-nse"
+    }
+   },
+   "afterListing": "Opened at ₹159.25 on NSE (+5.46%) and ₹159 on BSE",
+   "priceSeries": {
+    "label": "NSE price on listing day, ₹",
+    "points": [
+     [
+      "Issue",
+      151
+     ],
+     [
+      "Open",
+      159.25
+     ]
+    ],
+    "source": "Free Press Journal"
+   }
+  },
+  {
+   "name": "Tonbo Imaging India",
+   "slug": "tonbo-imaging",
+   "segment": "Mainboard",
+   "exchange": "NSE, BSE",
+   "business": "Defence-technology company making imaging and night-vision systems.",
+   "open": "2026-10-15",
+   "close": "2026-10-19",
+   "listing": "2026-10-23",
+   "priceBand": "₹665–700",
+   "lot": 21,
+   "issueSize": "₹852 cr",
+   "sources": [
+    {
+     "name": "Zerodha IPO calendar",
+     "url": "https://zerodha.com/ipo/"
+    },
+    {
+     "name": "Upstox: Tonbo lists at 66% premium",
+     "url": "https://upstox.com/news/market-news/ipo/tonbo-imaging-india-shares-list-at-66-premium-on-nse-here-s-how-much-investors-made-per-lot/article-202269/"
+    }
+   ],
+   "issuePrice": 700,
+   "listingPrice": 1160,
+   "listingGainPct": 65.71,
+   "listed": true,
+   "ofs": "₹852.18 cr",
+   "fresh": "None",
+   "subscription": {
+    "asOf": "Final",
+    "total": 135.9,
+    "qib": 293.56,
+    "nii": 170.94,
+    "retail": 31.07,
+    "source": {
+     "name": "Upstox: Tonbo lists at 66% premium",
+     "url": "https://upstox.com/news/market-news/ipo/tonbo-imaging-india-shares-list-at-66-premium-on-nse-here-s-how-much-investors-made-per-lot/article-202269/"
+    }
+   },
+   "afterListing": "Opened at ₹1,160 on NSE (+65.71%) and ₹1,162 on BSE",
+   "priceSeries": {
+    "label": "NSE price on listing day, ₹",
+    "points": [
+     [
+      "Issue",
+      700
+     ],
+     [
+      "Open",
+      1160
+     ]
+    ],
+    "source": "Upstox"
+   }
+  },
+  {
+   "name": "Bonfiglioli Transmissions",
+   "slug": "bonfiglioli-transmissions",
+   "segment": "Mainboard",
+   "exchange": "NSE, BSE",
+   "open": "2026-10-15",
+   "close": "2026-10-19",
+   "listing": "2026-10-23",
+   "priceBand": "₹558–586",
+   "lot": 25,
+   "issueSize": "₹2,534 cr",
+   "sources": [
+    {
+     "name": "Zerodha IPO calendar",
+     "url": "https://zerodha.com/ipo/"
+    },
+    {
+     "name": "Upstox: Bonfiglioli lists at par",
+     "url": "https://upstox.com/news/market-news/ipo/bonfiglioli-transmissions-shares-list-at-par-with-ipo-issue-price-on-nse-bse/article-202272/"
+    }
+   ],
+   "issuePrice": 586,
+   "listingPrice": 586,
+   "listingGainPct": 0.0,
+   "listed": true,
+   "fresh": "None",
+   "ofs": "₹2,533.66 cr",
+   "subscription": {
+    "asOf": "Final",
+    "total": 46.06,
+    "qib": 120.78,
+    "nii": 40.4,
+    "retail": 5.91,
+    "source": {
+     "name": "Upstox: Bonfiglioli lists at par",
+     "url": "https://upstox.com/news/market-news/ipo/bonfiglioli-transmissions-shares-list-at-par-with-ipo-issue-price-on-nse-bse/article-202272/"
+    }
+   },
+   "afterListing": "Listed at par (₹586) on NSE and BSE"
+  },
+  {
+   "name": "Sahajanand Medical Technologies",
+   "slug": "sahajanand-medical-technologies",
+   "segment": "Mainboard",
+   "exchange": "NSE, BSE",
+   "open": "2026-10-15",
+   "close": "2026-10-19",
+   "listing": "2026-10-23",
+   "priceBand": "₹327–344",
+   "lot": 43,
+   "issueSize": "₹475 cr",
+   "sources": [
+    {
+     "name": "Zerodha IPO calendar",
+     "url": "https://zerodha.com/ipo/"
+    },
+    {
+     "name": "Upstox: Sahajanand Medical lists at 7.9% premium",
+     "url": "https://upstox.com/news/market-news/ipo/sahajanand-medical-technologies-ipo-makes-debut-with-7-9-premium-at-373-apiece-on-the-nse/article-202276/"
+    }
+   ],
+   "issuePrice": 344,
+   "listingPrice": 371,
+   "listingGainPct": 7.9,
+   "listed": true,
+   "ofs": "₹475 cr",
+   "fresh": "None",
+   "subscription": {
+    "asOf": "Final",
+    "total": 14.2,
+    "qib": 34,
+    "source": {
+     "name": "Upstox: Sahajanand Medical lists at 7.9% premium",
+     "url": "https://upstox.com/news/market-news/ipo/sahajanand-medical-technologies-ipo-makes-debut-with-7-9-premium-at-373-apiece-on-the-nse/article-202276/"
+    }
+   },
+   "afterListing": "Opened about 7.9% above issue on NSE (Upstox gives ₹371 and ₹373)"
+  },
+  {
+   "name": "HD Fire Protect",
+   "slug": "hd-fire-protect",
+   "segment": "Mainboard",
+   "exchange": "NSE, BSE",
+   "open": "2026-10-13",
+   "close": "2026-10-15",
+   "listing": "2026-10-21",
+   "listed": true,
+   "priceBand": "₹258–271",
+   "lot": 55,
+   "issueSize": "₹712 cr",
+   "fresh": "None",
+   "ofs": "₹712 cr (100% OFS by promoters)",
+   "issuePrice": 271,
+   "listingPrice": 335,
+   "listingGainPct": 23.6,
+   "afterListing": "Pared gains to about ₹306–307 on 21 Oct (about 13% above issue price)",
+   "subscription": {
+    "asOf": "Final",
+    "total": 91.95,
+    "qib": 256.11,
+    "nii": 202.12,
+    "retail": 29.51,
+    "employee": 1.23,
+    "source": {
+     "name": "HDFC Sky",
+     "url": "https://hdfcsky.com/news/hd-fire-protect-shares-trade-23-62-percent-above-ipo-price-after-listing-on-nse-bse"
+    }
+   },
+   "sources": [
+    {
+     "name": "HDFC Sky",
+     "url": "https://hdfcsky.com/news/hd-fire-protect-shares-trade-23-62-percent-above-ipo-price-after-listing-on-nse-bse"
+    },
+    {
+     "name": "Indian Opinion",
+     "url": "https://indianopinion.org/hd-fire-protect-lists-at-24-premium-over-ipo-price/"
+    }
+   ]
+  }
+ ]
 }

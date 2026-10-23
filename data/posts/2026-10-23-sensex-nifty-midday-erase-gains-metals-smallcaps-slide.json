@@ -1,0 +1,172 @@
+{
+ "title": "Sensex, Nifty erase early gains: Nifty slips below 22,500 as metals, realty and small caps slide; IT the lone gainer",
+ "dek": "GIFT Nifty had pointed 128 points higher, but the market turned: the Sensex swung more than 1,000 points from its high, and small caps fell about 3%.",
+ "category": "markets",
+ "lead": true,
+ "readMins": 3,
+ "body": [
+  "Indian shares reversed sharply on Friday morning. At 11:00 am the Sensex was down 568.50 points (0.78%) at 72,680.89 and the Nifty 50 down 239.50 points (1.06%) at 22,448.15, Business Standard reported. The Sensex had fallen more than 1,000 points from its early high, NewsDrum reported, wiping out the gains GIFT Nifty had signalled before the open.",
+  "The damage was wider below the surface. The Nifty Midcap index fell 2.54% and the Nifty Smallcap index 3.45% by late morning (Business Standard). Metal, realty, consumer durables and media indices each lost more than 3%, while Nifty IT was the only sector in the green, up more than 2%, NewsDrum reported. Hindalco, Adani Enterprises and Tata Steel were among the Nifty's biggest losers. India VIX, a gauge of expected volatility, rose 6.6% to 16.80 at 11:30 am.",
+  "Why: Brent crude was near $114 a barrel at 10:50 am on Middle East supply worries, Thursday's 2.6% Nasdaq slide still weighed on sentiment, and an early rebound after three days of losses ran into selling. Small and mid-sized shares usually fall harder in such moves because fewer buyers step in when the mood turns.",
+  "IPOs: on its last day, Jio Platforms' IPO was subscribed 6.90 times at 12:10 pm, with institutions (QIBs) at 14.46 times, wealthy individuals (NIIs) 9.45 times and retail investors 2.02 times, Business Standard reported. Paras Healthcare had drawn 0.36 times by the end of day two, per HDFC Sky. Four new listings had mixed debuts: Tonbo Imaging opened 66% above its issue price, while Bonfiglioli Transmissions opened flat (see our listings story).",
+  "Results due today include Infosys, Tata Motors, IndusInd Bank, Dr Reddy's, JSW Steel, BPCL and Adani Power, Business Standard reported. Infosys's numbers are expected after market hours.",
+  "Key takeaway: a positive GIFT Nifty is a hint, not a promise — today oil and global tech worries overpowered it within the first two hours. Figures are as of late morning and will change by the close."
+ ],
+ "table": {
+  "title": "Midday snapshot, Fri 23 Oct (IST)",
+  "rows": [
+   {
+    "label": "Sensex",
+    "value": "72,680.89",
+    "change": "-0.78%",
+    "note": "11:00 am"
+   },
+   {
+    "label": "Nifty 50",
+    "value": "22,448.15",
+    "change": "-1.06%",
+    "note": "11:00 am"
+   },
+   {
+    "label": "Nifty Midcap",
+    "value": "",
+    "change": "-2.54%",
+    "note": "Late morning"
+   },
+   {
+    "label": "Nifty Smallcap",
+    "value": "",
+    "change": "-3.45%",
+    "note": "Late morning"
+   },
+   {
+    "label": "Nifty IT",
+    "value": "",
+    "change": "+2%+",
+    "note": "Only sector up"
+   },
+   {
+    "label": "India VIX",
+    "value": "16.80",
+    "change": "+6.6%",
+    "note": "11:30 am"
+   },
+   {
+    "label": "Brent (Dec)",
+    "value": "$113.90",
+    "change": "+0.71%",
+    "note": "10:50 am"
+   },
+   {
+    "label": "Jio IPO",
+    "value": "6.90x",
+    "change": "",
+    "note": "12:10 pm, final day"
+   }
+  ]
+ },
+ "why": "A failed rebound after three falling sessions shows how fragile sentiment is while oil stays above $110.",
+ "globalImpact": "The global tech sell-off and oil at five-month highs set the tone across Asia.",
+ "indiaImpact": "Small-cap and mid-cap investors felt the most pain; IT shares held up ahead of Infosys's results this evening.",
+ "piggy": {
+  "happened": "By 11 am the Nifty was 1.06% lower at 22,448.15 and the Sensex 0.78% lower at 72,680.89, after an early rise; small caps fell 3.45% and IT rose more than 2%.",
+  "matters": "A market can open green and still end the morning red. If you hold small-cap funds, a 3% day is a reminder that they swing more than large caps in both directions.",
+  "watch": [
+   "The 3:30 pm close and whether the Nifty holds 22,400",
+   "Infosys results after market hours",
+   "Jio IPO final subscription this evening"
+  ]
+ },
+ "coverHeadline": "NIFTY −1.06% BY 11 AM",
+ "stat": "-1.06%",
+ "statLabel": "Nifty 50 at 22,448.15, 11:00 am",
+ "coverDate": "2026-10-23",
+ "symbol": "candles",
+ "flags": [
+  "IN"
+ ],
+ "companies": [
+  {
+   "name": "Hindalco Industries",
+   "ticker": "HINDALCO"
+  },
+  {
+   "name": "Tata Steel",
+   "ticker": "TATASTEEL"
+  },
+  {
+   "name": "Adani Enterprises",
+   "ticker": "ADANIENT"
+  }
+ ],
+ "seoTitle": "Sensex, Nifty Today: Gains Erased, Small Caps −3.45%",
+ "seoDescription": "Stock market today 23 Oct 2026: Nifty falls 1.06% to 22,448.15 and Sensex 568.50 points by 11 am; small caps −3.45%, metals and realty −3%, IT up; Jio IPO 6.90x.",
+ "coverAlt": "Cover graphic: Nifty down 1.06% by 11 am on 23 October",
+ "tags": [
+  "Stock market today",
+  "Sensex today",
+  "Nifty today",
+  "Share market crash today",
+  "Smallcap stocks fall",
+  "Metal stocks",
+  "Jio IPO subscription status",
+  "India VIX"
+ ],
+ "sources": [
+  {
+   "name": "Business Standard: Market live, 23 Oct",
+   "url": "https://www.business-standard.com/markets/news/stock-market-live-october-23-nse-bse-sensex-today-nifty50-gift-nifty-crude-oil-prices-jio-ipo-q2-results-today-126102300078_1.html"
+  },
+  {
+   "name": "NewsDrum: Why Sensex erased 1,000 points",
+   "url": "https://www.newsdrum.in/business/why-did-sensex-erase-1000-points-as-metal-realty-indices-plunged-over-3-12740482"
+  },
+  {
+   "name": "HDFC Sky: Jio IPO day 3, 12 pm",
+   "url": "https://hdfcsky.com/news/jio-platforms-ipo-subscription-status-day-3-issue-subscribed-6-89-times-so-far"
+  },
+  {
+   "name": "Business Standard: Q2 results today, 75 firms",
+   "url": "https://www.business-standard.com/companies/quarterly-results/q2-results-infosys-tata-motors-adani-power-among-75-firms-on-oct-23-126102300433_1.html"
+  }
+ ],
+ "hi": {
+  "title": "Sensex, Nifty ने शुरुआती बढ़त गंवाई: Nifty 22,500 के नीचे, मेटल, रियल्टी और स्मॉलकैप टूटे; सिर्फ IT में तेज़ी",
+  "dek": "GIFT Nifty 128 अंक ऊपर का इशारा दे रहा था, पर बाज़ार पलट गया: Sensex अपने ऊपरी स्तर से 1,000 से ज़्यादा अंक फिसला और स्मॉलकैप करीब 3% गिरे।",
+  "body": [
+   "शुक्रवार सुबह भारतीय शेयर तेज़ी से पलटे। Business Standard के मुताबिक सुबह 11 बजे Sensex 568.50 अंक (0.78%) गिरकर 72,680.89 पर और Nifty 50 239.50 अंक (1.06%) गिरकर 22,448.15 पर था। NewsDrum के मुताबिक Sensex अपने शुरुआती ऊपरी स्तर से 1,000 से ज़्यादा अंक गिरा, यानी GIFT Nifty ने खुलने से पहले जो बढ़त दिखाई थी, वह मिट गई।",
+   "अंदर की तस्वीर और कमज़ोर थी। देर सुबह तक Nifty Midcap 2.54% और Nifty Smallcap 3.45% गिरे (Business Standard)। NewsDrum के मुताबिक मेटल, रियल्टी, कंज़्यूमर ड्यूरेबल्स और मीडिया इंडेक्स 3% से ज़्यादा टूटे, जबकि सिर्फ Nifty IT 2% से ज़्यादा ऊपर रहा। Hindalco, Adani Enterprises और Tata Steel Nifty के बड़े लूज़र में रहे। बाज़ार में उतार-चढ़ाव की उम्मीद मापने वाला India VIX सुबह 11:30 बजे 6.6% बढ़कर 16.80 पर था।",
+   "वजह: सुबह 10:50 बजे Brent कच्चा तेल मध्य-पूर्व में सप्लाई की चिंता से करीब $114 प्रति बैरल पर था, गुरुवार को Nasdaq की 2.6% गिरावट का असर बाकी था, और तीन दिन की गिरावट के बाद आई शुरुआती रिकवरी पर बिकवाली हो गई। ऐसे माहौल में छोटे और मझोले शेयर ज़्यादा गिरते हैं, क्योंकि मूड बिगड़ने पर इनमें खरीदार कम होते हैं।",
+   "IPO: आखिरी दिन दोपहर 12:10 बजे तक Jio Platforms का IPO 6.90 गुना subscribe हुआ — QIB 14.46 गुना, NII 9.45 गुना और retail 2.02 गुना (Business Standard)। HDFC Sky के मुताबिक Paras Healthcare दूसरे दिन के अंत तक 0.36 गुना भरा था। चार नई लिस्टिंग मिली-जुली रहीं: Tonbo Imaging issue price से 66% ऊपर खुला, जबकि Bonfiglioli Transmissions बराबर भाव पर खुला।",
+   "Business Standard के मुताबिक आज Infosys, Tata Motors, IndusInd Bank, Dr Reddy's, JSW Steel, BPCL और Adani Power के नतीजे आने हैं। Infosys के नतीजे बाज़ार बंद होने के बाद आने की उम्मीद है।",
+   "मुख्य सीख: GIFT Nifty का पॉज़िटिव होना एक संकेत है, गारंटी नहीं — आज पहले दो घंटों में ही तेल और ग्लोबल टेक की चिंता भारी पड़ गई। आंकड़े देर सुबह के हैं और close तक बदलेंगे।"
+  ],
+  "why": "तीन दिन की गिरावट के बाद रिकवरी का टिक न पाना दिखाता है कि तेल $110 से ऊपर रहने तक माहौल कितना नाज़ुक है।",
+  "globalImpact": "ग्लोबल टेक बिकवाली और पांच महीने के ऊंचे स्तर पर तेल ने पूरे एशिया का मूड तय किया।",
+  "indiaImpact": "स्मॉलकैप और मिडकैप निवेशकों को सबसे ज़्यादा झटका लगा; Infosys के नतीजों से पहले IT शेयर मज़बूत रहे।",
+  "piggy": {
+   "happened": "सुबह 11 बजे तक Nifty 1.06% गिरकर 22,448.15 और Sensex 0.78% गिरकर 72,680.89 पर था, शुरुआती बढ़त के बाद; स्मॉलकैप 3.45% गिरे और IT 2% से ज़्यादा चढ़ा।",
+   "matters": "बाज़ार हरे निशान में खुलकर भी सुबह लाल में खत्म कर सकता है। अगर आपके पास स्मॉलकैप फंड हैं, तो 3% का दिन याद दिलाता है कि ये दोनों दिशाओं में लार्जकैप से ज़्यादा झूलते हैं।",
+   "watch": [
+    "दोपहर 3:30 बजे का close और क्या Nifty 22,400 बचा पाता है",
+    "बाज़ार बंद होने के बाद Infosys के नतीजे",
+    "आज शाम Jio IPO का अंतिम subscription"
+   ]
+  },
+  "tableTitle": "दोपहर का हाल, शुक्रवार 23 अक्टूबर (IST)",
+  "seoTitle": "Sensex, Nifty आज: बढ़त गंवाई, स्मॉलकैप −3.45%",
+  "seoDescription": "शेयर बाज़ार आज 23 अक्टूबर 2026: सुबह 11 बजे Nifty 1.06% गिरकर 22,448.15 और Sensex 568.50 अंक नीचे; स्मॉलकैप −3.45%, मेटल-रियल्टी −3%, IT ऊपर; Jio IPO 6.90 गुना।",
+  "tags": [
+   "शेयर बाज़ार आज",
+   "Sensex आज",
+   "Nifty आज",
+   "शेयर बाज़ार गिरावट",
+   "स्मॉलकैप शेयर",
+   "Jio IPO सब्सक्रिप्शन स्टेटस"
+  ]
+ },
+ "edition": "2026-10-23-midday",
+ "editionLabel": "Fri 23 Oct · Midday check",
+ "publishedAt": "2026-10-23T12:58:00+05:30",
+ "status": "new"
+}
