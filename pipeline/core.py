@@ -401,6 +401,30 @@ def stage4_article(job, ver, gfx, root, write=True):
             "takeaways": art.get("reportTakeaways") or [],
             "watch": art.get("reportWatch") or []
         }
+        # Breadth and institutional cash flows require complete, independently
+        # verified sets; never infer zero or publish partial market totals.
+        breadth_ids = specs.get("breadth") or {}
+        breadth_keys = ("advances", "declines", "unchanged")
+        if all(breadth_ids.get(k) in verified for k in breadth_keys):
+            bfigs = {k: verified[breadth_ids[k]] for k in breadth_keys}
+            try:
+                counts = {k: int(str(v["value"]).replace(",", "")) for k, v in bfigs.items()}
+                if all(v >= 0 for v in counts.values()) and sum(counts.values()) > 0:
+                    post["report"]["breadth"] = dict(counts, exchange=str(specs.get("breadthExchange") or "NSE"))
+            except (ValueError, TypeError):
+                pass
+        flows = specs.get("fiiDii") or {}
+        if all(flows.get(k) in verified for k in ("fiiNet", "diiNet")):
+            fi = verified[flows["fiiNet"]]
+            di = verified[flows["diiNet"]]
+            # A net-only flow card is legitimate: purchases/sales are not invented.
+            if str(fi.get("as_of"))[:10] == str(di.get("as_of"))[:10]:
+                post["report"]["fiiDii"] = {
+                    "asOf": str(fi.get("as_of") or "")[:10],
+                    "fii": {"net": str(fi["value"])},
+                    "dii": {"net": str(di["value"])},
+                    "note": "Verified net cash flows only; gross buy/sell data not available."
+                }
         post["visualAudit"] = {
             "verifiedFigureIds": sorted({spec["id"] for group in
                 ("indices", "sectors", "caps", "global", "gainers", "losers")
