@@ -26,3 +26,4 @@ jobs:
         run: python3 -m pipeline publish --dry-run
       - name: Publish only after all checks
         run: python3 -m pipeline publish -m "Weekly market review: 19–23 October 2026"
+# Trigger first publication attempt after workflow registration.
