@@ -205,6 +205,19 @@ def stage2_verify(collected):
     return {"verified": verified, "rejected": rejected, "examples": collected["examples"]}, errs
 
 
+def stage1_source_first(job, edition_date, root=ROOT):
+    """Refresh stale quotations from publisher text before verification."""
+    collected, errors = stage1_collect(job, edition_date)
+    cfg_path = Path(root) / "pipeline" / "config.json"
+    cfg = json.loads(cfg_path.read_text(encoding="utf-8")) if cfg_path.is_file() else {}
+    if cfg.get("source_recovery", False) and not errors:
+        from .source_audit import recover_evidence
+        collected, unresolved = recover_evidence(collected)
+        # No unsupported values may reach a graphic or article.
+        errors.extend("SOURCE_RECOVERY: " + e for e in unresolved)
+    return collected, errors
+
+
 def stage2_with_remote_evidence(collected, root=ROOT):
     """Require original-source evidence BEFORE creating graphics or articles."""
     from . import source_audit
@@ -444,7 +457,7 @@ def run_job(job_path, root=ROOT, render=True):
         run.save_manifest()
     edition_date = str(job["article"].get("edition") or job["article"].get("publishedAt"))[:10]
     steps = [
-        lambda: stage1_collect(job, edition_date),
+        lambda: stage1_source_first(job, edition_date, root),
         lambda: stage2_with_remote_evidence(run.load(1), root),
         lambda: stage3_graphic(job, run.load(2), run, root, render=render),
         lambda: stage4_article(job, run.load(2), run.load(3), root),
