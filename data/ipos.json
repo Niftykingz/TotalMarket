@@ -79,11 +79,14 @@
     }
    ],
    "subscription": {
-    "asOf": "22 Oct (end of day 2)",
-    "total": 0.36,
+    "asOf": "23 Oct, 5:00 pm (bidding closed)",
+    "total": 2.34,
+    "qib": 3.25,
+    "nii": 0.69,
+    "retail": 2.1,
     "source": {
      "name": "HDFC Sky",
-     "url": "https://hdfcsky.com/"
+     "url": "https://hdfcsky.com/news/paras-healthcare-ipo-subscription-status-day-3"
     }
    }
   },
