@@ -12,7 +12,7 @@
    "type": "index_board",
    "title": "Indian markets · close",
    "asOf": "Close, Fri 23 Oct 2026",
-   "source": "ChiniMandi, Business Standard",
+   "source": "ChiniMandi, NSE",
    "items": [
     {
      "label": "Sensex",
@@ -22,7 +22,10 @@
     {
      "label": "Nifty 50",
      "value": "22,600.00",
-     "change": "-87.65"
+     "change": "-87.65",
+     "figures": [
+      "nse_n50"
+     ]
     }
    ]
   }
@@ -46,7 +49,10 @@
    {
     "label": "Nifty 50",
     "value": "22,600.00",
-    "change": "-87.65"
+    "change": "-87.65",
+    "figures": [
+     "nse_n50"
+    ]
    }
   ],
   "series": [],
@@ -57,7 +63,7 @@
    "type": "index_board",
    "title": "Indian markets · close",
    "asOf": "Close, Fri 23 Oct 2026",
-   "source": "ChiniMandi, Business Standard",
+   "source": "ChiniMandi, NSE",
    "items": [
     {
      "label": "Sensex",
@@ -67,13 +73,16 @@
     {
      "label": "Nifty 50",
      "value": "22,600.00",
-     "change": "-87.65"
+     "change": "-87.65",
+     "figures": [
+      "nse_n50"
+     ]
     }
    ]
   }
  },
  "headline": "Friday Complete Market Report: Nifty 22,600, Sensex 73,123.83 | 23 October 2026",
  "files": {
-  "cover.jpg": "12e2276082c40f361d39bb028388cd8d1d01b6afd7b7bb739da724f1d30b1a02"
+  "cover.jpg": "1a9e083cee048988d5fdc6205d0a1374fb1aa38f58816728478a6c181936ee90"
  }
 }

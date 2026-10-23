@@ -1,46 +1,201 @@
 {
  "title": "Friday Complete Market Report: Nifty 22,600, Sensex 73,123.83 | 23 October 2026",
- "dek": "Friday close with verified index dashboard, market breadth context, sector commentary and next-week risks.",
+ "dek": "The Nifty 50 lost 2.36% this week while mid and small caps fell much harder. NSE sector heatmap, breadth and institutional flows inside.",
  "category": "markets",
  "lead": true,
- "readMins": 4,
+ "readMins": 3,
  "reportType": "weekly_market",
  "visualSpec": {
+  "dateLabel": "Week of 19–23 October 2026 · Friday close",
+  "weekLabel": "Change from the close on Fri 16 Oct to Fri 23 Oct (NSE)",
   "indices": [
    {
-    "id": "nifty",
-    "label": "Nifty 50"
+    "id": "nse_n50",
+    "label": "Nifty 50",
+    "pct": "nse_n50_pct",
+    "weekAgo": "nse_n50_wk",
+    "kpi": true
    },
    {
     "id": "sensex",
     "label": "Sensex"
+   },
+   {
+    "id": "nse_bank",
+    "label": "Nifty Bank",
+    "pct": "nse_bank_pct",
+    "weekAgo": "nse_bank_wk",
+    "kpi": true
+   },
+   {
+    "id": "nse_n500",
+    "label": "Nifty 500",
+    "pct": "nse_n500_pct",
+    "weekAgo": "nse_n500_wk",
+    "kpi": true
+   },
+   {
+    "id": "nse_vix",
+    "label": "India VIX",
+    "pct": "nse_vix_pct",
+    "weekAgo": "nse_vix_wk",
+    "kpi": true
    }
   ],
-  "sectors": [],
-  "caps": [],
+  "caps": [
+   {
+    "id": "nse_n50_pct",
+    "label": "Nifty 50",
+    "close": "nse_n50",
+    "weekAgo": "nse_n50_wk"
+   },
+   {
+    "id": "nse_next50_pct",
+    "label": "Nifty Next 50",
+    "close": "nse_next50",
+    "weekAgo": "nse_next50_wk"
+   },
+   {
+    "id": "nse_mid_pct",
+    "label": "Nifty Midcap 100",
+    "close": "nse_mid",
+    "weekAgo": "nse_mid_wk"
+   },
+   {
+    "id": "nse_small_pct",
+    "label": "Nifty Smallcap 100",
+    "close": "nse_small",
+    "weekAgo": "nse_small_wk"
+   }
+  ],
+  "sectors": [
+   {
+    "id": "nse_it_pct",
+    "label": "IT",
+    "close": "nse_it",
+    "weekAgo": "nse_it_wk"
+   },
+   {
+    "id": "nse_cement_pct",
+    "label": "Cement",
+    "close": "nse_cement",
+    "weekAgo": "nse_cement_wk"
+   },
+   {
+    "id": "nse_oilgas_pct",
+    "label": "Oil & gas",
+    "close": "nse_oilgas",
+    "weekAgo": "nse_oilgas_wk"
+   },
+   {
+    "id": "nse_pharma_pct",
+    "label": "Pharma",
+    "close": "nse_pharma",
+    "weekAgo": "nse_pharma_wk"
+   },
+   {
+    "id": "nse_health_pct",
+    "label": "Healthcare",
+    "close": "nse_health",
+    "weekAgo": "nse_health_wk"
+   },
+   {
+    "id": "nse_psub_pct",
+    "label": "PSU banks",
+    "close": "nse_psub",
+    "weekAgo": "nse_psub_wk"
+   },
+   {
+    "id": "nse_pvtb_pct",
+    "label": "Private banks",
+    "close": "nse_pvtb",
+    "weekAgo": "nse_pvtb_wk"
+   },
+   {
+    "id": "nse_auto_pct",
+    "label": "Auto",
+    "close": "nse_auto",
+    "weekAgo": "nse_auto_wk"
+   },
+   {
+    "id": "nse_fmcg_pct",
+    "label": "FMCG",
+    "close": "nse_fmcg",
+    "weekAgo": "nse_fmcg_wk"
+   },
+   {
+    "id": "nse_energy_pct",
+    "label": "Energy",
+    "close": "nse_energy",
+    "weekAgo": "nse_energy_wk"
+   },
+   {
+    "id": "nse_realty_pct",
+    "label": "Realty",
+    "close": "nse_realty",
+    "weekAgo": "nse_realty_wk"
+   },
+   {
+    "id": "nse_media_pct",
+    "label": "Media",
+    "close": "nse_media",
+    "weekAgo": "nse_media_wk"
+   },
+   {
+    "id": "nse_metal_pct",
+    "label": "Metal",
+    "close": "nse_metal",
+    "weekAgo": "nse_metal_wk"
+   },
+   {
+    "id": "nse_cdur_pct",
+    "label": "Consumer durables",
+    "close": "nse_cdur",
+    "weekAgo": "nse_cdur_wk"
+   }
+  ],
   "global": [],
   "gainers": [],
   "losers": [],
-  "breadth": {},
-  "fiiDii": {}
+  "breadth": {
+   "advances": "nse_n500_advances",
+   "declines": "nse_n500_declines",
+   "unchanged": "nse_n500_unchanged"
+  },
+  "breadthExchange": "NSE, Nifty 500 stocks on Friday",
+  "fiiDii": {
+   "fiiNet": "nse_fii_net",
+   "diiNet": "nse_dii_net",
+   "fiiBuy": "nse_fii_buy",
+   "fiiSell": "nse_fii_sell",
+   "diiBuy": "nse_dii_buy",
+   "diiSell": "nse_dii_sell"
+  },
+  "fiiDiiNote": "NSE provisional figures for the cash market on Friday, in ₹ crore."
  },
  "reportTakeaways": [
-  "Friday benchmarks closed lower after recovering from intraday lows.",
-  "Broader-market and sector weakness warrants attention beyond headline indices."
+  "The Nifty 50 ended the week 2.36% lower; the Midcap 100 lost 5.63% and the Smallcap 100 7.27%.",
+  "Only IT, among the NSE sector indices shown, gained over the week (+0.22%).",
+  "Foreign portfolio investors and domestic institutions were both net buyers in Friday's cash market."
  ],
  "reportWatch": [
-  "Crude oil, rupee and quarterly earnings",
-  "Institutional cash flows and exchange-verified expiry positioning"
+  "Crude oil and the rupee",
+  "Second-quarter earnings from large companies",
+  "Whether institutional buying continues",
+  "India VIX, which rose 6.32% on Friday"
  ],
  "body": [
-  "What moved | Indian equities ended Friday lower after recovering from deeper intraday losses. Broader-market weakness and pressure across several sectors showed that the decline extended beyond the headline indices.",
-  "Sectors and stocks | Consumer durables, energy, FMCG and automobiles were among the weaker groups. Reuters highlighted weakness in HDFC Bank, Axis Bank and Bajaj Finance; Swiggy also faced pressure. These are selected examples, not a ranked leaderboard.",
-  "Why it mattered | Higher crude oil prices amid Middle East tensions raised concerns about inflation, margins and the rupee. Investors should distinguish Friday's closing move from the full week's return.",
-  "Looking ahead | Watch crude oil, the rupee, quarterly earnings, institutional flows and expiry positioning. These are monitoring priorities, not price forecasts."
+  "What moved | The Nifty 50 closed the week at 22,600.00, down 2.36% from the previous Friday's 23,146.15, and fell 0.39% on Friday itself. The damage was far worse below the top 50 stocks: the Nifty Next 50 lost 4.58% over the week, the Midcap 100 5.63% and the Smallcap 100 7.27%.",
+  "Breadth | On Friday 450 stocks in the Nifty 500 fell and 50 rose, according to NSE. India VIX, which measures the volatility traders expect, rose 6.32% to 16.76.",
+  "Sectors | Every sector index in the heatmap fell on Friday. Over the week consumer durables (−6.42%), metal (−5.40%), media (−5.15%) and realty (−5.04%) fell most; IT edged up 0.22%.",
+  "Flows | NSE's provisional data show foreign portfolio investors bought a net ₹887.65 crore of shares on Friday and domestic institutions a net ₹3,235.36 crore, even as prices fell.",
+  "Why it mattered | Reuters linked the week's losses to surging oil prices amid Middle East tensions, which raise concerns about inflation, company margins and the rupee."
  ],
- "indiaImpact": "Broader-market and sector weakness shows why investors should monitor breadth and risk, not just Nifty and Sensex. Weekly and Friday returns are distinct.",
+ "indiaImpact": "Losses were concentrated in mid and small caps, so many portfolios fell more than the Nifty 50 suggests. Check breadth and sector moves, not just the headline indices.",
  "seoTitle": "Friday Indian Stock Market Report: 23 October 2026 | TotalMarket",
- "seoDescription": "Friday market close and weekly review: Nifty 22,600, Sensex 73,123.83, broader market, sectors, flows, global risks and next week.",
+ "seoDescription": "Week to 23 Oct 2026: Nifty 50 down 2.36%, Smallcap 100 down 7.27%. NSE sector heatmap, Nifty 500 breadth and FII/DII flows.",
+ "changeNote": "Updated on 23 Oct, 11:55 pm IST: added NSE index, sector, breadth and FII/DII data, week-on-week changes and a shorter analysis.",
+ "updatedAt": "2026-10-23T23:50:18+05:30",
  "sources": [
   {
    "name": "ChiniMandi: Sensex down 125 points, Nifty at 22,600",
@@ -51,16 +206,20 @@
    "url": "https://www.business-standard.com/markets/news/stock-market-live-october-23-nse-bse-sensex-today-nifty50-gift-nifty-crude-oil-prices-jio-ipo-q2-results-today-126102300078_1.html"
   },
   {
+   "name": "NSE India: all indices (closing data, 23 Oct 2026, 3:30 pm)",
+   "url": "https://www.nseindia.com/api/allIndices"
+  },
+  {
+   "name": "NSE India: FII/FPI and DII provisional cash-market activity, 23 Oct 2026",
+   "url": "https://www.nseindia.com/api/fiidiiTradeReact"
+  },
+  {
    "name": "Reuters: Surging oil prices drag Indian shares to weekly losses",
    "url": "https://www.reuters.com/world/india/indian-shares-seen-opening-higher-after-3-session-drop-oil-surge-clouds-outlook-2026-10-23/"
   },
   {
    "name": "Moneycontrol: Friday close and broader markets",
    "url": "https://www.moneycontrol.com/news/business/markets/taking-stock-markets-recover-from-day-s-lows-but-sell-off-extends-to-4th-day-nifty-at-22-600-14058497.html"
-  },
-  {
-   "name": "MarketCue: 19–23 October weekly review",
-   "url": "https://marketcue.in/weekly-analysis"
   }
  ],
  "publishedAt": "2026-10-23T19:00:00+05:30",
@@ -79,7 +238,7 @@
   "type": "index_board",
   "title": "Indian markets · close",
   "asOf": "Close, Fri 23 Oct 2026",
-  "source": "ChiniMandi, Business Standard",
+  "source": "ChiniMandi, NSE",
   "items": [
    {
     "label": "Sensex",
@@ -89,33 +248,57 @@
    {
     "label": "Nifty 50",
     "value": "22,600.00",
-    "change": "-87.65"
+    "change": "-87.65",
+    "figures": [
+     "nse_n50"
+    ]
    }
   ]
  },
  "report": {
-  "dateLabel": "Friday market close",
+  "dateLabel": "Week of 19–23 October 2026 · Friday close",
+  "weekLabel": "Change from the close on Fri 16 Oct to Fri 23 Oct (NSE)",
   "kpis": [
    {
-    "label": "Nifty 50 close",
-    "value": "22,600.00",
-    "change": "-87.65 pts",
+    "label": "Nifty 50",
+    "value": "22600",
+    "change": "-87.65 pts · -0.39%",
     "dir": "down"
    },
    {
-    "label": "Sensex close",
+    "label": "Sensex",
     "value": "73,123.83",
     "change": "-125.56 pts",
     "dir": "down"
+   },
+   {
+    "label": "Nifty Bank",
+    "value": "54287.35",
+    "change": "-638.35 pts · -1.16%",
+    "dir": "down"
+   },
+   {
+    "label": "Nifty 500",
+    "value": "21427.6",
+    "change": "-268.95 pts · -1.24%",
+    "dir": "down"
+   },
+   {
+    "label": "India VIX",
+    "value": "16.76",
+    "change": "+1.00 pts · 6.32%",
+    "dir": "up"
    }
   ],
   "indices": [
    {
     "name": "Nifty 50",
-    "close": "22,600.00",
+    "close": "22600",
     "change": "-87.65",
-    "source": "cm",
-    "asOf": "2026-10-23"
+    "source": "nse",
+    "asOf": "2026-10-23",
+    "pct": "-0.39",
+    "week": "-2.36"
    },
    {
     "name": "Sensex",
@@ -123,30 +306,191 @@
     "change": "-125.56",
     "source": "cm",
     "asOf": "2026-10-23"
+   },
+   {
+    "name": "Nifty Bank",
+    "close": "54287.35",
+    "change": "-638.35",
+    "source": "nse",
+    "asOf": "2026-10-23",
+    "pct": "-1.16",
+    "week": "-2.79"
+   },
+   {
+    "name": "Nifty 500",
+    "close": "21427.6",
+    "change": "-268.95",
+    "source": "nse",
+    "asOf": "2026-10-23",
+    "pct": "-1.24",
+    "week": "-3.78"
+   },
+   {
+    "name": "India VIX",
+    "close": "16.76",
+    "change": "+1.00",
+    "source": "nse",
+    "asOf": "2026-10-23",
+    "pct": "6.32",
+    "week": "+19.20"
    }
   ],
-  "sectors": [],
-  "caps": [],
+  "sectors": [
+   {
+    "name": "IT",
+    "pct": "-0.27",
+    "week": "+0.22"
+   },
+   {
+    "name": "Cement",
+    "pct": "-0.31",
+    "week": "-1.10"
+   },
+   {
+    "name": "Oil & gas",
+    "pct": "-0.62",
+    "week": "-1.67"
+   },
+   {
+    "name": "Pharma",
+    "pct": "-1.04",
+    "week": "-1.75"
+   },
+   {
+    "name": "Healthcare",
+    "pct": "-0.83",
+    "week": "-1.89"
+   },
+   {
+    "name": "PSU banks",
+    "pct": "-2.26",
+    "week": "-0.30"
+   },
+   {
+    "name": "Private banks",
+    "pct": "-0.78",
+    "week": "-3.77"
+   },
+   {
+    "name": "Auto",
+    "pct": "-0.6",
+    "week": "-3.52"
+   },
+   {
+    "name": "FMCG",
+    "pct": "-0.99",
+    "week": "-4.34"
+   },
+   {
+    "name": "Energy",
+    "pct": "-1.66",
+    "week": "-4.62"
+   },
+   {
+    "name": "Realty",
+    "pct": "-2.38",
+    "week": "-5.04"
+   },
+   {
+    "name": "Media",
+    "pct": "-1.33",
+    "week": "-5.15"
+   },
+   {
+    "name": "Metal",
+    "pct": "-2.71",
+    "week": "-5.40"
+   },
+   {
+    "name": "Consumer durables",
+    "pct": "-2.63",
+    "week": "-6.42"
+   }
+  ],
+  "caps": [
+   {
+    "name": "Nifty 50",
+    "pct": "-0.39",
+    "week": "-2.36"
+   },
+   {
+    "name": "Nifty Next 50",
+    "pct": "-2.26",
+    "week": "-4.58"
+   },
+   {
+    "name": "Nifty Midcap 100",
+    "pct": "-2.21",
+    "week": "-5.63"
+   },
+   {
+    "name": "Nifty Smallcap 100",
+    "pct": "-2.94",
+    "week": "-7.27"
+   }
+  ],
   "global": [],
   "gainers": [],
   "losers": [],
   "takeaways": [
-   "Friday benchmarks closed lower after recovering from intraday lows.",
-   "Broader-market and sector weakness warrants attention beyond headline indices."
+   "The Nifty 50 ended the week 2.36% lower; the Midcap 100 lost 5.63% and the Smallcap 100 7.27%.",
+   "Only IT, among the NSE sector indices shown, gained over the week (+0.22%).",
+   "Foreign portfolio investors and domestic institutions were both net buyers in Friday's cash market."
   ],
   "watch": [
-   "Crude oil, rupee and quarterly earnings",
-   "Institutional cash flows and exchange-verified expiry positioning"
-  ]
+   "Crude oil and the rupee",
+   "Second-quarter earnings from large companies",
+   "Whether institutional buying continues",
+   "India VIX, which rose 6.32% on Friday"
+  ],
+  "breadth": {
+   "advances": 50,
+   "declines": 450,
+   "unchanged": 1,
+   "exchange": "NSE, Nifty 500 stocks on Friday"
+  },
+  "fiiDii": {
+   "asOf": "2026-10-23",
+   "fii": {
+    "net": "887.65",
+    "buy": "14445.54",
+    "sell": "13557.89"
+   },
+   "dii": {
+    "net": "3235.36",
+    "buy": "19232.31",
+    "sell": "15996.95"
+   },
+   "note": "NSE provisional figures for the cash market on Friday, in ₹ crore."
+  }
  },
  "visualAudit": {
   "verifiedFigureIds": [
-   "nifty",
+   "nse_auto_pct",
+   "nse_bank",
+   "nse_cdur_pct",
+   "nse_cement_pct",
+   "nse_energy_pct",
+   "nse_fmcg_pct",
+   "nse_health_pct",
+   "nse_it_pct",
+   "nse_media_pct",
+   "nse_metal_pct",
+   "nse_mid_pct",
+   "nse_n50",
+   "nse_n500",
+   "nse_n50_pct",
+   "nse_next50_pct",
+   "nse_oilgas_pct",
+   "nse_pharma_pct",
+   "nse_psub_pct",
+   "nse_pvtb_pct",
+   "nse_realty_pct",
+   "nse_small_pct",
+   "nse_vix",
    "sensex"
   ],
   "omitted": [
-   "sectors",
-   "caps",
    "global",
    "gainers",
    "losers"
