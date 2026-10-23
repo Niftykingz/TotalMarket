@@ -1,0 +1,17 @@
+name: Publishing freshness alert
+# Fails (GitHub e-mails the repo owner) when no new article has been published recently.
+"on":
+  schedule:
+    - cron: '30 7 * * *'    # 13:00 IST
+    - cron: '0 12 * * *'    # 17:30 IST
+    - cron: '30 16 * * *'   # 22:00 IST
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 tools/freshness_check.py
