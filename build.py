@@ -6,6 +6,7 @@ site to docs/ (served by GitHub Pages). No third-party packages needed.
 
 Run:  python3 build.py
 """
+from pipeline import gate as pipeline_gate
 import hashlib, html, json, os, re, shutil, sys
 import covers
 import report
@@ -22,7 +23,7 @@ from zoneinfo import ZoneInfo
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
 DATA = os.path.join(ROOT, "data")
-OUT = os.path.join(ROOT, "docs")
+OUT = os.environ.get("TM_BUILD_OUT") or os.path.join(ROOT, "docs")  # TM_BUILD_OUT: dry-run builds
 SITE_URL = "https://totalmarket.co.in"   # no trailing slash
 BASE = "/"                                   # site is served at the domain root
 SITE_NAME = "TotalMarket"
@@ -150,6 +151,9 @@ def load_posts():
         if not re.fullmatch(r"[a-z0-9][a-z0-9-]{2,120}", p["id"]): problems.append("file name must be lowercase-kebab")
         if problems:
             bad.append(f"{fn}: skipped, bad/missing {', '.join(problems)}"); continue
+        ok, why = pipeline_gate.allowed(p, ROOT)  # strict pipeline: enforced articles need all stages PASS
+        if not ok:
+            bad.append(f"{fn}: BLOCKED by publishing pipeline ({why})"); continue
         p["_paras"] = paras(p)
         p["_tags"] = make_tags(p)
         posts.append(p)

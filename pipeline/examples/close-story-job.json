@@ -1,0 +1,390 @@
+{
+ "slug": "2026-10-23-pipeline-dry-run-close",
+ "collection": {
+  "sources": [
+   {
+    "id": "bs",
+    "name": "Business Standard: Market close, 23 Oct",
+    "url": "https://www.business-standard.com/markets/news/stock-market-live-october-23-nse-bse-sensex-today-nifty50-gift-nifty-crude-oil-prices-jio-ipo-q2-results-today-126102300078_1.html",
+    "published": "2026-10-23T15:41:00+05:30"
+   },
+   {
+    "id": "cm",
+    "name": "ChiniMandi: Sensex down 125 points, Nifty at 22,600",
+    "url": "https://www.chinimandi.com/sensex-down-125-points-nifty-at-22600/",
+    "published": "2026-10-23T15:45:00+05:30"
+   },
+   {
+    "id": "jsw",
+    "name": "Business Standard: JSW Steel Q2FY27 result",
+    "url": "https://www.business-standard.com/amp/companies/quarterly-results/jsw-steel-q2fy27-result-net-profit-rises-14-1-to-5-359-crore-126102300833_1.html",
+    "published": "2026-10-23T15:35:00+05:30"
+   },
+   {
+    "id": "ap",
+    "name": "AP via ABC News: US indexes 22 Oct",
+    "url": "https://abcnews.com/Business/wireStory/major-us-stock-indexes-fared-thursday-10222026-137490327",
+    "published": "2026-10-22T16:30:00-04:00"
+   },
+   {
+    "id": "upt",
+    "name": "Upstox: Tonbo lists at 66% premium",
+    "url": "https://upstox.com/news/market-news/ipo/tonbo-imaging-india-shares-list-at-66-premium-on-nse-here-s-how-much-investors-made-per-lot/article-202269/",
+    "published": "2026-10-23T10:05:00+05:30"
+   }
+  ],
+  "figures": [
+   {
+    "id": "sensex",
+    "label": "Sensex close",
+    "value": "73,123.83",
+    "source": "cm",
+    "evidence": "Sensex: closed at 73,123.83, down 125.56 points (previous close 73,249.39)",
+    "as_of": "2026-10-23",
+    "change": "-125.56",
+    "key": true
+   },
+   {
+    "id": "sensex_pct",
+    "label": "Sensex change %",
+    "value": "-0.17",
+    "source": "bs",
+    "evidence": "Sensex: Fell 125.56 points (0.17%) to 73,123.83",
+    "as_of": "2026-10-23"
+   },
+   {
+    "id": "nifty",
+    "label": "Nifty 50 close",
+    "value": "22,600.00",
+    "source": "cm",
+    "evidence": "Nifty 50: ended at 22,600.00, down 87.65 points (previous close 22,687.65)",
+    "as_of": "2026-10-23",
+    "change": "-87.65",
+    "key": true
+   },
+   {
+    "id": "nifty_pct",
+    "label": "Nifty 50 change %",
+    "value": "-0.39",
+    "source": "bs",
+    "evidence": "Nifty 50: Settled at 22,600, down 87.65 points (0.39%)",
+    "as_of": "2026-10-23"
+   },
+   {
+    "id": "nifty_11am",
+    "label": "Nifty 50 at 11 am",
+    "value": "22,448.15",
+    "source": "bs",
+    "evidence": "Nifty 50: Down 239.50 points (1.06%) to 22,448.15 at 11:00 AM",
+    "as_of": "2026-10-23",
+    "change": "-1.06"
+   },
+   {
+    "id": "sensex_11am_pts",
+    "label": "Sensex fall at 11 am, points",
+    "value": "568.50",
+    "source": "bs",
+    "evidence": "Sensex: Fell 568.50 points (0.78%) to 72,680.89 at 11:00 AM",
+    "as_of": "2026-10-23"
+   },
+   {
+    "id": "mid100",
+    "label": "Nifty Midcap 100 change %",
+    "value": "-2.21",
+    "source": "bs",
+    "evidence": "The Nifty Midcap 100 fell 2.21%",
+    "as_of": "2026-10-23"
+   },
+   {
+    "id": "small100",
+    "label": "Nifty Smallcap 100 change %",
+    "value": "-2.94",
+    "source": "bs",
+    "evidence": "the Nifty Smallcap 100 fell 2.94%",
+    "as_of": "2026-10-23"
+   },
+   {
+    "id": "realty",
+    "label": "Realty and consumer durables change %",
+    "value": "-3",
+    "source": "cm",
+    "evidence": "Realty and Consumer Durables fell 3% each",
+    "as_of": "2026-10-23"
+   },
+   {
+    "id": "energy",
+    "label": "Energy, metal, PSU bank change %",
+    "value": "-2",
+    "source": "cm",
+    "evidence": "Energy, Metal, and PSU Bank each fell 2%",
+    "as_of": "2026-10-23"
+   },
+   {
+    "id": "brent",
+    "label": "Brent crude, morning",
+    "value": "114",
+    "source": "bs",
+    "evidence": "Brent crude (10:50 AM): Around $114 per barrel",
+    "as_of": "2026-10-23",
+    "unit": "usd"
+   },
+   {
+    "id": "nasdaq_pct",
+    "label": "Nasdaq change % (22 Oct)",
+    "value": "-2.6",
+    "source": "ap",
+    "evidence": "Nasdaq Composite: closed at 26,008.86, down 694 points (2.6%)",
+    "as_of": "2026-10-22"
+   },
+   {
+    "id": "jsw_pat",
+    "label": "JSW Steel consolidated PAT Q2 FY27",
+    "value": "5,359",
+    "source": "jsw",
+    "evidence": "consolidated profit after tax of ₹5,359 crore, up 14.1% from ₹4,696 crore in Q1 FY27",
+    "as_of": "2026-10-23",
+    "change": "14.1"
+   },
+   {
+    "id": "jsw_rev",
+    "label": "JSW Steel revenue Q2 FY27",
+    "value": "54,486",
+    "source": "jsw",
+    "evidence": "Revenue from operations: ₹54,486 crore, up 15% QoQ from ₹47,364 crore",
+    "as_of": "2026-10-23",
+    "change": "15"
+   },
+   {
+    "id": "hatsun",
+    "label": "Hatsun Agro share price 2:31 pm",
+    "value": "964.10",
+    "source": "bs",
+    "evidence": "Hatsun Agro: Shares fell 10.14% to ₹964.10 at 2:31 PM",
+    "as_of": "2026-10-23",
+    "change": "-10.14"
+   },
+   {
+    "id": "bluestone",
+    "label": "BlueStone share move",
+    "value": "-8.4",
+    "source": "bs",
+    "evidence": "BlueStone Jewellery: Fell 8.4% to ₹697 at 1:30 PM and reported a Q2FY27 net loss of ₹4.4 crore",
+    "as_of": "2026-10-23"
+   },
+   {
+    "id": "bluestone_loss",
+    "label": "BlueStone Q2 net loss",
+    "value": "4.4",
+    "source": "bs",
+    "evidence": "reported a Q2FY27 net loss of ₹4.4 crore",
+    "as_of": "2026-10-23"
+   },
+   {
+    "id": "jio_total",
+    "label": "Jio IPO subscription 2:10 pm",
+    "value": "9.81",
+    "source": "bs",
+    "evidence": "9.81 times subscribed at 2:10 PM",
+    "as_of": "2026-10-23"
+   },
+   {
+    "id": "jio_qib",
+    "label": "Jio IPO QIB 2:10 pm",
+    "value": "23.47",
+    "source": "bs",
+    "evidence": "QIBs: 23.47 times",
+    "as_of": "2026-10-23"
+   },
+   {
+    "id": "jio_nii",
+    "label": "Jio IPO NII 2:10 pm",
+    "value": "11.97",
+    "source": "bs",
+    "evidence": "NIIs: 11.97 times",
+    "as_of": "2026-10-23"
+   },
+   {
+    "id": "jio_rii",
+    "label": "Jio IPO retail 2:10 pm",
+    "value": "2.28",
+    "source": "bs",
+    "evidence": "RIIs: 2.28 times",
+    "as_of": "2026-10-23"
+   },
+   {
+    "id": "tonbo",
+    "label": "Tonbo listing gain %",
+    "value": "65.71",
+    "source": "upt",
+    "evidence": "NSE listing price ₹1,160 (65.71% premium)",
+    "as_of": "2026-10-23"
+   }
+  ],
+  "examples": []
+ },
+ "graphic": {
+  "coverHeadline": "NIFTY ENDS AT 22,600",
+  "stat": "-0.39%",
+  "statLabel": "Nifty 50 closes at 22,600.00",
+  "coverDate": "2026-10-23",
+  "symbol": "candles",
+  "flags": [
+   "IN"
+  ],
+  "companies": [
+   {
+    "name": "JSW Steel",
+    "ticker": "JSWSTEEL"
+   },
+   {
+    "name": "Shriram Finance",
+    "ticker": "SHRIRAMFIN"
+   },
+   {
+    "name": "Eternal",
+    "ticker": "ETERNAL"
+   }
+  ],
+  "headline": "Sensex, Nifty fall for a fourth day but recover from lows: Nifty ends at 22,600, small caps drop nearly 3%"
+ },
+ "article": {
+  "title": "Sensex, Nifty fall for a fourth day but recover from lows: Nifty ends at 22,600, small caps drop nearly 3%",
+  "dek": "The Sensex closed 125.56 points lower at 73,123.83 after being down more than 500 points in the morning; IT shares cushioned the fall while metals and realty sank.",
+  "category": "markets",
+  "lead": false,
+  "readMins": 3,
+  "body": [
+   "Indian shares closed lower for a fourth straight session on Friday, but well off the day's lows. The Sensex ended at 73,123.83, down 125.56 points (0.17%), and the Nifty 50 at 22,600.00, down 87.65 points (0.39%), according to Business Standard and ChiniMandi. At 11 am the Nifty had been 1.06% lower at 22,448.15, so it recovered about 152 points from that level by the close.",
+   "The pain was in smaller companies. The Nifty Midcap 100 fell 2.21% and the Nifty Smallcap 100 2.94%, Business Standard reported. All sector indices ended lower, ChiniMandi reported: realty and consumer durables fell about 3% each, and energy, metal and PSU banks about 2%. Shriram Finance, Adani Ports, Adani Enterprises, Tata Steel and Jio Financial were the Nifty's biggest losers, while Eternal, Apollo Hospitals, Infosys, TCS and Maruti Suzuki were the top gainers.",
+   "Why: Brent crude stayed near $114 a barrel on Middle East supply worries, global tech shares were still weak after Thursday's 2.6% Nasdaq fall, and an early rebound ran into selling. IT shares rose ahead of Infosys's results this evening, which kept the Nifty's fall smaller than the damage in mid and small caps. India VIX, the volatility gauge, rose sharply during the day.",
+   "Results during the day: JSW Steel reported consolidated profit of ₹5,359 crore for July–September, up 14.1% from the April–June quarter, on revenue from operations of ₹54,486 crore, up 15% from the previous quarter, Business Standard reported (exchange filing not yet available to us). Hatsun Agro fell 10.14% to ₹964.10 at 2:31 pm after its operating margin narrowed, and BlueStone Jewellery fell 8.4% after reporting a ₹4.4 crore loss.",
+   "IPOs: Jio Platforms' IPO, closing today, was subscribed 9.81 times at 2:10 pm, with QIBs at 23.47 times, NIIs 11.97 times and retail investors 2.28 times, Business Standard reported. Today's four listings opened mixed, from Tonbo Imaging's 65.71% gain to Bonfiglioli Transmissions' flat start.",
+   "Key takeaway: the Nifty's 0.39% fall hides a much worse day for smaller stocks, down about 2–3%. When the index and your own portfolio tell different stories, look at mid and small caps."
+  ],
+  "table": {
+   "title": "Close, Fri 23 Oct",
+   "rows": [
+    {
+     "label": "Sensex",
+     "value": "73,123.83",
+     "change": "-125.56 (-0.17%)",
+     "note": "Fourth straight fall"
+    },
+    {
+     "label": "Nifty 50",
+     "value": "22,600.00",
+     "change": "-87.65 (-0.39%)",
+     "note": "Low near 22,448 at 11 am"
+    },
+    {
+     "label": "Nifty Midcap 100",
+     "value": "",
+     "change": "-2.21%",
+     "note": ""
+    },
+    {
+     "label": "Nifty Smallcap 100",
+     "value": "",
+     "change": "-2.94%",
+     "note": ""
+    },
+    {
+     "label": "Top Nifty gainers",
+     "value": "Eternal, Apollo Hospitals, Infosys",
+     "change": "",
+     "note": "Also TCS, Maruti"
+    },
+    {
+     "label": "Top Nifty losers",
+     "value": "Shriram Finance, Adani Ports, Adani Ent.",
+     "change": "",
+     "note": "Also Tata Steel, Jio Financial"
+    },
+    {
+     "label": "Jio Platforms IPO",
+     "value": "9.81x",
+     "change": "",
+     "note": "2:10 pm, final day"
+    }
+   ]
+  },
+  "why": "Oil near $114 and foreign selling keep pressure on the market, especially on smaller and oil-sensitive stocks.",
+  "globalImpact": "Weak global tech and high oil prices continue to set the tone for emerging markets.",
+  "indiaImpact": "Investors in small-cap and mid-cap funds saw a far worse day than the Nifty suggests; IT shares held up before Infosys's results.",
+  "piggy": {
+   "happened": "The Nifty closed 87.65 points lower at 22,600.00 and the Sensex 125.56 points lower at 73,123.83, a fourth straight fall; the Smallcap 100 dropped 2.94%.",
+   "matters": "Recovering from the day's lows shows buyers stepped in, but a fourth losing day and sharp small-cap falls show the mood is still nervous while oil stays high.",
+   "watch": [
+    "Infosys results this evening",
+    "FII/DII figures for today, out in the evening",
+    "Jio Platforms final subscription and allotment on 26 October"
+   ]
+  },
+  "seoTitle": "Sensex, Nifty Close: Fourth Fall, Nifty Ends at 22,600",
+  "seoDescription": "Stock market close 23 Oct 2026: Sensex falls 125.56 points to 73,123.83 and Nifty 87.65 to 22,600.00; Smallcap 100 −2.94%, realty −3%; JSW Steel profit ₹5,359 cr.",
+  "coverAlt": "Cover graphic: Nifty 50 closes at 22,600 on 23 October",
+  "tags": [
+   "Stock market today",
+   "Sensex today",
+   "Nifty today",
+   "Share market closing",
+   "Smallcap stocks fall",
+   "JSW Steel Q2 results",
+   "Jio IPO subscription status",
+   "Stock market news"
+  ],
+  "sources": [
+   {
+    "name": "Business Standard: Market close, 23 Oct",
+    "url": "https://www.business-standard.com/markets/news/stock-market-live-october-23-nse-bse-sensex-today-nifty50-gift-nifty-crude-oil-prices-jio-ipo-q2-results-today-126102300078_1.html"
+   },
+   {
+    "name": "ChiniMandi: Sensex down 125 points, Nifty at 22,600",
+    "url": "https://www.chinimandi.com/sensex-down-125-points-nifty-at-22600/"
+   },
+   {
+    "name": "Business Standard: JSW Steel Q2FY27 result",
+    "url": "https://www.business-standard.com/amp/companies/quarterly-results/jsw-steel-q2fy27-result-net-profit-rises-14-1-to-5-359-crore-126102300833_1.html"
+   }
+  ],
+  "hi": {
+   "title": "Sensex, Nifty चौथे दिन गिरे पर निचले स्तर से संभले: Nifty 22,600 पर बंद, स्मॉलकैप करीब 3% टूटे",
+   "dek": "सुबह 500 से ज़्यादा अंक गिरने के बाद Sensex 125.56 अंक नीचे 73,123.83 पर बंद हुआ; IT शेयरों ने गिरावट थामी, मेटल और रियल्टी टूटे।",
+   "body": [
+    "शुक्रवार को भारतीय शेयर लगातार चौथे दिन गिरकर बंद हुए, पर दिन के निचले स्तर से काफी ऊपर। Business Standard और ChiniMandi के मुताबिक Sensex 125.56 अंक (0.17%) गिरकर 73,123.83 पर और Nifty 50 87.65 अंक (0.39%) गिरकर 22,600.00 पर बंद हुआ। सुबह 11 बजे Nifty 1.06% गिरकर 22,448.15 पर था, यानी close तक उस स्तर से करीब 152 अंक सुधरा।",
+    "असली मार छोटी कंपनियों पर पड़ी। Business Standard के मुताबिक Nifty Midcap 100 2.21% और Nifty Smallcap 100 2.94% गिरे। ChiniMandi के मुताबिक सभी सेक्टर इंडेक्स लाल निशान में बंद हुए: रियल्टी और कंज़्यूमर ड्यूरेबल्स करीब 3% और एनर्जी, मेटल व PSU बैंक करीब 2% गिरे। Shriram Finance, Adani Ports, Adani Enterprises, Tata Steel और Jio Financial Nifty के सबसे बड़े लूज़र रहे, जबकि Eternal, Apollo Hospitals, Infosys, TCS और Maruti Suzuki टॉप गेनर रहे।",
+    "वजह: मध्य-पूर्व में सप्लाई की चिंता से Brent कच्चा तेल करीब $114 प्रति बैरल पर रहा, गुरुवार की Nasdaq की 2.6% गिरावट के बाद ग्लोबल टेक शेयर कमज़ोर रहे, और शुरुआती रिकवरी पर बिकवाली आई। आज शाम Infosys के नतीजों से पहले IT शेयर चढ़े, जिससे Nifty की गिरावट मिडकैप-स्मॉलकैप के मुकाबले कम रही। उतार-चढ़ाव मापने वाला India VIX दिन में तेज़ी से बढ़ा।",
+    "दिन में आए नतीजे: Business Standard के मुताबिक JSW Steel का जुलाई–सितंबर का consolidated मुनाफा ₹5,359 करोड़ रहा, अप्रैल–जून तिमाही से 14.1% ज़्यादा, और revenue from operations ₹54,486 करोड़ रहा, पिछली तिमाही से 15% ज़्यादा (exchange filing अभी हमें नहीं मिली)। मार्जिन घटने के बाद Hatsun Agro दोपहर 2:31 बजे 10.14% गिरकर ₹964.10 पर था, और ₹4.4 करोड़ का घाटा दिखाने के बाद BlueStone Jewellery 8.4% गिरा।",
+    "IPO: आज बंद हो रहा Jio Platforms का IPO दोपहर 2:10 बजे तक 9.81 गुना subscribe हुआ — QIB 23.47 गुना, NII 11.97 गुना और retail 2.28 गुना (Business Standard)। आज की चार लिस्टिंग मिली-जुली रहीं — Tonbo Imaging में 65.71% की बढ़त से लेकर Bonfiglioli Transmissions की बराबर भाव पर शुरुआत तक।",
+    "मुख्य सीख: Nifty की 0.39% गिरावट के पीछे छोटे शेयरों का कहीं बुरा दिन छिपा है, जो करीब 2–3% गिरे। जब इंडेक्स और आपका पोर्टफोलियो अलग कहानी कहें, तो मिडकैप और स्मॉलकैप देखें।"
+   ],
+   "why": "करीब $114 का तेल और विदेशी बिकवाली बाज़ार पर दबाव बनाए हुए हैं, खासकर छोटे और तेल से जुड़े शेयरों पर।",
+   "globalImpact": "कमज़ोर ग्लोबल टेक और ऊंचे तेल के दाम उभरते बाज़ारों का मूड तय कर रहे हैं।",
+   "indiaImpact": "स्मॉलकैप और मिडकैप फंड निवेशकों का दिन Nifty से कहीं खराब रहा; Infosys के नतीजों से पहले IT शेयर मज़बूत रहे।",
+   "piggy": {
+    "happened": "Nifty 87.65 अंक गिरकर 22,600.00 और Sensex 125.56 अंक गिरकर 73,123.83 पर बंद हुआ, लगातार चौथी गिरावट; Smallcap 100 2.94% गिरा।",
+    "matters": "दिन के निचले स्तर से सुधरना दिखाता है कि खरीदार आए, पर लगातार चौथी गिरावट और स्मॉलकैप की तेज़ गिरावट बताती है कि तेल ऊंचा रहने तक माहौल घबराया हुआ है।",
+    "watch": [
+     "आज शाम Infosys के नतीजे",
+     "आज के FII/DII आंकड़े, शाम को",
+     "Jio Platforms का अंतिम subscription और 26 अक्टूबर को allotment"
+    ]
+   },
+   "tableTitle": "बंद भाव, शुक्रवार 23 अक्टूबर",
+   "seoTitle": "Sensex, Nifty Close: चौथी गिरावट, Nifty 22,600 पर",
+   "seoDescription": "शेयर बाज़ार close 23 अक्टूबर 2026: Sensex 125.56 अंक गिरकर 73,123.83 और Nifty 87.65 अंक गिरकर 22,600.00 पर; Smallcap 100 −2.94%, रियल्टी −3%; JSW Steel मुनाफा ₹5,359 करोड़।",
+   "tags": [
+    "शेयर बाज़ार आज",
+    "Sensex आज",
+    "Nifty आज",
+    "शेयर बाज़ार बंद",
+    "स्मॉलकैप शेयर",
+    "JSW Steel नतीजे"
+   ]
+  },
+  "edition": "2026-10-23-close",
+  "editionLabel": "Fri 23 Oct · Closing wrap",
+  "publishedAt": "2026-10-23T18:30:00+05:30",
+  "status": "new"
+ }
+}

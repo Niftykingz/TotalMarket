@@ -35,8 +35,10 @@ Never recommend buying, selling or holding anything; no price targets or tips. W
 ## 4. Research
 Several WebSearch calls in one turn ("standard", "extended" if thin) plus WebFetch. Prefer NSE/BSE, SEBI, RBI, PIB, filings, Economic Times, Business Standard, Moneycontrol, Mint, Reuters, CNBC, Kitco, CME FedWatch, Trendlyne/NiftyTrader for FII/DII. Check the newest ~60 posts so you don't repeat stories.
 
-## 5. Write stories (only meaningful, verified developments, at most 9 per slot; one file for `report`)
-File `data/posts/<YYYY-MM-DD>-<keyword-slug>.json`. Fields per README: title, dek, category, lead (exactly one true per update; unset older ones), edition `<date>-<slot>`, editionLabel `Wed 21 Oct · Pre-market brief`, publishedAt (now, +05:30, one minute apart), readMins, body (array), indiaImpact (required), globalImpact, optional table, **coverHeadline** (3–6 words on a verified number), stat, statLabel, symbol (most specific; vary), flags, companies, optional people (Commons only), seoTitle (search-style, dated for daily prices), tags (6–10 real search phrases), sources.
+## 5. Write stories through the strict pipeline (only meaningful, verified developments, at most 9 per slot; one file for `report`)
+**Never write `data/posts/*.json` by hand.** For each article write a job file `pipeline/inbox/<YYYY-MM-DD>-<keyword-slug>.json` (format: `pipeline/README.md`, example `pipeline/examples/close-story-job.json`):
+`collection` (sources with https URL and published time; every figure with id, label, value, change/pct if used, as_of, source id and the exact evidence text from that source containing the value; mark the story's main figures `key: true`; worked-example numbers in `examples`), `graphic` (headline + cover fields) and `article` (all post fields below, including `hi`). Then run `python3 -m pipeline run pipeline/inbox/<file>.json`. It runs DATA_COLLECTION → DATA_VERIFICATION → GRAPHICS_GENERATION → ARTICLE_WRITING → FINAL_QA and writes the post only if everything passes. If a stage FAILS, fix the job (add evidence, remove the unverified number) and run again, or leave the story out and list it under "Needs verification". Updating an existing story = edit its job file (or create one for an older story) and re-run; set `updatedAt`, `status`, `changeNote` in `article`.
+Post fields: Fields per README: title, dek, category, lead (exactly one true per update; unset older ones), edition `<date>-<slot>`, editionLabel `Wed 21 Oct · Pre-market brief`, publishedAt (now, +05:30, one minute apart), readMins, body (array), indiaImpact (required), globalImpact, optional table, **coverHeadline** (3–6 words on a verified number), stat, statLabel, symbol (most specific; vary), flags, companies, optional people (Commons only), seoTitle (search-style, dated for daily prices), tags (6–10 real search phrases), sources.
 
 ### Voice: teach, don't just report
 Write like a friendly teacher walking a beginner through the news. Open with what happened in one plain sentence, then explain why it happened and what it means for an ordinary investor or saver. Define every piece of jargon the first time (e.g. "FII — foreign institutional investors, big overseas funds"). Where a number matters, add a short worked example with real figures ("a ₹10 lakh home loan at 8.5% means…"). End the body with a one-line "Key takeaway" paragraph. Still no tips or recommendations.
@@ -73,12 +75,11 @@ Boss Piggy is TotalMarket's friendly market guide (image in `assets/piggy/`, ori
 ## 6. Meta
 Update `data/meta.json`: editionLabel, updatedAt, nextUpdate (next slot that will actually run), ticker (Sensex, Nifty 50, Bank Nifty, USD/INR, Gold, Silver, Brent, US 10Y, Nasdaq, DXY; verified only), tickerAsOf. Keep `history`.
 
-## 7. Build and check
-If `python3 build.py` prints any **WARNING** about the market calendar or corporate events, fix it in this same run before publishing (research, update the data file, rebuild).
-`python3 build.py` → "Built N stories", no WARNING for new files. Open every new cover in `docs/covers/` and check: short readable headline, numbers match the story, no overlap with the object, covers not identical. Fix and rebuild.
+## 7. Check (dry run)
+`python3 -m pipeline status` → every job READY (or deliberately left out). `python3 -m pipeline publish --dry-run` builds into a temporary folder and must say "DRY RUN OK"; any article without a passing pipeline run is BLOCKED and does not appear. If the build prints a **WARNING** about the market calendar or corporate events, fix that data file in this run. Open each new `pipeline/runs/<slug>/cover.jpg` and check it reads well.
 
-## 8. Publish
-`git add -A && git -c user.name="TotalMarket Bot" -c user.email="noreply@anthropic.com" commit -m "<editionLabel>: <N> stories" && git push origin HEAD` (on rejection: pull --rebase, rebuild, commit, push once more). Post a one-line summary in the chat.
+## 8. Publish (only this command)
+`python3 -m pipeline publish -m "<editionLabel>: <N> stories"`. It re-checks every saved artifact, builds, verifies pages and covers, runs the tests, commits and pushes, and logs the result in `pipeline/log.jsonl`. Never use `git commit`/`git push` directly for articles. On "push rejected": `git pull --rebase origin main`, then run the publish command again. If publish FAILS, nothing is pushed: record the error in the run report and retry in the next slot (`python3 -m pipeline retry`). Data-file-only changes (rates, IPO register, FII/DII, meta) are published by the same command. The scheduled message only starts this workflow; it never publishes by itself.
 
 ## 9. Schedule the next slot (always, even when skipping)
 Use `send_later` with `at` = the next slot time in UTC (IST − 5:30) and the message:
