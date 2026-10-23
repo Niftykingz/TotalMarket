@@ -65,18 +65,16 @@ def collect(asof=None, fetch=None):
             "collectedAt": dt.datetime.now(IST).isoformat(),
             "provider": "NSE India", "status": "partial", "datasets": {}, "errors": []}
     opener = urllib.request.build_opener()
+    live = fetch is None
     if fetch is None:
         def fetch(path):
             return request_json(path, opener)
-    try:
-        # Establish a public-session cookie, without login or anti-bot circumvention.
-        if fetch is not None and fetch.__name__ == "fetch":
-            try:
-                opener.open(urllib.request.Request(BASE + "/", headers=HEADERS), timeout=12).close()
-            except Exception:
-                pass
-    except Exception:
-        pass
+    # Establish ordinary public-session cookies; no login or access bypass.
+    if live:
+        try:
+            opener.open(urllib.request.Request(BASE + "/", headers=HEADERS), timeout=12).close()
+        except Exception:
+            pass
 
     def get(name, path):
         try:
