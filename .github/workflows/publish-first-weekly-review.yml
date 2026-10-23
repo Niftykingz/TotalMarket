@@ -4,6 +4,9 @@ name: Publish first weekly review
     paths:
       - '.github/workflows/publish-first-weekly-review.yml'
       - 'pipeline/core.py'
+      - 'build.py'
+      - 'report.py'
+      - 'docs/assets/style.css'
       - 'pipeline/source_audit.py'
       - 'pipeline/config.json'
       - 'pipeline/examples/prepare_first_weekly.py'
