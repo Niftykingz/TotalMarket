@@ -18,6 +18,8 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+      - name: Test collection safeguards
+        run: python3 -m unittest discover -s tests -p test_nse_collector.py
       - name: Collect dated exchange observations
         id: collect
         continue-on-error: true
