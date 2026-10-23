@@ -107,3 +107,53 @@ def audit(collected, fetcher=fetch_public_text):
         if len(quote) < 12 or quote not in page:
             errors.append(f"{fid}: evidence quote not found on source page")
     return not errors, errors
+
+
+def recover_evidence(collected, fetcher=fetch_public_text):
+    """Repair stale/incorrect quotations from the linked original source.
+
+    Retain a figure only when its *existing* value, change and pct occur
+    together in a single source-text window. Never invent or change numbers.
+    Return a new collection plus errors for figures needing human/source
+    recollection. This is deliberately narrower than AI article rewriting.
+    """
+    from . import numbers as N
+    import copy
+    result = copy.deepcopy(collected)
+    sources = {s.get("id"): s for s in result.get("sources", [])}
+    cache = {}
+    unresolved = []
+    for fig in result.get("figures", []):
+        sid = fig.get("source")
+        src = sources.get(sid)
+        if not src:
+            unresolved.append(f"{fig.get('id')}: missing original source")
+            continue
+        url = src.get("url", "")
+        if url not in cache:
+            try:
+                cache[url] = fetcher(url)
+            except Exception as exc:
+                cache[url] = exc
+        page = cache[url]
+        if isinstance(page, Exception):
+            unresolved.append(f"{fig.get('id')}: original source unavailable: {page}")
+            continue
+        quote = clean(fig.get("evidence", ""))
+        values = [str(fig[k]) for k in ("value", "change", "pct") if fig.get(k) not in (None, "")]
+        if len(quote) >= 12 and quote in page and all(N.in_evidence(v, quote) for v in values):
+            continue
+        # Search only for contiguous original-source text. Do not synthesize a quote.
+        found = None
+        for match in re.finditer(re.escape(clean(values[0])), page):
+            lo = max(0, match.start() - 160)
+            hi = min(len(page), match.end() + 160)
+            window = page[lo:hi]
+            if all(N.in_evidence(v, window) for v in values):
+                found = window
+                break
+        if found is None:
+            unresolved.append(f"{fig.get('id')}: values not supported together by original source")
+        else:
+            fig["evidence"] = found
+    return result, unresolved

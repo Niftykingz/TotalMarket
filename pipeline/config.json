@@ -1,5 +1,6 @@
 {
   "enforce_from": "2026-10-23T18:00:00+05:30",
-  "note": "Development branch only: enforced stories require successful remote source quotation checks; historical posts before enforce_from retain legacy handling. Do not deploy before full verification.",
-  "require_live_evidence": true
+  "note": "Source-first recovery repairs original-source quotations before generating graphics. Unsupported figures remain unpublished. Remote evidence is required.",
+  "require_live_evidence": true,
+  "source_recovery": true
 }
