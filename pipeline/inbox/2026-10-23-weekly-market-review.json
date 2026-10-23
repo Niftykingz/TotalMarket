@@ -93,6 +93,23 @@
     "lead": true,
     "readMins": 4,
     "reportType": "weekly_market",
+    "visualSpec": {
+      "indices": [
+        {
+          "id": "nifty",
+          "label": "Nifty 50"
+        },
+        {
+          "id": "sensex",
+          "label": "Sensex"
+        }
+      ],
+      "sectors": [],
+      "caps": [],
+      "global": [],
+      "gainers": [],
+      "losers": []
+    },
     "reportTakeaways": [
       "Friday benchmarks closed lower after recovering from intraday lows.",
       "Broader-market and sector weakness warrants attention beyond headline indices."

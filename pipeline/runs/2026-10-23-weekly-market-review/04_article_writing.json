@@ -7,6 +7,23 @@
   "lead": true,
   "readMins": 4,
   "reportType": "weekly_market",
+  "visualSpec": {
+   "indices": [
+    {
+     "id": "nifty",
+     "label": "Nifty 50"
+    },
+    {
+     "id": "sensex",
+     "label": "Sensex"
+    }
+   ],
+   "sectors": [],
+   "caps": [],
+   "global": [],
+   "gainers": [],
+   "losers": []
+  },
   "reportTakeaways": [
    "Friday benchmarks closed lower after recovering from intraday lows.",
    "Broader-market and sector weakness warrants attention beyond headline indices."
@@ -96,14 +113,23 @@
     {
      "name": "Nifty 50",
      "close": "22,600.00",
-     "change": "-87.65"
+     "change": "-87.65",
+     "source": "cm",
+     "asOf": "2026-10-23"
     },
     {
      "name": "Sensex",
      "close": "73,123.83",
-     "change": "-125.56"
+     "change": "-125.56",
+     "source": "cm",
+     "asOf": "2026-10-23"
     }
    ],
+   "sectors": [],
+   "caps": [],
+   "global": [],
+   "gainers": [],
+   "losers": [],
    "takeaways": [
     "Friday benchmarks closed lower after recovering from intraday lows.",
     "Broader-market and sector weakness warrants attention beyond headline indices."
@@ -112,7 +138,20 @@
     "Crude oil, rupee and quarterly earnings",
     "Institutional cash flows and exchange-verified expiry positioning"
    ]
+  },
+  "visualAudit": {
+   "verifiedFigureIds": [
+    "nifty",
+    "sensex"
+   ],
+   "omitted": [
+    "sectors",
+    "caps",
+    "global",
+    "gainers",
+    "losers"
+   ]
   }
  },
- "post_sha256": "46b035e35b2f178f07debebd4ca8ade546d5d35823c525be9cec3369b71dd2ee"
+ "post_sha256": "a966bed4a6349399154051e31c4f80d478c77b4479c0793ec57e54a25a8567b8"
 }

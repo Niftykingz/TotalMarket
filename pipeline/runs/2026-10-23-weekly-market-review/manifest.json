@@ -1,49 +1,42 @@
 {
  "slug": "2026-10-23-weekly-market-review",
  "job": "pipeline/inbox/2026-10-23-weekly-market-review.json",
- "job_sha256": "c0bdca24b019bb33dd623fc28589b24085438f15d41de6a793e9da05f223d503",
+ "job_sha256": "f5fd7673ab1c9bb0d8dd777c10985b8de4d614b2620b713a19ab7cab08fdd453",
  "stages": {
   "DATA_COLLECTION": {
    "status": "PASS",
    "sha256": "67056f0115d4ddd12edbbab84579c8471bbc8ed85d8aed897417aca4f67326c1",
    "errors": [],
-   "started": "2026-10-23T22:50:30+05:30",
-   "finished": "2026-10-23T22:50:33+05:30"
+   "started": "2026-10-23T22:52:33+05:30",
+   "finished": "2026-10-23T22:52:35+05:30"
   },
   "DATA_VERIFICATION": {
    "status": "PASS",
    "sha256": "1bfa7c83cfa091fc615d5fbde5b47a917ab35696d9a4744f0ee87717002f7d26",
    "errors": [],
-   "started": "2026-10-23T22:50:33+05:30",
-   "finished": "2026-10-23T22:50:35+05:30"
+   "started": "2026-10-23T22:52:35+05:30",
+   "finished": "2026-10-23T22:52:37+05:30"
   },
   "GRAPHICS_GENERATION": {
    "status": "PASS",
    "sha256": "f61bafab7ebb797928d90c5465b87f2df42e5c3612dfe6448faf525354856ec4",
    "errors": [],
-   "started": "2026-10-23T22:50:35+05:30",
-   "finished": "2026-10-23T22:50:35+05:30"
+   "started": "2026-10-23T22:52:37+05:30",
+   "finished": "2026-10-23T22:52:37+05:30"
   },
   "ARTICLE_WRITING": {
    "status": "PASS",
-   "sha256": "68de675660d647b8b9fea3ec2a2ff71daac01fe190d9af6dc9cf6e5c3fc3e22f",
+   "sha256": "b9c08bcde50c10d1a61ef929f41039f62b353f46e50088505cab34684eb3a74f",
    "errors": [],
-   "started": "2026-10-23T22:50:35+05:30",
-   "finished": "2026-10-23T22:50:35+05:30"
+   "started": "2026-10-23T22:52:37+05:30",
+   "finished": "2026-10-23T22:52:37+05:30"
   },
   "FINAL_QA": {
    "status": "PASS",
-   "sha256": "33db2e69296cedc821c90744509d5e8286bdddcdcefdee46e87685db6e01fef5",
+   "sha256": "173ec3877dad9374f0d6f53370fb74c9ede4721507795fff73a93e63344f69ea",
    "errors": [],
-   "started": "2026-10-23T22:50:35+05:30",
-   "finished": "2026-10-23T22:50:35+05:30"
-  },
-  "PUBLISH": {
-   "status": "PASS",
-   "sha256": "180d55592931b4671db76a72cb892d887bab4efdf778f5a9ddac914b6e25e4c3",
-   "errors": [],
-   "started": "2026-10-23T22:50:56+05:30",
-   "finished": "2026-10-23T22:50:56+05:30"
+   "started": "2026-10-23T22:52:37+05:30",
+   "finished": "2026-10-23T22:52:37+05:30"
   }
  }
 }
