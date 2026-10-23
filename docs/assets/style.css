@@ -1029,3 +1029,13 @@ img[loading="lazy"]{background:linear-gradient(90deg,var(--surface-2),var(--line
   .asof a,.dfoot a,.pul a{display:inline-block;padding:4px 0}
   .tags a,.rates li a,.substat li a{min-height:28px}
 }
+
+/* Mobile editorial reading: reaction controls belong below the story, not over data. */
+@media(max-width:760px){
+  .story .fab,.fab{display:none!important}
+  .story .rp-sec{margin-block:18px}
+  .story .rp-kpis{gap:10px;margin-block:14px}
+  .story .rp-point-row{margin-block:10px}
+  .story .tm-week-section{padding-block:13px}
+  .story .rp-h{scroll-margin-top:100px}
+}
