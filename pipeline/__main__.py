@@ -115,10 +115,27 @@ def cmd_publish(dry_run, root=ROOT, message=None, run_tests=True):
         core.log("publish", ok=False, stage="commit", output=out)
         print("PUBLISH FAILED: commit\n" + out)
         return 2
-    rc, out = sh(["git", "push", "-q", "origin", "HEAD"], root)
+    # A different workflow or editor may advance main while this run builds.
+    # Rebase our verified output commit onto the current remote before pushing.
+    # Never force-push; fail safely on conflicting edits.
+    rc, out = sh(["git", "fetch", "origin", "main"], root)
+    if rc == 0:
+        rc, out = sh(["git", "-c", "user.name=TotalMarket Bot",
+                      "-c", "user.email=bot@totalmarket.co.in",
+                      "rebase", "origin/main"], root)
+        if rc != 0:
+            sh(["git", "rebase", "--abort"], root)
+            core.log("publish", ok=False, stage="rebase", output=out)
+            print("PUBLISH FAILED: concurrent edits conflict with verified output; manual review required\n" + out)
+            return 3
+    else:
+        core.log("publish", ok=False, stage="fetch", output=out)
+        print("PUBLISH FAILED: cannot fetch latest main\n" + out)
+        return 3
+    rc, out = sh(["git", "push", "-q", "origin", "HEAD:main"], root)
     if rc != 0:
-        core.log("publish", ok=False, stage="push", output=out, retry="pull --rebase then publish again")
-        print("PUBLISH FAILED: push rejected; run `git pull --rebase origin main` and publish again\n" + out)
+        core.log("publish", ok=False, stage="push", output=out)
+        print("PUBLISH FAILED: main advanced again; retry publishing from latest main\n" + out)
         return 3
     _, commit = sh(["git", "rev-parse", "HEAD"], root)
     commit = commit.strip()
