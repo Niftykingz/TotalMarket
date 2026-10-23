@@ -42,12 +42,17 @@ jobs:
           for name, info in (s.get("diagnostics") or {}).items():
               print(f"::notice title=NSE shape {name}::" + json.dumps(info)[:900])
           PY
+      - name: Prepare the weekly report job on the week's last trading day (published by the 17:05 queue run)
+        if: steps.collect.outcome == 'success'
+        continue-on-error: true
+        run: python3 -m pipeline.weekly --only-if-week-end --out pipeline/inbox
       - name: Keep the dated snapshot in the repository (audit trail; never published by itself)
         if: always()
         run: |
           [ -d data/market_snapshots ] || { echo "nothing usable to archive"; exit 0; }
           git config user.name "TotalMarket Bot"; git config user.email "noreply@anthropic.com"
           git add data/market_snapshots
+          git add pipeline/inbox/*-weekly-market-review.json 2>/dev/null || true
           git diff --cached --quiet && { echo "snapshot unchanged"; exit 0; }
           git commit -q -m "NSE market snapshot $(date -u +%Y-%m-%dT%H:%MZ)"
           for i in 1 2 3; do git push -q origin HEAD:main && exit 0; git pull -q --rebase origin main; done
