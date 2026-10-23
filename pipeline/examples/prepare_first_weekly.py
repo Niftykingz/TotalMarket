@@ -41,12 +41,20 @@ article={
     "status":"new"
 }
 
+# Every article citation must be registered in collection before stage 4.
+# Only add source metadata here; numerical evidence remains subject to
+# independent figure-level remote verification by the existing audit gate.
+job_collection=json.loads(json.dumps(base["collection"]))
+existing_urls={source["url"] for source in job_collection["sources"]}
+for source in article["sources"]:
+    if source["url"] not in existing_urls:
+        job_collection["sources"].append(source)
+        existing_urls.add(source["url"])
 graphic=dict(base["graphic"])
 graphic["headline"]=article["title"]
 graphic["coverHeadline"]="FRIDAY MARKET REPORT"
 graphic["coverDate"]="2026-10-23"
 # Omit percentage claims whose linked publisher evidence could not be found.
-job_collection=json.loads(json.dumps(base["collection"]))
 job_collection["figures"]=[f for f in job_collection["figures"] if f["id"] not in {"sensex_pct","nifty_pct","mid","small","realty"}]
 graphic["stat"]="22,600"
 graphic["chart"]["items"]=[i for i in graphic["chart"]["items"] if i["label"] in {"Sensex","Nifty 50"}]
