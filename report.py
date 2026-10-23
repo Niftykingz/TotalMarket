@@ -57,6 +57,31 @@ def range_bar(o, h, l, c):
             f'<b style="left:{pos:.1f}%" title="Close"></b></div><span class="hi">{e(h)}</span></div>')
 
 
+def index_change_chart(r):
+    """Compare verified point changes, never absolute Sensex/Nifty index levels."""
+    rows = [(x.get("name"), num(x.get("change"))) for x in (r.get("indices") or [])]
+    rows = [(name, val) for name, val in rows if name and val is not None]
+    if len(rows) < 2:
+        return ""
+    largest = max(abs(v) for _, v in rows) or 1
+    parts = []
+    for name, value in rows:
+        width = abs(value) / largest * 100
+        parts.append(f'<div class="rp-point-row"><span>{e(name)}</span>'
+                     f'<div class="rp-point-track"><i class="{cls(value)}" style="width:{width:.1f}%"></i></div>'
+                     f'<strong class="{cls(value)}">{value:+,.2f} pts</strong></div>')
+    style = ('<style>.rp-point-row{display:grid;grid-template-columns:90px minmax(0,1fr) 110px;'
+             'align-items:center;gap:12px;margin:14px 0;font-variant-numeric:tabular-nums}'
+             '.rp-point-track{height:18px;background:var(--surface-2,#eef2f7);border-radius:5px;overflow:hidden}'
+             '.rp-point-track i{display:block;height:100%;border-radius:5px;background:#667085}'
+             '.rp-point-track i.down{background:#d9485b}.rp-point-track i.up{background:#159567}'
+             '.rp-point-row strong{text-align:right;font-size:14px}'
+             '@media(max-width:520px){.rp-point-row{grid-template-columns:65px minmax(0,1fr) 90px;gap:7px}'
+             '.rp-point-row strong{font-size:12px}}</style>')
+    return section("Friday index movement", style + "".join(parts),
+                   "Verified point changes; bars show magnitude within this comparison, not percentage returns.")
+
+
 def indices(r):
     rows = r.get("indices") or []
     if not rows:
@@ -229,7 +254,7 @@ def render(r):
     caps = r.get("caps") or []
     parts = [mood_banner(r), kpis(r),
              bullets("Key takeaways", r.get("takeaways"), "take"),
-             indices(r),
+             indices(r), index_change_chart(r),
              bars(caps, "Large cap vs mid cap vs small cap", caps_summary(caps)) if caps else "",
              heatmap(r), gainers_losers(r), breadth(r), fii_dii(r), ipos(r),
              bars(r.get("global") or [], "Global and commodity cues", "") if r.get("global") else "",
