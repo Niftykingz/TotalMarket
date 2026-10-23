@@ -88,31 +88,24 @@
   },
   "article": {
     "title": "Friday Complete Market Report: Nifty 22,600, Sensex 73,123.83 | 23 October 2026",
-    "dek": "Friday close, weekly benchmark performance, broader markets, sectors, institutional flows, volatility, global drivers and next-week watchlist.",
+    "dek": "Friday close with verified index dashboard, market breadth context, sector commentary and next-week risks.",
     "category": "markets",
     "lead": true,
-    "readMins": 7,
+    "readMins": 4,
     "reportType": "weekly_market",
     "reportTakeaways": [
-      "Friday benchmark closing moves are verified against cited source evidence.",
-      "Weekly percentage returns and sector rankings remain unpublished without comparable verified datasets."
+      "Friday benchmarks closed lower after recovering from intraday lows.",
+      "Broader-market and sector weakness warrants attention beyond headline indices."
     ],
     "reportWatch": [
-      "Monitor crude oil, quarterly earnings and institutional flows.",
-      "Check expiry positioning against timestamped exchange data before drawing conclusions."
+      "Crude oil, rupee and quarterly earnings",
+      "Institutional cash flows and exchange-verified expiry positioning"
     ],
     "body": [
-      "FRIDAY CLOSING DASHBOARD | Nifty 50 closed at 22,600.00, down 87.65 points; Sensex ended at 73,123.83, down 125.56 points. The chart accompanying this report compares the two closing benchmarks and their Friday point changes.",
-      "WEEKLY MARKET PERFORMANCE | The full-week benchmark and broader-market percentage changes are withheld until the original publisher's supporting figures pass the evidence audit. Friday's closing moves must not be mistaken for weekly returns.",
-      "MARKET BREADTH | Selling was broad-based. Reports described broad-based sector weakness, but the exact sector count has not passed this report's figure-level evidence audit. That is a market-wide signal, not a claim that every listed share declined.",
-      "SECTOR HEATMAP — WEEKLY DIRECTION | Consumer durables, energy, FMCG and automobiles were among the weakest sector groups. Sector-by-sector percentage rankings are withheld until an independently verified, like-for-like closing dataset is available.",
-      "STOCK MOVERS | Reuters highlighted weekly weakness in HDFC Bank, Axis Bank and Bajaj Finance. Swiggy was also under pressure. These are selected notable shares, not a verified full Nifty 50 gainers-and-losers leaderboard.",
-      "FRIDAY TRADING SESSION | The benchmarks recovered from deeper intraday losses but ended lower. The move was accompanied by weaker midcap and smallcap participation. The Friday close and the full week's return are shown separately to avoid mixing timeframes.",
-      "FII / DII CASH FLOWS | Foreign and domestic institutional activity remains an important market driver. The complete weekly net-flow total is not published here because the available daily series has missing sessions; incomplete sessions must not be presented as a full-week total.",
-      "INDIA VIX AND DERIVATIVES | Volatility and options positioning matter for next week's expiry. Strike-specific open interest, PCR and implied ranges are deliberately omitted from this edition until an expiry-matched timestamped exchange dataset is verified.",
-      "GLOBAL DRIVERS | Reuters attributed pressure on Indian equities partly to surging crude oil prices amid Middle East tensions, which increased concern over inflation, corporate margins and the rupee.",
-      "NEXT WEEK'S WATCHLIST | Monitor index-expiry positioning, crude oil, the rupee, domestic quarterly earnings, institutional flows and upcoming central-bank announcements. These are event risks to monitor, not forecasts.",
-      "DATA TRANSPARENCY | This edition includes a source-backed benchmark visual. Exact stock rankings, full sector tables, final weekly FII/DII totals and additional visual panels will only be added when verified datasets are available. No missing market data is estimated."
+      "What moved | Indian equities ended Friday lower after recovering from deeper intraday losses. Broader-market weakness and pressure across several sectors showed that the decline extended beyond the headline indices.",
+      "Sectors and stocks | Consumer durables, energy, FMCG and automobiles were among the weaker groups. Reuters highlighted weakness in HDFC Bank, Axis Bank and Bajaj Finance; Swiggy also faced pressure. These are selected examples, not a ranked leaderboard.",
+      "Why it mattered | Higher crude oil prices amid Middle East tensions raised concerns about inflation, margins and the rupee. Investors should distinguish Friday's closing move from the full week's return.",
+      "Looking ahead | Watch crude oil, the rupee, quarterly earnings, institutional flows and expiry positioning. These are monitoring priorities, not price forecasts."
     ],
     "indiaImpact": "Broader-market and sector weakness shows why investors should monitor breadth and risk, not just Nifty and Sensex. Weekly and Friday returns are distinct.",
     "seoTitle": "Friday Indian Stock Market Report: 23 October 2026 | TotalMarket",
