@@ -5,7 +5,7 @@ on:
     # 16:15 IST on weekdays, after the regular NSE cash close.
     - cron: '45 10 * * 1-5'
 permissions:
-  contents: read
+  contents: write  # only to commit the dated audit snapshot under data/market_snapshots/
 concurrency:
   group: totalmarket-nse-collection
   cancel-in-progress: false
@@ -15,6 +15,8 @@ jobs:
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: main
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
@@ -23,7 +25,7 @@ jobs:
       - name: Collect dated exchange observations
         id: collect
         continue-on-error: true
-        run: python3 pipeline/market_data/collect_nse.py --output pipeline/market_data/latest.json
+        run: python3 pipeline/market_data/collect_nse.py --output pipeline/market_data/latest.json --archive data/market_snapshots
       - name: Report what was collected
         if: always()
         run: |
@@ -40,6 +42,16 @@ jobs:
           for name, info in (s.get("diagnostics") or {}).items():
               print(f"::notice title=NSE shape {name}::" + json.dumps(info)[:900])
           PY
+      - name: Keep the dated snapshot in the repository (audit trail; never published by itself)
+        if: always()
+        run: |
+          [ -d data/market_snapshots ] || { echo "nothing usable to archive"; exit 0; }
+          git config user.name "TotalMarket Bot"; git config user.email "noreply@anthropic.com"
+          git add data/market_snapshots
+          git diff --cached --quiet && { echo "snapshot unchanged"; exit 0; }
+          git commit -q -m "NSE market snapshot $(date -u +%Y-%m-%dT%H:%MZ)"
+          for i in 1 2 3; do git push -q origin HEAD:main && exit 0; git pull -q --rebase origin main; done
+          echo "::warning title=NSE snapshot::could not push the snapshot"; exit 1
       - name: Upload audit snapshot, including partial results
         if: always()
         uses: actions/upload-artifact@v4

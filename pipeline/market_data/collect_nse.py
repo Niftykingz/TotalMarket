@@ -5,6 +5,9 @@ NSE may deny automated access; that is recorded as an error, not bypassed.
 """
 import argparse
 import datetime as dt
+import gzip
+import hashlib
+import http.cookiejar
 import json
 import re
 import urllib.parse
@@ -21,7 +24,7 @@ INDEXES = ("NIFTY 50", "NIFTY BANK", "NIFTY MIDCAP 100", "NIFTY SMALLCAP 100",
            "NIFTY PHARMA", "NIFTY ENERGY", "NIFTY FINANCIAL SERVICES")
 
 
-def request_json(path, opener):
+def request_raw(path, opener):
     url = BASE + path
     req = urllib.request.Request(url, headers=HEADERS)
     with opener.open(req, timeout=18) as response:
@@ -32,7 +35,11 @@ def request_json(path, opener):
         raw = response.read(2_000_001)
     if len(raw) > 2_000_000:
         raise ValueError("response too large")
-    return json.loads(raw)
+    return raw
+
+
+def request_json(path, opener):
+    return json.loads(request_raw(path, opener))
 
 
 def numeric(value):
@@ -59,16 +66,21 @@ def date_from_timestamp(value):
     return None
 
 
-def collect(asof=None, fetch=None):
+def collect(asof=None, fetch=None, raw_sink=None):
+    """raw_sink: optional dict filled with {path: raw response bytes} for the audit archive."""
     today = asof or dt.datetime.now(IST).date().isoformat()
     snap = {"schema": 1, "targetDate": today,
             "collectedAt": dt.datetime.now(IST).isoformat(),
             "provider": "NSE India", "status": "partial", "datasets": {}, "errors": []}
-    opener = urllib.request.build_opener()
+    # Keep the cookies NSE's home page sets, as any browser would (the old opener dropped them).
+    opener = urllib.request.build_opener(urllib.request.HTTPCookieProcessor(http.cookiejar.CookieJar()))
     live = fetch is None
     if fetch is None:
         def fetch(path):
-            return request_json(path, opener)
+            raw = request_raw(path, opener)
+            if raw_sink is not None:
+                raw_sink[path] = raw
+            return json.loads(raw)
     # Establish ordinary public-session cookies; no login or access bypass.
     if live:
         try:
@@ -180,12 +192,23 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--date", default=dt.datetime.now(IST).date().isoformat())
     parser.add_argument("--output", default="pipeline/market_data/latest.json")
+    parser.add_argument("--archive", help="also keep the snapshot and raw responses under this folder")
     args = parser.parse_args()
     dt.date.fromisoformat(args.date)
-    result = collect(args.date)
+    raw = {}
+    result = collect(args.date, raw_sink=raw)
+    result["raw"] = {p: {"sha256": hashlib.sha256(b).hexdigest(), "bytes": len(b)} for p, b in raw.items()}
     out = Path(args.output)
     out.parent.mkdir(parents=True, exist_ok=True)
-    out.write_text(json.dumps(result, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    text = json.dumps(result, indent=2, ensure_ascii=False) + "\n"
+    out.write_text(text, encoding="utf-8")
+    if args.archive and result["datasets"]:
+        base = Path(args.archive) / args.date
+        base.mkdir(parents=True, exist_ok=True)
+        (base / "snapshot.json").write_text(text, encoding="utf-8")
+        for p, b in raw.items():
+            name = re.sub(r"[^A-Za-z0-9]+", "_", p).strip("_") + ".json.gz"
+            (base / name).write_bytes(gzip.compress(b, mtime=0))
     print(json.dumps({"status": result["status"], "datasets": list(result["datasets"]),
                       "errors": result["errors"]}))
     if not result["datasets"]:
