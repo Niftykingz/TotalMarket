@@ -9,16 +9,19 @@ import json
 
 e = lambda s: html.escape(str(s), quote=True)
 
-# (TradingView symbol, display name). Only symbols confirmed to render in the free widgets.
+# (group, data level as TradingView provides it to free widgets, [(symbol, name)]).
+# Checked in a real browser on 24 Oct 2026: NSE and MCX symbols are NOT available in free
+# widgets ("only available on TradingView"); BSE indices come as end-of-day data ("E" badge).
 GROUPS = [
-    ("Indian indices", "Delayed about 15 min", [("BSE:SENSEX", "Sensex"), ("NSE:NIFTY", "Nifty 50"), ("NSE:BANKNIFTY", "Bank Nifty"), ("NSE:INDIAVIX", "India VIX")]),
-    ("Commodities", "Delayed / indicative", [("TVC:GOLD", "Gold ($/oz)"), ("TVC:SILVER", "Silver ($/oz)"), ("TVC:UKOIL", "Brent crude ($)"), ("TVC:USOIL", "WTI crude ($)")]),
-    ("Forex", "Indicative quotes", [("FX_IDC:USDINR", "USD/INR"), ("FX_IDC:EURINR", "EUR/INR"), ("FX_IDC:GBPINR", "GBP/INR"), ("TVC:DXY", "Dollar index")]),
-    ("Crypto", "Real-time", [("BINANCE:BTCUSDT", "Bitcoin (USDT)"), ("BINANCE:ETHUSDT", "Ether (USDT)")]),
+    ("India", "BSE indices, end of day", [("BSE:SENSEX", "Sensex"), ("BSE:BSE100", "BSE 100"), ("BSE:BSE500", "BSE 500"), ("BSE:BANK", "BSE Bankex")]),
+    ("Commodities", "International prices, indicative", [("OANDA:XAUUSD", "Gold ($/oz)"), ("OANDA:XAGUSD", "Silver ($/oz)"), ("TVC:UKOIL", "Brent crude ($)"), ("TVC:USOIL", "WTI crude ($)"), ("CAPITALCOM:NATURALGAS", "Natural gas ($)")]),
+    ("Forex", "Indicative quotes", [("FX_IDC:USDINR", "USD/INR"), ("FX_IDC:EURINR", "EUR/INR"), ("FX_IDC:GBPINR", "GBP/INR"), ("FX_IDC:JPYINR", "JPY/INR"), ("CAPITALCOM:DXY", "Dollar index")]),
+    ("Crypto", "Real-time", [("BINANCE:BTCUSDT", "Bitcoin"), ("BINANCE:ETHUSDT", "Ether"), ("BINANCE:SOLUSDT", "Solana"), ("BINANCE:XRPUSDT", "XRP")]),
+    ("Global", "Index CFDs, indicative", [("FOREXCOM:SPXUSD", "S&P 500 (CFD)"), ("FOREXCOM:DJI", "Dow Jones (CFD)"), ("FOREXCOM:NSXUSD", "Nasdaq 100 (CFD)"), ("CAPITALCOM:J225", "Japan 225 (CFD)"), ("CAPITALCOM:HK50", "Hong Kong 50 (CFD)")]),
 ]
 
-NOTE = ("Prices by TradingView. Indian index and commodity prices are delayed (about 15 minutes for NSE); "
-        "currency quotes are indicative; crypto is real-time. These are third-party prices for reference — "
+NOTE = ("Prices by TradingView, shown for reference. NSE (Nifty) and MCX prices are not available in TradingView's free widgets; "
+        "BSE indices are end of day, global indices are CFD prices, commodity and currency quotes are indicative, crypto is real-time. "
         "TotalMarket's stories use only source-verified figures.")
 
 
@@ -28,20 +31,21 @@ def _slot(kind, config, cls, label):
 
 
 def ticker_tape():
-    syms = [{"proName": s, "title": n} for _, _, items in GROUPS for s, n in items]
-    cfg = {"symbols": syms, "showSymbolLogo": False, "isTransparent": True, "displayMode": "regular", "locale": "en"}
+    picks = ["BSE:SENSEX", "OANDA:XAUUSD", "OANDA:XAGUSD", "TVC:UKOIL", "FX_IDC:USDINR", "BINANCE:BTCUSDT", "BINANCE:ETHUSDT", "FOREXCOM:SPXUSD", "FOREXCOM:NSXUSD"]
+    names = {s: n for _, _, items in GROUPS for s, n in items}
+    cfg = {"symbols": [{"proName": s, "title": names[s]} for s in picks], "showSymbolLogo": False, "isTransparent": True,
+           "displayMode": "regular", "locale": "en"}
     return (f'<section class="tvtape" aria-label="Market prices from TradingView" data-nosnippet>'
             f'{_slot("ticker-tape", cfg, "tape", "Scrolling market prices")}'
-            f'<p class="wrap tvnote">TradingView prices · indices delayed ~15 min · forex indicative · crypto real-time</p></section>')
+            f'<p class="tvnote">Prices by TradingView · Sensex end of day · gold, oil, forex indicative · crypto real-time · Nifty not available</p></section>')
 
 
 def overview_panel(shead):
-    tabs = [{"title": g, "symbols": [{"s": s, "d": n} for s, n in items], "originalTitle": g} for g, _, items in GROUPS]
-    cfg = {"tabs": tabs, "showChart": True, "showSymbolLogo": False, "showFloatingTooltip": True, "isTransparent": True,
-           "width": "100%", "height": 460, "locale": "en", "dateRange": "1D", "plotLineColorGrowing": "#16a34a",
-           "plotLineColorFalling": "#dc2626", "belowLineFillColorGrowing": "rgba(22,163,74,.08)",
-           "belowLineFillColorFalling": "rgba(220,38,38,.08)"}
-    levels = " · ".join(f"<b>{e(g)}</b>: {e(lv)}" for g, lv, _ in GROUPS)
+    tabs, panels = [], []
+    for i, (g, level, items) in enumerate(GROUPS):
+        tabs.append(f'<button type="button" class="wt{" on" if i == 0 else ""}" data-panel="tvp{i}">{e(g)}</button>')
+        cards = "".join(_slot("single-quote", {"symbol": s, "width": "100%", "isTransparent": True, "locale": "en"}, "q", n)
+                        for s, n in items)
+        panels.append(f'<div class="tvgrid" id="tvp{i}"{"" if i == 0 else " hidden"}><p class="asof tvlev">{e(level)}</p>{cards}</div>')
     return (f'<section class="panel tvpanel" aria-label="Market prices (TradingView)" data-nosnippet>'
-            f'{shead}{_slot("market-overview", cfg, "ov", "Market overview by TradingView")}'
-            f'<p class="asof tvlev">{levels}</p><p class="dfoot">{e(NOTE)}</p></section>')
+            f'{shead}<div class="wtabs">{"".join(tabs)}</div>{"".join(panels)}<p class="dfoot">{e(NOTE)}</p></section>')

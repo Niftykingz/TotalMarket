@@ -1042,7 +1042,9 @@ small.ipphase{display:block;margin-top:4px}
 /* ---------- TradingView widgets (third-party prices) ---------- */
 .tvtape{border-bottom:1px solid var(--line);background:var(--surface)}
 .tvw.tape{min-height:46px}
-.tvw.ov{min-height:460px}
-.tvnote{margin:0 auto;padding:2px 16px 6px;font-size:.7rem;color:var(--muted)}
+.tvgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:8px;margin-top:10px}
+.tvgrid .tvlev{grid-column:1/-1;margin:0}
+.tvw.q{min-height:96px;border:1px solid var(--line);border-radius:8px;overflow:hidden;background:var(--surface)}
+.tvnote{margin:0;padding:2px 12px 6px;font-size:.7rem;color:var(--muted)}
 .tvpanel .tvlev{margin:8px 0 0}
-@media(max-width:560px){.tvw.ov{min-height:420px}}
+@media(max-width:560px){.tvgrid{grid-template-columns:1fr}}
