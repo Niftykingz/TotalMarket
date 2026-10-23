@@ -364,30 +364,49 @@ def stage4_article(job, ver, gfx, root, write=True):
             errs.append(f"article missing {k}")
     post = dict(art)
     post.update(gfx["fields"])                   # graphic fields come from the verified graphic stage, unchanged
-    # Derive structured visuals only from independently verified collection figures.
-    # An absent metric produces no chart/table row: never backfill with estimates.
+    # Source-audited visual planner: numerical data comes only from verified figures.
     if art.get("reportType") == "weekly_market":
         verified = {f["id"]: f for f in ver.get("verified", [])}
-        specs = [("nifty", "Nifty 50"), ("sensex", "Sensex")]
+        specs = art.get("visualSpec") or {
+            "indices": [{"id": "nifty", "label": "Nifty 50"}, {"id": "sensex", "label": "Sensex"}]
+        }
+        def selected(group):
+            output = []
+            for spec in specs.get(group, []):
+                f = verified.get(spec.get("id"))
+                if f and f.get("value") not in (None, ""):
+                    output.append((spec, f))
+            return output
         rows, cards = [], []
-        for fid, label in specs:
-            fig = verified.get(fid)
-            if not fig:
-                continue
-            value = str(fig.get("value") or "")
-            change = str(fig.get("change") or "")
-            if not value:
-                continue
-            rows.append({"name": label, "close": value, "change": change})
+        for spec, f in selected("indices"):
+            label = str(spec.get("label") or f["label"])
+            value, change = str(f["value"]), str(f.get("change") or "")
+            rows.append({"name": label, "close": value, "change": change,
+                         "source": str(f.get("source") or ""), "asOf": str(f.get("as_of") or "")})
             cards.append({"label": label + " close", "value": value,
                           "change": (change + " pts") if change else "",
                           "dir": "down" if change.startswith("-") else "up" if change.startswith("+") else "flat"})
+        def percentage_rows(group):
+            return [{"name": str(spec.get("label") or f["label"]), "pct": str(f["value"])}
+                    for spec, f in selected(group)]
+        sectors = percentage_rows("sectors")
+        caps = percentage_rows("caps")
+        global_moves = percentage_rows("global")
+        gainers = percentage_rows("gainers")
+        losers = percentage_rows("losers")
         post["report"] = {
             "dateLabel": "Friday market close",
-            "kpis": cards,
-            "indices": rows,
+            "kpis": cards, "indices": rows, "sectors": sectors, "caps": caps,
+            "global": global_moves, "gainers": gainers, "losers": losers,
             "takeaways": art.get("reportTakeaways") or [],
             "watch": art.get("reportWatch") or []
+        }
+        post["visualAudit"] = {
+            "verifiedFigureIds": sorted({spec["id"] for group in
+                ("indices", "sectors", "caps", "global", "gainers", "losers")
+                for spec, f in selected(group)}),
+            "omitted": [group for group in ("sectors", "caps", "global", "gainers", "losers")
+                        if not selected(group)]
         }
     src_urls = {s["url"] for s in job["collection"]["sources"]}
     for s in post.get("sources") or []:
