@@ -1,0 +1,84 @@
+{
+  "title": "Indian Markets Fall Over 2% This Week as Crude Oil and Broad Sell-Off Weigh",
+  "dek": "Nifty 50 fell 2.36% and Sensex lost 2.15% in the week ended 23 October 2026, while smaller stocks saw even steeper declines.",
+  "category": "markets",
+  "lead": true,
+  "edition": "2026-10-23-weekly",
+  "editionLabel": "Fri 23 Oct · Weekly market review",
+  "publishedAt": "2026-10-23T19:00:00+05:30",
+  "readMins": 5,
+  "body": [
+    "Indian stocks ended the week of 19–23 October 2026 with substantial losses, reversing the previous week's gains. The Nifty 50 closed Friday at 22,600.00, a weekly decline of 546.15 points or 2.36%. The BSE Sensex ended at 73,123.83, down 1,605.44 points or 2.15% from the previous Friday. These are full-week changes, not Friday-only returns.",
+    "Broader equities were hit harder. Reuters reported that mid-cap shares declined approximately 5.6% for the week, while small-cap shares lost approximately 7.3%, among their steepest weekly performances in roughly 20 months. Fifteen of sixteen major sectors fell over the week, underscoring the breadth of the selling.",
+    "Crude oil was a central pressure point. Brent futures rose toward $114 a barrel amid renewed Middle East supply concerns. Higher oil prices can increase India's import bill and inflation risk, putting pressure on corporate costs and investor sentiment. Reuters also pointed to global uncertainty and liquidity pressures around the Jio Platforms IPO.",
+    "Banks and consumer-facing businesses were among the notable weak spots. Reuters reported weekly losses of about 5% for HDFC Bank, 5.6% for Axis Bank and 5.4% for Bajaj Finance. These are selected significant weekly movers, not a complete ranked list of all large-cap constituents.",
+    "Friday's closing session showed some resilience after an intraday slump, but not enough to reverse the weekly losses. The Sensex finished Friday down 125.56 points (0.17%) and the Nifty 50 lost 87.65 points (0.39%). Friday's Nifty 50 gainers included Eternal (+4.25%), Apollo Hospitals (+1.65%) and ONGC (+1.11%); losers included Shriram Finance (−3.98%), Adani Enterprises (−2.86%) and JSW Steel (−2.83%). These stock figures are for Friday only and must not be interpreted as weekly rankings.",
+    "For the week ahead, investors will watch crude oil prices, the US Federal Reserve's 27–28 October meeting, quarterly earnings, and whether selling in mid- and small-cap shares eases. This is a factual market review, not investment advice."
+  ],
+  "why": "Broad-market weakness was considerably deeper than the headline benchmark declines, so comparing market-cap segments helps readers understand the week's risk appetite.",
+  "indiaImpact": "Rising imported crude prices can affect inflation, the rupee, company margins and domestic equity valuations. Outcomes depend on how long the oil shock persists.",
+  "stat": "−2.36%",
+  "statLabel": "Nifty 50 · week ended 23 Oct 2026",
+  "coverHeadline": "NIFTY LOSES 2.36% IN A WEEK",
+  "coverContext": "Sensex −2.15% · Smallcaps ≈−7.3%",
+  "coverDate": "2026-10-23",
+  "coverLabel": "Weekly market review",
+  "symbol": "candles",
+  "flags": [
+    "IN"
+  ],
+  "seoTitle": "Indian Stock Market Weekly Review: 19–23 Oct 2026",
+  "seoDescription": "Nifty fell 2.36% and Sensex 2.15% in the week ended 23 October 2026. See the midcap and smallcap sell-off, key market drivers and Friday movers.",
+  "tags": [
+    "Indian stock market weekly review",
+    "Nifty 50",
+    "Sensex",
+    "Market crash",
+    "Crude oil"
+  ],
+  "table": {
+    "title": "Indian market weekly scorecard · 19–23 October 2026",
+    "rows": [
+      {
+        "label": "Nifty 50",
+        "value": "22,600.00",
+        "change": "−2.36%",
+        "note": "−546.15 points, week"
+      },
+      {
+        "label": "BSE Sensex",
+        "value": "73,123.83",
+        "change": "−2.15%",
+        "note": "−1,605.44 points, week"
+      },
+      {
+        "label": "Mid-cap shares",
+        "value": "—",
+        "change": "≈−5.6%",
+        "note": "Reuters weekly estimate"
+      },
+      {
+        "label": "Small-cap shares",
+        "value": "—",
+        "change": "≈−7.3%",
+        "note": "Reuters weekly estimate"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "name": "Reuters: Surging oil prices drag Indian shares to weekly losses, 23 Oct 2026",
+      "url": "https://www.reuters.com/world/india/indian-shares-seen-opening-higher-after-3-session-drop-oil-surge-clouds-outlook-2026-10-23/"
+    },
+    {
+      "name": "Upstox: Top gainers and losers, 23 Oct 2026",
+      "url": "https://upstox.com/news/market-news/stocks/top-gainers-and-losers-oct-23-shriram-finance-tumbles-4-adani-ent-down-3-bajaj-finance-surges-4-check-list/article-202323/"
+    },
+    {
+      "name": "Moneycontrol: Taking Stock, 23 Oct 2026",
+      "url": "https://www.moneycontrol.com/news/business/markets/taking-stock-markets-recover-from-day-s-lows-but-sell-off-extends-to-4th-day-nifty-at-22-600-14058497.html"
+    }
+  ],
+  "graphicSource": "assets/weekly/2026-10-23-market-review.svg",
+  "status": "draft"
+}
