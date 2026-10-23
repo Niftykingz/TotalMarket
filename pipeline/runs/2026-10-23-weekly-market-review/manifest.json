@@ -37,6 +37,13 @@
    "errors": [],
    "started": "2026-10-23T22:15:13+05:30",
    "finished": "2026-10-23T22:15:13+05:30"
+  },
+  "PUBLISH": {
+   "status": "PASS",
+   "sha256": "bae86dcc640cf0c3798e17b6ee8adf9786011e2827e4bfbcebfd7edffcf60424",
+   "errors": [],
+   "started": "2026-10-23T22:15:36+05:30",
+   "finished": "2026-10-23T22:15:36+05:30"
   }
  }
 }
