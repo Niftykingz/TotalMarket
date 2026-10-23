@@ -1,0 +1,8 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<style>body{font:14px system-ui;margin:12px}.g{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.c{border:1px solid #ccc;padding:4px}.c b{display:block;font-size:12px}</style></head><body>
+<div class="g" id="g"></div>
+<script>
+const S=["NSE:NIFTY","BSE:SENSEX","NSE:BANKNIFTY","NSE:INDIAVIX","NSE:CNXIT","NSEIX:NIFTY1!","MCX:GOLD1!","MCX:CRUDEOIL1!","MCX:SILVER1!","TVC:GOLD","TVC:SILVER","TVC:UKOIL","TVC:USOIL","COMEX:GC1!","FX_IDC:USDINR","FX_IDC:EURINR","FX_IDC:GBPINR","TVC:DXY","BINANCE:BTCUSDT","BINANCE:ETHUSDT","BITSTAMP:BTCUSD","FOREXCOM:SPXUSD","TVC:NI225","NASDAQ:NDX","TVC:DJI","BSE:BANKEX","NSE:RELIANCE","BSE:RELIANCE"];
+const g=document.getElementById("g");
+for(const s of S){const c=document.createElement("div");c.className="c";c.innerHTML="<b>"+s+"</b>";const w=document.createElement("div");w.className="tradingview-widget-container";const sc=document.createElement("script");sc.src="https://s3.tradingview.com/external-embedding/embed-widget-single-quote.js";sc.async=true;sc.text=JSON.stringify({symbol:s,width:"100%",isTransparent:false,colorTheme:"light",locale:"en"});w.appendChild(sc);c.appendChild(w);g.appendChild(c);}
+</script></body></html>
