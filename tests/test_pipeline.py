@@ -295,7 +295,7 @@ class Gate(Base):
         self.assertTrue(ok)
         self.assertEqual(p["_analysis"]["template"], run.load(3)["analysis"]["template"])
         (self.root / "pipeline" / "config.json").write_text(json.dumps({"enforce_from": None}))
-        self.assertTrue(gate.allowed({"id": "2026-10-23-x", "publishedAt": "2026-10-23T16:00:00+05:30"}, self.root)[0])
+        self.assertFalse(gate.allowed({"id": "2026-10-23-x", "publishedAt": "2026-10-23T16:00:00+05:30"}, self.root)[0])
 
     def test_built_checks(self):
         out = self.root / "out"
