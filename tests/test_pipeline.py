@@ -33,7 +33,11 @@ JOB = {
   "examples": [{"id": "ex1", "value": "10,000", "note": "illustrative ₹10,000 investment"}, {"id": "ex2", "value": "9,706", "note": "₹10,000 after a 2.94% fall"}]
  },
  "graphic": {"headline": "Sensex, Nifty fall for a fourth day", "coverHeadline": "NIFTY ENDS AT 22,600", "stat": "-0.39%",
-             "statLabel": "Nifty 50 closes at 22,600.00", "symbol": "candles", "flags": ["IN"], "coverDate": "2026-10-23"},
+             "statLabel": "Nifty 50 closes at 22,600.00", "symbol": "candles", "flags": ["IN"], "coverDate": "2026-10-23",
+             "chart": {"type": "index_board", "title": "Indian markets · close", "asOf": "Close, 23 Oct 2026", "source": "ChiniMandi, Business Standard",
+                       "items": [{"label": "Sensex", "value": "73,123.83", "change": "-125.56"},
+                                 {"label": "Nifty 50", "value": "22,600.00", "change": "-87.65", "pct": "-0.39%"},
+                                 {"label": "Smallcap 100", "pct": "-2.94%"}]}},
  "article": {
   "title": "Sensex, Nifty fall for a fourth day: Nifty ends at 22,600, small caps drop 2.94%",
   "dek": "The Sensex closed 125.56 points lower at 73,123.83.",
@@ -113,7 +117,7 @@ class Verification(Base):
         run, j = self.run_(m)
         rej = run.load(2)["rejected"]
         self.assertEqual([r["id"] for r in rej], ["small"])
-        self.assertIn("FAILED at ARTICLE_WRITING", core.status(run))
+        self.assertIn("FAILED at GRAPHICS_GENERATION", core.status(run))   # the chart shows the rejected figure
         self.assertFalse(self.post_path(j).exists())
 
     def test_key_figure_rejection_fails_verification(self):

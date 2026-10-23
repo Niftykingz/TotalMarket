@@ -72,6 +72,7 @@ def candidates(figs):
                 out.append((v / s, f"{fid}÷{s}"))
     for (ia, a), (ib, b) in itertools.permutations(base, 2):
         out.append((b - a, f"{ib}−{ia}"))
+        out.append(((b - a) * 100, f"({ib}−{ia})×100 (paise / basis points)"))
         if a:
             out.append(((b - a) / a * 100, f"%change {ia}→{ib}"))
             out.append((b / a * 100, f"{ib}/{ia}×100"))

@@ -611,7 +611,9 @@ def render(p, path_webp, path_jpg):
     import art
     a = analysis(p)
     if a["template"] != "illustration":
-        import cover_templates
+        import cover_templates, cover_templates_v2
+        if a["template"] in cover_templates_v2.TEMPLATES:
+            return cover_templates_v2.TEMPLATES[a["template"]](p, a, path_webp, path_jpg)
         return cover_templates.TEMPLATES[a["template"]](p, a, path_webp, path_jpg)
     seed = seed_of(p)
     obj, theme, d, glyph = pick(p)
@@ -694,8 +696,11 @@ def cover_name(p):
            p.get("palette"), p.get("coverLabel"), p.get("publishedAt"), art.detect(p), logos]
     an = analysis(p)
     key += [an["template"], an["object"], an["figures"], an["series"]]
-    if an["template"] != "illustration":  # re-render data covers whenever the template code changes
-        key.append(hashlib.md5(open(os.path.join(HERE, "cover_templates.py"), "rb").read()).hexdigest()[:8])
+    if an["template"] != "illustration":  # re-render data covers whenever their template code changes
+        mod = "cover_templates_v2.py" if an.get("chart") else "cover_templates.py"
+        key.append(hashlib.md5(open(os.path.join(HERE, mod), "rb").read()).hexdigest()[:8])
+        if an.get("chart"):
+            key.append(an["chart"])
     if p.get("coverDate") or p.get("coverContext"):
         key += [p.get("coverDate"), p.get("coverContext")]
     return f"{p['id']}-{hashlib.md5(json.dumps(key, ensure_ascii=False, default=str).encode()).hexdigest()[:8]}"

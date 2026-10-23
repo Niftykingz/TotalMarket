@@ -244,9 +244,52 @@ def analyze(p, meta=None, ipos=None):
         figures = ipo_figures(p, ipos)
         if figures:
             template, reason = "ipo_card", "listing with issue and listing price in the IPO register"
-    return {"event": event, "instruments": inst, "companies": [c.get("name") for c in p.get("companies") or []],
-            "direction": direction(p, figures), "template": template, "object": choose_object(p, event),
-            "figures": figures, "series": series, "reason": reason}
+    chart = p.get("chart") if isinstance(p.get("chart"), dict) else None
+    missing = ""
+    if chart:  # v2: a verified chart spec chooses a layout that fits the story type
+        import cover_templates_v2 as v2
+        ctype = chart.get("type")
+        if event in ("generic", "market_preview", "funding") and ctype == "stock_move":
+            event = "stock_move"
+        allowed = EVENT_LAYOUTS.get(event, set())
+        gap = v2.ok(chart)
+        if ctype not in allowed:
+            missing = f"chart layout {ctype!r} does not fit a {event} story (allowed: {sorted(allowed) or 'none'})"
+        elif gap:
+            missing = f"{ctype} needs {gap}"
+        else:
+            template, reason = ctype, f"{event} story with a verified {ctype} chart"
+            figures = [dict(i) for i in chart.get("items") or []]
+    need = data_required(p, event)
+    if need and template == "illustration" and not missing:
+        missing = f"{event} story needs a data graphic: add a verified `chart` ({' or '.join(sorted(EVENT_LAYOUTS.get(event, ())) or ['data'])})"
+    out = {"event": event, "instruments": inst, "companies": [c.get("name") for c in p.get("companies") or []],
+           "direction": direction(p, figures), "template": template, "object": choose_object(p, event),
+           "figures": figures, "series": series, "reason": reason}
+    if chart or need:  # extra keys only for v2 stories, so older covers keep their file names
+        out.update(data_required=need, missing=missing if template == "illustration" else "", chart=chart if template in V2_LAYOUTS else None)
+    return out
+
+
+# ------------------------------------------------------------------ v2 layout rules
+V2_LAYOUTS = {"index_board", "global_bars", "commodity_card", "forex_card", "policy_rate", "stock_move", "ipo_subscription", "earnings_v2"}
+EVENT_LAYOUTS = {
+    "index_move": {"index_board"}, "market_preview": {"index_board"}, "global_markets": {"global_bars"},
+    "commodity": {"commodity_card"}, "forex": {"forex_card"}, "policy": {"policy_rate"}, "earnings": {"earnings_v2", "stock_move"},
+    "ipo": {"ipo_subscription"}, "stock_move": {"stock_move"}, "ipo_listing": set(),
+}
+R_RATE = re.compile(r"\b(repo|policy rate|rate (cut|hike)|cuts? rates?|hikes? rates?|crr|slr|basis points|bps)\b", re.I)
+DATA_EVENTS = {"index_move", "market_preview", "global_markets", "commodity", "forex", "earnings", "ipo", "ipo_listing", "stock_move"}
+
+
+def data_required(p, event):
+    """Financial-news stories must carry a data graphic. Explainers, festivals, tech, funding
+    and non-rate policy news may use an original illustration."""
+    if event in DATA_EVENTS:
+        return True
+    if event == "policy":
+        return bool(R_RATE.search(str(p.get("title") or "")))
+    return False
 
 
 def choose_cover_object(story, fallback="candles"):
