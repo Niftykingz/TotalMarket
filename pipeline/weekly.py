@@ -178,7 +178,7 @@ def build(day, root=ROOT, now=None):
         "reportWatch": ["Crude oil and the rupee", "Quarterly earnings from large companies", "Institutional flows", "India VIX"],
         "body": body,
         "indiaImpact": "Index, sector and breadth moves together show how widely gains or losses spread beyond the Nifty 50.",
-        "seoTitle": f"Weekly Indian Stock Market Report: {d.day} {d.strftime('%B %Y')} | TotalMarket",
+        "seoTitle": f"Weekly Stock Market Report {d.day} {d.strftime('%b %Y')}: Nifty, Sensex, Sectors",
         "seoDescription": f"Week to {d.day} {d.strftime('%b %Y')}: Nifty 50 at {fmt(n50['last'])}, {title_dir} {wa}. NSE sector heatmap, Nifty 500 breadth and FII/DII flows.",
         "tags": ["weekly market report", "Nifty 50 this week", "sector heatmap", "market breadth", "FII DII data", "stock market today"],
         "sources": [{"name": s["name"], "url": s["url"]} for s in sources],

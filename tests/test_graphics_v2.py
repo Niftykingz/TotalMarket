@@ -82,6 +82,10 @@ class MissingData(V2):
         j["graphic"].pop("chart")
         j["article"]["editionLabel"] = "Fri 23 Oct · Closing wrap"
         j["graphic"]["headline"] = "Sensex, Nifty close lower"
+        mp = self.root / "data" / "meta.json"   # start from a history without the 23 Oct closes
+        meta = json.loads(mp.read_text(encoding="utf-8"))
+        meta["history"] = {k: [r for r in v if r.get("d") != "2026-10-23"] for k, v in meta.get("history", {}).items()}
+        mp.write_text(json.dumps(meta), encoding="utf-8")
         st = core.status(self.run_job(j))
         self.assertIn("MISSING_DATA", st)            # no 23 Oct closes in meta.history yet
         meta = json.loads((self.root / "data" / "meta.json").read_text(encoding="utf-8"))

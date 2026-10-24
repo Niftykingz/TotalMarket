@@ -10,8 +10,8 @@
    "kind": "close",
    "asOfText": "23 Oct close",
    "source": {
-    "name": "ChiniMandi: Sensex down 125 points, Nifty at 22,600",
-    "url": "https://www.chinimandi.com/sensex-down-125-points-nifty-at-22600/"
+    "name": "BSE India: Sensex daily index archive",
+    "url": "https://www.bseindia.com/indices/IndexArchiveData.html"
    }
   },
   {
@@ -22,32 +22,32 @@
    "kind": "close",
    "asOfText": "23 Oct close",
    "source": {
-    "name": "ChiniMandi: Sensex down 125 points, Nifty at 22,600",
-    "url": "https://www.chinimandi.com/sensex-down-125-points-nifty-at-22600/"
+    "name": "NSE India: index closing data",
+    "url": "https://www.nseindia.com/market-data/live-market-indices"
    }
   },
   {
    "label": "Bank Nifty",
-   "value": "54,832.35",
-   "change": "-0.26%",
-   "asOf": "2026-10-22",
+   "value": "54,287.35",
+   "change": "-1.16%",
+   "asOf": "2026-10-23",
    "kind": "close",
-   "asOfText": "22 Oct close",
+   "asOfText": "23 Oct close",
    "source": {
-    "name": "IIFL: Sensex falls 460 points, Nifty below 22,700",
-    "url": "https://www.indiainfoline.com/news/markets/stock-market-today-sensex-falls-460-points-nifty-closes-below-22700-media-fmcg-and-it-stocks-drag"
+    "name": "NSE India: index closing data",
+    "url": "https://www.nseindia.com/market-data/live-market-indices"
    }
   },
   {
    "label": "India VIX",
-   "value": "16.80",
-   "change": "+6.6%",
+   "value": "16.76",
+   "change": "+6.32%",
    "asOf": "2026-10-23",
-   "kind": "intraday",
-   "asOfText": "23 Oct, 11:30 am IST",
+   "kind": "close",
+   "asOfText": "23 Oct close",
    "source": {
-    "name": "Business Standard: Market live, 23 Oct",
-    "url": "https://www.business-standard.com/markets/news/stock-market-live-october-23-nse-bse-sensex-today-nifty50-gift-nifty-crude-oil-prices-jio-ipo-q2-results-today-126102300078_1.html"
+    "name": "NSE India: index closing data",
+    "url": "https://www.nseindia.com/market-data/live-market-indices"
    }
   },
   {
@@ -133,8 +133,8 @@
    }
   }
  ],
- "tickerAsOf": "Mixed times, see each item (IST)",
- "updatedAt": "2026-10-23T15:52:00+05:30",
+ "tickerAsOf": "23 Oct close",
+ "updatedAt": "2026-10-24T09:45:24+05:30",
  "history": {
   "Nifty 50": [
    {
@@ -170,6 +170,11 @@
     "d": "2026-10-22",
     "v": 22687.65,
     "s": "IIFL"
+   },
+   {
+    "d": "2026-10-23",
+    "v": 22600.0,
+    "s": "NSE"
    }
   ],
   "Sensex": [
@@ -206,6 +211,11 @@
     "d": "2026-10-22",
     "v": 73249.39,
     "s": "HDFC Sky"
+   },
+   {
+    "d": "2026-10-23",
+    "v": 73123.83,
+    "s": "BSE"
    }
   ],
   "Bank Nifty": [
@@ -222,6 +232,11 @@
     "d": "2026-10-22",
     "v": 54832.35,
     "s": "IIFL"
+   },
+   {
+    "d": "2026-10-23",
+    "v": 54287.35,
+    "s": "NSE"
    }
   ]
  }

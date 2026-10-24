@@ -353,15 +353,121 @@ def to_job(day, editor=None, root=ROOT, now=None):
             "reportWatch": editor.get("watch") or [],
             "body": body,
             "indiaImpact": "Breadth, sector moves and institutional flows show how widely the day's move spread beyond the headline indices.",
-            "seoTitle": f"Stock Market Today: Sensex, Nifty Close {D.day} {D.strftime('%B %Y')} | TotalMarket",
-            "seoDescription": f"Nifty 50 closed at {inr(n50['close'])} on {D.day} {D.strftime('%b %Y')}. NSE sector heatmap, Nifty 500 breadth, top movers and FII/DII data.",
-            "tags": ["stock market today", "Sensex today", "Nifty today", "market close", "top gainers losers", "FII DII data"],
+            **seo(d, D, sx, inr),
             "sources": [{"name": s_["name"], "url": s_["url"]} for s_ in sources],
             "publishedAt": pub.isoformat(), "edition": f"{day}-close", "editionLabel": f"{D.strftime('%a')} {D.day} {D.strftime('%b')} · Market close",
             "status": "new",
         },
     }
     return job
+
+
+def apply_data(day, root=ROOT):
+    """Update the site's market data files from the verified closing dataset (official NSE/BSE files):
+    meta.json history + ticker cards for Nifty 50, Sensex, Bank Nifty, India VIX, and fii_dii.json."""
+    d = dataset(day, root)
+    D = dt.date.fromisoformat(day)
+    mp = Path(root) / "data" / "meta.json"
+    meta = json.loads(mp.read_text(encoding="utf-8"))
+    hist = meta.setdefault("history", {})
+    names = {"NIFTY 50": "Nifty 50", "SENSEX": "Sensex", "NIFTY BANK": "Bank Nifty", "INDIA VIX": "India VIX"}
+    src = {"nse": {"name": "NSE India: index closing data", "url": "https://www.nseindia.com/market-data/live-market-indices"},
+           "bse": {"name": "BSE India: Sensex daily index archive", "url": "https://www.bseindia.com/indices/IndexArchiveData.html"}}
+    changed = []
+    for key, label in names.items():
+        x = d["indices"].get(key)
+        if not x:
+            continue
+        s_ = x.get("source") or "nse"
+        if label != "India VIX":
+            rows = [r for r in hist.get(label, []) if r.get("d") != day]
+            rows.append({"d": day, "v": round(float(x["close"]), 2), "s": "BSE" if s_ == "bse" else "NSE"})
+            hist[label] = sorted(rows, key=lambda r: r["d"])[-30:]
+        card = {"label": label, "value": f"{float(x['close']):,.2f}", "change": f"{float(x['pct']):+.2f}%", "asOf": day, "kind": "close",
+                "asOfText": f"{D.day} {D.strftime('%b')} close", "source": src["bse" if s_ == "bse" else "nse"]}
+        t = meta.setdefault("ticker", [])
+        k = next((i for i, c in enumerate(t) if c.get("label") == label), None)
+        if k is None:
+            t.append(card)
+        else:
+            t[k] = card
+        changed.append(label)
+    meta["tickerAsOf"] = f"{D.day} {D.strftime('%b')} close"
+    meta["updatedAt"] = dt.datetime.now(IST).replace(microsecond=0).isoformat()
+    mp.write_text(json.dumps(meta, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
+    f = d.get("flows")
+    if f:
+        fp = Path(root) / "data" / "fii_dii.json"
+        fd = json.loads(fp.read_text(encoding="utf-8"))
+        days = [x for x in fd.get("days", []) if x.get("date") != day]
+        is_new = len(days) == len(fd.get("days", []))
+        n = lambda v: round(float(v), 2)
+        days.append({"date": day, "fii": {"buy": n(f["fiiBuy"]), "sell": n(f["fiiSell"]), "net": n(f["fii"])},
+                     "dii": {"buy": n(f["diiBuy"]), "sell": n(f["diiSell"]), "net": n(f["dii"])}})
+        fd["days"] = sorted(days, key=lambda x: x["date"], reverse=True)
+        mo = fd.get("month") or {}
+        label = f"{D.strftime('%B %Y')} (to "
+        if is_new and str(mo.get("label", "")).startswith(label):
+            for who, b_, s__, n_ in (("fii", f["fiiBuy"], f["fiiSell"], f["fii"]), ("dii", f["diiBuy"], f["diiSell"], f["dii"])):
+                for k, v in (("buy", b_), ("sell", s__), ("net", n_)):
+                    mo[who][k] = round(float(mo[who][k]) + float(v), 1)
+            mo["label"] = f"{label}{D.day} {D.strftime('%b')})"
+        fd["source"] = {"name": "NSE India: FII/FPI and DII provisional cash-market activity", "url": "https://www.nseindia.com/reports/fii-dii"}
+        fd["updatedAt"] = dt.datetime.now(IST).replace(microsecond=0).isoformat()
+        fp.write_text(json.dumps(fd, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
+        changed.append("FII/DII")
+    return changed
+
+
+def seo(d, D, sx, inr):
+    """Search metadata: dated search-style title, a description with the verified closes, real search phrases
+    as tags (meta keywords, news_keywords, JSON-LD), descriptive image alt text and a Hindi edition."""
+    n50 = d["indices"]["NIFTY 50"]
+    p = float(n50["pct"])
+    move = "Higher" if p > 0 else "Lower" if p < 0 else "Flat"
+    day_txt, day_short = f"{D.day} {D.strftime('%B %Y')}", f"{D.day} {D.strftime('%b %Y')}"
+    desc = f"Nifty 50 closed at {inr(n50['close'])} ({p:+.2f}%)"
+    if sx:
+        desc += f", Sensex at {inr(sx['close'])} ({float(sx['pct']):+.2f}%)"
+    desc += f" on {day_short}. Top gainers and losers, sector heatmap, breadth and FII/DII data."
+    mon = D.strftime("%B").lower()
+    tags = ["stock market today", "share market today", "Sensex today", "Nifty today", "Nifty 50 closing",
+            "Bank Nifty today", "top gainers and losers today", "FII DII data today", "sector performance today",
+            f"stock market {D.day} {mon} {D.year}"]
+    alt = f"Market close graphic for {day_txt}: Nifty 50 {inr(n50['close'])} ({p:+.2f}%)" + (f", Sensex {inr(sx['close'])}" if sx else "")
+    return {"seoTitle": f"Stock Market Today {day_short}: Sensex, Nifty Close {move}"[:70],
+            "seoDescription": desc[:160], "tags": tags, "coverAlt": alt, "hi": hindi_edition(d, D, sx, inr)}
+
+
+HI_MONTHS = ["जनवरी", "फरवरी", "मार्च", "अप्रैल", "मई", "जून", "जुलाई", "अगस्त", "सितंबर", "अक्टूबर", "नवंबर", "दिसंबर"]
+
+
+def hindi_edition(d, D, sx, inr):
+    """Hindi edition with exactly the same verified numbers (Hindi search: शेयर बाजार आज, सेंसेक्स निफ्टी)."""
+    n50, bank = d["indices"]["NIFTY 50"], d["indices"].get("NIFTY BANK")
+    p = float(n50["pct"])
+    dt_hi = f"{D.day} {HI_MONTHS[D.month - 1]} {D.year}"
+    v = "चढ़कर" if p > 0 else "गिरकर" if p < 0 else "स्थिर रहकर"
+    title = f"शेयर बाजार आज: निफ्टी 50 {abs(p):.2f}% {v} {inr(n50['close'])} पर बंद"
+    if sx:
+        title += f", सेंसेक्स {abs(float(sx['pct'])):.2f}% {'ऊपर' if float(sx['pct']) > 0 else 'नीचे'}"
+    title += f" | {dt_hi}"
+    body = [f"NSE के क्लोजिंग आंकड़ों के मुताबिक {dt_hi} को निफ्टी 50 {inr(abs(float(n50['change'])))} अंक यानी {abs(p):.2f}% {v} "
+            f"{inr(n50['close'])} पर बंद हुआ।" + (f" सेंसेक्स {inr(sx['close'])} पर बंद हुआ ({float(sx['pct']):+.2f}%)।" if sx else "")
+            + (f" बैंक निफ्टी {inr(bank['close'])} पर रहा ({float(bank['pct']):+.2f}%)।" if bank else "")]
+    b = d.get("breadth")
+    if b:
+        body.append(f"बाजार की चौड़ाई | निफ्टी 500 में {int(b['advances'])} शेयर चढ़े और {int(b['declines'])} गिरे।")
+    f = d.get("flows")
+    if f:
+        body.append(f"संस्थागत निवेश | NSE के अस्थायी आंकड़ों के मुताबिक FII/FPI का नेट {'खरीद' if float(f['fii']) > 0 else 'बिकवाली'} "
+                    f"₹{inr(abs(float(f['fii'])))} करोड़ और DII का नेट {'खरीद' if float(f['dii']) > 0 else 'बिकवाली'} ₹{inr(abs(float(f['dii'])))} करोड़ रहा।")
+    body.append("पूरी जानकारी | सेक्टर हीटमैप, टॉप गेनर्स-लूजर्स और FII/DII के पूरे आंकड़े इसी पेज पर ऊपर रिपोर्ट में देखें।")
+    return {"title": title, "dek": f"निफ्टी 50 {inr(n50['close'])} पर बंद। सेक्टर, बाजार की चौड़ाई, टॉप शेयर और FII/DII आंकड़े।",
+            "body": body, "indiaImpact": "सेक्टर और बाजार की चौड़ाई बताती है कि गिरावट या तेजी कितनी व्यापक थी।",
+            "seoTitle": f"शेयर बाजार आज {dt_hi}: सेंसेक्स, निफ्टी क्लोजिंग"[:70],
+            "seoDescription": f"{dt_hi} को निफ्टी 50 {inr(n50['close'])} पर बंद ({p:+.2f}%)। टॉप गेनर्स-लूजर्स, सेक्टर और FII/DII आंकड़े।"[:160],
+            "tags": ["शेयर बाजार आज", "सेंसेक्स आज", "निफ्टी आज", "स्टॉक मार्केट न्यूज़", "FII DII डेटा", "टॉप गेनर्स लूजर्स"]}
 
 
 def _body_from_article(md):
@@ -386,7 +492,13 @@ def main(argv=None):
     ap.add_argument("--out", default=str(ROOT / "drafts" / "closing"))
     ap.add_argument("--job", action="store_true", help="write the publishable job for an APPROVED draft to pipeline/inbox")
     ap.add_argument("--editor", help="JSON file with the approved drivers / watch list and their sources")
+    ap.add_argument("--apply-data", action="store_true", help="update data/meta.json and data/fii_dii.json from the verified close")
     a = ap.parse_args(argv)
+    ap_data = "--apply-data" in (argv or sys.argv[1:])
+    if ap_data:
+        print("updated:", ", ".join(apply_data(a.date)))
+        if not a.job:
+            return 0
     if a.job:
         editor = json.loads(Path(a.editor).read_text(encoding="utf-8")) if a.editor else None
         job = to_job(a.date, editor)
