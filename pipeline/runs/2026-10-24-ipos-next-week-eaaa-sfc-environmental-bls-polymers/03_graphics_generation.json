@@ -1,0 +1,117 @@
+{
+ "fields": {
+  "coverHeadline": "IPOS OPENING NEXT WEEK",
+  "coverDate": "2026-10-24",
+  "symbol": "growth",
+  "coverLabel": "IPO calendar",
+  "flags": [
+   "IN"
+  ],
+  "chart": {
+   "type": "ipo_calendar",
+   "title": "IPO calendar · next week",
+   "source": "Upstox",
+   "asOf": "24 Oct 2026, 1:31 pm IST",
+   "items": [
+    {
+     "label": "EAAA India Alternatives",
+     "note": "26–28 Oct",
+     "value": "₹1,585–1,665"
+    },
+    {
+     "label": "BLS Polymers",
+     "note": "27–29 Oct",
+     "value": "₹142–150"
+    },
+    {
+     "label": "SFC Environmental",
+     "note": "27–29 Oct",
+     "value": "₹313–330"
+    },
+    {
+     "label": "MK Sons Fine Jewels",
+     "note": "28–30 Oct"
+    },
+    {
+     "label": "Bombay Coated",
+     "note": "29 Oct–2 Nov",
+     "value": "₹78–82"
+    }
+   ]
+  }
+ },
+ "analysis": {
+  "event": "ipo",
+  "instruments": [],
+  "companies": [],
+  "direction": "down",
+  "template": "ipo_calendar",
+  "object": "growth",
+  "figures": [
+   {
+    "label": "EAAA India Alternatives",
+    "note": "26–28 Oct",
+    "value": "₹1,585–1,665"
+   },
+   {
+    "label": "BLS Polymers",
+    "note": "27–29 Oct",
+    "value": "₹142–150"
+   },
+   {
+    "label": "SFC Environmental",
+    "note": "27–29 Oct",
+    "value": "₹313–330"
+   },
+   {
+    "label": "MK Sons Fine Jewels",
+    "note": "28–30 Oct"
+   },
+   {
+    "label": "Bombay Coated",
+    "note": "29 Oct–2 Nov",
+    "value": "₹78–82"
+   }
+  ],
+  "series": [],
+  "reason": "ipo story with a verified ipo_calendar chart",
+  "data_required": true,
+  "missing": "",
+  "chart": {
+   "type": "ipo_calendar",
+   "title": "IPO calendar · next week",
+   "source": "Upstox",
+   "asOf": "24 Oct 2026, 1:31 pm IST",
+   "items": [
+    {
+     "label": "EAAA India Alternatives",
+     "note": "26–28 Oct",
+     "value": "₹1,585–1,665"
+    },
+    {
+     "label": "BLS Polymers",
+     "note": "27–29 Oct",
+     "value": "₹142–150"
+    },
+    {
+     "label": "SFC Environmental",
+     "note": "27–29 Oct",
+     "value": "₹313–330"
+    },
+    {
+     "label": "MK Sons Fine Jewels",
+     "note": "28–30 Oct"
+    },
+    {
+     "label": "Bombay Coated",
+     "note": "29 Oct–2 Nov",
+     "value": "₹78–82"
+    }
+   ]
+  }
+ },
+ "headline": "IPOs next week: EAAA India Alternatives, SFC Environmental, BLS Polymers among 5 mainboard issues",
+ "files": {
+  "cover.jpg": "031bff56e926c8594825469520c04a28c8d57e0c5753e44442ca3caee132fbc0"
+ }
+}

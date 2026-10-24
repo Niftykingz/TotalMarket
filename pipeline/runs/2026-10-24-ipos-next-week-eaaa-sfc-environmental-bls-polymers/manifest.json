@@ -1,0 +1,42 @@
+{
+ "slug": "2026-10-24-ipos-next-week-eaaa-sfc-environmental-bls-polymers",
+ "job": "pipeline/inbox/2026-10-24-ipos-next-week-eaaa-sfc-environmental-bls-polymers.json",
+ "job_sha256": "d824bf2a690ca3184476ca2d251f9413278d7ce25f495047a513d60d1e1197c2",
+ "stages": {
+  "DATA_COLLECTION": {
+   "status": "PASS",
+   "sha256": "80d2f1f4f1c8cb64cdf5d4d4ac90cd45891e0c53c2134de0935b3e0bf43ec7f7",
+   "errors": [],
+   "started": "2026-10-24T16:09:46+05:30",
+   "finished": "2026-10-24T16:09:46+05:30"
+  },
+  "DATA_VERIFICATION": {
+   "status": "PASS",
+   "sha256": "85fe6ecd6d1cb11dd48d3b4ce607471c66156013b9d50a90d4676ed6d6bc3d0d",
+   "errors": [],
+   "started": "2026-10-24T16:09:46+05:30",
+   "finished": "2026-10-24T16:09:46+05:30"
+  },
+  "GRAPHICS_GENERATION": {
+   "status": "PASS",
+   "sha256": "26a88556c3252565bd1d9ba6be73b08dc6690b7858a7aa493fb62679771b896b",
+   "errors": [],
+   "started": "2026-10-24T16:09:46+05:30",
+   "finished": "2026-10-24T16:09:47+05:30"
+  },
+  "ARTICLE_WRITING": {
+   "status": "PASS",
+   "sha256": "820ca9767b0cf2428438ebfa45207c6a2b62653d0efc50673df8038ef61b72ac",
+   "errors": [],
+   "started": "2026-10-24T16:09:47+05:30",
+   "finished": "2026-10-24T16:09:47+05:30"
+  },
+  "FINAL_QA": {
+   "status": "PASS",
+   "sha256": "7aeff4c7d9193c1a36fea731be68fc7e70fccf5dd22e178089e5990438ea2556",
+   "errors": [],
+   "started": "2026-10-24T16:09:47+05:30",
+   "finished": "2026-10-24T16:09:47+05:30"
+  }
+ }
+}

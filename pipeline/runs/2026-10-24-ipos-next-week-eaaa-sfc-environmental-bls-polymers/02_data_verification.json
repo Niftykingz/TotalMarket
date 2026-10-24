@@ -1,0 +1,112 @@
+{
+ "verified": [
+  {
+   "id": "ea_size",
+   "label": "EAAA India Alternatives IPO size",
+   "value": "1,200",
+   "source": "upx",
+   "evidence": "will launch its ₹1,200 crore initial share sale on October 26.",
+   "as_of": "2026-10-24",
+   "key": true
+  },
+  {
+   "id": "ea_lo",
+   "label": "EAAA India Alternatives price band lower",
+   "value": "1,585",
+   "source": "upx",
+   "evidence": "The issue, with a price band of ₹1,585 to ₹1,665 per equity share, will end on October 28.",
+   "as_of": "2026-10-24",
+   "key": true
+  },
+  {
+   "id": "ea_hi",
+   "label": "EAAA India Alternatives price band upper",
+   "value": "1,665",
+   "source": "upx",
+   "evidence": "The issue, with a price band of ₹1,585 to ₹1,665 per equity share, will end on October 28.",
+   "as_of": "2026-10-24"
+  },
+  {
+   "id": "bls_size",
+   "label": "BLS Polymers IPO size",
+   "value": "255",
+   "source": "upx",
+   "evidence": "The ₹255 crore BLS Polymers IPO, which is entirely a fresh issue of 1.70 crore shares, is open from October 27 to October 29.",
+   "as_of": "2026-10-24"
+  },
+  {
+   "id": "bls_lo",
+   "label": "BLS Polymers price band lower",
+   "value": "142",
+   "source": "upx",
+   "evidence": "With a price band of ₹142 to ₹150 per share",
+   "as_of": "2026-10-24"
+  },
+  {
+   "id": "bls_hi",
+   "label": "BLS Polymers price band upper",
+   "value": "150",
+   "source": "upx",
+   "evidence": "With a price band of ₹142 to ₹150 per share",
+   "as_of": "2026-10-24"
+  },
+  {
+   "id": "sfc_size",
+   "label": "SFC Environmental IPO size",
+   "value": "668",
+   "source": "upx",
+   "evidence": "SFC Environmental Technologies Ltd's ₹668 crore IPO will open for subscription on October 27.",
+   "as_of": "2026-10-24"
+  },
+  {
+   "id": "sfc_lo",
+   "label": "SFC Environmental price band lower",
+   "value": "313",
+   "source": "upx",
+   "evidence": "It has set a price band of ₹313 to ₹330 per share.",
+   "as_of": "2026-10-24"
+  },
+  {
+   "id": "sfc_hi",
+   "label": "SFC Environmental price band upper",
+   "value": "330",
+   "source": "upx",
+   "evidence": "It has set a price band of ₹313 to ₹330 per share.",
+   "as_of": "2026-10-24"
+  },
+  {
+   "id": "mk_size",
+   "label": "MK Sons Fine Jewels IPO size",
+   "value": "330.48",
+   "source": "upx",
+   "evidence": "will launch its ₹330.48 crore offer on October 28.",
+   "as_of": "2026-10-24"
+  },
+  {
+   "id": "bc_size",
+   "label": "Bombay Coated IPO size",
+   "value": "183.1",
+   "source": "upx",
+   "evidence": "its ₹183.1-crore issue will hit the primary market on October 29",
+   "as_of": "2026-10-24"
+  },
+  {
+   "id": "bc_lo",
+   "label": "Bombay Coated price band lower",
+   "value": "78",
+   "source": "upx",
+   "evidence": "with a price band of ₹78 to ₹82 per share.",
+   "as_of": "2026-10-24"
+  },
+  {
+   "id": "bc_hi",
+   "label": "Bombay Coated price band upper",
+   "value": "82",
+   "source": "upx",
+   "evidence": "with a price band of ₹78 to ₹82 per share.",
+   "as_of": "2026-10-24"
+  }
+ ],
+ "rejected": [],
+ "examples": []
+}
