@@ -39,12 +39,18 @@ class MarketArt(unittest.TestCase):
             old = market_art.HERE
             market_art.HERE = str(tmp)
             try:
-                self.assertEqual(market_art._registry(), [])
+                ids = [i["id"] for i in market_art._registry()]
+                self.assertNotIn(reg["items"][0]["id"], ids)
+                self.assertNotIn(reg["items"][1]["id"], ids)
             finally:
                 market_art.HERE = old
                 market_art._CACHE.clear()
         finally:
             shutil.rmtree(tmp)
+
+    def test_ipo_art_for_new_ipo_stories_only(self):
+        self.assertEqual(market_art.ipo_choice(dict(NEW, category="startups")), "ipo-01")
+        self.assertIsNone(market_art.ipo_choice(dict(NEW, id="old", publishedAt="2026-10-22T10:00:00+05:30")))
 
 
 if __name__ == "__main__":

@@ -15,7 +15,8 @@ from PIL import Image, ImageDraw, ImageFilter
 HERE = os.path.dirname(os.path.abspath(__file__))
 ART_FROM = datetime.fromisoformat("2026-10-24T08:45:00+05:30")
 # Earlier stories the owner asked to switch to the new artwork (24 Oct 2026).
-ALSO = {"2026-10-23-sensex-nifty-close-fourth-straight-fall-recovers-from-lows", "2026-10-23-weekly-market-review"}
+ALSO = {"2026-10-23-sensex-nifty-close-fourth-straight-fall-recovers-from-lows", "2026-10-23-weekly-market-review",
+        "2026-10-23-jio-platforms-ipo-closes-22-times-subscribed", "2026-10-24-paras-healthcare-ipo-closes-2-34-times-subscribed"}
 _CACHE = {}
 
 
@@ -42,11 +43,42 @@ def choice(p, direction):
             return None
     except ValueError:
         return None
-    pool = sorted((it for it in _registry() if it["direction"] == direction), key=lambda it: it["id"])
+    pool = sorted((it for it in _registry() if it["kind"] in ("bull", "bear") and it["direction"] == direction), key=lambda it: it["id"])
     if not pool:
         return None
     k = int(hashlib.md5(str(p.get("id")).encode()).hexdigest(), 16) % len(pool)  # stable rotation
     return pool[k]["id"]
+
+
+def _new_enough(p):
+    try:
+        return p.get("id") in ALSO or datetime.fromisoformat(str(p.get("publishedAt"))) >= ART_FROM
+    except ValueError:
+        return False
+
+
+def ipo_choice(p):
+    """Artwork id for an IPO story's cover, or None."""
+    if not _new_enough(p):
+        return None
+    pool = sorted((it for it in _registry() if it["kind"] == "ipo"), key=lambda it: it["id"])
+    if not pool:
+        return None
+    return pool[int(hashlib.md5(str(p.get("id")).encode()).hexdigest(), 16) % len(pool)]["id"]
+
+
+def ipo_layer(art_id, W, H, panel=(10, 22, 48), edge=1000):
+    """Light artwork on the right; a solid navy panel on the left that fades into it."""
+    it = next(i for i in _registry() if i["id"] == art_id)
+    src = Image.open(os.path.join(HERE, it["file"])).convert("RGBA")
+    im = Image.new("RGBA", (W, H), panel + (255,))
+    a2 = src.resize((int(src.width * H / src.height), H), Image.LANCZOS)
+    im.alpha_composite(a2, (W - a2.width + 260, 0))
+    fade = np.zeros((H, W, 4), np.uint8)
+    fade[..., :3] = panel
+    fade[..., 3] = (np.clip((edge - np.arange(W)) / 360, 0, 1) * 255).astype(np.uint8)[None, :]
+    im.alpha_composite(Image.fromarray(fade, "RGBA"))
+    return im
 
 
 def layer(art_id, W, H, strength=1.0, text_width=900):

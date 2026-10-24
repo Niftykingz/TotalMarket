@@ -372,6 +372,10 @@ def ipo_subscription(p, a, wp, jp):
     ch = a["chart"]
     tot = next(i for i in ch["items"] if i.get("role") == "total")
     cats = [i for i in ch["items"] if i.get("role") != "total" and num(i.get("value")) is not None][:6]
+    import market_art
+    art_id = market_art.ipo_choice(p)
+    if art_id:
+        return _ipo_subscription_art(p, ch, tot, cats, art_id, wp, jp)
     im = ct._grad((24, 10, 56), (58, 22, 104), .45)
     dr = ImageDraw.Draw(im)
     y = _head(im, dr, p, ch, accent=GOLD, size=66, max_w=1440)
@@ -392,6 +396,39 @@ def ipo_subscription(p, a, wp, jp):
         dr = ImageDraw.Draw(im)
         lbl = str(c["value"]) if "x" in str(c["value"]).lower() else f'{c["value"]}x'
         dr.text((x0 + L + 16, yy + (rh + 26) / 2), lbl, font=F(XB, 30), fill=WHITE, anchor="lm")
+    _foot(ImageDraw.Draw(im), p, ch, accent=GOLD)
+    ct._save(im, wp, jp)
+
+
+def _ipo_subscription_art(p, ch, tot, cats, art_id, wp, jp):
+    """IPO subscription with the owner-approved IPO artwork: figures on a navy panel, art on the right."""
+    import market_art
+    im = market_art.ipo_layer(art_id, W, H)
+    dr = ImageDraw.Draw(im)
+    ct._kicker(dr, ch.get("title") or "IPO", accent=GOLD)
+    head = str(p.get("coverHeadline") or p.get("title") or "")
+    f = ct._fit(dr, head, BLACK, 62, 860, min_size=40)
+    dr.text((84, 150), head, font=f, fill=WHITE)
+    y = 150 + f.size + 30
+    dr.text((84, y), str(tot["label"]).upper(), font=F(SEMI, 26), fill=(191, 219, 254))
+    tv = str(tot["value"]) if "x" in str(tot["value"]).lower() else f'{tot["value"]}x'
+    dr.text((80, y + 30), tv, font=F(BLACK, 132), fill=GOLD)
+    if tot.get("note"):
+        dr.text((84, y + 186), str(tot["note"]), font=F(MED, 26), fill=(191, 219, 254))
+    mx = max(num(c["value"]) for c in cats) or 1
+    yy = y + 250
+    rh = min(62, (H - 130 - yy) / max(1, len(cats)))
+    for c in cats:
+        v = num(c["value"])
+        dr.text((84, yy + rh / 2 - 4), str(c["label"]), font=F(SEMI, 25), fill=WHITE, anchor="lm")
+        x0, x1 = 430, 760
+        L = max(8, v / mx * (x1 - x0))
+        ct._rrect(im, [x0, yy + 10, x0 + L, yy + rh - 18], 8, fill=(147, 197, 253, 240) if v >= 1 else (251, 146, 60, 240))
+        dr = ImageDraw.Draw(im)
+        lbl = str(c["value"]) if "x" in str(c["value"]).lower() else f'{c["value"]}x'
+        dr.text((x0 + L + 12, yy + rh / 2 - 4), lbl, font=F(XB, 26), fill=WHITE, anchor="lm")
+        yy += rh
+    market_art.brand_backing(im, W, H)
     _foot(ImageDraw.Draw(im), p, ch, accent=GOLD)
     ct._save(im, wp, jp)
 

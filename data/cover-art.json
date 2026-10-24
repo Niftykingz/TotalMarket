@@ -28,6 +28,20 @@
    "source": "AI-generated image supplied by the site owner (Mayur Patel) in chat on 24 Oct 2026",
    "rights": "Owner confirmed commercial use on TotalMarket on 24 Oct 2026 ('Yes you can use commercial as created by ai')",
    "approved": true
+  },
+  {
+   "id": "ipo-01",
+   "file": "cover_art/ipo-01.webp",
+   "kind": "ipo",
+   "direction": "any",
+   "sha256": "305a4d8b5c04169ebbdc3b915c5104fd57250a14545bd520e8e2c78b0765fb0f",
+   "size": [
+    1536,
+    1024
+   ],
+   "source": "AI-generated image supplied by the site owner (Mayur Patel) in chat on 24 Oct 2026 for IPO covers",
+   "rights": "Owner confirmed commercial use of AI-created cover artwork on TotalMarket on 24 Oct 2026",
+   "approved": true
   }
  ]
 }
