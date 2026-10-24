@@ -231,6 +231,14 @@
         "nifty50: HTTP Error 404: Not Found",
         "nifty50_alt: HTTP Error 404: Not Found"
       ]
+    },
+    {
+      "collectedAt": "2026-10-24T09:31:02.736322+05:30",
+      "added": [],
+      "errors": [
+        "nifty50: HTTP Error 404: Not Found",
+        "nifty50_alt: HTTP Error 404: Not Found"
+      ]
     }
   ]
 }
