@@ -1,2 +1,3 @@
 # Python bytecode (new files only; previously tracked ones are unaffected)
 *.pyc
+pipeline/last_queue.json

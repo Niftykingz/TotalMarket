@@ -43,31 +43,4 @@ jobs:
             files=$(git diff --name-only --diff-filter=A "$base" HEAD -- 'data/posts/*.json')
           fi
           [ -z "$files" ] && { echo "No new stories."; exit 0; }
-          python3 - $files <<'PY'
-          import json, os, sys, glob, html, urllib.request, urllib.parse
-          site = "https://totalmarket.co.in"
-          tok, chat = os.environ["TG_TOKEN"], os.environ["TG_CHAT"]
-          for f in sys.argv[1:]:
-              if not os.path.exists(f):
-                  continue
-              p = json.load(open(f, encoding="utf-8"))
-              sid = os.path.basename(f)[:-5]
-              url = f"{site}/news/{sid}/"
-              caption = (f"<b>{html.escape(p.get('title',''))}</b>\n\n"
-                         f"{html.escape(p.get('dek',''))}\n\n"
-                         f"📰 Read: {url}\n\n#TotalMarket")
-              jpg = sorted(glob.glob(f"docs/covers/{sid}-*.jpg"))
-              if jpg:
-                  photo = f"{site}/covers/{os.path.basename(jpg[-1])}"
-                  method, data = "sendPhoto", {"chat_id": chat, "photo": photo, "caption": caption, "parse_mode": "HTML"}
-              else:
-                  method, data = "sendMessage", {"chat_id": chat, "text": caption, "parse_mode": "HTML"}
-              for c in [x.strip() for x in chat.split(",") if x.strip()]:
-                  data["chat_id"] = c
-                  req = urllib.request.Request(f"https://api.telegram.org/bot{tok}/{method}",
-                                               data=urllib.parse.urlencode(data).encode())
-                  try:
-                      print(sid, urllib.request.urlopen(req, timeout=30).status)
-                  except Exception as e:
-                      print("failed", sid, e)
-          PY
+          python3 tools/telegram_notify.py $(for f in $files; do basename "$f" .json; done)

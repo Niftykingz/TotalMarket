@@ -115,6 +115,10 @@ def main(publish=True, root=ROOT):
                     break
                 sh(["git", "pull", "-q", "--rebase", "origin", "main"], root)
     missing = live_check(moved) if moved and os.environ.get("TM_SKIP_LIVE_CHECK") != "1" else []
+    try:  # read by the workflow's Telegram step (not committed)
+        Path(root, "pipeline", "last_queue.json").write_text(json.dumps({"published": [s for s in moved if s not in missing]}), encoding="utf-8")
+    except OSError:
+        pass
     _summary(statuses, moved, missing, summary)
     failed = [s for s, st in statuses.items() if st != "READY"]
     core.log("queue", published=moved, failed=failed, not_live=missing)

@@ -45,3 +45,13 @@ jobs:
         run: python3 -m unittest discover -s tests
       - name: Verify jobs, publish, archive, check live site
         run: python3 -m pipeline queue
+      - name: Telegram alerts for the articles this run published
+        # The queue pushes with the workflow token, which does not start the Telegram workflow, so alert here.
+        if: success() || failure()
+        env:
+          TG_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TG_CHAT: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          git pull -q origin main || true
+          ids=$(python3 -c "import json;print(' '.join(json.load(open('pipeline/last_queue.json'))['published']))" 2>/dev/null || true)
+          [ -n "$ids" ] && { sleep 60; python3 tools/telegram_notify.py $ids; } || echo "nothing new to announce"
