@@ -1,0 +1,245 @@
+{
+ "fields": {
+  "coverHeadline": "MARKET CLOSE",
+  "coverDate": "2026-10-23",
+  "symbol": "candles",
+  "flags": [
+   "IN"
+  ],
+  "chart": {
+   "type": "market_close",
+   "title": "Indian markets · close",
+   "asOf": "Close, Fri 23 Oct 2026",
+   "dateLabel": "Friday, 23 October 2026",
+   "summary": "The Nifty 50 fell 0.39%; 450 of 501 Nifty 500 stocks declined, and small caps fell more (-2.94%).",
+   "source": "NSE, BSE",
+   "breadthUniverse": "Nifty 500",
+   "items": [
+    {
+     "label": "NIFTY 50",
+     "value": "22600",
+     "change": "-87.65",
+     "pct": "-0.39%",
+     "figures": [
+      "nse_n50",
+      "nse_n50_pct"
+     ]
+    },
+    {
+     "label": "SENSEX",
+     "value": "73123.83",
+     "change": "-125.56",
+     "pct": "-0.17%",
+     "figures": [
+      "bse_sx",
+      "bse_sx_pct"
+     ]
+    },
+    {
+     "label": "NIFTY BANK",
+     "value": "54287.35",
+     "change": "-638.35",
+     "pct": "-1.16%",
+     "figures": [
+      "nse_bank",
+      "nse_bank_pct"
+     ]
+    },
+    {
+     "label": "INDIA VIX",
+     "value": "16.76",
+     "change": "1",
+     "pct": "6.32%",
+     "figures": [
+      "nse_vix",
+      "nse_vix_pct"
+     ]
+    },
+    {
+     "label": "Nifty 500 advances",
+     "value": "50",
+     "role": "advances",
+     "figures": [
+      "nse_n500_advances"
+     ]
+    },
+    {
+     "label": "Nifty 500 declines",
+     "value": "450",
+     "role": "declines",
+     "figures": [
+      "nse_n500_declines"
+     ]
+    },
+    {
+     "label": "Nifty 500 unchanged",
+     "value": "1",
+     "role": "unchanged",
+     "figures": [
+      "nse_n500_unchanged"
+     ]
+    }
+   ]
+  }
+ },
+ "analysis": {
+  "event": "market_preview",
+  "instruments": [
+   "Nifty 50",
+   "Sensex"
+  ],
+  "companies": [],
+  "direction": "down",
+  "template": "market_close",
+  "object": "candles",
+  "figures": [
+   {
+    "label": "NIFTY 50",
+    "value": "22600",
+    "change": "-87.65",
+    "pct": "-0.39%",
+    "figures": [
+     "nse_n50",
+     "nse_n50_pct"
+    ]
+   },
+   {
+    "label": "SENSEX",
+    "value": "73123.83",
+    "change": "-125.56",
+    "pct": "-0.17%",
+    "figures": [
+     "bse_sx",
+     "bse_sx_pct"
+    ]
+   },
+   {
+    "label": "NIFTY BANK",
+    "value": "54287.35",
+    "change": "-638.35",
+    "pct": "-1.16%",
+    "figures": [
+     "nse_bank",
+     "nse_bank_pct"
+    ]
+   },
+   {
+    "label": "INDIA VIX",
+    "value": "16.76",
+    "change": "1",
+    "pct": "6.32%",
+    "figures": [
+     "nse_vix",
+     "nse_vix_pct"
+    ]
+   },
+   {
+    "label": "Nifty 500 advances",
+    "value": "50",
+    "role": "advances",
+    "figures": [
+     "nse_n500_advances"
+    ]
+   },
+   {
+    "label": "Nifty 500 declines",
+    "value": "450",
+    "role": "declines",
+    "figures": [
+     "nse_n500_declines"
+    ]
+   },
+   {
+    "label": "Nifty 500 unchanged",
+    "value": "1",
+    "role": "unchanged",
+    "figures": [
+     "nse_n500_unchanged"
+    ]
+   }
+  ],
+  "series": [],
+  "reason": "market_preview story with a verified market_close chart",
+  "data_required": true,
+  "missing": "",
+  "chart": {
+   "type": "market_close",
+   "title": "Indian markets · close",
+   "asOf": "Close, Fri 23 Oct 2026",
+   "dateLabel": "Friday, 23 October 2026",
+   "summary": "The Nifty 50 fell 0.39%; 450 of 501 Nifty 500 stocks declined, and small caps fell more (-2.94%).",
+   "source": "NSE, BSE",
+   "breadthUniverse": "Nifty 500",
+   "items": [
+    {
+     "label": "NIFTY 50",
+     "value": "22600",
+     "change": "-87.65",
+     "pct": "-0.39%",
+     "figures": [
+      "nse_n50",
+      "nse_n50_pct"
+     ]
+    },
+    {
+     "label": "SENSEX",
+     "value": "73123.83",
+     "change": "-125.56",
+     "pct": "-0.17%",
+     "figures": [
+      "bse_sx",
+      "bse_sx_pct"
+     ]
+    },
+    {
+     "label": "NIFTY BANK",
+     "value": "54287.35",
+     "change": "-638.35",
+     "pct": "-1.16%",
+     "figures": [
+      "nse_bank",
+      "nse_bank_pct"
+     ]
+    },
+    {
+     "label": "INDIA VIX",
+     "value": "16.76",
+     "change": "1",
+     "pct": "6.32%",
+     "figures": [
+      "nse_vix",
+      "nse_vix_pct"
+     ]
+    },
+    {
+     "label": "Nifty 500 advances",
+     "value": "50",
+     "role": "advances",
+     "figures": [
+      "nse_n500_advances"
+     ]
+    },
+    {
+     "label": "Nifty 500 declines",
+     "value": "450",
+     "role": "declines",
+     "figures": [
+      "nse_n500_declines"
+     ]
+    },
+    {
+     "label": "Nifty 500 unchanged",
+     "value": "1",
+     "role": "unchanged",
+     "figures": [
+      "nse_n500_unchanged"
+     ]
+    }
+   ]
+  }
+ },
+ "headline": "Sensex, Nifty today: Nifty 50 falls 0.39% to 22,600.00, Sensex down 0.17% | 23 October 2026",
+ "files": {
+  "cover.jpg": "3f8a8c5e814946695e1cf5df934894ce6760fc08d67158345f43039330f995f7"
+ }
+}

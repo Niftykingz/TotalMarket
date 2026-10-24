@@ -1,0 +1,42 @@
+{
+ "slug": "2026-10-23-sensex-nifty-close-fourth-straight-fall-recovers-from-lows",
+ "job": "pipeline/inbox/2026-10-23-sensex-nifty-close-fourth-straight-fall-recovers-from-lows.json",
+ "job_sha256": "4b150cdb41d3b6f7d3f1fbc75361db56938e0c356969a1668c02d096ee5a3ea7",
+ "stages": {
+  "DATA_COLLECTION": {
+   "status": "PASS",
+   "sha256": "d338a0e28d64591cdadcd38546904650fcf3eea1144b073e99375394be37caca",
+   "errors": [],
+   "started": "2026-10-24T09:52:55+05:30",
+   "finished": "2026-10-24T09:52:55+05:30"
+  },
+  "DATA_VERIFICATION": {
+   "status": "PASS",
+   "sha256": "8a59f86725df17e7499ae9fe08e4dfc1556aa19ff267d0dd1d3f8ac0073702f4",
+   "errors": [],
+   "started": "2026-10-24T09:52:55+05:30",
+   "finished": "2026-10-24T09:52:55+05:30"
+  },
+  "GRAPHICS_GENERATION": {
+   "status": "PASS",
+   "sha256": "26b041a0c028a04dbad8ff4d4cd895e94ee69742df1c655b4264c2dfd5a1f6d0",
+   "errors": [],
+   "started": "2026-10-24T09:52:55+05:30",
+   "finished": "2026-10-24T09:52:56+05:30"
+  },
+  "ARTICLE_WRITING": {
+   "status": "PASS",
+   "sha256": "502ec669cf3390ffbe62cc1ead8d312930a95d6e83b3591fcde381b7cfdf108c",
+   "errors": [],
+   "started": "2026-10-24T09:52:56+05:30",
+   "finished": "2026-10-24T09:52:56+05:30"
+  },
+  "FINAL_QA": {
+   "status": "PASS",
+   "sha256": "5b267eac2d107580a7fb0f6ef9dcef753b707673316485427a10910e16df0d31",
+   "errors": [],
+   "started": "2026-10-24T09:52:56+05:30",
+   "finished": "2026-10-24T09:52:56+05:30"
+  }
+ }
+}
