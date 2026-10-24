@@ -218,6 +218,10 @@
     "nifty50list": {
       "sha256": "f5ba4027d935ae72879d5c24bbebf0e8439ec8ed504ffdf4175fde69206244b3",
       "bytes": 3344
+    },
+    "bse_sensex_arch": {
+      "sha256": "1e62f51412e5356bf3e21070c43e91898779b5d8bb33c800fd222578512f7623",
+      "bytes": 366
     }
   },
   "reruns": [
@@ -238,6 +242,17 @@
       "errors": [
         "nifty50: HTTP Error 404: Not Found",
         "nifty50_alt: HTTP Error 404: Not Found"
+      ]
+    },
+    {
+      "collectedAt": "2026-10-24T09:35:00.774771+05:30",
+      "added": [
+        "bse_sensex_arch"
+      ],
+      "errors": [
+        "nifty50: HTTP Error 404: Not Found",
+        "nifty50_alt: HTTP Error 404: Not Found",
+        "bse_sensex_live: Expecting value: line 3 column 1 (char 4)"
       ]
     }
   ]
