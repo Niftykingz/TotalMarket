@@ -279,6 +279,8 @@ def main():
             name = re.sub(r"[^A-Za-z0-9]+", "_", p).strip("_") + ".json.gz"
             if (base / name).is_file():
                 continue
+            if p == "/api/fiidiiTradeReact" and "institutionalFlows" not in result["datasets"]:
+                continue  # before ~6 pm NSE still shows the previous day: archive only when today's figures are out
             (base / name).write_bytes(gzip.compress(b, mtime=0))
             kept[p] = result["raw"][p]
         merged = dict(prev, raw=kept, reruns=(prev.get("reruns") or []) + [{"collectedAt": result["collectedAt"], "added": sorted(set(kept) - set(prev.get("raw") or {})),

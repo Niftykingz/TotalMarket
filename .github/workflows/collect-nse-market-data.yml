@@ -8,6 +8,8 @@ on:
   schedule:
     # 16:15 IST on weekdays, after the regular NSE cash close.
     - cron: '45 10 * * 1-5'
+    # 18:40 IST: NSE publishes provisional FII/DII cash-market figures after 6 pm.
+    - cron: '10 13 * * 1-5'
 permissions:
   contents: write  # only to commit the dated audit snapshot under data/market_snapshots/
 concurrency:
