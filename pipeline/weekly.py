@@ -225,6 +225,9 @@ def main(argv=None):
     except NotReady as ex:
         print(f"weekly report not prepared: {ex}")
         return 2
+    if (ROOT / "data" / "posts" / f"{job['slug']}.json").is_file() or (ROOT / "pipeline" / "archive" / f"{job['slug']}.json").is_file():
+        print(f"{job['slug']} is already published; not preparing it again")
+        return 0
     out = Path(a.out) / f"{job['slug']}.json"
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(json.dumps(job, ensure_ascii=False, indent=1), encoding="utf-8")
