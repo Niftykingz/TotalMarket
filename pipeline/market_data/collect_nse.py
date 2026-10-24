@@ -226,6 +226,28 @@ def collect(asof=None, fetch=None, raw_sink=None, fetch_file=None):
             except Exception as exc:
                 snap["errors"].append(key + ": " + str(exc)[:180])
 
+    # Sensex is a BSE index: try BSE's own public data (recorded for audit; parsed by pipeline/closing.py).
+    if live or fetch_file is not None:
+        dmy = dt.date.fromisoformat(today).strftime("%d/%m/%Y")
+        bse = [("bse_sensex_arch", f"https://api.bseindia.com/BseIndiaAPI/api/IndexArchDaily/w?fmdt={dmy}&index=SENSEX&period=D&todt={dmy}"),
+               ("bse_sensex_live", "https://api.bseindia.com/BseIndiaAPI/api/GetSensexData/w")]
+        bse_opener = urllib.request.build_opener(urllib.request.HTTPCookieProcessor(http.cookiejar.CookieJar()))
+        for key, url in bse:
+            try:
+                if fetch_file is not None and not live:
+                    raw = fetch_file(url)
+                else:
+                    req = urllib.request.Request(url, headers={"User-Agent": UA, "Accept": "application/json,text/plain,*/*",
+                                                               "Referer": "https://www.bseindia.com/", "Origin": "https://www.bseindia.com"})
+                    with bse_opener.open(req, timeout=20) as r:
+                        raw = r.read(2_000_001)
+                payload = json.loads(raw)
+                if raw_sink is not None:
+                    raw_sink[key] = raw
+                snap["diagnostics"][key] = {"type": type(payload).__name__, "sample": json.dumps(payload)[:400]}
+            except Exception as exc:
+                snap["errors"].append(key + ": " + str(exc)[:160])
+
     snap["status"] = "complete" if len(snap["datasets"]) == 3 and not snap["errors"] else "partial"
     if snap["status"] == "complete" or "movers" in snap["datasets"]:
         snap["errors"] = [e for e in snap["errors"] if not e.startswith("nifty50:")]  # recovered by the alt path
