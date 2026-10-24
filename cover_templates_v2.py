@@ -43,6 +43,7 @@ REQUIRES = {
     "earnings_v2": "2+ items with value and change",
     "ipo_facts": "a 'stage' and 2+ items with label and value",
     "ipo_calendar": "1+ rows with label (company) and note (dates)",
+    "market_close": "NIFTY 50 item with value, change and pct",
 }
 IPO_STAGES = {"filed", "opens", "anchor", "allotment", "listing", "firstday", "lockin"}
 
@@ -89,6 +90,8 @@ def ok(chart):
         return "" if sum(1 for i in items if has(i, "value") and has(i, "change")) >= 2 else REQUIRES[t]
     if t == "ipo_facts":
         return "" if chart.get("stage") in IPO_STAGES and sum(1 for i in items if has(i, "label") and has(i, "value")) >= 2 else REQUIRES[t]
+    if t == "market_close":
+        return "" if any(i.get("label") == "NIFTY 50" and has(i, "value") and has(i, "pct") for i in items) else REQUIRES[t]
     if t == "ipo_calendar":
         return "" if any(has(i, "label") and has(i, "note") for i in items) else REQUIRES[t]
     return f"unknown layout {t!r}"
@@ -533,6 +536,27 @@ def ipo_calendar(p, a, wp, jp):
     ct._save(im, wp, jp)
 
 
+# ------------------------------------------------------------------ 11 market close (daily closing pack cover)
+def market_close(p, a, wp, jp):
+    """The daily closing graphic (owner's bull/bear artwork) as the story cover, from verified chart items."""
+    import closing_graphics as cg
+    ch = a["chart"]
+    d = {"dateLabel": ch.get("dateLabel") or ch.get("asOf") or "", "indices": {}, "bottomLine": ch.get("summary") or "",
+         "sourceNames": [x.strip() for x in str(ch.get("source") or "NSE").split(",")], "status": "closing data, 3:30 pm IST"}
+    for i in ch["items"]:
+        if i.get("role") in ("advances", "declines", "unchanged"):
+            d.setdefault("breadth", {"universe": ch.get("breadthUniverse") or "Nifty 500"})[i["role"]] = i["value"]
+        elif i.get("label"):
+            d["indices"][i["label"]] = {"close": str(i["value"]).replace(",", ""), "change": str(i.get("change") or "").replace(",", ""),
+                                        "pct": str(i.get("pct") or "").replace("%", "")}
+    if d.get("breadth") and not all(k in d["breadth"] for k in ("advances", "declines")):
+        d.pop("breadth")
+    cg.market_close_cover(d, size=(W, H)).convert("RGB").save(wp, "WEBP", quality=82, method=6)
+    from PIL import Image as _I
+    with _I.open(wp) as im:
+        im.convert("RGB").resize((1200, 675), _I.LANCZOS).save(jp, "JPEG", quality=86, optimize=True, progressive=True)
+
+
 # ------------------------------------------------------------------ 8 earnings v2
 def earnings_v2(p, a, wp, jp):
     ch = a["chart"]
@@ -581,4 +605,4 @@ def earnings_v2(p, a, wp, jp):
 
 TEMPLATES = {"index_board": index_board, "global_bars": global_bars, "commodity_card": commodity_card, "forex_card": forex_card,
              "policy_rate": policy_rate, "stock_move": stock_move, "ipo_subscription": ipo_subscription, "earnings_v2": earnings_v2,
-             "ipo_facts": ipo_facts, "ipo_calendar": ipo_calendar}
+             "ipo_facts": ipo_facts, "ipo_calendar": ipo_calendar, "market_close": market_close}

@@ -36,6 +36,18 @@ class ClosingDrafts(unittest.TestCase):
             self.assertIn("EDITOR:", (out / "article.md").read_text(encoding="utf-8"))
             self.assertTrue((out / "sources.json").is_file())
 
+    def test_approved_job_passes_offline_check(self):
+        import datetime as dt, json
+        from pipeline import __main__ as cli
+        j = closing.to_job("2026-10-23", now=dt.datetime(2026, 10, 23, 16, 40, tzinfo=closing.IST))
+        j["slug"] = "2026-10-23-close-test"
+        self.assertEqual(j["graphic"]["chart"]["type"], "market_close")
+        self.assertFalse(any("EDITOR" in b for b in j["article"]["body"]))   # editor slots never published
+        with tempfile.TemporaryDirectory() as t:
+            p = Path(t) / "j.json"
+            p.write_text(json.dumps(j, ensure_ascii=False), encoding="utf-8")
+            self.assertEqual(cli.cmd_check([str(p)], root=ROOT), 0)
+
     def test_no_snapshot_not_ready(self):
         with self.assertRaises(closing.NotReady):
             closing.dataset("2026-10-30")

@@ -275,9 +275,9 @@ def analyze(p, meta=None, ipos=None):
 
 # ------------------------------------------------------------------ v2 layout rules
 V2_LAYOUTS = {"index_board", "global_bars", "commodity_card", "forex_card", "policy_rate", "stock_move", "ipo_subscription", "earnings_v2",
-              "ipo_facts", "ipo_calendar"}
+              "ipo_facts", "ipo_calendar", "market_close"}
 EVENT_LAYOUTS = {
-    "index_move": {"index_board"}, "market_preview": {"index_board"}, "global_markets": {"global_bars"},
+    "index_move": {"index_board", "market_close"}, "market_preview": {"index_board", "market_close"}, "global_markets": {"global_bars"},
     "commodity": {"commodity_card"}, "forex": {"forex_card"}, "policy": {"policy_rate"}, "earnings": {"earnings_v2", "stock_move"},
     "ipo": {"ipo_subscription", "ipo_facts", "ipo_calendar"}, "stock_move": {"stock_move"}, "ipo_listing": {"ipo_facts"},
 }

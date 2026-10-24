@@ -202,7 +202,7 @@ def movers_list(items, up):
         return ""
     mx = max((abs(num(x.get("pct")) or 0) for x in items), default=1) or 1
     li = "".join(
-        f'<li><span class="n">{e(x.get("name"))}</span><span class="pr">{e(x.get("price") or "")}</span>'
+        f'<li><span class="n">{e(x.get("name"))}</span><span class="pr">{e(("₹" + fmt_num(str(x.get("price")).lstrip("₹"))) if str(x.get("price") or "").lstrip("₹").replace(".", "", 1).isdigit() else (x.get("price") or ""))}</span>'
         f'<span class="p {"up" if up else "down"}">{fmt_pct(x.get("pct"))}</span>'
         f'<i class="{"up" if up else "down"}" style="width:{abs(num(x.get("pct")) or 0) / mx * 100:.0f}%"></i></li>' for x in items)
     return f'<ol class="rp-movers">{li}</ol>'
@@ -311,7 +311,7 @@ def render_weekly(r):
     parts = [mood_banner(r), kpis(r),
              bullets("Key takeaways", r.get("takeaways"), "take"),
              week_chart(r), indices(r),
-             bars(caps, "Large, mid and small caps on Friday", caps_summary(caps)) if caps else "",
+             bars(caps, "Large, mid and small caps on the day", caps_summary(caps)) if caps else "",
              heatmap(r), breadth(r), fii_dii(r), gainers_losers(r), ipos(r),
              bars(r.get("global") or [], "Global and commodity cues", "") if r.get("global") else ""]
     return '<div class="report rp-weekly">' + "".join(p for p in parts if p) + "</div>"
@@ -320,7 +320,7 @@ def render_weekly(r):
 def render_outlook(r):
     if not r:
         return ""
-    out = levels(r) + bullets("What to watch next week", r.get("watch"), "watch")
+    out = levels(r) + bullets(r.get("outlookTitle") or "What to watch next week", r.get("watch"), "watch")
     return f'<div class="report rp-weekly">{out}</div>' if out else ""
 
 

@@ -214,11 +214,186 @@ def make_drafts(day, out_root, root=ROOT):
     return out, files, d["missing"]
 
 
+# ------------------------------------------------------------------ approved draft -> pipeline job
+CAPS = [("n50", "NIFTY 50", "Nifty 50"), ("next50", "NIFTY NEXT 50", "Nifty Next 50"),
+        ("mid", "NIFTY MIDCAP 100", "Nifty Midcap 100"), ("small", "NIFTY SMALLCAP 100", "Nifty Smallcap 100")]
+
+
+def to_job(day, editor=None, root=ROOT, now=None):
+    """Build the publishable job for an approved closing draft. Every number is a figure whose evidence
+    is a line rebuilt from the archived exchange files. editor (optional, from the founder/research):
+    {"drivers": [paragraphs], "watch": [items], "sources": [{id, name, url, published}], "figures": [...]}"""
+    from closing_graphics import inr
+    d = dataset(day, root)
+    D = dt.date.fromisoformat(day)
+    stamp = D.strftime("%d-%b-%Y")
+    nse = next(s for s in d["sources"] if s["name"].startswith("NSE India: all indices"))
+    nse_src = {"id": "nse", "name": "NSE India: all indices (closing data)", "url": nse["url"], "published": f"{day}T15:30:00+05:30",
+               "dataset": nse["dataset"], "sha256": nse["sha256"]}
+    lines = {ln.split(":", 1)[0]: ln for ln in source_audit.dataset_lines(nse_src, root)}
+    idx = {x["index"]: x for x in json.loads(_raw(root, day, "api_allIndices")[0])["data"]}
+    sources, figs = [nse_src], []
+
+    def add(k, name, label):
+        x, ev = idx[name], lines[name]
+        figs.extend([{"id": f"nse_{k}", "label": f"{label} close", "value": str(x["last"]), "change": str(x["variation"]),
+                      "source": "nse", "evidence": ev, "as_of": day, **({"key": True} if k == "n50" else {})},
+                     {"id": f"nse_{k}_pct", "label": f"{label} change %", "value": str(x["percentChange"]), "source": "nse", "evidence": ev, "as_of": day}])
+    for k, n, l in [("bank", "NIFTY BANK", "Nifty Bank"), ("vix", "INDIA VIX", "India VIX")] + CAPS:
+        if n in idx:
+            add(k, n, l)
+    sec_ids = []
+    for n, label in SECTORS:
+        if n in idx and n != "NIFTY BANK":
+            k = "s_" + "".join(c for c in label.lower() if c.isalnum())
+            add(k, n, label)
+            sec_ids.append((k, label))
+    b = idx.get("NIFTY 500")
+    if b:
+        for k in ("advances", "declines", "unchanged"):
+            figs.append({"id": f"nse_n500_{k}", "label": f"Nifty 500 stocks: {k}", "value": str(b[k]), "source": "nse",
+                         "evidence": lines["NIFTY 500"], "as_of": day})
+    sx = d["indices"].get("SENSEX")
+    if sx and sx.get("source") == "bse":
+        s_ = next(s for s in d["sources"] if s["name"].startswith("BSE India"))
+        bse = {"id": "bse", "name": "BSE India: Sensex daily index archive", "url": s_["url"], "published": f"{day}T15:30:00+05:30",
+               "dataset": s_["dataset"], "sha256": s_["sha256"]}
+        sources.append(bse)
+        ev = source_audit.dataset_lines(bse, root)[0]
+        figs += [{"id": "bse_sx", "label": "Sensex close", "value": str(sx["close"]), "change": str(sx["change"]), "source": "bse", "evidence": ev, "as_of": day},
+                 {"id": "bse_sx_pct", "label": "Sensex change %", "value": f"{float(sx['pct']):.2f}", "source": "bse", "evidence": ev, "as_of": day}]
+    fl = d.get("flows")
+    if fl:
+        s_ = next(s for s in d["sources"] if "FII" in s["name"])
+        nsef = {"id": "nsef", "name": "NSE India: FII/FPI and DII provisional cash-market activity", "url": s_["url"],
+                "published": f"{day}T18:00:00+05:30", "dataset": s_["dataset"], "sha256": s_["sha256"]}
+        sources.append(nsef)
+        fls = {ln.split(" ", 1)[0]: ln for ln in source_audit.dataset_lines(nsef, root)}
+        for who, cat, net, buy, sell in (("fii", "FII/FPI", fl["fii"], fl["fiiBuy"], fl["fiiSell"]), ("dii", "DII", fl["dii"], fl["diiBuy"], fl["diiSell"])):
+            for k, v in (("net", net), ("buy", buy), ("sell", sell)):
+                figs.append({"id": f"nse_{who}_{k}", "label": f"{cat} {k} value, cash market", "value": str(v), "source": "nsef", "evidence": fls[cat], "as_of": day})
+    mv = d.get("movers")
+    mover_specs = {"gainers": [], "losers": []}
+    if mv:
+        s_ = next(s for s in d["sources"] if "bhavcopy" in s["name"])
+        bh = {"id": "bhav", "name": "NSE India: capital-market bhavcopy (end of day)",
+              "url": f"https://nsearchives.nseindia.com/content/cm/BhavCopy_NSE_CM_0_0_0_{day.replace('-', '')}_F_0000.csv.zip",
+              "published": f"{day}T18:00:00+05:30", "dataset": s_["dataset"], "sha256": s_["sha256"]}
+        sources.append(bh)
+        bl = {ln.split(" EQ ", 1)[0]: ln for ln in source_audit.dataset_lines(bh, root)}
+        for side in ("gainers", "losers"):
+            for r in mv[side]:
+                k = "st_" + "".join(c for c in r["name"].lower() if c.isalnum())
+                ev = bl[r["name"]]
+                figs += [{"id": k, "label": f"{r['name']} close", "value": f"{r['close']:.2f}", "source": "bhav", "evidence": ev, "as_of": day},
+                         {"id": k + "_prev", "label": f"{r['name']} previous close", "value": f"{r['prev']:.2f}", "source": "bhav", "evidence": ev, "as_of": day}]
+                mover_specs[side].append({"id": k, "label": r["name"], "prev": k + "_prev"})
+    editor = editor or {}
+    for s_ in editor.get("sources") or []:
+        sources.append(s_)
+    figs += editor.get("figures") or []
+
+    n50 = d["indices"]["NIFTY 50"]
+    p50 = float(n50["pct"])
+    word = "rises" if p50 > 0 else "falls" if p50 < 0 else "flat at"
+    title = f"Sensex, Nifty today: Nifty 50 {word} {abs(p50):.2f}% to {inr(n50['close'])}"
+    if sx:
+        title += f", Sensex {'up' if float(sx['pct']) > 0 else 'down'} {abs(float(sx['pct'])):.2f}%"
+    title += f" | {D.day} {D.strftime('%B %Y')}"
+    # Prose stays short: the structured report above already shows every table, so the body only
+    # summarises the close and adds the verified drivers (no duplicated figure lists).
+    body = [_body_from_article(article(d))[0]]
+    if editor.get("drivers"):
+        body += ["Why the market moved | " + editor["drivers"][0]] + list(editor["drivers"][1:])
+    body.append("More data | Scroll up for the full NSE index scoreboard, sector heatmap, Nifty 500 breadth, top gainers and "
+                "losers and FII/DII flows. For more, see the Nifty 50 page and the FII/DII data page on TotalMarket.")
+    spec = lambda k, label: {"id": f"nse_{k}", "label": label, "pct": f"nse_{k}_pct"}
+    idx_specs = [spec("n50", "Nifty 50")] + ([{"id": "bse_sx", "label": "Sensex", "pct": "bse_sx_pct"}] if sx and sx.get("source") == "bse" else []) \
+        + [spec("bank", "Nifty Bank"), spec("vix", "India VIX")]
+    figs_by_id = {f["id"] for f in figs}
+    figs.insert(0, {"id": "nse_n50", "label": "Nifty 50 close", "value": str(idx["NIFTY 50"]["last"]), "change": str(idx["NIFTY 50"]["variation"]),
+                    "source": "nse", "evidence": lines["NIFTY 50"], "as_of": day, "key": True})
+    figs.insert(1, {"id": "nse_n50_pct", "label": "Nifty 50 change %", "value": str(idx["NIFTY 50"]["percentChange"]), "source": "nse",
+                    "evidence": lines["NIFTY 50"], "as_of": day})
+    figs = list({f["id"]: f for f in figs}.values())
+    pub = (now or dt.datetime.now(IST)).replace(microsecond=0)
+    items = [{"label": "NIFTY 50", "value": str(n50["close"]), "change": str(n50["change"]), "pct": f"{n50['pct']}%", "figures": ["nse_n50", "nse_n50_pct"]}]
+    if sx and sx.get("source") == "bse":
+        items.append({"label": "SENSEX", "value": str(sx["close"]), "change": str(sx["change"]), "pct": f"{float(sx['pct']):.2f}%", "figures": ["bse_sx", "bse_sx_pct"]})
+    for k, n, lab in (("bank", "NIFTY BANK", "NIFTY BANK"), ("vix", "INDIA VIX", "INDIA VIX")):
+        if n in idx:
+            items.append({"label": lab, "value": str(idx[n]["last"]), "change": str(idx[n]["variation"]), "pct": f"{idx[n]['percentChange']}%", "figures": [f"nse_{k}", f"nse_{k}_pct"]})
+    if b:
+        items += [{"label": f"Nifty 500 {k}", "value": str(b[k]), "role": k, "figures": [f"nse_n500_{k}"]} for k in ("advances", "declines", "unchanged")]
+    job = {
+        "slug": f"{day}-market-close-sensex-nifty",
+        "collection": {"sources": sources, "figures": figs, "examples": []},
+        "graphic": {"headline": title, "coverHeadline": "MARKET CLOSE", "flags": ["IN"], "coverDate": day, "symbol": "candles",
+                    "chart": {"type": "market_close", "title": "Indian markets · close", "asOf": f"Close, {D.strftime('%a')} {D.day} {D.strftime('%b %Y')}",
+                              "dateLabel": d["dateLabel"], "summary": d["bottomLine"], "source": ", ".join(dict.fromkeys(d["sourceNames"])),
+                              "breadthUniverse": "Nifty 500", "items": items}},
+        "article": {
+            "title": title,
+            "dek": f"The Nifty 50 closed at {inr(n50['close'])}. NSE index scoreboard, sector heatmap, breadth, top movers and FII/DII flows.",
+            "category": "markets", "lead": True, "readMins": 3, "reportType": "weekly_market",
+            "visualSpec": {
+                "dateLabel": f"Market close · {d['dateLabel']}", "outlookTitle": "What to watch next session",
+                "indices": idx_specs,
+                "caps": [{"id": f"nse_{k}_pct", "label": l} for k, _, l in CAPS if n in idx],
+                "sectors": [{"id": f"nse_{k}_pct", "label": l} for k, l in sec_ids],
+                "gainers": mover_specs["gainers"], "losers": mover_specs["losers"], "moversIndex": "Nifty 50",
+                "global": [],
+                **({"breadth": {"advances": "nse_n500_advances", "declines": "nse_n500_declines", "unchanged": "nse_n500_unchanged"},
+                    "breadthExchange": "NSE, Nifty 500 stocks"} if b else {}),
+                **({"fiiDii": {"fiiNet": "nse_fii_net", "diiNet": "nse_dii_net", "fiiBuy": "nse_fii_buy", "fiiSell": "nse_fii_sell",
+                               "diiBuy": "nse_dii_buy", "diiSell": "nse_dii_sell"},
+                    "fiiDiiNote": "NSE provisional figures for the cash market, in ₹ crore."} if fl else {}),
+            },
+            "reportTakeaways": [d["bottomLine"]] if d["bottomLine"] else [],
+            "reportWatch": editor.get("watch") or [],
+            "body": body,
+            "indiaImpact": "Breadth, sector moves and institutional flows show how widely the day's move spread beyond the headline indices.",
+            "seoTitle": f"Stock Market Today: Sensex, Nifty Close {D.day} {D.strftime('%B %Y')} | TotalMarket",
+            "seoDescription": f"Nifty 50 closed at {inr(n50['close'])} on {D.day} {D.strftime('%b %Y')}. NSE sector heatmap, Nifty 500 breadth, top movers and FII/DII data.",
+            "tags": ["stock market today", "Sensex today", "Nifty today", "market close", "top gainers losers", "FII DII data"],
+            "sources": [{"name": s_["name"], "url": s_["url"]} for s_ in sources],
+            "publishedAt": pub.isoformat(), "edition": f"{day}-close", "editionLabel": f"{D.strftime('%a')} {D.day} {D.strftime('%b')} · Market close",
+            "status": "new",
+        },
+    }
+    return job
+
+
+def _body_from_article(md):
+    """Prose paragraphs from the draft article, without the title, editor slots or source list."""
+    out, head = [], None
+    for ln in md.splitlines():
+        if ln.startswith("# ") or ln.startswith("---") or ln.startswith("Sources:") or not ln.strip():
+            continue
+        if ln.startswith("## "):
+            head = ln[3:].strip()
+            continue
+        if ln.startswith("*"):
+            continue  # editor / awaiting notes never reach the article
+        out.append(f"{head} | {ln}" if head else ln)
+        head = None
+    return out
+
+
 def main(argv=None):
     ap = argparse.ArgumentParser()
     ap.add_argument("--date", default=dt.datetime.now(IST).date().isoformat())
     ap.add_argument("--out", default=str(ROOT / "drafts" / "closing"))
+    ap.add_argument("--job", action="store_true", help="write the publishable job for an APPROVED draft to pipeline/inbox")
+    ap.add_argument("--editor", help="JSON file with the approved drivers / watch list and their sources")
     a = ap.parse_args(argv)
+    if a.job:
+        editor = json.loads(Path(a.editor).read_text(encoding="utf-8")) if a.editor else None
+        job = to_job(a.date, editor)
+        out = ROOT / "pipeline" / "inbox" / f"{job['slug']}.json"
+        out.write_text(json.dumps(job, ensure_ascii=False, indent=1), encoding="utf-8")
+        print(f"approved closing job written to {out}")
+        return 0
     try:
         out, files, missing = make_drafts(a.date, a.out)
     except NotReady as ex:

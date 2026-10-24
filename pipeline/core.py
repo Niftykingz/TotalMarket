@@ -267,7 +267,7 @@ def graphic_numbers(post, analysis):
             if f.get(k):
                 texts.append(str(f[k]))
     ch = analysis.get("chart") or {}
-    texts += [str(ch.get(k) or "") for k in ("title", "asOf", "period")]
+    texts += [str(ch.get(k) or "") for k in ("title", "asOf", "period", "summary")]
     return " | ".join(texts)
 
 
@@ -462,6 +462,12 @@ def stage4_article(job, ver, gfx, root, write=True):
             out = []
             for spec, f in selected(group):
                 row = {"name": str(spec.get("label") or f["label"]), "pct": str(f["value"])}
+                prev = verified.get(spec.get("prev") or "")
+                if prev:  # a stock row: value is its close; % recomputed from the verified previous close
+                    a, b = N.to_float(prev["value"]), N.to_float(f["value"])
+                    row = {"name": row["name"], "price": "₹" + str(f["value"]), "pct": f"{(b - a) / a * 100:+.2f}" if a else ""}
+                    out.append(row)
+                    continue
                 base = verified.get(spec.get("close") or "")
                 wk = week_pct(spec, base) if base else ""
                 if wk:
@@ -474,6 +480,8 @@ def stage4_article(job, ver, gfx, root, write=True):
         gainers = percentage_rows("gainers")
         losers = percentage_rows("losers")
         post["report"] = {
+            "outlookTitle": str(specs.get("outlookTitle") or "What to watch next week"),
+            "moversIndex": str(specs.get("moversIndex") or "Nifty 50"),
             "dateLabel": str(specs.get("dateLabel") or "Friday market close"),
             "weekLabel": str(specs.get("weekLabel") or ""),
             "kpis": cards, "indices": rows, "sectors": sectors, "caps": caps,
