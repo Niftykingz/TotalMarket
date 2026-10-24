@@ -7,8 +7,9 @@ data/market_snapshots/<date>/ (sha256-checked against the collector's record):
   api_allIndices         Nifty 50, Bank Nifty, India VIX, sector indices, Nifty 500 breadth
   api_fiidiiTradeReact   provisional FII/FPI and DII cash-market activity (same date only)
   bhavcopy + nifty50list top movers by closing price (when the collector has archived them)
-Sensex is a BSE index: it is shown only when a sourced figure is supplied in
-data/closing_inputs/<date>.json ({"sensex": {"close", "change", "pct", "source": {name, url}}}).
+  bse_sensex_arch        Sensex close, change and % from BSE's own daily index archive
+If BSE's file is missing, a named secondary source may be supplied in data/closing_inputs/<date>.json
+({"sensex": {"close", "change", "pct", "source": {name, url}}}); otherwise Sensex is AWAITING.
 Anything missing becomes AWAITING VERIFIED DATA. Output is a draft for the founder's approval:
 nothing here publishes.
 """
@@ -72,10 +73,19 @@ def dataset(day, root=ROOT):
             out["indices"][name] = {"close": x["last"], "change": x["variation"], "pct": x["percentChange"], "source": "nse"}
         else:
             out["missing"].append(name)
+    sraw, ssrc = _raw(root, day, "bse_sensex_arch")
+    if sraw:
+        t = next((r for r in json.loads(sraw).get("Table") or [] if str(r.get("tdate", ""))[:10] == day
+                  and str(r.get("I_name", "")).strip() == "SENSEX"), None)
+        if t and t.get("I_close") is not None:
+            out["indices"]["SENSEX"] = {"close": t["I_close"], "change": t["Chg"], "pct": round(float(t["ChgPer"]), 2), "source": "bse"}
+            out["sources"].append(dict(ssrc, name="BSE India: Sensex daily index archive",
+                                       url="https://api.bseindia.com/BseIndiaAPI/api/IndexArchDaily/w"))
+            out["sourceNames"].append("BSE")
     extra = Path(root) / "data" / "closing_inputs" / f"{day}.json"
     if extra.is_file():
         sx = json.loads(extra.read_text(encoding="utf-8")).get("sensex")
-        if sx and sx.get("source", {}).get("url"):
+        if sx and sx.get("source", {}).get("url") and "SENSEX" not in out["indices"]:  # fallback: named source
             out["indices"]["SENSEX"] = {k: sx[k] for k in ("close", "change", "pct") if k in sx}
             out["sources"].append(dict(sx["source"], what="Sensex close"))
             out["sourceNames"].append(sx["source"]["name"].split(":")[0])

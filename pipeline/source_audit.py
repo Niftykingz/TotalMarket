@@ -7,6 +7,7 @@ not a guarantee that a publisher's claim is true.
 import gzip
 import hashlib
 import html
+import io
 import ipaddress
 import json
 import re
@@ -114,7 +115,24 @@ def _lines_fii_dii(d):
             f"net {x.get('netValue')} crore" for x in d if isinstance(x, dict)]
 
 
-DATASET_FORMATS = {"api_allIndices": _lines_all_indices, "api_fiidiiTradeReact": _lines_fii_dii}
+def _lines_bse_sensex(d):
+    return [f"{str(x.get('I_name', '')).strip()} {str(x.get('tdate', ''))[:10]}: close {_fmt(x.get('I_close'))}, previous close "
+            f"{_fmt(x.get('Previousclose'))}, change {_fmt(x.get('Chg'))} points ({_fmt(round(float(x.get('ChgPer') or 0), 2))}%), "
+            f"open {_fmt(x.get('I_open'))}, high {_fmt(x.get('I_high'))}, low {_fmt(x.get('I_low'))}" for x in d.get("Table") or []]
+
+
+def _lines_bhavcopy(raw_text):
+    import csv as _csv
+    out = []
+    for r in _csv.DictReader(io.StringIO(raw_text)):
+        if (r.get("SctySrs") or "").strip() == "EQ":
+            out.append(f"{r['TckrSymb'].strip()} EQ {r['TradDt'].strip()}: close {r['ClsPric'].strip()}, previous close {r['PrvsClsgPric'].strip()}, "
+                       f"high {r['HghPric'].strip()}, low {r['LwPric'].strip()}")
+    return out
+
+
+DATASET_FORMATS = {"api_allIndices": _lines_all_indices, "api_fiidiiTradeReact": _lines_fii_dii, "bse_sensex_arch": _lines_bse_sensex}
+TEXT_FORMATS = {"bhavcopy": _lines_bhavcopy}
 
 
 def dataset_lines(source, root=None):
@@ -134,7 +152,10 @@ def dataset_lines(source, root=None):
     recorded = {v.get("sha256") for v in (json.loads(snap.read_text(encoding="utf-8")).get("raw") or {}).values()} if snap.is_file() else set()
     if digest not in recorded:
         raise EvidenceError(f"dataset {rel} is not the response the collector recorded")
-    fmt = DATASET_FORMATS.get(f.name[:-len(".json.gz")])
+    stem = f.name[:-len(".json.gz")]
+    if stem in TEXT_FORMATS:
+        return TEXT_FORMATS[stem](raw.decode("utf-8-sig"))
+    fmt = DATASET_FORMATS.get(stem)
     if not fmt:
         raise EvidenceError(f"no reader for dataset {f.name}")
     return fmt(json.loads(raw))

@@ -125,3 +125,12 @@ def brand_backing(im, W, H):
     pill = Image.new("RGBA", (W, H), (0, 0, 0, 0))
     ImageDraw.Draw(pill).rounded_rectangle([W - 400, H - 118, W - 34, H - 22], radius=44, fill=(8, 6, 10, 240))
     im.alpha_composite(pill.filter(ImageFilter.GaussianBlur(2)))
+
+
+CTA = "Full story at totalmarket.co.in  →"
+
+
+def cta(dr, W, H, font, dark=True, y_off=40):
+    """Small call-to-action under the bottom-right wordmark: tells readers where the full story is."""
+    w = dr.textlength(CTA, font=font)
+    dr.text((W - 72 - w, H - y_off), CTA, font=font, fill=(203, 213, 225) if dark else (71, 85, 105))

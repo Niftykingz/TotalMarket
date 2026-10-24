@@ -607,6 +607,11 @@ def analysis(p):
     return p["_analysis"]
 
 
+def market_art_new(p):
+    import market_art
+    return market_art._new_enough(p)
+
+
 def render(p, path_webp, path_jpg):
     import art
     a = analysis(p)
@@ -686,10 +691,14 @@ def render(p, path_webp, path_jpg):
     dr = ImageDraw.Draw(base)
     bf = font(F_XB, 34)
     bwid = dr.textlength("TotalMarket", font=bf)
-    bx, by = W - 70 - bwid, H - 82
+    new_story = market_art_new(p)
+    bx, by = W - 70 - bwid, H - (104 if new_story else 82)
     dr.rectangle([bx - 26, by + 6, bx - 14, by + 34], fill=acc + (255,))
     dr.text((bx, by), "Total", font=bf, fill=(255, 255, 255, 255))
     dr.text((bx + dr.textlength("Total", font=bf), by), "Market", font=bf, fill=acc + (255,))
+    if new_story:
+        import market_art
+        market_art.cta(dr, W, H, font(F_SEMI, 21), y_off=54)
     out = grain(base, seed)
     out.save(path_webp, "WEBP", quality=78, method=6)
     out.resize((1200, 675), Image.LANCZOS).save(path_jpg, "JPEG", quality=82, optimize=True, progressive=True)

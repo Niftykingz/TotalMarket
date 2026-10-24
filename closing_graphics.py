@@ -63,17 +63,18 @@ def fit(dr, text, font, size, max_w, min_size=18):
     return f
 
 
-def canvas(kind, art_id=None):
-    """Artwork filling 1536x1024 (wide banners are scaled to the height and right-aligned), sharpened,
-    with a dark panel fading in over the left 45%."""
+def canvas(kind, art_id=None, size=None, text_edge=760):
+    """Artwork filling the canvas (default 1536x1024; wide banners keep their subject right of the text
+    column), sharpened, with a dark panel fading in over the left 45%."""
     import market_art
+    W, H = size or (globals()["W"], globals()["H"])
     reg = {i["id"]: i for i in market_art._registry()}
     it = reg.get(art_id or ART[kind]) or reg.get(ART[kind])
     im = Image.new("RGBA", (W, H), PANEL + (255,))
     if it:
         src = Image.open(os.path.join(HERE, it["file"])).convert("RGBA")
         if src.width / src.height > 2:  # wide banner: subject in its right ~46%; keep it right of the text column
-            sc = (W - 700) / (0.46 * src.width)
+            sc = (W - text_edge + 60) / (0.46 * src.width)
             a2 = src.resize((int(src.width * sc), int(src.height * sc)), Image.LANCZOS).filter(ImageFilter.UnsharpMask(2, 70, 2))
             a2 = a2.crop((a2.width - W, 0, a2.width, a2.height))
             a = np.asarray(a2).copy()
@@ -86,9 +87,25 @@ def canvas(kind, art_id=None):
             im.alpha_composite(a2.crop((a2.width - W, (a2.height - H) // 2, a2.width, (a2.height - H) // 2 + H)))
     fade = np.zeros((H, W, 4), np.uint8)
     fade[..., :3] = PANEL
-    fade[..., 3] = (np.clip((760 - np.arange(W)) / 260, 0, 1) * 235).astype(np.uint8)[None, :]
+    fade[..., 3] = (np.clip((text_edge - np.arange(W)) / 260, 0, 1) * 235).astype(np.uint8)[None, :]
     im.alpha_composite(Image.fromarray(fade, "RGBA"))
     return im
+
+
+def brand(im):
+    W, H = im.size
+    pill = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    ImageDraw.Draw(pill).rounded_rectangle([W - 420, H - 128, W - 36, H - 26], radius=36, fill=(6, 10, 22, 235))
+    im.alpha_composite(pill)
+    dr = ImageDraw.Draw(im)
+    bf = F(XB, 32)
+    w = dr.textlength("TotalMarket", font=bf)
+    x, y = W - 64 - w, H - 112
+    import market_art
+    market_art.cta(dr, W, H, F(SEMI, 20), y_off=60)
+    dr.rectangle([x - 22, y + 6, x - 12, y + 32], fill=GOLD)
+    dr.text((x, y), "Total", font=bf, fill=WHITE)
+    dr.text((x + dr.textlength("Total", font=bf), y), "Market", font=bf, fill=GOLD)
 
 
 def rrect(im, box, r, fill=None, outline=None, width=2):
@@ -107,20 +124,12 @@ def header(im, kicker, title, date_label):
     return 126 + tf.size + 14 + 30 + 40
 
 
-def footer(im, sources, status=""):
+def footer(im, sources, status="", with_brand=True):
     dr = ImageDraw.Draw(im)
     line = "Source: " + ", ".join(sources) + (f" · {status}" if status else "")
-    dr.text((X0, H - 62), line, font=fit(dr, line, MED, 22, 900, 16), fill=GREY)
-    pill = Image.new("RGBA", (W, H), (0, 0, 0, 0))
-    ImageDraw.Draw(pill).rounded_rectangle([W - 330, H - 100, W - 36, H - 30], radius=36, fill=(6, 10, 22, 235))
-    im.alpha_composite(pill)
-    dr = ImageDraw.Draw(im)
-    bf = F(XB, 32)
-    w = dr.textlength("TotalMarket", font=bf)
-    x, y = W - 64 - w, H - 84
-    dr.rectangle([x - 22, y + 6, x - 12, y + 32], fill=GOLD)
-    dr.text((x, y), "Total", font=bf, fill=WHITE)
-    dr.text((x + dr.textlength("Total", font=bf), y), "Market", font=bf, fill=GOLD)
+    dr.text((X0, H - 62), line, font=fit(dr, line, MED, 22, 640, 16), fill=GREY)
+    if with_brand:
+        brand(im)
 
 
 def awaiting(im, y, reason):
@@ -141,9 +150,13 @@ def awaiting(im, y, reason):
 
 
 # ------------------------------------------------------------------ 1 market close
-def market_close(d, out):
+def _close_art(d):
     n = num(((d.get("indices") or {}).get("NIFTY 50") or {}).get("pct"))
-    im = canvas("close", "close-bear" if n is not None and n < 0 else "close-bull" if n is not None and n > 0 else None)
+    return "close-bear" if n is not None and n < 0 else "close-bull" if n is not None and n > 0 else None
+
+
+def market_close(d, out=None, text_only=False):
+    im = Image.new("RGBA", (W, H), (0, 0, 0, 0)) if text_only else canvas("close", _close_art(d))
     y = header(im, "Indian markets · close", "MARKET CLOSE", d["dateLabel"])
     dr = ImageDraw.Draw(im)
     rows = [("NIFTY 50", True), ("SENSEX", True), ("NIFTY BANK", False), ("INDIA VIX", False)]
@@ -183,8 +196,22 @@ def market_close(d, out):
                 dr.text((X0, y + 32 + k * 36), cur, font=f, fill=WHITE); k += 1; cur = w_ or ""
             else:
                 cur = t
-    footer(im, d.get("sourceNames") or ["NSE"], d.get("status", ""))
-    im.convert("RGB").save(out, "PNG", optimize=True)
+    footer(im, d.get("sourceNames") or ["NSE"], d.get("status", ""), with_brand=not text_only)
+    if out:
+        im.convert("RGB").save(out, "PNG", optimize=True)
+    return im
+
+
+def market_close_cover(d, size=(1600, 900)):
+    """The market-close graphic as a 16:9 story cover: same text column (scaled to the height) over
+    the same artwork laid out for the wider canvas."""
+    cw, ch = size
+    k = ch / H
+    im = canvas("close", _close_art(d), size=size, text_edge=int(760 * k) + 40)
+    col_ = market_close(d, text_only=True).crop((0, 0, 780, H))
+    im.alpha_composite(col_.resize((int(780 * k), ch), Image.LANCZOS))
+    brand(im)
+    return im
 
 
 # ------------------------------------------------------------------ 2 sectors

@@ -19,7 +19,8 @@ class ClosingDrafts(unittest.TestCase):
         self.assertEqual(float(d["indices"]["NIFTY 50"]["close"]), 22600.0)
         self.assertEqual(d["movers"]["count"], 50)
         self.assertEqual(d["movers"]["gainers"][0]["name"], "ETERNAL")
-        self.assertTrue(any("SENSEX" in m for m in d["missing"]))  # BSE index: never guessed
+        self.assertEqual(float(d["indices"]["SENSEX"]["close"]), 73123.83)   # from BSE's own archive
+        self.assertEqual(d["indices"]["SENSEX"]["source"], "bse")
         self.assertEqual(d["flows"]["fii"], "887.65")
 
     def test_mover_pct_recomputed_from_close_and_previous_close(self):

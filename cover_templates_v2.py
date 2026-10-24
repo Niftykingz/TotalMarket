@@ -109,7 +109,17 @@ def _foot(dr, p, chart, dark=True, accent=GOLD):
     if line:
         f = ct._fit(dr, line, MED, 24, 1050, min_size=18)
         dr.text((84, H - 74), line, font=f, fill=(148, 163, 184) if dark else MUTED)
-    ct._brand(dr, dark=dark, accent=accent)
+    import market_art
+    if market_art._new_enough(p):  # new stories: brand moves up a little to make room for the call to action
+        bf = F(XB, 32)
+        w = dr.textlength("TotalMarket", font=bf)
+        x, y = W - 72 - w, H - 100
+        dr.rectangle([x - 24, y + 6, x - 13, y + 32], fill=accent)
+        dr.text((x, y), "Total", font=bf, fill=WHITE if dark else ct.NAVY)
+        dr.text((x + dr.textlength("Total", font=bf), y), "Market", font=bf, fill=accent if dark else ct.BLUE)
+        market_art.cta(dr, W, H, F(SEMI, 20), dark=dark, y_off=52)
+    else:
+        ct._brand(dr, dark=dark, accent=accent)
 
 
 def _pill(im, x, y, text, col, size=34, light_bg=False):
