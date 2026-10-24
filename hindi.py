@@ -180,11 +180,6 @@ def article(p, posts, meta, c):
 {_table(p, c)}
 {_impacts(h, e)}
 {why}
-<section class="engage" aria-label="इस खबर पर अपनी राय दें">
-<div class="eg-text"><b>क्या यह खबर काम की लगी?</b><span>लाइक करें और कमेंट में अपनी राय बताएं।</span></div>
-<div class="eg-btns"><button type="button" class="like-btn" data-like-key="{lk}" aria-pressed="false"><span class="heart" aria-hidden="true">&#9829;</span> <span class="lc">Like</span></button>
-<a class="cm-btn" href="#comments"><span aria-hidden="true">&#128172;</span> कमेंट</a></div>
-</section>
 <div class="share" aria-label="शेयर करें">
 <a href="https://wa.me/?text={text}" target="_blank" rel="noopener">WhatsApp पर शेयर करें</a>
 <a href="https://twitter.com/intent/tweet?text={quote(title)}&url={quote(link)}" target="_blank" rel="noopener">X पर शेयर करें</a>
@@ -193,9 +188,7 @@ def article(p, posts, meta, c):
 </div>
 {'<div class="sources"><h2>स्रोत</h2><ul>' + srcs + '</ul></div>' if srcs else ''}
 <p class="disc">Boss Piggy AI ने TotalMarket के लिए लिखा। यह खबर ऊपर दिए स्रोतों पर आधारित है; ज़रूरी तथ्य और आंकड़े मूल स्रोत से ज़रूर मिलाएं। यह सिर्फ जानकारी के लिए है, निवेश सलाह नहीं।</p>
-{c['comments_block'](p)}
 </article>
-<div class="fab" aria-label="Like या कमेंट"><button type="button" class="fab-like" data-like-key="{lk}" aria-label="इस खबर को लाइक करें">&#9829; <span class="lc">Like</span></button><a class="fab-cm" href="#comments">&#128172; कमेंट</a></div>
 {rel}"""
     st = h.get("seoTitle")
     return c["page"](title, d, path, body, meta, og_type="article", extra_head=extra, image=c["cover_url"](p, True),

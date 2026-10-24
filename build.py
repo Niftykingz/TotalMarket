@@ -781,7 +781,6 @@ def article_page(p, posts, meta):
 {data_table(p)}
 {impacts(p)}
 {why(p)}
-{engage_card(p)}
 <div class="share" aria-label="Share this story">
 <a href="https://wa.me/?text={text}" target="_blank" rel="noopener">Share on WhatsApp</a>
 <a href="https://twitter.com/intent/tweet?text={quote(p['title'])}&url={quote(link)}" target="_blank" rel="noopener">Share on X</a>
@@ -791,9 +790,7 @@ def article_page(p, posts, meta):
 <div class="tags" aria-label="Topics">{"".join(f'<a class="tag" href="{BASE}tag/{slug(t)}/">#{e(t)}</a>' for t in p["_tags"])}</div>
 {'<div class="sources"><h2>Sources</h2><ul>' + srcs + '</ul></div>' if srcs else ''}
 <p class="disc">Written by Boss Piggy AI for TotalMarket. Based on the sources linked in this article; key facts and data should be checked against the original sources. This article is for information only and is not investment advice.</p>
-{comments_block(p)}
 </article>
-<div class="fab" aria-label="Like or comment"><button type="button" class="fab-like" data-like-key="{like_key(p)}" aria-label="Like this story">&#9829; <span class="lc">Like</span></button><a class="fab-cm" href="#comments" aria-label="Go to comments">&#128172; Comment</a></div>
 {rel}"""
     alts = [("en", link), ("hi", abs_url(hindi.hurl(p, BASE)))] if hindi.has_hi(p) else None
     sw = (hindi.hurl(p, BASE), "हिंदी में पढ़ें") if alts else None
@@ -809,7 +806,7 @@ def about_page(meta):
 <div class="body">
 <p>TotalMarket is a free news site for Indian investors and traders who also follow technology. It covers stock market moves and upcoming results, IPOs and startup funding, tech and AI, RBI and SEBI decisions, overnight global markets, and gold, silver, crude oil and currencies, with what each move means globally and for India.</p>
 <p><b>How it is made.</b> Every story is researched and written automatically by Boss Piggy AI, TotalMarket's AI market desk, using reporting from the sources linked at the end of each story. The site updates four times on each market day: a pre-market brief around 8:45 am, a midday check around 12:45 pm, a closing wrap around 3:45 pm and an evening tech and startups update around 8:45 pm IST, with one roundup on weekends and market holidays.</p>
-<p><b>Analytics and likes.</b> The site uses Google Analytics to count visits and popular stories, and a simple anonymous counter for likes. Comments, when enabled, are stored in GitHub Discussions.</p>
+<p><b>Analytics.</b> The site uses Google Analytics to count visits and popular stories.</p>
 <p><b>Accuracy.</b> Stories state only facts found in their sources and link to them so you can check. AI can still make mistakes, so for anything that affects a decision, open the original source.</p>
 <p><b>Not investment advice.</b> TotalMarket reports and explains news. It never recommends buying, selling or holding any security, does not give price targets, and is not registered with SEBI as an investment adviser or research analyst.</p>
 <p><b>Policies.</b> Read our <a href="{BASE}editorial-policy/">editorial policy</a> and <a href="{BASE}corrections/">corrections policy</a>, or <a href="{BASE}contact/">contact us</a>.</p>
