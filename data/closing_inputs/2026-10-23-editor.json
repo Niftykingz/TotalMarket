@@ -1,0 +1,16 @@
+{
+ "drivers": [
+  "Upstox reported that investors turned cautious on rising crude oil prices amid escalating geopolitical tensions in West Asia, with concerns over potential supply disruptions. Oil-related stocks traded lower, and declines in FMCG, oil and gas and consumer durable stocks also weighed on the benchmark indices; every NSE sector index ended the session in the red."
+ ],
+ "watch": [
+  "Crude oil prices and West Asia tensions, which drove Friday's selling",
+  "Paras Healthcare and Jio Platforms IPO allotment on Monday 26 October; both are due to list on Wednesday 28 October",
+  "Whether foreign and domestic institutions keep buying after both were net buyers on Friday",
+  "India VIX, after its rise on Friday"
+ ],
+ "sources": [
+  {"id": "upw", "name": "Upstox: Market wrap, Oct 23", "url": "https://upstox.com/news/market-news/stocks/market-wrap-oct-23-sensex-falls-126-pts-nifty-50-ends-at-22-600-as-crude-prices-jumps-over-114-bbl-nifty-smallcap-100-underperforms/article-202315/", "published": "2026-10-23T17:00:00+05:30"},
+  {"id": "hdfcp", "name": "HDFC Sky: Paras Healthcare IPO subscription status, day 3", "url": "https://hdfcsky.com/news/paras-healthcare-ipo-subscription-status-day-3", "published": "2026-10-23T17:21:00+05:30"}
+ ],
+ "figures": []
+}
