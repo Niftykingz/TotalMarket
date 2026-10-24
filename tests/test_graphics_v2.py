@@ -194,6 +194,9 @@ class Publishing(V2):
                 continue
             if p.get("chart"):
                 continue
+            import market_art
+            if p["id"] in market_art.ALSO:  # owner asked for the new artwork on these (24 Oct 2026)
+                continue
             if covers.cover_name(p) not in live:
                 changed.append(p["id"])
         self.assertEqual(changed, [])

@@ -1,0 +1,33 @@
+{
+ "note": "Artwork for market-move covers. Only files listed here (with matching sha256) are used.",
+ "items": [
+  {
+   "id": "bear-01",
+   "file": "cover_art/bear-01.webp",
+   "kind": "bear",
+   "direction": "down",
+   "sha256": "7f9e7691621499f40a6a2082a725fd615f26a5defe05c2464066b3d9bc406fb1",
+   "size": [
+    1536,
+    1024
+   ],
+   "source": "AI-generated image supplied by the site owner (Mayur Patel) in chat on 24 Oct 2026",
+   "rights": "Owner confirmed commercial use on TotalMarket on 24 Oct 2026 ('Yes you can use commercial as created by ai')",
+   "approved": true
+  },
+  {
+   "id": "bull-01",
+   "file": "cover_art/bull-01.webp",
+   "kind": "bull",
+   "direction": "up",
+   "sha256": "8f71d08e53bbd35717f84338a2ac0529f87c3a2f59a3b0199924d152d118b1a2",
+   "size": [
+    1536,
+    1024
+   ],
+   "source": "AI-generated image supplied by the site owner (Mayur Patel) in chat on 24 Oct 2026",
+   "rights": "Owner confirmed commercial use on TotalMarket on 24 Oct 2026 ('Yes you can use commercial as created by ai')",
+   "approved": true
+  }
+ ]
+}

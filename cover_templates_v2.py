@@ -132,12 +132,16 @@ def index_board(p, a, wp, jp):
     down = neg(main[0].get("change") or main[0].get("pct"))
     acc = DOWN if down else UP
     im = ct._grad((6, 18, 40), (34, 16, 28) if down else (10, 46, 52))
+    import market_art
+    art_id = market_art.choice(p, "down" if down else "up")
+    if art_id:  # approved bull / bear artwork, dimmed behind the data tiles (new stories only)
+        im.alpha_composite(market_art.layer(art_id, W, H, strength=.75, text_width=1000))
     dr = ImageDraw.Draw(im)
     y = _head(im, dr, p, ch, accent=acc, size=70)
     tw = (W - 168 - 40) // 2
     for k, i in enumerate(main):
         x = 84 + k * (tw + 40)
-        ct._rrect(im, [x, y + 10, x + tw, y + 300], 28, fill=(255, 255, 255, 20), outline=(255, 255, 255, 46), width=2)
+        ct._rrect(im, [x, y + 10, x + tw, y + 300], 28, fill=(10, 8, 14, 170) if art_id else (255, 255, 255, 20), outline=(255, 255, 255, 46), width=2)
         dr = ImageDraw.Draw(im)
         dr.text((x + 36, y + 40), str(i["label"]).upper(), font=F(SEMI, 28), fill=(203, 213, 225))
         dr.text((x + 36, y + 84), str(i["value"]), font=ct._fit(dr, str(i["value"]), BLACK, 96, tw - 72), fill=WHITE)
@@ -152,11 +156,15 @@ def index_board(p, a, wp, jp):
         for k, i in enumerate(rest):
             x = 84 + k * (cw + 30)
             c = sign_col(i.get("change") or i.get("pct") or i.get("value") if i.get("role") == "move" else i.get("change") or i.get("pct"))
+            if art_id:
+                ct._rrect(im, [x, cy, x + cw, cy + 150], 22, fill=(10, 8, 14, 170))
             ct._rrect(im, [x, cy, x + cw, cy + 150], 22, fill=c + (40,), outline=c + (150,), width=2)
             dr = ImageDraw.Draw(im)
             dr.text((x + 26, cy + 24), str(i["label"]).upper(), font=ct._fit(dr, str(i["label"]).upper(), SEMI, 22, cw - 52), fill=(226, 232, 240))
             val = " ".join(v for v in (str(i.get("value") or ""), _chg(i)) if v)
             dr.text((x + 26, cy + 70), val, font=ct._fit(dr, val, XB, 46, cw - 52), fill=WHITE)
+    if art_id:
+        market_art.brand_backing(im, W, H)
     _foot(ImageDraw.Draw(im), p, ch, accent=acc)
     ct._save(im, wp, jp)
 

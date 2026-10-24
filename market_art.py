@@ -1,0 +1,73 @@
+"""Bull / bear artwork for market-move covers (owner-approved files only).
+
+Used for Indian market stories published from ART_FROM onwards: a falling verified move gets a
+bear, a rising one a bull. Covers published before ART_FROM are never changed. A file is used only
+if it is listed in data/cover-art.json as approved and its bytes match the recorded sha256.
+"""
+import hashlib
+import json
+import os
+from datetime import datetime
+
+import numpy as np
+from PIL import Image, ImageDraw, ImageFilter
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+ART_FROM = datetime.fromisoformat("2026-10-24T08:45:00+05:30")
+# Earlier stories the owner asked to switch to the new artwork (24 Oct 2026).
+ALSO = {"2026-10-23-sensex-nifty-close-fourth-straight-fall-recovers-from-lows", "2026-10-23-weekly-market-review"}
+_CACHE = {}
+
+
+def _registry():
+    if "reg" not in _CACHE:
+        p = os.path.join(HERE, "data", "cover-art.json")
+        items = []
+        if os.path.isfile(p):
+            for it in json.load(open(p, encoding="utf-8")).get("items", []):
+                f = os.path.join(HERE, it.get("file", ""))
+                if it.get("approved") is True and it.get("rights") and os.path.isfile(f) \
+                        and hashlib.sha256(open(f, "rb").read()).hexdigest() == it.get("sha256"):
+                    items.append(it)
+        _CACHE["reg"] = items
+    return _CACHE["reg"]
+
+
+def choice(p, direction):
+    """The artwork id for this story, or None (old story, not a market move, flat, or no art)."""
+    if p.get("category") != "markets" or direction not in ("up", "down"):
+        return None
+    try:
+        if p.get("id") not in ALSO and datetime.fromisoformat(str(p.get("publishedAt"))) < ART_FROM:
+            return None
+    except ValueError:
+        return None
+    pool = sorted((it for it in _registry() if it["direction"] == direction), key=lambda it: it["id"])
+    if not pool:
+        return None
+    k = int(hashlib.md5(str(p.get("id")).encode()).hexdigest(), 16) % len(pool)  # stable rotation
+    return pool[k]["id"]
+
+
+def layer(art_id, W, H, strength=1.0, text_width=900):
+    """W x H RGBA layer: the artwork right-aligned, its left edge fading out under the headline,
+    with extra darkening behind the text. strength < 1 dims the art (for covers with data tiles)."""
+    it = next(i for i in _registry() if i["id"] == art_id)
+    src = Image.open(os.path.join(HERE, it["file"])).convert("RGBA")
+    im = src.resize((int(src.width * H / src.height), H), Image.LANCZOS)
+    a = np.asarray(im).copy()
+    fade = np.clip((np.arange(im.width) - 120) / 520, 0, 1) ** 1.3
+    a[..., 3] = (a[..., 3] * fade[None, :] * strength).astype(np.uint8)
+    out = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    out.alpha_composite(Image.fromarray(a, "RGBA"), (W - im.width + 120, 0))
+    shade = np.zeros((H, W, 4), np.uint8)
+    shade[..., 3] = (np.clip(1 - np.arange(W) / text_width, 0, 1) ** 1.2 * 200).astype(np.uint8)[None, :]
+    out.alpha_composite(Image.fromarray(shade, "RGBA"))
+    return out
+
+
+def brand_backing(im, W, H):
+    """Dark soft pill behind the bottom-right TotalMarket wordmark so artwork never runs through it."""
+    pill = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    ImageDraw.Draw(pill).rounded_rectangle([W - 400, H - 118, W - 34, H - 22], radius=44, fill=(8, 6, 10, 240))
+    im.alpha_composite(pill.filter(ImageFilter.GaussianBlur(2)))

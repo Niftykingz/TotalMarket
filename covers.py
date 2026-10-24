@@ -621,7 +621,12 @@ def render(p, path_webp, path_jpg):
     if p.get("coverLabel"):
         label = str(p["coverLabel"]).upper()
     base, acc = background(theme, seed, d)
-    base.alpha_composite(OBJECTS.get(obj, OBJECTS["candles"])(seed, d, acc, glyph))
+    import market_art
+    art_id = market_art.choice(p, d) if obj == "candles" else None
+    if art_id:  # owner-approved bull / bear artwork instead of generic candles (new stories only)
+        base.alpha_composite(market_art.layer(art_id, W, H))
+    else:
+        base.alpha_composite(OBJECTS.get(obj, OBJECTS["candles"])(seed, d, acc, glyph))
     scrim = np.zeros((H, W, 4), np.uint8)
     scrim[..., 3] = (np.clip((np.linspace(1, 0, W) - .35) / .65, 0, 1) ** 1.4 * 170).astype(np.uint8)[None, :]
     base.alpha_composite(Image.fromarray(scrim, "RGBA"))
@@ -676,6 +681,8 @@ def render(p, path_webp, path_jpg):
     for t in comps[:3]:
         bd = art.company_badge(t, 44)
         base.alpha_composite(bd, (bx, H - 96)); bx += bd.width + 10
+    if art_id:
+        market_art.brand_backing(base, W, H)
     dr = ImageDraw.Draw(base)
     bf = font(F_XB, 34)
     bwid = dr.textlength("TotalMarket", font=bf)
@@ -696,6 +703,10 @@ def cover_name(p):
            p.get("palette"), p.get("coverLabel"), p.get("publishedAt"), art.detect(p), logos]
     an = analysis(p)
     key += [an["template"], an["object"], an["figures"], an["series"]]
+    import market_art
+    art_id = market_art.choice(p, direction(p))
+    if art_id:  # only stories from market_art.ART_FROM: older cover names never change
+        key.append("art:" + art_id)
     if an["template"] != "illustration":  # re-render data covers whenever their template code changes
         mod = "cover_templates_v2.py" if an.get("chart") else "cover_templates.py"
         key.append(hashlib.md5(open(os.path.join(HERE, mod), "rb").read()).hexdigest()[:8])
