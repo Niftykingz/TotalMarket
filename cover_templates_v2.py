@@ -41,7 +41,10 @@ REQUIRES = {
     "stock_move": "1 item with value and change or pct",
     "ipo_subscription": "item with role 'total' and 2+ category items",
     "earnings_v2": "2+ items with value and change",
+    "ipo_facts": "a 'stage' and 2+ items with label and value",
+    "ipo_calendar": "1+ rows with label (company) and note (dates)",
 }
+IPO_STAGES = {"filed", "opens", "anchor", "allotment", "listing", "firstday", "lockin"}
 
 
 def num(s):
@@ -84,6 +87,10 @@ def ok(chart):
         return "" if tot and len(cats) >= 2 else REQUIRES[t]
     if t == "earnings_v2":
         return "" if sum(1 for i in items if has(i, "value") and has(i, "change")) >= 2 else REQUIRES[t]
+    if t == "ipo_facts":
+        return "" if chart.get("stage") in IPO_STAGES and sum(1 for i in items if has(i, "label") and has(i, "value")) >= 2 else REQUIRES[t]
+    if t == "ipo_calendar":
+        return "" if any(has(i, "label") and has(i, "note") for i in items) else REQUIRES[t]
     return f"unknown layout {t!r}"
 
 
@@ -373,7 +380,8 @@ def ipo_subscription(p, a, wp, jp):
     tot = next(i for i in ch["items"] if i.get("role") == "total")
     cats = [i for i in ch["items"] if i.get("role") != "total" and num(i.get("value")) is not None][:6]
     import market_art
-    art_id = market_art.ipo_choice(p)
+    final = ch.get("stage") == "final" or "closed" in str(ch.get("title") or "").lower()
+    art_id = market_art.ipo_choice(p) if final else market_art.stage_art(p, "subscription")
     if art_id:
         return _ipo_subscription_art(p, ch, tot, cats, art_id, wp, jp)
     im = ct._grad((24, 10, 56), (58, 22, 104), .45)
@@ -403,7 +411,7 @@ def ipo_subscription(p, a, wp, jp):
 def _ipo_subscription_art(p, ch, tot, cats, art_id, wp, jp):
     """IPO subscription with the owner-approved IPO artwork: figures on a navy panel, art on the right."""
     import market_art
-    im = market_art.ipo_layer(art_id, W, H)
+    im = (market_art.stage_layer if art_id.startswith("ipo-") and art_id != "ipo-01" else market_art.ipo_layer)(art_id, W, H)
     dr = ImageDraw.Draw(im)
     ct._kicker(dr, ch.get("title") or "IPO", accent=GOLD)
     head = str(p.get("coverHeadline") or p.get("title") or "")
@@ -429,6 +437,88 @@ def _ipo_subscription_art(p, ch, tot, cats, art_id, wp, jp):
         dr.text((x0 + L + 12, yy + rh / 2 - 4), lbl, font=F(XB, 26), fill=WHITE, anchor="lm")
         yy += rh
     market_art.brand_backing(im, W, H)
+    _foot(ImageDraw.Draw(im), p, ch, accent=GOLD)
+    ct._save(im, wp, jp)
+
+
+# ------------------------------------------------------------------ 9 IPO facts (filed, opens, anchor, allotment, listing, first day, lock-in)
+def _ipo_canvas(p, stage):
+    import market_art
+    art_id = market_art.stage_art(p, stage)
+    if art_id:
+        return market_art.stage_layer(art_id, W, H), True
+    return ct._grad((9, 20, 48), (30, 27, 75), .45), False
+
+
+def ipo_facts(p, a, wp, jp):
+    """Headline, dates line, one highlighted figure and up to four detail tiles, all from verified items."""
+    ch = a["chart"]
+    items = [i for i in ch["items"] if i.get("label") and i.get("value")]
+    main = next((i for i in items if i.get("role") == "main"), None)
+    rest = [i for i in items if i is not main][:4]
+    im, art = _ipo_canvas(p, ch["stage"])
+    dr = ImageDraw.Draw(im)
+    ct._kicker(dr, ch.get("title") or "IPO", accent=GOLD)
+    head = str(p.get("coverHeadline") or p.get("title") or "")
+    f = ct._fit(dr, head, BLACK, 62, 880, min_size=40)
+    dr.text((84, 150), head, font=f, fill=WHITE)
+    y = 150 + f.size + 18
+    if ch.get("dates"):
+        df = ct._fit(dr, str(ch["dates"]), MED, 30, 880, min_size=22)
+        dr.text((86, y), str(ch["dates"]), font=df, fill=(191, 219, 254))
+        y += df.size + 26
+    if main:
+        dr.text((84, y), str(main["label"]).upper(), font=F(SEMI, 24), fill=(191, 219, 254))
+        mf = ct._fit(dr, str(main["value"]), BLACK, 120, 860, min_size=60)
+        dr.text((80, y + 30), str(main["value"]), font=mf, fill=GOLD)
+        y += 30 + mf.size + 28
+        if main.get("note"):
+            dr.text((84, y - 18), str(main["note"]), font=F(MED, 24), fill=(191, 219, 254))
+            y += 22
+    tw, th = 400, min(150, (H - 120 - y - 20) // 2)
+    for k, i in enumerate(rest):
+        x, yy = 84 + (k % 2) * (tw + 24), y + (k // 2) * (th + 20)
+        ct._rrect(im, [x, yy, x + tw, yy + th], 22, fill=(255, 255, 255, 20), outline=(255, 255, 255, 52), width=2)
+        dr = ImageDraw.Draw(im)
+        dr.text((x + 26, yy + 18), str(i["label"]).upper(), font=ct._fit(dr, str(i["label"]).upper(), SEMI, 22, tw - 52), fill=(191, 219, 254))
+        vf = ct._fit(dr, str(i["value"]), XB, 50 if th >= 130 else 40, tw - 52, min_size=26)
+        col = sign_col(i["value"]) if i.get("role") == "move" else (GOLD if k == 0 and not main else WHITE)
+        dr.text((x + 26, yy + th - vf.size - 22), str(i["value"]), font=vf, fill=col)
+    import market_art
+    if art:
+        market_art.brand_backing(im, W, H)
+    _foot(ImageDraw.Draw(im), p, ch, accent=GOLD)
+    ct._save(im, wp, jp)
+
+
+# ------------------------------------------------------------------ 10 IPO calendar (next week's issues)
+def ipo_calendar(p, a, wp, jp):
+    ch = a["chart"]
+    rows = [i for i in ch["items"] if i.get("label") and i.get("note")][:5]
+    import market_art
+    art_id = market_art.stage_art(p, "calendar")
+    if art_id:
+        im, art = market_art.stage_layer(art_id, W, H, edge=1180, shift=330), True
+    else:
+        im, art = ct._grad((9, 20, 48), (30, 27, 75), .45), False
+    dr = ImageDraw.Draw(im)
+    ct._kicker(dr, ch.get("title") or "IPO calendar", accent=GOLD)
+    head = str(p.get("coverHeadline") or p.get("title") or "")
+    f = ct._fit(dr, head, BLACK, 60, 960, min_size=40)
+    dr.text((84, 150), head, font=f, fill=WHITE)
+    y = 150 + f.size + 34
+    rh = min(104, (H - 130 - y) // max(1, len(rows)))
+    for i in rows:
+        ct._rrect(im, [84, y, 1030, y + rh - 14], 18, fill=(9, 20, 48, 200), outline=(255, 255, 255, 46), width=2)
+        dr = ImageDraw.Draw(im)
+        dr.text((110, y + (rh - 14) / 2), str(i["label"]), font=ct._fit(dr, str(i["label"]), XB, 34, 430, min_size=22), fill=WHITE, anchor="lm")
+        dr.text((540, y + (rh - 14) / 2), str(i["note"]), font=ct._fit(dr, str(i["note"]), MED, 26, 190, min_size=18), fill=(191, 219, 254), anchor="lm")
+        v = str(i.get("value") or "Price band not announced")
+        dr.text((1004, y + (rh - 14) / 2), v, font=ct._fit(dr, v, SEMI if i.get("value") else MED, 28, 250, min_size=18),
+                fill=GOLD if i.get("value") else (148, 163, 184), anchor="rm")
+        y += rh
+    if art:
+        market_art.brand_backing(im, W, H)
     _foot(ImageDraw.Draw(im), p, ch, accent=GOLD)
     ct._save(im, wp, jp)
 
@@ -480,4 +570,5 @@ def earnings_v2(p, a, wp, jp):
 
 
 TEMPLATES = {"index_board": index_board, "global_bars": global_bars, "commodity_card": commodity_card, "forex_card": forex_card,
-             "policy_rate": policy_rate, "stock_move": stock_move, "ipo_subscription": ipo_subscription, "earnings_v2": earnings_v2}
+             "policy_rate": policy_rate, "stock_move": stock_move, "ipo_subscription": ipo_subscription, "earnings_v2": earnings_v2,
+             "ipo_facts": ipo_facts, "ipo_calendar": ipo_calendar}

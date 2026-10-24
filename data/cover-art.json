@@ -42,6 +42,141 @@
    "source": "AI-generated image supplied by the site owner (Mayur Patel) in chat on 24 Oct 2026 for IPO covers",
    "rights": "Owner confirmed commercial use of AI-created cover artwork on TotalMarket on 24 Oct 2026",
    "approved": true
+  },
+  {
+   "id": "ipo-filed",
+   "file": "cover_art/ipo-filed.webp",
+   "kind": "ipo-stage",
+   "stage": "filed",
+   "direction": "any",
+   "sha256": "e5f715d624e9a3edb1fc7b36144dcd9dbbb1f2c56b48c6580dd5928b5ee3ca62",
+   "size": [
+    511,
+    337
+   ],
+   "source": "AI-generated with ChatGPT by the site owner (Mayur Patel); cropped from a 3x3 grid supplied in chat on 24 Oct 2026",
+   "rights": "Owner confirmed commercial use of AI-created cover artwork on TotalMarket on 24 Oct 2026",
+   "approved": true
+  },
+  {
+   "id": "ipo-opens",
+   "file": "cover_art/ipo-opens.webp",
+   "kind": "ipo-stage",
+   "stage": "opens",
+   "direction": "any",
+   "sha256": "82afe6aa24c418f238327e501fd322be2ecf97518bd452596dbbffb2e5c5d666",
+   "size": [
+    508,
+    337
+   ],
+   "source": "AI-generated with ChatGPT by the site owner (Mayur Patel); cropped from a 3x3 grid supplied in chat on 24 Oct 2026",
+   "rights": "Owner confirmed commercial use of AI-created cover artwork on TotalMarket on 24 Oct 2026",
+   "approved": true
+  },
+  {
+   "id": "ipo-anchor",
+   "file": "cover_art/ipo-anchor.webp",
+   "kind": "ipo-stage",
+   "stage": "anchor",
+   "direction": "any",
+   "sha256": "ef53997053647bfd11c57e45a68da66c9c3652fee1a88b1a01bae232df42187f",
+   "size": [
+    509,
+    337
+   ],
+   "source": "AI-generated with ChatGPT by the site owner (Mayur Patel); cropped from a 3x3 grid supplied in chat on 24 Oct 2026",
+   "rights": "Owner confirmed commercial use of AI-created cover artwork on TotalMarket on 24 Oct 2026",
+   "approved": true
+  },
+  {
+   "id": "ipo-subscription",
+   "file": "cover_art/ipo-subscription.webp",
+   "kind": "ipo-stage",
+   "stage": "subscription",
+   "direction": "any",
+   "sha256": "adfcb7cb8b790fb3eb1456b4b8168c9cee6169d02b029ebcce5683e1eee4f994",
+   "size": [
+    511,
+    336
+   ],
+   "source": "AI-generated with ChatGPT by the site owner (Mayur Patel); cropped from a 3x3 grid supplied in chat on 24 Oct 2026",
+   "rights": "Owner confirmed commercial use of AI-created cover artwork on TotalMarket on 24 Oct 2026",
+   "approved": true
+  },
+  {
+   "id": "ipo-allotment",
+   "file": "cover_art/ipo-allotment.webp",
+   "kind": "ipo-stage",
+   "stage": "allotment",
+   "direction": "any",
+   "sha256": "5558f6818d2fbc06633089058034e5935fedbaff2d3da489beef86ac92aa3695",
+   "size": [
+    508,
+    336
+   ],
+   "source": "AI-generated with ChatGPT by the site owner (Mayur Patel); cropped from a 3x3 grid supplied in chat on 24 Oct 2026",
+   "rights": "Owner confirmed commercial use of AI-created cover artwork on TotalMarket on 24 Oct 2026",
+   "approved": true
+  },
+  {
+   "id": "ipo-listing",
+   "file": "cover_art/ipo-listing.webp",
+   "kind": "ipo-stage",
+   "stage": "listing",
+   "direction": "any",
+   "sha256": "a70493830bd477a22446efe6ef77a1e6e974ab64e0c37a17c48ddde40ebdedf0",
+   "size": [
+    509,
+    336
+   ],
+   "source": "AI-generated with ChatGPT by the site owner (Mayur Patel); cropped from a 3x3 grid supplied in chat on 24 Oct 2026",
+   "rights": "Owner confirmed commercial use of AI-created cover artwork on TotalMarket on 24 Oct 2026",
+   "approved": true
+  },
+  {
+   "id": "ipo-firstday",
+   "file": "cover_art/ipo-firstday.webp",
+   "kind": "ipo-stage",
+   "stage": "firstday",
+   "direction": "any",
+   "sha256": "f201f2c5680d073f23a6312985769f39abd9057f00ca874186ec0ab2c2d37307",
+   "size": [
+    511,
+    344
+   ],
+   "source": "AI-generated with ChatGPT by the site owner (Mayur Patel); cropped from a 3x3 grid supplied in chat on 24 Oct 2026",
+   "rights": "Owner confirmed commercial use of AI-created cover artwork on TotalMarket on 24 Oct 2026",
+   "approved": true
+  },
+  {
+   "id": "ipo-calendar",
+   "file": "cover_art/ipo-calendar.webp",
+   "kind": "ipo-stage",
+   "stage": "calendar",
+   "direction": "any",
+   "sha256": "f5387e0949e516123fafa41730ae0a551da5468d1027ce7d45cff179601c4d15",
+   "size": [
+    508,
+    344
+   ],
+   "source": "AI-generated with ChatGPT by the site owner (Mayur Patel); cropped from a 3x3 grid supplied in chat on 24 Oct 2026",
+   "rights": "Owner confirmed commercial use of AI-created cover artwork on TotalMarket on 24 Oct 2026",
+   "approved": true
+  },
+  {
+   "id": "ipo-lockin",
+   "file": "cover_art/ipo-lockin.webp",
+   "kind": "ipo-stage",
+   "stage": "lockin",
+   "direction": "any",
+   "sha256": "4a0904d0d58a123217a9c4db3f6cd87664abf9fe3832063239ccbba9d86fa1d7",
+   "size": [
+    509,
+    344
+   ],
+   "source": "AI-generated with ChatGPT by the site owner (Mayur Patel); cropped from a 3x3 grid supplied in chat on 24 Oct 2026",
+   "rights": "Owner confirmed commercial use of AI-created cover artwork on TotalMarket on 24 Oct 2026",
+   "approved": true
   }
  ]
 }

@@ -67,6 +67,28 @@ def ipo_choice(p):
     return pool[int(hashlib.md5(str(p.get("id")).encode()).hexdigest(), 16) % len(pool)]["id"]
 
 
+def stage_art(p, stage):
+    """Artwork id for an IPO-stage cover ('opens', 'anchor', 'listing', ...), or None."""
+    if not _new_enough(p):
+        return None
+    it = next((i for i in _registry() if i["kind"] == "ipo-stage" and i.get("stage") == stage), None)
+    return it["id"] if it else None
+
+
+def stage_layer(art_id, W, H, panel=(9, 20, 48), edge=980, shift=160):
+    """Dark IPO-stage artwork, upscaled and sharpened, right-aligned; navy panel fading in from the left."""
+    it = next(i for i in _registry() if i["id"] == art_id)
+    src = Image.open(os.path.join(HERE, it["file"])).convert("RGBA")
+    a2 = src.resize((int(src.width * H / src.height), H), Image.LANCZOS).filter(ImageFilter.UnsharpMask(2, 60, 2))
+    im = Image.new("RGBA", (W, H), panel + (255,))
+    im.alpha_composite(a2, (W - a2.width + shift, 0))
+    fade = np.zeros((H, W, 4), np.uint8)
+    fade[..., :3] = panel
+    fade[..., 3] = (np.clip((edge - np.arange(W)) / 380, 0, 1) * 255).astype(np.uint8)[None, :]
+    im.alpha_composite(Image.fromarray(fade, "RGBA"))
+    return im
+
+
 def ipo_layer(art_id, W, H, panel=(10, 22, 48), edge=1000):
     """Light artwork on the right; a solid navy panel on the left that fades into it."""
     it = next(i for i in _registry() if i["id"] == art_id)

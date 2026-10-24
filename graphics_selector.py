@@ -251,6 +251,8 @@ def analyze(p, meta=None, ipos=None):
         ctype = chart.get("type")
         if event in ("generic", "market_preview", "funding") and ctype == "stock_move":
             event = "stock_move"
+        if event == "explainer" and ctype in ("ipo_facts", "ipo_calendar") and R_IPO.search(str(p.get("title") or "")):
+            event = "ipo"  # "IPO allotment today: how to check" is IPO news with verified dates, not an explainer
         allowed = EVENT_LAYOUTS.get(event, set())
         gap = v2.ok(chart)
         if ctype not in allowed:
@@ -272,11 +274,12 @@ def analyze(p, meta=None, ipos=None):
 
 
 # ------------------------------------------------------------------ v2 layout rules
-V2_LAYOUTS = {"index_board", "global_bars", "commodity_card", "forex_card", "policy_rate", "stock_move", "ipo_subscription", "earnings_v2"}
+V2_LAYOUTS = {"index_board", "global_bars", "commodity_card", "forex_card", "policy_rate", "stock_move", "ipo_subscription", "earnings_v2",
+              "ipo_facts", "ipo_calendar"}
 EVENT_LAYOUTS = {
     "index_move": {"index_board"}, "market_preview": {"index_board"}, "global_markets": {"global_bars"},
     "commodity": {"commodity_card"}, "forex": {"forex_card"}, "policy": {"policy_rate"}, "earnings": {"earnings_v2", "stock_move"},
-    "ipo": {"ipo_subscription"}, "stock_move": {"stock_move"}, "ipo_listing": set(),
+    "ipo": {"ipo_subscription", "ipo_facts", "ipo_calendar"}, "stock_move": {"stock_move"}, "ipo_listing": {"ipo_facts"},
 }
 R_RATE = re.compile(r"\b(repo|policy rate|rate (cut|hike)|cuts? rates?|hikes? rates?|crr|slr|basis points|bps)\b", re.I)
 DATA_EVENTS = {"index_move", "market_preview", "global_markets", "commodity", "forex", "earnings", "ipo", "ipo_listing", "stock_move"}

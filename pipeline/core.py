@@ -277,7 +277,8 @@ def headline_matches_chart(post, analysis):
     for k, f in enumerate(analysis.get("figures") or []):
         for key in ("value", "change", "pct", "issue", "listing", "prev"):
             if f.get(key) not in (None, ""):
-                figs.append({"id": f"c{k}{key}", "value": f[key]})
+                for n, (raw, _, _) in enumerate(N.mentions_all(str(f[key]))):
+                    figs.append({"id": f"c{k}{key}{n}", "value": raw})
     cands = N.candidates(figs)
     bad = N.unsupported(" ".join(str(post.get(k) or "") for k in ("coverHeadline", "stat")), cands)
     return [b[0] for b in bad]
@@ -574,7 +575,8 @@ def qa_checks(slug, ver, gfx, art_out, root, compare_render=True):
         errs.append("no rendered graphic recorded")
     a0 = gfx.get("analysis") or {}
     if a0.get("template") not in (None, "illustration") and a0.get("figures"):
-        figs = [{"id": f"g{k}{key}", "value": f[key]} for k, f in enumerate(a0["figures"]) for key in ("value", "change", "pct", "issue", "listing", "prev") if f.get(key) not in (None, "")]
+        figs = [{"id": f"g{k}{key}{n}", "value": raw} for k, f in enumerate(a0["figures"]) for key in ("value", "change", "pct", "issue", "listing", "prev")
+                if f.get(key) not in (None, "") for n, (raw, _, _) in enumerate(N.mentions_all(str(f[key])))]   # "₹1,585–1,665" holds two numbers
         shown = {round(abs(N.to_float(f["value"])), 6) for f in figs if N.to_float(f["value"]) == N.to_float(f["value"])}
         said = {round(abs(v), 6) for _, v, _ in N.mentions(f'{post.get("title", "")} {post.get("dek", "")}')}
         if said and not (said & shown) and not any(N.supported(v, 2, N.candidates(figs)) for v in said):
