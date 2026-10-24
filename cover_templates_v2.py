@@ -526,7 +526,7 @@ def ipo_calendar(p, a, wp, jp):
         dr = ImageDraw.Draw(im)
         dr.text((110, y + (rh - 14) / 2), str(i["label"]), font=ct._fit(dr, str(i["label"]), XB, 34, 430, min_size=22), fill=WHITE, anchor="lm")
         dr.text((540, y + (rh - 14) / 2), str(i["note"]), font=ct._fit(dr, str(i["note"]), MED, 26, 190, min_size=18), fill=(191, 219, 254), anchor="lm")
-        v = str(i.get("value") or "Price band not announced")
+        v = str(i.get("value") or "Price band not yet confirmed")
         dr.text((1004, y + (rh - 14) / 2), v, font=ct._fit(dr, v, SEMI if i.get("value") else MED, 28, 250, min_size=18),
                 fill=GOLD if i.get("value") else (148, 163, 184), anchor="rm")
         y += rh
