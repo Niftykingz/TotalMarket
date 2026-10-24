@@ -63,15 +63,27 @@ def fit(dr, text, font, size, max_w, min_size=18):
     return f
 
 
-def canvas(kind):
-    """Artwork scaled to 1536x1024, sharpened, with a dark panel fading in over the left 45%."""
+def canvas(kind, art_id=None):
+    """Artwork filling 1536x1024 (wide banners are scaled to the height and right-aligned), sharpened,
+    with a dark panel fading in over the left 45%."""
     import market_art
     reg = {i["id"]: i for i in market_art._registry()}
-    it = reg.get(ART[kind])
+    it = reg.get(art_id or ART[kind]) or reg.get(ART[kind])
     im = Image.new("RGBA", (W, H), PANEL + (255,))
     if it:
         src = Image.open(os.path.join(HERE, it["file"])).convert("RGBA")
-        im.alpha_composite(src.resize((W, H), Image.LANCZOS).filter(ImageFilter.UnsharpMask(2, 70, 2)))
+        if src.width / src.height > 2:  # wide banner: subject in its right ~46%; keep it right of the text column
+            sc = (W - 700) / (0.46 * src.width)
+            a2 = src.resize((int(src.width * sc), int(src.height * sc)), Image.LANCZOS).filter(ImageFilter.UnsharpMask(2, 70, 2))
+            a2 = a2.crop((a2.width - W, 0, a2.width, a2.height))
+            a = np.asarray(a2).copy()
+            ramp = np.clip(np.arange(a2.height) / 180, 0, 1)        # fade the banner's top edge into the panel
+            a[..., 3] = (a[..., 3] * ramp[:, None]).astype(np.uint8)
+            im.alpha_composite(Image.fromarray(a, "RGBA"), (0, H - a2.height))
+        else:
+            sc = max(W / src.width, H / src.height)
+            a2 = src.resize((int(src.width * sc + .5), int(src.height * sc + .5)), Image.LANCZOS).filter(ImageFilter.UnsharpMask(2, 70, 2))
+            im.alpha_composite(a2.crop((a2.width - W, (a2.height - H) // 2, a2.width, (a2.height - H) // 2 + H)))
     fade = np.zeros((H, W, 4), np.uint8)
     fade[..., :3] = PANEL
     fade[..., 3] = (np.clip((760 - np.arange(W)) / 260, 0, 1) * 235).astype(np.uint8)[None, :]
@@ -130,7 +142,8 @@ def awaiting(im, y, reason):
 
 # ------------------------------------------------------------------ 1 market close
 def market_close(d, out):
-    im = canvas("close")
+    n = num(((d.get("indices") or {}).get("NIFTY 50") or {}).get("pct"))
+    im = canvas("close", "close-bear" if n is not None and n < 0 else "close-bull" if n is not None and n > 0 else None)
     y = header(im, "Indian markets · close", "MARKET CLOSE", d["dateLabel"])
     dr = ImageDraw.Draw(im)
     rows = [("NIFTY 50", True), ("SENSEX", True), ("NIFTY BANK", False), ("INDIA VIX", False)]

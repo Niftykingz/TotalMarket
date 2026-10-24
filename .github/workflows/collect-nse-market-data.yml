@@ -61,6 +61,25 @@ jobs:
           git commit -q -m "NSE market snapshot $(date -u +%Y-%m-%dT%H:%MZ)"
           for i in 1 2 3; do git push -q origin HEAD:main && exit 0; git pull -q --rebase origin main; done
           echo "::warning title=NSE snapshot::could not push the snapshot"; exit 1
+      - name: Build the daily closing drafts (4 graphics + draft article; never published automatically)
+        if: steps.collect.outcome == 'success'
+        continue-on-error: true
+        run: |
+          pip install -q pillow numpy
+          D="${{ github.event.inputs.date }}"; D="${D:-$(TZ=Asia/Kolkata date +%F)}"
+          python3 -m pipeline.closing --date "$D" --out /tmp/closing-drafts | tee /tmp/closing.txt
+          [ -d "/tmp/closing-drafts/$D" ] || exit 0
+          echo "::notice title=Closing drafts::$(tr '\n' ' ' < /tmp/closing.txt | cut -c1-800)"
+          # Keep only the drafts on a separate branch (last 7 trading days), so main stays small.
+          git fetch -q origin closing-drafts:refs/remotes/origin/closing-drafts 2>/dev/null || true
+          W=/tmp/drafts-branch; rm -rf $W; mkdir -p $W
+          if git rev-parse -q --verify origin/closing-drafts >/dev/null; then git archive origin/closing-drafts | tar -x -C $W; fi
+          rm -rf "$W/$D"; cp -r "/tmp/closing-drafts/$D" "$W/$D"
+          ls -1d $W/20* 2>/dev/null | sort | head -n -7 | xargs -r rm -rf
+          printf '# Daily closing drafts\n\nGenerated after the NSE close; review, then ask for publication. Nothing here is live.\n' > $W/README.md
+          cd $W && git init -q && git checkout -q -b closing-drafts && git add -A
+          git -c user.name="TotalMarket Bot" -c user.email="noreply@anthropic.com" commit -q -m "Closing drafts $D"
+          git push -q -f "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" closing-drafts
       - name: Upload audit snapshot, including partial results
         if: always()
         uses: actions/upload-artifact@v4
