@@ -8,6 +8,7 @@ import datetime as dt
 import gzip
 import hashlib
 import http.cookiejar
+import io
 import json
 import re
 import urllib.parse
@@ -66,7 +67,31 @@ def date_from_timestamp(value):
     return None
 
 
-def collect(asof=None, fetch=None, raw_sink=None):
+ARCHIVES = "https://nsearchives.nseindia.com"
+
+
+def request_file(url, opener, max_bytes=40_000_000):
+    """Official NSE end-of-day files (CSV, or a zip holding one CSV)."""
+    import zipfile
+    req = urllib.request.Request(url, headers=dict(HEADERS, Accept="*/*"))
+    with opener.open(req, timeout=30) as response:
+        if response.status != 200:
+            raise ValueError("HTTP " + str(response.status))
+        raw = response.read(max_bytes + 1)
+    if len(raw) > max_bytes:
+        raise ValueError("file too large")
+    if raw[:2] == b"PK":
+        with zipfile.ZipFile(io.BytesIO(raw)) as z:
+            names = [n for n in z.namelist() if n.lower().endswith(".csv")]
+            if not names:
+                raise ValueError("zip without a CSV")
+            raw = z.read(names[0])
+    if b"," not in raw[:2000]:
+        raise ValueError("not a CSV file")
+    return raw
+
+
+def collect(asof=None, fetch=None, raw_sink=None, fetch_file=None):
     """raw_sink: optional dict filled with {path: raw response bytes} for the audit archive."""
     today = asof or dt.datetime.now(IST).date().isoformat()
     snap = {"schema": 1, "targetDate": today,
@@ -182,6 +207,25 @@ def collect(asof=None, fetch=None, raw_sink=None):
         else:
             snap["errors"].append("institutionalFlows: matching-date FII and DII rows unavailable")
 
+    # Official end-of-day files for closing-price movers (used by pipeline/closing.py).
+    if fetch_file is None and live:
+        def fetch_file(url):
+            return request_file(url, opener)
+    if fetch_file is not None:
+        ymd = today.replace("-", "")
+        for key, url in (("bhavcopy", f"{ARCHIVES}/content/cm/BhavCopy_NSE_CM_0_0_0_{ymd}_F_0000.csv.zip"),
+                         ("nifty50list", f"{ARCHIVES}/content/indices/ind_nifty50list.csv")):
+            try:
+                raw = fetch_file(url)
+                if raw_sink is not None:
+                    raw_sink[key] = raw
+                lines = raw.decode("utf-8-sig", "replace").splitlines()
+                snap["diagnostics"][key] = {"rows": len(lines) - 1, "header": lines[0][:300] if lines else ""}
+                if key == "bhavcopy" and today not in "\n".join(lines[1:3]):
+                    snap["errors"].append("bhavcopy: file does not carry the target date")
+            except Exception as exc:
+                snap["errors"].append(key + ": " + str(exc)[:180])
+
     snap["status"] = "complete" if len(snap["datasets"]) == 3 and not snap["errors"] else "partial"
     if snap["status"] == "complete" or "movers" in snap["datasets"]:
         snap["errors"] = [e for e in snap["errors"] if not e.startswith("nifty50:")]  # recovered by the alt path
@@ -205,10 +249,19 @@ def main():
     if args.archive and result["datasets"]:
         base = Path(args.archive) / args.date
         base.mkdir(parents=True, exist_ok=True)
-        (base / "snapshot.json").write_text(text, encoding="utf-8")
+        # Archived files are evidence for published articles: never overwrite one. A re-run only
+        # adds files that are not there yet, and keeps the earlier hash records.
+        prev = json.loads((base / "snapshot.json").read_text(encoding="utf-8")) if (base / "snapshot.json").is_file() else None
+        kept = dict((prev or {}).get("raw") or {})
         for p, b in raw.items():
             name = re.sub(r"[^A-Za-z0-9]+", "_", p).strip("_") + ".json.gz"
+            if (base / name).is_file():
+                continue
             (base / name).write_bytes(gzip.compress(b, mtime=0))
+            kept[p] = result["raw"][p]
+        merged = dict(prev, raw=kept, reruns=(prev.get("reruns") or []) + [{"collectedAt": result["collectedAt"], "added": sorted(set(kept) - set(prev.get("raw") or {})),
+                                                                          "errors": result["errors"]}]) if prev else result
+        (base / "snapshot.json").write_text(json.dumps(merged, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     print(json.dumps({"status": result["status"], "datasets": list(result["datasets"]),
                       "errors": result["errors"]}))
     if not result["datasets"]:

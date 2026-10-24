@@ -1,6 +1,10 @@
 name: Collect NSE market datasets
 on:
   workflow_dispatch:
+    inputs:
+      date:
+        description: "trading date YYYY-MM-DD (default: today IST)"
+        required: false
   schedule:
     # 16:15 IST on weekdays, after the regular NSE cash close.
     - cron: '45 10 * * 1-5'
@@ -25,7 +29,7 @@ jobs:
       - name: Collect dated exchange observations
         id: collect
         continue-on-error: true
-        run: python3 pipeline/market_data/collect_nse.py --output pipeline/market_data/latest.json --archive data/market_snapshots
+        run: python3 pipeline/market_data/collect_nse.py --output pipeline/market_data/latest.json --archive data/market_snapshots ${{ github.event.inputs.date && format('--date {0}', github.event.inputs.date) || '' }}
       - name: Report what was collected
         if: always()
         run: |
