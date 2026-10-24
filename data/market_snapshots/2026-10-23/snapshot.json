@@ -210,6 +210,27 @@
     "/api/fiidiiTradeReact": {
       "sha256": "f982911440a87279e4600375bc31d83f524e3d6e298e38012c21995e836a00e2",
       "bytes": 216
+    },
+    "bhavcopy": {
+      "sha256": "35ccefe3f28abfaee521508be1b1cf41908e463cb94bf7a9220e276a3fae5b21",
+      "bytes": 643149
+    },
+    "nifty50list": {
+      "sha256": "f5ba4027d935ae72879d5c24bbebf0e8439ec8ed504ffdf4175fde69206244b3",
+      "bytes": 3344
     }
-  }
+  },
+  "reruns": [
+    {
+      "collectedAt": "2026-10-24T09:28:42.472061+05:30",
+      "added": [
+        "bhavcopy",
+        "nifty50list"
+      ],
+      "errors": [
+        "nifty50: HTTP Error 404: Not Found",
+        "nifty50_alt: HTTP Error 404: Not Found"
+      ]
+    }
+  ]
 }
