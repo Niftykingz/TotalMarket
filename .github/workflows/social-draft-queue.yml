@@ -1,0 +1,20 @@
+name: Social draft queue (approval required)
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  preview:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Prepare drafts without publishing
+        run: python -m social.queue --limit 20
+      - uses: actions/upload-artifact@v4
+        with:
+          name: social-drafts
+          path: social/drafts/*.json
+          if-no-files-found: warn
