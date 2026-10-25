@@ -372,6 +372,12 @@ def header(meta, path, lang="en", switch=None):
     owner = SUBNAV_OWNER.get(rel.split("/")[0] + "/") if rel else None
     on = lambda k: " on" if (path == BASE + k or (k and k == rel.split("/")[0] + "/" and k[:-1] in CATS)) else ""
     nav = "".join(f'<a class="tab{on(k)}" href="{BASE}{k}"{" aria-current=\"page\"" if on(k) else ""}>{e(n)}</a>' for k, n in main)
+    # Keep the public Academy visible after Home on every generated page.
+    academy_url = "https://niftykingz.github.io/TotalMarket-Academy/courses.html"
+    academy_label = "Free Academy" if lang != "hi" else "फ्री अकादमी"
+    home_end = nav.find("</a>") + 4
+    if home_end >= 4:
+        nav = nav[:home_end] + f'<a class="tab" href="{academy_url}">{academy_label}</a>' + nav[home_end:]
     if lang == "hi":
         more_links = "".join(f'<a href="{BASE}{k}">{e(n)}</a>' for k, n in more)
     else:
@@ -383,6 +389,9 @@ def header(meta, path, lang="en", switch=None):
         if k not in seen_m:
             seen_m.add(k); allm.append((k, n))
     all_links = "".join(f'<a class="{on(k).strip()}" href="{BASE}{k}">{e(n)}</a>' for k, n in allm)
+    mobile_home_end = all_links.find("</a>") + 4
+    if mobile_home_end >= 4:
+        all_links = all_links[:mobile_home_end] + f'<a href="{academy_url}">{academy_label} · 20 Courses</a>' + all_links[mobile_home_end:]
     sw_url, sw_label = switch or ((f"{BASE}", "English") if lang == "hi" else (f"{BASE}hi/", "हिंदी"))
     sw = f'<a class="langsw" href="{e(sw_url)}" hreflang="{"en" if lang == "hi" else "hi"}" lang="{"en" if lang == "hi" else "hi"}">{e(sw_label)}</a>'
     ph = "कंपनी, IPO, खबरें खोजें…" if lang == "hi" else "Search companies, IPOs, news, markets…"
