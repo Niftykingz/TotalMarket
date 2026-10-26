@@ -1169,7 +1169,7 @@ def main():
     ipo_archive = os.path.join(DATA, "ipo_reports")
     if os.path.isdir(ipo_archive):
         for filename in sorted(os.listdir(ipo_archive)):
-            if not re.fullmatch(r"\\d{4}-\\d{2}-\\d{2}\\.html", filename):
+            if not re.fullmatch(r"\d{4}-\d{2}-\d{2}\.html", filename):
                 continue
             archive_dir = os.path.join(OUT, "ipo-update-" + filename[:-5])
             os.makedirs(archive_dir, exist_ok=True)
