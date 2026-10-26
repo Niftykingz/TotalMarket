@@ -1,31 +1,42 @@
 {
  "slug": "2026-10-26-market-close-sensex-nifty",
  "job": "pipeline/inbox/2026-10-26-market-close-sensex-nifty.json",
- "job_sha256": "ddd6786ec2b49e4f60227346279a7b754f23e92cbdb228ebe37a4d3062e71f42",
+ "job_sha256": "e7177cf117112ad77aa8cf697f8a4f6ffb885254a3aaece1a111a813db3e2483",
  "stages": {
   "DATA_COLLECTION": {
    "status": "PASS",
-   "sha256": "d4d103899014acff1ba3134012f7c94f8e4377618887e1bc641c5c00187a4073",
+   "sha256": "a90c5cc4bac7109435204f7b3404a6d4b07a4bce4c26816e09e70b03c73cfb01",
    "errors": [],
-   "started": "2026-10-26T18:57:55+05:30",
-   "finished": "2026-10-26T18:57:57+05:30"
+   "started": "2026-10-26T18:59:15+05:30",
+   "finished": "2026-10-26T18:59:18+05:30"
   },
   "DATA_VERIFICATION": {
    "status": "PASS",
-   "sha256": "5882d637e980bbe23d788baa6830ae8f24c37164908220c32926618b176abf56",
+   "sha256": "2785564f817561889467cbd6450df4a50ad7eba85caf1960ec1e5c97bc1a07c6",
    "errors": [],
-   "started": "2026-10-26T18:57:57+05:30",
-   "finished": "2026-10-26T18:58:00+05:30"
+   "started": "2026-10-26T18:59:18+05:30",
+   "finished": "2026-10-26T18:59:21+05:30"
   },
   "GRAPHICS_GENERATION": {
-   "status": "FAILED",
-   "sha256": "f5a77c357170c18f22bdb469170dfe8cca94a755463ff2f90f32fb1a546aeaff",
-   "errors": [
-    "graphic shows unverified numbers: ['482.92']",
-    "chart item 'SENSEX' shows ['482.92'] not in its own verified figures ['hdfc_sx', 'hdfc_sx_pct']"
-   ],
-   "started": "2026-10-26T18:58:00+05:30",
-   "finished": "2026-10-26T18:58:00+05:30"
+   "status": "PASS",
+   "sha256": "83cc2365db2e5340763da03877691f15b1e7ac6292d25779195cd3aae1e6789b",
+   "errors": [],
+   "started": "2026-10-26T18:59:21+05:30",
+   "finished": "2026-10-26T18:59:21+05:30"
+  },
+  "ARTICLE_WRITING": {
+   "status": "PASS",
+   "sha256": "0eebe38f927bf7f71cb716d63954321a0d7b42ff922681e8ad042a30025fbc67",
+   "errors": [],
+   "started": "2026-10-26T18:59:22+05:30",
+   "finished": "2026-10-26T18:59:22+05:30"
+  },
+  "FINAL_QA": {
+   "status": "PASS",
+   "sha256": "04717a230965e2cd9d3b42c7d8126179830f37bd125574bf5e7fe18c4bde51c0",
+   "errors": [],
+   "started": "2026-10-26T18:59:22+05:30",
+   "finished": "2026-10-26T18:59:22+05:30"
   }
  }
 }
