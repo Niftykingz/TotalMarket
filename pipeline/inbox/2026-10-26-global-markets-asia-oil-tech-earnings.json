@@ -49,7 +49,7 @@
       },
       {
         "id": "nikkei_pct",
-        "label": "Nikkei 225 move",
+        "label": "Nikkei move",
         "value": "0.34",
         "unit": "percent down",
         "source": "bs",
@@ -115,7 +115,7 @@
       "source": "Business Standard",
       "items": [
         {
-          "label": "Nikkei 225",
+          "label": "Nikkei",
           "pct": "-0.34",
           "figures": [
             "nikkei_pct"
@@ -170,7 +170,7 @@
     "lead": true,
     "readMins": 3,
     "body": [
-      "Global markets began Monday cautiously. Japan’s Nikkei 225 was down 0.34% and South Korea’s Kospi fell 1.25% in early trade. Business Standard reported that Asian shares were broadly lower amid elevated oil prices and West Asia tensions.",
+      "Global markets began Monday cautiously. Japan’s Nikkei was down 0.34% and South Korea’s Kospi fell 1.25% in early trade. Business Standard reported that Asian shares were broadly lower amid elevated oil prices and West Asia tensions.",
       "Oil pulled back from last week’s six-month high: Brent fell 1.39% to $115.1 a barrel, while WTI crude was down 1.76% at $101.5. The retreat offers some relief, though crude remains expensive for importers.",
       "Wall Street’s Friday close was weak across the main benchmarks: the Dow Jones Industrial Average fell 1.23%, the S&P 500 lost 0.52%, and the Nasdaq Composite slipped 0.21%.",
       "What to watch: oil and West Asia developments, Asian market follow-through, and the week’s company earnings. These can shift risk appetite and energy-cost expectations across regions.",
@@ -183,7 +183,7 @@
       "title": "Global market snapshot · Monday morning",
       "rows": [
         {
-          "label": "Nikkei 225",
+          "label": "Nikkei",
           "value": "Japan",
           "change": "Down 0.34%",
           "note": "Early trade"
@@ -247,7 +247,7 @@
       "title": "आज के ग्लोबल मार्केट: एशिया में गिरावट, Brent $115.1 पर",
       "dek": "एशियाई शेयर नीचे खुले और शुक्रवार को अमेरिकी बाजार भी गिरकर बंद हुए। तेल छह महीने के उच्च स्तर से फिसला, लेकिन अभी भी महंगा है।",
       "body": [
-        "सोमवार को वैश्विक बाजार सतर्क रहे। शुरुआती कारोबार में जापान का Nikkei 225 0.34% नीचे और दक्षिण कोरिया का Kospi 1.25% नीचे था। Business Standard के मुताबिक West Asia तनाव और ऊंचे तेल भाव के बीच एशियाई शेयरों में कमजोरी रही।",
+        "सोमवार को वैश्विक बाजार सतर्क रहे। शुरुआती कारोबार में जापान का Nikkei 0.34% नीचे और दक्षिण कोरिया का Kospi 1.25% नीचे था। Business Standard के मुताबिक West Asia तनाव और ऊंचे तेल भाव के बीच एशियाई शेयरों में कमजोरी रही।",
         "पिछले सप्ताह के छह महीने के उच्च स्तर से तेल नीचे आया: Brent 1.39% गिरकर $115.1 प्रति बैरल और WTI 1.76% गिरकर $101.5 पर था। तेल में नरमी से थोड़ी राहत है, लेकिन आयात करने वाले देशों के लिए भाव अभी भी ऊंचे हैं।",
         "शुक्रवार को अमेरिकी बाजारों के प्रमुख सूचकांक नीचे बंद हुए: Dow Jones 1.23%, S&P 500 0.52% और Nasdaq Composite 0.21% नीचे रहा।",
         "आगे तेल और West Asia की घटनाओं, एशियाई बाजारों की चाल और कंपनियों के नतीजों पर नजर रहेगी। ये ऊर्जा लागत और बाजार के जोखिम लेने के रुझान को बदल सकते हैं।",
