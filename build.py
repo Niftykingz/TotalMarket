@@ -1057,6 +1057,11 @@ def sitemap(posts):
     now = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
     urls = [(SITE_URL + "/", now, "hourly")] + [(f"{SITE_URL}/{k}/", now, "hourly") for k in CATS] + [(SITE_URL + "/about/", None, "monthly"), (SITE_URL + "/results/", now, "daily"), (SITE_URL + "/market-report/", now, "daily")] + [(u, now, "daily") for u in TOOL_URLS] + [(f"{SITE_URL}/tag/{t}/", now, "daily") for t in TAG_SLUGS] + [(u, now, "daily") for u in HUB_URLS]
     urls += [(abs_url(url(p)), p["_dt"].astimezone(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"), None) for p in posts]
+    ipo_archive = os.path.join(DATA, "ipo_reports")
+    if os.path.isdir(ipo_archive):
+        urls += [(f"{SITE_URL}/ipo-update-{filename[:-5]}/", now, "daily")
+                 for filename in sorted(os.listdir(ipo_archive))
+                 if re.fullmatch(r"\d{4}-\d{2}-\d{2}\.html", filename)]
     urls += [(u, now, "hourly") for u in hindi.HUB_URLS]
     urls += [(abs_url(hindi.hurl(p, BASE)), p["_dt"].astimezone(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"), None) for p in posts if hindi.has_hi(p)]
     rows = "".join(f"<url><loc>{e(u)}</loc>{f'<lastmod>{m}</lastmod>' if m else ''}{f'<changefreq>{c}</changefreq>' if c else ''}</url>" for u, m, c in urls)
