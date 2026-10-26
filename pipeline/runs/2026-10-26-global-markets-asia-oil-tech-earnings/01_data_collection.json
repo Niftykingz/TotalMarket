@@ -1,0 +1,177 @@
+{
+ "edition_date": "2026-10-26",
+ "sources": [
+  {
+   "id": "reuters",
+   "name": "Reuters: Stocks trade cautiously in Asia, Brent off six-month top",
+   "url": "https://www.reuters.com/world/asia-pacific/global-markets-pix-2026-10-26/",
+   "published": "2026-10-26T06:16:00+05:30"
+  }
+ ],
+ "figures": [
+  {
+   "id": "brent",
+   "label": "Brent crude",
+   "value": "114.88",
+   "unit": "USD per barrel",
+   "source": "reuters",
+   "evidence": "Brent oil slipped 1.6% to $114.88 following reports that Qatari mediators were in Tehran on Sunday as part of an effort to de-escalate regional tensions in coordination with the US.",
+   "as_of": "2026-10-26",
+   "key": true
+  },
+  {
+   "id": "brent_pct",
+   "label": "Brent crude move",
+   "value": "1.6",
+   "unit": "percent down",
+   "source": "reuters",
+   "evidence": "Brent oil slipped 1.6% to $114.88 following reports that Qatari mediators were in Tehran on Sunday as part of an effort to de-escalate regional tensions in coordination with the US.",
+   "as_of": "2026-10-26"
+  },
+  {
+   "id": "wti",
+   "label": "US crude",
+   "value": "101.29",
+   "unit": "USD per barrel",
+   "source": "reuters",
+   "evidence": "US crude futures fell 1.9% to $101.29 a barrel.",
+   "as_of": "2026-10-26"
+  },
+  {
+   "id": "wti_pct",
+   "label": "US crude move",
+   "value": "1.9",
+   "unit": "percent down",
+   "source": "reuters",
+   "evidence": "US crude futures fell 1.9% to $101.29 a barrel.",
+   "as_of": "2026-10-26"
+  },
+  {
+   "id": "oil_week",
+   "label": "Brent weekly rise",
+   "value": "6.2",
+   "unit": "percent",
+   "source": "reuters",
+   "evidence": "Brent futures jumped 6.2% last week to their highest weekly close since mid-2022 as Houthi attacks in Saudi Arabia stoked concerns about energy supplies.",
+   "as_of": "2026-10-23"
+  },
+  {
+   "id": "nikkei",
+   "label": "Nikkei move",
+   "value": "0.5",
+   "unit": "percent down",
+   "source": "reuters",
+   "evidence": "Japan's Nikkei dipped 0.5% after losing 4.0% last week.",
+   "as_of": "2026-10-26"
+  },
+  {
+   "id": "kospi",
+   "label": "South Korea main index move",
+   "value": "1.1",
+   "unit": "percent down",
+   "source": "reuters",
+   "evidence": "South Korea's main index fell 1.1%, having shed almost 20% so far this month.",
+   "as_of": "2026-10-26"
+  },
+  {
+   "id": "china",
+   "label": "Chinese blue chips move",
+   "value": "1.0",
+   "unit": "percent down",
+   "source": "reuters",
+   "evidence": "Chinese blue chips lost 1.0%, as China's ruling Communist Party began its fifth plenum in Beijing.",
+   "as_of": "2026-10-26"
+  },
+  {
+   "id": "msci_asia",
+   "label": "MSCI Asia-Pacific ex-Japan move",
+   "value": "0.1",
+   "unit": "percent down",
+   "source": "reuters",
+   "evidence": "MSCI's broadest index of Asia-Pacific shares excluding Japan eased 0.1%.",
+   "as_of": "2026-10-26"
+  },
+  {
+   "id": "sp_futures",
+   "label": "S&P 500 futures move",
+   "value": "0.1",
+   "unit": "percent up",
+   "source": "reuters",
+   "evidence": "On Wall Street, S&P 500 futures edged up 0.1%, while Nasdaq futures were flat.",
+   "as_of": "2026-10-26"
+  },
+  {
+   "id": "eurostoxx",
+   "label": "EUROSTOXX 50 futures move",
+   "value": "0.3",
+   "unit": "percent up",
+   "source": "reuters",
+   "evidence": "In Europe, EUROSTOXX 50 futures firmed 0.3%, while DAX futures gained 0.3% and FTSE futures gained 0.4%.",
+   "as_of": "2026-10-26"
+  },
+  {
+   "id": "dax",
+   "label": "DAX futures move",
+   "value": "0.3",
+   "unit": "percent up",
+   "source": "reuters",
+   "evidence": "In Europe, EUROSTOXX 50 futures firmed 0.3%, while DAX futures gained 0.3% and FTSE futures gained 0.4%.",
+   "as_of": "2026-10-26"
+  },
+  {
+   "id": "ftse",
+   "label": "FTSE futures move",
+   "value": "0.4",
+   "unit": "percent up",
+   "source": "reuters",
+   "evidence": "In Europe, EUROSTOXX 50 futures firmed 0.3%, while DAX futures gained 0.3% and FTSE futures gained 0.4%.",
+   "as_of": "2026-10-26"
+  },
+  {
+   "id": "treasury",
+   "label": "US 10-year Treasury yield",
+   "value": "4.97",
+   "unit": "percent",
+   "source": "reuters",
+   "evidence": "Yields on 10-year Treasuries were at 4.97%, well off a peak of 5.36% hit early in the month.",
+   "as_of": "2026-10-26"
+  },
+  {
+   "id": "gold",
+   "label": "Gold",
+   "value": "4001",
+   "unit": "USD per ounce",
+   "source": "reuters",
+   "evidence": "In commodity markets, non-interest-bearing gold was a fraction firmer at $4,001 an ounce, having fallen more than 4% last week.",
+   "as_of": "2026-10-26"
+  },
+  {
+   "id": "inflation",
+   "label": "US core inflation forecast",
+   "value": "3.1",
+   "unit": "percent",
+   "source": "reuters",
+   "evidence": "A key reading on US core inflation should show cost pressures remained elevated at 3.1% in September.",
+   "as_of": "2026-09-30"
+  },
+  {
+   "id": "growth",
+   "label": "US annualized growth forecast",
+   "value": "3.2",
+   "unit": "percent",
+   "source": "reuters",
+   "evidence": "The economy is forecast to have grown at a brisk 3.2% annualised pace thanks in part to furious spending on data centres.",
+   "as_of": "2026-10-26"
+  },
+  {
+   "id": "fed_odds",
+   "label": "December Fed hike probability priced by markets",
+   "value": "80",
+   "unit": "percent",
+   "source": "reuters",
+   "evidence": "Markets assume the US Federal Reserve will stand pat, but they imply an 80% chance that it will pull the trigger in December.",
+   "as_of": "2026-10-26"
+  }
+ ],
+ "examples": []
+}
