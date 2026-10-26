@@ -1164,6 +1164,17 @@ def main():
     write("market-calendar.json", markets.calendar_json())
     write("data/index-closes.csv", markets.index_csv(meta))
     write("CNAME", "totalmarket.co.in\n")
+    # Preserve dated, source-linked IPO desk reports across clean site builds.
+    # These are static editorial archives, separate from the gated story pipeline.
+    ipo_archive = os.path.join(DATA, "ipo_reports")
+    if os.path.isdir(ipo_archive):
+        for filename in sorted(os.listdir(ipo_archive)):
+            if not re.fullmatch(r"\\d{4}-\\d{2}-\\d{2}\\.html", filename):
+                continue
+            archive_dir = os.path.join(OUT, "ipo-update-" + filename[:-5])
+            os.makedirs(archive_dir, exist_ok=True)
+            shutil.copyfile(os.path.join(ipo_archive, filename), os.path.join(archive_dir, "index.html"))
+
     shutil.copy(os.path.join(ROOT, "assets", "favicon.ico"), os.path.join(OUT, "favicon.ico"))
     write("site.webmanifest", json.dumps({"name": "TotalMarket", "short_name": "TotalMarket", "start_url": "/", "display": "standalone",
                                           "background_color": "#102A43", "theme_color": "#102A43",
