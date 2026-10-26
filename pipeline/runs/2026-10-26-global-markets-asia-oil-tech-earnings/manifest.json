@@ -1,33 +1,38 @@
 {
  "slug": "2026-10-26-global-markets-asia-oil-tech-earnings",
  "job": "pipeline/inbox/2026-10-26-global-markets-asia-oil-tech-earnings.json",
- "job_sha256": "f62ed6c53b6155ad95721f872b41994985e565d26b82a05064bd0b72ac927f48",
+ "job_sha256": "405b1e29dae5f1d65eb6f28fb5fc26719ed8deb1dc43e60543a3fd67bd8758eb",
  "stages": {
   "DATA_COLLECTION": {
    "status": "FAILED",
-   "sha256": "a7c070f682c78781b64152c9dce2e968384df1ac43647444003ee26a5bb8a0b0",
+   "sha256": "03c410c53b260eddc0250478fd77ca17a349cc5497a652d1639916f2fa76b8c1",
    "errors": [
-    "SOURCE_RECOVERY: brent: original source unavailable: source fetch failed: HTTP Error 401: HTTP Forbidden",
-    "SOURCE_RECOVERY: brent_pct: original source unavailable: source fetch failed: HTTP Error 401: HTTP Forbidden",
-    "SOURCE_RECOVERY: wti: original source unavailable: source fetch failed: HTTP Error 401: HTTP Forbidden",
-    "SOURCE_RECOVERY: wti_pct: original source unavailable: source fetch failed: HTTP Error 401: HTTP Forbidden",
-    "SOURCE_RECOVERY: oil_week: original source unavailable: source fetch failed: HTTP Error 401: HTTP Forbidden",
-    "SOURCE_RECOVERY: nikkei: original source unavailable: source fetch failed: HTTP Error 401: HTTP Forbidden",
-    "SOURCE_RECOVERY: kospi: original source unavailable: source fetch failed: HTTP Error 401: HTTP Forbidden",
-    "SOURCE_RECOVERY: china: original source unavailable: source fetch failed: HTTP Error 401: HTTP Forbidden",
-    "SOURCE_RECOVERY: msci_asia: original source unavailable: source fetch failed: HTTP Error 401: HTTP Forbidden",
-    "SOURCE_RECOVERY: sp_futures: original source unavailable: source fetch failed: HTTP Error 401: HTTP Forbidden",
-    "SOURCE_RECOVERY: eurostoxx: original source unavailable: source fetch failed: HTTP Error 401: HTTP Forbidden",
-    "SOURCE_RECOVERY: dax: original source unavailable: source fetch failed: HTTP Error 401: HTTP Forbidden",
-    "SOURCE_RECOVERY: ftse: original source unavailable: source fetch failed: HTTP Error 401: HTTP Forbidden",
-    "SOURCE_RECOVERY: treasury: original source unavailable: source fetch failed: HTTP Error 401: HTTP Forbidden",
-    "SOURCE_RECOVERY: gold: original source unavailable: source fetch failed: HTTP Error 401: HTTP Forbidden",
-    "SOURCE_RECOVERY: inflation: original source unavailable: source fetch failed: HTTP Error 401: HTTP Forbidden",
-    "SOURCE_RECOVERY: growth: original source unavailable: source fetch failed: HTTP Error 401: HTTP Forbidden",
-    "SOURCE_RECOVERY: fed_odds: original source unavailable: source fetch failed: HTTP Error 401: HTTP Forbidden"
+    "SOURCE_RECOVERY: brent: original source unavailable: source fetch failed: HTTP Error 403: Forbidden",
+    "SOURCE_RECOVERY: brent_pct: original source unavailable: source fetch failed: HTTP Error 403: Forbidden",
+    "SOURCE_RECOVERY: wti: original source unavailable: source fetch failed: HTTP Error 403: Forbidden",
+    "SOURCE_RECOVERY: wti_pct: original source unavailable: source fetch failed: HTTP Error 403: Forbidden",
+    "SOURCE_RECOVERY: nikkei: original source unavailable: source fetch failed: HTTP Error 403: Forbidden",
+    "SOURCE_RECOVERY: nikkei_pct: original source unavailable: source fetch failed: HTTP Error 403: Forbidden",
+    "SOURCE_RECOVERY: kospi: original source unavailable: source fetch failed: HTTP Error 403: Forbidden",
+    "SOURCE_RECOVERY: kospi_pct: original source unavailable: source fetch failed: HTTP Error 403: Forbidden",
+    "SOURCE_RECOVERY: hang_seng: original source unavailable: source fetch failed: HTTP Error 403: Forbidden",
+    "SOURCE_RECOVERY: hang_seng_pct: original source unavailable: source fetch failed: HTTP Error 403: Forbidden",
+    "SOURCE_RECOVERY: shanghai: original source unavailable: source fetch failed: HTTP Error 403: Forbidden",
+    "SOURCE_RECOVERY: shanghai_pct: original source unavailable: source fetch failed: HTTP Error 403: Forbidden",
+    "SOURCE_RECOVERY: asx: original source unavailable: source fetch failed: HTTP Error 403: Forbidden",
+    "SOURCE_RECOVERY: asx_pct: original source unavailable: source fetch failed: HTTP Error 403: Forbidden",
+    "SOURCE_RECOVERY: brent_friday: original source unavailable: source fetch failed: HTTP Error 403: Forbidden",
+    "SOURCE_RECOVERY: brent_friday_pct: original source unavailable: source fetch failed: HTTP Error 403: Forbidden",
+    "SOURCE_RECOVERY: sp500: original source unavailable: source fetch failed: HTTP Error 403: Forbidden",
+    "SOURCE_RECOVERY: dow: original source unavailable: source fetch failed: HTTP Error 403: Forbidden",
+    "SOURCE_RECOVERY: nasdaq: original source unavailable: source fetch failed: HTTP Error 403: Forbidden",
+    "SOURCE_RECOVERY: pce: original source unavailable: source fetch failed: HTTP Error 403: Forbidden",
+    "SOURCE_RECOVERY: fed_target: original source unavailable: source fetch failed: HTTP Error 403: Forbidden",
+    "SOURCE_RECOVERY: yen: original source unavailable: source fetch failed: HTTP Error 403: Forbidden",
+    "SOURCE_RECOVERY: yen_previous: original source unavailable: source fetch failed: HTTP Error 403: Forbidden"
    ],
-   "started": "2026-10-26T08:41:55+05:30",
-   "finished": "2026-10-26T08:41:55+05:30"
+   "started": "2026-10-26T08:49:31+05:30",
+   "finished": "2026-10-26T08:49:32+05:30"
   }
  }
 }
