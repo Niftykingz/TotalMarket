@@ -1169,7 +1169,7 @@ def main():
     write("market-calendar.json", markets.calendar_json())
     write("data/index-closes.csv", markets.index_csv(meta))
     write("CNAME", "totalmarket.co.in\n")
-    # Preserve dated, source-linked IPO desk reports across clean site builds.
+    # Preserve dated, source-linked IPO desk reports across clean site builds (sitemap indexed).
     # These are static editorial archives, separate from the gated story pipeline.
     ipo_archive = os.path.join(DATA, "ipo_reports")
     if os.path.isdir(ipo_archive):
