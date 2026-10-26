@@ -1,30 +1,42 @@
 {
  "slug": "2026-10-26-global-markets-asia-oil-tech-earnings",
  "job": "pipeline/inbox/2026-10-26-global-markets-asia-oil-tech-earnings.json",
- "job_sha256": "2dd1980982742af8b0d4023629ea0fd997954796cb2a4b2b7078bc7fcd123411",
+ "job_sha256": "a47c60eff3c239650f97c5c48f34d55c62543923678d0f44b206cfcff30efb87",
  "stages": {
   "DATA_COLLECTION": {
    "status": "PASS",
-   "sha256": "b014cda107615473e2393f4e888561554b077db2a2221b355b9768ad5003a6ac",
+   "sha256": "41af8e5a2f726bb095dee3cb8ed4ee33581215a1e1b298ae1f56fcb778006f15",
    "errors": [],
-   "started": "2026-10-26T08:53:54+05:30",
-   "finished": "2026-10-26T08:53:54+05:30"
+   "started": "2026-10-26T08:55:39+05:30",
+   "finished": "2026-10-26T08:55:39+05:30"
   },
   "DATA_VERIFICATION": {
    "status": "PASS",
-   "sha256": "833ca7284f2fc28d05951072c3cb50ac6bfbd5de0b4222c169e5ee0f3a93d816",
+   "sha256": "a0d37839fccc85000a937f2b445dee84e98057f689d9b6b8cee27dddc65d6cd3",
    "errors": [],
-   "started": "2026-10-26T08:53:54+05:30",
-   "finished": "2026-10-26T08:53:55+05:30"
+   "started": "2026-10-26T08:55:39+05:30",
+   "finished": "2026-10-26T08:55:39+05:30"
   },
   "GRAPHICS_GENERATION": {
-   "status": "FAILED",
-   "sha256": "8f3bdd883d07a4648a4a3bf8eace6fc67641f01db4b92a78374dba22db902ce8",
-   "errors": [
-    "graphic shows unverified numbers: ['225']"
-   ],
-   "started": "2026-10-26T08:53:55+05:30",
-   "finished": "2026-10-26T08:53:55+05:30"
+   "status": "PASS",
+   "sha256": "870d1e033a69807a833dbbf0df3aefea46ddc692136db7cc68563e1904cb37bb",
+   "errors": [],
+   "started": "2026-10-26T08:55:39+05:30",
+   "finished": "2026-10-26T08:55:40+05:30"
+  },
+  "ARTICLE_WRITING": {
+   "status": "PASS",
+   "sha256": "4d5577895353b119f8125358a990b792ed1ef376c67786a5044ebcaa4108c64f",
+   "errors": [],
+   "started": "2026-10-26T08:55:40+05:30",
+   "finished": "2026-10-26T08:55:40+05:30"
+  },
+  "FINAL_QA": {
+   "status": "PASS",
+   "sha256": "2f4ea0a8944106458ea2bef4ca7b6d0da210089b15b9a8e123431f66350113bd",
+   "errors": [],
+   "started": "2026-10-26T08:55:40+05:30",
+   "finished": "2026-10-26T08:55:40+05:30"
   }
  }
 }

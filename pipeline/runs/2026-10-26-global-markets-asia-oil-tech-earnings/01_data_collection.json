@@ -48,7 +48,7 @@
   },
   {
    "id": "nikkei_pct",
-   "label": "Nikkei 225 move",
+   "label": "Nikkei move",
    "value": "0.34",
    "unit": "percent down",
    "source": "bs",

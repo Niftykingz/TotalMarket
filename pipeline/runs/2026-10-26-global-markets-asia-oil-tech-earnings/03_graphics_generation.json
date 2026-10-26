@@ -18,7 +18,7 @@
    "source": "Business Standard",
    "items": [
     {
-     "label": "Nikkei 225",
+     "label": "Nikkei",
      "pct": "-0.34",
      "figures": [
       "nikkei_pct"
@@ -75,7 +75,7 @@
   "object": "globe",
   "figures": [
    {
-    "label": "Nikkei 225",
+    "label": "Nikkei",
     "pct": "-0.34",
     "figures": [
      "nikkei_pct"
@@ -132,7 +132,7 @@
    "source": "Business Standard",
    "items": [
     {
-     "label": "Nikkei 225",
+     "label": "Nikkei",
      "pct": "-0.34",
      "figures": [
       "nikkei_pct"
@@ -181,5 +181,7 @@
   }
  },
  "headline": "Asia markets lower as oil eases from a six-month peak but stays elevated",
- "files": {}
+ "files": {
+  "cover.jpg": "f0f92d7657ae1210cfa329a8a1e6e36f9810c90da509092eec35a3ce7e918822"
+ }
 }
