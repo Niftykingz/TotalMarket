@@ -1,0 +1,31 @@
+{
+ "fields": {
+  "coverHeadline": "BRENT AT $115.1",
+  "stat": "$115.1",
+  "statLabel": "Brent crude per barrel",
+  "coverDate": "2026-10-26",
+  "symbol": "globe",
+  "flags": [
+   "US",
+   "JP",
+   "KR",
+   "IN"
+  ]
+ },
+ "analysis": {
+  "event": "global_markets",
+  "instruments": [],
+  "companies": [],
+  "direction": "flat",
+  "template": "illustration",
+  "object": "globe",
+  "figures": [],
+  "series": [],
+  "reason": "no verified figures for a data card",
+  "data_required": true,
+  "missing": "global_markets story needs a data graphic: add a verified `chart` (global_bars)",
+  "chart": null
+ },
+ "headline": "Asia markets lower as oil eases from a six-month peak but stays elevated",
+ "files": {}
+}

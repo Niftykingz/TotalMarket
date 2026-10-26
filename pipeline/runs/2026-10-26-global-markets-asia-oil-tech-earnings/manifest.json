@@ -1,38 +1,34 @@
 {
  "slug": "2026-10-26-global-markets-asia-oil-tech-earnings",
  "job": "pipeline/inbox/2026-10-26-global-markets-asia-oil-tech-earnings.json",
- "job_sha256": "405b1e29dae5f1d65eb6f28fb5fc26719ed8deb1dc43e60543a3fd67bd8758eb",
+ "job_sha256": "c323c7a82a352a2d576db59b18603cb10f9e7a173f99785e3eae039624ab8fc7",
  "stages": {
   "DATA_COLLECTION": {
+   "status": "PASS",
+   "sha256": "b014cda107615473e2393f4e888561554b077db2a2221b355b9768ad5003a6ac",
+   "errors": [],
+   "started": "2026-10-26T08:51:44+05:30",
+   "finished": "2026-10-26T08:51:44+05:30"
+  },
+  "DATA_VERIFICATION": {
+   "status": "PASS",
+   "sha256": "833ca7284f2fc28d05951072c3cb50ac6bfbd5de0b4222c169e5ee0f3a93d816",
+   "errors": [],
+   "started": "2026-10-26T08:51:44+05:30",
+   "finished": "2026-10-26T08:51:44+05:30"
+  },
+  "GRAPHICS_GENERATION": {
    "status": "FAILED",
-   "sha256": "03c410c53b260eddc0250478fd77ca17a349cc5497a652d1639916f2fa76b8c1",
+   "sha256": "33ee75f22f3c8bfd78fe9577d5a7e20ad812acf9a18e07ea189e603f129babd8",
    "errors": [
-    "SOURCE_RECOVERY: brent: original source unavailable: source fetch failed: HTTP Error 403: Forbidden",
-    "SOURCE_RECOVERY: brent_pct: original source unavailable: source fetch failed: HTTP Error 403: Forbidden",
-    "SOURCE_RECOVERY: wti: original source unavailable: source fetch failed: HTTP Error 403: Forbidden",
-    "SOURCE_RECOVERY: wti_pct: original source unavailable: source fetch failed: HTTP Error 403: Forbidden",
-    "SOURCE_RECOVERY: nikkei: original source unavailable: source fetch failed: HTTP Error 403: Forbidden",
-    "SOURCE_RECOVERY: nikkei_pct: original source unavailable: source fetch failed: HTTP Error 403: Forbidden",
-    "SOURCE_RECOVERY: kospi: original source unavailable: source fetch failed: HTTP Error 403: Forbidden",
-    "SOURCE_RECOVERY: kospi_pct: original source unavailable: source fetch failed: HTTP Error 403: Forbidden",
-    "SOURCE_RECOVERY: hang_seng: original source unavailable: source fetch failed: HTTP Error 403: Forbidden",
-    "SOURCE_RECOVERY: hang_seng_pct: original source unavailable: source fetch failed: HTTP Error 403: Forbidden",
-    "SOURCE_RECOVERY: shanghai: original source unavailable: source fetch failed: HTTP Error 403: Forbidden",
-    "SOURCE_RECOVERY: shanghai_pct: original source unavailable: source fetch failed: HTTP Error 403: Forbidden",
-    "SOURCE_RECOVERY: asx: original source unavailable: source fetch failed: HTTP Error 403: Forbidden",
-    "SOURCE_RECOVERY: asx_pct: original source unavailable: source fetch failed: HTTP Error 403: Forbidden",
-    "SOURCE_RECOVERY: brent_friday: original source unavailable: source fetch failed: HTTP Error 403: Forbidden",
-    "SOURCE_RECOVERY: brent_friday_pct: original source unavailable: source fetch failed: HTTP Error 403: Forbidden",
-    "SOURCE_RECOVERY: sp500: original source unavailable: source fetch failed: HTTP Error 403: Forbidden",
-    "SOURCE_RECOVERY: dow: original source unavailable: source fetch failed: HTTP Error 403: Forbidden",
-    "SOURCE_RECOVERY: nasdaq: original source unavailable: source fetch failed: HTTP Error 403: Forbidden",
-    "SOURCE_RECOVERY: pce: original source unavailable: source fetch failed: HTTP Error 403: Forbidden",
-    "SOURCE_RECOVERY: fed_target: original source unavailable: source fetch failed: HTTP Error 403: Forbidden",
-    "SOURCE_RECOVERY: yen: original source unavailable: source fetch failed: HTTP Error 403: Forbidden",
-    "SOURCE_RECOVERY: yen_previous: original source unavailable: source fetch failed: HTTP Error 403: Forbidden"
+    "MISSING_DATA: global_markets story needs a data graphic: add a verified `chart` (global_bars). Collect the figures and retry; never publish this story with a generic illustration."
    ],
-   "started": "2026-10-26T08:49:31+05:30",
-   "finished": "2026-10-26T08:49:32+05:30"
+   "started": "2026-10-26T08:51:44+05:30",
+   "finished": "2026-10-26T08:51:44+05:30"
   }
+ },
+ "retry": {
+  "reason": "missing figures for the data graphic",
+  "after": "collect the figures, update the job, run `python3 -m pipeline retry`"
  }
 }
