@@ -107,7 +107,61 @@
       "JP",
       "KR",
       "IN"
-    ]
+    ],
+    "chart": {
+      "type": "global_bars",
+      "title": "Markets in motion",
+      "asOf": "Early Monday trade; US Friday close",
+      "source": "Business Standard",
+      "items": [
+        {
+          "label": "Nikkei 225",
+          "pct": "-0.34",
+          "figures": [
+            "nikkei_pct"
+          ]
+        },
+        {
+          "label": "Kospi",
+          "pct": "-1.25",
+          "figures": [
+            "kospi_pct"
+          ]
+        },
+        {
+          "label": "Brent crude",
+          "value": "$115.1",
+          "pct": "-1.39",
+          "figures": [
+            "brent",
+            "brent_pct"
+          ]
+        },
+        {
+          "label": "WTI crude",
+          "value": "$101.5",
+          "pct": "-1.76",
+          "figures": [
+            "wti",
+            "wti_pct"
+          ]
+        },
+        {
+          "label": "Dow Jones",
+          "pct": "-1.23",
+          "figures": [
+            "dow_pct"
+          ]
+        },
+        {
+          "label": "S&P 500",
+          "pct": "-0.52",
+          "figures": [
+            "sp_pct"
+          ]
+        }
+      ]
+    }
   },
   "article": {
     "title": "Global markets today: Asia falls, Brent eases to $115.1 but stays elevated",
