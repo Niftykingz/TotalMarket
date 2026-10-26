@@ -92,7 +92,8 @@
     "value": "73,606.75",
     "source": "hdfc",
     "evidence": "The Sensex rose 482.92 points, or 0.66%, to close at 73,606.75.",
-    "as_of": "2026-10-26"
+    "as_of": "2026-10-26",
+    "change": "482.92"
    },
    {
     "id": "hdfc_sx_pct",
