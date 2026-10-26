@@ -28,7 +28,7 @@ jobs:
           now = datetime.now(ZoneInfo("Asia/Kolkata"))
           ready = now.date().isoformat() == "2026-10-26" and (now.hour, now.minute) >= (8, 49)
           with open(os.environ["GITHUB_OUTPUT"], "a") as f:
-              f.write(f"ready={'true' if ready else 'false'}\\n")
+              f.write(f"ready={'true' if ready else 'false'}\n")
           print(f"India time: {now.isoformat()}; ready={ready}")
           PY
       - uses: actions/setup-python@v5
