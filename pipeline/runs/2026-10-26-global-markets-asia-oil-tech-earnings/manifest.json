@@ -1,34 +1,30 @@
 {
  "slug": "2026-10-26-global-markets-asia-oil-tech-earnings",
  "job": "pipeline/inbox/2026-10-26-global-markets-asia-oil-tech-earnings.json",
- "job_sha256": "c323c7a82a352a2d576db59b18603cb10f9e7a173f99785e3eae039624ab8fc7",
+ "job_sha256": "2dd1980982742af8b0d4023629ea0fd997954796cb2a4b2b7078bc7fcd123411",
  "stages": {
   "DATA_COLLECTION": {
    "status": "PASS",
    "sha256": "b014cda107615473e2393f4e888561554b077db2a2221b355b9768ad5003a6ac",
    "errors": [],
-   "started": "2026-10-26T08:51:44+05:30",
-   "finished": "2026-10-26T08:51:44+05:30"
+   "started": "2026-10-26T08:53:54+05:30",
+   "finished": "2026-10-26T08:53:54+05:30"
   },
   "DATA_VERIFICATION": {
    "status": "PASS",
    "sha256": "833ca7284f2fc28d05951072c3cb50ac6bfbd5de0b4222c169e5ee0f3a93d816",
    "errors": [],
-   "started": "2026-10-26T08:51:44+05:30",
-   "finished": "2026-10-26T08:51:44+05:30"
+   "started": "2026-10-26T08:53:54+05:30",
+   "finished": "2026-10-26T08:53:55+05:30"
   },
   "GRAPHICS_GENERATION": {
    "status": "FAILED",
-   "sha256": "33ee75f22f3c8bfd78fe9577d5a7e20ad812acf9a18e07ea189e603f129babd8",
+   "sha256": "8f3bdd883d07a4648a4a3bf8eace6fc67641f01db4b92a78374dba22db902ce8",
    "errors": [
-    "MISSING_DATA: global_markets story needs a data graphic: add a verified `chart` (global_bars). Collect the figures and retry; never publish this story with a generic illustration."
+    "graphic shows unverified numbers: ['225']"
    ],
-   "started": "2026-10-26T08:51:44+05:30",
-   "finished": "2026-10-26T08:51:44+05:30"
+   "started": "2026-10-26T08:53:55+05:30",
+   "finished": "2026-10-26T08:53:55+05:30"
   }
- },
- "retry": {
-  "reason": "missing figures for the data graphic",
-  "after": "collect the figures, update the job, run `python3 -m pipeline retry`"
  }
 }
