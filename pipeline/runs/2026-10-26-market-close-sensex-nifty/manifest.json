@@ -1,0 +1,21 @@
+{
+ "slug": "2026-10-26-market-close-sensex-nifty",
+ "job": "pipeline/inbox/2026-10-26-market-close-sensex-nifty.json",
+ "job_sha256": "176b714163a635c3408b9024031d827d7c5f38f0b2ac8ccf35f6586068d1e34a",
+ "stages": {
+  "DATA_COLLECTION": {
+   "status": "FAILED",
+   "sha256": "fd0653d131ca0569c71d149ba60e7c08414d4e08ea23f8707479b0a4cc670bad",
+   "errors": [
+    "SOURCE_RECOVERY: fii_net: values not supported together by original source",
+    "SOURCE_RECOVERY: dii_net: values not supported together by original source",
+    "SOURCE_RECOVERY: fii_buy: values not supported together by original source",
+    "SOURCE_RECOVERY: fii_sell: values not supported together by original source",
+    "SOURCE_RECOVERY: dii_buy: values not supported together by original source",
+    "SOURCE_RECOVERY: dii_sell: values not supported together by original source"
+   ],
+   "started": "2026-10-26T18:55:57+05:30",
+   "finished": "2026-10-26T18:56:03+05:30"
+  }
+ }
+}
