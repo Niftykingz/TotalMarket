@@ -1,0 +1,737 @@
+{
+ "slug": "2026-10-26-market-close-sensex-nifty",
+ "collection": {
+  "sources": [
+   {
+    "id": "nse",
+    "name": "NSE India: all indices, closing snapshot",
+    "url": "https://www.nseindia.com/api/allIndices",
+    "published": "2026-10-26T15:30:00+05:30",
+    "dataset": "data/market_snapshots/2026-10-26/api_allIndices.json.gz",
+    "sha256": "8ff6c9b0a6492181f175dc6ff9de439d427d048a0ba81c7d07e53449e30dd483"
+   },
+   {
+    "id": "bhav",
+    "name": "NSE India: capital-market bhavcopy, end of day",
+    "url": "https://nsearchives.nseindia.com/content/cm/BhavCopy_NSE_CM_0_0_0_20261026_F_0000.csv.zip",
+    "published": "2026-10-26T15:30:00+05:30",
+    "dataset": "data/market_snapshots/2026-10-26/bhavcopy.json.gz",
+    "sha256": "b80fc4e2203408c0e101163c463b44093d8ede068604fe41a25a053c64c7a329"
+   },
+   {
+    "id": "hdfc",
+    "name": "HDFC Sky: market close report, 26 Oct",
+    "url": "https://hdfcsky.com/news/market-close-report-today-october-26-2026-sensex-nifty-rise-as-markets-snap-four-day-losing-streak",
+    "published": "2026-10-26T17:09:00+05:30"
+   },
+   {
+    "id": "mc",
+    "name": "Moneycontrol: FII and DII cash-market activity",
+    "url": "https://www.moneycontrol.com/markets/fii-dii-data/cash/?classic=true",
+    "published": "2026-10-26T18:45:00+05:30"
+   }
+  ],
+  "figures": [
+   {
+    "id": "nse_n50",
+    "label": "Nifty 50 close",
+    "value": "22753.2",
+    "source": "nse",
+    "evidence": "NIFTY 50: last 22753.2, change 153.2 points, 0.68% (previous close",
+    "as_of": "2026-10-26",
+    "change": "153.2",
+    "key": true
+   },
+   {
+    "id": "nse_n50_pct",
+    "label": "Nifty 50 change %",
+    "value": "0.68",
+    "source": "nse",
+    "evidence": "NIFTY 50: last 22753.2, change 153.2 points, 0.68% (previous close",
+    "as_of": "2026-10-26"
+   },
+   {
+    "id": "nse_bank",
+    "label": "Nifty Bank close",
+    "value": "54366.7",
+    "source": "nse",
+    "evidence": "NIFTY BANK: last 54366.7, change 79.35 points, 0.15% (previous close",
+    "as_of": "2026-10-26",
+    "change": "79.35"
+   },
+   {
+    "id": "nse_bank_pct",
+    "label": "Nifty Bank change %",
+    "value": "0.15",
+    "source": "nse",
+    "evidence": "NIFTY BANK: last 54366.7, change 79.35 points, 0.15% (previous close",
+    "as_of": "2026-10-26"
+   },
+   {
+    "id": "nse_vix",
+    "label": "India VIX close",
+    "value": "17.15",
+    "source": "nse",
+    "evidence": "INDIA VIX: last 17.15, change 0.29 points, 1.73% (previous close",
+    "as_of": "2026-10-26",
+    "change": "0.29"
+   },
+   {
+    "id": "nse_vix_pct",
+    "label": "India VIX change %",
+    "value": "1.73",
+    "source": "nse",
+    "evidence": "INDIA VIX: last 17.15, change 0.29 points, 1.73% (previous close",
+    "as_of": "2026-10-26"
+   },
+   {
+    "id": "hdfc_sx",
+    "label": "Sensex close",
+    "value": "73,606.75",
+    "source": "hdfc",
+    "evidence": "The Sensex rose 482.92 points, or 0.66%, to close at 73,606.75.",
+    "as_of": "2026-10-26"
+   },
+   {
+    "id": "hdfc_sx_pct",
+    "label": "Sensex change %",
+    "value": "0.66",
+    "source": "hdfc",
+    "evidence": "The Sensex rose 482.92 points, or 0.66%, to close at 73,606.75.",
+    "as_of": "2026-10-26"
+   },
+   {
+    "id": "hdfc_brent",
+    "label": "Brent crude price, $/barrel",
+    "value": "114.50",
+    "source": "hdfc",
+    "evidence": "Brent crude traded around $114.50 a barrel on Monday.",
+    "as_of": "2026-10-26"
+   },
+   {
+    "id": "nse_s_auto_pct",
+    "label": "Nifty Auto change %",
+    "value": "0.44",
+    "source": "nse",
+    "evidence": ", 0.44% (previous close",
+    "as_of": "2026-10-26"
+   },
+   {
+    "id": "nse_s_fmcg_pct",
+    "label": "Nifty FMCG change %",
+    "value": "0.28",
+    "source": "nse",
+    "evidence": ", 0.28% (previous close",
+    "as_of": "2026-10-26"
+   },
+   {
+    "id": "nse_s_it_pct",
+    "label": "Nifty IT change %",
+    "value": "0.87",
+    "source": "nse",
+    "evidence": ", 0.87% (previous close",
+    "as_of": "2026-10-26"
+   },
+   {
+    "id": "nse_s_metal_pct",
+    "label": "Nifty Metal change %",
+    "value": "2.21",
+    "source": "nse",
+    "evidence": ", 2.21% (previous close",
+    "as_of": "2026-10-26"
+   },
+   {
+    "id": "nse_s_pharma_pct",
+    "label": "Nifty Pharma change %",
+    "value": "1.76",
+    "source": "nse",
+    "evidence": ", 1.76% (previous close",
+    "as_of": "2026-10-26"
+   },
+   {
+    "id": "nse_s_realty_pct",
+    "label": "Nifty Realty change %",
+    "value": "0.68",
+    "source": "nse",
+    "evidence": ", 0.68% (previous close",
+    "as_of": "2026-10-26"
+   },
+   {
+    "id": "nse_s_energy_pct",
+    "label": "Nifty Energy change %",
+    "value": "1.46",
+    "source": "nse",
+    "evidence": ", 1.46% (previous close",
+    "as_of": "2026-10-26"
+   },
+   {
+    "id": "nse_s_psubank_pct",
+    "label": "Nifty PSU Bank change %",
+    "value": "0.29",
+    "source": "nse",
+    "evidence": ", 0.29% (previous close",
+    "as_of": "2026-10-26"
+   },
+   {
+    "id": "nse_s_privatebank_pct",
+    "label": "Nifty Private Bank change %",
+    "value": "0.63",
+    "source": "nse",
+    "evidence": ", 0.63% (previous close",
+    "as_of": "2026-10-26"
+   },
+   {
+    "id": "nse_s_media_pct",
+    "label": "Nifty Media change %",
+    "value": "-0.34",
+    "source": "nse",
+    "evidence": ", -0.34% (previous close",
+    "as_of": "2026-10-26"
+   },
+   {
+    "id": "nse_s_consumerdurables_pct",
+    "label": "Nifty Consumer Durables change %",
+    "value": "-0.21",
+    "source": "nse",
+    "evidence": ", -0.21% (previous close",
+    "as_of": "2026-10-26"
+   },
+   {
+    "id": "nse_s_oilgas_pct",
+    "label": "Nifty Oil & Gas change %",
+    "value": "1.35",
+    "source": "nse",
+    "evidence": ", 1.35% (previous close",
+    "as_of": "2026-10-26"
+   },
+   {
+    "id": "nse_s_healthcare_pct",
+    "label": "Nifty Healthcare change %",
+    "value": "1.77",
+    "source": "nse",
+    "evidence": ", 1.77% (previous close",
+    "as_of": "2026-10-26"
+   },
+   {
+    "id": "nse_s_financialservices_pct",
+    "label": "Nifty Financial Services change %",
+    "value": "0.21",
+    "source": "nse",
+    "evidence": ", 0.21% (previous close",
+    "as_of": "2026-10-26"
+   },
+   {
+    "id": "nse_s_bank_pct",
+    "label": "Nifty Bank change %",
+    "value": "0.15",
+    "source": "nse",
+    "evidence": ", 0.15% (previous close",
+    "as_of": "2026-10-26"
+   },
+   {
+    "id": "nse_s_chemicals_pct",
+    "label": "Nifty Chemicals change %",
+    "value": "0.11",
+    "source": "nse",
+    "evidence": ", 0.11% (previous close",
+    "as_of": "2026-10-26"
+   },
+   {
+    "id": "nse_s_cement_pct",
+    "label": "Nifty Cement change %",
+    "value": "1.93",
+    "source": "nse",
+    "evidence": ", 1.93% (previous close",
+    "as_of": "2026-10-26"
+   },
+   {
+    "id": "nse_n500_advances",
+    "label": "Nifty 500 stocks advancing",
+    "value": "336",
+    "source": "nse",
+    "evidence": "advances 336, declines 164, unchanged 1;",
+    "as_of": "2026-10-26"
+   },
+   {
+    "id": "nse_n500_declines",
+    "label": "Nifty 500 stocks declining",
+    "value": "164",
+    "source": "nse",
+    "evidence": "advances 336, declines 164, unchanged 1;",
+    "as_of": "2026-10-26"
+   },
+   {
+    "id": "nse_n500_unchanged",
+    "label": "Nifty 500 stocks unchanged",
+    "value": "1",
+    "source": "nse",
+    "evidence": "advances 336, declines 164, unchanged 1;",
+    "as_of": "2026-10-26"
+   },
+   {
+    "id": "st_drreddy",
+    "label": "DRREDDY close",
+    "value": "1310.90",
+    "source": "bhav",
+    "evidence": "DRREDDY EQ 2026-10-26: close 1310.90, previous close",
+    "as_of": "2026-10-26"
+   },
+   {
+    "id": "st_drreddy_prev",
+    "label": "DRREDDY previous close",
+    "value": "1229.50",
+    "source": "bhav",
+    "evidence": "DRREDDY EQ 2026-10-26: close 1310.90, previous close",
+    "as_of": "2026-10-26"
+   },
+   {
+    "id": "st_jswsteel",
+    "label": "JSWSTEEL close",
+    "value": "1260.00",
+    "source": "bhav",
+    "evidence": "JSWSTEEL EQ 2026-10-26: close 1260.00, previous close",
+    "as_of": "2026-10-26"
+   },
+   {
+    "id": "st_jswsteel_prev",
+    "label": "JSWSTEEL previous close",
+    "value": "1185.50",
+    "source": "bhav",
+    "evidence": "JSWSTEEL EQ 2026-10-26: close 1260.00, previous close",
+    "as_of": "2026-10-26"
+   },
+   {
+    "id": "st_bse",
+    "label": "BSE close",
+    "value": "3359.00",
+    "source": "bhav",
+    "evidence": "BSE EQ 2026-10-26: close 3359.00, previous close",
+    "as_of": "2026-10-26"
+   },
+   {
+    "id": "st_bse_prev",
+    "label": "BSE previous close",
+    "value": "3230.80",
+    "source": "bhav",
+    "evidence": "BSE EQ 2026-10-26: close 3359.00, previous close",
+    "as_of": "2026-10-26"
+   },
+   {
+    "id": "st_shriramfin",
+    "label": "SHRIRAMFIN close",
+    "value": "825.00",
+    "source": "bhav",
+    "evidence": "SHRIRAMFIN EQ 2026-10-26: close 825.00, previous close",
+    "as_of": "2026-10-26"
+   },
+   {
+    "id": "st_shriramfin_prev",
+    "label": "SHRIRAMFIN previous close",
+    "value": "865.00",
+    "source": "bhav",
+    "evidence": "SHRIRAMFIN EQ 2026-10-26: close 825.00, previous close",
+    "as_of": "2026-10-26"
+   },
+   {
+    "id": "st_tataconsum",
+    "label": "TATACONSUM close",
+    "value": "936.50",
+    "source": "bhav",
+    "evidence": "TATACONSUM EQ 2026-10-26: close 936.50, previous close",
+    "as_of": "2026-10-26"
+   },
+   {
+    "id": "st_tataconsum_prev",
+    "label": "TATACONSUM previous close",
+    "value": "963.90",
+    "source": "bhav",
+    "evidence": "TATACONSUM EQ 2026-10-26: close 936.50, previous close",
+    "as_of": "2026-10-26"
+   },
+   {
+    "id": "st_bajfinance",
+    "label": "BAJFINANCE close",
+    "value": "918.70",
+    "source": "bhav",
+    "evidence": "BAJFINANCE EQ 2026-10-26: close 918.70, previous close",
+    "as_of": "2026-10-26"
+   },
+   {
+    "id": "st_bajfinance_prev",
+    "label": "BAJFINANCE previous close",
+    "value": "928.95",
+    "source": "bhav",
+    "evidence": "BAJFINANCE EQ 2026-10-26: close 918.70, previous close",
+    "as_of": "2026-10-26"
+   },
+   {
+    "id": "fii_net",
+    "label": "FII/FPI net cash-market flow, ₹ crore",
+    "value": "887.65",
+    "source": "mc",
+    "evidence": "23-Oct-2026 14,445.54 13,557.89 887.65 19,232.31 15,996.95 3,235.36",
+    "as_of": "2026-10-23"
+   },
+   {
+    "id": "dii_net",
+    "label": "DII net cash-market flow, ₹ crore",
+    "value": "3235.36",
+    "source": "mc",
+    "evidence": "23-Oct-2026 14,445.54 13,557.89 887.65 19,232.31 15,996.95 3,235.36",
+    "as_of": "2026-10-23"
+   },
+   {
+    "id": "fii_buy",
+    "label": "FII/FPI gross cash-market buy, ₹ crore",
+    "value": "14445.54",
+    "source": "mc",
+    "evidence": "23-Oct-2026 14,445.54 13,557.89 887.65 19,232.31 15,996.95 3,235.36",
+    "as_of": "2026-10-23"
+   },
+   {
+    "id": "fii_sell",
+    "label": "FII/FPI gross cash-market sell, ₹ crore",
+    "value": "13557.89",
+    "source": "mc",
+    "evidence": "23-Oct-2026 14,445.54 13,557.89 887.65 19,232.31 15,996.95 3,235.36",
+    "as_of": "2026-10-23"
+   },
+   {
+    "id": "dii_buy",
+    "label": "DII gross cash-market buy, ₹ crore",
+    "value": "19232.31",
+    "source": "mc",
+    "evidence": "23-Oct-2026 14,445.54 13,557.89 887.65 19,232.31 15,996.95 3,235.36",
+    "as_of": "2026-10-23"
+   },
+   {
+    "id": "dii_sell",
+    "label": "DII gross cash-market sell, ₹ crore",
+    "value": "15996.95",
+    "source": "mc",
+    "evidence": "23-Oct-2026 14,445.54 13,557.89 887.65 19,232.31 15,996.95 3,235.36",
+    "as_of": "2026-10-23"
+   }
+  ],
+  "examples": []
+ },
+ "graphic": {
+  "headline": "Nifty rises 0.68% to 22,753.20; Sensex gains 0.66%",
+  "coverHeadline": "NIFTY CLOSES UP 0.68%",
+  "stat": "+0.68%",
+  "statLabel": "Nifty 50 at the close",
+  "symbol": "candles",
+  "flags": [
+   "IN"
+  ],
+  "coverDate": "2026-10-26",
+  "chart": {
+   "type": "market_close",
+   "title": "Indian markets · close",
+   "asOf": "Close, Mon 26 Oct 2026",
+   "dateLabel": "Monday, 26 October 2026",
+   "summary": "Nifty 50 rose 0.68%; 336 Nifty 500 stocks advanced and 164 declined.",
+   "source": "NSE India, BSE, HDFC Sky, Moneycontrol",
+   "breadthUniverse": "Nifty 500",
+   "items": [
+    {
+     "label": "NIFTY 50",
+     "value": "22,753.20",
+     "change": "153.20",
+     "pct": "+0.68%",
+     "figures": [
+      "nse_n50",
+      "nse_n50_pct"
+     ]
+    },
+    {
+     "label": "SENSEX",
+     "value": "73,606.75",
+     "change": "482.92",
+     "pct": "+0.66%",
+     "figures": [
+      "hdfc_sx",
+      "hdfc_sx_pct"
+     ]
+    },
+    {
+     "label": "NIFTY BANK",
+     "value": "54,366.70",
+     "change": "79.35",
+     "pct": "+0.15%",
+     "figures": [
+      "nse_bank",
+      "nse_bank_pct"
+     ]
+    },
+    {
+     "label": "INDIA VIX",
+     "value": "17.15",
+     "change": "0.29",
+     "pct": "+1.73%",
+     "figures": [
+      "nse_vix",
+      "nse_vix_pct"
+     ]
+    },
+    {
+     "label": "Nifty 500 advances",
+     "value": "336",
+     "role": "advances",
+     "figures": [
+      "nse_n500_advances"
+     ]
+    },
+    {
+     "label": "Nifty 500 declines",
+     "value": "164",
+     "role": "declines",
+     "figures": [
+      "nse_n500_declines"
+     ]
+    },
+    {
+     "label": "Nifty 500 unchanged",
+     "value": "1",
+     "role": "unchanged",
+     "figures": [
+      "nse_n500_unchanged"
+     ]
+    }
+   ]
+  }
+ },
+ "article": {
+  "title": "Nifty 50 rises 0.68% to 22,753.20; Sensex gains 483 points | 26 October 2026",
+  "dek": "Markets rebounded after four losing sessions. Metals, pharma and healthcare led; breadth improved, while crude and global policy decisions remain in focus.",
+  "category": "markets",
+  "lead": true,
+  "readMins": 3,
+  "reportType": "weekly_market",
+  "visualSpec": {
+   "dateLabel": "Market close · Monday, 26 October 2026",
+   "outlookTitle": "What to watch next session",
+   "indices": [
+    {
+     "id": "nse_n50",
+     "label": "Nifty 50",
+     "pct": "nse_n50_pct"
+    },
+    {
+     "id": "hdfc_sx",
+     "label": "Sensex",
+     "pct": "hdfc_sx_pct"
+    },
+    {
+     "id": "nse_bank",
+     "label": "Nifty Bank",
+     "pct": "nse_bank_pct"
+    },
+    {
+     "id": "nse_vix",
+     "label": "India VIX",
+     "pct": "nse_vix_pct"
+    }
+   ],
+   "sectors": [
+    {
+     "id": "nse_s_auto_pct",
+     "label": "Auto"
+    },
+    {
+     "id": "nse_s_fmcg_pct",
+     "label": "FMCG"
+    },
+    {
+     "id": "nse_s_it_pct",
+     "label": "IT"
+    },
+    {
+     "id": "nse_s_metal_pct",
+     "label": "Metal"
+    },
+    {
+     "id": "nse_s_pharma_pct",
+     "label": "Pharma"
+    },
+    {
+     "id": "nse_s_realty_pct",
+     "label": "Realty"
+    },
+    {
+     "id": "nse_s_energy_pct",
+     "label": "Energy"
+    },
+    {
+     "id": "nse_s_psubank_pct",
+     "label": "PSU Bank"
+    },
+    {
+     "id": "nse_s_privatebank_pct",
+     "label": "Private Bank"
+    },
+    {
+     "id": "nse_s_media_pct",
+     "label": "Media"
+    },
+    {
+     "id": "nse_s_consumerdurables_pct",
+     "label": "Consumer Durables"
+    },
+    {
+     "id": "nse_s_oilgas_pct",
+     "label": "Oil & Gas"
+    },
+    {
+     "id": "nse_s_healthcare_pct",
+     "label": "Healthcare"
+    },
+    {
+     "id": "nse_s_financialservices_pct",
+     "label": "Financial Services"
+    },
+    {
+     "id": "nse_s_bank_pct",
+     "label": "Bank"
+    },
+    {
+     "id": "nse_s_chemicals_pct",
+     "label": "Chemicals"
+    },
+    {
+     "id": "nse_s_cement_pct",
+     "label": "Cement"
+    }
+   ],
+   "gainers": [
+    {
+     "id": "st_drreddy",
+     "label": "DRREDDY",
+     "prev": "st_drreddy_prev"
+    },
+    {
+     "id": "st_jswsteel",
+     "label": "JSWSTEEL",
+     "prev": "st_jswsteel_prev"
+    },
+    {
+     "id": "st_bse",
+     "label": "BSE",
+     "prev": "st_bse_prev"
+    }
+   ],
+   "losers": [
+    {
+     "id": "st_shriramfin",
+     "label": "SHRIRAMFIN",
+     "prev": "st_shriramfin_prev"
+    },
+    {
+     "id": "st_tataconsum",
+     "label": "TATACONSUM",
+     "prev": "st_tataconsum_prev"
+    },
+    {
+     "id": "st_bajfinance",
+     "label": "BAJFINANCE",
+     "prev": "st_bajfinance_prev"
+    }
+   ],
+   "moversIndex": "Nifty 50",
+   "global": [],
+   "breadth": {
+    "advances": "nse_n500_advances",
+    "declines": "nse_n500_declines",
+    "unchanged": "nse_n500_unchanged"
+   },
+   "breadthExchange": "NSE, Nifty 500 stocks",
+   "fiiDii": {
+    "fiiNet": "fii_net",
+    "diiNet": "dii_net",
+    "fiiBuy": "fii_buy",
+    "fiiSell": "fii_sell",
+    "diiBuy": "dii_buy",
+    "diiSell": "dii_sell"
+   },
+   "fiiDiiNote": "Latest reported cash-market flows checked are for Friday, 23 October; 26 October flow data was not verified in the archived NSE snapshot. Values in ₹ crore."
+  },
+  "reportTakeaways": [
+   "The Nifty 50 rose 0.68%; 336 Nifty 500 constituents advanced and 164 declined."
+  ],
+  "reportWatch": [
+   "US Federal Reserve policy decision due Wednesday, 28 October; see the cited market report for the published schedule.",
+   "Track the September-quarter earnings calendar and Brent crude developments."
+  ],
+  "body": [
+   "At the 3:30 pm IST close, the Nifty 50 rose 153.20 points (0.68%) to 22,753.20. The Sensex gained 482.92 points (0.66%) to 73,606.75. Nifty Bank closed at 54,366.70 (+0.15%), while India VIX ended at 17.15 (+1.73%).",
+   "Breadth improved: 336 Nifty 500 constituents advanced, 164 declined and 1 was unchanged. Metals (+2.21%), cement (+1.93%), healthcare (+1.77%) and pharma (+1.76%) led the sector board. Media (−0.34%) and consumer durables (−0.21%) were lower.",
+   "Nifty 50 leaders were Dr Reddy’s (+6.62%), JSW Steel (+6.28%) and BSE (+3.97%). Shriram Finance (−4.62%), Tata Consumer (−2.84%) and Bajaj Finance (−1.10%) were the largest decliners.",
+   "Institutional flows: the latest reported cash-market session checked was Friday, 23 October. FII/FPI net buying was ₹887.65 crore and DII net buying was ₹3,235.36 crore. Monday’s flow figures were not verified in the archived NSE snapshot available for this report.",
+   "Why the market moved: the rebound ended a four-session decline, with buying in metals, pharma and heavyweight stocks. Dr Reddy’s and JSW Steel rose after their quarterly results. Brent crude was around $114.50 a barrel, keeping inflation and cost pressures in focus.",
+   "What to watch: the US Federal Reserve policy decision later this week, ongoing company results, crude prices and geopolitical developments. This report describes the session; it does not recommend trades.",
+   "Key takeaway | Benchmarks and most sectors recovered, but higher India VIX and elevated crude show that uncertainty remained."
+  ],
+  "indiaImpact": "The index, sector and breadth data show how widely the recovery spread across large companies and the broader market.",
+  "seoTitle": "Nifty 50 Today 26 Oct: 22,753.20, Sensex Up 0.66%",
+  "seoDescription": "Nifty 50 closed at 22,753.20 (+0.68%) and Sensex at 73,606.75 (+0.66%) on 26 October. See sectors, breadth, top movers and latest FII/DII data.",
+  "coverAlt": "TotalMarket market-close chart: Nifty 50 at 22,753.20, Sensex at 73,606.75, sector performance and breadth for 26 October 2026.",
+  "tags": [
+   "stock market today",
+   "share market today",
+   "Nifty today",
+   "Sensex today",
+   "Nifty Bank today",
+   "top gainers and losers today",
+   "FII DII data today",
+   "sector performance today",
+   "market breadth today",
+   "stock market 26 October 2026"
+  ],
+  "hi": {
+   "title": "शेयर बाजार आज: Nifty 50 0.68% चढ़कर 22,753.20 पर बंद | 26 अक्टूबर 2026",
+   "dek": "चार सत्रों की गिरावट के बाद बाजार संभला। मेटल, फार्मा और हेल्थकेयर में बढ़त रही; सेक्टर, breadth और FII/DII आंकड़े देखें।",
+   "body": [
+    "26 अक्टूबर को 3:30 pm IST के क्लोज पर Nifty 50 153.20 अंक (0.68%) बढ़कर 22,753.20 पर बंद हुआ। Sensex 482.92 अंक (0.66%) बढ़कर 73,606.75 पर रहा। Nifty Bank 54,366.70 पर बंद हुआ (+0.15%) और India VIX 17.15 पर (+1.73%) रहा।",
+    "Nifty 500 में 336 शेयर चढ़े, 164 गिरे और 1 अपरिवर्तित रहा। Metal (+2.21%), Cement (+1.93%), Healthcare (+1.77%) और Pharma (+1.76%) सबसे मजबूत सेक्टर रहे। Media (−0.34%) और Consumer Durables (−0.21%) नीचे रहे।",
+    "Nifty 50 में Dr Reddy’s (+6.62%), JSW Steel (+6.28%) और BSE (+3.97%) आगे रहे। Shriram Finance (−4.62%), Tata Consumer (−2.84%) और Bajaj Finance (−1.10%) सबसे ज्यादा गिरे।",
+    "संस्थागत निवेश: उपलब्ध आखिरी रिपोर्टेड कैश-मार्केट सत्र शुक्रवार, 23 अक्टूबर का था। FII/FPI ने ₹887.65 करोड़ और DII ने ₹3,235.36 करोड़ की नेट खरीदारी की। इस रिपोर्ट के लिए 26 अक्टूबर के flow आंकड़े सत्यापित नहीं हुए।",
+    "बाजार क्यों संभला: मेटल, फार्मा और बड़े शेयरों में खरीद से चार सत्रों की गिरावट रुकी। Dr Reddy’s और JSW Steel के तिमाही नतीजों के बाद शेयर चढ़े। Brent crude करीब $114.50 प्रति बैरल था, इसलिए महंगाई और लागत का दबाव ध्यान में रहा।",
+    "आगे ध्यान दें: इस सप्ताह US Federal Reserve का नीतिगत फैसला, कंपनियों के नतीजे, कच्चे तेल की कीमतें और भू-राजनीतिक घटनाक्रम। यह सत्र का तथ्यात्मक सार है, ट्रेड की सलाह नहीं।",
+    "मुख्य बात | बाजार के प्रमुख सूचकांक और ज्यादातर सेक्टर सुधरे, लेकिन India VIX और महंगा crude अनिश्चितता दिखाते रहे।"
+   ],
+   "indiaImpact": "सूचकांक, सेक्टर और breadth से पता चलता है कि तेजी बड़े शेयरों के साथ कितनी व्यापक थी।",
+   "seoTitle": "शेयर बाजार आज 26 अक्टूबर: सेंसेक्स, निफ्टी",
+   "seoDescription": "26 अक्टूबर को Nifty 50 22,753.20 पर बंद हुआ (+0.68%)। सेक्टर, breadth, टॉप शेयर और उपलब्ध FII/DII आंकड़े देखें।",
+   "tags": [
+    "शेयर बाजार आज",
+    "सेंसेक्स आज",
+    "निफ्टी आज",
+    "FII DII डेटा",
+    "टॉप गेनर्स लूजर्स",
+    "सेक्टर प्रदर्शन"
+   ]
+  },
+  "sources": [
+   {
+    "name": "NSE India: all indices closing snapshot",
+    "url": "https://www.nseindia.com/api/allIndices"
+   },
+   {
+    "name": "NSE India: end-of-day bhavcopy",
+    "url": "https://nsearchives.nseindia.com/content/cm/BhavCopy_NSE_CM_0_0_0_20261026_F_0000.csv.zip"
+   },
+   {
+    "name": "HDFC Sky: market close report, 26 Oct",
+    "url": "https://hdfcsky.com/news/market-close-report-today-october-26-2026-sensex-nifty-rise-as-markets-snap-four-day-losing-streak"
+   },
+   {
+    "name": "Moneycontrol: FII and DII cash-market activity",
+    "url": "https://www.moneycontrol.com/markets/fii-dii-data/cash/?classic=true"
+   }
+  ],
+  "publishedAt": "2026-10-26T18:53:00+05:30",
+  "edition": "2026-10-26-close",
+  "editionLabel": "Mon 26 Oct · Market close",
+  "status": "new"
+ }
+}
