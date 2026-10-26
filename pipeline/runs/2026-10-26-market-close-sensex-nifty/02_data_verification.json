@@ -1,0 +1,386 @@
+{
+ "verified": [
+  {
+   "id": "nse_n50",
+   "label": "Nifty 50 close",
+   "value": "22753.2",
+   "source": "nse",
+   "evidence": "NIFTY 50: last 22753.2, change 153.2 points, 0.68% (previous close",
+   "as_of": "2026-10-26",
+   "change": "153.2",
+   "key": true
+  },
+  {
+   "id": "nse_n50_pct",
+   "label": "Nifty 50 change %",
+   "value": "0.68",
+   "source": "nse",
+   "evidence": "NIFTY 50: last 22753.2, change 153.2 points, 0.68% (previous close",
+   "as_of": "2026-10-26"
+  },
+  {
+   "id": "nse_bank",
+   "label": "Nifty Bank close",
+   "value": "54366.7",
+   "source": "nse",
+   "evidence": "NIFTY BANK: last 54366.7, change 79.35 points, 0.15% (previous close",
+   "as_of": "2026-10-26",
+   "change": "79.35"
+  },
+  {
+   "id": "nse_bank_pct",
+   "label": "Nifty Bank change %",
+   "value": "0.15",
+   "source": "nse",
+   "evidence": "NIFTY BANK: last 54366.7, change 79.35 points, 0.15% (previous close",
+   "as_of": "2026-10-26"
+  },
+  {
+   "id": "nse_vix",
+   "label": "India VIX close",
+   "value": "17.15",
+   "source": "nse",
+   "evidence": "INDIA VIX: last 17.15, change 0.29 points, 1.73% (previous close",
+   "as_of": "2026-10-26",
+   "change": "0.29"
+  },
+  {
+   "id": "nse_vix_pct",
+   "label": "India VIX change %",
+   "value": "1.73",
+   "source": "nse",
+   "evidence": "INDIA VIX: last 17.15, change 0.29 points, 1.73% (previous close",
+   "as_of": "2026-10-26"
+  },
+  {
+   "id": "hdfc_sx",
+   "label": "Sensex close",
+   "value": "73,606.75",
+   "source": "hdfc",
+   "evidence": ", despite persistent concerns over elevated crude oil prices and geopolitical tensions in the middle east. the sensex rose 482.92 points, or 0.66%, to close at 73,606.75, while the nifty 50 gained 153.20 points, or 0.68%, to settle at 22,753.20. the recovery came after the benchmarks declined in each of the previous four sessio",
+   "as_of": "2026-10-26"
+  },
+  {
+   "id": "hdfc_sx_pct",
+   "label": "Sensex change %",
+   "value": "0.66",
+   "source": "hdfc",
+   "evidence": "ks lifted sentiment, despite persistent concerns over elevated crude oil prices and geopolitical tensions in the middle east. the sensex rose 482.92 points, or 0.66%, to close at 73,606.75, while the nifty 50 gained 153.20 points, or 0.68%, to settle at 22,753.20. the recovery came after the benchmarks declined in each of ",
+   "as_of": "2026-10-26"
+  },
+  {
+   "id": "hdfc_brent",
+   "label": "Brent crude price, $/barrel",
+   "value": "114.50",
+   "source": "hdfc",
+   "evidence": "nued to weigh on sentiment, while investors also turned their attention to the us federal reserve’s policy decision later this week. brent crude traded around $114.50 a barrel on monday, easing from a near six-month high of $117, although attacks by yemen’s houthi group on saudi arabia kept supply-disruption risks in focus. ",
+   "as_of": "2026-10-26"
+  },
+  {
+   "id": "nse_s_auto_pct",
+   "label": "Nifty Auto change %",
+   "value": "0.44",
+   "source": "nse",
+   "evidence": ", 0.44% (previous close",
+   "as_of": "2026-10-26"
+  },
+  {
+   "id": "nse_s_fmcg_pct",
+   "label": "Nifty FMCG change %",
+   "value": "0.28",
+   "source": "nse",
+   "evidence": ", 0.28% (previous close",
+   "as_of": "2026-10-26"
+  },
+  {
+   "id": "nse_s_it_pct",
+   "label": "Nifty IT change %",
+   "value": "0.87",
+   "source": "nse",
+   "evidence": ", 0.87% (previous close",
+   "as_of": "2026-10-26"
+  },
+  {
+   "id": "nse_s_metal_pct",
+   "label": "Nifty Metal change %",
+   "value": "2.21",
+   "source": "nse",
+   "evidence": ", 2.21% (previous close",
+   "as_of": "2026-10-26"
+  },
+  {
+   "id": "nse_s_pharma_pct",
+   "label": "Nifty Pharma change %",
+   "value": "1.76",
+   "source": "nse",
+   "evidence": ", 1.76% (previous close",
+   "as_of": "2026-10-26"
+  },
+  {
+   "id": "nse_s_realty_pct",
+   "label": "Nifty Realty change %",
+   "value": "0.68",
+   "source": "nse",
+   "evidence": ", 0.68% (previous close",
+   "as_of": "2026-10-26"
+  },
+  {
+   "id": "nse_s_energy_pct",
+   "label": "Nifty Energy change %",
+   "value": "1.46",
+   "source": "nse",
+   "evidence": ", 1.46% (previous close",
+   "as_of": "2026-10-26"
+  },
+  {
+   "id": "nse_s_psubank_pct",
+   "label": "Nifty PSU Bank change %",
+   "value": "0.29",
+   "source": "nse",
+   "evidence": ", 0.29% (previous close",
+   "as_of": "2026-10-26"
+  },
+  {
+   "id": "nse_s_privatebank_pct",
+   "label": "Nifty Private Bank change %",
+   "value": "0.63",
+   "source": "nse",
+   "evidence": ", 0.63% (previous close",
+   "as_of": "2026-10-26"
+  },
+  {
+   "id": "nse_s_media_pct",
+   "label": "Nifty Media change %",
+   "value": "-0.34",
+   "source": "nse",
+   "evidence": ", -0.34% (previous close",
+   "as_of": "2026-10-26"
+  },
+  {
+   "id": "nse_s_consumerdurables_pct",
+   "label": "Nifty Consumer Durables change %",
+   "value": "-0.21",
+   "source": "nse",
+   "evidence": ", -0.21% (previous close",
+   "as_of": "2026-10-26"
+  },
+  {
+   "id": "nse_s_oilgas_pct",
+   "label": "Nifty Oil & Gas change %",
+   "value": "1.35",
+   "source": "nse",
+   "evidence": ", 1.35% (previous close",
+   "as_of": "2026-10-26"
+  },
+  {
+   "id": "nse_s_healthcare_pct",
+   "label": "Nifty Healthcare change %",
+   "value": "1.77",
+   "source": "nse",
+   "evidence": ", 1.77% (previous close",
+   "as_of": "2026-10-26"
+  },
+  {
+   "id": "nse_s_financialservices_pct",
+   "label": "Nifty Financial Services change %",
+   "value": "0.21",
+   "source": "nse",
+   "evidence": ", 0.21% (previous close",
+   "as_of": "2026-10-26"
+  },
+  {
+   "id": "nse_s_bank_pct",
+   "label": "Nifty Bank change %",
+   "value": "0.15",
+   "source": "nse",
+   "evidence": ", 0.15% (previous close",
+   "as_of": "2026-10-26"
+  },
+  {
+   "id": "nse_s_chemicals_pct",
+   "label": "Nifty Chemicals change %",
+   "value": "0.11",
+   "source": "nse",
+   "evidence": ", 0.11% (previous close",
+   "as_of": "2026-10-26"
+  },
+  {
+   "id": "nse_s_cement_pct",
+   "label": "Nifty Cement change %",
+   "value": "1.93",
+   "source": "nse",
+   "evidence": ", 1.93% (previous close",
+   "as_of": "2026-10-26"
+  },
+  {
+   "id": "nse_n500_advances",
+   "label": "Nifty 500 stocks advancing",
+   "value": "336",
+   "source": "nse",
+   "evidence": "advances 336, declines 164, unchanged 1;",
+   "as_of": "2026-10-26"
+  },
+  {
+   "id": "nse_n500_declines",
+   "label": "Nifty 500 stocks declining",
+   "value": "164",
+   "source": "nse",
+   "evidence": "advances 336, declines 164, unchanged 1;",
+   "as_of": "2026-10-26"
+  },
+  {
+   "id": "nse_n500_unchanged",
+   "label": "Nifty 500 stocks unchanged",
+   "value": "1",
+   "source": "nse",
+   "evidence": "advances 336, declines 164, unchanged 1;",
+   "as_of": "2026-10-26"
+  },
+  {
+   "id": "st_drreddy",
+   "label": "DRREDDY close",
+   "value": "1310.90",
+   "source": "bhav",
+   "evidence": "DRREDDY EQ 2026-10-26: close 1310.90, previous close",
+   "as_of": "2026-10-26"
+  },
+  {
+   "id": "st_drreddy_prev",
+   "label": "DRREDDY previous close",
+   "value": "1229.50",
+   "source": "bhav",
+   "evidence": "low 5000.00 | lalpathlab eq 2026-10-26: close 1855.60, previous close 1838.20, high 1867.00, low 1797.80 | drreddy eq 2026-10-26: close 1310.90, previous close 1229.50, high 1319.00, low 1224.00 | drcsystems eq 2026-10-26: close 11.28, previous close 11.25, high 12.00, low 11.03 | dreamfolks eq 2026-10-26: close 56.30, previo",
+   "as_of": "2026-10-26"
+  },
+  {
+   "id": "st_jswsteel",
+   "label": "JSWSTEEL close",
+   "value": "1260.00",
+   "source": "bhav",
+   "evidence": "JSWSTEEL EQ 2026-10-26: close 1260.00, previous close",
+   "as_of": "2026-10-26"
+  },
+  {
+   "id": "st_jswsteel_prev",
+   "label": "JSWSTEEL previous close",
+   "value": "1185.50",
+   "source": "bhav",
+   "evidence": "00, low 10990.00 | jswinfra eq 2026-10-26: close 317.45, previous close 316.00, high 319.05, low 307.85 | jswsteel eq 2026-10-26: close 1260.00, previous close 1185.50, high 1260.00, low 1186.70 | jtektindia eq 2026-10-26: close 109.59, previous close 108.85, high 112.10, low 106.81 | jtlind eq 2026-10-26: close 71.32, previo",
+   "as_of": "2026-10-26"
+  },
+  {
+   "id": "st_bse",
+   "label": "BSE close",
+   "value": "3359.00",
+   "source": "bhav",
+   "evidence": "BSE EQ 2026-10-26: close 3359.00, previous close",
+   "as_of": "2026-10-26"
+  },
+  {
+   "id": "st_bse_prev",
+   "label": "BSE previous close",
+   "value": "3230.80",
+   "source": "bhav",
+   "evidence": ", high 4580.00, low 4507.90 | brooks eq 2026-10-26: close 57.86, previous close 57.86, high 60.94, low 55.50 | bse eq 2026-10-26: close 3359.00, previous close 3230.80, high 3379.30, low 3213.00 | bsl eq 2026-10-26: close 115.46, previous close 113.84, high 117.79, low 114.01 | butterfly eq 2026-10-26: close 580.20, previous ",
+   "as_of": "2026-10-26"
+  },
+  {
+   "id": "st_shriramfin",
+   "label": "SHRIRAMFIN close",
+   "value": "825.00",
+   "source": "bhav",
+   "evidence": "SHRIRAMFIN EQ 2026-10-26: close 825.00, previous close",
+   "as_of": "2026-10-26"
+  },
+  {
+   "id": "st_shriramfin_prev",
+   "label": "SHRIRAMFIN previous close",
+   "value": "865.00",
+   "source": "bhav",
+   "evidence": "ow 278.02 | liquidshri eq 2026-10-26: close 1127.51, previous close 1127.35, high 1127.53, low 1127.51 | shriramfin eq 2026-10-26: close 825.00, previous close 865.00, high 836.00, low 810.20 | shrirampps eq 2026-10-26: close 63.79, previous close 62.46, high 65.39, low 61.76 | shukraphar eq 2026-10-26: close 67.46, previous",
+   "as_of": "2026-10-26"
+  },
+  {
+   "id": "st_tataconsum",
+   "label": "TATACONSUM close",
+   "value": "936.50",
+   "source": "bhav",
+   "evidence": "TATACONSUM EQ 2026-10-26: close 936.50, previous close",
+   "as_of": "2026-10-26"
+  },
+  {
+   "id": "st_tataconsum_prev",
+   "label": "TATACONSUM previous close",
+   "value": "963.90",
+   "source": "bhav",
+   "evidence": ".00, low 1631.80 | tcs eq 2026-10-26: close 2535.00, previous close 2530.00, high 2549.70, low 2491.60 | tataconsum eq 2026-10-26: close 936.50, previous close 963.90, high 960.00, low 916.00 | tataelxsi eq 2026-10-26: close 3724.00, previous close 3700.00, high 3740.00, low 3646.40 | tatainvest eq 2026-10-26: close 553.35, ",
+   "as_of": "2026-10-26"
+  },
+  {
+   "id": "st_bajfinance",
+   "label": "BAJFINANCE close",
+   "value": "918.70",
+   "source": "bhav",
+   "evidence": "BAJFINANCE EQ 2026-10-26: close 918.70, previous close",
+   "as_of": "2026-10-26"
+  },
+  {
+   "id": "st_bajfinance_prev",
+   "label": "BAJFINANCE previous close",
+   "value": "928.95",
+   "source": "bhav",
+   "evidence": "80, low 373.65 | bajajelec eq 2026-10-26: close 275.65, previous close 278.20, high 279.30, low 273.40 | bajfinance eq 2026-10-26: close 918.70, previous close 928.95, high 926.70, low 906.20 | bajajfinsv eq 2026-10-26: close 1670.90, previous close 1655.00, high 1670.90, low 1635.60 | bajajhcare eq 2026-10-26: close 307.45,",
+   "as_of": "2026-10-26"
+  },
+  {
+   "id": "fii_net",
+   "label": "FII/FPI net cash-market flow, ₹ crore",
+   "value": "887.65",
+   "source": "nsef",
+   "evidence": "FII/FPI 23-Oct-2026: bought 14445.54 crore, sold 13557.89 crore, net 887.65 crore",
+   "as_of": "2026-10-23"
+  },
+  {
+   "id": "dii_net",
+   "label": "DII net cash-market flow, ₹ crore",
+   "value": "3235.36",
+   "source": "nsef",
+   "evidence": "DII 23-Oct-2026: bought 19232.31 crore, sold 15996.95 crore, net 3235.36 crore",
+   "as_of": "2026-10-23"
+  },
+  {
+   "id": "fii_buy",
+   "label": "FII/FPI gross cash-market buy, ₹ crore",
+   "value": "14445.54",
+   "source": "nsef",
+   "evidence": "FII/FPI 23-Oct-2026: bought 14445.54 crore, sold 13557.89 crore, net 887.65 crore",
+   "as_of": "2026-10-23"
+  },
+  {
+   "id": "fii_sell",
+   "label": "FII/FPI gross cash-market sell, ₹ crore",
+   "value": "13557.89",
+   "source": "nsef",
+   "evidence": "FII/FPI 23-Oct-2026: bought 14445.54 crore, sold 13557.89 crore, net 887.65 crore",
+   "as_of": "2026-10-23"
+  },
+  {
+   "id": "dii_buy",
+   "label": "DII gross cash-market buy, ₹ crore",
+   "value": "19232.31",
+   "source": "nsef",
+   "evidence": "DII 23-Oct-2026: bought 19232.31 crore, sold 15996.95 crore, net 3235.36 crore",
+   "as_of": "2026-10-23"
+  },
+  {
+   "id": "dii_sell",
+   "label": "DII gross cash-market sell, ₹ crore",
+   "value": "15996.95",
+   "source": "nsef",
+   "evidence": "DII 23-Oct-2026: bought 19232.31 crore, sold 15996.95 crore, net 3235.36 crore",
+   "as_of": "2026-10-23"
+  }
+ ],
+ "rejected": [],
+ "examples": []
+}

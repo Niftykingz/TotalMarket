@@ -24,10 +24,12 @@
    "published": "2026-10-26T17:09:00+05:30"
   },
   {
-   "id": "mc",
-   "name": "Moneycontrol: FII and DII cash-market activity",
-   "url": "https://www.moneycontrol.com/markets/fii-dii-data/cash/?classic=true",
-   "published": "2026-10-26T18:45:00+05:30"
+   "id": "nsef",
+   "name": "NSE India: FII/FPI and DII provisional cash-market activity (23 Oct)",
+   "url": "https://www.nseindia.com/api/fiidiiTradeReact",
+   "published": "2026-10-23T23:40:54+05:30",
+   "dataset": "data/market_snapshots/2026-10-23/api_fiidiiTradeReact.json.gz",
+   "sha256": "f982911440a87279e4600375bc31d83f524e3d6e298e38012c21995e836a00e2"
   }
  ],
  "figures": [
@@ -367,48 +369,48 @@
    "id": "fii_net",
    "label": "FII/FPI net cash-market flow, ₹ crore",
    "value": "887.65",
-   "source": "mc",
-   "evidence": "23-Oct-2026 14,445.54 13,557.89 887.65 19,232.31 15,996.95 3,235.36",
+   "source": "nsef",
+   "evidence": "FII/FPI 23-Oct-2026: bought 14445.54 crore, sold 13557.89 crore, net 887.65 crore",
    "as_of": "2026-10-23"
   },
   {
    "id": "dii_net",
    "label": "DII net cash-market flow, ₹ crore",
    "value": "3235.36",
-   "source": "mc",
-   "evidence": "23-Oct-2026 14,445.54 13,557.89 887.65 19,232.31 15,996.95 3,235.36",
+   "source": "nsef",
+   "evidence": "DII 23-Oct-2026: bought 19232.31 crore, sold 15996.95 crore, net 3235.36 crore",
    "as_of": "2026-10-23"
   },
   {
    "id": "fii_buy",
    "label": "FII/FPI gross cash-market buy, ₹ crore",
    "value": "14445.54",
-   "source": "mc",
-   "evidence": "23-Oct-2026 14,445.54 13,557.89 887.65 19,232.31 15,996.95 3,235.36",
+   "source": "nsef",
+   "evidence": "FII/FPI 23-Oct-2026: bought 14445.54 crore, sold 13557.89 crore, net 887.65 crore",
    "as_of": "2026-10-23"
   },
   {
    "id": "fii_sell",
    "label": "FII/FPI gross cash-market sell, ₹ crore",
    "value": "13557.89",
-   "source": "mc",
-   "evidence": "23-Oct-2026 14,445.54 13,557.89 887.65 19,232.31 15,996.95 3,235.36",
+   "source": "nsef",
+   "evidence": "FII/FPI 23-Oct-2026: bought 14445.54 crore, sold 13557.89 crore, net 887.65 crore",
    "as_of": "2026-10-23"
   },
   {
    "id": "dii_buy",
    "label": "DII gross cash-market buy, ₹ crore",
    "value": "19232.31",
-   "source": "mc",
-   "evidence": "23-Oct-2026 14,445.54 13,557.89 887.65 19,232.31 15,996.95 3,235.36",
+   "source": "nsef",
+   "evidence": "DII 23-Oct-2026: bought 19232.31 crore, sold 15996.95 crore, net 3235.36 crore",
    "as_of": "2026-10-23"
   },
   {
    "id": "dii_sell",
    "label": "DII gross cash-market sell, ₹ crore",
    "value": "15996.95",
-   "source": "mc",
-   "evidence": "23-Oct-2026 14,445.54 13,557.89 887.65 19,232.31 15,996.95 3,235.36",
+   "source": "nsef",
+   "evidence": "DII 23-Oct-2026: bought 19232.31 crore, sold 15996.95 crore, net 3235.36 crore",
    "as_of": "2026-10-23"
   }
  ],

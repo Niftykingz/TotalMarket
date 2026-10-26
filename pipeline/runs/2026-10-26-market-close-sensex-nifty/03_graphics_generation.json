@@ -1,0 +1,245 @@
+{
+ "fields": {
+  "coverHeadline": "NIFTY CLOSES UP 0.68%",
+  "stat": "+0.68%",
+  "statLabel": "Nifty 50 at the close",
+  "coverDate": "2026-10-26",
+  "symbol": "candles",
+  "flags": [
+   "IN"
+  ],
+  "chart": {
+   "type": "market_close",
+   "title": "Indian markets · close",
+   "asOf": "Close, Mon 26 Oct 2026",
+   "dateLabel": "Monday, 26 October 2026",
+   "summary": "Nifty 50 rose 0.68%; 336 Nifty 500 stocks advanced and 164 declined.",
+   "source": "NSE India, BSE, HDFC Sky, Moneycontrol",
+   "breadthUniverse": "Nifty 500",
+   "items": [
+    {
+     "label": "NIFTY 50",
+     "value": "22,753.20",
+     "change": "153.20",
+     "pct": "+0.68%",
+     "figures": [
+      "nse_n50",
+      "nse_n50_pct"
+     ]
+    },
+    {
+     "label": "SENSEX",
+     "value": "73,606.75",
+     "change": "482.92",
+     "pct": "+0.66%",
+     "figures": [
+      "hdfc_sx",
+      "hdfc_sx_pct"
+     ]
+    },
+    {
+     "label": "NIFTY BANK",
+     "value": "54,366.70",
+     "change": "79.35",
+     "pct": "+0.15%",
+     "figures": [
+      "nse_bank",
+      "nse_bank_pct"
+     ]
+    },
+    {
+     "label": "INDIA VIX",
+     "value": "17.15",
+     "change": "0.29",
+     "pct": "+1.73%",
+     "figures": [
+      "nse_vix",
+      "nse_vix_pct"
+     ]
+    },
+    {
+     "label": "Nifty 500 advances",
+     "value": "336",
+     "role": "advances",
+     "figures": [
+      "nse_n500_advances"
+     ]
+    },
+    {
+     "label": "Nifty 500 declines",
+     "value": "164",
+     "role": "declines",
+     "figures": [
+      "nse_n500_declines"
+     ]
+    },
+    {
+     "label": "Nifty 500 unchanged",
+     "value": "1",
+     "role": "unchanged",
+     "figures": [
+      "nse_n500_unchanged"
+     ]
+    }
+   ]
+  }
+ },
+ "analysis": {
+  "event": "market_preview",
+  "instruments": [
+   "Nifty 50",
+   "Sensex"
+  ],
+  "companies": [],
+  "direction": "up",
+  "template": "market_close",
+  "object": "candles",
+  "figures": [
+   {
+    "label": "NIFTY 50",
+    "value": "22,753.20",
+    "change": "153.20",
+    "pct": "+0.68%",
+    "figures": [
+     "nse_n50",
+     "nse_n50_pct"
+    ]
+   },
+   {
+    "label": "SENSEX",
+    "value": "73,606.75",
+    "change": "482.92",
+    "pct": "+0.66%",
+    "figures": [
+     "hdfc_sx",
+     "hdfc_sx_pct"
+    ]
+   },
+   {
+    "label": "NIFTY BANK",
+    "value": "54,366.70",
+    "change": "79.35",
+    "pct": "+0.15%",
+    "figures": [
+     "nse_bank",
+     "nse_bank_pct"
+    ]
+   },
+   {
+    "label": "INDIA VIX",
+    "value": "17.15",
+    "change": "0.29",
+    "pct": "+1.73%",
+    "figures": [
+     "nse_vix",
+     "nse_vix_pct"
+    ]
+   },
+   {
+    "label": "Nifty 500 advances",
+    "value": "336",
+    "role": "advances",
+    "figures": [
+     "nse_n500_advances"
+    ]
+   },
+   {
+    "label": "Nifty 500 declines",
+    "value": "164",
+    "role": "declines",
+    "figures": [
+     "nse_n500_declines"
+    ]
+   },
+   {
+    "label": "Nifty 500 unchanged",
+    "value": "1",
+    "role": "unchanged",
+    "figures": [
+     "nse_n500_unchanged"
+    ]
+   }
+  ],
+  "series": [],
+  "reason": "market_preview story with a verified market_close chart",
+  "data_required": true,
+  "missing": "",
+  "chart": {
+   "type": "market_close",
+   "title": "Indian markets · close",
+   "asOf": "Close, Mon 26 Oct 2026",
+   "dateLabel": "Monday, 26 October 2026",
+   "summary": "Nifty 50 rose 0.68%; 336 Nifty 500 stocks advanced and 164 declined.",
+   "source": "NSE India, BSE, HDFC Sky, Moneycontrol",
+   "breadthUniverse": "Nifty 500",
+   "items": [
+    {
+     "label": "NIFTY 50",
+     "value": "22,753.20",
+     "change": "153.20",
+     "pct": "+0.68%",
+     "figures": [
+      "nse_n50",
+      "nse_n50_pct"
+     ]
+    },
+    {
+     "label": "SENSEX",
+     "value": "73,606.75",
+     "change": "482.92",
+     "pct": "+0.66%",
+     "figures": [
+      "hdfc_sx",
+      "hdfc_sx_pct"
+     ]
+    },
+    {
+     "label": "NIFTY BANK",
+     "value": "54,366.70",
+     "change": "79.35",
+     "pct": "+0.15%",
+     "figures": [
+      "nse_bank",
+      "nse_bank_pct"
+     ]
+    },
+    {
+     "label": "INDIA VIX",
+     "value": "17.15",
+     "change": "0.29",
+     "pct": "+1.73%",
+     "figures": [
+      "nse_vix",
+      "nse_vix_pct"
+     ]
+    },
+    {
+     "label": "Nifty 500 advances",
+     "value": "336",
+     "role": "advances",
+     "figures": [
+      "nse_n500_advances"
+     ]
+    },
+    {
+     "label": "Nifty 500 declines",
+     "value": "164",
+     "role": "declines",
+     "figures": [
+      "nse_n500_declines"
+     ]
+    },
+    {
+     "label": "Nifty 500 unchanged",
+     "value": "1",
+     "role": "unchanged",
+     "figures": [
+      "nse_n500_unchanged"
+     ]
+    }
+   ]
+  }
+ },
+ "headline": "Nifty rises 0.68% to 22,753.20; Sensex gains 0.66%",
+ "files": {}
+}

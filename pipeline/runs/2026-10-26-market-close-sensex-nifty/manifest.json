@@ -1,21 +1,31 @@
 {
  "slug": "2026-10-26-market-close-sensex-nifty",
  "job": "pipeline/inbox/2026-10-26-market-close-sensex-nifty.json",
- "job_sha256": "176b714163a635c3408b9024031d827d7c5f38f0b2ac8ccf35f6586068d1e34a",
+ "job_sha256": "ddd6786ec2b49e4f60227346279a7b754f23e92cbdb228ebe37a4d3062e71f42",
  "stages": {
   "DATA_COLLECTION": {
+   "status": "PASS",
+   "sha256": "d4d103899014acff1ba3134012f7c94f8e4377618887e1bc641c5c00187a4073",
+   "errors": [],
+   "started": "2026-10-26T18:57:55+05:30",
+   "finished": "2026-10-26T18:57:57+05:30"
+  },
+  "DATA_VERIFICATION": {
+   "status": "PASS",
+   "sha256": "5882d637e980bbe23d788baa6830ae8f24c37164908220c32926618b176abf56",
+   "errors": [],
+   "started": "2026-10-26T18:57:57+05:30",
+   "finished": "2026-10-26T18:58:00+05:30"
+  },
+  "GRAPHICS_GENERATION": {
    "status": "FAILED",
-   "sha256": "fd0653d131ca0569c71d149ba60e7c08414d4e08ea23f8707479b0a4cc670bad",
+   "sha256": "f5a77c357170c18f22bdb469170dfe8cca94a755463ff2f90f32fb1a546aeaff",
    "errors": [
-    "SOURCE_RECOVERY: fii_net: values not supported together by original source",
-    "SOURCE_RECOVERY: dii_net: values not supported together by original source",
-    "SOURCE_RECOVERY: fii_buy: values not supported together by original source",
-    "SOURCE_RECOVERY: fii_sell: values not supported together by original source",
-    "SOURCE_RECOVERY: dii_buy: values not supported together by original source",
-    "SOURCE_RECOVERY: dii_sell: values not supported together by original source"
+    "graphic shows unverified numbers: ['482.92']",
+    "chart item 'SENSEX' shows ['482.92'] not in its own verified figures ['hdfc_sx', 'hdfc_sx_pct']"
    ],
-   "started": "2026-10-26T18:55:57+05:30",
-   "finished": "2026-10-26T18:56:03+05:30"
+   "started": "2026-10-26T18:58:00+05:30",
+   "finished": "2026-10-26T18:58:00+05:30"
   }
  }
 }
