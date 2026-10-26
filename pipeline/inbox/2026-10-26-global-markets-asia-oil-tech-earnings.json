@@ -3,228 +3,102 @@
   "collection": {
     "sources": [
       {
-        "id": "ap",
-        "name": "AP News: Shares fall in Asia after a decline on Wall Street, and oil prices fall more than 1%",
-        "url": "https://apnews.com/article/stocks-markets-oil-earnings-trump-be3a56f58a77c5be863f0289d280be92",
-        "published": "2026-10-26"
+        "id": "bs",
+        "name": "Business Standard: Stock Market LIVE, October 26",
+        "url": "https://www.business-standard.com/markets/news/stock-market-live-october-26-nse-bse-sensex-today-nifty50-gift-nifty-brent-crude-oil-prices-eaa-india-ipo-126102600053_1.html",
+        "published": "2026-10-26T07:45:00+05:30"
       }
     ],
     "figures": [
       {
         "id": "brent",
         "label": "Brent crude",
-        "value": "110.23",
+        "value": "115.1",
         "unit": "USD per barrel",
-        "source": "ap",
-        "evidence": "The price of Brent crude, the international standard, fell 1.3% to $110.23 a barrel.",
+        "source": "bs",
+        "evidence": "Brent crude reached a six-month high last week before falling 1.39 per cent in Monday’s session to trade at $115.1.",
         "as_of": "2026-10-26",
         "key": true
       },
       {
         "id": "brent_pct",
         "label": "Brent crude move",
-        "value": "1.3",
+        "value": "1.39",
         "unit": "percent down",
-        "source": "ap",
-        "evidence": "The price of Brent crude, the international standard, fell 1.3% to $110.23 a barrel.",
+        "source": "bs",
+        "evidence": "Brent crude reached a six-month high last week before falling 1.39 per cent in Monday’s session to trade at $115.1.",
         "as_of": "2026-10-26"
       },
       {
         "id": "wti",
-        "label": "US benchmark crude",
-        "value": "101.52",
+        "label": "WTI crude",
+        "value": "101.5",
         "unit": "USD per barrel",
-        "source": "ap",
-        "evidence": "U.S. benchmark crude sank 1.7% to $101.52 a barrel.",
+        "source": "bs",
+        "evidence": "WTI crude was also trading 1.76 per cent lower at $101.5.",
         "as_of": "2026-10-26"
       },
       {
         "id": "wti_pct",
-        "label": "US crude move",
-        "value": "1.7",
+        "label": "WTI crude move",
+        "value": "1.76",
         "unit": "percent down",
-        "source": "ap",
-        "evidence": "U.S. benchmark crude sank 1.7% to $101.52 a barrel.",
-        "as_of": "2026-10-26"
-      },
-      {
-        "id": "nikkei",
-        "label": "Nikkei 225",
-        "value": "62602.86",
-        "unit": "index points",
-        "source": "ap",
-        "evidence": "Tokyo’s Nikkei 225 slipped 0.1% to 62,602.86 and the Kospi in Seoul dropped 1.1% to 5,494.29.",
+        "source": "bs",
+        "evidence": "WTI crude was also trading 1.76 per cent lower at $101.5.",
         "as_of": "2026-10-26"
       },
       {
         "id": "nikkei_pct",
         "label": "Nikkei 225 move",
-        "value": "0.1",
+        "value": "0.34",
         "unit": "percent down",
-        "source": "ap",
-        "evidence": "Tokyo’s Nikkei 225 slipped 0.1% to 62,602.86 and the Kospi in Seoul dropped 1.1% to 5,494.29.",
-        "as_of": "2026-10-26"
-      },
-      {
-        "id": "kospi",
-        "label": "Kospi",
-        "value": "5494.29",
-        "unit": "index points",
-        "source": "ap",
-        "evidence": "Tokyo’s Nikkei 225 slipped 0.1% to 62,602.86 and the Kospi in Seoul dropped 1.1% to 5,494.29.",
+        "source": "bs",
+        "evidence": "Japan’s Nikkei 225 and South Korea’s Kospi were trading 0.34 per cent and 1.25 per cent down, respectively.",
         "as_of": "2026-10-26"
       },
       {
         "id": "kospi_pct",
         "label": "Kospi move",
-        "value": "1.1",
+        "value": "1.25",
         "unit": "percent down",
-        "source": "ap",
-        "evidence": "Tokyo’s Nikkei 225 slipped 0.1% to 62,602.86 and the Kospi in Seoul dropped 1.1% to 5,494.29.",
+        "source": "bs",
+        "evidence": "Japan’s Nikkei 225 and South Korea’s Kospi were trading 0.34 per cent and 1.25 per cent down, respectively.",
         "as_of": "2026-10-26"
       },
       {
-        "id": "hang_seng",
-        "label": "Hang Seng",
-        "value": "23137.93",
-        "unit": "index points",
-        "source": "ap",
-        "evidence": "In Hong Kong, the Hang Seng edged 0.2% higher to 23,137.93, while the Shanghai Composite index lost 0.4% to 3,673.83.",
-        "as_of": "2026-10-26"
-      },
-      {
-        "id": "hang_seng_pct",
-        "label": "Hang Seng move",
-        "value": "0.2",
-        "unit": "percent up",
-        "source": "ap",
-        "evidence": "In Hong Kong, the Hang Seng edged 0.2% higher to 23,137.93, while the Shanghai Composite index lost 0.4% to 3,673.83.",
-        "as_of": "2026-10-26"
-      },
-      {
-        "id": "shanghai",
-        "label": "Shanghai Composite",
-        "value": "3673.83",
-        "unit": "index points",
-        "source": "ap",
-        "evidence": "In Hong Kong, the Hang Seng edged 0.2% higher to 23,137.93, while the Shanghai Composite index lost 0.4% to 3,673.83.",
-        "as_of": "2026-10-26"
-      },
-      {
-        "id": "shanghai_pct",
-        "label": "Shanghai Composite move",
-        "value": "0.4",
+        "id": "dow_pct",
+        "label": "Dow Jones move",
+        "value": "1.23",
         "unit": "percent down",
-        "source": "ap",
-        "evidence": "In Hong Kong, the Hang Seng edged 0.2% higher to 23,137.93, while the Shanghai Composite index lost 0.4% to 3,673.83.",
-        "as_of": "2026-10-26"
-      },
-      {
-        "id": "asx",
-        "label": "S&P/ASX 200",
-        "value": "8782.30",
-        "unit": "index points",
-        "source": "ap",
-        "evidence": "Australia’s S&P/ASX 200 shed 0.2% to 8,782.30.",
-        "as_of": "2026-10-26"
-      },
-      {
-        "id": "asx_pct",
-        "label": "S&P/ASX 200 move",
-        "value": "0.2",
-        "unit": "percent down",
-        "source": "ap",
-        "evidence": "Australia’s S&P/ASX 200 shed 0.2% to 8,782.30.",
-        "as_of": "2026-10-26"
-      },
-      {
-        "id": "brent_friday",
-        "label": "Friday Brent crude settle",
-        "value": "116.72",
-        "unit": "USD per barrel",
-        "source": "ap",
-        "evidence": "On Friday, the price for a barrel of Brent crude rose 3.1% to settle at $116.72, its highest level since June 2022.",
+        "source": "bs",
+        "evidence": "Overnight, the Dow Jones Industrial Average and the S&P 500 ended 1.23 per cent and 0.52 per cent down, respectively.",
         "as_of": "2026-10-23"
       },
       {
-        "id": "brent_friday_pct",
-        "label": "Friday Brent crude move",
-        "value": "3.1",
-        "unit": "percent up",
-        "source": "ap",
-        "evidence": "On Friday, the price for a barrel of Brent crude rose 3.1% to settle at $116.72, its highest level since June 2022.",
-        "as_of": "2026-10-23"
-      },
-      {
-        "id": "sp500",
-        "label": "S&P 500 Friday move",
-        "value": "0.5",
+        "id": "sp_pct",
+        "label": "S&P 500 move",
+        "value": "0.52",
         "unit": "percent down",
-        "source": "ap",
-        "evidence": "Also Friday, the S&P 500 fell 0.5%, adding to its decline from a day before and logging its second-straight weekly loss.",
+        "source": "bs",
+        "evidence": "Overnight, the Dow Jones Industrial Average and the S&P 500 ended 1.23 per cent and 0.52 per cent down, respectively.",
         "as_of": "2026-10-23"
       },
       {
-        "id": "dow",
-        "label": "Dow Jones Friday move",
-        "value": "1.2",
+        "id": "nasdaq_pct",
+        "label": "Nasdaq Composite move",
+        "value": "0.21",
         "unit": "percent down",
-        "source": "ap",
-        "evidence": "The Dow Jones Industrial Average fell 1.2%, and the Nasdaq composite slipped 0.2% after giving up a modest gain.",
-        "as_of": "2026-10-23"
-      },
-      {
-        "id": "nasdaq",
-        "label": "Nasdaq Friday move",
-        "value": "0.2",
-        "unit": "percent down",
-        "source": "ap",
-        "evidence": "The Dow Jones Industrial Average fell 1.2%, and the Nasdaq composite slipped 0.2% after giving up a modest gain.",
-        "as_of": "2026-10-23"
-      },
-      {
-        "id": "pce",
-        "label": "US PCE inflation forecast",
-        "value": "3.7",
-        "unit": "percent",
-        "source": "ap",
-        "evidence": "The personal consumption expenditures index, or PCE, is expected to show that inflation rose at a 3.7% rate in September, sharply above the Fed’s 2% target.",
-        "as_of": "2026-09-30"
-      },
-      {
-        "id": "fed_target",
-        "label": "Federal Reserve inflation target",
-        "value": "2",
-        "unit": "percent",
-        "source": "ap",
-        "evidence": "The personal consumption expenditures index, or PCE, is expected to show that inflation rose at a 3.7% rate in September, sharply above the Fed’s 2% target.",
-        "as_of": "2026-10-26"
-      },
-      {
-        "id": "yen",
-        "label": "US dollar in Japanese yen",
-        "value": "156.79",
-        "unit": "yen per dollar",
-        "source": "ap",
-        "evidence": "In other dealings early Monday, the dollar slipped to 156.79 Japanese yen from 156.99 yen.",
-        "as_of": "2026-10-26"
-      },
-      {
-        "id": "yen_previous",
-        "label": "Previous US dollar in Japanese yen",
-        "value": "156.99",
-        "unit": "yen per dollar",
-        "source": "ap",
-        "evidence": "In other dealings early Monday, the dollar slipped to 156.79 Japanese yen from 156.99 yen.",
+        "source": "bs",
+        "evidence": "The Nasdaq Composite settled 0.21 per cent lower.",
         "as_of": "2026-10-23"
       }
     ],
     "examples": []
   },
   "graphic": {
-    "headline": "Asia shares mostly lower as oil retreats; Big Tech earnings and central banks in focus",
-    "coverHeadline": "BRENT AT $110.23",
-    "stat": "$110.23",
+    "headline": "Asia markets lower as oil eases from a six-month peak but stays elevated",
+    "coverHeadline": "BRENT AT $115.1",
+    "stat": "$115.1",
     "statLabel": "Brent crude per barrel",
     "coverDate": "2026-10-26",
     "symbol": "globe",
@@ -236,80 +110,79 @@
     ]
   },
   "article": {
-    "title": "Global markets today: Asia mixed as Brent eases to $110.23; earnings ahead",
-    "dek": "Asian shares were mostly lower, oil retreated after a sharp weekly rise, and US futures edged higher. Investors are watching major earnings and central-bank decisions.",
+    "title": "Global markets today: Asia falls, Brent eases to $115.1 but stays elevated",
+    "dek": "Asian shares opened lower and Wall Street’s main indexes ended Friday in the red. Oil cooled from a six-month high but remains a key market pressure.",
     "category": "global",
     "lead": true,
     "readMins": 3,
     "body": [
-      "Global markets opened the week cautiously. Brent crude fell 1.3% to $110.23 a barrel and US crude slipped 1.7% to $101.52. Oil had risen sharply on Friday, with Brent settling at $116.72 after a 3.1% gain, its highest level since June 2022.",
-      "Asia was mixed but mostly lower: Tokyo’s Nikkei 225 slipped 0.1% to 62,602.86 and South Korea’s Kospi dropped 1.1% to 5,494.29. Hong Kong’s Hang Seng edged up 0.2% to 23,137.93, while Shanghai’s Composite lost 0.4% to 3,673.83. Australia’s S&P/ASX 200 fell 0.2% to 8,782.30.",
-      "US futures edged higher after Wall Street logged a second weekly loss. On Friday, the S&P 500 fell 0.5%, the Dow dropped 1.2%, and the Nasdaq slipped 0.2%.",
-      "This week’s focus is on central-bank decisions and Big Tech results. Alphabet, Microsoft and Amazon are among the companies reporting. Investors are looking for evidence that heavy AI investment can support future earnings. The Federal Reserve is widely expected to hold rates this week, while markets are leaning toward another hike in December.",
-      "US inflation data will also matter: the personal consumption expenditures index is expected to show prices rose 3.7% in September, above the Fed’s 2% target. In currency trading, the dollar eased to 156.79 yen from 156.99 yen.",
-      "India angle: oil has eased from Friday’s peak, but at more than $110 a barrel it remains a pressure point for an oil-importing economy. Watch crude, the rupee and the earnings reaction as global cues develop. This is a market update, not investment advice."
+      "Global markets began Monday cautiously. Japan’s Nikkei 225 was down 0.34% and South Korea’s Kospi fell 1.25% in early trade. Business Standard reported that Asian shares were broadly lower amid elevated oil prices and West Asia tensions.",
+      "Oil pulled back from last week’s six-month high: Brent fell 1.39% to $115.1 a barrel, while WTI crude was down 1.76% at $101.5. The retreat offers some relief, though crude remains expensive for importers.",
+      "Wall Street’s Friday close was weak across the main benchmarks: the Dow Jones Industrial Average fell 1.23%, the S&P 500 lost 0.52%, and the Nasdaq Composite slipped 0.21%.",
+      "What to watch: oil and West Asia developments, Asian market follow-through, and the week’s company earnings. These can shift risk appetite and energy-cost expectations across regions.",
+      "India angle: elevated crude can add pressure to the import bill, inflation and the rupee. The key change this morning is that oil has eased from its peak, while Asian equities remain soft. This is a market update, not investment advice."
     ],
-    "why": "Lower oil eased one immediate pressure, but the price remains high. Investors are weighing energy costs and inflation against earnings and whether large AI investments can generate returns.",
-    "globalImpact": "Most Asian benchmarks fell while Hong Kong rose and US futures edged higher. The week’s central-bank decisions, inflation data and technology earnings may set the next move.",
-    "indiaImpact": "Crude remains above $110 a barrel even after pulling back, keeping India’s import bill and inflation in focus. This is a market update, not investment advice.",
+    "why": "Oil has eased from its six-month high, but Brent remains around $115 a barrel. Investors are weighing that energy cost against weak Asian trading and lower Wall Street closes.",
+    "globalImpact": "Asian equities were broadly lower, while crude pulled back from a six-month high. Friday’s US market close was negative across the Dow, S&P 500 and Nasdaq.",
+    "indiaImpact": "Brent near $115 a barrel remains a cost and inflation risk for India, even after Monday’s pullback. This is a market update, not investment advice.",
     "table": {
-      "title": "Asia and energy snapshot · Monday",
+      "title": "Global market snapshot · Monday morning",
       "rows": [
         {
           "label": "Nikkei 225",
-          "value": "62,602.86",
-          "change": "-0.1%",
-          "note": "Japan"
+          "value": "Japan",
+          "change": "Down 0.34%",
+          "note": "Early trade"
         },
         {
           "label": "Kospi",
-          "value": "5,494.29",
-          "change": "-1.1%",
-          "note": "South Korea"
-        },
-        {
-          "label": "Hang Seng",
-          "value": "23,137.93",
-          "change": "+0.2%",
-          "note": "Hong Kong"
-        },
-        {
-          "label": "Shanghai Composite",
-          "value": "3,673.83",
-          "change": "-0.4%",
-          "note": "China"
+          "value": "South Korea",
+          "change": "Down 1.25%",
+          "note": "Early trade"
         },
         {
           "label": "Brent crude",
-          "value": "$110.23/barrel",
-          "change": "-1.3%",
-          "note": ""
+          "value": "$115.1/barrel",
+          "change": "Down 1.39%",
+          "note": "Monday"
         },
         {
-          "label": "US crude",
-          "value": "$101.52/barrel",
-          "change": "-1.7%",
-          "note": ""
+          "label": "WTI crude",
+          "value": "$101.5/barrel",
+          "change": "Down 1.76%",
+          "note": "Monday"
+        },
+        {
+          "label": "Dow Jones",
+          "value": "US close",
+          "change": "Down 1.23%",
+          "note": "Friday"
+        },
+        {
+          "label": "S&P 500",
+          "value": "US close",
+          "change": "Down 0.52%",
+          "note": "Friday"
         }
       ]
     },
-    "seoTitle": "Global Markets Today, 26 October 2026: Asia, Oil and Big Tech Earnings",
-    "seoDescription": "Asian markets trade mixed and Brent crude eases to $110.23 a barrel. US futures rise as investors watch central banks, inflation and Big Tech earnings.",
+    "seoTitle": "Global Markets Today, 26 October 2026: Asia Lower, Brent at $115.1",
+    "seoDescription": "Asian shares are lower and Brent crude eased 1.39% to $115.1 a barrel. Wall Street’s Dow, S&P 500 and Nasdaq also ended Friday lower.",
     "tags": [
       "global markets",
       "global market today",
       "Asian markets today",
       "Brent crude",
       "US markets",
-      "central banks",
-      "Big Tech earnings",
+      "oil prices",
+      "West Asia tensions",
       "India market outlook"
     ],
-    "coverAlt": "Global market cover with Brent crude at $110.23 per barrel on 26 October 2026",
+    "coverAlt": "Global markets cover showing Brent crude at $115.1 per barrel on 26 October 2026",
     "sources": [
       {
-        "name": "AP News: Shares fall in Asia after a decline on Wall Street, and oil prices fall more than 1%",
-        "url": "https://apnews.com/article/stocks-markets-oil-earnings-trump-be3a56f58a77c5be863f0289d280be92"
+        "name": "Business Standard: Stock Market LIVE, October 26",
+        "url": "https://www.business-standard.com/markets/news/stock-market-live-october-26-nse-bse-sensex-today-nifty50-gift-nifty-brent-crude-oil-prices-eaa-india-ipo-126102600053_1.html"
       }
     ],
     "publishedAt": "2026-10-26T08:49:00+05:30",
@@ -317,27 +190,26 @@
     "editionLabel": "Mon 26 Oct · Global market update",
     "status": "new",
     "hi": {
-      "title": "आज के ग्लोबल मार्केट: एशिया में मिलाजुला रुख, Brent $110.23 पर",
-      "dek": "एशियाई शेयर ज्यादातर नीचे रहे, तेल साप्ताहिक तेजी के बाद फिसला और अमेरिकी फ्यूचर्स ऊपर रहे। निवेशक बड़ी कंपनियों के नतीजों और केंद्रीय बैंकों पर नजर रख रहे हैं।",
+      "title": "आज के ग्लोबल मार्केट: एशिया में गिरावट, Brent $115.1 पर",
+      "dek": "एशियाई शेयर नीचे खुले और शुक्रवार को अमेरिकी बाजार भी गिरकर बंद हुए। तेल छह महीने के उच्च स्तर से फिसला, लेकिन अभी भी महंगा है।",
       "body": [
-        "सोमवार को वैश्विक बाजार सतर्कता के साथ खुले। Brent क्रूड 1.3% गिरकर $110.23 प्रति बैरल और अमेरिकी क्रूड 1.7% गिरकर $101.52 पर आया। शुक्रवार को Brent 3.1% चढ़कर $116.72 पर बंद हुआ था, जो जून 2022 के बाद का ऊंचा स्तर था।",
-        "एशिया में ज्यादातर बाजार नीचे रहे: जापान का Nikkei 0.1% गिरकर 62,602.86 और दक्षिण कोरिया का Kospi 1.1% गिरकर 5,494.29 पर था। Hong Kong का Hang Seng 0.2% बढ़कर 23,137.93 पर आया, जबकि Shanghai Composite 0.4% गिरकर 3,673.83 पर रहा। Australia का S&P/ASX 200 0.2% गिरकर 8,782.30 पर था।",
-        "Wall Street में लगातार दूसरे साप्ताहिक नुकसान के बाद अमेरिकी फ्यूचर्स ऊपर थे। शुक्रवार को S&P 500 0.5%, Dow 1.2% और Nasdaq 0.2% नीचे बंद हुए।",
-        "इस सप्ताह केंद्रीय बैंक के फैसलों और Big Tech नतीजों पर नजर रहेगी। Alphabet, Microsoft और Amazon नतीजे देंगे। निवेशक देखेंगे कि AI पर भारी खर्च से भविष्य की कमाई बढ़ेगी या नहीं। Fed से इस सप्ताह दरें स्थिर रखने की उम्मीद है, जबकि दिसंबर में बढ़ोतरी की संभावना पर बाजार नजर रख रहा है।",
-        "अमेरिका का PCE महंगाई आंकड़ा भी अहम है: सितंबर में कीमतों में 3.7% वृद्धि का अनुमान है, जो Fed के 2% लक्ष्य से ऊपर है। मुद्रा बाजार में डॉलर 156.79 येन पर आया, पहले यह 156.99 येन था।",
-        "भारत पर असर: तेल शुक्रवार के ऊंचे स्तर से नीचे आया, लेकिन $110 प्रति बैरल से ऊपर रहना भारत के लिए चिंता है। वैश्विक संकेत बदलने पर कच्चे तेल, रुपये और कंपनियों के नतीजों पर नजर रखें। यह बाजार अपडेट है, निवेश सलाह नहीं।"
+        "सोमवार को वैश्विक बाजार सतर्क रहे। शुरुआती कारोबार में जापान का Nikkei 225 0.34% नीचे और दक्षिण कोरिया का Kospi 1.25% नीचे था। Business Standard के मुताबिक West Asia तनाव और ऊंचे तेल भाव के बीच एशियाई शेयरों में कमजोरी रही।",
+        "पिछले सप्ताह के छह महीने के उच्च स्तर से तेल नीचे आया: Brent 1.39% गिरकर $115.1 प्रति बैरल और WTI 1.76% गिरकर $101.5 पर था। तेल में नरमी से थोड़ी राहत है, लेकिन आयात करने वाले देशों के लिए भाव अभी भी ऊंचे हैं।",
+        "शुक्रवार को अमेरिकी बाजारों के प्रमुख सूचकांक नीचे बंद हुए: Dow Jones 1.23%, S&P 500 0.52% और Nasdaq Composite 0.21% नीचे रहा।",
+        "आगे तेल और West Asia की घटनाओं, एशियाई बाजारों की चाल और कंपनियों के नतीजों पर नजर रहेगी। ये ऊर्जा लागत और बाजार के जोखिम लेने के रुझान को बदल सकते हैं।",
+        "भारत पर असर: महंगा कच्चा तेल आयात खर्च, महंगाई और रुपये पर दबाव डाल सकता है। आज का मुख्य बदलाव यह है कि तेल अपने उच्च स्तर से नीचे आया है, जबकि एशियाई शेयर कमजोर हैं। यह बाजार अपडेट है, निवेश सलाह नहीं।"
       ],
-      "why": "तेल कुछ नीचे आया, लेकिन ऊंचा स्तर बना हुआ है। निवेशक ऊर्जा लागत और महंगाई के साथ-साथ कंपनियों की कमाई और AI निवेश से मिलने वाले रिटर्न को तौल रहे हैं।",
-      "indiaImpact": "Brent $110 प्रति बैरल से ऊपर है, इसलिए भारत का आयात खर्च और महंगाई फोकस में हैं। यह बाजार अपडेट है, निवेश सलाह नहीं।",
-      "seoTitle": "ग्लोबल मार्केट आज 26 अक्टूबर 2026: एशिया, तेल और Big Tech",
-      "seoDescription": "एशियाई बाजार मिलेजुले, Brent $110.23 प्रति बैरल पर। केंद्रीय बैंक, महंगाई और टेक कंपनियों के नतीजों पर नजर।",
+      "why": "तेल छह महीने के उच्च स्तर से नीचे आया है, फिर भी Brent करीब $115 प्रति बैरल है। निवेशक इसे कमजोर एशियाई बाजार और अमेरिकी गिरावट के साथ तौल रहे हैं।",
+      "indiaImpact": "Brent करीब $115 प्रति बैरल भारत के लिए लागत और महंगाई का जोखिम बना हुआ है। यह बाजार अपडेट है, निवेश सलाह नहीं।",
+      "seoTitle": "ग्लोबल मार्केट आज 26 अक्टूबर 2026: एशिया नीचे, Brent $115.1",
+      "seoDescription": "एशियाई शेयर कमजोर, Brent 1.39% गिरकर $115.1 प्रति बैरल पर। शुक्रवार को Dow, S&P 500 और Nasdaq भी नीचे बंद हुए।",
       "tags": [
         "ग्लोबल मार्केट आज",
         "एशियाई बाजार",
         "Brent क्रूड",
         "अमेरिकी बाजार",
-        "केंद्रीय बैंक",
-        "Big Tech नतीजे"
+        "तेल के भाव",
+        "West Asia तनाव"
       ]
     }
   }
