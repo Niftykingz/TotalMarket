@@ -1,0 +1,178 @@
+{
+ "edition_date": "2026-10-27",
+ "sources": [
+  {
+   "id": "upx",
+   "name": "Upstox: Upcoming IPOs this week",
+   "url": "https://upstox.com/news/market-news/ipo/upcoming-ipos-next-week-sfc-environmental-bls-polymers-bombay-coated-among-7-issues-to-open-jio-platforms-2-others-to-list/article-202298/",
+   "published": "2026-10-26T06:52:00+05:30"
+  },
+  {
+   "id": "hdfc",
+   "name": "HDFC Sky: Jio final IPO subscription",
+   "url": "https://hdfcsky.com/news/jio-ipo-subscribed-22-19x-on-final-day",
+   "published": "2026-10-23T21:09:00+05:30"
+  }
+ ],
+ "figures": [
+  {
+   "id": "ea_size",
+   "label": "EAAA India Alternatives issue size",
+   "value": "1,200",
+   "source": "upx",
+   "evidence": "will launch its ₹1,200 crore initial share sale on October 26. The issue, with a price band of ₹1,585 to ₹1,665 per share, will end on October 28.",
+   "as_of": "2026-10-26",
+   "key": true
+  },
+  {
+   "id": "ea_lo",
+   "label": "EAAA price band lower",
+   "value": "1,585",
+   "source": "upx",
+   "evidence": "will launch its ₹1,200 crore initial share sale on October 26. The issue, with a price band of ₹1,585 to ₹1,665 per share, will end on October 28.",
+   "as_of": "2026-10-26"
+  },
+  {
+   "id": "ea_hi",
+   "label": "EAAA price band upper",
+   "value": "1,665",
+   "source": "upx",
+   "evidence": "will launch its ₹1,200 crore initial share sale on October 26. The issue, with a price band of ₹1,585 to ₹1,665 per share, will end on October 28.",
+   "as_of": "2026-10-26"
+  },
+  {
+   "id": "bls_size",
+   "label": "BLS Polymers issue size",
+   "value": "255",
+   "source": "upx",
+   "evidence": "The ₹255 crore BLS Polymers IPO, which is entirely a fresh issue of 1.70 crore shares, is open from October 27 to October 29.",
+   "as_of": "2026-10-26"
+  },
+  {
+   "id": "bls_lo",
+   "label": "BLS Polymers price band lower",
+   "value": "142",
+   "source": "upx",
+   "evidence": "With a price band of ₹142 to ₹150 per share, retail investors can apply for at least one lot or 100 shares and in multiples thereafter.",
+   "as_of": "2026-10-26"
+  },
+  {
+   "id": "bls_hi",
+   "label": "BLS Polymers price band upper",
+   "value": "150",
+   "source": "upx",
+   "evidence": "With a price band of ₹142 to ₹150 per share, retail investors can apply for at least one lot or 100 shares and in multiples thereafter.",
+   "as_of": "2026-10-26"
+  },
+  {
+   "id": "bls_lot",
+   "label": "BLS Polymers lot size",
+   "value": "100",
+   "source": "upx",
+   "evidence": "With a price band of ₹142 to ₹150 per share, retail investors can apply for at least one lot or 100 shares and in multiples thereafter.",
+   "as_of": "2026-10-26"
+  },
+  {
+   "id": "sfc_size",
+   "label": "SFC Environmental issue size",
+   "value": "668",
+   "source": "upx",
+   "evidence": "Wastewater treatment solution provider SFC Environmental Technologies Ltd's ₹668 crore IPO will open for subscription on October 27. It has set a price band of ₹313 to ₹330 per share.",
+   "as_of": "2026-10-26"
+  },
+  {
+   "id": "sfc_lo",
+   "label": "SFC Environmental price band lower",
+   "value": "313",
+   "source": "upx",
+   "evidence": "Wastewater treatment solution provider SFC Environmental Technologies Ltd's ₹668 crore IPO will open for subscription on October 27. It has set a price band of ₹313 to ₹330 per share.",
+   "as_of": "2026-10-26"
+  },
+  {
+   "id": "sfc_hi",
+   "label": "SFC Environmental price band upper",
+   "value": "330",
+   "source": "upx",
+   "evidence": "Wastewater treatment solution provider SFC Environmental Technologies Ltd's ₹668 crore IPO will open for subscription on October 27. It has set a price band of ₹313 to ₹330 per share.",
+   "as_of": "2026-10-26"
+  },
+  {
+   "id": "sfc_fresh",
+   "label": "SFC fresh issue size",
+   "value": "150",
+   "source": "upx",
+   "evidence": "It is a mix of a fresh issue of shares aggregating to ₹150 crore and an OFS of up to 1.57 crore shares by promoters and existing shareholders.",
+   "as_of": "2026-10-26"
+  },
+  {
+   "id": "mk_size",
+   "label": "MK Sons Fine Jewels offer size as reported 26 Oct",
+   "value": "330.48",
+   "source": "upx",
+   "evidence": "MK Sons Fine Jewels, which is engaged in the retail sale of gold, diamond, and CZ jewellery, will launch its ₹330.48 crore offer on October 28. The issue will end on October 30.",
+   "as_of": "2026-10-26"
+  },
+  {
+   "id": "bc_size",
+   "label": "Bombay Coated issue size",
+   "value": "183.1",
+   "source": "upx",
+   "evidence": "Bombay Coated and Special Steels said its ₹183.1-crore issue will hit the primary market on October 29, with a price band of ₹78 to ₹82 per share. A lot consists of 182 shares.",
+   "as_of": "2026-10-26"
+  },
+  {
+   "id": "bc_lo",
+   "label": "Bombay Coated price band lower",
+   "value": "78",
+   "source": "upx",
+   "evidence": "Bombay Coated and Special Steels said its ₹183.1-crore issue will hit the primary market on October 29, with a price band of ₹78 to ₹82 per share. A lot consists of 182 shares.",
+   "as_of": "2026-10-26"
+  },
+  {
+   "id": "bc_hi",
+   "label": "Bombay Coated price band upper",
+   "value": "82",
+   "source": "upx",
+   "evidence": "Bombay Coated and Special Steels said its ₹183.1-crore issue will hit the primary market on October 29, with a price band of ₹78 to ₹82 per share. A lot consists of 182 shares.",
+   "as_of": "2026-10-26"
+  },
+  {
+   "id": "j_qib",
+   "label": "Jio final QIB subscription",
+   "value": "70.55",
+   "source": "hdfc",
+   "evidence": "QIB subscription at 70.55 times, NII at 14.00 times and retail at 2.72 times.",
+   "as_of": "2026-10-23",
+   "historical": true
+  },
+  {
+   "id": "j_nii",
+   "label": "Jio final NII subscription",
+   "value": "14.00",
+   "source": "hdfc",
+   "evidence": "QIB subscription at 70.55 times, NII at 14.00 times and retail at 2.72 times.",
+   "as_of": "2026-10-23",
+   "historical": true
+  },
+  {
+   "id": "j_ret",
+   "label": "Jio final retail subscription",
+   "value": "2.72",
+   "source": "hdfc",
+   "evidence": "QIB subscription at 70.55 times, NII at 14.00 times and retail at 2.72 times.",
+   "as_of": "2026-10-23",
+   "historical": true
+  },
+  {
+   "id": "j_tot",
+   "label": "Jio final total subscription",
+   "value": "22.19",
+   "source": "hdfc",
+   "evidence": "subscribed 22.19 times overall by 7:00 PM IST on October 23, 2026",
+   "as_of": "2026-10-23",
+   "historical": true,
+   "key": true
+  }
+ ],
+ "examples": []
+}

@@ -1,0 +1,41 @@
+{
+ "slug": "2026-10-27-ipo-daily-bls-sfc-eaaa-jio-listing",
+ "job": "pipeline/inbox/2026-10-27-ipo-daily-bls-sfc-eaaa-jio-listing.json",
+ "job_sha256": "16a5c58c770c6f392e0eeb35b8b7eca430657127fc7c030b0004ff16a893ffe0",
+ "stages": {
+  "DATA_COLLECTION": {
+   "status": "PASS",
+   "sha256": "d2a48735e79f36c61e9a3178b3cc65560ce8e7a7641109d5c4edf242b040268d",
+   "errors": [],
+   "started": "2026-10-27T17:41:41+05:30",
+   "finished": "2026-10-27T17:41:44+05:30"
+  },
+  "DATA_VERIFICATION": {
+   "status": "PASS",
+   "sha256": "0eecdc0783e8317ff407014d746c50445a83e7dca1d4e0459ff08f69fa435893",
+   "errors": [],
+   "started": "2026-10-27T17:41:44+05:30",
+   "finished": "2026-10-27T17:41:46+05:30"
+  },
+  "GRAPHICS_GENERATION": {
+   "status": "PASS",
+   "sha256": "b6b237659d756aebe5d6424fe9f5d186e5f6b52b7aa1a97184080ea0dddd0292",
+   "errors": [],
+   "started": "2026-10-27T17:41:46+05:30",
+   "finished": "2026-10-27T17:41:47+05:30"
+  },
+  "ARTICLE_WRITING": {
+   "status": "FAILED",
+   "sha256": "33be3536c2462f9c8e29ac7571319720855bc374824f4be30589b23055c8947d",
+   "errors": [
+    "article cites a source not in the collected dataset: https://www.sebi.gov.in/sebiweb/home/HomeAction.do?doListing=yes&sid=3&smid=11&ssid=15",
+    "article cites a source not in the collected dataset: https://www.nseindia.com/market-data/all-upcoming-issues-ipo",
+    "article cites a source not in the collected dataset: https://www.bseindia.com/markets/publicIssues/IPOIssues_new.aspx",
+    "article cites a source not in the collected dataset: https://ipostatus.kfintech.com/",
+    "article cites a source not in the collected dataset: https://in.mpms.mufg.com/Initial_Offer/public-issues.html"
+   ],
+   "started": "2026-10-27T17:41:47+05:30",
+   "finished": "2026-10-27T17:41:47+05:30"
+  }
+ }
+}
