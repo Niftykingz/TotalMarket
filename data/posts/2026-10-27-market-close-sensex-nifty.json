@@ -1,0 +1,556 @@
+{
+ "title": "Sensex, Nifty today: Nifty 50 falls 0.02% to 22,749.75, Sensex down 0.01% | 27 October 2026",
+ "dek": "The Nifty 50 closed at 22,749.75. NSE index scoreboard, sector heatmap, breadth, top movers and FII/DII flows.",
+ "category": "markets",
+ "lead": true,
+ "readMins": 3,
+ "reportType": "weekly_market",
+ "visualSpec": {
+  "dateLabel": "Market close · Tuesday, 27 October 2026",
+  "outlookTitle": "What to watch next session",
+  "indices": [
+   {
+    "id": "nse_n50",
+    "label": "Nifty 50",
+    "pct": "nse_n50_pct"
+   },
+   {
+    "id": "mc_sx",
+    "label": "Sensex",
+    "pct": "mc_sx_pct"
+   },
+   {
+    "id": "nse_bank",
+    "label": "Nifty Bank",
+    "pct": "nse_bank_pct"
+   },
+   {
+    "id": "nse_vix",
+    "label": "India VIX",
+    "pct": "nse_vix_pct"
+   }
+  ],
+  "caps": [
+   {
+    "id": "nse_n50_pct",
+    "label": "Nifty 50"
+   },
+   {
+    "id": "nse_next50_pct",
+    "label": "Nifty Next 50"
+   },
+   {
+    "id": "nse_mid_pct",
+    "label": "Nifty Midcap 100"
+   },
+   {
+    "id": "nse_small_pct",
+    "label": "Nifty Smallcap 100"
+   }
+  ],
+  "sectors": [
+   {
+    "id": "nse_s_auto_pct",
+    "label": "Auto"
+   },
+   {
+    "id": "nse_s_fmcg_pct",
+    "label": "FMCG"
+   },
+   {
+    "id": "nse_s_it_pct",
+    "label": "IT"
+   },
+   {
+    "id": "nse_s_metal_pct",
+    "label": "Metal"
+   },
+   {
+    "id": "nse_s_pharma_pct",
+    "label": "Pharma"
+   },
+   {
+    "id": "nse_s_realty_pct",
+    "label": "Realty"
+   },
+   {
+    "id": "nse_s_energy_pct",
+    "label": "Energy"
+   },
+   {
+    "id": "nse_s_psubank_pct",
+    "label": "PSU Bank"
+   },
+   {
+    "id": "nse_s_privatebank_pct",
+    "label": "Private Bank"
+   },
+   {
+    "id": "nse_s_media_pct",
+    "label": "Media"
+   },
+   {
+    "id": "nse_s_consumerdurables_pct",
+    "label": "Consumer Durables"
+   },
+   {
+    "id": "nse_s_oilgas_pct",
+    "label": "Oil & Gas"
+   },
+   {
+    "id": "nse_s_healthcare_pct",
+    "label": "Healthcare"
+   },
+   {
+    "id": "nse_s_financialservices_pct",
+    "label": "Financial Services"
+   },
+   {
+    "id": "nse_s_chemicals_pct",
+    "label": "Chemicals"
+   },
+   {
+    "id": "nse_s_cement_pct",
+    "label": "Cement"
+   }
+  ],
+  "gainers": [
+   {
+    "id": "st_tataconsum",
+    "label": "TATACONSUM",
+    "prev": "st_tataconsum_prev"
+   },
+   {
+    "id": "st_bhartiartl",
+    "label": "BHARTIARTL",
+    "prev": "st_bhartiartl_prev"
+   },
+   {
+    "id": "st_bajajauto",
+    "label": "BAJAJ-AUTO",
+    "prev": "st_bajajauto_prev"
+   }
+  ],
+  "losers": [
+   {
+    "id": "st_asianpaint",
+    "label": "ASIANPAINT",
+    "prev": "st_asianpaint_prev"
+   },
+   {
+    "id": "st_coalindia",
+    "label": "COALINDIA",
+    "prev": "st_coalindia_prev"
+   },
+   {
+    "id": "st_grasim",
+    "label": "GRASIM",
+    "prev": "st_grasim_prev"
+   }
+  ],
+  "moversIndex": "Nifty 50",
+  "global": [],
+  "breadth": {
+   "advances": "nse_n500_advances",
+   "declines": "nse_n500_declines",
+   "unchanged": "nse_n500_unchanged"
+  },
+  "breadthExchange": "NSE, Nifty 500 stocks",
+  "fiiDii": {
+   "fiiNet": "fii_net",
+   "diiNet": "dii_net"
+  },
+  "fiiDiiNote": "27 October provisional cash flows, ₹ crore, as reported by Moneycontrol and cross-checked with Trendlyne. Gross purchases/sales are on the FII/DII data page."
+ },
+ "reportTakeaways": [
+  "The Nifty 50 fell 0.02%; 352 of 501 Nifty 500 stocks advanced."
+ ],
+ "reportWatch": [
+  "Watch the next session’s exchange filings and the direction of crude prices. Current options open-interest changes, PCR and contract expiry were not sufficiently verified for this report."
+ ],
+ "body": [
+  "The Nifty 50 fell 3.45 points, or 0.02%, to close at 22,749.75 on Tuesday, 27 October 2026, according to NSE closing data. The Sensex fell 0.01% to 73,598.67. Bank Nifty lost 0.72% to 53,974.90.",
+  "Why the market moved | Interpretation: the nearly flat headline index concealed stronger participation in smaller stocks. Banks and IT declined, while media, realty and pharma advanced. These sector moves describe market performance; they do not establish a single cause.",
+  "More data | Scroll up for the full NSE index scoreboard, sector heatmap, Nifty 500 breadth, top gainers and losers and FII/DII flows. For more, see the Nifty 50 page and the FII/DII data page on TotalMarket.",
+  "Institutional activity | Provisional net cash flows are now available for this session, as reported by Trendlyne and corroborated with Moneycontrol. They replace the earlier unavailable reading; cash flows do not cover all foreign investment categories."
+ ],
+ "indiaImpact": "Breadth, sector moves and institutional flows show how widely the day's move spread beyond the headline indices.",
+ "seoTitle": "Stock Market Today 27 Oct: Nifty Flat, Smallcaps Rise",
+ "seoDescription": "Nifty 50 closed at 22,749.75 (-0.02%), Sensex at 73,598.67 (-0.01%) on 27 Oct 2026. Top gainers and losers, sector heatmap, breadth and FII/DII data.",
+ "tags": [
+  "stock market today",
+  "share market today",
+  "Sensex today",
+  "Nifty today",
+  "Nifty 50 closing",
+  "Bank Nifty today",
+  "top gainers and losers today",
+  "FII DII data today",
+  "sector performance today",
+  "stock market 27 october 2026"
+ ],
+ "coverAlt": "Market close graphic for 27 October 2026: Nifty 50 22,749.75 (-0.02%), Sensex 73,598.67",
+ "hi": {
+  "title": "शेयर बाजार आज: निफ्टी 50 0.02% गिरकर 22,749.75 पर बंद, सेंसेक्स 0.01% नीचे | 27 अक्टूबर 2026",
+  "dek": "निफ्टी 50 22,749.75 पर बंद। सेक्टर, बाजार की चौड़ाई, टॉप शेयर और FII/DII आंकड़े।",
+  "body": [
+   "NSE के क्लोजिंग आंकड़ों के मुताबिक 27 अक्टूबर 2026 को निफ्टी 50 3.45 अंक यानी 0.02% गिरकर 22,749.75 पर बंद हुआ। सेंसेक्स 73,598.67 पर बंद हुआ (-0.01%)। बैंक निफ्टी 53,974.90 पर रहा (-0.72%)।",
+   "बाजार की चौड़ाई | निफ्टी 500 में 352 शेयर चढ़े और 147 गिरे।",
+   "पूरी जानकारी | सेक्टर हीटमैप, टॉप गेनर्स-लूजर्स और FII/DII के पूरे आंकड़े इसी पेज पर ऊपर रिपोर्ट में देखें।"
+  ],
+  "indiaImpact": "सेक्टर और बाजार की चौड़ाई बताती है कि गिरावट या तेजी कितनी व्यापक थी।",
+  "seoTitle": "शेयर बाजार आज 27 अक्टूबर 2026: सेंसेक्स, निफ्टी क्लोजिंग",
+  "seoDescription": "27 अक्टूबर 2026 को निफ्टी 50 22,749.75 पर बंद (-0.02%)। टॉप गेनर्स-लूजर्स, सेक्टर और FII/DII आंकड़े।",
+  "tags": [
+   "शेयर बाजार आज",
+   "सेंसेक्स आज",
+   "निफ्टी आज",
+   "स्टॉक मार्केट न्यूज़",
+   "FII DII डेटा",
+   "टॉप गेनर्स लूजर्स"
+  ]
+ },
+ "sources": [
+  {
+   "name": "NSE India: all indices (closing data)",
+   "url": "https://www.nseindia.com/api/allIndices"
+  },
+  {
+   "name": "NSE India: capital-market bhavcopy (end of day)",
+   "url": "https://nsearchives.nseindia.com/content/cm/BhavCopy_NSE_CM_0_0_0_20261027_F_0000.csv.zip"
+  },
+  {
+   "name": "Moneycontrol: market snapshot checked 27 October",
+   "url": "https://www.moneycontrol.com/stocks/marketstats/fii_dii_activity/"
+  }
+ ],
+ "publishedAt": "2026-10-27T23:33:24+05:30",
+ "edition": "2026-10-27-close",
+ "editionLabel": "Tue 27 Oct · Market close",
+ "status": "new",
+ "coverHeadline": "MARKET CLOSE",
+ "coverDate": "2026-10-27",
+ "symbol": "candles",
+ "flags": [
+  "IN"
+ ],
+ "chart": {
+  "type": "market_close",
+  "title": "Indian markets · close",
+  "asOf": "Close, Tue 27 Oct 2026",
+  "dateLabel": "Tuesday, 27 October 2026",
+  "summary": "The Nifty 50 fell 0.02%; 352 of 501 Nifty 500 stocks advanced.",
+  "source": "NSE, Moneycontrol",
+  "breadthUniverse": "Nifty 500",
+  "items": [
+   {
+    "label": "NIFTY 50",
+    "value": "22749.75",
+    "change": "-3.45",
+    "pct": "-0.02%",
+    "figures": [
+     "nse_n50",
+     "nse_n50_pct"
+    ]
+   },
+   {
+    "label": "SENSEX",
+    "value": "73598.67",
+    "change": "-8.08",
+    "pct": "-0.01%",
+    "figures": [
+     "mc_sx",
+     "mc_sx_pct"
+    ]
+   },
+   {
+    "label": "NIFTY BANK",
+    "value": "53974.9",
+    "change": "-391.8",
+    "pct": "-0.72%",
+    "figures": [
+     "nse_bank",
+     "nse_bank_pct"
+    ]
+   },
+   {
+    "label": "INDIA VIX",
+    "value": "16.53",
+    "change": "-0.63",
+    "pct": "-3.65%",
+    "figures": [
+     "nse_vix",
+     "nse_vix_pct"
+    ]
+   },
+   {
+    "label": "Nifty 500 advances",
+    "value": "352",
+    "role": "advances",
+    "figures": [
+     "nse_n500_advances"
+    ]
+   },
+   {
+    "label": "Nifty 500 declines",
+    "value": "147",
+    "role": "declines",
+    "figures": [
+     "nse_n500_declines"
+    ]
+   },
+   {
+    "label": "Nifty 500 unchanged",
+    "value": "2",
+    "role": "unchanged",
+    "figures": [
+     "nse_n500_unchanged"
+    ]
+   }
+  ]
+ },
+ "report": {
+  "outlookTitle": "What to watch next session",
+  "moversIndex": "Nifty 50",
+  "dateLabel": "Market close · Tuesday, 27 October 2026",
+  "weekLabel": "",
+  "kpis": [
+   {
+    "label": "Nifty 50",
+    "value": "22749.75",
+    "change": "-3.45 pts · -0.02%",
+    "dir": "down"
+   },
+   {
+    "label": "Sensex",
+    "value": "73598.67",
+    "change": "-8.08 pts · -0.01%",
+    "dir": "down"
+   },
+   {
+    "label": "Nifty Bank",
+    "value": "53974.9",
+    "change": "-391.80 pts · -0.72%",
+    "dir": "down"
+   },
+   {
+    "label": "India VIX",
+    "value": "16.53",
+    "change": "-0.63 pts · -3.65%",
+    "dir": "down"
+   }
+  ],
+  "indices": [
+   {
+    "name": "Nifty 50",
+    "close": "22749.75",
+    "change": "-3.45",
+    "source": "nse",
+    "asOf": "2026-10-27",
+    "pct": "-0.02"
+   },
+   {
+    "name": "Sensex",
+    "close": "73598.67",
+    "change": "-8.08",
+    "source": "mc",
+    "asOf": "2026-10-27",
+    "pct": "-0.01"
+   },
+   {
+    "name": "Nifty Bank",
+    "close": "53974.9",
+    "change": "-391.80",
+    "source": "nse",
+    "asOf": "2026-10-27",
+    "pct": "-0.72"
+   },
+   {
+    "name": "India VIX",
+    "close": "16.53",
+    "change": "-0.63",
+    "source": "nse",
+    "asOf": "2026-10-27",
+    "pct": "-3.65"
+   }
+  ],
+  "sectors": [
+   {
+    "name": "Auto",
+    "pct": "1.48"
+   },
+   {
+    "name": "FMCG",
+    "pct": "0.74"
+   },
+   {
+    "name": "IT",
+    "pct": "-0.26"
+   },
+   {
+    "name": "Metal",
+    "pct": "0.64"
+   },
+   {
+    "name": "Pharma",
+    "pct": "1.91"
+   },
+   {
+    "name": "Realty",
+    "pct": "1.94"
+   },
+   {
+    "name": "Energy",
+    "pct": "0.68"
+   },
+   {
+    "name": "PSU Bank",
+    "pct": "0.41"
+   },
+   {
+    "name": "Private Bank",
+    "pct": "-0.73"
+   },
+   {
+    "name": "Media",
+    "pct": "3.66"
+   },
+   {
+    "name": "Consumer Durables",
+    "pct": "1.19"
+   },
+   {
+    "name": "Oil & Gas",
+    "pct": "0.14"
+   },
+   {
+    "name": "Healthcare",
+    "pct": "1.65"
+   },
+   {
+    "name": "Financial Services",
+    "pct": "-0.62"
+   },
+   {
+    "name": "Chemicals",
+    "pct": "1.8"
+   },
+   {
+    "name": "Cement",
+    "pct": "-2.03"
+   }
+  ],
+  "caps": [
+   {
+    "name": "Nifty 50",
+    "pct": "-0.02"
+   },
+   {
+    "name": "Nifty Next 50",
+    "pct": "1.3"
+   },
+   {
+    "name": "Nifty Midcap 100",
+    "pct": "1"
+   },
+   {
+    "name": "Nifty Smallcap 100",
+    "pct": "2.69"
+   }
+  ],
+  "global": [],
+  "gainers": [
+   {
+    "name": "TATACONSUM",
+    "price": "₹1000.00",
+    "pct": "+6.78"
+   },
+   {
+    "name": "BHARTIARTL",
+    "price": "₹1978.80",
+    "pct": "+3.20"
+   },
+   {
+    "name": "BAJAJ-AUTO",
+    "price": "₹10390.00",
+    "pct": "+3.17"
+   }
+  ],
+  "losers": [
+   {
+    "name": "ASIANPAINT",
+    "price": "₹2277.00",
+    "pct": "-1.94"
+   },
+   {
+    "name": "COALINDIA",
+    "price": "₹398.00",
+    "pct": "-1.73"
+   },
+   {
+    "name": "GRASIM",
+    "price": "₹2900.80",
+    "pct": "-1.67"
+   }
+  ],
+  "takeaways": [
+   "The Nifty 50 fell 0.02%; 352 of 501 Nifty 500 stocks advanced."
+  ],
+  "watch": [
+   "Watch the next session’s exchange filings and the direction of crude prices. Current options open-interest changes, PCR and contract expiry were not sufficiently verified for this report."
+  ],
+  "breadth": {
+   "advances": 352,
+   "declines": 147,
+   "unchanged": 2,
+   "exchange": "NSE, Nifty 500 stocks"
+  },
+  "fiiDii": {
+   "asOf": "2026-10-27",
+   "fii": {
+    "net": "4240.39"
+   },
+   "dii": {
+    "net": "-1250.03"
+   },
+   "note": "27 October provisional cash flows, ₹ crore, as reported by Moneycontrol and cross-checked with Trendlyne. Gross purchases/sales are on the FII/DII data page."
+  }
+ },
+ "visualAudit": {
+  "verifiedFigureIds": [
+   "mc_sx",
+   "nse_bank",
+   "nse_mid_pct",
+   "nse_n50",
+   "nse_n50_pct",
+   "nse_next50_pct",
+   "nse_s_auto_pct",
+   "nse_s_cement_pct",
+   "nse_s_chemicals_pct",
+   "nse_s_consumerdurables_pct",
+   "nse_s_energy_pct",
+   "nse_s_financialservices_pct",
+   "nse_s_fmcg_pct",
+   "nse_s_healthcare_pct",
+   "nse_s_it_pct",
+   "nse_s_media_pct",
+   "nse_s_metal_pct",
+   "nse_s_oilgas_pct",
+   "nse_s_pharma_pct",
+   "nse_s_privatebank_pct",
+   "nse_s_psubank_pct",
+   "nse_s_realty_pct",
+   "nse_small_pct",
+   "nse_vix",
+   "st_asianpaint",
+   "st_bajajauto",
+   "st_bhartiartl",
+   "st_coalindia",
+   "st_grasim",
+   "st_tataconsum"
+  ],
+  "omitted": [
+   "global"
+  ]
+ }
+}

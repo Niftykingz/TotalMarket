@@ -1,0 +1,245 @@
+{
+ "fields": {
+  "coverHeadline": "MARKET CLOSE",
+  "coverDate": "2026-10-27",
+  "symbol": "candles",
+  "flags": [
+   "IN"
+  ],
+  "chart": {
+   "type": "market_close",
+   "title": "Indian markets · close",
+   "asOf": "Close, Tue 27 Oct 2026",
+   "dateLabel": "Tuesday, 27 October 2026",
+   "summary": "The Nifty 50 fell 0.02%; 352 of 501 Nifty 500 stocks advanced.",
+   "source": "NSE, Moneycontrol",
+   "breadthUniverse": "Nifty 500",
+   "items": [
+    {
+     "label": "NIFTY 50",
+     "value": "22749.75",
+     "change": "-3.45",
+     "pct": "-0.02%",
+     "figures": [
+      "nse_n50",
+      "nse_n50_pct"
+     ]
+    },
+    {
+     "label": "SENSEX",
+     "value": "73598.67",
+     "change": "-8.08",
+     "pct": "-0.01%",
+     "figures": [
+      "mc_sx",
+      "mc_sx_pct"
+     ]
+    },
+    {
+     "label": "NIFTY BANK",
+     "value": "53974.9",
+     "change": "-391.8",
+     "pct": "-0.72%",
+     "figures": [
+      "nse_bank",
+      "nse_bank_pct"
+     ]
+    },
+    {
+     "label": "INDIA VIX",
+     "value": "16.53",
+     "change": "-0.63",
+     "pct": "-3.65%",
+     "figures": [
+      "nse_vix",
+      "nse_vix_pct"
+     ]
+    },
+    {
+     "label": "Nifty 500 advances",
+     "value": "352",
+     "role": "advances",
+     "figures": [
+      "nse_n500_advances"
+     ]
+    },
+    {
+     "label": "Nifty 500 declines",
+     "value": "147",
+     "role": "declines",
+     "figures": [
+      "nse_n500_declines"
+     ]
+    },
+    {
+     "label": "Nifty 500 unchanged",
+     "value": "2",
+     "role": "unchanged",
+     "figures": [
+      "nse_n500_unchanged"
+     ]
+    }
+   ]
+  }
+ },
+ "analysis": {
+  "event": "market_preview",
+  "instruments": [
+   "Nifty 50",
+   "Sensex"
+  ],
+  "companies": [],
+  "direction": "down",
+  "template": "market_close",
+  "object": "candles",
+  "figures": [
+   {
+    "label": "NIFTY 50",
+    "value": "22749.75",
+    "change": "-3.45",
+    "pct": "-0.02%",
+    "figures": [
+     "nse_n50",
+     "nse_n50_pct"
+    ]
+   },
+   {
+    "label": "SENSEX",
+    "value": "73598.67",
+    "change": "-8.08",
+    "pct": "-0.01%",
+    "figures": [
+     "mc_sx",
+     "mc_sx_pct"
+    ]
+   },
+   {
+    "label": "NIFTY BANK",
+    "value": "53974.9",
+    "change": "-391.8",
+    "pct": "-0.72%",
+    "figures": [
+     "nse_bank",
+     "nse_bank_pct"
+    ]
+   },
+   {
+    "label": "INDIA VIX",
+    "value": "16.53",
+    "change": "-0.63",
+    "pct": "-3.65%",
+    "figures": [
+     "nse_vix",
+     "nse_vix_pct"
+    ]
+   },
+   {
+    "label": "Nifty 500 advances",
+    "value": "352",
+    "role": "advances",
+    "figures": [
+     "nse_n500_advances"
+    ]
+   },
+   {
+    "label": "Nifty 500 declines",
+    "value": "147",
+    "role": "declines",
+    "figures": [
+     "nse_n500_declines"
+    ]
+   },
+   {
+    "label": "Nifty 500 unchanged",
+    "value": "2",
+    "role": "unchanged",
+    "figures": [
+     "nse_n500_unchanged"
+    ]
+   }
+  ],
+  "series": [],
+  "reason": "market_preview story with a verified market_close chart",
+  "data_required": true,
+  "missing": "",
+  "chart": {
+   "type": "market_close",
+   "title": "Indian markets · close",
+   "asOf": "Close, Tue 27 Oct 2026",
+   "dateLabel": "Tuesday, 27 October 2026",
+   "summary": "The Nifty 50 fell 0.02%; 352 of 501 Nifty 500 stocks advanced.",
+   "source": "NSE, Moneycontrol",
+   "breadthUniverse": "Nifty 500",
+   "items": [
+    {
+     "label": "NIFTY 50",
+     "value": "22749.75",
+     "change": "-3.45",
+     "pct": "-0.02%",
+     "figures": [
+      "nse_n50",
+      "nse_n50_pct"
+     ]
+    },
+    {
+     "label": "SENSEX",
+     "value": "73598.67",
+     "change": "-8.08",
+     "pct": "-0.01%",
+     "figures": [
+      "mc_sx",
+      "mc_sx_pct"
+     ]
+    },
+    {
+     "label": "NIFTY BANK",
+     "value": "53974.9",
+     "change": "-391.8",
+     "pct": "-0.72%",
+     "figures": [
+      "nse_bank",
+      "nse_bank_pct"
+     ]
+    },
+    {
+     "label": "INDIA VIX",
+     "value": "16.53",
+     "change": "-0.63",
+     "pct": "-3.65%",
+     "figures": [
+      "nse_vix",
+      "nse_vix_pct"
+     ]
+    },
+    {
+     "label": "Nifty 500 advances",
+     "value": "352",
+     "role": "advances",
+     "figures": [
+      "nse_n500_advances"
+     ]
+    },
+    {
+     "label": "Nifty 500 declines",
+     "value": "147",
+     "role": "declines",
+     "figures": [
+      "nse_n500_declines"
+     ]
+    },
+    {
+     "label": "Nifty 500 unchanged",
+     "value": "2",
+     "role": "unchanged",
+     "figures": [
+      "nse_n500_unchanged"
+     ]
+    }
+   ]
+  }
+ },
+ "headline": "Sensex, Nifty today: Nifty 50 falls 0.02% to 22,749.75, Sensex down 0.01% | 27 October 2026",
+ "files": {
+  "cover.jpg": "3acc7a733736ba21bb04dbf0bb7e42fa496fe9f879cdab50b719cd5b6f2e5cae"
+ }
+}

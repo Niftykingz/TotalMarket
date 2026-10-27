@@ -1,17 +1,42 @@
 {
  "slug": "2026-10-27-market-close-sensex-nifty",
  "job": "pipeline/inbox/2026-10-27-market-close-sensex-nifty.json",
- "job_sha256": "bcb78778d0f1d9e7a10b910173cc578769125cc14a06251da28213ba4f39cc12",
+ "job_sha256": "f538a73a7471ff0f0a97261a840e7eaa04c67c8cf3f3a306baae99ea926a0d1c",
  "stages": {
   "DATA_COLLECTION": {
-   "status": "FAILED",
-   "sha256": "72f626b9216a02ccae75c8136a85651430a1a804b05ce0dc8930c8a91e8132bf",
-   "errors": [
-    "SOURCE_RECOVERY: fii_net: original source unavailable: source fetch failed: HTTP Error 405: Not Allowed",
-    "SOURCE_RECOVERY: dii_net: original source unavailable: source fetch failed: HTTP Error 405: Not Allowed"
-   ],
-   "started": "2026-10-27T23:36:05+05:30",
-   "finished": "2026-10-27T23:36:08+05:30"
+   "status": "PASS",
+   "sha256": "8f4685630ffd9575ceb2af37443825172fa18bf39b8b4188d2209a724f8849c0",
+   "errors": [],
+   "started": "2026-10-27T23:39:50+05:30",
+   "finished": "2026-10-27T23:39:52+05:30"
+  },
+  "DATA_VERIFICATION": {
+   "status": "PASS",
+   "sha256": "aa1b7b75097a7f58ad40ce81da82f85080fc5b7fe3764a6983cbddfa7368277e",
+   "errors": [],
+   "started": "2026-10-27T23:39:52+05:30",
+   "finished": "2026-10-27T23:39:53+05:30"
+  },
+  "GRAPHICS_GENERATION": {
+   "status": "PASS",
+   "sha256": "938a18f9501ce29651cef45ec52bbe5af7608a970a59ec19dc8ae96ab72faed6",
+   "errors": [],
+   "started": "2026-10-27T23:39:53+05:30",
+   "finished": "2026-10-27T23:39:53+05:30"
+  },
+  "ARTICLE_WRITING": {
+   "status": "PASS",
+   "sha256": "036f0d417e259c4fbe48582752692c77eee3817c4e26098c96e134c913be1f04",
+   "errors": [],
+   "started": "2026-10-27T23:39:53+05:30",
+   "finished": "2026-10-27T23:39:53+05:30"
+  },
+  "FINAL_QA": {
+   "status": "PASS",
+   "sha256": "21b4167d6f2f2c02a4650184ffa623e5086f17e5d3fd19657f9e66873630a276",
+   "errors": [],
+   "started": "2026-10-27T23:39:53+05:30",
+   "finished": "2026-10-27T23:39:53+05:30"
   }
  }
 }
