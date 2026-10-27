@@ -1,0 +1,289 @@
+{
+  "slug": "2026-10-27-ipo-daily-bls-sfc-eaaa-jio-listing",
+  "collection": {
+    "sources": [
+      {
+        "id": "upx",
+        "name": "Upstox: Upcoming IPOs this week",
+        "url": "https://upstox.com/news/market-news/ipo/upcoming-ipos-next-week-sfc-environmental-bls-polymers-bombay-coated-among-7-issues-to-open-jio-platforms-2-others-to-list/article-202298/",
+        "published": "2026-10-26T06:52:00+05:30"
+      },
+      {
+        "id": "hdfc",
+        "name": "HDFC Sky: Jio final IPO subscription",
+        "url": "https://hdfcsky.com/news/jio-ipo-subscribed-22-19x-on-final-day",
+        "published": "2026-10-23T21:09:00+05:30"
+      }
+    ],
+    "figures": [
+      {
+        "id": "ea_size",
+        "label": "EAAA India Alternatives issue size",
+        "value": "1,200",
+        "source": "upx",
+        "evidence": "will launch its ₹1,200 crore initial share sale on October 26. The issue, with a price band of ₹1,585 to ₹1,665 per share, will end on October 28.",
+        "as_of": "2026-10-26",
+        "key": true
+      },
+      {
+        "id": "ea_lo",
+        "label": "EAAA price band lower",
+        "value": "1,585",
+        "source": "upx",
+        "evidence": "will launch its ₹1,200 crore initial share sale on October 26. The issue, with a price band of ₹1,585 to ₹1,665 per share, will end on October 28.",
+        "as_of": "2026-10-26"
+      },
+      {
+        "id": "ea_hi",
+        "label": "EAAA price band upper",
+        "value": "1,665",
+        "source": "upx",
+        "evidence": "will launch its ₹1,200 crore initial share sale on October 26. The issue, with a price band of ₹1,585 to ₹1,665 per share, will end on October 28.",
+        "as_of": "2026-10-26"
+      },
+      {
+        "id": "bls_size",
+        "label": "BLS Polymers issue size",
+        "value": "255",
+        "source": "upx",
+        "evidence": "The ₹255 crore BLS Polymers IPO, which is entirely a fresh issue of 1.70 crore shares, is open from October 27 to October 29.",
+        "as_of": "2026-10-26"
+      },
+      {
+        "id": "bls_lo",
+        "label": "BLS Polymers price band lower",
+        "value": "142",
+        "source": "upx",
+        "evidence": "With a price band of ₹142 to ₹150 per share, retail investors can apply for at least one lot or 100 shares and in multiples thereafter.",
+        "as_of": "2026-10-26"
+      },
+      {
+        "id": "bls_hi",
+        "label": "BLS Polymers price band upper",
+        "value": "150",
+        "source": "upx",
+        "evidence": "With a price band of ₹142 to ₹150 per share, retail investors can apply for at least one lot or 100 shares and in multiples thereafter.",
+        "as_of": "2026-10-26"
+      },
+      {
+        "id": "bls_lot",
+        "label": "BLS Polymers lot size",
+        "value": "100",
+        "source": "upx",
+        "evidence": "With a price band of ₹142 to ₹150 per share, retail investors can apply for at least one lot or 100 shares and in multiples thereafter.",
+        "as_of": "2026-10-26"
+      },
+      {
+        "id": "sfc_size",
+        "label": "SFC Environmental issue size",
+        "value": "668",
+        "source": "upx",
+        "evidence": "Wastewater treatment solution provider SFC Environmental Technologies Ltd's ₹668 crore IPO will open for subscription on October 27. It has set a price band of ₹313 to ₹330 per share.",
+        "as_of": "2026-10-26"
+      },
+      {
+        "id": "sfc_lo",
+        "label": "SFC Environmental price band lower",
+        "value": "313",
+        "source": "upx",
+        "evidence": "Wastewater treatment solution provider SFC Environmental Technologies Ltd's ₹668 crore IPO will open for subscription on October 27. It has set a price band of ₹313 to ₹330 per share.",
+        "as_of": "2026-10-26"
+      },
+      {
+        "id": "sfc_hi",
+        "label": "SFC Environmental price band upper",
+        "value": "330",
+        "source": "upx",
+        "evidence": "Wastewater treatment solution provider SFC Environmental Technologies Ltd's ₹668 crore IPO will open for subscription on October 27. It has set a price band of ₹313 to ₹330 per share.",
+        "as_of": "2026-10-26"
+      },
+      {
+        "id": "sfc_fresh",
+        "label": "SFC fresh issue size",
+        "value": "150",
+        "source": "upx",
+        "evidence": "It is a mix of a fresh issue of shares aggregating to ₹150 crore and an OFS of up to 1.57 crore shares by promoters and existing shareholders.",
+        "as_of": "2026-10-26"
+      },
+      {
+        "id": "mk_size",
+        "label": "MK Sons Fine Jewels offer size as reported 26 Oct",
+        "value": "330.48",
+        "source": "upx",
+        "evidence": "MK Sons Fine Jewels, which is engaged in the retail sale of gold, diamond, and CZ jewellery, will launch its ₹330.48 crore offer on October 28. The issue will end on October 30.",
+        "as_of": "2026-10-26"
+      },
+      {
+        "id": "bc_size",
+        "label": "Bombay Coated issue size",
+        "value": "183.1",
+        "source": "upx",
+        "evidence": "Bombay Coated and Special Steels said its ₹183.1-crore issue will hit the primary market on October 29, with a price band of ₹78 to ₹82 per share. A lot consists of 182 shares.",
+        "as_of": "2026-10-26"
+      },
+      {
+        "id": "bc_lo",
+        "label": "Bombay Coated price band lower",
+        "value": "78",
+        "source": "upx",
+        "evidence": "Bombay Coated and Special Steels said its ₹183.1-crore issue will hit the primary market on October 29, with a price band of ₹78 to ₹82 per share. A lot consists of 182 shares.",
+        "as_of": "2026-10-26"
+      },
+      {
+        "id": "bc_hi",
+        "label": "Bombay Coated price band upper",
+        "value": "82",
+        "source": "upx",
+        "evidence": "Bombay Coated and Special Steels said its ₹183.1-crore issue will hit the primary market on October 29, with a price band of ₹78 to ₹82 per share. A lot consists of 182 shares.",
+        "as_of": "2026-10-26"
+      },
+      {
+        "id": "j_qib",
+        "label": "Jio final QIB subscription",
+        "value": "70.55",
+        "source": "hdfc",
+        "evidence": "QIB subscription at 70.55 times, NII at 14.00 times and retail at 2.72 times.",
+        "as_of": "2026-10-23",
+        "historical": true
+      },
+      {
+        "id": "j_nii",
+        "label": "Jio final NII subscription",
+        "value": "14.00",
+        "source": "hdfc",
+        "evidence": "QIB subscription at 70.55 times, NII at 14.00 times and retail at 2.72 times.",
+        "as_of": "2026-10-23",
+        "historical": true
+      },
+      {
+        "id": "j_ret",
+        "label": "Jio final retail subscription",
+        "value": "2.72",
+        "source": "hdfc",
+        "evidence": "QIB subscription at 70.55 times, NII at 14.00 times and retail at 2.72 times.",
+        "as_of": "2026-10-23",
+        "historical": true
+      },
+      {
+        "id": "j_tot",
+        "label": "Jio final total subscription",
+        "value": "22.19",
+        "source": "hdfc",
+        "evidence": "subscribed 22.19 times overall by 7:00 PM IST on October 23, 2026",
+        "as_of": "2026-10-23",
+        "historical": true,
+        "key": true
+      }
+    ],
+    "examples": []
+  },
+  "graphic": {
+    "headline": "IPO today: BLS Polymers and SFC Environmental open; Jio listing next",
+    "coverHeadline": "INDIA IPO WEEK IN FOCUS",
+    "coverLabel": "IPO daily",
+    "symbol": "growth",
+    "flags": [
+      "IN"
+    ],
+    "coverDate": "2026-10-27",
+    "chart": {
+      "type": "ipo_calendar",
+      "title": "IPO calendar · this week",
+      "source": "Upstox",
+      "asOf": "26 Oct 2026, 6:52 am IST",
+      "items": [
+        {
+          "label": "EAAA India Alternatives",
+          "note": "26–28 Oct",
+          "value": "₹1,585–1,665"
+        },
+        {
+          "label": "BLS Polymers",
+          "note": "27–29 Oct",
+          "value": "₹142–150"
+        },
+        {
+          "label": "SFC Environmental",
+          "note": "27–29 Oct",
+          "value": "₹313–330"
+        },
+        {
+          "label": "MK Sons Fine Jewels",
+          "note": "28–30 Oct"
+        },
+        {
+          "label": "Bombay Coated",
+          "note": "29 Oct–2 Nov",
+          "value": "₹78–82"
+        }
+      ]
+    }
+  },
+  "article": {
+    "title": "IPO today: BLS Polymers and SFC Environmental open; Jio listing next",
+    "dek": "BLS Polymers, SFC Environmental and Wiscon Industries begin bidding; EAAA remains open, while Jio and Paras Healthcare approach listing.",
+    "category": "startups",
+    "lead": true,
+    "readMins": 4,
+    "body": [
+      "Namaste investors, welcome to today's IPO class. BLS Polymers and SFC Environmental Technologies opened for bidding on Tuesday, while EAAA India Alternatives remains open. Wiscon Industries also began its SME issue; Core4 Engineers reached its final bidding day. Check the NSE and BSE issue pages for final exchange-level bid figures.",
+      "BLS Polymers | The ₹255 crore issue is entirely a fresh sale of shares. The price band is ₹142–150, with a lot size of 100 shares. The issue is open from October 27 to October 29. Fresh proceeds are intended for manufacturing expansion, working capital and other company purposes.",
+      "SFC Environmental Technologies | The wastewater-treatment company's approximately ₹668 crore issue is priced at ₹313–330. It includes ₹150 crore of fresh capital and an offer for sale by existing holders. Bidding is scheduled through October 29.",
+      "EAAA India Alternatives | The ₹1,200 crore offer is an offer for sale, with a price band of ₹1,585–1,665 and a closing date of October 28. An OFS transfers shares from selling shareholders; it does not raise new cash for the issuer.",
+      "Jio Platforms allotment and listing watch | HDFC Sky's final October 23 tally reported 22.19 times overall subscription, with QIB at 70.55 times, NII at 14.00 times and retail at 2.72 times. Allotment was scheduled for October 26, and trading is expected to begin October 28. Applicants should confirm their individual result on the registrar's official portal.",
+      "Paras Healthcare | Allotment was scheduled for October 26, with listing expected October 28. The registrar is MUFG Intime India. Individual allotment is not verified by news reports; check the registrar rather than assuming a successful allocation.",
+      "Coming up | MK Sons Fine Jewels is scheduled to open October 28; Bombay Coated and Special Steels is scheduled for October 29. The SME calendar also includes Carver Roboweld and Ajwa Projects. Final schedules and lot requirements must be confirmed against offer documents.",
+      "Today's concept: fresh issue versus OFS. BLS Polymers is a fresh issue, so proceeds go to the company. EAAA India Alternatives is an OFS, so sale proceeds go to the selling shareholders. Subscription demand is not a prediction of the listing price.",
+      "Source and timing note: this calendar uses the Upstox report updated October 26; Jio's final category subscription is from HDFC Sky for October 23. A complete exchange-verified October 27 closing subscription breakdown for the newly opened IPOs was not available from the official pages inspected at publication, so no unverified QIB, NII or retail figures are presented as final. GMP is unofficial, unregulated and excluded from the charts.",
+      "Key takeaway: IPOs differ in use of proceeds, bidding windows and lot sizes. Verify the latest red herring prospectus and exchange notices. This is education, not a recommendation."
+    ],
+    "indiaImpact": "A busy Indian primary-market week spans alternative investment management, polymer manufacturing, wastewater technology and SME offers. Applicants need to distinguish issue dates from allotment and listing dates.",
+    "seoTitle": "IPO Today 27 Oct 2026: BLS Polymers, SFC, EAAA and Jio Listing",
+    "seoDescription": "Indian IPO daily: BLS ₹142–150, SFC ₹313–330, EAAA ₹1,585–1,665, Jio final subscription 22.19x. Upcoming IPOs and allotment links.",
+    "tags": [
+      "IPO today",
+      "Upcoming IPO",
+      "BLS Polymers IPO",
+      "SFC Environmental IPO",
+      "EAAA India Alternatives IPO",
+      "Wiscon Industries IPO",
+      "Jio IPO listing",
+      "IPO subscription status"
+    ],
+    "sources": [
+      {
+        "name": "SEBI official public issue filings",
+        "url": "https://www.sebi.gov.in/sebiweb/home/HomeAction.do?doListing=yes&sid=3&smid=11&ssid=15"
+      },
+      {
+        "name": "NSE IPO issue information",
+        "url": "https://www.nseindia.com/market-data/all-upcoming-issues-ipo"
+      },
+      {
+        "name": "BSE public issues",
+        "url": "https://www.bseindia.com/markets/publicIssues/IPOIssues_new.aspx"
+      },
+      {
+        "name": "Upstox IPO calendar",
+        "url": "https://upstox.com/news/market-news/ipo/upcoming-ipos-next-week-sfc-environmental-bls-polymers-bombay-coated-among-7-issues-to-open-jio-platforms-2-others-to-list/article-202298/"
+      },
+      {
+        "name": "HDFC Sky Jio subscription",
+        "url": "https://hdfcsky.com/news/jio-ipo-subscribed-22-19x-on-final-day"
+      },
+      {
+        "name": "KFin Technologies allotment",
+        "url": "https://ipostatus.kfintech.com/"
+      },
+      {
+        "name": "MUFG Intime allotment",
+        "url": "https://in.mpms.mufg.com/Initial_Offer/public-issues.html"
+      }
+    ],
+    "coverLabel": "IPO daily",
+    "edition": "2026-10-27-evening",
+    "editionLabel": "Tue 27 Oct · IPO daily",
+    "publishedAt": "2026-10-27T17:38:00+05:30",
+    "status": "new"
+  }
+}
