@@ -1,0 +1,564 @@
+{
+ "edition_date": "2026-10-27",
+ "sources": [
+  {
+   "id": "nse",
+   "name": "NSE India: all indices (closing data)",
+   "url": "https://www.nseindia.com/api/allIndices",
+   "published": "2026-10-27T15:30:00+05:30",
+   "dataset": "data/market_snapshots/2026-10-27/api_allIndices.json.gz",
+   "sha256": "b4e38a65f27364c16ed3b794f10dfd575d918f12bb92f1630a624c4ed8efa028"
+  },
+  {
+   "id": "bhav",
+   "name": "NSE India: capital-market bhavcopy (end of day)",
+   "url": "https://nsearchives.nseindia.com/content/cm/BhavCopy_NSE_CM_0_0_0_20261027_F_0000.csv.zip",
+   "published": "2026-10-27T18:00:00+05:30",
+   "dataset": "data/market_snapshots/2026-10-27/bhavcopy.json.gz",
+   "sha256": "5be67e599f3240b2d941c8c6fc464757185e781b801e998908b2dffcd731aad7"
+  },
+  {
+   "id": "mc",
+   "name": "Moneycontrol: market snapshot checked 27 October",
+   "url": "https://www.moneycontrol.com/stocks/marketstats/fii_dii_activity/",
+   "published": "2026-10-27T23:33:24+05:30"
+  },
+  {
+   "id": "tl",
+   "name": "Trendlyne: provisional cash flows dated 27 October",
+   "url": "https://trendlyne.com/macro-data/fii-dii/latest/cash-pastmonth/25-Oct-2026/",
+   "published": "2026-10-27T23:33:24+05:30"
+  }
+ ],
+ "figures": [
+  {
+   "id": "nse_n50",
+   "label": "Nifty 50 close",
+   "value": "22749.75",
+   "change": "-3.45",
+   "source": "nse",
+   "evidence": "NIFTY 50: last 22749.75, change -3.45 points, -0.02% (previous close 22753.2; open 22708.8, high 22829.75, low 22636.85; advances 25, declines 25, unchanged 0; one week ago 22888.95 on 19-Oct-2026) as of 27-Oct-2026 15:30",
+   "as_of": "2026-10-27",
+   "key": true
+  },
+  {
+   "id": "nse_n50_pct",
+   "label": "Nifty 50 change %",
+   "value": "-0.02",
+   "source": "nse",
+   "evidence": "NIFTY 50: last 22749.75, change -3.45 points, -0.02% (previous close 22753.2; open 22708.8, high 22829.75, low 22636.85; advances 25, declines 25, unchanged 0; one week ago 22888.95 on 19-Oct-2026) as of 27-Oct-2026 15:30",
+   "as_of": "2026-10-27"
+  },
+  {
+   "id": "nse_bank",
+   "label": "Nifty Bank close",
+   "value": "53974.9",
+   "change": "-391.8",
+   "source": "nse",
+   "evidence": "NIFTY BANK: last 53974.9, change -391.8 points, -0.72% (previous close 54366.7; open 54420.7, high 54654.05, low 53951.2; advances 6, declines 8, unchanged 0; one week ago 55488.1 on 19-Oct-2026) as of 27-Oct-2026 15:30",
+   "as_of": "2026-10-27"
+  },
+  {
+   "id": "nse_bank_pct",
+   "label": "Nifty Bank change %",
+   "value": "-0.72",
+   "source": "nse",
+   "evidence": "NIFTY BANK: last 53974.9, change -391.8 points, -0.72% (previous close 54366.7; open 54420.7, high 54654.05, low 53951.2; advances 6, declines 8, unchanged 0; one week ago 55488.1 on 19-Oct-2026) as of 27-Oct-2026 15:30",
+   "as_of": "2026-10-27"
+  },
+  {
+   "id": "nse_vix",
+   "label": "India VIX close",
+   "value": "16.53",
+   "change": "-0.63",
+   "source": "nse",
+   "evidence": "INDIA VIX: last 16.53, change -0.63 points, -3.65% (previous close 17.16; open 17.16, high 17.49, low 16.25; advances , declines , unchanged ; one week ago 14.77 on 19-Oct-2026) as of 27-Oct-2026 15:30",
+   "as_of": "2026-10-27"
+  },
+  {
+   "id": "nse_vix_pct",
+   "label": "India VIX change %",
+   "value": "-3.65",
+   "source": "nse",
+   "evidence": "INDIA VIX: last 16.53, change -0.63 points, -3.65% (previous close 17.16; open 17.16, high 17.49, low 16.25; advances , declines , unchanged ; one week ago 14.77 on 19-Oct-2026) as of 27-Oct-2026 15:30",
+   "as_of": "2026-10-27"
+  },
+  {
+   "id": "nse_next50",
+   "label": "Nifty Next 50 close",
+   "value": "67343.95",
+   "change": "866.8",
+   "source": "nse",
+   "evidence": "NIFTY NEXT 50: last 67343.95, change 866.8 points, 1.3% (previous close 66477.15; open 66547.85, high 67359.45, low 66515; advances 36, declines 14, unchanged 0; one week ago 68695.85 on 19-Oct-2026) as of 27-Oct-2026 15:30",
+   "as_of": "2026-10-27"
+  },
+  {
+   "id": "nse_next50_pct",
+   "label": "Nifty Next 50 change %",
+   "value": "1.3",
+   "source": "nse",
+   "evidence": "NIFTY NEXT 50: last 67343.95, change 866.8 points, 1.3% (previous close 66477.15; open 66547.85, high 67359.45, low 66515; advances 36, declines 14, unchanged 0; one week ago 68695.85 on 19-Oct-2026) as of 27-Oct-2026 15:30",
+   "as_of": "2026-10-27"
+  },
+  {
+   "id": "nse_mid",
+   "label": "Nifty Midcap 100 close",
+   "value": "57029.9",
+   "change": "564.5",
+   "source": "nse",
+   "evidence": "NIFTY MIDCAP 100: last 57029.9, change 564.5 points, 1% (previous close 56465.4; open 56509.25, high 57126.2, low 56366.2; advances 67, declines 33, unchanged 0; one week ago 58487.95 on 19-Oct-2026) as of 27-Oct-2026 15:30",
+   "as_of": "2026-10-27"
+  },
+  {
+   "id": "nse_mid_pct",
+   "label": "Nifty Midcap 100 change %",
+   "value": "1",
+   "source": "nse",
+   "evidence": "NIFTY MIDCAP 100: last 57029.9, change 564.5 points, 1% (previous close 56465.4; open 56509.25, high 57126.2, low 56366.2; advances 67, declines 33, unchanged 0; one week ago 58487.95 on 19-Oct-2026) as of 27-Oct-2026 15:30",
+   "as_of": "2026-10-27"
+  },
+  {
+   "id": "nse_small",
+   "label": "Nifty Smallcap 100 close",
+   "value": "18468.7",
+   "change": "483.7",
+   "source": "nse",
+   "evidence": "NIFTY SMALLCAP 100: last 18468.7, change 483.7 points, 2.69% (previous close 17985; open 18067.9, high 18487.35, low 18039.6; advances 77, declines 23, unchanged 0; one week ago 18935.75 on 19-Oct-2026) as of 27-Oct-2026 15:30",
+   "as_of": "2026-10-27"
+  },
+  {
+   "id": "nse_small_pct",
+   "label": "Nifty Smallcap 100 change %",
+   "value": "2.69",
+   "source": "nse",
+   "evidence": "NIFTY SMALLCAP 100: last 18468.7, change 483.7 points, 2.69% (previous close 17985; open 18067.9, high 18487.35, low 18039.6; advances 77, declines 23, unchanged 0; one week ago 18935.75 on 19-Oct-2026) as of 27-Oct-2026 15:30",
+   "as_of": "2026-10-27"
+  },
+  {
+   "id": "nse_s_auto",
+   "label": "Auto close",
+   "value": "25340.8",
+   "change": "370.05",
+   "source": "nse",
+   "evidence": "NIFTY AUTO: last 25340.8, change 370.05 points, 1.48% (previous close 24970.75; open 25006.55, high 25375.25, low 24976.75; advances 13, declines 2, unchanged 0; one week ago 25591.25 on 19-Oct-2026) as of 27-Oct-2026 15:30",
+   "as_of": "2026-10-27"
+  },
+  {
+   "id": "nse_s_auto_pct",
+   "label": "Auto change %",
+   "value": "1.48",
+   "source": "nse",
+   "evidence": "NIFTY AUTO: last 25340.8, change 370.05 points, 1.48% (previous close 24970.75; open 25006.55, high 25375.25, low 24976.75; advances 13, declines 2, unchanged 0; one week ago 25591.25 on 19-Oct-2026) as of 27-Oct-2026 15:30",
+   "as_of": "2026-10-27"
+  },
+  {
+   "id": "nse_s_fmcg",
+   "label": "FMCG close",
+   "value": "43118.2",
+   "change": "317.45",
+   "source": "nse",
+   "evidence": "NIFTY FMCG: last 43118.2, change 317.45 points, 0.74% (previous close 42800.75; open 42770.5, high 43119.75, low 42454.5; advances 8, declines 6, unchanged 1; one week ago 43975.5 on 19-Oct-2026) as of 27-Oct-2026 15:30",
+   "as_of": "2026-10-27"
+  },
+  {
+   "id": "nse_s_fmcg_pct",
+   "label": "FMCG change %",
+   "value": "0.74",
+   "source": "nse",
+   "evidence": "NIFTY FMCG: last 43118.2, change 317.45 points, 0.74% (previous close 42800.75; open 42770.5, high 43119.75, low 42454.5; advances 8, declines 6, unchanged 1; one week ago 43975.5 on 19-Oct-2026) as of 27-Oct-2026 15:30",
+   "as_of": "2026-10-27"
+  },
+  {
+   "id": "nse_s_it",
+   "label": "IT close",
+   "value": "32189.45",
+   "change": "-83.6",
+   "source": "nse",
+   "evidence": "NIFTY IT: last 32189.45, change -83.6 points, -0.26% (previous close 32273.05; open 31996.4, high 32191.8, low 31521.65; advances 5, declines 5, unchanged 0; one week ago 31516.3 on 19-Oct-2026) as of 27-Oct-2026 15:30",
+   "as_of": "2026-10-27"
+  },
+  {
+   "id": "nse_s_it_pct",
+   "label": "IT change %",
+   "value": "-0.26",
+   "source": "nse",
+   "evidence": "NIFTY IT: last 32189.45, change -83.6 points, -0.26% (previous close 32273.05; open 31996.4, high 32191.8, low 31521.65; advances 5, declines 5, unchanged 0; one week ago 31516.3 on 19-Oct-2026) as of 27-Oct-2026 15:30",
+   "as_of": "2026-10-27"
+  },
+  {
+   "id": "nse_s_metal",
+   "label": "Metal close",
+   "value": "11806.7",
+   "change": "75.15",
+   "source": "nse",
+   "evidence": "NIFTY METAL: last 11806.7, change 75.15 points, 0.64% (previous close 11731.55; open 11698.45, high 11858.4, low 11670.55; advances 9, declines 6, unchanged 0; one week ago 12066.4 on 19-Oct-2026) as of 27-Oct-2026 15:30",
+   "as_of": "2026-10-27"
+  },
+  {
+   "id": "nse_s_metal_pct",
+   "label": "Metal change %",
+   "value": "0.64",
+   "source": "nse",
+   "evidence": "NIFTY METAL: last 11806.7, change 75.15 points, 0.64% (previous close 11731.55; open 11698.45, high 11858.4, low 11670.55; advances 9, declines 6, unchanged 0; one week ago 12066.4 on 19-Oct-2026) as of 27-Oct-2026 15:30",
+   "as_of": "2026-10-27"
+  },
+  {
+   "id": "nse_s_pharma",
+   "label": "Pharma close",
+   "value": "26267.25",
+   "change": "493",
+   "source": "nse",
+   "evidence": "NIFTY PHARMA: last 26267.25, change 493 points, 1.91% (previous close 25774.25; open 25810.75, high 26313.85, low 25790.1; advances 16, declines 4, unchanged 0; one week ago 25615 on 19-Oct-2026) as of 27-Oct-2026 15:30",
+   "as_of": "2026-10-27"
+  },
+  {
+   "id": "nse_s_pharma_pct",
+   "label": "Pharma change %",
+   "value": "1.91",
+   "source": "nse",
+   "evidence": "NIFTY PHARMA: last 26267.25, change 493 points, 1.91% (previous close 25774.25; open 25810.75, high 26313.85, low 25790.1; advances 16, declines 4, unchanged 0; one week ago 25615 on 19-Oct-2026) as of 27-Oct-2026 15:30",
+   "as_of": "2026-10-27"
+  },
+  {
+   "id": "nse_s_realty",
+   "label": "Realty close",
+   "value": "805.05",
+   "change": "15.35",
+   "source": "nse",
+   "evidence": "NIFTY REALTY: last 805.05, change 15.35 points, 1.94% (previous close 789.7; open 789.3, high 807.95, low 787.65; advances 10, declines 0, unchanged 0; one week ago 816.05 on 19-Oct-2026) as of 27-Oct-2026 15:30",
+   "as_of": "2026-10-27"
+  },
+  {
+   "id": "nse_s_realty_pct",
+   "label": "Realty change %",
+   "value": "1.94",
+   "source": "nse",
+   "evidence": "NIFTY REALTY: last 805.05, change 15.35 points, 1.94% (previous close 789.7; open 789.3, high 807.95, low 787.65; advances 10, declines 0, unchanged 0; one week ago 816.05 on 19-Oct-2026) as of 27-Oct-2026 15:30",
+   "as_of": "2026-10-27"
+  },
+  {
+   "id": "nse_s_energy",
+   "label": "Energy close",
+   "value": "35261.85",
+   "change": "239.5",
+   "source": "nse",
+   "evidence": "NIFTY ENERGY: last 35261.85, change 239.5 points, 0.68% (previous close 35022.35; open 34974.95, high 35340.2, low 34928.05; advances 30, declines 10, unchanged 0; one week ago 35974.45 on 19-Oct-2026) as of 27-Oct-2026 15:30",
+   "as_of": "2026-10-27"
+  },
+  {
+   "id": "nse_s_energy_pct",
+   "label": "Energy change %",
+   "value": "0.68",
+   "source": "nse",
+   "evidence": "NIFTY ENERGY: last 35261.85, change 239.5 points, 0.68% (previous close 35022.35; open 34974.95, high 35340.2, low 34928.05; advances 30, declines 10, unchanged 0; one week ago 35974.45 on 19-Oct-2026) as of 27-Oct-2026 15:30",
+   "as_of": "2026-10-27"
+  },
+  {
+   "id": "nse_s_psubank",
+   "label": "PSU Bank close",
+   "value": "8126.7",
+   "change": "32.9",
+   "source": "nse",
+   "evidence": "NIFTY PSU BANK: last 8126.7, change 32.9 points, 0.41% (previous close 8093.8; open 8099.25, high 8191.85, low 8085.3; advances 9, declines 3, unchanged 0; one week ago 8294.1 on 19-Oct-2026) as of 27-Oct-2026 15:30",
+   "as_of": "2026-10-27"
+  },
+  {
+   "id": "nse_s_psubank_pct",
+   "label": "PSU Bank change %",
+   "value": "0.41",
+   "source": "nse",
+   "evidence": "NIFTY PSU BANK: last 8126.7, change 32.9 points, 0.41% (previous close 8093.8; open 8099.25, high 8191.85, low 8085.3; advances 9, declines 3, unchanged 0; one week ago 8294.1 on 19-Oct-2026) as of 27-Oct-2026 15:30",
+   "as_of": "2026-10-27"
+  },
+  {
+   "id": "nse_s_privatebank",
+   "label": "Private Bank close",
+   "value": "26628.45",
+   "change": "-196.85",
+   "source": "nse",
+   "evidence": "NIFTY PRIVATE BANK: last 26628.45, change -196.85 points, -0.73% (previous close 26825.3; open 26865.35, high 26935.4, low 26620.8; advances 4, declines 6, unchanged 0; one week ago 27189.1 on 19-Oct-2026) as of 27-Oct-2026 15:30",
+   "as_of": "2026-10-27"
+  },
+  {
+   "id": "nse_s_privatebank_pct",
+   "label": "Private Bank change %",
+   "value": "-0.73",
+   "source": "nse",
+   "evidence": "NIFTY PRIVATE BANK: last 26628.45, change -196.85 points, -0.73% (previous close 26825.3; open 26865.35, high 26935.4, low 26620.8; advances 4, declines 6, unchanged 0; one week ago 27189.1 on 19-Oct-2026) as of 27-Oct-2026 15:30",
+   "as_of": "2026-10-27"
+  },
+  {
+   "id": "nse_s_media",
+   "label": "Media close",
+   "value": "1615.05",
+   "change": "56.95",
+   "source": "nse",
+   "evidence": "NIFTY MEDIA: last 1615.05, change 56.95 points, 3.66% (previous close 1558.1; open 1558.8, high 1624.4, low 1547.7; advances 9, declines 1, unchanged 0; one week ago 1643.9 on 19-Oct-2026) as of 27-Oct-2026 15:30",
+   "as_of": "2026-10-27"
+  },
+  {
+   "id": "nse_s_media_pct",
+   "label": "Media change %",
+   "value": "3.66",
+   "source": "nse",
+   "evidence": "NIFTY MEDIA: last 1615.05, change 56.95 points, 3.66% (previous close 1558.1; open 1558.8, high 1624.4, low 1547.7; advances 9, declines 1, unchanged 0; one week ago 1643.9 on 19-Oct-2026) as of 27-Oct-2026 15:30",
+   "as_of": "2026-10-27"
+  },
+  {
+   "id": "nse_s_consumerdurables",
+   "label": "Consumer Durables close",
+   "value": "34254.8",
+   "change": "403.7",
+   "source": "nse",
+   "evidence": "NIFTY CONSUMER DURABLES: last 34254.8, change 403.7 points, 1.19% (previous close 33851.1; open 33806.75, high 34403.15, low 33758.4; advances 11, declines 3, unchanged 0; one week ago 35840.55 on 19-Oct-2026) as of 27-Oct-2026 15:30",
+   "as_of": "2026-10-27"
+  },
+  {
+   "id": "nse_s_consumerdurables_pct",
+   "label": "Consumer Durables change %",
+   "value": "1.19",
+   "source": "nse",
+   "evidence": "NIFTY CONSUMER DURABLES: last 34254.8, change 403.7 points, 1.19% (previous close 33851.1; open 33806.75, high 34403.15, low 33758.4; advances 11, declines 3, unchanged 0; one week ago 35840.55 on 19-Oct-2026) as of 27-Oct-2026 15:30",
+   "as_of": "2026-10-27"
+  },
+  {
+   "id": "nse_s_oilgas",
+   "label": "Oil & Gas close",
+   "value": "10536",
+   "change": "15.05",
+   "source": "nse",
+   "evidence": "NIFTY OIL & GAS: last 10536, change 15.05 points, 0.14% (previous close 10520.95; open 10461.25, high 10537.55, low 10421.15; advances 9, declines 6, unchanged 0; one week ago 10544.4 on 19-Oct-2026) as of 27-Oct-2026 15:30",
+   "as_of": "2026-10-27"
+  },
+  {
+   "id": "nse_s_oilgas_pct",
+   "label": "Oil & Gas change %",
+   "value": "0.14",
+   "source": "nse",
+   "evidence": "NIFTY OIL & GAS: last 10536, change 15.05 points, 0.14% (previous close 10520.95; open 10461.25, high 10537.55, low 10421.15; advances 9, declines 6, unchanged 0; one week ago 10544.4 on 19-Oct-2026) as of 27-Oct-2026 15:30",
+   "as_of": "2026-10-27"
+  },
+  {
+   "id": "nse_s_healthcare",
+   "label": "Healthcare close",
+   "value": "15917.6",
+   "change": "258.9",
+   "source": "nse",
+   "evidence": "NIFTY HEALTHCARE INDEX: last 15917.6, change 258.9 points, 1.65% (previous close 15658.7; open 15679.9, high 15980.65, low 15668; advances 16, declines 4, unchanged 0; one week ago 15557.6 on 19-Oct-2026) as of 27-Oct-2026 15:30",
+   "as_of": "2026-10-27"
+  },
+  {
+   "id": "nse_s_healthcare_pct",
+   "label": "Healthcare change %",
+   "value": "1.65",
+   "source": "nse",
+   "evidence": "NIFTY HEALTHCARE INDEX: last 15917.6, change 258.9 points, 1.65% (previous close 15658.7; open 15679.9, high 15980.65, low 15668; advances 16, declines 4, unchanged 0; one week ago 15557.6 on 19-Oct-2026) as of 27-Oct-2026 15:30",
+   "as_of": "2026-10-27"
+  },
+  {
+   "id": "nse_s_financialservices",
+   "label": "Financial Services close",
+   "value": "24303.75",
+   "change": "-150.6",
+   "source": "nse",
+   "evidence": "NIFTY FINANCIAL SERVICES: last 24303.75, change -150.6 points, -0.62% (previous close 24454.35; open 24462.95, high 24529.9, low 24259.1; advances 7, declines 13, unchanged 0; one week ago 24987.1 on 19-Oct-2026) as of 27-Oct-2026 15:30",
+   "as_of": "2026-10-27"
+  },
+  {
+   "id": "nse_s_financialservices_pct",
+   "label": "Financial Services change %",
+   "value": "-0.62",
+   "source": "nse",
+   "evidence": "NIFTY FINANCIAL SERVICES: last 24303.75, change -150.6 points, -0.62% (previous close 24454.35; open 24462.95, high 24529.9, low 24259.1; advances 7, declines 13, unchanged 0; one week ago 24987.1 on 19-Oct-2026) as of 27-Oct-2026 15:30",
+   "as_of": "2026-10-27"
+  },
+  {
+   "id": "nse_s_chemicals",
+   "label": "Chemicals close",
+   "value": "26827.45",
+   "change": "474.05",
+   "source": "nse",
+   "evidence": "NIFTY CHEMICALS: last 26827.45, change 474.05 points, 1.8% (previous close 26353.4; open 26363.35, high 26848.1, low 26305; advances 15, declines 5, unchanged 0; one week ago 27914.3 on 19-Oct-2026) as of 27-Oct-2026 15:30",
+   "as_of": "2026-10-27"
+  },
+  {
+   "id": "nse_s_chemicals_pct",
+   "label": "Chemicals change %",
+   "value": "1.8",
+   "source": "nse",
+   "evidence": "NIFTY CHEMICALS: last 26827.45, change 474.05 points, 1.8% (previous close 26353.4; open 26363.35, high 26848.1, low 26305; advances 15, declines 5, unchanged 0; one week ago 27914.3 on 19-Oct-2026) as of 27-Oct-2026 15:30",
+   "as_of": "2026-10-27"
+  },
+  {
+   "id": "nse_s_cement",
+   "label": "Cement close",
+   "value": "13426.65",
+   "change": "-278.75",
+   "source": "nse",
+   "evidence": "NIFTY CEMENT: last 13426.65, change -278.75 points, -2.03% (previous close 13705.4; open 13627.95, high 13651.65, low 13384.9; advances 3, declines 9, unchanged 0; one week ago 13419.5 on 19-Oct-2026) as of 27-Oct-2026 15:30",
+   "as_of": "2026-10-27"
+  },
+  {
+   "id": "nse_s_cement_pct",
+   "label": "Cement change %",
+   "value": "-2.03",
+   "source": "nse",
+   "evidence": "NIFTY CEMENT: last 13426.65, change -278.75 points, -2.03% (previous close 13705.4; open 13627.95, high 13651.65, low 13384.9; advances 3, declines 9, unchanged 0; one week ago 13419.5 on 19-Oct-2026) as of 27-Oct-2026 15:30",
+   "as_of": "2026-10-27"
+  },
+  {
+   "id": "nse_n500_advances",
+   "label": "Nifty 500 stocks: advances",
+   "value": "352",
+   "source": "nse",
+   "evidence": "NIFTY 500: last 21734.9, change 126.15 points, 0.58% (previous close 21608.75; open 21597.4, high 21782.05, low 21559.85; advances 352, declines 147, unchanged 2; one week ago 22041.6 on 19-Oct-2026) as of 27-Oct-2026 15:30",
+   "as_of": "2026-10-27"
+  },
+  {
+   "id": "nse_n500_declines",
+   "label": "Nifty 500 stocks: declines",
+   "value": "147",
+   "source": "nse",
+   "evidence": "NIFTY 500: last 21734.9, change 126.15 points, 0.58% (previous close 21608.75; open 21597.4, high 21782.05, low 21559.85; advances 352, declines 147, unchanged 2; one week ago 22041.6 on 19-Oct-2026) as of 27-Oct-2026 15:30",
+   "as_of": "2026-10-27"
+  },
+  {
+   "id": "nse_n500_unchanged",
+   "label": "Nifty 500 stocks: unchanged",
+   "value": "2",
+   "source": "nse",
+   "evidence": "NIFTY 500: last 21734.9, change 126.15 points, 0.58% (previous close 21608.75; open 21597.4, high 21782.05, low 21559.85; advances 352, declines 147, unchanged 2; one week ago 22041.6 on 19-Oct-2026) as of 27-Oct-2026 15:30",
+   "as_of": "2026-10-27"
+  },
+  {
+   "id": "st_tataconsum",
+   "label": "TATACONSUM close",
+   "value": "1000.00",
+   "source": "bhav",
+   "evidence": "TATACONSUM EQ 2026-10-27: close 1000.00, previous close 936.50, high 1000.00, low 957.45",
+   "as_of": "2026-10-27"
+  },
+  {
+   "id": "st_tataconsum_prev",
+   "label": "TATACONSUM previous close",
+   "value": "936.50",
+   "source": "bhav",
+   "evidence": "TATACONSUM EQ 2026-10-27: close 1000.00, previous close 936.50, high 1000.00, low 957.45",
+   "as_of": "2026-10-27"
+  },
+  {
+   "id": "st_bhartiartl",
+   "label": "BHARTIARTL close",
+   "value": "1978.80",
+   "source": "bhav",
+   "evidence": "BHARTIARTL EQ 2026-10-27: close 1978.80, previous close 1917.50, high 1978.80, low 1910.60",
+   "as_of": "2026-10-27"
+  },
+  {
+   "id": "st_bhartiartl_prev",
+   "label": "BHARTIARTL previous close",
+   "value": "1917.50",
+   "source": "bhav",
+   "evidence": "BHARTIARTL EQ 2026-10-27: close 1978.80, previous close 1917.50, high 1978.80, low 1910.60",
+   "as_of": "2026-10-27"
+  },
+  {
+   "id": "st_bajajauto",
+   "label": "BAJAJ-AUTO close",
+   "value": "10390.00",
+   "source": "bhav",
+   "evidence": "BAJAJ-AUTO EQ 2026-10-27: close 10390.00, previous close 10071.00, high 10390.00, low 10075.00",
+   "as_of": "2026-10-27"
+  },
+  {
+   "id": "st_bajajauto_prev",
+   "label": "BAJAJ-AUTO previous close",
+   "value": "10071.00",
+   "source": "bhav",
+   "evidence": "BAJAJ-AUTO EQ 2026-10-27: close 10390.00, previous close 10071.00, high 10390.00, low 10075.00",
+   "as_of": "2026-10-27"
+  },
+  {
+   "id": "st_asianpaint",
+   "label": "ASIANPAINT close",
+   "value": "2277.00",
+   "source": "bhav",
+   "evidence": "ASIANPAINT EQ 2026-10-27: close 2277.00, previous close 2322.00, high 2322.00, low 2268.70",
+   "as_of": "2026-10-27"
+  },
+  {
+   "id": "st_asianpaint_prev",
+   "label": "ASIANPAINT previous close",
+   "value": "2322.00",
+   "source": "bhav",
+   "evidence": "ASIANPAINT EQ 2026-10-27: close 2277.00, previous close 2322.00, high 2322.00, low 2268.70",
+   "as_of": "2026-10-27"
+  },
+  {
+   "id": "st_coalindia",
+   "label": "COALINDIA close",
+   "value": "398.00",
+   "source": "bhav",
+   "evidence": "COALINDIA EQ 2026-10-27: close 398.00, previous close 405.00, high 404.75, low 398.00",
+   "as_of": "2026-10-27"
+  },
+  {
+   "id": "st_coalindia_prev",
+   "label": "COALINDIA previous close",
+   "value": "405.00",
+   "source": "bhav",
+   "evidence": "COALINDIA EQ 2026-10-27: close 398.00, previous close 405.00, high 404.75, low 398.00",
+   "as_of": "2026-10-27"
+  },
+  {
+   "id": "st_grasim",
+   "label": "GRASIM close",
+   "value": "2900.80",
+   "source": "bhav",
+   "evidence": "GRASIM EQ 2026-10-27: close 2900.80, previous close 2950.00, high 2941.40, low 2881.00",
+   "as_of": "2026-10-27"
+  },
+  {
+   "id": "st_grasim_prev",
+   "label": "GRASIM previous close",
+   "value": "2950.00",
+   "source": "bhav",
+   "evidence": "GRASIM EQ 2026-10-27: close 2900.80, previous close 2950.00, high 2941.40, low 2881.00",
+   "as_of": "2026-10-27"
+  },
+  {
+   "id": "mc_sx",
+   "label": "Sensex close",
+   "value": "73598.67",
+   "change": "-8.08",
+   "source": "mc",
+   "evidence": "SENSEX 73,598.67 -8.08 (-0.01%)",
+   "as_of": "2026-10-27"
+  },
+  {
+   "id": "mc_sx_pct",
+   "label": "Sensex change %",
+   "value": "-0.01",
+   "source": "mc",
+   "evidence": "SENSEX 73,598.67 -8.08 (-0.01%)",
+   "as_of": "2026-10-27"
+  },
+  {
+   "id": "fii_net",
+   "label": "FII net cash flows (crore)",
+   "value": "4240.39",
+   "source": "tl",
+   "evidence": "FII were net buyers of ₹4240.39 Cr in the cash segment on 27 Oct 2026",
+   "as_of": "2026-10-27"
+  },
+  {
+   "id": "dii_net",
+   "label": "DII net cash flows (crore)",
+   "value": "-1250.03",
+   "source": "tl",
+   "evidence": "DII were net sellers of ₹-1250.03 Cr in the cash segment on 27 Oct 2026",
+   "as_of": "2026-10-27"
+  }
+ ],
+ "examples": []
+}

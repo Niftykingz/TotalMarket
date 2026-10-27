@@ -1,0 +1,17 @@
+{
+ "slug": "2026-10-27-market-close-sensex-nifty",
+ "job": "pipeline/inbox/2026-10-27-market-close-sensex-nifty.json",
+ "job_sha256": "bcb78778d0f1d9e7a10b910173cc578769125cc14a06251da28213ba4f39cc12",
+ "stages": {
+  "DATA_COLLECTION": {
+   "status": "FAILED",
+   "sha256": "72f626b9216a02ccae75c8136a85651430a1a804b05ce0dc8930c8a91e8132bf",
+   "errors": [
+    "SOURCE_RECOVERY: fii_net: original source unavailable: source fetch failed: HTTP Error 405: Not Allowed",
+    "SOURCE_RECOVERY: dii_net: original source unavailable: source fetch failed: HTTP Error 405: Not Allowed"
+   ],
+   "started": "2026-10-27T23:36:05+05:30",
+   "finished": "2026-10-27T23:36:08+05:30"
+  }
+ }
+}
