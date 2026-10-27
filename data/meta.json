@@ -1,26 +1,26 @@
 {
- "editionLabel": "Fri 23 Oct · Closing wrap",
- "nextUpdate": "2026-10-23T20:10:00+05:30",
+ "editionLabel": "Tue 27 Oct · Market close",
+ "nextUpdate": "2026-10-28T19:30:00+05:30",
  "ticker": [
   {
    "label": "Sensex",
-   "value": "73,123.83",
-   "change": "-0.17%",
-   "asOf": "2026-10-23",
+   "value": "73,598.67",
+   "change": "-0.01%",
+   "asOf": "2026-10-27",
    "kind": "close",
-   "asOfText": "23 Oct close",
+   "asOfText": "27 Oct close",
    "source": {
-    "name": "BSE India: Sensex daily index archive",
-    "url": "https://www.bseindia.com/indices/IndexArchiveData.html"
+    "name": "Moneycontrol: market snapshot, 27 October",
+    "url": "https://www.moneycontrol.com/stocks/marketstats/fii_dii_activity/"
    }
   },
   {
    "label": "Nifty 50",
-   "value": "22,600.00",
-   "change": "-0.39%",
-   "asOf": "2026-10-23",
+   "value": "22,749.75",
+   "change": "-0.02%",
+   "asOf": "2026-10-27",
    "kind": "close",
-   "asOfText": "23 Oct close",
+   "asOfText": "27 Oct close",
    "source": {
     "name": "NSE India: index closing data",
     "url": "https://www.nseindia.com/market-data/live-market-indices"
@@ -28,11 +28,11 @@
   },
   {
    "label": "Bank Nifty",
-   "value": "54,287.35",
-   "change": "-1.16%",
-   "asOf": "2026-10-23",
+   "value": "53,974.90",
+   "change": "-0.72%",
+   "asOf": "2026-10-27",
    "kind": "close",
-   "asOfText": "23 Oct close",
+   "asOfText": "27 Oct close",
    "source": {
     "name": "NSE India: index closing data",
     "url": "https://www.nseindia.com/market-data/live-market-indices"
@@ -40,11 +40,11 @@
   },
   {
    "label": "India VIX",
-   "value": "16.76",
-   "change": "+6.32%",
-   "asOf": "2026-10-23",
+   "value": "16.53",
+   "change": "-3.65%",
+   "asOf": "2026-10-27",
    "kind": "close",
-   "asOfText": "23 Oct close",
+   "asOfText": "27 Oct close",
    "source": {
     "name": "NSE India: index closing data",
     "url": "https://www.nseindia.com/market-data/live-market-indices"
@@ -52,14 +52,14 @@
   },
   {
    "label": "USD/INR",
-   "value": "94.82",
-   "change": "+0.47%",
-   "asOf": "2026-10-22",
+   "value": "95.1150",
+   "change": "",
+   "asOf": "2026-10-27",
    "kind": "close",
-   "asOfText": "22 Oct close (provisional)",
+   "asOfText": "27 Oct close, Reuters",
    "source": {
-    "name": "PTI via The Sen Times: Rupee closes at 94.82",
-    "url": "https://thesentimes.com/rupee-slumps-44-paise-to-close-at-94-82-against-us-dollar/"
+    "name": "Reuters: rupee close, 27 October",
+    "url": "https://www.reuters.com/world/india/rupees-oil-linked-losses-meet-key-hurdle-rbi-defence-focus-2026-10-27/"
    }
   },
   {
@@ -133,8 +133,8 @@
    }
   }
  ],
- "tickerAsOf": "23 Oct close",
- "updatedAt": "2026-10-24T09:45:24+05:30",
+ "tickerAsOf": "27 Oct close",
+ "updatedAt": "2026-10-27T23:33:24+05:30",
  "history": {
   "Nifty 50": [
    {
@@ -174,6 +174,16 @@
    {
     "d": "2026-10-23",
     "v": 22600.0,
+    "s": "NSE"
+   },
+   {
+    "d": "2026-10-26",
+    "v": 22753.2,
+    "s": "NSE"
+   },
+   {
+    "d": "2026-10-27",
+    "v": 22749.75,
     "s": "NSE"
    }
   ],
@@ -216,6 +226,11 @@
     "d": "2026-10-23",
     "v": 73123.83,
     "s": "BSE"
+   },
+   {
+    "d": "2026-10-27",
+    "v": 73598.67,
+    "s": "Moneycontrol: market snapshot, 27 October"
    }
   ],
   "Bank Nifty": [
@@ -236,6 +251,16 @@
    {
     "d": "2026-10-23",
     "v": 54287.35,
+    "s": "NSE"
+   },
+   {
+    "d": "2026-10-26",
+    "v": 54366.7,
+    "s": "NSE"
+   },
+   {
+    "d": "2026-10-27",
+    "v": 53974.9,
     "s": "NSE"
    }
   ]

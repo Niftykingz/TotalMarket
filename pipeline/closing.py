@@ -87,6 +87,8 @@ def dataset(day, root=ROOT):
         sx = json.loads(extra.read_text(encoding="utf-8")).get("sensex")
         if sx and sx.get("source", {}).get("url") and "SENSEX" not in out["indices"]:  # fallback: named source
             out["indices"]["SENSEX"] = {k: sx[k] for k in ("close", "change", "pct") if k in sx}
+            out["indices"]["SENSEX"]["source"] = "secondary"
+            out["indices"]["SENSEX"]["sourceInfo"] = sx["source"]
             out["sources"].append(dict(sx["source"], what="Sensex close"))
             out["sourceNames"].append(sx["source"]["name"].split(":")[0])
     if "SENSEX" not in out["indices"]:
@@ -108,7 +110,7 @@ def dataset(day, root=ROOT):
                                        url="https://www.nseindia.com/api/fiidiiTradeReact"))
             out["flowSources"] = ["NSE"]
     if "flows" not in out:
-        out["missing"].append("FII/DII (not published by NSE for this date yet)")
+        out["missing"].append("FII/DII (same-date figures unavailable in the archived NSE response)")
 
     out["movers"] = movers(root, day, out)
     if not out["movers"]:
@@ -194,7 +196,7 @@ def article(d):
               f"₹{inr(abs(float(f['fii'])))} crore in the cash market and domestic institutions net {'buyers' if float(f['dii']) > 0 else 'sellers'} "
               f"of ₹{inr(abs(float(f['dii'])))} crore.", ""]
     else:
-        L += ["*Awaiting verified data: NSE has not published FII/DII figures for this date yet.*", ""]
+        L += ["*Awaiting verified data: Same-date FII/DII figures are unavailable in the archived NSE response.*", ""]
     L += ["## Why the market moved", "*EDITOR: add the day's drivers from named sources (with links) before approving. "
           "Do not publish this section without verified reporting.*", "",
           "## What to watch next session", "*EDITOR: add confirmed events only (RBI, results calendar, data releases, global cues).*", "",
@@ -339,7 +341,7 @@ def to_job(day, editor=None, root=ROOT, now=None):
             "visualSpec": {
                 "dateLabel": f"Market close · {d['dateLabel']}", "outlookTitle": "What to watch next session",
                 "indices": idx_specs,
-                "caps": [{"id": f"nse_{k}_pct", "label": l} for k, _, l in CAPS if n in idx],
+                "caps": [{"id": f"nse_{k}_pct", "label": l} for k, n, l in CAPS if n in idx],
                 "sectors": [{"id": f"nse_{k}_pct", "label": l} for k, l in sec_ids],
                 "gainers": mover_specs["gainers"], "losers": mover_specs["losers"], "moversIndex": "Nifty 50",
                 "global": [],
@@ -369,6 +371,8 @@ def apply_data(day, root=ROOT):
     D = dt.date.fromisoformat(day)
     mp = Path(root) / "data" / "meta.json"
     meta = json.loads(mp.read_text(encoding="utf-8"))
+    if max((c.get("asOf", "") for c in meta.get("ticker", []) if c.get("label") in ("Nifty 50", "Bank Nifty")), default="") > day:
+        raise NotReady("refusing to replace newer market cards with an older session")
     hist = meta.setdefault("history", {})
     names = {"NIFTY 50": "Nifty 50", "SENSEX": "Sensex", "NIFTY BANK": "Bank Nifty", "INDIA VIX": "India VIX"}
     src = {"nse": {"name": "NSE India: index closing data", "url": "https://www.nseindia.com/market-data/live-market-indices"},
@@ -381,10 +385,10 @@ def apply_data(day, root=ROOT):
         s_ = x.get("source") or "nse"
         if label != "India VIX":
             rows = [r for r in hist.get(label, []) if r.get("d") != day]
-            rows.append({"d": day, "v": round(float(x["close"]), 2), "s": "BSE" if s_ == "bse" else "NSE"})
+            rows.append({"d": day, "v": round(float(x["close"]), 2), "s": x.get("sourceInfo", {}).get("name") or ("BSE" if s_ == "bse" else "NSE")})
             hist[label] = sorted(rows, key=lambda r: r["d"])[-30:]
         card = {"label": label, "value": f"{float(x['close']):,.2f}", "change": f"{float(x['pct']):+.2f}%", "asOf": day, "kind": "close",
-                "asOfText": f"{D.day} {D.strftime('%b')} close", "source": src["bse" if s_ == "bse" else "nse"]}
+                "asOfText": f"{D.day} {D.strftime('%b')} close", "source": x.get("sourceInfo") or src["bse" if s_ == "bse" else "nse"]}
         t = meta.setdefault("ticker", [])
         k = next((i for i, c in enumerate(t) if c.get("label") == label), None)
         if k is None:
@@ -399,24 +403,57 @@ def apply_data(day, root=ROOT):
     if f:
         fp = Path(root) / "data" / "fii_dii.json"
         fd = json.loads(fp.read_text(encoding="utf-8"))
-        days = [x for x in fd.get("days", []) if x.get("date") != day]
-        is_new = len(days) == len(fd.get("days", []))
         n = lambda v: round(float(v), 2)
-        days.append({"date": day, "fii": {"buy": n(f["fiiBuy"]), "sell": n(f["fiiSell"]), "net": n(f["fii"])},
-                     "dii": {"buy": n(f["diiBuy"]), "sell": n(f["diiSell"]), "net": n(f["dii"])}})
-        fd["days"] = sorted(days, key=lambda x: x["date"], reverse=True)
-        mo = fd.get("month") or {}
-        label = f"{D.strftime('%B %Y')} (to "
-        if is_new and str(mo.get("label", "")).startswith(label):
-            for who, b_, s__, n_ in (("fii", f["fiiBuy"], f["fiiSell"], f["fii"]), ("dii", f["diiBuy"], f["diiSell"], f["dii"])):
-                for k, v in (("buy", b_), ("sell", s__), ("net", n_)):
-                    mo[who][k] = round(float(mo[who][k]) + float(v), 1)
-            mo["label"] = f"{label}{D.day} {D.strftime('%b')})"
+        row = {"date": day, "fii": {"buy": n(f["fiiBuy"]), "sell": n(f["fiiSell"]), "net": n(f["fii"])},
+               "dii": {"buy": n(f["diiBuy"]), "sell": n(f["diiSell"]), "net": n(f["dii"])}}
+        update_flow_rows(fd, row)
+        fd["days"][0]["source"] = {"name": "NSE India: FII/FPI and DII provisional cash-market activity", "url": "https://www.nseindia.com/reports/fii-dii"}
         fd["source"] = {"name": "NSE India: FII/FPI and DII provisional cash-market activity", "url": "https://www.nseindia.com/reports/fii-dii"}
         fd["updatedAt"] = dt.datetime.now(IST).replace(microsecond=0).isoformat()
         fp.write_text(json.dumps(fd, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
         changed.append("FII/DII")
+    gp = Path(root) / "data" / "global.json"
+    if gp.is_file():
+        g = json.loads(gp.read_text(encoding="utf-8"))
+        for region in g.get("regions", []):
+            if region.get("region") != "India":
+                continue
+            for row in region.get("rows", []):
+                key = next((k for k, v in names.items() if v == row.get("name")), None)
+                x = d["indices"].get(key)
+                if not x:
+                    continue
+                row.update(value=f"{float(x['close']):,.2f}", change=f"{float(x['change']):+.2f}",
+                           pct=f"{float(x['pct']):+.2f}", asOf=f"{D.strftime('%a')} {D.day} {D.strftime('%b')}, close",
+                           date=day, type="close", source=x.get("sourceInfo") or src.get(x.get("source"), src["nse"]))
+        # Foreign rows retain their own original dates; this is not a global refresh.
+        g["indiaUpdatedAt"] = day + "T15:30:00+05:30"
+        gp.write_text(json.dumps(g, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
     return changed
+
+
+def update_flow_rows(fd, row):
+    """Idempotent daily upsert; preserve supplied MTD totals and apply correction deltas."""
+    day = row["date"]
+    old = next((x for x in fd.get("days", []) if x.get("date") == day), None)
+    fd["days"] = sorted([x for x in fd.get("days", []) if x.get("date") != day] + [row],
+                        key=lambda x: x["date"], reverse=True)
+    D = dt.date.fromisoformat(fd["days"][0]["date"])
+    mo = fd.get("month") or {}
+    prefix = D.strftime("%B %Y")
+    if day[:7] != D.isoformat()[:7]:
+        return
+    if str(mo.get("label", "")).startswith(prefix):
+        for who in ("fii", "dii"):
+            for k in ("buy", "sell", "net"):
+                mo[who][k] = round(float(mo[who][k]) + row[who][k] - (old[who][k] if old else 0), 2)
+    else:
+        # Label an incomplete stored history as such instead of inventing an MTD total.
+        mo = {who: {k: round(sum(x[who][k] for x in fd["days"] if x["date"][:7] == day[:7]), 2)
+                    for k in ("buy", "sell", "net")} for who in ("fii", "dii")}
+        mo["partial"] = True
+    mo["label"] = f"{prefix} (to {D.day} {D.strftime('%b')})" + (" · available sessions only" if mo.get("partial") else "")
+    fd["month"] = mo
 
 
 def seo(d, D, sx, inr):

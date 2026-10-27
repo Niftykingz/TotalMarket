@@ -1,0 +1,57 @@
+{
+ "sources": [
+  {
+   "id": "mc",
+   "name": "Moneycontrol: market snapshot checked 27 October",
+   "url": "https://www.moneycontrol.com/stocks/marketstats/fii_dii_activity/",
+   "published": "2026-10-27T23:33:24+05:30"
+  },
+  {
+   "id": "tl",
+   "name": "Trendlyne: provisional cash flows dated 27 October",
+   "url": "https://trendlyne.com/macro-data/fii-dii/latest/cash-pastmonth/25-Oct-2026/",
+   "published": "2026-10-27T23:33:24+05:30"
+  }
+ ],
+ "figures": [
+  {
+   "id": "mc_sx",
+   "label": "Sensex close",
+   "value": "73598.67",
+   "change": "-8.08",
+   "source": "mc",
+   "evidence": "SENSEX 73,598.67 -8.08 (-0.01%)",
+   "as_of": "2026-10-27"
+  },
+  {
+   "id": "mc_sx_pct",
+   "label": "Sensex change %",
+   "value": "-0.01",
+   "source": "mc",
+   "evidence": "SENSEX 73,598.67 -8.08 (-0.01%)",
+   "as_of": "2026-10-27"
+  },
+  {
+   "id": "fii_net",
+   "label": "FII net cash flows (crore)",
+   "value": "4240.39",
+   "source": "tl",
+   "evidence": "FII were net buyers of ₹4240.39 Cr in the cash segment on 27 Oct 2026",
+   "as_of": "2026-10-27"
+  },
+  {
+   "id": "dii_net",
+   "label": "DII net cash flows (crore)",
+   "value": "-1250.03",
+   "source": "tl",
+   "evidence": "DII were net sellers of ₹-1250.03 Cr in the cash segment on 27 Oct 2026",
+   "as_of": "2026-10-27"
+  }
+ ],
+ "drivers": [
+  "Interpretation: the nearly flat headline index concealed stronger participation in smaller stocks. Banks and IT declined, while media, realty and pharma advanced. These sector moves describe market performance; they do not establish a single cause."
+ ],
+ "watch": [
+  "Watch the next session’s exchange filings and the direction of crude prices. Current options open-interest changes, PCR and contract expiry were not sufficiently verified for this report."
+ ]
+}

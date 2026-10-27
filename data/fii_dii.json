@@ -1,23 +1,63 @@
 {
  "source": {
-  "name": "NSE India: FII/FPI and DII provisional cash-market activity",
-  "url": "https://www.nseindia.com/reports/fii-dii"
+  "name": "Moneycontrol: provisional FII/DII cash-market activity",
+  "url": "https://www.moneycontrol.com/stocks/marketstats/fii_dii_activity/"
  },
- "updatedAt": "2026-10-24T09:45:24+05:30",
+ "updatedAt": "2026-10-27T23:32:13+05:30",
  "month": {
-  "label": "October 2026 (to 23 Oct)",
+  "label": "October 2026 (to 27 Oct)",
   "fii": {
-   "buy": 209306.1,
-   "sell": 260772.7,
-   "net": -51466.3
+   "buy": 243148.79,
+   "sell": 291837.27,
+   "net": -48688.48
   },
   "dii": {
-   "buy": 274377.5,
-   "sell": 215267.5,
-   "net": 59110.2
+   "buy": 307469.99,
+   "sell": 247000.13,
+   "net": 60469.86
+  },
+  "source": {
+   "name": "Moneycontrol: provisional FII/DII cash-market activity",
+   "url": "https://www.moneycontrol.com/stocks/marketstats/fii_dii_activity/"
   }
  },
  "days": [
+  {
+   "date": "2026-10-27",
+   "fii": {
+    "buy": 24517.65,
+    "sell": 20277.26,
+    "net": 4240.39
+   },
+   "dii": {
+    "buy": 15702.74,
+    "sell": 16952.77,
+    "net": -1250.03
+   },
+   "source": {
+    "name": "Moneycontrol: provisional FII/DII cash-market activity",
+    "url": "https://www.moneycontrol.com/stocks/marketstats/fii_dii_activity/"
+   },
+   "verifiedAt": "2026-10-27T23:32:13+05:30"
+  },
+  {
+   "date": "2026-10-26",
+   "fii": {
+    "buy": 9324.9,
+    "sell": 10787.39,
+    "net": -1462.49
+   },
+   "dii": {
+    "buy": 17389.57,
+    "sell": 14780,
+    "net": 2609.57
+   },
+   "source": {
+    "name": "Moneycontrol: provisional FII/DII cash-market activity",
+    "url": "https://www.moneycontrol.com/stocks/marketstats/fii_dii_activity/"
+   },
+   "verifiedAt": "2026-10-27T23:32:13+05:30"
+  },
   {
    "date": "2026-10-23",
    "fii": {
@@ -97,5 +137,11 @@
    }
   }
  ],
- "note": "Gross figures for 21 Oct from 5paisa's copy of provisional exchange data. For 22 Oct only net figures were reported (FII −₹3,458.70 cr, DII +₹2,891.32 cr, Whalesbook); they will be added here once gross provisional data is published. NSE's own FII/DII report could not be read by our tools."
+ "note": "Gross figures for 21 Oct from 5paisa's copy of provisional exchange data. For 22 Oct only net figures were reported (FII −₹3,458.70 cr, DII +₹2,891.32 cr, Whalesbook); they will be added here once gross provisional data is published. NSE's own FII/DII report could not be read by our tools.",
+ "corroboratingSources": [
+  {
+   "name": "Trendlyne: 27 October net cash flows",
+   "url": "https://trendlyne.com/macro-data/fii-dii/latest/cash-pastmonth/25-Oct-2026/"
+  }
+ ]
 }

@@ -7,39 +7,42 @@
    "rows": [
     {
      "name": "Nifty 50",
-     "value": "22,600.00",
-     "change": "-87.65",
-     "pct": "-0.39",
-     "asOf": "Fri 23 Oct, close",
+     "value": "22,749.75",
+     "change": "-3.45",
+     "pct": "-0.02",
+     "asOf": "Tue 27 Oct, close",
      "type": "close",
      "source": {
-      "name": "ChiniMandi: Sensex down 125 points, Nifty at 22,600",
-      "url": "https://www.chinimandi.com/sensex-down-125-points-nifty-at-22600/"
-     }
+      "name": "NSE India: index closing data",
+      "url": "https://www.nseindia.com/market-data/live-market-indices"
+     },
+     "date": "2026-10-27"
     },
     {
      "name": "Sensex",
-     "value": "73,123.83",
-     "change": "-125.56",
-     "pct": "-0.17",
-     "asOf": "Fri 23 Oct, close",
+     "value": "73,598.67",
+     "change": "-8.08",
+     "pct": "-0.01",
+     "asOf": "Tue 27 Oct, close",
      "type": "close",
      "source": {
-      "name": "ChiniMandi: Sensex down 125 points, Nifty at 22,600",
-      "url": "https://www.chinimandi.com/sensex-down-125-points-nifty-at-22600/"
-     }
+      "name": "Moneycontrol: market snapshot, 27 October",
+      "url": "https://www.moneycontrol.com/stocks/marketstats/fii_dii_activity/"
+     },
+     "date": "2026-10-27"
     },
     {
      "name": "Bank Nifty",
-     "value": "54,832.35",
-     "change": "",
-     "pct": "-0.26",
-     "asOf": "Thu 22 Oct, close",
+     "value": "53,974.90",
+     "change": "-391.80",
+     "pct": "-0.72",
+     "asOf": "Tue 27 Oct, close",
      "type": "close",
      "source": {
-      "name": "IIFL: Sensex falls 460 points, Nifty below 22,700",
-      "url": "https://www.indiainfoline.com/news/markets/stock-market-today-sensex-falls-460-points-nifty-closes-below-22700-media-fmcg-and-it-stocks-drag"
-     }
+      "name": "NSE India: index closing data",
+      "url": "https://www.nseindia.com/market-data/live-market-indices"
+     },
+     "date": "2026-10-27"
     }
    ]
   },
@@ -137,5 +140,6 @@
     }
    ]
   }
- ]
+ ],
+ "indiaUpdatedAt": "2026-10-27T15:30:00+05:30"
 }

@@ -10,15 +10,17 @@ on:
     - cron: '45 10 * * 1-5'
     # 18:40 IST: NSE publishes provisional FII/DII cash-market figures after 6 pm.
     - cron: '10 13 * * 1-5'
+    # Retry late provisional cash flows at 20:10 and 22:10 IST.
+    - cron: '40 14,16 * * 1-5'
 permissions:
   contents: write  # only to commit the dated audit snapshot under data/market_snapshots/
 concurrency:
-  group: totalmarket-nse-collection
+  group: totalmarket-main-publisher
   cancel-in-progress: false
 jobs:
   collect:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
         with:
@@ -52,17 +54,27 @@ jobs:
         if: steps.collect.outcome == 'success'
         continue-on-error: true
         run: python3 -m pipeline.weekly --only-if-week-end --out pipeline/inbox
+      - name: Apply verified same-session observations to website data
+        if: steps.collect.outcome == 'success'
+        run: |
+          D="${{ github.event.inputs.date }}"; D="${D:-$(TZ=Asia/Kolkata date +%F)}"
+          python3 -m pipeline.closing --date "$D" --apply-data
       - name: Keep the dated snapshot in the repository (audit trail; never published by itself)
         if: always()
         run: |
           [ -d data/market_snapshots ] || { echo "nothing usable to archive"; exit 0; }
           git config user.name "TotalMarket Bot"; git config user.email "noreply@anthropic.com"
-          git add data/market_snapshots
+          git add data/market_snapshots data/meta.json data/fii_dii.json data/global.json
           git add pipeline/inbox/*-weekly-market-review.json 2>/dev/null || true
           git diff --cached --quiet && { echo "snapshot unchanged"; exit 0; }
           git commit -q -m "NSE market snapshot $(date -u +%Y-%m-%dT%H:%MZ)"
           for i in 1 2 3; do git push -q origin HEAD:main && exit 0; git pull -q --rebase origin main; done
           echo "::warning title=NSE snapshot::could not push the snapshot"; exit 1
+      - name: Publish refreshed data through the verified queue
+        if: steps.collect.outcome == 'success'
+        run: |
+          pip install -q pillow numpy matplotlib
+          python3 -m pipeline queue
       - name: Build the daily closing drafts (4 graphics + draft article; never published automatically)
         if: steps.collect.outcome == 'success'
         continue-on-error: true

@@ -34,3 +34,11 @@ print(msg)
 if age is None or age > limit:
     print(f"::error title=Scheduled publishing looks stalled::{msg}")
     sys.exit(1)
+
+# A fresh IPO/news post must not mask stale data pages.
+from data_freshness import audit
+_, findings = audit(root, now)
+for item in findings:
+    print(f"::error title=Stale daily market data::{item}")
+if findings:
+    sys.exit(1)

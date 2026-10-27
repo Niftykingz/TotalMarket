@@ -1,0 +1,11 @@
+{
+ "sensex": {
+  "close": 73598.67,
+  "change": -8.08,
+  "pct": -0.01,
+  "source": {
+   "name": "Moneycontrol: market snapshot, 27 October",
+   "url": "https://www.moneycontrol.com/stocks/marketstats/fii_dii_activity/"
+  }
+ }
+}
