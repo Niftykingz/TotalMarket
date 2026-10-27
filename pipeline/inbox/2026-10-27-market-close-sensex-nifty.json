@@ -23,12 +23,6 @@
     "name": "Moneycontrol: market snapshot checked 27 October",
     "url": "https://www.moneycontrol.com/stocks/marketstats/fii_dii_activity/",
     "published": "2026-10-27T23:33:24+05:30"
-   },
-   {
-    "id": "tl",
-    "name": "Trendlyne: provisional cash flows dated 27 October",
-    "url": "https://trendlyne.com/macro-data/fii-dii/latest/cash-pastmonth/25-Oct-2026/",
-    "published": "2026-10-27T23:33:24+05:30"
    }
   ],
   "figures": [
@@ -548,16 +542,16 @@
     "id": "fii_net",
     "label": "FII net cash flows (crore)",
     "value": "4240.39",
-    "source": "tl",
-    "evidence": "FII were net buyers of ₹4240.39 Cr in the cash segment on 27 Oct 2026",
+    "source": "mc",
+    "evidence": "24,517.65 20,277.26 4,240.39 15,702.74 16,952.77 -1,250.03",
     "as_of": "2026-10-27"
    },
    {
     "id": "dii_net",
     "label": "DII net cash flows (crore)",
     "value": "-1250.03",
-    "source": "tl",
-    "evidence": "DII were net sellers of ₹-1250.03 Cr in the cash segment on 27 Oct 2026",
+    "source": "mc",
+    "evidence": "24,517.65 20,277.26 4,240.39 15,702.74 16,952.77 -1,250.03",
     "as_of": "2026-10-27"
    }
   ],
@@ -809,7 +803,7 @@
     "fiiNet": "fii_net",
     "diiNet": "dii_net"
    },
-   "fiiDiiNote": "27 October provisional cash flows, ₹ crore, as reported by Trendlyne and corroborated with Moneycontrol. Gross purchases/sales are on the FII/DII data page."
+   "fiiDiiNote": "27 October provisional cash flows, ₹ crore, as reported by Moneycontrol and cross-checked with Trendlyne. Gross purchases/sales are on the FII/DII data page."
   },
   "reportTakeaways": [
    "The Nifty 50 fell 0.02%; 352 of 501 Nifty 500 stocks advanced."
@@ -871,10 +865,6 @@
    {
     "name": "Moneycontrol: market snapshot checked 27 October",
     "url": "https://www.moneycontrol.com/stocks/marketstats/fii_dii_activity/"
-   },
-   {
-    "name": "Trendlyne: provisional cash flows dated 27 October",
-    "url": "https://trendlyne.com/macro-data/fii-dii/latest/cash-pastmonth/25-Oct-2026/"
    }
   ],
   "publishedAt": "2026-10-27T23:33:24+05:30",

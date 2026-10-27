@@ -52,3 +52,16 @@ class DailySync(unittest.TestCase):
             (data/'market_calendar.json').write_text(json.dumps({'years':[{'holidays':[{'date':'2026-10-20'}]}]}))
             target,_=audit(t,dt.datetime(2026,10,20,22,tzinfo=IST))
             self.assertEqual(target,'2026-10-19')
+
+class SecondaryFlows(unittest.TestCase):
+    mc='27-Oct-2026 27-Oct-2026 24,517.65 20,277.26 4,240.39 15,702.74 16,952.77 -1,250.03'
+    tl='FII were net buyers of ₹4240.39 Cr in the cash segment on 27 Oct 2026 DII were net sellers of ₹-1250.03 Cr in the cash segment on 27 Oct 2026'
+    def test_dated_sources_reconcile(self):
+        from pipeline.market_data.cash_flows import parse_pair
+        r=parse_pair('2026-10-27',self.mc,self.tl)
+        self.assertEqual(r['fii']['net'],4240.39)
+        self.assertEqual(r['dii']['net'],-1250.03)
+    def test_stale_disagreeing_and_wrong_arithmetic_are_rejected(self):
+        from pipeline.market_data.cash_flows import parse_pair
+        for mc,tl in [(self.mc,self.tl.replace('27 Oct','26 Oct')),(self.mc,self.tl.replace('4240.39','4240.40')),(self.mc.replace('24,517.65','24,518.65'),self.tl)]:
+            with self.assertRaises(ValueError):parse_pair('2026-10-27',mc,tl)

@@ -59,6 +59,7 @@ jobs:
         run: |
           D="${{ github.event.inputs.date }}"; D="${D:-$(TZ=Asia/Kolkata date +%F)}"
           python3 -m pipeline.closing --date "$D" --apply-data
+          python3 -m pipeline.market_data.cash_flows --date "$D"
       - name: Keep the dated snapshot in the repository (audit trail; never published by itself)
         if: always()
         run: |
