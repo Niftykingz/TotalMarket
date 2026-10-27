@@ -1,41 +1,42 @@
 {
  "slug": "2026-10-27-ipo-daily-bls-sfc-eaaa-jio-listing",
  "job": "pipeline/inbox/2026-10-27-ipo-daily-bls-sfc-eaaa-jio-listing.json",
- "job_sha256": "16a5c58c770c6f392e0eeb35b8b7eca430657127fc7c030b0004ff16a893ffe0",
+ "job_sha256": "7778a078799061777ca97729e0792e0f8a6a1fccc606b230351f58e572271e32",
  "stages": {
   "DATA_COLLECTION": {
    "status": "PASS",
-   "sha256": "d2a48735e79f36c61e9a3178b3cc65560ce8e7a7641109d5c4edf242b040268d",
+   "sha256": "bda8a747fa99687eb42080b9c447ae9178f6aafb2f0e7b960344dd744038e05a",
    "errors": [],
-   "started": "2026-10-27T17:41:41+05:30",
-   "finished": "2026-10-27T17:41:44+05:30"
+   "started": "2026-10-27T17:43:09+05:30",
+   "finished": "2026-10-27T17:43:12+05:30"
   },
   "DATA_VERIFICATION": {
    "status": "PASS",
    "sha256": "0eecdc0783e8317ff407014d746c50445a83e7dca1d4e0459ff08f69fa435893",
    "errors": [],
-   "started": "2026-10-27T17:41:44+05:30",
-   "finished": "2026-10-27T17:41:46+05:30"
+   "started": "2026-10-27T17:43:12+05:30",
+   "finished": "2026-10-27T17:43:15+05:30"
   },
   "GRAPHICS_GENERATION": {
    "status": "PASS",
    "sha256": "b6b237659d756aebe5d6424fe9f5d186e5f6b52b7aa1a97184080ea0dddd0292",
    "errors": [],
-   "started": "2026-10-27T17:41:46+05:30",
-   "finished": "2026-10-27T17:41:47+05:30"
+   "started": "2026-10-27T17:43:15+05:30",
+   "finished": "2026-10-27T17:43:15+05:30"
   },
   "ARTICLE_WRITING": {
-   "status": "FAILED",
-   "sha256": "33be3536c2462f9c8e29ac7571319720855bc374824f4be30589b23055c8947d",
-   "errors": [
-    "article cites a source not in the collected dataset: https://www.sebi.gov.in/sebiweb/home/HomeAction.do?doListing=yes&sid=3&smid=11&ssid=15",
-    "article cites a source not in the collected dataset: https://www.nseindia.com/market-data/all-upcoming-issues-ipo",
-    "article cites a source not in the collected dataset: https://www.bseindia.com/markets/publicIssues/IPOIssues_new.aspx",
-    "article cites a source not in the collected dataset: https://ipostatus.kfintech.com/",
-    "article cites a source not in the collected dataset: https://in.mpms.mufg.com/Initial_Offer/public-issues.html"
-   ],
-   "started": "2026-10-27T17:41:47+05:30",
-   "finished": "2026-10-27T17:41:47+05:30"
+   "status": "PASS",
+   "sha256": "10f5d24fa796ee0db9adfb0228a064e5fb3a0c1ed60b16318ad461f6f7d045c0",
+   "errors": [],
+   "started": "2026-10-27T17:43:15+05:30",
+   "finished": "2026-10-27T17:43:15+05:30"
+  },
+  "FINAL_QA": {
+   "status": "PASS",
+   "sha256": "d729f6507d7c4ca2da72be30228e7b1e6800ebaa4b3f75a29092c62d597da856",
+   "errors": [],
+   "started": "2026-10-27T17:43:15+05:30",
+   "finished": "2026-10-27T17:43:15+05:30"
   }
  }
 }

@@ -12,6 +12,36 @@
    "name": "HDFC Sky: Jio final IPO subscription",
    "url": "https://hdfcsky.com/news/jio-ipo-subscribed-22-19x-on-final-day",
    "published": "2026-10-23T21:09:00+05:30"
+  },
+  {
+   "id": "link2",
+   "name": "SEBI official public issue filings",
+   "url": "https://www.sebi.gov.in/sebiweb/home/HomeAction.do?doListing=yes&sid=3&smid=11&ssid=15",
+   "published": "2026-10-26T17:00:00+05:30"
+  },
+  {
+   "id": "link3",
+   "name": "NSE IPO issue information",
+   "url": "https://www.nseindia.com/market-data/all-upcoming-issues-ipo",
+   "published": "2026-10-27T17:38:00+05:30"
+  },
+  {
+   "id": "link4",
+   "name": "BSE public issues",
+   "url": "https://www.bseindia.com/markets/publicIssues/IPOIssues_new.aspx",
+   "published": "2026-10-27T17:38:00+05:30"
+  },
+  {
+   "id": "link5",
+   "name": "KFin Technologies allotment",
+   "url": "https://ipostatus.kfintech.com/",
+   "published": "2026-10-27T17:38:00+05:30"
+  },
+  {
+   "id": "link6",
+   "name": "MUFG Intime allotment",
+   "url": "https://in.mpms.mufg.com/Initial_Offer/public-issues.html",
+   "published": "2026-10-27T17:38:00+05:30"
   }
  ],
  "figures": [
