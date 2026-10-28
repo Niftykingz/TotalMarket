@@ -55,24 +55,9 @@
         "name": "ICICI Direct: Core4 Engineers timetable",
         "url": "https://www.icicidirect.com/ipo/core4-engineers-ltd-ipo",
         "published": "2026-10-28T16:00:00+05:30"
-      },
-      {
-        "id": "feclose",
-        "name": "Financial Express: Jio first-session closing price",
-        "url": "https://www.financialexpress.com/market/ipo-news-jio-platforms-ipo-listing-live-updates-date-time-reliance-jio-estimated-listing-share-price-news-ipo-gains-gmp-price-band-4370422/",
-        "published": "2026-10-28T16:04:00+05:30"
       }
     ],
     "figures": [
-      {
-        "id": "close",
-        "label": "Jio Platforms first-session closing price",
-        "value": "1,419",
-        "source": "feclose",
-        "evidence": "Jio Platforms shares ended their first trading session at Rs 1,419 on both the NSE and BSE, gaining 4.49% from the listing price of Rs 1,358. The stock extended its gains after making its market debut at a premium of around 21% to the IPO price.",
-        "as_of": "2026-10-28",
-        "key": true
-      },
       {
         "id": "debut",
         "label": "Jio Platforms debut price",
@@ -197,23 +182,6 @@
         "evidence": "Employees' quota was subscribed 2.93 times and Reliance shareholders category got 7.6 times the shares on offer.",
         "as_of": "2026-10-23",
         "historical": true
-      },
-      {
-        "id": "closepct",
-        "label": "Jio Platforms first-session gain vs issue percent",
-        "value": "26.81",
-        "source": "feclose",
-        "evidence": "Compared with the issue price of Rs 1,119, the shares closed Rs 300 higher, delivering a gain of 26.81% for investors who received shares in the IPO.",
-        "as_of": "2026-10-28",
-        "key": true
-      },
-      {
-        "id": "sessionchange",
-        "label": "Jio Platforms first-session gain from debut percent",
-        "value": "4.49",
-        "source": "feclose",
-        "evidence": "Jio Platforms shares ended their first trading session at Rs 1,419 on both the NSE and BSE, gaining 4.49% from the listing price of Rs 1,358. The stock extended its gains after making its market debut at a premium of around 21% to the IPO price.",
-        "as_of": "2026-10-28"
       }
     ],
     "examples": []
@@ -284,13 +252,13 @@
     }
   },
   "article": {
-    "title": "IPO daily: Jio ends debut at ₹1,419 after opening at ₹1,358",
-    "dek": "Jio opened 21.35% above its ₹1,119 issue price and finished its first session at ₹1,419, up 26.81% from issue price. Its ₹30,213 crore offer drew 22.19× subscription.",
+    "title": "IPO daily: Jio Platforms debuts at ₹1,358, 21.35% above issue price",
+    "dek": "Jio's listing price of ₹1,358 compared with its ₹1,119 offer. The ₹30,213 crore issue closed at 22.19× subscription.",
     "category": "startups",
     "lead": true,
     "readMins": 4,
     "body": [
-      "Jio Platforms began exchange trading on Wednesday at ₹1,358 on the NSE and BSE, around 21.35% above its ₹1,119 IPO issue price, Times of India reported. Financial Express reported a first-session close of ₹1,419 on both exchanges, up 4.49% from the listing price and 26.81% from the issue price. The debut print and the end-of-session quote are different reference points.",
+      "Jio Platforms began exchange trading on Wednesday at ₹1,358 on the NSE and BSE, around 21.35% above its ₹1,119 IPO issue price, Times of India reported. This is the debut/listing price, not a first-session closing quote. The closing quote is withheld in this edition because a corroborated exchange-linked close could not be recovered by the publication workflow.",
       "The public offer was ₹30,213 crore and comprised 27 crore fresh equity shares, with no offer-for-sale component. The company said it planned to use up to ₹27,500 crore of net proceeds to repay or prepay borrowings of its subsidiary, Reliance Jio Infocomm, according to The Economic Times.",
       "Before listing, the final subscription book was 22.19× overall. The QIB portion was subscribed 70.55×, NII 14× and retail 2.72×. Employee demand was 2.93× and the Reliance shareholder category 7.6×. These are final bidding figures reported for the 23 October close, not live post-listing demand. Retail applicants bid for a minimum of 12 shares, costing ₹13,428 at the upper price band.",
       "IPO pipeline | EAAA India Alternatives was scheduled to conclude bidding on 28 October. BLS Polymers, SFC Environmental Technologies and Wiscon Industries are scheduled to close on 29 October. M.K. Sons Fine Jewels, Carver Roboweld and Ajwa Projects opened on 28 October and are scheduled to close on 30 October. Bombay Coated and Special Steels is scheduled to open on 29 October and close on 2 November.",
@@ -300,8 +268,8 @@
       "This is an informational market update, not a recommendation to apply for or trade any IPO."
     ],
     "indiaImpact": "Jio's debut adds a large listed telecom and digital platform to public markets. Its first-session quote, offer demand and the next issues' timelines should be read separately; subscription demand is not a forecast of listing returns.",
-    "seoTitle": "IPO Today 28 Oct 2026: Jio closes at ₹1,419, subscription and calendar",
-    "seoDescription": "Jio's 28 Oct debut and first-day close, final 22.19x IPO demand by category, current mainboard/SME issue calendar, allotment schedule and data caveats.",
+    "seoTitle": "IPO Today 28 Oct 2026: Jio debuts at ₹1,358, subscription and calendar",
+    "seoDescription": "Jio's listing price, final 22.19x IPO demand by category, current mainboard/SME issue calendar, allotment schedule and data caveats.",
     "tags": [
       "IPO today",
       "Jio Platforms listing",
@@ -417,7 +385,7 @@
         {
           "label": "Jio Platforms",
           "value": "Listed 28 Oct",
-          "note": "Debut ₹1,358 · first-session close ₹1,419"
+          "note": "Debut ₹1,358 · closing quote not verified in this edition"
         },
         {
           "label": "Paras Healthcare",
