@@ -399,22 +399,6 @@
     "as_of": "2026-10-28"
    },
    {
-    "id": "brent",
-    "label": "Brent crude intraday (USD/barrel)",
-    "value": "115.47",
-    "source": "oil",
-    "evidence": "Brent crude futures increased 1.4% to $115.47 per barrel, while US West Texas Intermediate climbed 1.4% to $101.33.",
-    "as_of": "2026-10-28"
-   },
-   {
-    "id": "brentpct",
-    "label": "Brent crude intraday change %",
-    "value": "1.4",
-    "source": "oil",
-    "evidence": "Brent crude futures increased 1.4% to $115.47 per barrel, while US West Texas Intermediate climbed 1.4% to $101.33.",
-    "as_of": "2026-10-28"
-   },
-   {
     "id": "nextdate",
     "label": "Next results calendar session day",
     "value": "29",
@@ -671,7 +655,7 @@
    "Sector heatmap | Auto +1.45%, Pharma +1.04%, Financial Services +0.47% and Bank +0.54%. On the softer side, IT fell 1.98%, Realty 0.89%, Energy 0.89%, FMCG 0.56% and Metal 0.32%. These are index moves, not explanations by themselves.",
    "Nifty 50 movers | Gainers: Apollo Hospitals +4.43%, Larsen & Toubro +3.72%, Trent +3.31%, SBI Life Insurance +2.06% and InterGlobe Aviation +2.03%. Decliners: Infosys -3.43%, Reliance Industries -3.19%, ONGC -2.16%, Tech Mahindra -1.92% and Bharti Airtel -1.55%.",
    "Institutional flows | The latest available provisional cash-market row is 27 October, not 28 October. FII/FPI bought ₹24,517.65 crore and sold ₹20,277.26 crore, net +₹4,240.39 crore. DIIs bought ₹15,702.74 crore and sold ₹16,952.77 crore, net -₹1,250.03 crore. Month-to-date through 27 October remained net negative for FIIs and net positive for DIIs, as shown on the flow dashboard. These are provisional cash flows. The collector’s 28 October 19:28 IST fetch had no matching-date flow row; no same-day value is inferred.",
-   "Drivers | Reuters reported Brent crude futures up 1.4% to $115.47 a barrel after the Houthi group claimed a missile strike targeting Saudi Arabia’s largest refinery; Saudi authorities had not immediately confirmed the attack. Higher oil renews concern about imported inflation and margins in India. Indian IT and energy shares weighed on benchmarks, while global technology stocks had rallied overnight. The contrast suggests local oil and sector-specific concerns mattered; no single cause is established.",
+   "Drivers | Reuters reported crude prices rose after the Houthi group claimed a missile strike targeting Saudi Arabia’s largest refinery; Saudi authorities had not immediately confirmed the attack. Higher oil renews concern about imported inflation and margins in India. Indian IT and energy shares weighed on benchmarks, while global technology stocks had rallied overnight. The contrast suggests local oil and sector-specific concerns mattered; no single cause is established.",
    "Corporate developments | Larsen & Toubro gained 3.72% after reporting Q2 FY27 net profit of ₹5,202 crore, up 32.5% year on year, according to Financial Express. Jio Platforms made a strong market debut at a premium to its issue price, but that strength did not offset pressure in heavyweight IT and energy names.",
    "Global context | US benchmarks finished higher on 27 October as technology shares advanced. Asian markets were broadly firmer on 28 October, led by a sharp rally in South Korea after SK Hynix results; Japan also gained. Investors were cautious ahead of the Federal Reserve’s policy decision later on 28 October.",
    "Options and activity | Current NIFTY ATM/near-ATM OI changes, PCR, and the relevant contract expiry were not verified from a reliable end-of-day chain. Exchange cash turnover and total-market breadth are also unavailable in this edition; neither is estimated.",
@@ -723,7 +707,7 @@
     "url": "https://www.moneycontrol.com/stocks/marketstats/fii_dii_activity/"
    }
   ],
-  "publishedAt": "2026-10-28T19:46:00+05:30",
+  "publishedAt": "2026-10-28T19:52:00+05:30",
   "edition": "2026-10-28-close",
   "editionLabel": "Wed 28 Oct · Market close",
   "status": "new",
