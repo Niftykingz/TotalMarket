@@ -1,18 +1,39 @@
 {
  "slug": "2026-10-28-ipo-daily-jio-debut-subscription-calendar",
  "job": "pipeline/inbox/2026-10-28-ipo-daily-jio-debut-subscription-calendar.json",
- "job_sha256": "9e01e266d0dcaeb9a4864e8d601311bb66b327b831d31bc19b40f42c2495357a",
+ "job_sha256": "4ebece09a3d30b39072baa7c775a0e40e927c1d62d6b4464815d91e499e198da",
  "stages": {
   "DATA_COLLECTION": {
+   "status": "PASS",
+   "sha256": "c38e3f75c215c3021f9cb66abb82fa415cd4d34046d03f33d70b74a4bb8c2586",
+   "errors": [],
+   "started": "2026-10-28T17:44:57+05:30",
+   "finished": "2026-10-28T17:45:01+05:30"
+  },
+  "DATA_VERIFICATION": {
+   "status": "PASS",
+   "sha256": "ff6fbcaab6708e243c3a276e5f12e5a79a85596f07d08410c284d47192004b60",
+   "errors": [],
+   "started": "2026-10-28T17:45:01+05:30",
+   "finished": "2026-10-28T17:45:02+05:30"
+  },
+  "GRAPHICS_GENERATION": {
+   "status": "PASS",
+   "sha256": "bdf12d7908ad1b9f6d3e3c91bdb62c88fa514f2c33e9517ca3e36ae20b9053e5",
+   "errors": [],
+   "started": "2026-10-28T17:45:02+05:30",
+   "finished": "2026-10-28T17:45:02+05:30"
+  },
+  "ARTICLE_WRITING": {
    "status": "FAILED",
-   "sha256": "2e52fc3d3f1124e3864124fcfc4fbffe5d5edc921862cb72f8b88c77d2d3f0a0",
+   "sha256": "c6af4054d3e7093cdd7e2dba43b68bd76bd71e5c8f241db346703326d4ce2538",
    "errors": [
-    "SOURCE_RECOVERY: close: original source unavailable: source fetch failed: HTTP Error 403: Forbidden",
-    "SOURCE_RECOVERY: closepct: original source unavailable: source fetch failed: HTTP Error 403: Forbidden",
-    "SOURCE_RECOVERY: sessionchange: original source unavailable: source fetch failed: HTTP Error 403: Forbidden"
+    "article cites a source not in the collected dataset: https://www.reuters.com/world/india/ambanis-jio-make-mumbai-trading-debut-after-record-32-billion-india-ipo-2026-10-28/",
+    "article cites a source not in the collected dataset: https://ipostatus.kfintech.com/",
+    "article cites a source not in the collected dataset: https://in.mpms.mufg.com/Initial_Offer/public-issues.html"
    ],
-   "started": "2026-10-28T17:43:45+05:30",
-   "finished": "2026-10-28T17:43:46+05:30"
+   "started": "2026-10-28T17:45:02+05:30",
+   "finished": "2026-10-28T17:45:02+05:30"
   }
  }
 }

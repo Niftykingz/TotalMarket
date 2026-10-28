@@ -1,0 +1,180 @@
+{
+ "fields": {
+  "coverHeadline": "JIO IPO 22.19X SUBSCRIBED",
+  "stat": "22.19x",
+  "statLabel": "Final overall subscription",
+  "coverContext": "Final book · 23 Oct 2026 | Listing day · 28 Oct",
+  "coverDate": "2026-10-28",
+  "symbol": "growth",
+  "coverLabel": "IPO daily",
+  "flags": [
+   "IN"
+  ],
+  "chart": {
+   "type": "ipo_subscription",
+   "title": "Jio Platforms · final investor demand",
+   "asOf": "Final book · 23 Oct 2026, 7:30 pm IST",
+   "source": "The Economic Times",
+   "items": [
+    {
+     "label": "Total",
+     "value": "22.19x",
+     "role": "total",
+     "note": "Final public issue book",
+     "figures": [
+      "total"
+     ]
+    },
+    {
+     "label": "QIB",
+     "value": "70.55x",
+     "figures": [
+      "qib"
+     ]
+    },
+    {
+     "label": "NII",
+     "value": "14.00x",
+     "figures": [
+      "nii"
+     ]
+    },
+    {
+     "label": "Retail",
+     "value": "2.72x",
+     "figures": [
+      "retail"
+     ]
+    },
+    {
+     "label": "Employees",
+     "value": "2.93x",
+     "figures": [
+      "emp"
+     ]
+    },
+    {
+     "label": "Shareholders",
+     "value": "7.60x",
+     "figures": [
+      "share"
+     ]
+    }
+   ]
+  }
+ },
+ "analysis": {
+  "event": "ipo",
+  "instruments": [],
+  "companies": [],
+  "direction": "down",
+  "template": "ipo_subscription",
+  "object": "growth",
+  "figures": [
+   {
+    "label": "Total",
+    "value": "22.19x",
+    "role": "total",
+    "note": "Final public issue book",
+    "figures": [
+     "total"
+    ]
+   },
+   {
+    "label": "QIB",
+    "value": "70.55x",
+    "figures": [
+     "qib"
+    ]
+   },
+   {
+    "label": "NII",
+    "value": "14.00x",
+    "figures": [
+     "nii"
+    ]
+   },
+   {
+    "label": "Retail",
+    "value": "2.72x",
+    "figures": [
+     "retail"
+    ]
+   },
+   {
+    "label": "Employees",
+    "value": "2.93x",
+    "figures": [
+     "emp"
+    ]
+   },
+   {
+    "label": "Shareholders",
+    "value": "7.60x",
+    "figures": [
+     "share"
+    ]
+   }
+  ],
+  "series": [],
+  "reason": "ipo story with a verified ipo_subscription chart",
+  "data_required": true,
+  "missing": "",
+  "chart": {
+   "type": "ipo_subscription",
+   "title": "Jio Platforms · final investor demand",
+   "asOf": "Final book · 23 Oct 2026, 7:30 pm IST",
+   "source": "The Economic Times",
+   "items": [
+    {
+     "label": "Total",
+     "value": "22.19x",
+     "role": "total",
+     "note": "Final public issue book",
+     "figures": [
+      "total"
+     ]
+    },
+    {
+     "label": "QIB",
+     "value": "70.55x",
+     "figures": [
+      "qib"
+     ]
+    },
+    {
+     "label": "NII",
+     "value": "14.00x",
+     "figures": [
+      "nii"
+     ]
+    },
+    {
+     "label": "Retail",
+     "value": "2.72x",
+     "figures": [
+      "retail"
+     ]
+    },
+    {
+     "label": "Employees",
+     "value": "2.93x",
+     "figures": [
+      "emp"
+     ]
+    },
+    {
+     "label": "Shareholders",
+     "value": "7.60x",
+     "figures": [
+      "share"
+     ]
+    }
+   ]
+  }
+ },
+ "headline": "IPO daily: Jio closes its debut session at ₹1,417.50; final demand and upcoming issue calendar",
+ "files": {
+  "cover.jpg": "3f3323c06217bbe28ee0e5e35f5417d0da10a04052ad53f0c88111a9f64a557d"
+ }
+}
