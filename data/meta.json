@@ -63,16 +63,6 @@
    }
   },
   {
-   "label": "MCX Gold",
-   "value": "₹1,45,972",
-   "change": "-0.37%"
-  },
-  {
-   "label": "MCX Silver",
-   "value": "₹2,09,207",
-   "change": "-1.08%"
-  },
-  {
    "label": "Brent",
    "value": "$115.47",
    "change": "+1.4%",
@@ -122,14 +112,14 @@
   },
   {
    "label": "DXY",
-   "value": "101.65",
-   "change": "-0.13%",
-   "asOf": "2026-10-22",
+   "value": "102.35",
+   "change": "+0.38%",
+   "asOf": "2026-10-27",
    "kind": "close",
-   "asOfText": "22 Oct close (US)",
+   "asOfText": "27 Oct close (US); latest confirmed close",
    "source": {
-    "name": "CappNotes: Closing Look, 22 Oct",
-    "url": "https://cappnotes.substack.com/p/closing-look-thursday-october-22"
+    "name": "Portfolio Terminal, ICE DXY daily close",
+    "url": "https://portfolio-terminal.com/markets/us-dollar-index/october-2026"
    }
   },
   {
@@ -230,7 +220,7 @@
   }
  ],
  "tickerAsOf": "28 Oct close",
- "updatedAt": "2026-10-28T19:31:00+05:30",
+ "updatedAt": "2026-10-28T19:40:00+05:30",
  "history": {
   "Nifty 50": [
    {
@@ -375,5 +365,6 @@
     "s": "NSE"
    }
   ]
- }
+ },
+ "tickerNote": "Benchmark closes carry their own session date. IBJA bullion benchmarks replace stale MCX futures in the headline ticker; the separate MCX futures reference in rates.json remains dated 21 Oct and is not a live quote."
 }
