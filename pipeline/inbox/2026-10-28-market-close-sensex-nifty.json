@@ -108,7 +108,8 @@
     "value": "16.36",
     "source": "nse",
     "evidence": "INDIA VIX: last 16.36, change -0.04 points, -0.28%",
-    "as_of": "2026-10-28"
+    "as_of": "2026-10-28",
+    "change": "-0.04"
    },
    {
     "id": "vixpct",
@@ -707,7 +708,7 @@
     "url": "https://www.moneycontrol.com/stocks/marketstats/fii_dii_activity/"
    }
   ],
-  "publishedAt": "2026-10-28T19:52:00+05:30",
+  "publishedAt": "2026-10-28T19:58:00+05:30",
   "edition": "2026-10-28-close",
   "editionLabel": "Wed 28 Oct · Market close",
   "status": "new",
