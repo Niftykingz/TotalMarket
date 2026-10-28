@@ -13,8 +13,8 @@
      "asOf": "Wed 28 Oct, close",
      "type": "close",
      "source": {
-      "name": "NSE India: official index close",
-      "url": "https://www.nseindia.com/api/allIndices"
+      "name": "NSE India: index closing data",
+      "url": "https://www.nseindia.com/market-data/live-market-indices"
      },
      "date": "2026-10-28"
     },
@@ -39,8 +39,8 @@
      "asOf": "Wed 28 Oct, close",
      "type": "close",
      "source": {
-      "name": "NSE India: official index close",
-      "url": "https://www.nseindia.com/api/allIndices"
+      "name": "NSE India: index closing data",
+      "url": "https://www.nseindia.com/market-data/live-market-indices"
      },
      "date": "2026-10-28"
     }

@@ -1,20 +1,20 @@
 {
  "source": {
-  "name": "Moneycontrol: provisional FII/DII cash-market activity",
-  "url": "https://www.moneycontrol.com/stocks/marketstats/fii_dii_activity/"
+  "name": "NSE India: FII/FPI and DII provisional cash-market activity",
+  "url": "https://www.nseindia.com/reports/fii-dii"
  },
- "updatedAt": "2026-10-28T19:31:00+05:30",
+ "updatedAt": "2026-10-28T21:00:14+05:30",
  "month": {
-  "label": "October 2026 (to 27 Oct)",
+  "label": "October 2026 (to 28 Oct)",
   "fii": {
-   "buy": 243148.79,
-   "sell": 291837.27,
-   "net": -48688.48
+   "buy": 259983.32,
+   "sell": 307799.97,
+   "net": -47816.65
   },
   "dii": {
-   "buy": 307469.99,
-   "sell": 247000.13,
-   "net": 60469.86
+   "buy": 324710.89,
+   "sell": 263597.68,
+   "net": 61113.21
   },
   "source": {
    "name": "Moneycontrol: provisional FII/DII cash-market activity",
@@ -22,6 +22,23 @@
   }
  },
  "days": [
+  {
+   "date": "2026-10-28",
+   "fii": {
+    "buy": 16834.53,
+    "sell": 15962.7,
+    "net": 871.83
+   },
+   "dii": {
+    "buy": 17240.9,
+    "sell": 16597.55,
+    "net": 643.35
+   },
+   "source": {
+    "name": "NSE India: FII/FPI and DII provisional cash-market activity",
+    "url": "https://www.nseindia.com/reports/fii-dii"
+   }
+  },
   {
    "date": "2026-10-27",
    "fii": {
