@@ -1,0 +1,202 @@
+{
+ "edition_date": "2026-10-28",
+ "sources": [
+  {
+   "id": "toi",
+   "name": "Times of India: Jio listing and issue summary",
+   "url": "https://timesofindia.indiatimes.com/business/india-business/jio-share-price-jpl-makes-strong-debut-at-21-premium-becomes-indias-second-most-valuable-firm-all-you-need-to-know/articleshow/135253566.cms",
+   "published": "2026-10-28T11:59:00+05:30"
+  },
+  {
+   "id": "reuters",
+   "name": "Reuters: Jio's first-session market close",
+   "url": "https://www.reuters.com/world/india/ambanis-jio-make-mumbai-trading-debut-after-record-32-billion-india-ipo-2026-10-28/",
+   "published": "2026-10-28T17:30:00+05:30"
+  },
+  {
+   "id": "et",
+   "name": "The Economic Times: final Jio IPO subscription details",
+   "url": "https://economictimes.indiatimes.com/markets/ipos/fpos/jio-ipo-day-3-gmp-at-22-issue-subscribed-over-5x-check-brokerage-views-and-key-details/articleshow/135134397.cms",
+   "published": "2026-10-23T20:41:00+05:30"
+  },
+  {
+   "id": "nse",
+   "name": "NSE India: IPO issue calendar and bidding status",
+   "url": "https://www.nseindia.com/market-data/all-upcoming-issues-ipo",
+   "published": "2026-10-28T17:36:00+05:30"
+  },
+  {
+   "id": "bse",
+   "name": "BSE India: public issues calendar",
+   "url": "https://www.bseindia.com/markets/publicIssues/IPOIssues_new.aspx",
+   "published": "2026-10-28T17:36:00+05:30"
+  },
+  {
+   "id": "fe",
+   "name": "Financial Express: M.K. Sons IPO opens",
+   "url": "https://www.financialexpress.com/market/ipo-news/mk-sons-fine-jewels-ipo-opens-check-price-band-lot-size-of-rs-275-cr-issue/4371035/",
+   "published": "2026-10-28T09:22:00+05:30"
+  },
+  {
+   "id": "mint",
+   "name": "Mint: Carver Roboweld IPO terms and schedule",
+   "url": "https://www.livemint.com/market/ipo/carver-roboweld-ipo-ipo1410",
+   "published": "2026-10-28T09:00:00+05:30"
+  },
+  {
+   "id": "bs",
+   "name": "Business Standard: Ajwa Projects IPO terms and schedule",
+   "url": "https://www.business-standard.com/markets/ipo/ajwa-projects-ltd-ipo-96155",
+   "published": "2026-10-28T16:20:00+05:30"
+  },
+  {
+   "id": "up",
+   "name": "Upstox: October IPO calendar",
+   "url": "https://upstox.com/news/market-news/ipo/upcoming-ipos-next-week-sfc-environmental-bls-polymers-bombay-coated-among-7-issues-to-open-jio-platforms-2-others-to-list/article-202298/",
+   "published": "2026-10-26T07:00:00+05:30"
+  },
+  {
+   "id": "icici",
+   "name": "ICICI Direct: Core4 Engineers timetable",
+   "url": "https://www.icicidirect.com/ipo/core4-engineers-ltd-ipo",
+   "published": "2026-10-28T16:00:00+05:30"
+  }
+ ],
+ "figures": [
+  {
+   "id": "close",
+   "label": "Jio Platforms first-session closing price",
+   "value": "1,417.5",
+   "source": "reuters",
+   "evidence": "Jio's stock ended the trading day at 1,417.5 rupees, near the day's high, compared with its 1,119-rupee offer price.",
+   "as_of": "2026-10-28",
+   "key": true
+  },
+  {
+   "id": "debut",
+   "label": "Jio Platforms debut price",
+   "value": "1,358",
+   "source": "toi",
+   "evidence": "Jio Platforms listed on the BSE and NSE at Rs 1,358 per share, around 21.35% above its issue price of Rs 1,119.",
+   "as_of": "2026-10-28",
+   "key": true
+  },
+  {
+   "id": "issue",
+   "label": "Jio Platforms IPO issue price",
+   "value": "1,119",
+   "source": "toi",
+   "evidence": "Jio Platforms listed on the BSE and NSE at Rs 1,358 per share, around 21.35% above its issue price of Rs 1,119.",
+   "as_of": "2026-10-28"
+  },
+  {
+   "id": "prem",
+   "label": "Jio Platforms debut premium percent",
+   "value": "21.35",
+   "source": "toi",
+   "evidence": "Jio Platforms listed on the BSE and NSE at Rs 1,358 per share, around 21.35% above its issue price of Rs 1,119.",
+   "as_of": "2026-10-28"
+  },
+  {
+   "id": "size",
+   "label": "Jio Platforms IPO issue size crore",
+   "value": "30,213",
+   "source": "et",
+   "evidence": "The Rs 30,213 crore IPO offered shares at a price band of Rs 1,065–1,119 apiece.",
+   "as_of": "2026-10-23",
+   "historical": true
+  },
+  {
+   "id": "fresh",
+   "label": "Jio Platforms fresh issue shares crore",
+   "value": "27",
+   "source": "et",
+   "evidence": "The IPO comprised 27 crore fresh equity shares, with no offer-for-sale (OFS) component. The company plans to utilise up to Rs 27,500 crore from the net proceeds to repay or prepay borrowings of its subsidiary, Reliance Jio Infocomm.",
+   "as_of": "2026-10-23",
+   "historical": true
+  },
+  {
+   "id": "debt",
+   "label": "Jio Platforms net proceeds earmarked for repayment crore",
+   "value": "27,500",
+   "source": "et",
+   "evidence": "The IPO comprised 27 crore fresh equity shares, with no offer-for-sale (OFS) component. The company plans to utilise up to Rs 27,500 crore from the net proceeds to repay or prepay borrowings of its subsidiary, Reliance Jio Infocomm.",
+   "as_of": "2026-10-23",
+   "historical": true
+  },
+  {
+   "id": "lot",
+   "label": "Jio Platforms retail minimum lot shares",
+   "value": "12",
+   "source": "et",
+   "evidence": "Retail investors were required to bid for a minimum of 12 shares, an investment of Rs 13,428 at the upper end of the price band.",
+   "as_of": "2026-10-23",
+   "historical": true
+  },
+  {
+   "id": "min",
+   "label": "Jio Platforms retail minimum application amount",
+   "value": "13,428",
+   "source": "et",
+   "evidence": "Retail investors were required to bid for a minimum of 12 shares, an investment of Rs 13,428 at the upper end of the price band.",
+   "as_of": "2026-10-23",
+   "historical": true
+  },
+  {
+   "id": "total",
+   "label": "Jio IPO final overall subscription",
+   "value": "22.19",
+   "source": "et",
+   "evidence": "Jio Platforms' IPO attracted strong investor interest on the final day of bidding, with the issue subscribed 22.19 times overall against 19.75 crore shares on offer.",
+   "as_of": "2026-10-23",
+   "historical": true,
+   "key": true
+  },
+  {
+   "id": "qib",
+   "label": "Jio IPO final QIB subscription",
+   "value": "70.55",
+   "source": "et",
+   "evidence": "The qualified institutional buyers (QIB) portion saw robust demand, with subscriptions reaching 70.55 times against 4.90 crore shares on offer.",
+   "as_of": "2026-10-23",
+   "historical": true
+  },
+  {
+   "id": "nii",
+   "label": "Jio IPO final NII subscription",
+   "value": "14",
+   "source": "et",
+   "evidence": "Meanwhile, the non-institutional investors (NII) category was subscribed 14 times against 3.64 crore shares reserved for the segment.",
+   "as_of": "2026-10-23",
+   "historical": true
+  },
+  {
+   "id": "retail",
+   "label": "Jio IPO final retail subscription",
+   "value": "2.72",
+   "source": "et",
+   "evidence": "The retail individual investor (RII) category was subscribed 2.72 times against 8.50 crore shares reserved for the segment.",
+   "as_of": "2026-10-23",
+   "historical": true
+  },
+  {
+   "id": "emp",
+   "label": "Jio IPO final employee quota subscription",
+   "value": "2.93",
+   "source": "et",
+   "evidence": "Employees' quota was subscribed 2.93 times and Reliance shareholders category got 7.6 times the shares on offer.",
+   "as_of": "2026-10-23",
+   "historical": true
+  },
+  {
+   "id": "share",
+   "label": "Jio IPO final shareholder quota subscription",
+   "value": "7.6",
+   "source": "et",
+   "evidence": "Employees' quota was subscribed 2.93 times and Reliance shareholders category got 7.6 times the shares on offer.",
+   "as_of": "2026-10-23",
+   "historical": true
+  }
+ ],
+ "examples": []
+}
