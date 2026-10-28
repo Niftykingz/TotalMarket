@@ -38,6 +38,12 @@
    "name": "Plenitude: results calendar compiled from company exchange intimations",
    "url": "https://www.plenitude.co.in/pages/results-calendar",
    "published": "2026-10-28"
+  },
+  {
+   "id": "mc",
+   "name": "Moneycontrol: provisional FII/DII cash row, 27 October (previously verified in the published close edition)",
+   "url": "https://www.moneycontrol.com/stocks/marketstats/fii_dii_activity/",
+   "published": "2026-10-27T23:33:24+05:30"
   }
  ],
  "figures": [
@@ -313,50 +319,50 @@
   },
   {
    "id": "fiiNet",
-   "label": "FII/FPI net cash flow, latest available (₹ crore)",
-   "value": "+4240",
-   "source": "flows",
-   "evidence": "27 Oct 2026  | ₹24,518 Cr | ₹20,277 Cr | +₹4,240 Cr | ₹15,703 Cr | ₹16,953 Cr | −₹1,250 Cr",
+   "label": "FII net cash flow, latest available (₹ crore)",
+   "value": "4240.39",
+   "source": "mc",
+   "evidence": "24,517.65 20,277.26 4,240.39 15,702.74 16,952.77 -1,250.03",
    "as_of": "2026-10-27"
   },
   {
    "id": "diiNet",
    "label": "DII net cash flow, latest available (₹ crore)",
-   "value": "-1250",
-   "source": "flows",
-   "evidence": "27 Oct 2026  | ₹24,518 Cr | ₹20,277 Cr | +₹4,240 Cr | ₹15,703 Cr | ₹16,953 Cr | −₹1,250 Cr",
+   "value": "-1250.03",
+   "source": "mc",
+   "evidence": "24,517.65 20,277.26 4,240.39 15,702.74 16,952.77 -1,250.03",
    "as_of": "2026-10-27"
   },
   {
    "id": "fiiBuy",
    "label": "FII gross buy, latest available (₹ crore)",
-   "value": "24518",
-   "source": "flows",
-   "evidence": "27 Oct 2026  | ₹24,518 Cr | ₹20,277 Cr | +₹4,240 Cr | ₹15,703 Cr | ₹16,953 Cr | −₹1,250 Cr",
+   "value": "24517.65",
+   "source": "mc",
+   "evidence": "24,517.65 20,277.26 4,240.39 15,702.74 16,952.77 -1,250.03",
    "as_of": "2026-10-27"
   },
   {
    "id": "fiiSell",
    "label": "FII gross sell, latest available (₹ crore)",
-   "value": "20277",
-   "source": "flows",
-   "evidence": "27 Oct 2026  | ₹24,518 Cr | ₹20,277 Cr | +₹4,240 Cr | ₹15,703 Cr | ₹16,953 Cr | −₹1,250 Cr",
+   "value": "20277.26",
+   "source": "mc",
+   "evidence": "24,517.65 20,277.26 4,240.39 15,702.74 16,952.77 -1,250.03",
    "as_of": "2026-10-27"
   },
   {
    "id": "diiBuy",
    "label": "DII gross buy, latest available (₹ crore)",
-   "value": "15703",
-   "source": "flows",
-   "evidence": "27 Oct 2026  | ₹24,518 Cr | ₹20,277 Cr | +₹4,240 Cr | ₹15,703 Cr | ₹16,953 Cr | −₹1,250 Cr",
+   "value": "15702.74",
+   "source": "mc",
+   "evidence": "24,517.65 20,277.26 4,240.39 15,702.74 16,952.77 -1,250.03",
    "as_of": "2026-10-27"
   },
   {
    "id": "diiSell",
    "label": "DII gross sell, latest available (₹ crore)",
-   "value": "16953",
-   "source": "flows",
-   "evidence": "27 Oct 2026  | ₹24,518 Cr | ₹20,277 Cr | +₹4,240 Cr | ₹15,703 Cr | ₹16,953 Cr | −₹1,250 Cr",
+   "value": "16952.77",
+   "source": "mc",
+   "evidence": "24,517.65 20,277.26 4,240.39 15,702.74 16,952.77 -1,250.03",
    "as_of": "2026-10-27"
   },
   {
@@ -395,16 +401,16 @@
    "id": "ltprofit",
    "label": "L&T Q2 consolidated net profit (₹ crore)",
    "value": "5202.10",
-   "source": "lt",
-   "evidence": "Larsen & Toubro reported Q2 FY27 net profit of Rs 5,202 crore, up 32% year-on-year and 26% sequentially.",
+   "source": "up",
+   "evidence": "L&T stock surged following a strong set of earnings for the September quarter (Q2 FY27). The company on Tuesday reported a 32.5% rise in consolidated net profit to ₹5,202.10 crore for the quarter ended September 2026, driven by higher revenue.",
    "as_of": "2026-10-28"
   },
   {
    "id": "ltprofitpct",
    "label": "L&T Q2 net profit growth YoY %",
    "value": "32.5",
-   "source": "lt",
-   "evidence": "Larsen & Toubro reported Q2 FY27 net profit of Rs 5,202 crore, up 32% year-on-year and 26% sequentially.",
+   "source": "up",
+   "evidence": "L&T stock surged following a strong set of earnings for the September quarter (Q2 FY27). The company on Tuesday reported a 32.5% rise in consolidated net profit to ₹5,202.10 crore for the quarter ended September 2026, driven by higher revenue.",
    "as_of": "2026-10-28"
   },
   {
