@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "targetDate": "2026-10-28",
-  "collectedAt": "2026-10-28T19:28:04.625591+05:30",
+  "collectedAt": "2026-10-28T21:00:08.872393+05:30",
   "provider": "NSE India",
   "status": "partial",
   "datasets": {
@@ -117,12 +117,26 @@
           "asOf": "2026-10-28"
         }
       ]
+    },
+    "institutionalFlows": {
+      "sourceUrl": "https://www.nseindia.com/api/fiidiiTradeReact",
+      "rows": [
+        {
+          "category": "DII",
+          "netCrore": 643.35,
+          "asOf": "2026-10-28"
+        },
+        {
+          "category": "FII/FPI",
+          "netCrore": 871.83,
+          "asOf": "2026-10-28"
+        }
+      ]
     }
   },
   "errors": [
     "nifty50: HTTP Error 404: Not Found",
     "nifty50_alt: HTTP Error 404: Not Found",
-    "institutionalFlows: matching-date FII and DII rows unavailable",
     "bse_sensex_live: Expecting value: line 3 column 1 (char 4)"
   ],
   "diagnostics": {
@@ -184,7 +198,7 @@
         "sellValue"
       ],
       "rowTimestamps": [
-        "27-Oct-2026"
+        "28-Oct-2026"
       ],
       "rows": 2
     },
@@ -198,17 +212,17 @@
     },
     "bse_sensex_arch": {
       "type": "dict",
-      "sample": "{\"Table\": []}"
+      "sample": "{\"Table\": [{\"Day\": 28, \"Month\": \"October\", \"year\": \"2026\", \"Turnover\": \"1077.28\", \"tdate\": \"2026-10-28T00:00:00\", \"I_name\": \"SENSEX \", \"I_open\": 73253.44, \"I_high\": 73525.44, \"I_low\": 72603.57, \"I_close\": 73246.03, \"I_pe\": 19.02, \"I_pb\": 3.95, \"I_yl\": 1.03, \"Turnover_1\": \"1077.28\", \"TOTAL_SHARES_TRADED\": \"1.02\", \"Previousclose\": 73598.67, \"Chg\": -352.64, \"ChgPer\": -0.47913909313, \"Volume\": \"1.02\"}"
     }
   },
   "raw": {
     "/api/allIndices": {
-      "sha256": "a27188e30ed516499d7091ea5692c5bb5ab4ad62131f721888a7e059d2ec1438",
-      "bytes": 113879
+      "sha256": "6b2082cabc6528e0510ceb9d5cbfd2ab8cf93f77f3201d7e48f03fcf2a2e67ad",
+      "bytes": 113891
     },
     "/api/fiidiiTradeReact": {
-      "sha256": "cb31c95049ba52eba96c45cf71efc18a8b6edbc047ac6e66d40e299ce318f5f3",
-      "bytes": 218
+      "sha256": "4825530e416e5a3e92d132173a02434caa33e69bd9b895fa6d8500e518216ef1",
+      "bytes": 213
     },
     "bhavcopy": {
       "sha256": "cbfbfbd7b4ed3d54fadf8857b0f4c7a1e603052045013fb6b2bc7bf72e451f94",
@@ -219,8 +233,8 @@
       "bytes": 3344
     },
     "bse_sensex_arch": {
-      "sha256": "6c5f836e6ec3d342ca468ae7d77eb33d9e9baff40797c9ea78c9435ae03157fb",
-      "bytes": 12
+      "sha256": "d3946de36053cc32867d0d49fc6a791cdd13e028b91d8e2982ce1a77f663c900",
+      "bytes": 366
     }
   }
 }
