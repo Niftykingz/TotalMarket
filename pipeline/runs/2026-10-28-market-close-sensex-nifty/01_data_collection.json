@@ -398,22 +398,6 @@
    "as_of": "2026-10-28"
   },
   {
-   "id": "brent",
-   "label": "Brent crude intraday (USD/barrel)",
-   "value": "115.47",
-   "source": "oil",
-   "evidence": "Brent crude futures increased 1.4% to $115.47 per barrel, while US West Texas Intermediate climbed 1.4% to $101.33.",
-   "as_of": "2026-10-28"
-  },
-  {
-   "id": "brentpct",
-   "label": "Brent crude intraday change %",
-   "value": "1.4",
-   "source": "oil",
-   "evidence": "Brent crude futures increased 1.4% to $115.47 per barrel, while US West Texas Intermediate climbed 1.4% to $101.33.",
-   "as_of": "2026-10-28"
-  },
-  {
    "id": "nextdate",
    "label": "Next results calendar session day",
    "value": "29",

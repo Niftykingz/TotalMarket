@@ -1,0 +1,243 @@
+{
+ "fields": {
+  "coverHeadline": "MARKET CLOSE",
+  "coverDate": "2026-10-28",
+  "symbol": "candles",
+  "coverLabel": "INDIAN MARKETS · CLOSE",
+  "flags": [
+   "IN"
+  ],
+  "chart": {
+   "type": "market_close",
+   "title": "Indian markets · close",
+   "asOf": "Close, Wed 28 Oct 2026",
+   "dateLabel": "Wednesday, 28 October 2026",
+   "summary": "Nifty 50 fell 0.22%; Bank Nifty gained 0.54%. Auto rose 1.45%, while IT dropped 1.98%.",
+   "source": "NSE India, Upstox",
+   "breadthUniverse": "Nifty 50",
+   "items": [
+    {
+     "label": "NIFTY 50",
+     "value": "22698.85",
+     "change": "-50.90",
+     "pct": "-0.22%",
+     "figures": [
+      "n50",
+      "n50pct"
+     ]
+    },
+    {
+     "label": "SENSEX",
+     "value": "73246.03",
+     "change": "-352.64",
+     "pct": "-0.48%",
+     "figures": [
+      "sensex",
+      "sensexpct"
+     ]
+    },
+    {
+     "label": "NIFTY BANK",
+     "value": "54267.4",
+     "change": "+292.5",
+     "pct": "+0.54%",
+     "figures": [
+      "bank",
+      "bankpct"
+     ]
+    },
+    {
+     "label": "INDIA VIX",
+     "value": "16.36",
+     "change": "-0.04",
+     "pct": "-0.28%",
+     "figures": [
+      "vix",
+      "vixpct"
+     ]
+    },
+    {
+     "label": "Nifty 50 advances",
+     "value": "26",
+     "role": "advances",
+     "figures": [
+      "n50adv"
+     ]
+    },
+    {
+     "label": "Nifty 50 declines",
+     "value": "24",
+     "role": "declines",
+     "figures": [
+      "n50dec"
+     ]
+    },
+    {
+     "label": "Nifty 50 unchanged",
+     "value": "0",
+     "role": "unchanged",
+     "figures": [
+      "n50unch"
+     ]
+    }
+   ]
+  }
+ },
+ "analysis": {
+  "event": "market_preview",
+  "instruments": [
+   "Nifty 50"
+  ],
+  "companies": [],
+  "direction": "down",
+  "template": "market_close",
+  "object": "candles",
+  "figures": [
+   {
+    "label": "NIFTY 50",
+    "value": "22698.85",
+    "change": "-50.90",
+    "pct": "-0.22%",
+    "figures": [
+     "n50",
+     "n50pct"
+    ]
+   },
+   {
+    "label": "SENSEX",
+    "value": "73246.03",
+    "change": "-352.64",
+    "pct": "-0.48%",
+    "figures": [
+     "sensex",
+     "sensexpct"
+    ]
+   },
+   {
+    "label": "NIFTY BANK",
+    "value": "54267.4",
+    "change": "+292.5",
+    "pct": "+0.54%",
+    "figures": [
+     "bank",
+     "bankpct"
+    ]
+   },
+   {
+    "label": "INDIA VIX",
+    "value": "16.36",
+    "change": "-0.04",
+    "pct": "-0.28%",
+    "figures": [
+     "vix",
+     "vixpct"
+    ]
+   },
+   {
+    "label": "Nifty 50 advances",
+    "value": "26",
+    "role": "advances",
+    "figures": [
+     "n50adv"
+    ]
+   },
+   {
+    "label": "Nifty 50 declines",
+    "value": "24",
+    "role": "declines",
+    "figures": [
+     "n50dec"
+    ]
+   },
+   {
+    "label": "Nifty 50 unchanged",
+    "value": "0",
+    "role": "unchanged",
+    "figures": [
+     "n50unch"
+    ]
+   }
+  ],
+  "series": [],
+  "reason": "market_preview story with a verified market_close chart",
+  "data_required": true,
+  "missing": "",
+  "chart": {
+   "type": "market_close",
+   "title": "Indian markets · close",
+   "asOf": "Close, Wed 28 Oct 2026",
+   "dateLabel": "Wednesday, 28 October 2026",
+   "summary": "Nifty 50 fell 0.22%; Bank Nifty gained 0.54%. Auto rose 1.45%, while IT dropped 1.98%.",
+   "source": "NSE India, Upstox",
+   "breadthUniverse": "Nifty 50",
+   "items": [
+    {
+     "label": "NIFTY 50",
+     "value": "22698.85",
+     "change": "-50.90",
+     "pct": "-0.22%",
+     "figures": [
+      "n50",
+      "n50pct"
+     ]
+    },
+    {
+     "label": "SENSEX",
+     "value": "73246.03",
+     "change": "-352.64",
+     "pct": "-0.48%",
+     "figures": [
+      "sensex",
+      "sensexpct"
+     ]
+    },
+    {
+     "label": "NIFTY BANK",
+     "value": "54267.4",
+     "change": "+292.5",
+     "pct": "+0.54%",
+     "figures": [
+      "bank",
+      "bankpct"
+     ]
+    },
+    {
+     "label": "INDIA VIX",
+     "value": "16.36",
+     "change": "-0.04",
+     "pct": "-0.28%",
+     "figures": [
+      "vix",
+      "vixpct"
+     ]
+    },
+    {
+     "label": "Nifty 50 advances",
+     "value": "26",
+     "role": "advances",
+     "figures": [
+      "n50adv"
+     ]
+    },
+    {
+     "label": "Nifty 50 declines",
+     "value": "24",
+     "role": "declines",
+     "figures": [
+      "n50dec"
+     ]
+    },
+    {
+     "label": "Nifty 50 unchanged",
+     "value": "0",
+     "role": "unchanged",
+     "figures": [
+      "n50unch"
+     ]
+    }
+   ]
+  }
+ },
+ "headline": "India market close: Nifty slips as IT and energy weigh; auto and pharma support | 28 October 2026",
+ "files": {}
+}

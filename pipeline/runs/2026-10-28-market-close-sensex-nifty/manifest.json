@@ -1,17 +1,30 @@
 {
  "slug": "2026-10-28-market-close-sensex-nifty",
  "job": "pipeline/inbox/2026-10-28-market-close-sensex-nifty.json",
- "job_sha256": "2cfb65fef8fa259d984d5b9c9539987e3103e9dc7ee14dab40dbe4ea10aab66d",
+ "job_sha256": "33ac71f9bd625344f87df3c810f3791aad0ef68aeeb0ff2c6bc5c26ba449b504",
  "stages": {
   "DATA_COLLECTION": {
+   "status": "PASS",
+   "sha256": "46f7eec3fe5c97c659c1ee1f086c1ca5e7223cfb245663f930186c170078acba",
+   "errors": [],
+   "started": "2026-10-28T19:43:45+05:30",
+   "finished": "2026-10-28T19:43:48+05:30"
+  },
+  "DATA_VERIFICATION": {
+   "status": "PASS",
+   "sha256": "542fed0532c37553ed9dd0ad64f02193b1629513b91373daf86b06427954c88e",
+   "errors": [],
+   "started": "2026-10-28T19:43:48+05:30",
+   "finished": "2026-10-28T19:43:49+05:30"
+  },
+  "GRAPHICS_GENERATION": {
    "status": "FAILED",
-   "sha256": "f8f0a32484b643b98b37aac25935e89656286d8c8c426dfbfb685318273b9c6c",
+   "sha256": "5085e34564167b2e2eef88f3a9135538d85725d167cabbe4dc04fe35e0f560a7",
    "errors": [
-    "SOURCE_RECOVERY: brent: original source unavailable: source fetch failed: HTTP Error 401: HTTP Forbidden",
-    "SOURCE_RECOVERY: brentpct: original source unavailable: source fetch failed: HTTP Error 401: HTTP Forbidden"
+    "chart item 'INDIA VIX' shows ['-0.04'] not in its own verified figures ['vix', 'vixpct']"
    ],
-   "started": "2026-10-28T19:42:20+05:30",
-   "finished": "2026-10-28T19:42:24+05:30"
+   "started": "2026-10-28T19:43:49+05:30",
+   "finished": "2026-10-28T19:43:49+05:30"
   }
  }
 }
