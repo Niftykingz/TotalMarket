@@ -348,6 +348,66 @@
     "publishedAt": "2026-10-28T17:38:00+05:30",
     "edition": "2026-10-28-ipo",
     "editionLabel": "Wed 28 Oct · IPO daily",
-    "status": "new"
+    "status": "new",
+    "table": {
+      "title": "Issue calendar & allotment watch · 28 Oct",
+      "rows": [
+        {
+          "label": "EAAA India Alternatives",
+          "value": "Scheduled close · 28 Oct",
+          "note": "Mainboard · check final exchange status"
+        },
+        {
+          "label": "BLS Polymers",
+          "value": "Open through 29 Oct",
+          "note": "Mainboard"
+        },
+        {
+          "label": "SFC Environmental Technologies",
+          "value": "Open through 29 Oct",
+          "note": "Mainboard"
+        },
+        {
+          "label": "Wiscon Industries",
+          "value": "Open through 29 Oct",
+          "note": "SME"
+        },
+        {
+          "label": "M.K. Sons Fine Jewels",
+          "value": "Open 28–30 Oct",
+          "note": "Mainboard · issue terms in IPO center"
+        },
+        {
+          "label": "Carver Roboweld",
+          "value": "Open 28–30 Oct",
+          "note": "SME · issue terms in IPO center"
+        },
+        {
+          "label": "Ajwa Projects",
+          "value": "Open 28–30 Oct",
+          "note": "SME · issue terms in IPO center"
+        },
+        {
+          "label": "Bombay Coated & Special Steels",
+          "value": "Opens 29 Oct · closes 2 Nov",
+          "note": "Mainboard · upcoming"
+        },
+        {
+          "label": "Core4 Engineers",
+          "value": "Closed 27 Oct",
+          "note": "Allotment scheduled 28 Oct · listing 30 Oct"
+        },
+        {
+          "label": "Jio Platforms",
+          "value": "Listed 28 Oct",
+          "note": "Debut ₹1,358 · first-session close ₹1,417.50"
+        },
+        {
+          "label": "Paras Healthcare",
+          "value": "Listing scheduled 28 Oct",
+          "note": "Price not independently verified in this report"
+        }
+      ]
+    }
   }
 }
