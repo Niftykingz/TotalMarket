@@ -406,6 +406,38 @@
     "source": "cal",
     "evidence": "Thu 29 Oct · Coal India, Asian Paints, InterGlobe Aviation, Trent, Laurus Labs",
     "as_of": "2026-10-29"
+   },
+   {
+    "id": "n50chg",
+    "label": "Nifty 50 point change",
+    "value": "-50.90",
+    "source": "nse",
+    "evidence": "NIFTY 50: last 22698.85, change -50.9 points, -0.22% (previous close 22749.75",
+    "as_of": "2026-10-28"
+   },
+   {
+    "id": "sensexchg",
+    "label": "Sensex point change",
+    "value": "-352.64",
+    "source": "up",
+    "evidence": "The SENSEX declined by 352.64 points or 0.48% to close at 73,246.03.",
+    "as_of": "2026-10-28"
+   },
+   {
+    "id": "bankchg",
+    "label": "Nifty Bank point change",
+    "value": "292.50",
+    "source": "nse",
+    "evidence": "NIFTY BANK: last 54267.4, change 292.5 points, 0.54% (previous close 53974.9",
+    "as_of": "2026-10-28"
+   },
+   {
+    "id": "vixchg",
+    "label": "India VIX point change",
+    "value": "-0.04",
+    "source": "nse",
+    "evidence": "INDIA VIX: last 16.36, change -0.04 points, -0.28%",
+    "as_of": "2026-10-28"
    }
   ],
   "examples": []
@@ -435,7 +467,8 @@
      "pct": "-0.22%",
      "figures": [
       "n50",
-      "n50pct"
+      "n50pct",
+      "n50chg"
      ]
     },
     {
@@ -445,7 +478,8 @@
      "pct": "-0.48%",
      "figures": [
       "sensex",
-      "sensexpct"
+      "sensexpct",
+      "sensexchg"
      ]
     },
     {
@@ -455,7 +489,8 @@
      "pct": "+0.54%",
      "figures": [
       "bank",
-      "bankpct"
+      "bankpct",
+      "bankchg"
      ]
     },
     {
@@ -465,7 +500,8 @@
      "pct": "-0.28%",
      "figures": [
       "vix",
-      "vixpct"
+      "vixpct",
+      "vixchg"
      ]
     },
     {
@@ -708,7 +744,7 @@
     "url": "https://www.moneycontrol.com/stocks/marketstats/fii_dii_activity/"
    }
   ],
-  "publishedAt": "2026-10-28T19:58:00+05:30",
+  "publishedAt": "2026-10-28T20:04:00+05:30",
   "edition": "2026-10-28-close",
   "editionLabel": "Wed 28 Oct · Market close",
   "status": "new",
