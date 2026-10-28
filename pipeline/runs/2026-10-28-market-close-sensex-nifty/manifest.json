@@ -1,30 +1,16 @@
 {
  "slug": "2026-10-28-market-close-sensex-nifty",
  "job": "pipeline/inbox/2026-10-28-market-close-sensex-nifty.json",
- "job_sha256": "33ac71f9bd625344f87df3c810f3791aad0ef68aeeb0ff2c6bc5c26ba449b504",
+ "job_sha256": "89d935e5150f9f2244073a612590f9e5e03dd6b78ab86c157db1615e286bc501",
  "stages": {
   "DATA_COLLECTION": {
-   "status": "PASS",
-   "sha256": "46f7eec3fe5c97c659c1ee1f086c1ca5e7223cfb245663f930186c170078acba",
-   "errors": [],
-   "started": "2026-10-28T19:43:45+05:30",
-   "finished": "2026-10-28T19:43:48+05:30"
-  },
-  "DATA_VERIFICATION": {
-   "status": "PASS",
-   "sha256": "542fed0532c37553ed9dd0ad64f02193b1629513b91373daf86b06427954c88e",
-   "errors": [],
-   "started": "2026-10-28T19:43:48+05:30",
-   "finished": "2026-10-28T19:43:49+05:30"
-  },
-  "GRAPHICS_GENERATION": {
    "status": "FAILED",
-   "sha256": "5085e34564167b2e2eef88f3a9135538d85725d167cabbe4dc04fe35e0f560a7",
+   "sha256": "2f2ab43472f2e654b1c21da29ecf934cf192e8a4e54d0fc36b97e5696b105bb9",
    "errors": [
-    "chart item 'INDIA VIX' shows ['-0.04'] not in its own verified figures ['vix', 'vixpct']"
+    "SOURCE_RECOVERY: nextdate: original source unavailable: source fetch failed: HTTP Error 403: Forbidden"
    ],
-   "started": "2026-10-28T19:43:49+05:30",
-   "finished": "2026-10-28T19:43:49+05:30"
+   "started": "2026-10-28T19:44:57+05:30",
+   "finished": "2026-10-28T19:45:00+05:30"
   }
  }
 }

@@ -107,7 +107,8 @@
    "value": "16.36",
    "source": "nse",
    "evidence": "INDIA VIX: last 16.36, change -0.04 points, -0.28%",
-   "as_of": "2026-10-28"
+   "as_of": "2026-10-28",
+   "change": "-0.04"
   },
   {
    "id": "vixpct",
@@ -402,7 +403,7 @@
    "label": "Next results calendar session day",
    "value": "29",
    "source": "cal",
-   "evidence": "ets to approve results. upcoming quarterly result dates of nse-listed companies, day by day, updated every hour from the companies’ own intimations. 28 oct 114 29 oct 119 30 oct 137 31 oct 70 1 nov 2 2 nov 146 3 nov 149 4 nov 168 5 nov 130 6 nov 37 7 nov 8 10 nov 4 11 nov 5 12 nov 17 13 nov 15 14 nov 3 wed, 28 oct 2026 t",
+   "evidence": "Thu 29 Oct · Coal India, Asian Paints, InterGlobe Aviation, Trent, Laurus Labs",
    "as_of": "2026-10-29"
   }
  ],
