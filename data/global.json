@@ -1,6 +1,6 @@
 {
- "updatedAt": "2026-10-23T15:52:00+05:30",
- "note": "Closing levels unless marked intraday. TotalMarket does not show live prices; figures come from the reports linked in each row.",
+ "updatedAt": "2026-10-28T19:31:00+05:30",
+ "note": "Closing levels unless marked intraday. India 28 Oct close; US latest close 27 Oct; Asia-Pacific close 28 Oct. Other regions and rates retain their own per-row as-of dates; TotalMarket does not show live prices.",
  "regions": [
   {
    "region": "India",
@@ -13,23 +13,23 @@
      "asOf": "Wed 28 Oct, close",
      "type": "close",
      "source": {
-      "name": "NSE India: index closing data",
-      "url": "https://www.nseindia.com/market-data/live-market-indices"
+      "name": "NSE India: official index close",
+      "url": "https://www.nseindia.com/api/allIndices"
      },
      "date": "2026-10-28"
     },
     {
      "name": "Sensex",
-     "value": "73,598.67",
-     "change": "-8.08",
-     "pct": "-0.01",
-     "asOf": "Tue 27 Oct, close",
+     "value": "73,246.03",
+     "change": "-352.64",
+     "pct": "-0.48",
+     "asOf": "Wed 28 Oct, close (Upstox; BSE archive fetch unavailable)",
      "type": "close",
      "source": {
-      "name": "Moneycontrol: market snapshot, 27 October",
-      "url": "https://www.moneycontrol.com/stocks/marketstats/fii_dii_activity/"
+      "name": "Upstox: 28 October market close",
+      "url": "https://upstox.com/news/market-news/stocks/top-gainers-and-losers-oct-28-infosys-ril-shares-fall-3-apollo-hospitals-l-and-t-gain-4/article-202567/"
      },
-     "date": "2026-10-27"
+     "date": "2026-10-28"
     },
     {
      "name": "Bank Nifty",
@@ -39,8 +39,8 @@
      "asOf": "Wed 28 Oct, close",
      "type": "close",
      "source": {
-      "name": "NSE India: index closing data",
-      "url": "https://www.nseindia.com/market-data/live-market-indices"
+      "name": "NSE India: official index close",
+      "url": "https://www.nseindia.com/api/allIndices"
      },
      "date": "2026-10-28"
     }
@@ -51,51 +51,55 @@
    "rows": [
     {
      "name": "Dow Jones",
-     "value": "52,867.98",
-     "change": "+11.89",
-     "pct": "+0.02",
-     "asOf": "Thu 22 Oct, close",
+     "value": "52,377.57",
+     "change": "+15.99",
+     "pct": "+0.03",
+     "asOf": "Tue 27 Oct, close",
      "type": "close",
      "source": {
-      "name": "AP via ABC News: How US indexes fared 22 Oct",
-      "url": "https://abcnews.com/Business/wireStory/major-us-stock-indexes-fared-thursday-10222026-137490327"
-     }
+      "name": "AP: US market close",
+      "url": "https://apnews.com/article/eae2932c0c253be1039e1545909656a8"
+     },
+     "date": "2026-10-27"
     },
     {
      "name": "S&P 500",
-     "value": "7,663.43",
-     "change": "-93.74",
-     "pct": "-1.21",
-     "asOf": "Thu 22 Oct, close",
+     "value": "7,722.60",
+     "change": "+45.83",
+     "pct": "+0.60",
+     "asOf": "Tue 27 Oct, close",
      "type": "close",
      "source": {
-      "name": "AP via ABC News: How US indexes fared 22 Oct",
-      "url": "https://abcnews.com/Business/wireStory/major-us-stock-indexes-fared-thursday-10222026-137490327"
-     }
+      "name": "AP: US market close",
+      "url": "https://apnews.com/article/eae2932c0c253be1039e1545909656a8"
+     },
+     "date": "2026-10-27"
     },
     {
      "name": "Nasdaq Composite",
-     "value": "26,008.86",
-     "change": "-694.00",
-     "pct": "-2.60",
-     "asOf": "Thu 22 Oct, close",
+     "value": "26,477.81",
+     "change": "+308.43",
+     "pct": "+1.18",
+     "asOf": "Tue 27 Oct, close",
      "type": "close",
      "source": {
-      "name": "AP via ABC News: How US indexes fared 22 Oct",
-      "url": "https://abcnews.com/Business/wireStory/major-us-stock-indexes-fared-thursday-10222026-137490327"
-     }
+      "name": "AP: US market close",
+      "url": "https://apnews.com/article/eae2932c0c253be1039e1545909656a8"
+     },
+     "date": "2026-10-27"
     },
     {
      "name": "Russell 2000",
-     "value": "2,784.03",
-     "change": "+3.01",
-     "pct": "+0.11",
-     "asOf": "Thu 22 Oct, close",
+     "value": "2,818.87",
+     "change": "+32.45",
+     "pct": "+1.16",
+     "asOf": "Tue 27 Oct, close",
      "type": "close",
      "source": {
-      "name": "AP via ABC News: How US indexes fared 22 Oct",
-      "url": "https://abcnews.com/Business/wireStory/major-us-stock-indexes-fared-thursday-10222026-137490327"
-     }
+      "name": "AP: US market close",
+      "url": "https://apnews.com/article/eae2932c0c253be1039e1545909656a8"
+     },
+     "date": "2026-10-27"
     }
    ]
   },
@@ -104,39 +108,42 @@
    "rows": [
     {
      "name": "Nikkei 225 (Japan)",
-     "value": "",
-     "change": "",
-     "pct": "-1.3",
-     "asOf": "Fri 23 Oct, intraday (Reuters, morning)",
-     "type": "intraday",
+     "value": "63,954.19",
+     "change": "+685.82",
+     "pct": "+1.08",
+     "asOf": "Wed 28 Oct, close",
+     "type": "close",
      "source": {
-      "name": "Reuters via Business Standard: Asian shares, 23 Oct",
-      "url": "https://www.business-standard.com/markets/news/asian-shares-slip-as-tech-rout-boosts-bonds-dents-rate-hike-bets-126102300074_1.html"
-     }
+      "name": "Kabutan: Nikkei closing report",
+      "url": "https://s.kabutan.jp/news/n202610280938/"
+     },
+     "date": "2026-10-28"
     },
     {
-     "name": "Kospi (South Korea)",
-     "value": "",
-     "change": "",
-     "pct": "-1.7",
-     "asOf": "Fri 23 Oct, intraday (Reuters, morning)",
-     "type": "intraday",
+     "name": "KOSPI (South Korea)",
+     "value": "6,012.44",
+     "change": "+374.10",
+     "pct": "+6.63",
+     "asOf": "Wed 28 Oct, close",
+     "type": "close",
      "source": {
-      "name": "Reuters via Business Standard: Asian shares, 23 Oct",
-      "url": "https://www.business-standard.com/markets/news/asian-shares-slip-as-tech-rout-boosts-bonds-dents-rate-hike-bets-126102300074_1.html"
-     }
+      "name": "Investing.com: KOSPI historical data",
+      "url": "https://ca.investing.com/indices/kospi-historical-data"
+     },
+     "date": "2026-10-28"
     },
     {
      "name": "Hang Seng (Hong Kong)",
-     "value": "",
-     "change": "",
-     "pct": "+0.1",
-     "asOf": "Fri 23 Oct, intraday (Reuters, morning)",
-     "type": "intraday",
+     "value": "23,094.83",
+     "change": "+53.51",
+     "pct": "+0.23",
+     "asOf": "Wed 28 Oct, close",
+     "type": "close",
      "source": {
-      "name": "Reuters via Business Standard: Asian shares, 23 Oct",
-      "url": "https://www.business-standard.com/markets/news/asian-shares-slip-as-tech-rout-boosts-bonds-dents-rate-hike-bets-126102300074_1.html"
-     }
+      "name": "Yahoo Finance: Hang Seng historical data",
+      "url": "https://fr.finance.yahoo.com/quote/%5EHSI/history/"
+     },
+     "date": "2026-10-28"
     }
    ]
   }

@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-10-23T09:00:00+05:30",
+ "updatedAt": "2026-10-28T19:31:00+05:30",
  "officialPages": {
   "announcements": "https://www.nseindia.com/companies-listing/corporate-filings-announcements",
   "actions": "https://www.nseindia.com/companies-listing/corporate-filings-actions",
@@ -270,6 +270,115 @@
     "name": "Business Standard: Stocks to watch, 23 Oct",
     "url": "https://www.business-standard.com/markets/news/stocks-to-watch-emudhra-infosys-swiggy-hpcl-havells-sun-pharma-jsl-126102300089_1.html"
    }
+  },
+  {
+   "date": "2026-10-29",
+   "company": "Coal India",
+   "ticker": "COALINDIA",
+   "type": "Financial results (scheduled)",
+   "detail": "Q2 FY27 results / board meeting scheduled; calendar dates may change.",
+   "noticeUrl": "",
+   "source": {
+    "name": "Plenitude: October 2026 results calendar (dates from company exchange intimations)",
+    "url": "https://www.plenitude.co.in/pages/results-calendar"
+   }
+  },
+  {
+   "date": "2026-10-29",
+   "company": "Asian Paints",
+   "ticker": "ASIANPAINT",
+   "type": "Financial results (scheduled)",
+   "detail": "Q2 FY27 results / board meeting scheduled; calendar dates may change.",
+   "noticeUrl": "",
+   "source": {
+    "name": "Plenitude: October 2026 results calendar (dates from company exchange intimations)",
+    "url": "https://www.plenitude.co.in/pages/results-calendar"
+   }
+  },
+  {
+   "date": "2026-10-29",
+   "company": "InterGlobe Aviation",
+   "ticker": "INDIGO",
+   "type": "Financial results (scheduled)",
+   "detail": "Q2 FY27 results / board meeting scheduled; calendar dates may change.",
+   "noticeUrl": "",
+   "source": {
+    "name": "Plenitude: October 2026 results calendar (dates from company exchange intimations)",
+    "url": "https://www.plenitude.co.in/pages/results-calendar"
+   }
+  },
+  {
+   "date": "2026-10-29",
+   "company": "Trent",
+   "ticker": "TRENT",
+   "type": "Financial results (scheduled)",
+   "detail": "Q2 FY27 results / board meeting scheduled; calendar dates may change.",
+   "noticeUrl": "",
+   "source": {
+    "name": "Plenitude: October 2026 results calendar (dates from company exchange intimations)",
+    "url": "https://www.plenitude.co.in/pages/results-calendar"
+   }
+  },
+  {
+   "date": "2026-10-29",
+   "company": "Laurus Labs",
+   "ticker": "LAURUSLABS",
+   "type": "Financial results (scheduled)",
+   "detail": "Q2 FY27 results / board meeting scheduled; calendar dates may change.",
+   "noticeUrl": "",
+   "source": {
+    "name": "Plenitude: October 2026 results calendar (dates from company exchange intimations)",
+    "url": "https://www.plenitude.co.in/pages/results-calendar"
+   }
+  },
+  {
+   "date": "2026-10-30",
+   "company": "Reliance Industries",
+   "ticker": "RELIANCE",
+   "type": "Financial results (scheduled)",
+   "detail": "Q2 FY27 results / board meeting scheduled; calendar dates may change.",
+   "noticeUrl": "",
+   "source": {
+    "name": "Plenitude: October 2026 results calendar (dates from company exchange intimations)",
+    "url": "https://www.plenitude.co.in/pages/results-calendar"
+   }
+  },
+  {
+   "date": "2026-10-30",
+   "company": "Sun Pharmaceutical Industries",
+   "ticker": "SUNPHARMA",
+   "type": "Financial results (scheduled)",
+   "detail": "Q2 FY27 results / board meeting scheduled; calendar dates may change.",
+   "noticeUrl": "",
+   "source": {
+    "name": "Plenitude: October 2026 results calendar (dates from company exchange intimations)",
+    "url": "https://www.plenitude.co.in/pages/results-calendar"
+   }
+  },
+  {
+   "date": "2026-10-30",
+   "company": "Bharat Electronics",
+   "ticker": "BEL",
+   "type": "Financial results (scheduled)",
+   "detail": "Q2 FY27 results / board meeting scheduled; calendar dates may change.",
+   "noticeUrl": "",
+   "source": {
+    "name": "Plenitude: October 2026 results calendar (dates from company exchange intimations)",
+    "url": "https://www.plenitude.co.in/pages/results-calendar"
+   }
+  },
+  {
+   "date": "2026-10-30",
+   "company": "Indian Oil Corporation",
+   "ticker": "IOC",
+   "type": "Financial results (scheduled)",
+   "detail": "Q2 FY27 results / board meeting scheduled; calendar dates may change.",
+   "noticeUrl": "",
+   "source": {
+    "name": "Plenitude: October 2026 results calendar (dates from company exchange intimations)",
+    "url": "https://www.plenitude.co.in/pages/results-calendar"
+   }
   }
- ]
+ ],
+ "lastRefreshNote": "Upcoming Q2 FY27 board-meeting dates refreshed 28 Oct 2026 from company-filing calendar. This is a selected calendar, not an exhaustive corporate-action feed."
 }

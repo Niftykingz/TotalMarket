@@ -1,17 +1,17 @@
 {
- "editionLabel": "Tue 27 Oct · Market close",
- "nextUpdate": "2026-10-28T19:30:00+05:30",
+ "editionLabel": "Wed 28 Oct · Market close",
+ "nextUpdate": "2026-10-29T19:30:00+05:30",
  "ticker": [
   {
    "label": "Sensex",
-   "value": "73,598.67",
-   "change": "-0.01%",
-   "asOf": "2026-10-27",
+   "value": "73,246.03",
+   "change": "-0.48%",
+   "asOf": "2026-10-28",
    "kind": "close",
-   "asOfText": "27 Oct close",
+   "asOfText": "28 Oct close · reported by Upstox; BSE API snapshot unavailable",
    "source": {
-    "name": "Moneycontrol: market snapshot, 27 October",
-    "url": "https://www.moneycontrol.com/stocks/marketstats/fii_dii_activity/"
+    "name": "Upstox: 28 October closing report",
+    "url": "https://upstox.com/news/market-news/stocks/top-gainers-and-losers-oct-28-infosys-ril-shares-fall-3-apollo-hospitals-l-and-t-gain-4/article-202567/"
    }
   },
   {
@@ -22,8 +22,8 @@
    "kind": "close",
    "asOfText": "28 Oct close",
    "source": {
-    "name": "NSE India: index closing data",
-    "url": "https://www.nseindia.com/market-data/live-market-indices"
+    "name": "NSE India: official index closing data",
+    "url": "https://www.nseindia.com/api/allIndices"
    }
   },
   {
@@ -34,8 +34,8 @@
    "kind": "close",
    "asOfText": "28 Oct close",
    "source": {
-    "name": "NSE India: index closing data",
-    "url": "https://www.nseindia.com/market-data/live-market-indices"
+    "name": "NSE India: official index closing data",
+    "url": "https://www.nseindia.com/api/allIndices"
    }
   },
   {
@@ -46,20 +46,20 @@
    "kind": "close",
    "asOfText": "28 Oct close",
    "source": {
-    "name": "NSE India: index closing data",
-    "url": "https://www.nseindia.com/market-data/live-market-indices"
+    "name": "NSE India: official index closing data",
+    "url": "https://www.nseindia.com/api/allIndices"
    }
   },
   {
    "label": "USD/INR",
-   "value": "95.1150",
-   "change": "",
-   "asOf": "2026-10-27",
-   "kind": "close",
-   "asOfText": "27 Oct close, Reuters",
+   "value": "95.19",
+   "change": "+0.08%",
+   "asOf": "2026-10-28",
+   "kind": "intraday",
+   "asOfText": "28 Oct intraday, report time not stated",
    "source": {
-    "name": "Reuters: rupee close, 27 October",
-    "url": "https://www.reuters.com/world/india/rupees-oil-linked-losses-meet-key-hurdle-rbi-defence-focus-2026-10-27/"
+    "name": "Reuters: rupee intraday update, 28 October",
+    "url": "https://www.reuters.com/world/india/weakness-across-asian-fx-before-fed-decision-put-mild-pressure-rupee-2026-10-28/"
    }
   },
   {
@@ -74,50 +74,50 @@
   },
   {
    "label": "Brent",
-   "value": "$113.90",
-   "change": "+0.71%",
-   "asOf": "2026-10-23",
+   "value": "$115.47",
+   "change": "+1.4%",
+   "asOf": "2026-10-28",
    "kind": "intraday",
-   "asOfText": "23 Oct, 10:50 am IST (Dec futures)",
+   "asOfText": "28 Oct intraday; Reuters",
    "source": {
-    "name": "Business Standard: Market live, 23 Oct",
-    "url": "https://www.business-standard.com/markets/news/stock-market-live-october-23-nse-bse-sensex-today-nifty50-gift-nifty-crude-oil-prices-jio-ipo-q2-results-today-126102300078_1.html"
+    "name": "Reuters: oil after Saudi refinery attack",
+    "url": "https://www.reuters.com/world/asia-pacific/oil-prices-rise-after-attack-saudi-arabian-refinery-reignites-supply-concerns-2026-10-28/"
    }
   },
   {
    "label": "Gold (spot)",
-   "value": "~$4,022",
-   "change": "~-3%",
-   "asOf": "2026-10-23",
+   "value": "$4,040.32",
+   "change": "-0.4%",
+   "asOf": "2026-10-28",
    "kind": "intraday",
-   "asOfText": "23 Oct, Asia morning",
+   "asOfText": "28 Oct, global market update; Reuters",
    "source": {
-    "name": "Reuters via Business Standard: Asian shares, 23 Oct",
-    "url": "https://www.business-standard.com/markets/news/asian-shares-slip-as-tech-rout-boosts-bonds-dents-rate-hike-bets-126102300074_1.html"
+    "name": "Reuters: global markets, 28 October",
+    "url": "https://www.reuters.com/world/china/global-markets-global-markets-2026-10-28/"
    }
   },
   {
    "label": "Dow",
-   "value": "52,867.98",
-   "change": "+0.02%",
-   "asOf": "2026-10-22",
+   "value": "52,377.57",
+   "change": "+0.03%",
+   "asOf": "2026-10-27",
    "kind": "close",
-   "asOfText": "22 Oct close (US)",
+   "asOfText": "27 Oct close (US)",
    "source": {
-    "name": "AP via ABC News: How US indexes fared 22 Oct",
-    "url": "https://abcnews.com/Business/wireStory/major-us-stock-indexes-fared-thursday-10222026-137490327"
+    "name": "Associated Press: US market close, 27 Oct",
+    "url": "https://apnews.com/article/eae2932c0c253be1039e1545909656a8"
    }
   },
   {
    "label": "Nasdaq",
-   "value": "26,008.86",
-   "change": "-2.60%",
-   "asOf": "2026-10-22",
+   "value": "26,477.81",
+   "change": "+1.18%",
+   "asOf": "2026-10-27",
    "kind": "close",
-   "asOfText": "22 Oct close (US)",
+   "asOfText": "27 Oct close (US)",
    "source": {
-    "name": "AP via ABC News: How US indexes fared 22 Oct",
-    "url": "https://abcnews.com/Business/wireStory/major-us-stock-indexes-fared-thursday-10222026-137490327"
+    "name": "Associated Press: US market close, 27 Oct",
+    "url": "https://apnews.com/article/eae2932c0c253be1039e1545909656a8"
    }
   },
   {
@@ -131,10 +131,106 @@
     "name": "CappNotes: Closing Look, 22 Oct",
     "url": "https://cappnotes.substack.com/p/closing-look-thursday-october-22"
    }
+  },
+  {
+   "label": "IBJA Gold 999",
+   "value": "₹1,41,431/10g",
+   "change": "0.00%",
+   "asOf": "2026-10-28",
+   "kind": "close",
+   "asOfText": "28 Oct indicative PM benchmark",
+   "source": {
+    "name": "Upstox citing IBJA",
+    "url": "https://upstox.com/news/personal-finance/commodities/gold-silver-rates-today-october-28-gold-prices-fall-silver-drops-planning-to-buy-before-dhanteras-diwali-check-24-k-22-k-rates-in-your-city/article-202546/"
+   }
+  },
+  {
+   "label": "IBJA Silver 999",
+   "value": "₹1,92,499/kg",
+   "change": "0.00%",
+   "asOf": "2026-10-28",
+   "kind": "close",
+   "asOfText": "28 Oct indicative PM benchmark",
+   "source": {
+    "name": "Upstox citing IBJA",
+    "url": "https://upstox.com/news/personal-finance/commodities/gold-silver-rates-today-october-28-gold-prices-fall-silver-drops-planning-to-buy-before-dhanteras-diwali-check-24-k-22-k-rates-in-your-city/article-202546/"
+   }
+  },
+  {
+   "label": "WTI",
+   "value": "$101.33",
+   "change": "+1.4%",
+   "asOf": "2026-10-28",
+   "kind": "intraday",
+   "asOfText": "28 Oct intraday; Reuters",
+   "source": {
+    "name": "Reuters: oil after Saudi refinery attack",
+    "url": "https://www.reuters.com/world/asia-pacific/oil-prices-rise-after-attack-saudi-arabian-refinery-reignites-supply-concerns-2026-10-28/"
+   }
+  },
+  {
+   "label": "S&P 500",
+   "value": "7,722.60",
+   "change": "+0.60%",
+   "asOf": "2026-10-27",
+   "kind": "close",
+   "asOfText": "27 Oct close (US)",
+   "source": {
+    "name": "Associated Press: US market close, 27 Oct",
+    "url": "https://apnews.com/article/eae2932c0c253be1039e1545909656a8"
+   }
+  },
+  {
+   "label": "Russell 2000",
+   "value": "2,818.87",
+   "change": "+1.16%",
+   "asOf": "2026-10-27",
+   "kind": "close",
+   "asOfText": "27 Oct close (US)",
+   "source": {
+    "name": "Associated Press: US market close, 27 Oct",
+    "url": "https://apnews.com/article/eae2932c0c253be1039e1545909656a8"
+   }
+  },
+  {
+   "label": "Nikkei 225",
+   "value": "63,954.19",
+   "change": "+1.08%",
+   "asOf": "2026-10-28",
+   "kind": "close",
+   "asOfText": "28 Oct close",
+   "source": {
+    "name": "Kabutan: Nikkei close, 28 Oct",
+    "url": "https://s.kabutan.jp/news/n202610280938/"
+   }
+  },
+  {
+   "label": "KOSPI",
+   "value": "6,012.44",
+   "change": "+6.63%",
+   "asOf": "2026-10-28",
+   "kind": "close",
+   "asOfText": "28 Oct close",
+   "source": {
+    "name": "Investing.com: KOSPI historical data",
+    "url": "https://ca.investing.com/indices/kospi-historical-data"
+   }
+  },
+  {
+   "label": "Hang Seng",
+   "value": "23,094.83",
+   "change": "+0.23%",
+   "asOf": "2026-10-28",
+   "kind": "close",
+   "asOfText": "28 Oct close",
+   "source": {
+    "name": "Yahoo Finance: Hang Seng historical data",
+    "url": "https://fr.finance.yahoo.com/quote/%5EHSI/history/"
+   }
   }
  ],
  "tickerAsOf": "28 Oct close",
- "updatedAt": "2026-10-28T19:28:08+05:30",
+ "updatedAt": "2026-10-28T19:31:00+05:30",
  "history": {
   "Nifty 50": [
    {
@@ -173,7 +269,7 @@
    },
    {
     "d": "2026-10-23",
-    "v": 22600.0,
+    "v": 22600,
     "s": "NSE"
    },
    {
@@ -236,6 +332,11 @@
     "d": "2026-10-27",
     "v": 73598.67,
     "s": "Moneycontrol: market snapshot, 27 October"
+   },
+   {
+    "d": "2026-10-28",
+    "v": 73246.03,
+    "s": "Upstox close report"
    }
   ],
   "Bank Nifty": [

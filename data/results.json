@@ -1,230 +1,194 @@
 [
-  {
-    "date": "2026-10-21",
-    "company": "Eternal",
-    "big": true,
-    "note": "Q2 FY27 results"
-  },
-  {
-    "date": "2026-10-21",
-    "company": "Adani Green Energy",
-    "big": true,
-    "note": "Q2 FY27 results"
-  },
-  {
-    "date": "2026-10-21",
-    "company": "Mahindra & Mahindra Financial Services",
-    "big": false,
-    "note": "Q2 FY27 results"
-  },
-  {
-    "date": "2026-10-22",
-    "company": "Hindustan Petroleum (HPCL)",
-    "big": true,
-    "note": "Q2 FY27 results"
-  },
-  {
-    "date": "2026-10-22",
-    "company": "Havells India",
-    "big": true,
-    "note": "Q2 FY27 results"
-  },
-  {
-    "date": "2026-10-22",
-    "company": "Swiggy",
-    "big": true,
-    "note": "Q2 FY27 results"
-  },
-  {
-    "date": "2026-10-22",
-    "company": "Colgate-Palmolive India",
-    "big": true,
-    "note": "Q2 FY27 results"
-  },
-  {
-    "date": "2026-10-22",
-    "company": "Adani Energy Solutions",
-    "big": true,
-    "note": "Q2 FY27 results"
-  },
-  {
-    "date": "2026-10-22",
-    "company": "Adani Total Gas",
-    "big": false,
-    "note": "Q2 FY27 results"
-  },
-  {
-    "date": "2026-10-22",
-    "company": "Chennai Petroleum",
-    "big": false,
-    "note": "Q2 FY27 results"
-  },
-  {
-    "date": "2026-10-22",
-    "company": "Cyient",
-    "big": false,
-    "note": "Q2 FY27 results"
-  },
-  {
-    "date": "2026-10-22",
-    "company": "CreditAccess Grameen",
-    "big": false,
-    "note": "Q2 FY27 results"
-  },
-  {
-    "date": "2026-10-22",
-    "company": "Hatsun Agro Product",
-    "big": false,
-    "note": "Q2 FY27 results"
-  },
-  {
-    "date": "2026-10-22",
-    "company": "Nuvoco Vistas",
-    "big": false,
-    "note": "Q2 FY27 results"
-  },
-  {
-    "date": "2026-10-22",
-    "company": "Orient Cement",
-    "big": false,
-    "note": "Q2 FY27 results"
-  },
-  {
-    "date": "2026-10-22",
-    "company": "Bluestone Jewellery & Lifestyle",
-    "big": false,
-    "note": "Q2 FY27 results"
-  },
-  {
-    "date": "2026-10-22",
-    "company": "Paisalo Digital",
-    "big": false,
-    "note": "Q2 FY27 results"
-  },
-  {
-    "date": "2026-10-23",
-    "company": "Infosys",
-    "big": true,
-    "note": "Q2 FY27 results"
-  },
-  {
-    "date": "2026-10-23",
-    "company": "IndusInd Bank",
-    "big": true,
-    "note": "Q2 FY27 results"
-  },
-  {
-    "date": "2026-10-23",
-    "company": "Dr Reddy's Laboratories",
-    "big": true,
-    "note": "Q2 FY27 results"
-  },
-  {
-    "date": "2026-10-23",
-    "company": "JSW Steel",
-    "big": true,
-    "note": "Q2 FY27 results"
-  },
-  {
-    "date": "2026-10-23",
-    "company": "Bharat Petroleum (BPCL)",
-    "big": true,
-    "note": "Q2 FY27 results"
-  },
-  {
-    "date": "2026-10-23",
-    "company": "Tata Motors",
-    "big": true,
-    "note": "Q2 FY27 results"
-  },
-  {
-    "date": "2026-10-23",
-    "company": "Torrent Pharmaceuticals",
-    "big": true,
-    "note": "Q2 FY27 results"
-  },
-  {
-    "date": "2026-10-23",
-    "company": "Adani Power",
-    "big": true,
-    "note": "Q2 FY27 results"
-  },
-  {
-    "date": "2026-10-23",
-    "company": "Coforge",
-    "big": false,
-    "note": "Q2 FY27 results"
-  },
-  {
-    "date": "2026-10-23",
-    "company": "Jindal Steel",
-    "big": false,
-    "note": "Q2 FY27 results"
-  },
-  {
-    "date": "2026-10-23",
-    "company": "Mastek",
-    "big": false,
-    "note": "Q2 FY27 results"
-  },
-  {
-    "date": "2026-10-23",
-    "company": "Newgen Software",
-    "big": false,
-    "note": "Q2 FY27 results"
-  },
-  {
-    "date": "2026-10-23",
-    "company": "UTI Asset Management",
-    "big": false,
-    "note": "Q2 FY27 results"
-  },
-  {
-    "date": "2026-10-23",
-    "company": "CSB Bank",
-    "big": false,
-    "note": "Q2 FY27 results"
-  },
-  {
-    "date": "2026-10-23",
-    "company": "Jana Small Finance Bank",
-    "big": false,
-    "note": "Q2 FY27 results"
-  },
-  {
-    "date": "2026-10-24",
-    "company": "Kotak Mahindra Bank",
-    "big": true,
-    "note": "Q2 FY27 results"
-  },
-  {
-    "date": "2026-10-24",
-    "company": "IDFC First Bank",
-    "big": false,
-    "note": "Q2 FY27 results"
-  },
-  {
-    "date": "2026-10-24",
-    "company": "AU Small Finance Bank",
-    "big": false,
-    "note": "Q2 FY27 results"
-  },
-  {
-    "date": "2026-10-24",
-    "company": "JK Cement",
-    "big": false,
-    "note": "Q2 FY27 results"
-  },
-  {
-    "date": "2026-10-24",
-    "company": "Castrol India",
-    "big": false,
-    "note": "Q2 FY27 results"
-  },
-  {
-    "date": "2026-10-24",
-    "company": "Apollo Micro Systems",
-    "big": false,
-    "note": "Q2 FY27 results"
-  }
+ {
+  "date": "2026-10-29",
+  "company": "Coal India",
+  "big": true,
+  "note": "Q2 FY27 board meeting/results scheduled; confirm latest exchange filing."
+ },
+ {
+  "date": "2026-10-29",
+  "company": "Asian Paints",
+  "big": true,
+  "note": "Q2 FY27 board meeting/results scheduled; confirm latest exchange filing."
+ },
+ {
+  "date": "2026-10-29",
+  "company": "InterGlobe Aviation",
+  "big": true,
+  "note": "Q2 FY27 board meeting/results scheduled; confirm latest exchange filing."
+ },
+ {
+  "date": "2026-10-29",
+  "company": "Trent",
+  "big": true,
+  "note": "Q2 FY27 board meeting/results scheduled; confirm latest exchange filing."
+ },
+ {
+  "date": "2026-10-29",
+  "company": "Laurus Labs",
+  "big": true,
+  "note": "Q2 FY27 board meeting/results scheduled; confirm latest exchange filing."
+ },
+ {
+  "date": "2026-10-29",
+  "company": "Ambuja Cements",
+  "big": true,
+  "note": "Q2 FY27 board meeting/results scheduled; confirm latest exchange filing."
+ },
+ {
+  "date": "2026-10-29",
+  "company": "Godrej Consumer Products",
+  "big": true,
+  "note": "Q2 FY27 board meeting/results scheduled; confirm latest exchange filing."
+ },
+ {
+  "date": "2026-10-29",
+  "company": "Welspun Corp",
+  "big": false,
+  "note": "Q2 FY27 board meeting/results scheduled; confirm latest exchange filing."
+ },
+ {
+  "date": "2026-10-29",
+  "company": "Apar Industries",
+  "big": false,
+  "note": "Q2 FY27 board meeting/results scheduled; confirm latest exchange filing."
+ },
+ {
+  "date": "2026-10-29",
+  "company": "Motilal Oswal Financial Services",
+  "big": false,
+  "note": "Q2 FY27 board meeting/results scheduled; confirm latest exchange filing."
+ },
+ {
+  "date": "2026-10-29",
+  "company": "Suzlon Energy",
+  "big": true,
+  "note": "Q2 FY27 board meeting/results scheduled; confirm latest exchange filing."
+ },
+ {
+  "date": "2026-10-30",
+  "company": "Reliance Industries",
+  "big": true,
+  "note": "Q2 FY27 board meeting/results scheduled; confirm latest exchange filing."
+ },
+ {
+  "date": "2026-10-30",
+  "company": "Sun Pharmaceutical Industries",
+  "big": true,
+  "note": "Q2 FY27 board meeting/results scheduled; confirm latest exchange filing."
+ },
+ {
+  "date": "2026-10-30",
+  "company": "Bharat Electronics",
+  "big": true,
+  "note": "Q2 FY27 board meeting/results scheduled; confirm latest exchange filing."
+ },
+ {
+  "date": "2026-10-30",
+  "company": "Indian Oil Corporation",
+  "big": true,
+  "note": "Q2 FY27 board meeting/results scheduled; confirm latest exchange filing."
+ },
+ {
+  "date": "2026-10-30",
+  "company": "Varun Beverages",
+  "big": true,
+  "note": "Q2 FY27 board meeting/results scheduled; confirm latest exchange filing."
+ },
+ {
+  "date": "2026-10-30",
+  "company": "Bank of Baroda",
+  "big": true,
+  "note": "Q2 FY27 board meeting/results scheduled; confirm latest exchange filing."
+ },
+ {
+  "date": "2026-10-30",
+  "company": "GAIL (India)",
+  "big": true,
+  "note": "Q2 FY27 board meeting/results scheduled; confirm latest exchange filing."
+ },
+ {
+  "date": "2026-10-30",
+  "company": "Aditya Birla Capital",
+  "big": false,
+  "note": "Q2 FY27 board meeting/results scheduled; confirm latest exchange filing."
+ },
+ {
+  "date": "2026-10-30",
+  "company": "GE Vernova T&D India",
+  "big": false,
+  "note": "Q2 FY27 board meeting/results scheduled; confirm latest exchange filing."
+ },
+ {
+  "date": "2026-10-30",
+  "company": "Max Healthcare Institute",
+  "big": true,
+  "note": "Q2 FY27 board meeting/results scheduled; confirm latest exchange filing."
+ },
+ {
+  "date": "2026-10-30",
+  "company": "NTPC Green Energy",
+  "big": false,
+  "note": "Q2 FY27 board meeting/results scheduled; confirm latest exchange filing."
+ },
+ {
+  "date": "2026-10-30",
+  "company": "Dixon Technologies",
+  "big": true,
+  "note": "Q2 FY27 board meeting/results scheduled; confirm latest exchange filing."
+ },
+ {
+  "date": "2026-10-31",
+  "company": "NTPC",
+  "big": true,
+  "note": "Q2 FY27 board meeting/results scheduled; confirm latest exchange filing."
+ },
+ {
+  "date": "2026-10-31",
+  "company": "Shyam Metalics and Energy",
+  "big": false,
+  "note": "Q2 FY27 board meeting/results scheduled; confirm latest exchange filing."
+ },
+ {
+  "date": "2026-10-31",
+  "company": "Central Depository Services (India)",
+  "big": true,
+  "note": "Q2 FY27 board meeting/results scheduled; confirm latest exchange filing."
+ },
+ {
+  "date": "2026-10-31",
+  "company": "Sarda Energy & Minerals",
+  "big": false,
+  "note": "Q2 FY27 board meeting/results scheduled; confirm latest exchange filing."
+ },
+ {
+  "date": "2026-10-31",
+  "company": "Zen Technologies",
+  "big": false,
+  "note": "Q2 FY27 board meeting/results scheduled; confirm latest exchange filing."
+ },
+ {
+  "date": "2026-11-02",
+  "company": "ITC",
+  "big": true,
+  "note": "Q2 FY27 board meeting/results scheduled; confirm latest exchange filing."
+ },
+ {
+  "date": "2026-11-02",
+  "company": "NTPC",
+  "big": true,
+  "note": "Q2 FY27 board meeting/results scheduled; confirm latest exchange filing."
+ },
+ {
+  "date": "2026-11-03",
+  "company": "State Bank of India",
+  "big": true,
+  "note": "Q2 FY27 board meeting/results scheduled; confirm latest exchange filing."
+ },
+ {
+  "date": "2026-11-03",
+  "company": "Bajaj Finserv",
+  "big": true,
+  "note": "Q2 FY27 board meeting/results scheduled; confirm latest exchange filing."
+ }
 ]

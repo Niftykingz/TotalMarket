@@ -1,19 +1,19 @@
 {
- "updatedAt": "2026-10-23T09:00:00+05:30",
+ "updatedAt": "2026-10-28T19:31:00+05:30",
  "benchmark": {
-  "source": "India Bullion and Jewellers Association (IBJA)",
-  "url": "https://ibjarates.com/UploadedFiles/30DaysPdf/Pdf_4253_20261027125658557_Daily%20Opening%20and%20Closing%20Market%20Rate.pdf",
-  "date": "2026-10-27",
-  "session": "PM",
+  "source": "Upstox citing IBJA benchmark rates",
+  "url": "https://upstox.com/news/personal-finance/commodities/gold-silver-rates-today-october-28-gold-prices-fall-silver-drops-planning-to-buy-before-dhanteras-diwali-check-24-k-22-k-rates-in-your-city/article-202546/",
+  "date": "2026-10-28",
+  "session": "PM (reported indicative benchmark)",
   "gold": {
-   "999": 141431,
-   "995": 140865,
-   "916": 129551,
+   "585": 82737,
    "750": 106073,
-   "585": 82737
+   "916": 129551,
+   "995": 140865,
+   "999": 141431
   },
   "silver999": 192499,
-  "note": "IBJA 27 October PM benchmark: gold per 10 g; silver per kg. Excludes GST and making charges. Retail and city quotes below retain their own dates."
+  "note": "28 Oct indicative IBJA PM benchmark as reported by Upstox: gold per 10 g; silver per kg. Rates exclude GST and making charges. Retail/city values are indicative All India Bullion quotes, around 1:24 pm IST, and can differ from local jewellers."
  },
  "history": [
   {
@@ -69,23 +69,29 @@
    "gold999": 141431,
    "gold916": 129551,
    "silver999": 192499
+  },
+  {
+   "date": "2026-10-28",
+   "gold999": 141431,
+   "gold916": 129551,
+   "silver999": 192499
   }
  ],
  "retailRange": {
-  "date": "2026-10-23",
+  "date": "2026-10-28",
   "gold24": [
-   144370,
-   144520
+   144210,
+   144696
   ],
   "gold22": [
-   132340,
-   132490
+   132097,
+   132541
   ],
-  "note": "Indicative shop rates quoted early on 23 Oct by the Sunday Guardian (per-gram rates × 10), set before Indian bullion trading opened; GST and making charges extra.",
+  "note": "Indicative All India Bullion city quotes around 1:24 pm IST; 24K and 22K per 10 g. Taxes, local spreads and making charges vary.",
   "sources": [
    {
-    "name": "Sunday Guardian: Gold price today, 23 Oct",
-    "url": "https://sundayguardianlive.com/business/live-gold-price-today-mcx-gold-falls-144-lakh-silver-crashes-5000-as-oil-surge-113-trump-iran-war-fed-rate-check-latest-24k-22k-18k-gold-rate-in-delhi-mumbai-kerala-chennai-more-310421/"
+    "name": "Upstox citing All India Bullion, 28 Oct 2026",
+    "url": "https://upstox.com/news/personal-finance/commodities/gold-silver-rates-today-october-28-gold-prices-fall-silver-drops-planning-to-buy-before-dhanteras-diwali-check-24-k-22-k-rates-in-your-city/article-202546/"
    }
   ]
  },
@@ -93,44 +99,64 @@
   {
    "slug": "delhi",
    "name": "Delhi",
-   "gold24": 144520,
-   "gold22": 132490
+   "gold24": 144611,
+   "gold22": 132463,
+   "silver999": 199400
   },
   {
    "slug": "mumbai",
    "name": "Mumbai",
-   "gold24": 144370,
-   "gold22": 132340
+   "gold24": 144410,
+   "gold22": 132280,
+   "silver999": 199325
   },
   {
    "slug": "chennai",
    "name": "Chennai",
-   "gold24": 144370,
-   "gold22": 132340
+   "gold24": 144696,
+   "gold22": 132541,
+   "silver999": 199425
   },
   {
    "slug": "kolkata",
    "name": "Kolkata",
-   "gold24": 144370,
-   "gold22": 132340
+   "gold24": 144210,
+   "gold22": 132097,
+   "silver999": 199425
   },
   {
    "slug": "bengaluru",
    "name": "Bengaluru",
-   "gold24": 144370,
-   "gold22": 132340
+   "gold24": 144601,
+   "gold22": 132454,
+   "silver999": 199485
   },
   {
    "slug": "hyderabad",
    "name": "Hyderabad",
-   "gold24": 144370,
-   "gold22": 132340
+   "gold24": 144661,
+   "gold22": 132509,
+   "silver999": 199360
+  },
+  {
+   "slug": "ahmedabad",
+   "name": "Ahmedabad",
+   "gold24": 144511,
+   "gold22": 132372,
+   "silver999": 199350
+  },
+  {
+   "slug": "jaipur",
+   "name": "Jaipur",
+   "gold24": 144460,
+   "gold22": 132326,
+   "silver999": 199325
   }
  ],
  "citySource": {
-  "name": "Sunday Guardian",
-  "asOf": "23 Oct 2026, 5:16 am IST",
-  "url": "https://sundayguardianlive.com/business/live-gold-price-today-mcx-gold-falls-144-lakh-silver-crashes-5000-as-oil-surge-113-trump-iran-war-fed-rate-check-latest-24k-22k-18k-gold-rate-in-delhi-mumbai-kerala-chennai-more-310421/"
+  "name": "Upstox citing All India Bullion",
+  "asOf": "28 Oct 2026, around 1:24 pm IST",
+  "url": "https://upstox.com/news/personal-finance/commodities/gold-silver-rates-today-october-28-gold-prices-fall-silver-drops-planning-to-buy-before-dhanteras-diwali-check-24-k-22-k-rates-in-your-city/article-202546/"
  },
  "mcx": {
   "asOf": "21 Oct 2026, morning (published 6:30 am IST)",
@@ -145,16 +171,16 @@
   }
  },
  "silverRetail": {
-  "date": "2026-10-23",
+  "date": "2026-10-28",
   "range": [
-   213400,
-   213400
+   199325,
+   199485
   ],
-  "note": "Delhi shop rate per kg quoted early on 23 Oct by the Sunday Guardian; GST extra.",
+  "note": "Indicative city range per kg, All India Bullion around 1:24 pm IST; taxes and local retail spreads may vary.",
   "source": {
-   "name": "Sunday Guardian: Gold price today, 23 Oct",
-   "url": "https://sundayguardianlive.com/business/live-gold-price-today-mcx-gold-falls-144-lakh-silver-crashes-5000-as-oil-surge-113-trump-iran-war-fed-rate-check-latest-24k-22k-18k-gold-rate-in-delhi-mumbai-kerala-chennai-more-310421/"
+   "name": "Upstox citing All India Bullion, 28 Oct",
+   "url": "https://upstox.com/news/personal-finance/commodities/gold-silver-rates-today-october-28-gold-prices-fall-silver-drops-planning-to-buy-before-dhanteras-diwali-check-24-k-22-k-rates-in-your-city/article-202546/"
   }
  },
- "benchmarkVerifiedAt": "2026-10-27T23:35:07+05:30"
+ "benchmarkVerifiedAt": "2026-10-28T19:31:00+05:30"
 }
