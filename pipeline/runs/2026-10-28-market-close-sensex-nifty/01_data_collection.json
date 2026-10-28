@@ -1,0 +1,436 @@
+{
+ "edition_date": "2026-10-28",
+ "sources": [
+  {
+   "id": "nse",
+   "name": "NSE India: all indices (official close snapshot)",
+   "url": "https://www.nseindia.com/api/allIndices",
+   "published": "2026-10-28T15:30:00+05:30",
+   "dataset": "data/market_snapshots/2026-10-28/api_allIndices.json.gz",
+   "sha256": "70037abadc975a8de0c2fbd8cb006c012140b9348b576aa120a9f28132db9780"
+  },
+  {
+   "id": "up",
+   "name": "Upstox: Nifty 50 closing movers, 28 October",
+   "url": "https://upstox.com/news/market-news/stocks/top-gainers-and-losers-oct-28-infosys-ril-shares-fall-3-apollo-hospitals-l-and-t-gain-4/article-202567/",
+   "published": "2026-10-28T16:37:00+05:30"
+  },
+  {
+   "id": "flows",
+   "name": "FinBizNet: dated FII/DII provisional cash activity (latest row 27 Oct)",
+   "url": "https://finbiznet.com/data/fii-dii-activity",
+   "published": "2026-10-27T23:32:13+05:30"
+  },
+  {
+   "id": "oil",
+   "name": "Reuters: crude rises after reported Saudi refinery attack",
+   "url": "https://www.reuters.com/world/asia-pacific/oil-prices-rise-after-attack-saudi-arabian-refinery-reignites-supply-concerns-2026-10-28/",
+   "published": "2026-10-28"
+  },
+  {
+   "id": "lt",
+   "name": "Financial Express: L&T Q2 FY27 results",
+   "url": "https://www.financialexpress.com/business/industry-lampt-q2-results-net-profit-jumps-32-to-rs-5202-crore-order-inflows-rise-28-4370653/",
+   "published": "2026-10-28"
+  },
+  {
+   "id": "cal",
+   "name": "Plenitude: results calendar compiled from company exchange intimations",
+   "url": "https://www.plenitude.co.in/pages/results-calendar",
+   "published": "2026-10-28"
+  }
+ ],
+ "figures": [
+  {
+   "id": "n50",
+   "label": "Nifty 50 close",
+   "value": "22698.85",
+   "source": "nse",
+   "evidence": "NIFTY 50: last 22698.85, change -50.9 points, -0.22% (previous close 22749.75",
+   "as_of": "2026-10-28",
+   "change": "-50.90",
+   "key": true
+  },
+  {
+   "id": "n50pct",
+   "label": "Nifty 50 change %",
+   "value": "-0.22",
+   "source": "nse",
+   "evidence": "NIFTY 50: last 22698.85, change -50.9 points, -0.22% (previous close 22749.75",
+   "as_of": "2026-10-28"
+  },
+  {
+   "id": "sensex",
+   "label": "Sensex close",
+   "value": "73246.03",
+   "source": "up",
+   "evidence": "The SENSEX declined by 352.64 points or 0.48% to close at 73,246.03.",
+   "as_of": "2026-10-28",
+   "change": "-352.64",
+   "key": true
+  },
+  {
+   "id": "sensexpct",
+   "label": "Sensex change %",
+   "value": "-0.48",
+   "source": "up",
+   "evidence": "The SENSEX declined by 352.64 points or 0.48% to close at 73,246.03.",
+   "as_of": "2026-10-28"
+  },
+  {
+   "id": "bank",
+   "label": "Nifty Bank close",
+   "value": "54267.4",
+   "source": "nse",
+   "evidence": "NIFTY BANK: last 54267.4, change 292.5 points, 0.54% (previous close 53974.9",
+   "as_of": "2026-10-28",
+   "change": "292.5",
+   "key": true
+  },
+  {
+   "id": "bankpct",
+   "label": "Nifty Bank change %",
+   "value": "0.54",
+   "source": "nse",
+   "evidence": "NIFTY BANK: last 54267.4, change 292.5 points, 0.54% (previous close 53974.9",
+   "as_of": "2026-10-28"
+  },
+  {
+   "id": "vix",
+   "label": "India VIX close",
+   "value": "16.36",
+   "source": "nse",
+   "evidence": "INDIA VIX: last 16.36, change -0.04 points, -0.28%",
+   "as_of": "2026-10-28"
+  },
+  {
+   "id": "vixpct",
+   "label": "India VIX change %",
+   "value": "-0.28",
+   "source": "nse",
+   "evidence": "INDIA VIX: last 16.36, change -0.04 points, -0.28%",
+   "as_of": "2026-10-28"
+  },
+  {
+   "id": "n50adv",
+   "label": "Nifty 50 advances",
+   "value": "26",
+   "source": "nse",
+   "evidence": "nifty 50: last 22698.85, change -50.9 points, -0.22% (previous close 22749.75; open 22678, high 22778.05, low 22497.7; advances 26, declines 24, unchanged 0; one week ago 22811.3",
+   "as_of": "2026-10-28"
+  },
+  {
+   "id": "n50dec",
+   "label": "Nifty 50 declines",
+   "value": "24",
+   "source": "nse",
+   "evidence": "nifty 50: last 22698.85, change -50.9 points, -0.22% (previous close 22749.75; open 22678, high 22778.05, low 22497.7; advances 26, declines 24, unchanged 0; one week ago 22811.35 on 21-oct-2026) as of 28-oct-2026 15:30 | nifty next 50: last 67303.7, change -40.25 points, ",
+   "as_of": "2026-10-28"
+  },
+  {
+   "id": "n50unch",
+   "label": "Nifty 50 unchanged",
+   "value": "0",
+   "source": "nse",
+   "evidence": "nifty 50: last 22698.85, change -50.9 points, -0.22% (previous close 22749.75; open 22678, high 22778.05, low 22497.7; advances 26, declines 24, unchanged 0; one week a",
+   "as_of": "2026-10-28"
+  },
+  {
+   "id": "bankadv",
+   "label": "Nifty Bank advances",
+   "value": "7",
+   "source": "nse",
+   "evidence": "67133.3, high 67592.7, low 66888.55; advances 21, declines 29, unchanged 0; one week ago 67655.3 on 21-oct-2026) as of 28-oct-2026 15:30 | nifty bank: last 54267.4, change 292.5 points, 0.54% (previous close 53974.9; open 53793.25, high 54440.25, low 53626.15; advances 7, declines 7, unchanged 0; one week ago 54976.9 on",
+   "as_of": "2026-10-28"
+  },
+  {
+   "id": "bankdec",
+   "label": "Nifty Bank declines",
+   "value": "7",
+   "source": "nse",
+   "evidence": "67133.3, high 67592.7, low 66888.55; advances 21, declines 29, unchanged 0; one week ago 67655.3 on 21-oct-2026) as of 28-oct-2026 15:30 | nifty bank: last 54267.4, change 292.5 points, 0.54% (previous close 53974.9; open 53793.25, high 54440.25, low 53626.15; advances 7, declines 7, unchanged 0; one week ago 54976.9 on",
+   "as_of": "2026-10-28"
+  },
+  {
+   "id": "mid100",
+   "label": "Nifty Midcap 100 change %",
+   "value": "0.43",
+   "source": "nse",
+   "evidence": "NIFTY MIDCAP 100: last 57274.7, change 244.8 points, 0.43%",
+   "as_of": "2026-10-28"
+  },
+  {
+   "id": "small100",
+   "label": "Nifty Smallcap 100 change %",
+   "value": "0.90",
+   "source": "nse",
+   "evidence": "NIFTY SMALLCAP 100: last 18634.9, change 166.2 points, 0.9%",
+   "as_of": "2026-10-28"
+  },
+  {
+   "id": "s_auto",
+   "label": "Nifty Auto change %",
+   "value": "+1.45",
+   "source": "nse",
+   "evidence": "NIFTY AUTO: last 25707.35, change 366.55 points, 1.45% (previous close 25340.8",
+   "as_of": "2026-10-28"
+  },
+  {
+   "id": "s_fmcg",
+   "label": "Nifty FMCG change %",
+   "value": "-0.56",
+   "source": "nse",
+   "evidence": "NIFTY FMCG: last 42878.35, change -239.85 points, -0.56% (previous close 43118.2",
+   "as_of": "2026-10-28"
+  },
+  {
+   "id": "s_it",
+   "label": "Nifty IT change %",
+   "value": "-1.98",
+   "source": "nse",
+   "evidence": "NIFTY IT: last 31553.4, change -636.05 points, -1.98% (previous close 32189.45",
+   "as_of": "2026-10-28"
+  },
+  {
+   "id": "s_metal",
+   "label": "Nifty Metal change %",
+   "value": "-0.32",
+   "source": "nse",
+   "evidence": "NIFTY METAL: last 11769.35, change -37.35 points, -0.32% (previous close 11806.7",
+   "as_of": "2026-10-28"
+  },
+  {
+   "id": "s_pharma",
+   "label": "Nifty Pharma change %",
+   "value": "+1.04",
+   "source": "nse",
+   "evidence": "NIFTY PHARMA: last 26541.35, change 274.1 points, 1.04% (previous close 26267.25",
+   "as_of": "2026-10-28"
+  },
+  {
+   "id": "s_realty",
+   "label": "Nifty Realty change %",
+   "value": "-0.89",
+   "source": "nse",
+   "evidence": "NIFTY REALTY: last 797.85, change -7.2 points, -0.89% (previous close 805.05",
+   "as_of": "2026-10-28"
+  },
+  {
+   "id": "s_energy",
+   "label": "Nifty Energy change %",
+   "value": "-0.89",
+   "source": "nse",
+   "evidence": "NIFTY ENERGY: last 34946.3, change -315.55 points, -0.89% (previous close 35261.85",
+   "as_of": "2026-10-28"
+  },
+  {
+   "id": "s_fin",
+   "label": "Nifty Financial Services change %",
+   "value": "+0.47",
+   "source": "nse",
+   "evidence": "NIFTY FINANCIAL SERVICES: last 24418.25, change 114.5 points, 0.47% (previous close 24303.75",
+   "as_of": "2026-10-28"
+  },
+  {
+   "id": "m_apollo",
+   "label": "Apollo Hospitals daily change %",
+   "value": "+4.43",
+   "source": "up",
+   "evidence": "Apollo Hospitals Enterprise (4.43%)",
+   "as_of": "2026-10-28"
+  },
+  {
+   "id": "m_lt",
+   "label": "Larsen & Toubro daily change %",
+   "value": "+3.72",
+   "source": "up",
+   "evidence": "Larsen & Toubro (L&T) (3.72%)",
+   "as_of": "2026-10-28"
+  },
+  {
+   "id": "m_trent",
+   "label": "Trent daily change %",
+   "value": "+3.31",
+   "source": "up",
+   "evidence": "Trent (3.31%)",
+   "as_of": "2026-10-28"
+  },
+  {
+   "id": "m_sbilife",
+   "label": "SBI Life Insurance daily change %",
+   "value": "+2.06",
+   "source": "up",
+   "evidence": "SBI Life Insurance Company (2.06%)",
+   "as_of": "2026-10-28"
+  },
+  {
+   "id": "m_indigo",
+   "label": "InterGlobe Aviation daily change %",
+   "value": "+2.03",
+   "source": "up",
+   "evidence": "InterGlobe Aviation (IndiGo) (2.03%)",
+   "as_of": "2026-10-28"
+  },
+  {
+   "id": "m_infy",
+   "label": "Infosys daily change %",
+   "value": "-3.43",
+   "source": "up",
+   "evidence": "Infosys, which closed 3.43% lower",
+   "as_of": "2026-10-28"
+  },
+  {
+   "id": "m_reliance",
+   "label": "Reliance Industries daily change %",
+   "value": "-3.19",
+   "source": "up",
+   "evidence": "Reliance Industries Ltd (RIL) (-3.19%)",
+   "as_of": "2026-10-28"
+  },
+  {
+   "id": "m_ongc",
+   "label": "ONGC daily change %",
+   "value": "-2.16",
+   "source": "up",
+   "evidence": "Oil and Natural Gas Corporation (ONGC) (-2.16%)",
+   "as_of": "2026-10-28"
+  },
+  {
+   "id": "m_techm",
+   "label": "Tech Mahindra daily change %",
+   "value": "-1.92",
+   "source": "up",
+   "evidence": "Tech Mahindra (-1.92%)",
+   "as_of": "2026-10-28"
+  },
+  {
+   "id": "m_bharti",
+   "label": "Bharti Airtel daily change %",
+   "value": "-1.55",
+   "source": "up",
+   "evidence": "Bharti Airtel (-1.55%)",
+   "as_of": "2026-10-28"
+  },
+  {
+   "id": "fiiNet",
+   "label": "FII/FPI net cash flow, latest available (₹ crore)",
+   "value": "+4240",
+   "source": "flows",
+   "evidence": "27 Oct 2026  | ₹24,518 Cr | ₹20,277 Cr | +₹4,240 Cr | ₹15,703 Cr | ₹16,953 Cr | −₹1,250 Cr",
+   "as_of": "2026-10-27"
+  },
+  {
+   "id": "diiNet",
+   "label": "DII net cash flow, latest available (₹ crore)",
+   "value": "-1250",
+   "source": "flows",
+   "evidence": "27 Oct 2026  | ₹24,518 Cr | ₹20,277 Cr | +₹4,240 Cr | ₹15,703 Cr | ₹16,953 Cr | −₹1,250 Cr",
+   "as_of": "2026-10-27"
+  },
+  {
+   "id": "fiiBuy",
+   "label": "FII gross buy, latest available (₹ crore)",
+   "value": "24518",
+   "source": "flows",
+   "evidence": "27 Oct 2026  | ₹24,518 Cr | ₹20,277 Cr | +₹4,240 Cr | ₹15,703 Cr | ₹16,953 Cr | −₹1,250 Cr",
+   "as_of": "2026-10-27"
+  },
+  {
+   "id": "fiiSell",
+   "label": "FII gross sell, latest available (₹ crore)",
+   "value": "20277",
+   "source": "flows",
+   "evidence": "27 Oct 2026  | ₹24,518 Cr | ₹20,277 Cr | +₹4,240 Cr | ₹15,703 Cr | ₹16,953 Cr | −₹1,250 Cr",
+   "as_of": "2026-10-27"
+  },
+  {
+   "id": "diiBuy",
+   "label": "DII gross buy, latest available (₹ crore)",
+   "value": "15703",
+   "source": "flows",
+   "evidence": "27 Oct 2026  | ₹24,518 Cr | ₹20,277 Cr | +₹4,240 Cr | ₹15,703 Cr | ₹16,953 Cr | −₹1,250 Cr",
+   "as_of": "2026-10-27"
+  },
+  {
+   "id": "diiSell",
+   "label": "DII gross sell, latest available (₹ crore)",
+   "value": "16953",
+   "source": "flows",
+   "evidence": "27 Oct 2026  | ₹24,518 Cr | ₹20,277 Cr | +₹4,240 Cr | ₹15,703 Cr | ₹16,953 Cr | −₹1,250 Cr",
+   "as_of": "2026-10-27"
+  },
+  {
+   "id": "fiiMtd",
+   "label": "FII October net cash flow through 27 Oct (₹ crore)",
+   "value": "-48688",
+   "source": "flows",
+   "evidence": "Month-to-date (October 2026): FII net −₹48,688 Cr · DII net +₹60,470 Cr.",
+   "as_of": "2026-10-27"
+  },
+  {
+   "id": "diiMtd",
+   "label": "DII October net cash flow through 27 Oct (₹ crore)",
+   "value": "+60470",
+   "source": "flows",
+   "evidence": "Month-to-date (October 2026): FII net −₹48,688 Cr · DII net +₹60,470 Cr.",
+   "as_of": "2026-10-27"
+  },
+  {
+   "id": "n50low",
+   "label": "Nifty 50 session low",
+   "value": "22497.70",
+   "source": "up",
+   "evidence": "The NIFTY50 tumbled as much as 1.11% to reach the session’s low of 22,497.70.",
+   "as_of": "2026-10-28"
+  },
+  {
+   "id": "n50intra",
+   "label": "Nifty 50 maximum intraday decline %",
+   "value": "-1.11",
+   "source": "up",
+   "evidence": "The NIFTY50 tumbled as much as 1.11% to reach the session’s low of 22,497.70.",
+   "as_of": "2026-10-28"
+  },
+  {
+   "id": "ltprofit",
+   "label": "L&T Q2 consolidated net profit (₹ crore)",
+   "value": "5202.10",
+   "source": "lt",
+   "evidence": "Larsen & Toubro reported Q2 FY27 net profit of Rs 5,202 crore, up 32% year-on-year and 26% sequentially.",
+   "as_of": "2026-10-28"
+  },
+  {
+   "id": "ltprofitpct",
+   "label": "L&T Q2 net profit growth YoY %",
+   "value": "32.5",
+   "source": "lt",
+   "evidence": "Larsen & Toubro reported Q2 FY27 net profit of Rs 5,202 crore, up 32% year-on-year and 26% sequentially.",
+   "as_of": "2026-10-28"
+  },
+  {
+   "id": "brent",
+   "label": "Brent crude intraday (USD/barrel)",
+   "value": "115.47",
+   "source": "oil",
+   "evidence": "Brent crude futures increased 1.4% to $115.47 per barrel, while US West Texas Intermediate climbed 1.4% to $101.33.",
+   "as_of": "2026-10-28"
+  },
+  {
+   "id": "brentpct",
+   "label": "Brent crude intraday change %",
+   "value": "1.4",
+   "source": "oil",
+   "evidence": "Brent crude futures increased 1.4% to $115.47 per barrel, while US West Texas Intermediate climbed 1.4% to $101.33.",
+   "as_of": "2026-10-28"
+  },
+  {
+   "id": "nextdate",
+   "label": "Next results calendar session day",
+   "value": "29",
+   "source": "cal",
+   "evidence": "ets to approve results. upcoming quarterly result dates of nse-listed companies, day by day, updated every hour from the companies’ own intimations. 28 oct 114 29 oct 119 30 oct 137 31 oct 70 1 nov 2 2 nov 146 3 nov 149 4 nov 168 5 nov 130 6 nov 37 7 nov 8 10 nov 4 11 nov 5 12 nov 17 13 nov 15 14 nov 3 wed, 28 oct 2026 t",
+   "as_of": "2026-10-29"
+  }
+ ],
+ "examples": []
+}

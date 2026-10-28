@@ -1,0 +1,28 @@
+{
+ "slug": "2026-10-28-market-close-sensex-nifty",
+ "job": "pipeline/inbox/2026-10-28-market-close-sensex-nifty.json",
+ "job_sha256": "30389dee3fa26280f5ca716bbaf68959c3c48e14122eb136e00a8f95578a231d",
+ "stages": {
+  "DATA_COLLECTION": {
+   "status": "FAILED",
+   "sha256": "51afb37e6f02d1181690ab8fb84c7b3b9b3d10970e367f5a9800dac0778c7955",
+   "errors": [
+    "SOURCE_RECOVERY: m_lt: values not supported together by original source",
+    "SOURCE_RECOVERY: fiiNet: values not supported together by original source",
+    "SOURCE_RECOVERY: diiNet: values not supported together by original source",
+    "SOURCE_RECOVERY: fiiBuy: values not supported together by original source",
+    "SOURCE_RECOVERY: fiiSell: values not supported together by original source",
+    "SOURCE_RECOVERY: diiBuy: values not supported together by original source",
+    "SOURCE_RECOVERY: diiSell: values not supported together by original source",
+    "SOURCE_RECOVERY: fiiMtd: values not supported together by original source",
+    "SOURCE_RECOVERY: diiMtd: values not supported together by original source",
+    "SOURCE_RECOVERY: ltprofit: original source unavailable: source fetch failed: HTTP Error 403: Forbidden",
+    "SOURCE_RECOVERY: ltprofitpct: original source unavailable: source fetch failed: HTTP Error 403: Forbidden",
+    "SOURCE_RECOVERY: brent: original source unavailable: source fetch failed: HTTP Error 401: HTTP Forbidden",
+    "SOURCE_RECOVERY: brentpct: original source unavailable: source fetch failed: HTTP Error 401: HTTP Forbidden"
+   ],
+   "started": "2026-10-28T19:37:31+05:30",
+   "finished": "2026-10-28T19:37:34+05:30"
+  }
+ }
+}
