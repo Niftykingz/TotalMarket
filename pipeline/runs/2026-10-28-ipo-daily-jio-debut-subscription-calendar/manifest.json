@@ -1,7 +1,7 @@
 {
  "slug": "2026-10-28-ipo-daily-jio-debut-subscription-calendar",
  "job": "pipeline/inbox/2026-10-28-ipo-daily-jio-debut-subscription-calendar.json",
- "job_sha256": "46612d53b05bdadb4fd47576fc7aff8370484909cfc8b868e031a03aa6fed467",
+ "job_sha256": "4339de710251b5753e75ab23f7b2f9f4cf7eba3b72ceac805328ddb09bb4f592",
  "stages": {
   "DATA_COLLECTION": {
    "status": "FAILED",
@@ -9,8 +9,8 @@
    "errors": [
     "SOURCE_RECOVERY: close: original source unavailable: source fetch failed: HTTP Error 401: HTTP Forbidden"
    ],
-   "started": "2026-10-28T17:41:47+05:30",
-   "finished": "2026-10-28T17:41:48+05:30"
+   "started": "2026-10-28T17:42:46+05:30",
+   "finished": "2026-10-28T17:42:47+05:30"
   }
  }
 }
