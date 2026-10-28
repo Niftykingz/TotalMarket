@@ -223,7 +223,10 @@
           "label": "Total",
           "value": "22.19x",
           "role": "total",
-          "note": "Final public issue book"
+          "note": "Final public issue book",
+          "figures": [
+            "total"
+          ]
         },
         {
           "label": "QIB",
