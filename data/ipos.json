@@ -1,6 +1,6 @@
 {
-  "asOf": "IPO register updated 28 Oct 2026, 5:36 pm IST; subscription snapshots carry their own as-of labels",
-  "updatedAt": "2026-10-28T17:36:00+05:30",
+  "asOf": "27 Oct 2026, approximately 5:38 pm IST; broker subscription snapshots individually labelled",
+  "updatedAt": "2026-10-27T17:38:00+05:30",
   "ipos": [
     {
       "name": "EAAA India Alternatives",
@@ -276,7 +276,7 @@
       "fresh": "₹30,213 cr (27 crore shares)",
       "ofs": "None",
       "subscription": {
-        "asOf": "Final, 23 Oct 2026, 7:30 pm IST (ET citing exchange data)",
+        "asOf": "23 Oct, 7:00 pm (bidding closed 5 pm)",
         "total": 22.19,
         "qib": 70.55,
         "nii": 14,
@@ -284,8 +284,8 @@
         "employee": 2.93,
         "shareholder": 7.6,
         "source": {
-          "name": "The Economic Times: final Jio IPO subscription",
-          "url": "https://economictimes.indiatimes.com/markets/ipos/fpos/jio-ipo-day-3-gmp-at-22-issue-subscribed-over-5x-check-brokerage-views-and-key-details/articleshow/135134397.cms"
+          "name": "HDFC Sky",
+          "url": "https://hdfcsky.com/news/jio-ipo-subscribed-22-19x-on-final-day"
         }
       },
       "note": "Anchor book of ₹8,110 crore drew bids of over ₹2.5 lakh crore. ₹27,500 crore of proceeds will repay Reliance Jio Infocomm's debt.",
@@ -302,30 +302,7 @@
           "name": "The Tribune",
           "url": "https://www.tribuneindia.com/news/anchor-book/jio-platforms-rs-8110-crore-anchor-book-attracts-over-rs-2-5-lakh-crore-in-institutional-demand-draws-marquee-global-investors"
         }
-      ],
-      "listed": true,
-      "issuePrice": 1119,
-      "listingPrice": 1358,
-      "listingGainPct": 21.35,
-      "afterListing": "Opened at ₹1,358 on NSE and BSE (+21.35% vs ₹1,119 issue price); closed at ₹1,417.50 on debut day (Reuters).",
-      "priceSeries": {
-        "label": "NSE price on listing day, ₹",
-        "points": [
-          [
-            "Issue",
-            1119
-          ],
-          [
-            "Open",
-            1358
-          ],
-          [
-            "Close",
-            1417.5
-          ]
-        ],
-        "source": "Times of India (opening); Reuters (close)"
-      }
+      ]
     },
     {
       "name": "Paras Healthcare",
