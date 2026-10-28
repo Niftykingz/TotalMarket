@@ -23,7 +23,8 @@
      "pct": "-0.22%",
      "figures": [
       "n50",
-      "n50pct"
+      "n50pct",
+      "n50chg"
      ]
     },
     {
@@ -33,7 +34,8 @@
      "pct": "-0.48%",
      "figures": [
       "sensex",
-      "sensexpct"
+      "sensexpct",
+      "sensexchg"
      ]
     },
     {
@@ -43,7 +45,8 @@
      "pct": "+0.54%",
      "figures": [
       "bank",
-      "bankpct"
+      "bankpct",
+      "bankchg"
      ]
     },
     {
@@ -53,7 +56,8 @@
      "pct": "-0.28%",
      "figures": [
       "vix",
-      "vixpct"
+      "vixpct",
+      "vixchg"
      ]
     },
     {
@@ -100,7 +104,8 @@
     "pct": "-0.22%",
     "figures": [
      "n50",
-     "n50pct"
+     "n50pct",
+     "n50chg"
     ]
    },
    {
@@ -110,7 +115,8 @@
     "pct": "-0.48%",
     "figures": [
      "sensex",
-     "sensexpct"
+     "sensexpct",
+     "sensexchg"
     ]
    },
    {
@@ -120,7 +126,8 @@
     "pct": "+0.54%",
     "figures": [
      "bank",
-     "bankpct"
+     "bankpct",
+     "bankchg"
     ]
    },
    {
@@ -130,7 +137,8 @@
     "pct": "-0.28%",
     "figures": [
      "vix",
-     "vixpct"
+     "vixpct",
+     "vixchg"
     ]
    },
    {
@@ -178,7 +186,8 @@
      "pct": "-0.22%",
      "figures": [
       "n50",
-      "n50pct"
+      "n50pct",
+      "n50chg"
      ]
     },
     {
@@ -188,7 +197,8 @@
      "pct": "-0.48%",
      "figures": [
       "sensex",
-      "sensexpct"
+      "sensexpct",
+      "sensexchg"
      ]
     },
     {
@@ -198,7 +208,8 @@
      "pct": "+0.54%",
      "figures": [
       "bank",
-      "bankpct"
+      "bankpct",
+      "bankchg"
      ]
     },
     {
@@ -208,7 +219,8 @@
      "pct": "-0.28%",
      "figures": [
       "vix",
-      "vixpct"
+      "vixpct",
+      "vixchg"
      ]
     },
     {
@@ -239,5 +251,7 @@
   }
  },
  "headline": "India market close: Nifty slips as IT and energy weigh; auto and pharma support | 28 October 2026",
- "files": {}
+ "files": {
+  "cover.jpg": "f350cf03dca04ff0e62099b048b7fab794789ff0765149a68bd3c0fc9aae4cc2"
+ }
 }

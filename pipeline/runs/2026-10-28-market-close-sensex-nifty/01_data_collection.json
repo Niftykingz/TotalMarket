@@ -403,8 +403,40 @@
    "label": "Next results calendar session day",
    "value": "29",
    "source": "cal",
-   "evidence": "Thu 29 Oct · Coal India, Asian Paints, InterGlobe Aviation, Trent, Laurus Labs",
+   "evidence": "ets to approve results. upcoming quarterly result dates of nse-listed companies, day by day, updated every hour from the companies’ own intimations. 28 oct 114 29 oct 119 30 oct 137 31 oct 70 1 nov 2 2 nov 146 3 nov 149 4 nov 168 5 nov 130 6 nov 38 7 nov 8 10 nov 4 11 nov 5 12 nov 17 13 nov 15 14 nov 3 wed, 28 oct 2026 t",
    "as_of": "2026-10-29"
+  },
+  {
+   "id": "n50chg",
+   "label": "Nifty 50 point change",
+   "value": "-50.90",
+   "source": "nse",
+   "evidence": "NIFTY 50: last 22698.85, change -50.9 points, -0.22% (previous close 22749.75",
+   "as_of": "2026-10-28"
+  },
+  {
+   "id": "sensexchg",
+   "label": "Sensex point change",
+   "value": "-352.64",
+   "source": "up",
+   "evidence": "The SENSEX declined by 352.64 points or 0.48% to close at 73,246.03.",
+   "as_of": "2026-10-28"
+  },
+  {
+   "id": "bankchg",
+   "label": "Nifty Bank point change",
+   "value": "292.50",
+   "source": "nse",
+   "evidence": "NIFTY BANK: last 54267.4, change 292.5 points, 0.54% (previous close 53974.9",
+   "as_of": "2026-10-28"
+  },
+  {
+   "id": "vixchg",
+   "label": "India VIX point change",
+   "value": "-0.04",
+   "source": "nse",
+   "evidence": "INDIA VIX: last 16.36, change -0.04 points, -0.28%",
+   "as_of": "2026-10-28"
   }
  ],
  "examples": []
