@@ -1,16 +1,18 @@
 {
  "slug": "2026-10-28-ipo-daily-jio-debut-subscription-calendar",
  "job": "pipeline/inbox/2026-10-28-ipo-daily-jio-debut-subscription-calendar.json",
- "job_sha256": "4339de710251b5753e75ab23f7b2f9f4cf7eba3b72ceac805328ddb09bb4f592",
+ "job_sha256": "9e01e266d0dcaeb9a4864e8d601311bb66b327b831d31bc19b40f42c2495357a",
  "stages": {
   "DATA_COLLECTION": {
    "status": "FAILED",
-   "sha256": "6e0847a6922be3d1fd0d2e20aaee1d179a476cf108447ceadb21d14b7dcfb77c",
+   "sha256": "2e52fc3d3f1124e3864124fcfc4fbffe5d5edc921862cb72f8b88c77d2d3f0a0",
    "errors": [
-    "SOURCE_RECOVERY: close: original source unavailable: source fetch failed: HTTP Error 401: HTTP Forbidden"
+    "SOURCE_RECOVERY: close: original source unavailable: source fetch failed: HTTP Error 403: Forbidden",
+    "SOURCE_RECOVERY: closepct: original source unavailable: source fetch failed: HTTP Error 403: Forbidden",
+    "SOURCE_RECOVERY: sessionchange: original source unavailable: source fetch failed: HTTP Error 403: Forbidden"
    ],
-   "started": "2026-10-28T17:42:46+05:30",
-   "finished": "2026-10-28T17:42:47+05:30"
+   "started": "2026-10-28T17:43:45+05:30",
+   "finished": "2026-10-28T17:43:46+05:30"
   }
  }
 }

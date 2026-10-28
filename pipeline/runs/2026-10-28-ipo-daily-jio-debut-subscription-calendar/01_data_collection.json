@@ -8,12 +8,6 @@
    "published": "2026-10-28T11:59:00+05:30"
   },
   {
-   "id": "reuters",
-   "name": "Reuters: Jio's first-session market close",
-   "url": "https://www.reuters.com/world/india/ambanis-jio-make-mumbai-trading-debut-after-record-32-billion-india-ipo-2026-10-28/",
-   "published": "2026-10-28T17:30:00+05:30"
-  },
-  {
    "id": "et",
    "name": "The Economic Times: final Jio IPO subscription details",
    "url": "https://economictimes.indiatimes.com/markets/ipos/fpos/jio-ipo-day-3-gmp-at-22-issue-subscribed-over-5x-check-brokerage-views-and-key-details/articleshow/135134397.cms",
@@ -60,15 +54,21 @@
    "name": "ICICI Direct: Core4 Engineers timetable",
    "url": "https://www.icicidirect.com/ipo/core4-engineers-ltd-ipo",
    "published": "2026-10-28T16:00:00+05:30"
+  },
+  {
+   "id": "feclose",
+   "name": "Financial Express: Jio first-session closing price",
+   "url": "https://www.financialexpress.com/market/ipo-news-jio-platforms-ipo-listing-live-updates-date-time-reliance-jio-estimated-listing-share-price-news-ipo-gains-gmp-price-band-4370422/",
+   "published": "2026-10-28T16:04:00+05:30"
   }
  ],
  "figures": [
   {
    "id": "close",
    "label": "Jio Platforms first-session closing price",
-   "value": "1,417.5",
-   "source": "reuters",
-   "evidence": "Jio's stock ended the trading day at 1,417.5 rupees, near the day's high, compared with its 1,119-rupee offer price.",
+   "value": "1,419",
+   "source": "feclose",
+   "evidence": "Jio Platforms shares ended their first trading session at Rs 1,419 on both the NSE and BSE, gaining 4.49% from the listing price of Rs 1,358. The stock extended its gains after making its market debut at a premium of around 21% to the IPO price.",
    "as_of": "2026-10-28",
    "key": true
   },
@@ -196,6 +196,23 @@
    "evidence": "Employees' quota was subscribed 2.93 times and Reliance shareholders category got 7.6 times the shares on offer.",
    "as_of": "2026-10-23",
    "historical": true
+  },
+  {
+   "id": "closepct",
+   "label": "Jio Platforms first-session gain vs issue percent",
+   "value": "26.81",
+   "source": "feclose",
+   "evidence": "Compared with the issue price of Rs 1,119, the shares closed Rs 300 higher, delivering a gain of 26.81% for investors who received shares in the IPO.",
+   "as_of": "2026-10-28",
+   "key": true
+  },
+  {
+   "id": "sessionchange",
+   "label": "Jio Platforms first-session gain from debut percent",
+   "value": "4.49",
+   "source": "feclose",
+   "evidence": "Jio Platforms shares ended their first trading session at Rs 1,419 on both the NSE and BSE, gaining 4.49% from the listing price of Rs 1,358. The stock extended its gains after making its market debut at a premium of around 21% to the IPO price.",
+   "as_of": "2026-10-28"
   }
  ],
  "examples": []
