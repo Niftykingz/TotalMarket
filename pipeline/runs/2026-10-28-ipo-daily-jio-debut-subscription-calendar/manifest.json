@@ -1,39 +1,42 @@
 {
  "slug": "2026-10-28-ipo-daily-jio-debut-subscription-calendar",
  "job": "pipeline/inbox/2026-10-28-ipo-daily-jio-debut-subscription-calendar.json",
- "job_sha256": "4ebece09a3d30b39072baa7c775a0e40e927c1d62d6b4464815d91e499e198da",
+ "job_sha256": "6d8c447367e5be0ea20e0a09adbcd75052b012990df60999df47a6aea1c72fc2",
  "stages": {
   "DATA_COLLECTION": {
    "status": "PASS",
    "sha256": "c38e3f75c215c3021f9cb66abb82fa415cd4d34046d03f33d70b74a4bb8c2586",
    "errors": [],
-   "started": "2026-10-28T17:44:57+05:30",
-   "finished": "2026-10-28T17:45:01+05:30"
+   "started": "2026-10-28T17:46:03+05:30",
+   "finished": "2026-10-28T17:46:04+05:30"
   },
   "DATA_VERIFICATION": {
    "status": "PASS",
    "sha256": "ff6fbcaab6708e243c3a276e5f12e5a79a85596f07d08410c284d47192004b60",
    "errors": [],
-   "started": "2026-10-28T17:45:01+05:30",
-   "finished": "2026-10-28T17:45:02+05:30"
+   "started": "2026-10-28T17:46:04+05:30",
+   "finished": "2026-10-28T17:46:04+05:30"
   },
   "GRAPHICS_GENERATION": {
    "status": "PASS",
    "sha256": "bdf12d7908ad1b9f6d3e3c91bdb62c88fa514f2c33e9517ca3e36ae20b9053e5",
    "errors": [],
-   "started": "2026-10-28T17:45:02+05:30",
-   "finished": "2026-10-28T17:45:02+05:30"
+   "started": "2026-10-28T17:46:04+05:30",
+   "finished": "2026-10-28T17:46:05+05:30"
   },
   "ARTICLE_WRITING": {
-   "status": "FAILED",
-   "sha256": "c6af4054d3e7093cdd7e2dba43b68bd76bd71e5c8f241db346703326d4ce2538",
-   "errors": [
-    "article cites a source not in the collected dataset: https://www.reuters.com/world/india/ambanis-jio-make-mumbai-trading-debut-after-record-32-billion-india-ipo-2026-10-28/",
-    "article cites a source not in the collected dataset: https://ipostatus.kfintech.com/",
-    "article cites a source not in the collected dataset: https://in.mpms.mufg.com/Initial_Offer/public-issues.html"
-   ],
-   "started": "2026-10-28T17:45:02+05:30",
-   "finished": "2026-10-28T17:45:02+05:30"
+   "status": "PASS",
+   "sha256": "34937c7b5cc7f270533bbb40ec1119749e977e00291822491f34afc86f6bebce",
+   "errors": [],
+   "started": "2026-10-28T17:46:05+05:30",
+   "finished": "2026-10-28T17:46:05+05:30"
+  },
+  "FINAL_QA": {
+   "status": "PASS",
+   "sha256": "e41178a5394f2d7cced3a5f96c05a21b1c99189bb3b992a60b03efbf48e91d6c",
+   "errors": [],
+   "started": "2026-10-28T17:46:05+05:30",
+   "finished": "2026-10-28T17:46:05+05:30"
   }
  }
 }
