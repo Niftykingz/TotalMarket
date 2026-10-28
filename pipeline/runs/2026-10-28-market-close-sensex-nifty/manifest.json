@@ -1,20 +1,17 @@
 {
  "slug": "2026-10-28-market-close-sensex-nifty",
  "job": "pipeline/inbox/2026-10-28-market-close-sensex-nifty.json",
- "job_sha256": "e3a8c2dd7147caa53d9fd8efab01dcb61e9559108bce59ddba9d4e154dbd0461",
+ "job_sha256": "2cfb65fef8fa259d984d5b9c9539987e3103e9dc7ee14dab40dbe4ea10aab66d",
  "stages": {
   "DATA_COLLECTION": {
    "status": "FAILED",
-   "sha256": "d9a918f7f9150216bd1b2f1aa48ed86bda7957ff84b9d9ddad04990a32df63ae",
+   "sha256": "f8f0a32484b643b98b37aac25935e89656286d8c8c426dfbfb685318273b9c6c",
    "errors": [
-    "SOURCE_RECOVERY: m_lt: values not supported together by original source",
-    "SOURCE_RECOVERY: fiiMtd: values not supported together by original source",
-    "SOURCE_RECOVERY: diiMtd: values not supported together by original source",
     "SOURCE_RECOVERY: brent: original source unavailable: source fetch failed: HTTP Error 401: HTTP Forbidden",
     "SOURCE_RECOVERY: brentpct: original source unavailable: source fetch failed: HTTP Error 401: HTTP Forbidden"
    ],
-   "started": "2026-10-28T19:40:33+05:30",
-   "finished": "2026-10-28T19:40:44+05:30"
+   "started": "2026-10-28T19:42:20+05:30",
+   "finished": "2026-10-28T19:42:24+05:30"
   }
  }
 }

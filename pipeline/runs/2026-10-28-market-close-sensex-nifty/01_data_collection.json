@@ -250,7 +250,7 @@
    "label": "Larsen & Toubro daily change %",
    "value": "+3.72",
    "source": "up",
-   "evidence": "Larsen & Toubro (L&T) (3.72%)",
+   "evidence": "Larsen and Toubro (L&T) (3.72%)",
    "as_of": "2026-10-28"
   },
   {
@@ -363,22 +363,6 @@
    "value": "16952.77",
    "source": "mc",
    "evidence": "24,517.65 20,277.26 4,240.39 15,702.74 16,952.77 -1,250.03",
-   "as_of": "2026-10-27"
-  },
-  {
-   "id": "fiiMtd",
-   "label": "FII October net cash flow through 27 Oct (₹ crore)",
-   "value": "-48688",
-   "source": "flows",
-   "evidence": "Month-to-date (October 2026): FII net −₹48,688 Cr · DII net +₹60,470 Cr.",
-   "as_of": "2026-10-27"
-  },
-  {
-   "id": "diiMtd",
-   "label": "DII October net cash flow through 27 Oct (₹ crore)",
-   "value": "+60470",
-   "source": "flows",
-   "evidence": "Month-to-date (October 2026): FII net −₹48,688 Cr · DII net +₹60,470 Cr.",
    "as_of": "2026-10-27"
   },
   {
