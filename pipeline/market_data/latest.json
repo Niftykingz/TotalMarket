@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "targetDate": "2026-10-29",
-  "collectedAt": "2026-10-29T19:30:40.370103+05:30",
+  "collectedAt": "2026-10-29T21:01:01.183488+05:30",
   "provider": "NSE India",
   "status": "partial",
   "datasets": {
@@ -212,13 +212,13 @@
     },
     "bse_sensex_arch": {
       "type": "dict",
-      "sample": "{\"Table\": []}"
+      "sample": "{\"Table\": [{\"Day\": 29, \"Month\": \"October\", \"year\": \"2026\", \"Turnover\": \"1850.56\", \"tdate\": \"2026-10-29T00:00:00\", \"I_name\": \"SENSEX \", \"I_open\": 73268.47, \"I_high\": 74166.16, \"I_low\": 73181.9, \"I_close\": 74151.04, \"I_pe\": 19.25, \"I_pb\": 4.0, \"I_yl\": 1.02, \"Turnover_1\": \"1850.56\", \"TOTAL_SHARES_TRADED\": \"2.00\", \"Previousclose\": 73246.03, \"Chg\": 905.01, \"ChgPer\": 1.23557549808, \"Volume\": \"2.00\"}]}"
     }
   },
   "raw": {
     "/api/allIndices": {
-      "sha256": "e48c2f5b968ff08877fdb74d8a4c307152c0fec6d2cef4d40fa2421597021e2c",
-      "bytes": 113833
+      "sha256": "c31ad243fd8284fc0168eaa90a1525b41a3da1e30b042763075cfbdefae5bcce",
+      "bytes": 113854
     },
     "/api/fiidiiTradeReact": {
       "sha256": "7255966abd48041a3a0d6764e5dca9b7289c99e120738734457f44c342e3c8de",
@@ -233,8 +233,8 @@
       "bytes": 3344
     },
     "bse_sensex_arch": {
-      "sha256": "6c5f836e6ec3d342ca468ae7d77eb33d9e9baff40797c9ea78c9435ae03157fb",
-      "bytes": 12
+      "sha256": "b95beb841a7e6da0fa0406dc50417a49c6886f9d49063aa913b5b2d071859ec2",
+      "bytes": 364
     }
   }
 }
