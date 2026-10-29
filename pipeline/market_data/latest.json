@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "targetDate": "2026-10-29",
-  "collectedAt": "2026-10-29T16:50:41.115139+05:30",
+  "collectedAt": "2026-10-29T19:30:40.370103+05:30",
   "provider": "NSE India",
   "status": "partial",
   "datasets": {
@@ -117,12 +117,26 @@
           "asOf": "2026-10-29"
         }
       ]
+    },
+    "institutionalFlows": {
+      "sourceUrl": "https://www.nseindia.com/api/fiidiiTradeReact",
+      "rows": [
+        {
+          "category": "DII",
+          "netCrore": 1924.41,
+          "asOf": "2026-10-29"
+        },
+        {
+          "category": "FII/FPI",
+          "netCrore": -943.6,
+          "asOf": "2026-10-29"
+        }
+      ]
     }
   },
   "errors": [
     "nifty50: HTTP Error 404: Not Found",
     "nifty50_alt: HTTP Error 404: Not Found",
-    "institutionalFlows: matching-date FII and DII rows unavailable",
     "bse_sensex_live: Expecting value: line 3 column 1 (char 4)"
   ],
   "diagnostics": {
@@ -184,7 +198,7 @@
         "sellValue"
       ],
       "rowTimestamps": [
-        "28-Oct-2026"
+        "29-Oct-2026"
       ],
       "rows": 2
     },
@@ -203,12 +217,12 @@
   },
   "raw": {
     "/api/allIndices": {
-      "sha256": "9de94c8d7d11a679e7447221264ba14e153419fe58262667a81f6f61ae42a3f7",
-      "bytes": 113874
+      "sha256": "e48c2f5b968ff08877fdb74d8a4c307152c0fec6d2cef4d40fa2421597021e2c",
+      "bytes": 113833
     },
     "/api/fiidiiTradeReact": {
-      "sha256": "4825530e416e5a3e92d132173a02434caa33e69bd9b895fa6d8500e518216ef1",
-      "bytes": 213
+      "sha256": "7255966abd48041a3a0d6764e5dca9b7289c99e120738734457f44c342e3c8de",
+      "bytes": 216
     },
     "bhavcopy": {
       "sha256": "18a18db9fd4c2394b764f072f360fae1b383537cfca57d9f5e3c8a05c7c4e881",
