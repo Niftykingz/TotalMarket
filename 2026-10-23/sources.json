@@ -1,0 +1,195 @@
+{
+ "date": "2026-10-23",
+ "generatedAt": "2026-10-24T13:10:23+05:30",
+ "status": "DRAFT — awaiting founder approval",
+ "missing": [],
+ "sources": [
+  {
+   "dataset": "data/market_snapshots/2026-10-23/api_allIndices.json.gz",
+   "sha256": "d7a84444657ca9345f3fdce7b365fda8c61cd01df34e33ffcb9e213695729606",
+   "name": "NSE India: all indices",
+   "url": "https://www.nseindia.com/api/allIndices",
+   "timestamp": "23-Oct-2026 15:30"
+  },
+  {
+   "dataset": "data/market_snapshots/2026-10-23/bse_sensex_arch.json.gz",
+   "sha256": "1e62f51412e5356bf3e21070c43e91898779b5d8bb33c800fd222578512f7623",
+   "name": "BSE India: Sensex daily index archive",
+   "url": "https://api.bseindia.com/BseIndiaAPI/api/IndexArchDaily/w"
+  },
+  {
+   "dataset": "data/market_snapshots/2026-10-23/api_fiidiiTradeReact.json.gz",
+   "sha256": "f982911440a87279e4600375bc31d83f524e3d6e298e38012c21995e836a00e2",
+   "name": "NSE India: FII/FPI and DII provisional cash-market activity",
+   "url": "https://www.nseindia.com/api/fiidiiTradeReact"
+  },
+  {
+   "dataset": "data/market_snapshots/2026-10-23/bhavcopy.json.gz",
+   "sha256": "35ccefe3f28abfaee521508be1b1cf41908e463cb94bf7a9220e276a3fae5b21",
+   "name": "NSE India: capital-market bhavcopy (end of day)"
+  },
+  {
+   "dataset": "data/market_snapshots/2026-10-23/nifty50list.json.gz",
+   "sha256": "f5ba4027d935ae72879d5c24bbebf0e8439ec8ed504ffdf4175fde69206244b3",
+   "name": "NSE India: Nifty 50 constituents"
+  }
+ ],
+ "data": {
+  "indices": {
+   "NIFTY 50": {
+    "close": 22600,
+    "change": -87.65,
+    "pct": -0.39,
+    "source": "nse"
+   },
+   "NIFTY BANK": {
+    "close": 54287.35,
+    "change": -638.35,
+    "pct": -1.16,
+    "source": "nse"
+   },
+   "INDIA VIX": {
+    "close": 16.76,
+    "change": 1,
+    "pct": 6.32,
+    "source": "nse"
+   },
+   "SENSEX": {
+    "close": 73123.83,
+    "change": -125.56,
+    "pct": -0.17,
+    "source": "bse"
+   }
+  },
+  "breadth": {
+   "advances": "50",
+   "declines": "450",
+   "unchanged": "1",
+   "universe": "Nifty 500"
+  },
+  "sectors": [
+   {
+    "name": "Auto",
+    "pct": -0.6
+   },
+   {
+    "name": "FMCG",
+    "pct": -0.99
+   },
+   {
+    "name": "IT",
+    "pct": -0.27
+   },
+   {
+    "name": "Metal",
+    "pct": -2.71
+   },
+   {
+    "name": "Pharma",
+    "pct": -1.04
+   },
+   {
+    "name": "Realty",
+    "pct": -2.38
+   },
+   {
+    "name": "Energy",
+    "pct": -1.66
+   },
+   {
+    "name": "PSU Bank",
+    "pct": -2.26
+   },
+   {
+    "name": "Private Bank",
+    "pct": -0.78
+   },
+   {
+    "name": "Media",
+    "pct": -1.33
+   },
+   {
+    "name": "Consumer Durables",
+    "pct": -2.63
+   },
+   {
+    "name": "Oil & Gas",
+    "pct": -0.62
+   },
+   {
+    "name": "Healthcare",
+    "pct": -0.83
+   },
+   {
+    "name": "Financial Services",
+    "pct": -1.03
+   },
+   {
+    "name": "Bank",
+    "pct": -1.16
+   },
+   {
+    "name": "Chemicals",
+    "pct": -2.32
+   },
+   {
+    "name": "Cement",
+    "pct": -0.31
+   }
+  ],
+  "movers": {
+   "universe": "Nifty 50",
+   "count": 50,
+   "gainers": [
+    {
+     "name": "ETERNAL",
+     "close": 317.4,
+     "prev": 304.45,
+     "pct": 4.25
+    },
+    {
+     "name": "APOLLOHOSP",
+     "close": 7730.0,
+     "prev": 7604.5,
+     "pct": 1.65
+    },
+    {
+     "name": "ONGC",
+     "close": 227.5,
+     "prev": 225.0,
+     "pct": 1.11
+    }
+   ],
+   "losers": [
+    {
+     "name": "SHRIRAMFIN",
+     "close": 865.0,
+     "prev": 900.9,
+     "pct": -3.98
+    },
+    {
+     "name": "ADANIENT",
+     "close": 2477.0,
+     "prev": 2550.0,
+     "pct": -2.86
+    },
+    {
+     "name": "JSWSTEEL",
+     "close": 1185.5,
+     "prev": 1220.0,
+     "pct": -2.83
+    }
+   ]
+  },
+  "flows": {
+   "fii": "887.65",
+   "dii": "3235.36",
+   "status": "provisional",
+   "fiiBuy": "14445.54",
+   "fiiSell": "13557.89",
+   "diiBuy": "19232.31",
+   "diiSell": "15996.95"
+  },
+  "bottomLine": "The Nifty 50 fell 0.39%; 450 of 501 Nifty 500 stocks declined, and small caps fell more (-2.94%)."
+ }
+}

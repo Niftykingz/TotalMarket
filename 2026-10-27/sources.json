@@ -1,0 +1,172 @@
+{
+ "date": "2026-10-27",
+ "generatedAt": "2026-10-27T19:22:01+05:30",
+ "status": "DRAFT — awaiting founder approval",
+ "missing": [
+  "SENSEX (BSE index: needs a sourced figure in data/closing_inputs)",
+  "FII/DII (not published by NSE for this date yet)"
+ ],
+ "sources": [
+  {
+   "dataset": "data/market_snapshots/2026-10-27/api_allIndices.json.gz",
+   "sha256": "b4e38a65f27364c16ed3b794f10dfd575d918f12bb92f1630a624c4ed8efa028",
+   "name": "NSE India: all indices",
+   "url": "https://www.nseindia.com/api/allIndices",
+   "timestamp": "27-Oct-2026 15:30"
+  },
+  {
+   "dataset": "data/market_snapshots/2026-10-27/bhavcopy.json.gz",
+   "sha256": "5be67e599f3240b2d941c8c6fc464757185e781b801e998908b2dffcd731aad7",
+   "name": "NSE India: capital-market bhavcopy (end of day)"
+  },
+  {
+   "dataset": "data/market_snapshots/2026-10-27/nifty50list.json.gz",
+   "sha256": "f5ba4027d935ae72879d5c24bbebf0e8439ec8ed504ffdf4175fde69206244b3",
+   "name": "NSE India: Nifty 50 constituents"
+  }
+ ],
+ "data": {
+  "indices": {
+   "NIFTY 50": {
+    "close": 22749.75,
+    "change": -3.45,
+    "pct": -0.02,
+    "source": "nse"
+   },
+   "NIFTY BANK": {
+    "close": 53974.9,
+    "change": -391.8,
+    "pct": -0.72,
+    "source": "nse"
+   },
+   "INDIA VIX": {
+    "close": 16.53,
+    "change": -0.63,
+    "pct": -3.65,
+    "source": "nse"
+   }
+  },
+  "breadth": {
+   "advances": "352",
+   "declines": "147",
+   "unchanged": "2",
+   "universe": "Nifty 500"
+  },
+  "sectors": [
+   {
+    "name": "Auto",
+    "pct": 1.48
+   },
+   {
+    "name": "FMCG",
+    "pct": 0.74
+   },
+   {
+    "name": "IT",
+    "pct": -0.26
+   },
+   {
+    "name": "Metal",
+    "pct": 0.64
+   },
+   {
+    "name": "Pharma",
+    "pct": 1.91
+   },
+   {
+    "name": "Realty",
+    "pct": 1.94
+   },
+   {
+    "name": "Energy",
+    "pct": 0.68
+   },
+   {
+    "name": "PSU Bank",
+    "pct": 0.41
+   },
+   {
+    "name": "Private Bank",
+    "pct": -0.73
+   },
+   {
+    "name": "Media",
+    "pct": 3.66
+   },
+   {
+    "name": "Consumer Durables",
+    "pct": 1.19
+   },
+   {
+    "name": "Oil & Gas",
+    "pct": 0.14
+   },
+   {
+    "name": "Healthcare",
+    "pct": 1.65
+   },
+   {
+    "name": "Financial Services",
+    "pct": -0.62
+   },
+   {
+    "name": "Bank",
+    "pct": -0.72
+   },
+   {
+    "name": "Chemicals",
+    "pct": 1.8
+   },
+   {
+    "name": "Cement",
+    "pct": -2.03
+   }
+  ],
+  "movers": {
+   "universe": "Nifty 50",
+   "count": 50,
+   "gainers": [
+    {
+     "name": "TATACONSUM",
+     "close": 1000.0,
+     "prev": 936.5,
+     "pct": 6.78
+    },
+    {
+     "name": "BHARTIARTL",
+     "close": 1978.8,
+     "prev": 1917.5,
+     "pct": 3.2
+    },
+    {
+     "name": "BAJAJ-AUTO",
+     "close": 10390.0,
+     "prev": 10071.0,
+     "pct": 3.17
+    }
+   ],
+   "losers": [
+    {
+     "name": "ASIANPAINT",
+     "close": 2277.0,
+     "prev": 2322.0,
+     "pct": -1.94
+    },
+    {
+     "name": "COALINDIA",
+     "close": 398.0,
+     "prev": 405.0,
+     "pct": -1.73
+    },
+    {
+     "name": "GRASIM",
+     "close": 2900.8,
+     "prev": 2950.0,
+     "pct": -1.67
+    }
+   ]
+  },
+  "flows": null,
+  "bottomLine": "The Nifty 50 fell 0.02%; 352 of 501 Nifty 500 stocks advanced."
+ }
+}

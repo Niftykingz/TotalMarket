@@ -1,0 +1,185 @@
+{
+ "date": "2026-10-28",
+ "generatedAt": "2026-10-28T22:57:41+05:30",
+ "status": "DRAFT — awaiting founder approval",
+ "missing": [
+  "SENSEX (BSE index: needs a sourced figure in data/closing_inputs)"
+ ],
+ "sources": [
+  {
+   "dataset": "data/market_snapshots/2026-10-28/api_allIndices.json.gz",
+   "sha256": "70037abadc975a8de0c2fbd8cb006c012140b9348b576aa120a9f28132db9780",
+   "name": "NSE India: all indices",
+   "url": "https://www.nseindia.com/api/allIndices",
+   "timestamp": "28-Oct-2026 15:30"
+  },
+  {
+   "dataset": "data/market_snapshots/2026-10-28/api_fiidiiTradeReact.json.gz",
+   "sha256": "4825530e416e5a3e92d132173a02434caa33e69bd9b895fa6d8500e518216ef1",
+   "name": "NSE India: FII/FPI and DII provisional cash-market activity",
+   "url": "https://www.nseindia.com/api/fiidiiTradeReact"
+  },
+  {
+   "dataset": "data/market_snapshots/2026-10-28/bhavcopy.json.gz",
+   "sha256": "cbfbfbd7b4ed3d54fadf8857b0f4c7a1e603052045013fb6b2bc7bf72e451f94",
+   "name": "NSE India: capital-market bhavcopy (end of day)"
+  },
+  {
+   "dataset": "data/market_snapshots/2026-10-28/nifty50list.json.gz",
+   "sha256": "f5ba4027d935ae72879d5c24bbebf0e8439ec8ed504ffdf4175fde69206244b3",
+   "name": "NSE India: Nifty 50 constituents"
+  }
+ ],
+ "data": {
+  "indices": {
+   "NIFTY 50": {
+    "close": 22698.85,
+    "change": -50.9,
+    "pct": -0.22,
+    "source": "nse"
+   },
+   "NIFTY BANK": {
+    "close": 54267.4,
+    "change": 292.5,
+    "pct": 0.54,
+    "source": "nse"
+   },
+   "INDIA VIX": {
+    "close": 16.36,
+    "change": -0.04,
+    "pct": -0.28,
+    "source": "nse"
+   }
+  },
+  "breadth": {
+   "advances": "246",
+   "declines": "252",
+   "unchanged": "3",
+   "universe": "Nifty 500"
+  },
+  "sectors": [
+   {
+    "name": "Auto",
+    "pct": 1.45
+   },
+   {
+    "name": "FMCG",
+    "pct": -0.56
+   },
+   {
+    "name": "IT",
+    "pct": -1.98
+   },
+   {
+    "name": "Metal",
+    "pct": -0.32
+   },
+   {
+    "name": "Pharma",
+    "pct": 1.04
+   },
+   {
+    "name": "Realty",
+    "pct": -0.89
+   },
+   {
+    "name": "Energy",
+    "pct": -0.89
+   },
+   {
+    "name": "PSU Bank",
+    "pct": 0.08
+   },
+   {
+    "name": "Private Bank",
+    "pct": 0.35
+   },
+   {
+    "name": "Media",
+    "pct": 1.38
+   },
+   {
+    "name": "Consumer Durables",
+    "pct": 1.41
+   },
+   {
+    "name": "Oil & Gas",
+    "pct": -2.27
+   },
+   {
+    "name": "Healthcare",
+    "pct": 1.15
+   },
+   {
+    "name": "Financial Services",
+    "pct": 0.47
+   },
+   {
+    "name": "Bank",
+    "pct": 0.54
+   },
+   {
+    "name": "Chemicals",
+    "pct": -0.21
+   },
+   {
+    "name": "Cement",
+    "pct": -0.32
+   }
+  ],
+  "movers": {
+   "universe": "Nifty 50",
+   "count": 50,
+   "gainers": [
+    {
+     "name": "APOLLOHOSP",
+     "close": 8137.0,
+     "prev": 7791.5,
+     "pct": 4.43
+    },
+    {
+     "name": "LT",
+     "close": 3801.3,
+     "prev": 3665.1,
+     "pct": 3.72
+    },
+    {
+     "name": "TRENT",
+     "close": 2913.9,
+     "prev": 2820.6,
+     "pct": 3.31
+    }
+   ],
+   "losers": [
+    {
+     "name": "INFY",
+     "close": 1123.15,
+     "prev": 1163.0,
+     "pct": -3.43
+    },
+    {
+     "name": "RELIANCE",
+     "close": 1158.0,
+     "prev": 1196.2,
+     "pct": -3.19
+    },
+    {
+     "name": "ONGC",
+     "close": 224.89,
+     "prev": 229.85,
+     "pct": -2.16
+    }
+   ]
+  },
+  "flows": {
+   "fii": "871.83",
+   "dii": "643.35",
+   "status": "provisional",
+   "fiiBuy": "16834.53",
+   "fiiSell": "15962.7",
+   "diiBuy": "17240.9",
+   "diiSell": "16597.55"
+  },
+  "bottomLine": "The Nifty 50 fell 0.22%; 252 of 501 Nifty 500 stocks declined."
+ }
+}
