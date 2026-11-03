@@ -207,8 +207,8 @@
       "bytes": 113787
     },
     "/api/fiidiiTradeReact": {
-      "sha256": "576ceacd52d09a957b4cb6df71c071e6334e9d9f1cec09952d0a96eb9a6b4f76",
-      "bytes": 216
+      "sha256": "cf45cf74f9bb7ad217d4a21f3baa18cce559015e7ea08caf3c492c9b9806cb17",
+      "bytes": 217
     },
     "bhavcopy": {
       "sha256": "6b52c74a3f116a786dfa238ea095d4c4da2b9f538d6a88bd92bebb666d4e806c",
@@ -222,5 +222,16 @@
       "sha256": "6c5f836e6ec3d342ca468ae7d77eb33d9e9baff40797c9ea78c9435ae03157fb",
       "bytes": 12
     }
-  }
+  },
+  "reruns": [
+    {
+      "collectedAt": "2026-11-03T19:43:10.010533+05:30",
+      "added": [],
+      "errors": [
+        "nifty50: HTTP Error 404: Not Found",
+        "nifty50_alt: HTTP Error 404: Not Found",
+        "bse_sensex_live: Expecting value: line 3 column 1 (char 4)"
+      ]
+    }
+  ]
 }
