@@ -16,11 +16,11 @@
   },
   {
    "label": "Nifty 50",
-   "value": "23,810.85",
-   "change": "+1.58%",
-   "asOf": "2026-11-03",
+   "value": "23,960.60",
+   "change": "+0.63%",
+   "asOf": "2026-11-04",
    "kind": "close",
-   "asOfText": "3 Nov close",
+   "asOfText": "4 Nov close",
    "source": {
     "name": "NSE India: index closing data",
     "url": "https://www.nseindia.com/market-data/live-market-indices"
@@ -28,11 +28,11 @@
   },
   {
    "label": "Bank Nifty",
-   "value": "55,540.05",
-   "change": "+0.98%",
-   "asOf": "2026-11-03",
+   "value": "55,913.60",
+   "change": "+0.67%",
+   "asOf": "2026-11-04",
    "kind": "close",
-   "asOfText": "3 Nov close",
+   "asOfText": "4 Nov close",
    "source": {
     "name": "NSE India: index closing data",
     "url": "https://www.nseindia.com/market-data/live-market-indices"
@@ -40,11 +40,11 @@
   },
   {
    "label": "India VIX",
-   "value": "15.67",
-   "change": "+1.09%",
-   "asOf": "2026-11-03",
+   "value": "15.27",
+   "change": "-2.89%",
+   "asOf": "2026-11-04",
    "kind": "close",
-   "asOfText": "3 Nov close",
+   "asOfText": "4 Nov close",
    "source": {
     "name": "NSE India: index closing data",
     "url": "https://www.nseindia.com/market-data/live-market-indices"
@@ -219,8 +219,8 @@
    }
   }
  ],
- "tickerAsOf": "3 Nov close",
- "updatedAt": "2026-11-03T23:00:13+05:30",
+ "tickerAsOf": "4 Nov close",
+ "updatedAt": "2026-11-04T17:04:24+05:30",
  "history": {
   "Nifty 50": [
    {
@@ -295,6 +295,11 @@
    {
     "d": "2026-11-03",
     "v": 23810.85,
+    "s": "NSE"
+   },
+   {
+    "d": "2026-11-04",
+    "v": 23960.6,
     "s": "NSE"
    }
   ],
@@ -402,6 +407,11 @@
    {
     "d": "2026-11-03",
     "v": 55540.05,
+    "s": "NSE"
+   },
+   {
+    "d": "2026-11-04",
+    "v": 55913.6,
     "s": "NSE"
    }
   ]

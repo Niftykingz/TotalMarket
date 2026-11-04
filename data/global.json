@@ -7,16 +7,16 @@
    "rows": [
     {
      "name": "Nifty 50",
-     "value": "23,810.85",
-     "change": "+370.05",
-     "pct": "+1.58",
-     "asOf": "Tue 3 Nov, close",
+     "value": "23,960.60",
+     "change": "+149.75",
+     "pct": "+0.63",
+     "asOf": "Wed 4 Nov, close",
      "type": "close",
      "source": {
       "name": "NSE India: index closing data",
       "url": "https://www.nseindia.com/market-data/live-market-indices"
      },
-     "date": "2026-11-03"
+     "date": "2026-11-04"
     },
     {
      "name": "Sensex",
@@ -33,16 +33,16 @@
     },
     {
      "name": "Bank Nifty",
-     "value": "55,540.05",
-     "change": "+537.85",
-     "pct": "+0.98",
-     "asOf": "Tue 3 Nov, close",
+     "value": "55,913.60",
+     "change": "+373.55",
+     "pct": "+0.67",
+     "asOf": "Wed 4 Nov, close",
      "type": "close",
      "source": {
       "name": "NSE India: index closing data",
       "url": "https://www.nseindia.com/market-data/live-market-indices"
      },
-     "date": "2026-11-03"
+     "date": "2026-11-04"
     }
    ]
   },
@@ -148,5 +148,5 @@
    ]
   }
  ],
- "indiaUpdatedAt": "2026-11-03T15:30:00+05:30"
+ "indiaUpdatedAt": "2026-11-04T15:30:00+05:30"
 }
