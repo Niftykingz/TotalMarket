@@ -3,22 +3,39 @@
   "name": "NSE India: FII/FPI and DII provisional cash-market activity",
   "url": "https://www.nseindia.com/reports/fii-dii"
  },
- "updatedAt": "2026-11-03T23:00:13+05:30",
+ "updatedAt": "2026-11-04T19:46:32+05:30",
  "month": {
   "fii": {
-   "buy": 37469.97,
-   "sell": 27518.48,
-   "net": 9951.49
+   "buy": 59077.35,
+   "sell": 41841.83,
+   "net": 17235.52
   },
   "dii": {
-   "buy": 31712.39,
-   "sell": 35783.44,
-   "net": -4071.05
+   "buy": 48105.21,
+   "sell": 55888.49,
+   "net": -7783.28
   },
   "partial": true,
-  "label": "November 2026 (to 3 Nov) · available sessions only"
+  "label": "November 2026 (to 4 Nov) · available sessions only"
  },
  "days": [
+  {
+   "date": "2026-11-04",
+   "fii": {
+    "buy": 21607.38,
+    "sell": 14323.35,
+    "net": 7284.03
+   },
+   "dii": {
+    "buy": 16392.82,
+    "sell": 20105.05,
+    "net": -3712.23
+   },
+   "source": {
+    "name": "NSE India: FII/FPI and DII provisional cash-market activity",
+    "url": "https://www.nseindia.com/reports/fii-dii"
+   }
+  },
   {
    "date": "2026-11-03",
    "fii": {
