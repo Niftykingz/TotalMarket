@@ -9,6 +9,14 @@
     "published": "2026-11-06T15:30:00+05:30",
     "dataset": "data/market_snapshots/2026-11-06/api_allIndices.json.gz",
     "sha256": "8355e3e8ddae92b3d4fdd1f049b0d0a74c16f3106ec159ff1eb38f8e77ef9d99"
+   },
+   {
+    "id": "nsef",
+    "name": "NSE India: FII/FPI and DII provisional cash-market activity, 6 Nov 2026",
+    "url": "https://www.nseindia.com/api/fiidiiTradeReact",
+    "published": "2026-11-06T18:00:00+05:30",
+    "dataset": "data/market_snapshots/2026-11-06/api_fiidiiTradeReact.json.gz",
+    "sha256": "b5851617af7a361ae5f8bc8de545b2148e26b1dd67d1697d4b19fe4d888c6417"
    }
   ],
   "figures": [
@@ -582,6 +590,54 @@
     "source": "nse",
     "evidence": "NIFTY 500: last 23456.95, change 232.25 points, 1% (previous close 23224.7; open 23162, high 23460.65, low 23004.35; advances 228, declines 267, unchanged 6; one week ago 21895.9 on 30-Oct-2026) as of 06-Nov-2026 15:30",
     "as_of": "2026-11-06"
+   },
+   {
+    "id": "nse_fii_net",
+    "label": "FII/FPI net value, cash market",
+    "value": "13749.82",
+    "source": "nsef",
+    "evidence": "FII/FPI 06-Nov-2026: bought 30455.63 crore, sold 16705.81 crore, net 13749.82 crore",
+    "as_of": "2026-11-06"
+   },
+   {
+    "id": "nse_fii_buy",
+    "label": "FII/FPI buy value, cash market",
+    "value": "30455.63",
+    "source": "nsef",
+    "evidence": "FII/FPI 06-Nov-2026: bought 30455.63 crore, sold 16705.81 crore, net 13749.82 crore",
+    "as_of": "2026-11-06"
+   },
+   {
+    "id": "nse_fii_sell",
+    "label": "FII/FPI sell value, cash market",
+    "value": "16705.81",
+    "source": "nsef",
+    "evidence": "FII/FPI 06-Nov-2026: bought 30455.63 crore, sold 16705.81 crore, net 13749.82 crore",
+    "as_of": "2026-11-06"
+   },
+   {
+    "id": "nse_dii_net",
+    "label": "DII net value, cash market",
+    "value": "-5968.7",
+    "source": "nsef",
+    "evidence": "DII 06-Nov-2026: bought 18084.32 crore, sold 24053.02 crore, net -5968.7 crore",
+    "as_of": "2026-11-06"
+   },
+   {
+    "id": "nse_dii_buy",
+    "label": "DII buy value, cash market",
+    "value": "18084.32",
+    "source": "nsef",
+    "evidence": "DII 06-Nov-2026: bought 18084.32 crore, sold 24053.02 crore, net -5968.7 crore",
+    "as_of": "2026-11-06"
+   },
+   {
+    "id": "nse_dii_sell",
+    "label": "DII sell value, cash market",
+    "value": "24053.02",
+    "source": "nsef",
+    "evidence": "DII 06-Nov-2026: bought 18084.32 crore, sold 24053.02 crore, net -5968.7 crore",
+    "as_of": "2026-11-06"
    }
   ],
   "examples": []
@@ -781,7 +837,16 @@
     "declines": "nse_n500_declines",
     "unchanged": "nse_n500_unchanged"
    },
-   "breadthExchange": "NSE, Nifty 500 stocks on the day"
+   "breadthExchange": "NSE, Nifty 500 stocks on the day",
+   "fiiDii": {
+    "fiiNet": "nse_fii_net",
+    "diiNet": "nse_dii_net",
+    "fiiBuy": "nse_fii_buy",
+    "fiiSell": "nse_fii_sell",
+    "diiBuy": "nse_dii_buy",
+    "diiSell": "nse_dii_sell"
+   },
+   "fiiDiiNote": "NSE provisional figures for the cash market, in ₹ crore."
   },
   "reportTakeaways": [
    "The Nifty 50 ended the week 8.58% higher; the Nifty Next 50 gained 5.83%, the Nifty Midcap 100 gained 5.77% and the Nifty Smallcap 100 gained 2.77%.",
@@ -796,7 +861,8 @@
   "body": [
    "What moved | The Nifty 50 closed the week at 25,030.35, up 8.58% from the previous week's close of 23,053.10 on 30 Oct, and rose 2.01% on the day. Over the week the Nifty Next 50 gained 5.83%, the Nifty Midcap 100 gained 5.77% and the Nifty Smallcap 100 gained 2.77%.",
    "Breadth | On the day 267 stocks in the Nifty 500 fell and 228 rose, according to NSE. India VIX, which measures the volatility traders expect, rose 13.35% to 17.66.",
-   "Sectors | Over the week Cement did best (+10.37%) and IT worst (+1.14%) among the sector indices in the heatmap."
+   "Sectors | Over the week Cement did best (+10.37%) and IT worst (+1.14%) among the sector indices in the heatmap.",
+   "Flows | NSE's provisional data show foreign portfolio investors were net buyers of ₹13,749.82 crore in the cash market on the day, and domestic institutions were net sellers of ₹5,968.70 crore."
   ],
   "indiaImpact": "Index, sector and breadth moves together show how widely gains or losses spread beyond the Nifty 50.",
   "seoTitle": "Weekly Stock Market Report 6 Nov 2026: Nifty, Sensex, Sectors",
@@ -813,9 +879,13 @@
    {
     "name": "NSE India: all indices (closing data, 6 Nov 2026, 3:30 pm)",
     "url": "https://www.nseindia.com/api/allIndices"
+   },
+   {
+    "name": "NSE India: FII/FPI and DII provisional cash-market activity, 6 Nov 2026",
+    "url": "https://www.nseindia.com/api/fiidiiTradeReact"
    }
   ],
-  "publishedAt": "2026-11-06T16:59:30+05:30",
+  "publishedAt": "2026-11-06T19:45:53+05:30",
   "edition": "2026-11-06-weekly",
   "editionLabel": "Fri 6 Nov · Weekly market report",
   "status": "new"

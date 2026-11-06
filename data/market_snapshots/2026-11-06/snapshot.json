@@ -207,8 +207,8 @@
       "bytes": 113728
     },
     "/api/fiidiiTradeReact": {
-      "sha256": "861c19014ce4aa4847c366df3f1a1116de58e2f883489faff2be5b011b0409f2",
-      "bytes": 220
+      "sha256": "b5851617af7a361ae5f8bc8de545b2148e26b1dd67d1697d4b19fe4d888c6417",
+      "bytes": 218
     },
     "bhavcopy": {
       "sha256": "5b9904e9e8d9d918c2550aca80560e816b3e571d507200f3613ea0ab410edb5f",
@@ -222,5 +222,16 @@
       "sha256": "6c5f836e6ec3d342ca468ae7d77eb33d9e9baff40797c9ea78c9435ae03157fb",
       "bytes": 12
     }
-  }
+  },
+  "reruns": [
+    {
+      "collectedAt": "2026-11-06T19:45:13.963820+05:30",
+      "added": [],
+      "errors": [
+        "nifty50: The read operation timed out",
+        "nifty50_alt: The read operation timed out",
+        "bse_sensex_live: Expecting value: line 3 column 1 (char 4)"
+      ]
+    }
+  ]
 }
