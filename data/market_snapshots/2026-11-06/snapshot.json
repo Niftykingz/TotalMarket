@@ -232,6 +232,15 @@
         "nifty50_alt: The read operation timed out",
         "bse_sensex_live: Expecting value: line 3 column 1 (char 4)"
       ]
+    },
+    {
+      "collectedAt": "2026-11-06T20:54:38.011683+05:30",
+      "added": [],
+      "errors": [
+        "nifty50: The read operation timed out",
+        "nifty50_alt: The read operation timed out",
+        "bse_sensex_live: Expecting value: line 3 column 1 (char 4)"
+      ]
     }
   ]
 }
