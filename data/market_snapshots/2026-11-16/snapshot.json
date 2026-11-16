@@ -1,0 +1,226 @@
+{
+  "schema": 1,
+  "targetDate": "2026-11-16",
+  "collectedAt": "2026-11-16T17:18:16.045835+05:30",
+  "provider": "NSE India",
+  "status": "partial",
+  "datasets": {
+    "indices": {
+      "sourceUrl": "https://www.nseindia.com/api/allIndices",
+      "rows": [
+        {
+          "name": "NIFTY 50",
+          "close": 25291.1,
+          "pct": 0.58,
+          "advances": 31.0,
+          "declines": 19.0,
+          "unchanged": 0.0,
+          "asOf": "2026-11-16"
+        },
+        {
+          "name": "NIFTY BANK",
+          "close": 61575.9,
+          "pct": 0.89,
+          "advances": 13.0,
+          "declines": 1.0,
+          "unchanged": 0.0,
+          "asOf": "2026-11-16"
+        },
+        {
+          "name": "NIFTY FINANCIAL SERVICES",
+          "close": 28015.4,
+          "pct": 0.57,
+          "advances": 11.0,
+          "declines": 9.0,
+          "unchanged": 0.0,
+          "asOf": "2026-11-16"
+        },
+        {
+          "name": "NIFTY MIDCAP 100",
+          "close": 61576.4,
+          "pct": -0.51,
+          "advances": 40.0,
+          "declines": 60.0,
+          "unchanged": 0.0,
+          "asOf": "2026-11-16"
+        },
+        {
+          "name": "NIFTY SMALLCAP 100",
+          "close": 19441.1,
+          "pct": -1.1,
+          "advances": 26.0,
+          "declines": 74.0,
+          "unchanged": 0.0,
+          "asOf": "2026-11-16"
+        },
+        {
+          "name": "NIFTY AUTO",
+          "close": 27570.25,
+          "pct": -1.29,
+          "advances": 2.0,
+          "declines": 13.0,
+          "unchanged": 0.0,
+          "asOf": "2026-11-16"
+        },
+        {
+          "name": "NIFTY FMCG",
+          "close": 47708.1,
+          "pct": 1.87,
+          "advances": 12.0,
+          "declines": 3.0,
+          "unchanged": 0.0,
+          "asOf": "2026-11-16"
+        },
+        {
+          "name": "NIFTY IT",
+          "close": 31941.05,
+          "pct": 0.03,
+          "advances": 4.0,
+          "declines": 6.0,
+          "unchanged": 0.0,
+          "asOf": "2026-11-16"
+        },
+        {
+          "name": "NIFTY METAL",
+          "close": 12458.35,
+          "pct": -1.5,
+          "advances": 2.0,
+          "declines": 13.0,
+          "unchanged": 0.0,
+          "asOf": "2026-11-16"
+        },
+        {
+          "name": "NIFTY PHARMA",
+          "close": 28098.4,
+          "pct": -1.53,
+          "advances": 6.0,
+          "declines": 14.0,
+          "unchanged": 0.0,
+          "asOf": "2026-11-16"
+        },
+        {
+          "name": "NIFTY REALTY",
+          "close": 908.9,
+          "pct": -1.34,
+          "advances": 1.0,
+          "declines": 9.0,
+          "unchanged": 0.0,
+          "asOf": "2026-11-16"
+        },
+        {
+          "name": "NIFTY ENERGY",
+          "close": 37276.65,
+          "pct": -0.33,
+          "advances": 12.0,
+          "declines": 28.0,
+          "unchanged": 0.0,
+          "asOf": "2026-11-16"
+        }
+      ]
+    }
+  },
+  "errors": [
+    "nifty50: HTTP Error 404: Not Found",
+    "nifty50_alt: HTTP Error 404: Not Found",
+    "institutionalFlows: matching-date FII and DII rows unavailable",
+    "bse_sensex_live: Expecting value: line 3 column 1 (char 4)"
+  ],
+  "diagnostics": {
+    "indices": {
+      "type": "dict",
+      "keys": [
+        "advances",
+        "data",
+        "dates",
+        "declines",
+        "timestamp",
+        "unchanged"
+      ],
+      "timestamp": "16-Nov-2026 15:30",
+      "rowKeys": [
+        "advances",
+        "chart30dPath",
+        "chart365dPath",
+        "chartTodayPath",
+        "date30dAgo",
+        "date365dAgo",
+        "declines",
+        "dy",
+        "high",
+        "index",
+        "indexSymbol",
+        "indicativeClose",
+        "key",
+        "last",
+        "low",
+        "oneMonthAgoVal",
+        "oneWeekAgo",
+        "oneWeekAgoVal",
+        "oneYearAgoVal",
+        "open",
+        "pb",
+        "pe",
+        "perChange30d",
+        "perChange365d",
+        "percentChange",
+        "previousClose",
+        "previousDay",
+        "previousDayVal",
+        "unchanged",
+        "variation",
+        "yearHigh",
+        "yearLow"
+      ],
+      "rowTimestamps": [],
+      "rows": 139
+    },
+    "institutionalFlows": {
+      "type": "list",
+      "rowKeys": [
+        "buyValue",
+        "category",
+        "date",
+        "netValue",
+        "sellValue"
+      ],
+      "rowTimestamps": [
+        "13-Nov-2026"
+      ],
+      "rows": 2
+    },
+    "bhavcopy": {
+      "rows": 3777,
+      "header": "TradDt,BizDt,Sgmt,Src,FinInstrmTp,FinInstrmId,ISIN,TckrSymb,SctySrs,XpryDt,FininstrmActlXpryDt,StrkPric,OptnTp,FinInstrmNm,OpnPric,HghPric,LwPric,ClsPric,LastPric,PrvsClsgPric,UndrlygPric,SttlmPric,OpnIntrst,ChngInOpnIntrst,TtlTradgVol,TtlTrfVal,TtlNbOfTxsExctd,SsnId,NewBrdLotQty,Rmks,Rsvd1,Rsvd2,Rs"
+    },
+    "nifty50list": {
+      "rows": 50,
+      "header": "Company Name,Industry,Symbol,Series,ISIN Code"
+    },
+    "bse_sensex_arch": {
+      "type": "dict",
+      "sample": "{\"Table\": []}"
+    }
+  },
+  "raw": {
+    "/api/allIndices": {
+      "sha256": "9c2d4b1dd8d75942133ea17b5a7798a65e2ef4a39b2e807bc25edca6158c9070",
+      "bytes": 114263
+    },
+    "/api/fiidiiTradeReact": {
+      "sha256": "d2b53ffc75009ccccc1f174fd6d89984e470f86906a94255bcda82d034b22ce4",
+      "bytes": 218
+    },
+    "bhavcopy": {
+      "sha256": "f5941836a1dc1608acdf89211e49ca6178ac0ba87c5c4369e6c3297c443179ee",
+      "bytes": 650511
+    },
+    "nifty50list": {
+      "sha256": "f5ba4027d935ae72879d5c24bbebf0e8439ec8ed504ffdf4175fde69206244b3",
+      "bytes": 3344
+    },
+    "bse_sensex_arch": {
+      "sha256": "6c5f836e6ec3d342ca468ae7d77eb33d9e9baff40797c9ea78c9435ae03157fb",
+      "bytes": 12
+    }
+  }
+}
